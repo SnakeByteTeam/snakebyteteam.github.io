@@ -1,0 +1,230 @@
+:root {
+    --main-green-color: #427c5c;
+    --bright-green-color: #00bf63;
+    --title-font: Anton;
+    --button-padding-vertical: 12px;
+    --button-padding-horizontal: 36px;
+    --button-font-size: 1.6rem;
+}
+
+
+body {
+    background-color: #1f3e2d; 
+    color: #e0e0e0;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(66,124,92,1); /* per fallback */
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+    position: sticky;
+    top: 0;
+    z-index: 50; /* per il vertical scroll */
+    transition: transform 260ms cubic-bezier(.2,.8,.2,1),
+                background-color 260ms ease,
+                box-shadow 260ms ease,
+                opacity 260ms ease,
+                backdrop-filter 260ms ease;
+}
+
+/* quando avviene lo scroll */
+header.scrolled {
+    transform: translateY(-6px);
+    background-color: rgba(66,124,92,0.85);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    opacity: 0.95;
+    backdrop-filter: blur(6px) saturate(120%);
+}
+
+h2 {
+    font-family: var(--title-font), sans-serif;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+h3 {
+    font-family: var(--title-font), sans-serif;
+    font-size: 2rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+}
+
+nav a {
+    font-family: var(--title-font), sans-serif;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    
+    color: #e0e0e0;
+    text-decoration: none;
+    margin-left: 20px;
+    transition: color 0.3s ease;
+}
+
+.member p {
+    font-family: var(--title-font), sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    
+    /* il resto dello stile rimane uguale */
+    margin-top: 8px;
+    font-weight: normal;
+}
+
+.logo img {
+    padding: 5px;
+    max-width: 180px;
+    height: auto;
+}
+
+nav a {
+    color: #e0e0e0;
+    text-decoration: none;
+    margin-left: 5px;
+    font-weight: bold;
+    font-size: 10px;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: var(--bright-green-color); 
+}
+
+main {
+    max-width: 1100px;
+    margin: 5px auto;
+    padding: 0 20px;
+}
+
+#team {
+    text-align: center;
+}
+
+/* PARTE TEAM */
+
+.team-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; 
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.member {
+    text-align: center;
+    max-width: 100px;
+}
+
+.member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--bright-green-color);
+}
+
+.member p {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+/* PARTE DOCUMENTI */
+
+#documenti {
+    margin-top: 30px;
+}
+
+.tab-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.tab-button {
+    padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+    border: 2px solid var(--bright-green-color);
+    border-radius: 28px;
+    
+    font-family: var(--title-font), sans-serif;
+    font-size: var(--button-font-size);
+    text-transform: uppercase;
+    color: var(--bright-green-color);
+    
+    background-color: transparent; 
+    cursor: pointer;
+    transition: transform 160ms ease, background-color 200ms ease, color 200ms ease;
+}
+
+.tab-button:active {
+    transform: scale(0.98);
+}
+
+/* stile pulsante attivo o in hover */
+.tab-button:hover,
+.tab-button.active {
+    background-color: var(--bright-green-color);
+    color: #1f3e2d;
+}
+
+.tab-content-area {
+    margin-top: 30px;
+}
+
+.tab-content {
+    max-height: 0;
+    opacity: 0;
+    transform: translateY(-8px);
+    overflow: hidden;
+    background-color: #1a3326;
+    padding: 0 30px; /* per il collapse verticale */
+    border-radius: 8px;
+    border: 1px solid var(--main-green-color);
+    pointer-events: none;
+    transition: max-height 360ms cubic-bezier(.2,.8,.2,1),
+                opacity 220ms ease,
+                transform 220ms ease,
+                padding 220ms ease;
+}
+
+.tab-content.active {
+    max-height: 1000px; 
+    opacity: 1;
+    transform: translateY(0);
+    padding: 20px 30px;
+    pointer-events: auto;
+}
+
+.tab-content a {
+    color: var(--bright-green-color);
+    text-decoration: none;
+    font-weight: bold;
+}
+.tab-content a:hover {
+    text-decoration: underline;
+}
+
+/* per ridurre i bottoni sugli schermi stretti
+@media (max-width: 520px) {
+    :root {
+        --button-padding-vertical: 10px;
+        --button-padding-horizontal: 20px;
+        --button-font-size: 0.95rem;
+    }
+    .tab-buttons {
+        flex-wrap: wrap;
+        gap: 12px;
+        padding: 0 10px;
+    }
+}
+*/

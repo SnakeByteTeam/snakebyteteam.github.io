@@ -1,0 +1,45 @@
+.env
+.env.local
+.env.*.local
+*.pem
+*.key
+
+# macos
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# windows
+Thumbs.db
+desktop.ini
+ehthumbs.db
+
+# log e report
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dipendenze
+node_modules/
+
+# bundle e compilazione
+dist/
+build/
+out/
+public/build/
+
+# test
+coverage/
+.nyc_output/
+
+# vscode
+.vscode/
+
+# jetbrains
+.idea/
+
+# file temporanei
+*.tmp
+*.temp
