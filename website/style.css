@@ -2,9 +2,6 @@
     --main-green-color: #427c5c;
     --bright-green-color: #00bf63;
     --title-font: Anton;
-    --button-padding-vertical: 12px;
-    --button-padding-horizontal: 36px;
-    --button-font-size: 1.6rem;
 }
 
 
@@ -71,6 +68,53 @@ nav a {
     transition: color 0.3s ease;
 }
 
+header nav {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+}
+
+/* INTERNO NAVBAR */
+.nav-buttons {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+}
+
+.nav-button {
+    display: inline-block;
+    padding: 16px 36px;
+    border-radius: 26px;
+    border: 2px solid rgba(255,255,255,0.95);
+    text-decoration: none;
+    color: rgba(255,255,255,0.95);
+    background-color: transparent;
+    font-weight: 800;
+    font-family: var(--title-font), sans-serif;
+    font-size: 1.25rem;
+    transition: background-color 180ms ease, color 180ms ease, transform 120ms ease;
+}
+
+.nav-button:hover {
+    background-color: rgba(255,255,255,0.95);
+    color: var(--main-green-color);
+    transform: translateY(-1px);
+}
+
+/* per ridurre i bottoni sugli schermi stretti 
+@media (max-width: 520px) {
+    :root {
+        --nav-button-padding-vertical: 10px;
+        --nav-button-padding-horizontal: 18px;
+        --nav-button-font-size: 0.98rem;
+        --nav-button-gap: 10px;
+    }
+    .nav-buttons {
+        gap: var(--nav-button-gap);
+    }
+}
+*/
+
 .member p {
     font-family: var(--title-font), sans-serif;
     font-size: 1.1rem;
@@ -109,6 +153,7 @@ main {
 #team {
     text-align: center;
 }
+
 
 /* PARTE TEAM */
 
@@ -152,12 +197,12 @@ main {
 }
 
 .tab-button {
-    padding: var(--button-padding-vertical) var(--button-padding-horizontal);
+    padding: 12px 36px;
     border: 2px solid var(--bright-green-color);
     border-radius: 28px;
     
     font-family: var(--title-font), sans-serif;
-    font-size: var(--button-font-size);
+    font-size: 1.6rem;
     text-transform: uppercase;
     color: var(--bright-green-color);
     
