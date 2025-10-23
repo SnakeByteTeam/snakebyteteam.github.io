@@ -13,17 +13,18 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      # scarica codice dalla repo
       - name: Checkout
         uses: actions/checkout@v4
       
-        # prepara la cartella /website per la pubblicazione
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: './website' 
 
-        # pubblica il sito
       - name: Deploy to GitHub Pages
+        id: deployment
         uses: actions/deploy-pages@v4
