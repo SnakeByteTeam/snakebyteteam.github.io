@@ -75,6 +75,13 @@ header nav {
 }
 
 /* INTERNO NAVBAR */
+
+.logo img {
+    padding: 5px;
+    max-width: 180px;
+    height: auto;
+}
+
 .nav-buttons {
     display: flex;
     gap: 16px;
@@ -101,19 +108,25 @@ header nav {
     transform: translateY(-1px);
 }
 
-/* per ridurre i bottoni sugli schermi stretti 
+/* per ridurre i bottoni sugli schermi stretti */
 @media (max-width: 520px) {
     :root {
         --nav-button-padding-vertical: 10px;
-        --nav-button-padding-horizontal: 18px;
-        --nav-button-font-size: 0.98rem;
-        --nav-button-gap: 10px;
+        --nav-button-padding-horizontal: 10px;
+        --nav-button-font-size: 0.4rem;
+        --nav-button-gap: 8px;
     }
     .nav-buttons {
         gap: var(--nav-button-gap);
     }
+    .nav-button{
+        font-size: 1rem;;
+    }
+    .logo img {
+    padding: 5px;
+    max-width: 100px;
+    }   
 }
-*/
 
 .member p {
     font-family: var(--title-font), sans-serif;
@@ -123,12 +136,6 @@ header nav {
     /* il resto dello stile rimane uguale */
     margin-top: 8px;
     font-weight: normal;
-}
-
-.logo img {
-    padding: 5px;
-    max-width: 180px;
-    height: auto;
 }
 
 nav a {
@@ -259,7 +266,6 @@ main {
     text-decoration: underline;
 }
 
-/* per ridurre i bottoni sugli schermi stretti
 @media (max-width: 520px) {
     :root {
         --button-padding-vertical: 10px;
@@ -272,4 +278,3 @@ main {
         padding: 0 10px;
     }
 }
-*/
