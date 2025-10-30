@@ -44,7 +44,7 @@ if (defaultButton) defaultButton.classList.add('active');
 if (defaultPanel) defaultPanel.classList.add('active');
 updateEmptyState();
 
-// utile nel click-handler
+// gestione dei click sui pulsanti delle tab
 tabButtons.forEach(button => {
     button.addEventListener('click', (e) => {
         e.stopPropagation(); // evita che il click salga al document e chiuda subito

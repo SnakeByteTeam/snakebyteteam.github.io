@@ -26,12 +26,12 @@ jobs:
       
       - name: Prepare site artifact
         run: |
-          # build a temporary folder containing the website root (contents of website/) and any extra top-level folders
+          # costruisce una cartella temporanea contenente la root del sito (contenuti di website/) e le cartelle aggiuntive top-level
           rm -rf site-build || true
           mkdir -p site-build
-          # copy website contents to site-build root
+          # copia i contenuti di website nella root di site-build
           cp -a website/. site-build/
-          # copy any extra top-level folders listed in EXTRA_FOLDERS (space-separated)
+          # copia le cartelle aggiuntive elencate in EXTRA_FOLDERS (separate da spazio)
           for folder in $EXTRA_FOLDERS; do
             if [ -n "$folder" ] && [ -d "$folder" ]; then
               echo "Including folder: $folder"
