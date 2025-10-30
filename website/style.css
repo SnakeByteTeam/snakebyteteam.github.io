@@ -2,13 +2,15 @@
     --main-green-color: #427c5c;
     --bright-green-color: #00bf63;
     --title-font: Anton;
+    --tab-min-height: 240px;
+    --tab-empty-min-height: 340px; /* altezza minima per le tab con i documenti */
 }
 
 
 body {
-    background-color: #1f3e2d; 
+    background-color: #1f3e2d;
     color: #e0e0e0;
-    font-family: 'Inter', sans-serif;
+    font-family: 'Montserrat', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     margin: 0;
     padding: 0;
     line-height: 1.6;
@@ -19,23 +21,25 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgba(66,124,92,1); /* per fallback */
-    border-bottom: 1px solid rgba(0,0,0,0.15);
+    background-color: rgba(66, 124, 92, 1);
+    /* per fallback */
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
     position: sticky;
     top: 0;
-    z-index: 50; /* per il vertical scroll */
-    transition: transform 260ms cubic-bezier(.2,.8,.2,1),
-                background-color 260ms ease,
-                box-shadow 260ms ease,
-                opacity 260ms ease,
-                backdrop-filter 260ms ease;
+    z-index: 50;
+    /* per il vertical scroll */
+    transition: transform 260ms cubic-bezier(.2, .8, .2, 1),
+        background-color 260ms ease,
+        box-shadow 260ms ease,
+        opacity 260ms ease,
+        backdrop-filter 260ms ease;
 }
 
 /* quando avviene lo scroll */
 header.scrolled {
     transform: translateY(-6px);
-    background-color: rgba(66,124,92,0.85);
-    box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+    background-color: rgba(66, 124, 92, 0.85);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
     opacity: 0.95;
     backdrop-filter: blur(6px) saturate(120%);
 }
@@ -50,7 +54,7 @@ h2 {
 
 h3 {
     font-family: var(--title-font), sans-serif;
-    font-size: 2rem;
+    font-size: 2.2rem;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 0;
@@ -61,10 +65,10 @@ nav a {
     font-size: 1.1rem;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    
+
     color: #e0e0e0;
     text-decoration: none;
-    margin-left: 20px;
+    margin-left: 0; /* la spaziatura avviene in .nav-buttons gap */
     transition: color 0.3s ease;
 }
 
@@ -84,7 +88,7 @@ header nav {
 
 .nav-buttons {
     display: flex;
-    gap: 16px;
+    gap: 15px;
     align-items: center;
 }
 
@@ -92,9 +96,9 @@ header nav {
     display: inline-block;
     padding: 16px 36px;
     border-radius: 26px;
-    border: 2px solid rgba(255,255,255,0.95);
+    border: 2px solid rgba(255, 255, 255, 0.95);
     text-decoration: none;
-    color: rgba(255,255,255,0.95);
+    color: rgba(255, 255, 255, 0.95);
     background-color: transparent;
     font-weight: 800;
     font-family: var(--title-font), sans-serif;
@@ -116,39 +120,30 @@ header nav {
         --nav-button-font-size: 0.4rem;
         --nav-button-gap: 8px;
     }
+
     .nav-buttons {
         gap: var(--nav-button-gap);
     }
-    .nav-button{
-        font-size: 1rem;;
+
+    .nav-button {
+        font-size: 1rem;
+        ;
     }
+
     .logo img {
-    padding: 5px;
-    max-width: 100px;
-    }   
+        padding: 5px;
+        max-width: 100px;
+    }
 }
 
 .member p {
     font-family: var(--title-font), sans-serif;
-    font-size: 1.1rem;
-    letter-spacing: 0.5px;
-    
+    font-size: 1rem;
+    letter-spacing: 0.4px;
+
     /* il resto dello stile rimane uguale */
     margin-top: 8px;
     font-weight: normal;
-}
-
-nav a {
-    color: #e0e0e0;
-    text-decoration: none;
-    margin-left: 5px;
-    font-weight: bold;
-    font-size: 10px;
-    transition: color 0.3s ease;
-}
-
-nav a:hover {
-    color: var(--bright-green-color); 
 }
 
 main {
@@ -157,19 +152,18 @@ main {
     padding: 0 20px;
 }
 
+/* PARTE TEAM */
+
 #team {
     text-align: center;
 }
 
-
-/* PARTE TEAM */
-
 .team-container {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; 
+    flex-wrap: wrap;
     gap: 30px;
-    margin-top: 30px;
+    margin-top: 28px;
 }
 
 .member {
@@ -178,44 +172,195 @@ main {
 }
 
 .member img {
-    width: 100px;
-    height: 100px;
+    width: 86px;
+    height: 86px;
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--bright-green-color);
 }
 
 .member p {
-    margin-top: 10px;
+    margin-top: 8px;
     font-weight: bold;
+    font-size: 1.2rem;
 }
 
 
 /* PARTE DOCUMENTI */
 
-#documenti {
+#documents {
     margin-top: 30px;
 }
 
 .tab-buttons {
     display: flex;
+    justify-content: flex-start;
+    gap: 12px;
+}
+
+/* wrapper per il bordo dei bottoni + il contenuto */
+.tab-card {
+    position: relative;
+    border-radius: 24px;
+    overflow: hidden;
+    /* per i bordi arrotondati */
+    background: linear-gradient(180deg, rgba(22, 38, 28, 0.98), rgba(26, 51, 38, 1));
+    margin: 0 auto 24px;
+    max-width: 1000px;
+    /* outer ring per seguire il border-radius */
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.02),
+        0 0 0 3px var(--bright-green-color);
+    border: none;
+}
+
+/* DOCUMENTI: mini-card */
+
+/* mini card usata sopra quella degli effettivi documento */
+.tab-card.mini-card {
+    /* copia lo stile usato per .tac-card */
+    border-radius: 24px;
+    max-width: 1000px;
+    padding: 18px 24px;
+    margin: 0 auto 25px;
+    min-height: 80px;
+    width: 100%;
+    box-sizing: border-box;
+    box-shadow: 0 12px 34px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.02), 0 0 0 3px var(--bright-green-color);
+}
+
+.tab-card.mini-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(closest-side at 30% 25%, var(--bright-green-color), transparent 20%),
+        radial-gradient(closest-side at 70% 75%, var(--main-green-color), transparent 25%);
+    filter: blur(14px);
+    opacity: 0.9;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+}
+
+.mini-card-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
     justify-content: center;
-    gap: 20px;
+    align-items: center;
+    /* in modo che il gap sia responsive tra i due gruppi */
+    gap: clamp(12px, 4vw, 60px);
+}
+
+.mini-left,
+.mini-right {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.github-link svg {
+    color: var(--bright-green-color);
+    display: inline-block;
+    /* icona responsive, non va oltre i 56px ma non diventa meno di 36px */
+    width: clamp(36px, 6vw, 56px);
+    height: auto;
+    flex-shrink: 0;
+}
+
+.github-link-text,
+.email-link {
+    color: #e0e0e0;
+    text-decoration: none;
+    font-weight: 900;
+    /* font responsice */
+    font-size: clamp(0.95rem, 2.2vw, 1.35rem);
+}
+
+.github-link-text:hover,
+.email-link:hover {
+    color: var(--bright-green-color);
+    text-decoration: underline;
+}
+
+@media (max-width: 520px) {
+    .mini-card-inner {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+        text-align: center;
+    }
+
+    /* la mini-card si adatta via clamp() */
+}
+
+/* DOCUMENTI: tab-card */
+
+.tab-buttons-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 6;
+}
+
+.tab-buttons-wrapper .tab-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (max-width: 520px) {
+    .tab-buttons-wrapper {
+        padding: 0 10px;
+    }
+
+    .tab-buttons-wrapper .tab-buttons {
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+}
+
+/* gradient dietro le card e dentro */
+.tab-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    /* per riempire le card all'interno */
+    background: radial-gradient(closest-side at 30% 25%, var(--bright-green-color), transparent 20%),
+        radial-gradient(closest-side at 70% 75%, var(--main-green-color), transparent 25%);
+    filter: blur(14px);
+    opacity: 0.9;
+    z-index: 0;
+    pointer-events: none;
+    border-radius: inherit;
+    /* per far rispettare i bordi arrotondati */
+}
+
+/* porta il contenuto sopra il glow */
+.tab-card .tab-buttons,
+.tab-card .tab-content-area,
+.tab-card .tab-content {
+    position: relative;
+    z-index: 1;
 }
 
 .tab-button {
-    padding: 12px 36px;
-    border: 2px solid var(--bright-green-color);
-    border-radius: 28px;
-    
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+
     font-family: var(--title-font), sans-serif;
-    font-size: 1.6rem;
+    font-size: 1.9rem;
     text-transform: uppercase;
     color: var(--bright-green-color);
-    
-    background-color: transparent; 
+
+    background-color: transparent;
     cursor: pointer;
-    transition: transform 160ms ease, background-color 200ms ease, color 200ms ease;
+    transition: color 160ms ease, transform 120ms ease, box-shadow 160ms ease;
 }
 
 .tab-button:active {
@@ -223,47 +368,111 @@ main {
 }
 
 /* stile pulsante attivo o in hover */
-.tab-button:hover,
+.tab-button:hover {
+    background-color: transparent;
+    color: #f7f7f7;
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
+}
+
+/* bottone attivo: evidenziato ma senza separazione dal bordo */
 .tab-button.active {
+    /* squadrata in basso così che sia "appoggi" alle card */
     background-color: var(--bright-green-color);
     color: #1f3e2d;
+    border-radius: 18px 18px 0 0;
+    margin-bottom: 0;
+    box-shadow: none;
+    position: relative;
+    z-index: 4;
 }
 
 .tab-content-area {
-    margin-top: 30px;
+    margin-top: 0;
+    position: relative;
+    /* per il posizionamento assoluto */
+    /* nota: rimosso transizione per ora, preferita la velocità */
+    transition: none;
+    min-height: var(--tab-min-height);
+    background: linear-gradient(180deg, rgba(22, 38, 28, 0.9), rgba(26, 51, 38, 1));
+    border-radius: 0 0 24px 24px;
+    padding-top: 18px;
+}
+
+/* quando il placeholder è visibile forzo il container ad essere più alto così che non ci sia il "salto" del layout */
+.tab-content-area.empty-visible {
+    min-height: var(--tab-empty-min-height);
 }
 
 .tab-content {
     max-height: 0;
-    opacity: 0;
-    transform: translateY(-8px);
     overflow: hidden;
-    background-color: #1a3326;
-    padding: 0 30px; /* per il collapse verticale */
-    border-radius: 8px;
-    border: 1px solid var(--main-green-color);
+    background-color: transparent;
+    /* la card ha il bg */
+    padding: 0 30px;
+    /* per collassare verticalmente */
+    border-radius: 0;
+    border: none;
     pointer-events: none;
-    transition: max-height 360ms cubic-bezier(.2,.8,.2,1),
-                opacity 220ms ease,
-                transform 220ms ease,
-                padding 220ms ease;
+    opacity: 0;
+    transition: opacity 180ms ease;
 }
 
 .tab-content.active {
-    max-height: 1000px; 
+    max-height: 1000px;
     opacity: 1;
-    transform: translateY(0);
-    padding: 20px 30px;
+    padding: 16px 30px 20px 30px;
     pointer-events: auto;
 }
 
+/* animazioni slide + fade */
 .tab-content a {
     color: var(--bright-green-color);
     text-decoration: none;
     font-weight: bold;
 }
+
 .tab-content a:hover {
     text-decoration: underline;
+}
+
+/* placeholder per quando nessuna tab è selezionata: logo serpente */
+.tab-empty {
+    /* posizionato in maniera assoluta sull'overlay così che il flow container non sia alterato */
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: rgba(224, 224, 224, 0.85);
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 180ms ease;
+    pointer-events: auto;
+}
+
+.tab-empty img {
+    max-width: 180px;
+    max-height: 80px;
+    opacity: 0.92;
+    filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.35));
+}
+
+/* fade out del logo quando non serve più */
+.tab-empty.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* quando avviene il resize delle finestre, applica un piccolo effetto per evitare bruschi salti */
+.is-resizing .tab-card,
+.is-resizing .team-container,
+.is-resizing .member img,
+.is-resizing .nav-button,
+.is-resizing .tab-button {
+    transition-duration: 180ms !important;
+    transition-timing-function: ease !important;
 }
 
 @media (max-width: 520px) {
@@ -272,9 +481,104 @@ main {
         --button-padding-horizontal: 20px;
         --button-font-size: 0.95rem;
     }
+
     .tab-buttons {
         flex-wrap: wrap;
         gap: 12px;
         padding: 0 10px;
     }
+
+    .tab-button {
+        font-size: 1.05rem;
+        padding: 10px 14px;
+        margin-bottom: 0;
+    }
+
+    .tab-button.active {
+        border-radius: 12px 12px 0 0;
+        margin-bottom: 0;
+        box-shadow: none;
+        z-index: 2;
+    }
+}
+
+/* 
+--------------------------
+    PER GLOSSARIO
+--------------------------
+*/
+
+.search-bar-container {
+    max-width: 900px;
+    margin: 30px auto 30px;
+    padding: 0 20px;
+    box-sizing: border-box;
+}
+
+#glossary-search {
+    width: 100%;
+    padding: 14px 22px;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    color: #e0e0e0;
+    background-color: rgba(255, 255, 255, 0.08);
+    border: 2px solid var(--main-green-color);
+    border-radius: 24px;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+#glossary-search:focus {
+    outline: none;
+    border-color: var(--bright-green-color);
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* lista del glossario */
+.glossary-container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.glossary-letter-header {
+    font-family: var(--title-font), sans-serif;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    color: #e0e0e0;
+    margin-top: 40px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--main-green-color);
+}
+
+.glossary-entry {
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glossary-entry dt {
+    font-family: var(--title-font), sans-serif;
+    font-size: 1.9rem;
+    letter-spacing: 0.5px;
+    color: var(--bright-green-color);
+    font-weight: normal;
+    margin-bottom: 8px;
+}
+
+.glossary-entry dd {
+    font-size: 1rem;
+    line-height: 1.7;
+    margin-left: 0;
+    /* resetta lo stile di default */
+}
+
+#no-results {
+    display: none;
+    text-align: center;
+    font-size: 1.3rem;
+    color: rgba(224, 224, 224, 0.85);
+    margin: 40px 0;
+    font-weight: bold;
 }
