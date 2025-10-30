@@ -13,6 +13,10 @@ permissions:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      # Space-separated list of extra top-level folders to include in the published site.
+      # Edit this value to add more folders (e.g. "1-Candidatura assets docs").
+      EXTRA_FOLDERS: '1-Candidatura'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -20,10 +24,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
+      - name: Prepare site artifact
+        run: |
+          # build a temporary folder containing the website root (contents of website/) and any extra top-level folders
+          rm -rf site-build || true
+          mkdir -p site-build
+          # copy website contents to site-build root
+          cp -a website/. site-build/
+          # copy any extra top-level folders listed in EXTRA_FOLDERS (space-separated)
+          for folder in $EXTRA_FOLDERS; do
+            if [ -n "$folder" ] && [ -d "$folder" ]; then
+              echo "Including folder: $folder"
+              cp -a "$folder" site-build/
+            else
+              echo "Folder not found (skipping): $folder"
+            fi
+          done
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './website' 
+          path: './site-build'
 
       - name: Deploy to GitHub Pages
         id: deployment
