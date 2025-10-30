@@ -14,9 +14,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      # Space-separated list of extra top-level folders to include in the published site.
-      # Edit this value to add more folders (e.g. "1-Candidatura assets docs").
-      EXTRA_FOLDERS: '1-Candidatura'
+      # lista delle cartelle (top-level) delle quali i documenti sono da includere nel sito
+      # si separa tramite spazio (es. "1-Candidatura c2 c3")
+      EXTRA_FOLDERS: '1-Candidatura 2-RTB 3-PB Diapositive'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

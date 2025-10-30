@@ -36,8 +36,12 @@ function updateEmptyState() {
     }
 }
 
-// stato iniziale: mi assicuro nessuna tab sia aparta e mostro il placeholder
-closeAllTabs();
+// stato iniziale: apri la tab 'candidatura' di default (mostra contenuti corrispondenti)
+// se la tab non esiste, ricadi nel comportamento di placeholder
+const defaultButton = document.querySelector('.tab-button[data-tab="candidatura"]');
+const defaultPanel = document.getElementById('candidatura');
+if (defaultButton) defaultButton.classList.add('active');
+if (defaultPanel) defaultPanel.classList.add('active');
 updateEmptyState();
 
 // utile nel click-handler
