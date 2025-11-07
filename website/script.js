@@ -12,27 +12,13 @@ function updateEmptyState() {
     const empty = document.querySelector('.tab-empty');
     const anyActive = !!document.querySelector('.tab-button.active');
     if (!empty) return;
-    // fade del placeholder in/out senza toccare il layout
-    const contentArea = document.querySelector('.tab-content-area');
+    
     if (anyActive) {
-        // se visibile, parti con il fade-out e togli dopo la transizione
-        if (!empty.classList.contains('hidden')) {
-            empty.classList.add('hidden');
-            const onEnd = (e) => {
-                if (e.target === empty) {
-                    empty.style.display = 'none';
-                    if (contentArea) contentArea.classList.remove('empty-visible');
-                    empty.removeEventListener('transitionend', onEnd);
-                }
-            };
-            empty.addEventListener('transitionend', onEnd);
-        }
+        // nascondi il placeholder con fade-out
+        empty.classList.add('hidden');
     } else {
-        // mostra il placeholder: il container dovrà essere della minima altezza poi applica fade-in
-        if (contentArea) contentArea.classList.add('empty-visible');
-        empty.style.display = 'flex';
-        // forza il reflow e poi rimuovi l'hidden per far avvenire il fade-in
-        requestAnimationFrame(() => empty.classList.remove('hidden'));
+        // mostra il placeholder con fade-in
+        empty.classList.remove('hidden');
     }
 }
 
@@ -95,6 +81,13 @@ tabButtons.forEach(button => {
 document.addEventListener('click', (e) => {
     const isInsideButton = e.target.closest('.tab-button');
     const isInsideContent = e.target.closest('.tab-content');
+    const isNavLink = e.target.closest('.nav-button, a[href]');
+    
+    // Non chiudere le tab se si clicca su un link di navigazione
+    if (isNavLink) {
+        return;
+    }
+    
     if (!isInsideButton && !isInsideContent) {
         closeAllTabs();
         updateEmptyState();

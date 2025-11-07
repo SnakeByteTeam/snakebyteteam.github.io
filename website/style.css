@@ -218,6 +218,18 @@ main {
 .member {
     text-align: center;
     max-width: 100px;
+    cursor: pointer;
+    transition: transform 180ms ease, background-color 180ms ease;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    padding: 8px 8px 4px 8px;
+    border-radius: 12px;
+}
+
+.member:hover {
+    transform: translateY(-3px);
+    background-color: rgba(0, 191, 99, 0.15);
 }
 
 .member img {
@@ -226,6 +238,11 @@ main {
     border-radius: 50%;
     object-fit: cover;
     border: 3px solid var(--bright-green-color);
+    transition: border-color 180ms ease;
+}
+
+.member:hover img {
+    border-color: #ffffff;
 }
 
 .member p {
@@ -487,6 +504,53 @@ main {
     text-decoration: underline;
 }
 
+/* scroll orizzontale per i link lunghi su schermi piccoli */
+@media (max-width: 768px) {
+    .tab-content {
+        padding: 0 16px;
+    }
+    
+    .tab-content.active {
+        padding: 16px 16px 20px 16px;
+        overflow-x: auto;
+        overflow-y: visible;
+    }
+    
+    .tab-content ul {
+        display: inline-block;
+        min-width: 100%;
+        width: max-content;
+    }
+    
+    .tab-content li a {
+        white-space: nowrap;
+    }
+
+    /* Scrollbar sottile e discreta */
+    .tab-content {
+        scrollbar-width: thin;
+        scrollbar-color: var(--bright-green-color) rgba(0, 0, 0, 0.1);
+    }
+
+    .tab-content::-webkit-scrollbar {
+        height: 6px;
+    }
+
+    .tab-content::-webkit-scrollbar-track {
+        background: rgba(0, 0, 0, 0.1);
+        border-radius: 3px;
+    }
+
+    .tab-content::-webkit-scrollbar-thumb {
+        background: var(--bright-green-color);
+        border-radius: 3px;
+    }
+
+    .tab-content::-webkit-scrollbar-thumb:hover {
+        background: var(--main-green-color);
+    }
+}
+
 /* placeholder per quando nessuna tab è selezionata: logo serpente */
 .tab-empty {
     /* posizionato in maniera assoluta sull'overlay così che il flow container non sia alterato */
@@ -499,7 +563,7 @@ main {
     color: rgba(224, 224, 224, 0.85);
     z-index: 1;
     opacity: 1;
-    transition: opacity 180ms ease;
+    transition: opacity 220ms ease-in-out;
     pointer-events: auto;
 }
 
