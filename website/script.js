@@ -10,7 +10,7 @@ function closeAllTabs() {
 // per mostrare/nascondere il placeholder quando non ci sono tab attive
 function updateEmptyState() {
     const empty = document.querySelector('.tab-empty');
-    const anyActive = !!document.querySelector('.tab-button.active');
+    const anyActive = !!document.querySelector('.tab-button.active:not(#close-tabs-button)');
     if (!empty) return;
     
     if (anyActive) {
@@ -35,6 +35,11 @@ tabButtons.forEach(button => {
     button.addEventListener('click', (e) => {
         e.stopPropagation(); // evita che il click salga al document e chiuda subito
 
+        // ignora il pulsante di chiusura (gestito separatamente)
+        if (button.id === 'close-tabs-button') {
+            return;
+        }
+
         const targetTabId = button.dataset.tab;
         const targetPanel = document.getElementById(targetTabId);
 
@@ -49,7 +54,7 @@ tabButtons.forEach(button => {
         }
 
         // altrimenti apro solo quella
-        const prevActive = document.querySelector('.tab-button.active');
+        const prevActive = document.querySelector('.tab-button.active:not(#close-tabs-button)');
         const prevPanel = prevActive ? document.getElementById(prevActive.dataset.tab) : null;
 
         // se lo switch avviene tra tabs differenti applica uno swap istantaneo
@@ -77,22 +82,15 @@ tabButtons.forEach(button => {
     });
 });
 
-// chiudo le tab se si clicca fuoru
-document.addEventListener('click', (e) => {
-    const isInsideButton = e.target.closest('.tab-button');
-    const isInsideContent = e.target.closest('.tab-content');
-    const isNavLink = e.target.closest('.nav-button, a[href]');
-    
-    // Non chiudere le tab se si clicca su un link di navigazione
-    if (isNavLink) {
-        return;
-    }
-    
-    if (!isInsideButton && !isInsideContent) {
+// pulsante "x" per chiudere tutte le tab e mostrare il placeholder
+const closeButton = document.getElementById('close-tabs-button');
+if (closeButton) {
+    closeButton.addEventListener('click', (e) => {
+        e.stopPropagation();
         closeAllTabs();
         updateEmptyState();
-    }
-});
+    });
+}
 
 // header dinamico
 const header = document.querySelector('header');

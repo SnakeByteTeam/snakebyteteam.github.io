@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Giuseppe De Fina">
-    <meta name="description" content="Snake Byte Organization">
+    <meta name="description" content="Snake Byte Organization - documentazione e presentazioni del team">
     <title>SnakeByte</title>
     <link rel="icon" type="image/png" href="images/Snake.png">
     <link rel="stylesheet" href="style.css">
@@ -16,9 +16,9 @@
 <body>
     <header>
         <div class="logo">
-            <img src="images/SnakeByte.png" alt="">
+            <img src="images/SnakeByte.png" alt="logo SnakeByte">
         </div>
-        <nav>
+        <nav aria-label="navigazione principale">
             <div class="nav-buttons">
                 <a class="nav-button" href="glossary.html">Glossario</a>
             </div>
@@ -26,28 +26,27 @@
     </header>
 
     <main>
-        <section id="documents">
-
+        <section id="documents" aria-label=sezione documenti">
+            <h2>documenti</h2>
             <!-- i bottoni per le varie tab -->
             <div class="tab-buttons-wrapper">
-                <div class="tab-buttons">
+                <div class="tab-buttons" role="tablist" aria-label="categorie documenti">
                     <!-- per ora non sono utilizzati 
                     <button class="tab-button" data-tab="pb">PB</button>
                     <button class="tab-button" data-tab="rtb">RTB</button>
                     -->
-                    <button class="tab-button" data-tab="candidatura">Candidatura</button>
-                    <button class="tab-button" data-tab="diapositive">Diapositive</button>
-                    <!--<button class="tab-button" data-tab="RTB">RTB</button>-->
-                    <!--<button class="tab-button" data-tab="PB">PB</button>-->
+                    <button class="tab-button" data-tab="candidatura" role="tab" aria-controls="candidatura" aria-selected="true">Candidatura</button>
+                    <button class="tab-button" data-tab="diapositive" role="tab" aria-controls="diapositive" aria-selected="false">Diapositive</button>
+                    <button class="tab-button close-button" id="close-tabs-button" aria-label="chiudi tutte le tab">✕</button>
                 </div>
             </div>
 
             <div class="tab-card">
                 <div class="tab-content-area">
                     <div class="tab-empty" aria-hidden="true">
-                        <img src="images/Snake.png" alt="">
+                        <img src="images/Snake.png" alt="logo snake - nessuna tab selezionata">
                     </div>
-                    <div id="candidatura" class="tab-content active">
+                    <div id="candidatura" class="tab-content active" role="tabpanel" aria-labelledby="candidatura">
                         <ul>
                             <li><a href="1-Candidatura/Lettera_di_presentazione.pdf" target="_blank"
                                     rel="noopener noreferrer">Lettera_di_presentazione.pdf</a></li>
@@ -102,10 +101,10 @@
                     </div>
                     -->
 
-                    <div id="diapositive" class="tab-content">
+                    <div id="diapositive" class="tab-content" role="tabpanel" aria-labelledby="diapositive">
                         <ul>
                             <li><a href="Diapositive/d_2025_10_27.pdf" target="_blank"
-                                    rel="noopener noreferrer">d_2025_10_27.pdf</a></li>
+                                    rel="noopener noreferrer" aria-label="scarica presentazione del 27 ottobre 2025">d_2025_10_27.pdf</a></li>
                         </ul>
                     </div>
                     <!--
@@ -120,16 +119,16 @@
         </section>
 
 
-        <section id="team">
+        <section id="team" aria-label="Sezione team">
             <h2>il team</h2>
 
             <!-- mini card: github + email (sopra le foto del team) -->
-            <div class="tab-card mini-card" aria-hidden="false">
+            <div class="tab-card mini-card">
                 <div class="mini-card-inner">
                     <div class="mini-left">
                         <!-- icona di github inline -->
                         <a class="github-link" href="https://github.com/snakebyteteam" target="_blank"
-                            rel="noopener noreferrer">
+                            rel="noopener noreferrer" aria-label="visita SnakeByte su GitHub">
                             <svg aria-hidden="true" width="20" height="20" viewBox="0 0 16 16" fill="currentColor"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd"
@@ -137,11 +136,11 @@
                             </svg>
                         </a>
                         <a class="github-link-text" href="https://github.com/snakebyteteam" target="_blank"
-                            rel="noopener noreferrer">https://github.com/SnakeByteTeam</a>
+                            rel="noopener noreferrer" aria-label="visita SnakeByte su GitHub">https://github.com/SnakeByteTeam</a>
                     </div>
 
                     <div class="mini-right">
-                        <a class="email-link" href="mailto:snakebyteteam@gmail.com">snakebyteteam@gmail.com</a>
+                        <a class="email-link" href="mailto:snakebyteteam@gmail.com" aria-label="invia email a SnakeByte team">snakebyteteam@gmail.com</a>
                     </div>
                 </div>
             </div>
@@ -150,37 +149,37 @@
             <div class="team-card">
                 <div class="team-container">
 
-                    <a href="https://github.com/leonardopellizzon" target="_blank" rel="noopener noreferrer" class="member" aria-label="Profilo GitHub di Leonardo Pellizzon">
+                    <a href="https://github.com/leonardopellizzon" target="_blank" rel="noopener noreferrer" class="member" aria-label="profilo GitHub di Leonardo Pellizzon">
                         <img src="https://github.com/leonardopellizzon.png" alt="Leonardo Pellizzon">
                         <p>Leonardo Pellizzon</p>
                     </a>
 
-                    <a href="https://github.com/blavkice" target="_blank" rel="noopener noreferrer" class="member" aria-label="Profilo GitHub di Giuseppe De Fina">
+                    <a href="https://github.com/blavkice" target="_blank" rel="noopener noreferrer" class="member" aria-label="profilo GitHub di Giuseppe De Fina">
                         <img src="https://github.com/blavkice.png" alt="Giuseppe De Fina">
                         <p>Giuseppe De Fina</p>
                     </a>
 
-                    <a href="https://github.com/francescopasqual" target="_blank" rel="noopener noreferrer" class="member" aria-label="Profilo GitHub di Francesco Pasqual">
+                    <a href="https://github.com/francescopasqual" target="_blank" rel="noopener noreferrer" class="member" aria-label="profilo GitHub di Francesco Pasqual">
                         <img src="https://github.com/francescopasqual.png" alt="Francesco Pasqual">
                         <p>Francesco Pasqual</p>
                     </a>
 
-                    <a href="https://github.com/valroot1" target="_blank" rel="noopener noreferrer" class="member" aria-label="Profilo GitHub di Valeria Baleanu">
+                    <a href="https://github.com/valroot1" target="_blank" rel="noopener noreferrer" class="member" aria-label="profilo GitHub di Valeria Baleanu">
                         <img src="https://github.com/valroot1.png" alt="Valeria Baleanu">
                         <p>Valeria Baleanu</p>
                     </a>
 
-                    <a href="https://github.com/Granz09124" target="_blank" rel="noopener noreferrer" class="member" aria-label="Profilo GitHub di Luca Granziero">
+                    <a href="https://github.com/Granz09124" target="_blank" rel="noopener noreferrer" class="member" aria-label="profilo GitHub di Luca Granziero">
                         <img src="https://github.com/Granz09124.png" alt="Luca Granziero">
                         <p>Luca Granziero</p>
                     </a>
 
-                    <a href="https://github.com/pippovenzo" target="_blank" rel="noopener noreferrer" class="member" aria-label="Profilo GitHub di Filippo Venzo">
+                    <a href="https://github.com/pippovenzo" target="_blank" rel="noopener noreferrer" class="member" aria-label="profilo GitHub di Filippo Venzo">
                         <img src="https://github.com/pippovenzo.png" alt="Filippo Venzo">
                         <p>Filippo Venzo</p>
                     </a>
 
-                    <a href="https://github.com/Chris-Libra-Unipd" target="_blank" rel="noopener noreferrer" class="member" aria-label="Profilo GitHub di Christian Libralato">
+                    <a href="https://github.com/Chris-Libra-Unipd" target="_blank" rel="noopener noreferrer" class="member" aria-label="profilo GitHub di Christian Libralato">
                         <img src="https://github.com/Chris-Libra-Unipd.png" alt="Christian Libralato">
                         <p>Christian Libralato</p>
                     </a>

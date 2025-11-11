@@ -144,7 +144,8 @@ header nav {
     }
 
     .nav-button {
-        font-size: 1rem;
+        font-size: 1.05rem;
+        padding: 10px 16px;
     }
 
     .logo img {
@@ -255,7 +256,13 @@ main {
 /* PARTE DOCUMENTI */
 
 #documents {
-    margin-top: 30px;
+    margin-top: 5px;
+}
+
+#documents > h2 {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 15px;
 }
 
 .tab-buttons {
@@ -363,6 +370,8 @@ main {
 
 /* DOCUMENTI: tab-card */
 
+
+
 .tab-buttons-wrapper {
     max-width: 1000px;
     margin: 0 auto;
@@ -419,16 +428,16 @@ main {
 .tab-button {
     padding: 14px 28px;
     border: none;
-    border-radius: 12px;
+    border-radius: 18px 18px 0 0;
 
     font-family: var(--title-font), sans-serif;
     font-size: 1.9rem;
     text-transform: uppercase;
     color: var(--bright-green-color);
 
-    background-color: transparent;
+    background-color: rgba(0, 191, 99, 0.12);
     cursor: pointer;
-    transition: color 160ms ease, transform 120ms ease, box-shadow 160ms ease;
+    transition: color 160ms ease, transform 120ms ease, box-shadow 160ms ease, background-color 160ms ease;
 }
 
 .tab-button:active {
@@ -437,7 +446,7 @@ main {
 
 /* stile pulsante attivo o in hover */
 .tab-button:hover {
-    background-color: transparent;
+    background-color: rgba(0, 191, 99, 0.20);
     color: #f7f7f7;
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 8px 18px rgba(0, 0, 0, 0.25);
@@ -526,7 +535,7 @@ main {
         white-space: nowrap;
     }
 
-    /* Scrollbar sottile e discreta */
+    /* scrollbar sottile e discreta */
     .tab-content {
         scrollbar-width: thin;
         scrollbar-color: var(--bright-green-color) rgba(0, 0, 0, 0.1);
