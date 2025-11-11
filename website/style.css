@@ -6,7 +6,6 @@
     --tab-empty-min-height: 340px; /* altezza minima per le tab con i documenti */
 }
 
-
 body {
     background-color: #1f3e2d;
     color: #e0e0e0;
@@ -94,6 +93,28 @@ header nav {
     margin-left: auto;
     display: flex;
     align-items: center;
+}
+
+/* SELEZIONI TESTO */
+
+/* stile per la selezione del testo (ovunque) */
+::selection {
+    background-color: var(--bright-green-color);
+    color: #1f3e2d;
+}
+
+::-moz-selection {
+    background-color: var(--bright-green-color);
+    color: #1f3e2d;
+}
+
+/* stile per l'evidenziazione (solo dei risultati della ricerca nel glossario) */
+mark {
+    background-color: var(--bright-green-color);
+    color: #1f3e2d;
+    padding: 2px 3px;
+    border-radius: 3px;
+    font-weight: 600;
 }
 
 /* INTERNO NAVBAR */
@@ -656,6 +677,26 @@ main {
     outline: none;
     border-color: var(--bright-green-color);
     background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* stile per il pulsante X (cancella) nella barra di ricerca */
+#glossary-search::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 20px;
+    width: 20px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2300bf63'%3E%3Cpath d='M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z'/%3E%3C/svg%3E");
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    opacity: 0.85;
+}
+
+#glossary-search::-webkit-search-cancel-button:hover {
+    transform: scale(1.15);
+    opacity: 1;
 }
 
 /* lista del glossario */
