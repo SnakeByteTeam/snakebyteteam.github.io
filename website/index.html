@@ -15,9 +15,11 @@
 
 <body>
     <header>
-        <div class="logo">
-            <img src="images/SnakeByte.png" alt="logo SnakeByte">
-        </div>
+        <!-- visivamente l'h1 è il logo, per accessibiltà e indicizzazione è un h1 testo nascosto -->
+        <h1 class="logo">
+            <img src="images/SnakeByte.png" alt="SnakeByte" aria-hidden="true">
+            <span class="sr-only">Snake Byte Team</span>
+        </h1>
         <nav aria-label="navigazione principale">
             <div class="nav-buttons">
                 <a class="nav-button" href="glossary.html">Glossario</a>
@@ -106,12 +108,14 @@
 
                     <div id="diapositive" class="tab-content" role="tabpanel" aria-labelledby="diapositive">
                         <ul>
+                            <li><a href="Diapositive/d_2025_11_24.pdf" target="_blank" rel="noopener noreferrer"
+                                    aria-label="scarica diario di bordo del 24 novembre 2025">d_2025_11_24.pdf</a></li>
                             <li><a href="Diapositive/d_2025_11_17.pdf" target="_blank" rel="noopener noreferrer"
-                                    aria-label="scarica presentazione del 17 novembre 2025">d_2025_11_17.pdf</a></li>
+                                    aria-label="scarica diario di bordo del 17 novembre 2025">d_2025_11_17.pdf</a></li>
                             <li><a href="Diapositive/d_2025_11_10.pdf" target="_blank" rel="noopener noreferrer"
-                                    aria-label="scarica presentazione dell'11 novembre 2025">d_2025_11_10.pdf</a></li>
+                                    aria-label="scarica diario di bordo dell'11 novembre 2025">d_2025_11_10.pdf</a></li>
                             <li><a href="Diapositive/d_2025_10_27.pdf" target="_blank" rel="noopener noreferrer"
-                                    aria-label="scarica presentazione del 27 ottobre 2025">d_2025_10_27.pdf</a></li>
+                                    aria-label="scarica diario di bordo del 27 ottobre 2025">d_2025_10_27.pdf</a></li>
                         </ul>
                     </div>
                     <!--

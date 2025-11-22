@@ -119,10 +119,29 @@ mark {
 
 /* INTERNO NAVBAR */
 
+.logo {
+    margin: 0;
+    font-size: inherit;
+    font-weight: normal;
+}
+
 .logo img {
     padding: 5px;
     max-width: 180px;
     height: auto;
+}
+
+/* per nascondere visivamente il testo ma mantenerlo accessibile agli screen reader, utile anche per indicizzazione */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
 }
 
 .nav-buttons {
@@ -172,6 +191,10 @@ mark {
     .logo img {
         padding: 5px;
         max-width: 100px;
+    }
+
+    h1.logo {
+        margin: 0;
     }
 }
 
