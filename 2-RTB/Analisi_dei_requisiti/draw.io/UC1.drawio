@@ -1,0 +1,55 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.0.3 Chrome/140.0.7339.249 Electron/38.7.0 Safari/537.36" version="29.0.3">
+  <diagram name="Page-1" id="N4V_Y-p3iaw9617djTZM">
+    <mxGraphModel dx="514" dy="334" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="nPQ4aNnkunBoFdzypEYz-1" value="Utente personale&lt;br&gt;sanitario&lt;div&gt;&lt;br&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=none;fontSize=7;" parent="1" vertex="1">
+          <mxGeometry x="190" y="120" width="20" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="nPQ4aNnkunBoFdzypEYz-3" value="Sistema" style="html=1;whiteSpace=wrap;gradientColor=default;fillColor=none;labelPosition=left;verticalLabelPosition=top;align=right;verticalAlign=bottom;spacingTop=0;spacingLeft=0;spacingRight=-46;" parent="1" vertex="1">
+          <mxGeometry x="260" y="80" width="270" height="150" as="geometry" />
+        </mxCell>
+        <mxCell id="nPQ4aNnkunBoFdzypEYz-4" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;UC1 Autenticazione&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="280" y="110" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nPQ4aNnkunBoFdzypEYz-5" value="" style="endArrow=none;html=1;rounded=0;" parent="1" edge="1">
+          <mxGeometry width="50" height="50" relative="1" as="geometry">
+            <mxPoint x="210" y="140" as="sourcePoint" />
+            <mxPoint x="270" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nPQ4aNnkunBoFdzypEYz-8" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;UC1.1 Username&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="280" y="180" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nPQ4aNnkunBoFdzypEYz-9" value="&lt;font style=&quot;font-size: 7px;&quot;&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/font&gt;" style="endArrow=open;endSize=3;dashed=1;html=1;rounded=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="nPQ4aNnkunBoFdzypEYz-4" target="nPQ4aNnkunBoFdzypEYz-8" edge="1">
+          <mxGeometry x="0.0027" width="160" relative="1" as="geometry">
+            <mxPoint x="280" y="180" as="sourcePoint" />
+            <mxPoint x="440" y="180" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nPQ4aNnkunBoFdzypEYz-10" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;UC1.2 Password&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="400" y="180" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nPQ4aNnkunBoFdzypEYz-11" value="&lt;span style=&quot;background-color: light-dark(rgba(255, 255, 255, 0), rgba(255, 255, 255, 0));&quot;&gt;&lt;font&gt;&amp;lt;&amp;lt;include&amp;gt;&amp;gt;&lt;/font&gt;&lt;/span&gt;" style="endArrow=open;endSize=3;dashed=1;html=1;rounded=0;exitX=1;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;fontSize=7;" parent="1" source="nPQ4aNnkunBoFdzypEYz-4" target="nPQ4aNnkunBoFdzypEYz-10" edge="1">
+          <mxGeometry x="0.093" y="3" width="160" relative="1" as="geometry">
+            <mxPoint x="330" y="150" as="sourcePoint" />
+            <mxPoint x="330" y="190" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="nPQ4aNnkunBoFdzypEYz-13" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;UC1.3 Auth. fallita&lt;/font&gt;" style="ellipse;whiteSpace=wrap;html=1;fillColor=none;" parent="1" vertex="1">
+          <mxGeometry x="425" y="90" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="nPQ4aNnkunBoFdzypEYz-14" value="&lt;span&gt;&lt;font style=&quot;font-size: 7px;&quot;&gt;&amp;lt;&amp;lt;extends&amp;gt;&amp;gt;&lt;/font&gt;&lt;/span&gt;" style="endArrow=open;endSize=3;dashed=1;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=middle;" parent="1" source="nPQ4aNnkunBoFdzypEYz-13" target="nPQ4aNnkunBoFdzypEYz-4" edge="1">
+          <mxGeometry x="0.299" y="-14" width="160" relative="1" as="geometry">
+            <mxPoint x="400" y="160" as="sourcePoint" />
+            <mxPoint x="512" y="199" as="targetPoint" />
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

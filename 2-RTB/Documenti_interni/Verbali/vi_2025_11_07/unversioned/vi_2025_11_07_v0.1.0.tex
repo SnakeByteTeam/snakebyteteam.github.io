@@ -1,0 +1,75 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage{../../template/template}
+
+\setDocIndex{vi\_2025\_11\_07}
+\setDocTitle{Verbale interno 07/11/2025}
+\setDocData{07/11/2025}
+\setDocVersion{0.1.0}
+\setDocState{0}
+\setDocRecipient{1}
+
+\begin{document}
+
+\makeTitlePage
+
+\addChangelog{\docVersion}{\docData}{F. Venzo}{L. Pellizzon}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{\docData}{9:30}{11:30}{via Discord}
+
+\addParticipant{Filippo}{Venzo}{Responsabile}{P}
+\addParticipant{Christian}{Libralato}{Amministratore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Verificatore}{P}
+\addParticipant{Valeria}{Baleanu}{Analista}{P}
+\addParticipant{Giuseppe}{De Fina}{Analista}{P}
+\addParticipant{Luca}{Granziero}{Analista}{P}
+\addParticipant{Francesco}{Pasqual}{Analista}{P}
+
+\makeMeetingParticipantsTable
+
+
+\section{Ordine del giorno}
+    \begin{itemize}
+        \item Tracciamento attività svolte;
+        \item nuove norme di gestione repository;
+        \item allineamento prerequisiti per analisi dei requisiti;
+        \item allineamento per diario di bordo;
+        \item automatizzazione nella redazione documenti.
+    \end{itemize}
+
+
+\section{Approfondimento}
+    \subsection*{Tracciamento attività svolte}
+    È stata discussa l'integrazione di una nuova tabella, all'interno dei verbali, volta al tracciamento delle attività svolte fino a quel punto. Si è giunti alla conclusione di crearla, contenete l'ID dell'attività, la GitHub issue associata (se presente) e la data di completamente, per favorire un tracciamento indipendente dal repository gestionale di GitHub. Inoltre non tutte le attività avranno una issue GitHub associata, non trattandosi di azioni che vanno a modificare materiali presenti sul repository.\\ \\
+    Tale tabella verrà integrata a partire dal prossimo verbale redatto.
+
+    \subsection*{Nuove norme di gestione repository}
+    È stato discussa la gestione del repository tenuta fin'ora, nella quale sono stati evidenziati, da parte di alcuni membri, una serie di problematiche tra cui la copia dell'immagine del logo del gruppo in ogni directory dei documenti e un non sufficiente utilizzo degli strumenti offerti da Git, in particolare i \textit{branch}.\\ \\
+    La risoluzione di questi è in corso. 
+
+    \subsection*{Allineamento prerequisiti per analisi dei requisiti}
+    I membri del gruppo si sono allineati sulle conoscenze di base per lo svolgimento dell'attività di analisi dei requisiti. Le informazioni sono state ricavate dalle lezioni teoriche di Ingegneria del Software svolte dal prof. Vardanega Tullio nelle settimane precedenti.
+
+    \subsection*{Allineamento per diario di bordo}
+    I membri del gruppo si sono allineati e hanno concordato gli argomenti che andranno esposti al diaro di gruppo che si terrà in data 10/11/2025.
+
+    \subsection*{Automatizzazione nella redazione documenti}
+    I membri del gruppo hanno concordato nell'adottare un template che permette di automatizzare una parte della redazione dei documenti. In particolare, usando tale \texttt{template.sty}\footnote{\url{https://it.overleaf.com/learn/latex/Understanding_packages_and_class_files} consultato il 7/11/2025}, è possibile rendere automatica la scrittura della parte dei documenti comune a tutti.
+
+
+\addDecision{Creare tabella nei verbali per il tracciamento delle attività svolte}
+\addDecision{Utilizzo \texttt{template.sty} per l'automatizzazione della redazione dei verbali}
+\makeDecisionTable
+
+\addTodo{\noOne}{Aggiungere alle Norme di Progetto la nuova tabella delle attività svolte}{F. Venzo}{10/11/2025}
+\addTodo{\noOne}{Redazione diapositive per diario di bordo}{C. Libralato}{9/11/2025}
+\addTodo{\noOne}{Creazione di \texttt{template.sty}}{L. Pellizzon}{11/11/2025}
+\addTodo{\noOne}{Individuare alternativa alla duplicazione del logo}{V. Baleanu}{14/11/2025}
+\makeTodoTable
+
+\end{document}
