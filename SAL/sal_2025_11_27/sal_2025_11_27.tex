@@ -1,0 +1,57 @@
+\documentclass{beamer}
+
+\usepackage{../../Diapositive/tema}
+
+
+\title{SAL}
+\author[G. De Fina]{Giuseppe De Fina}
+\setDate{27/11/2024}
+
+\begin{document}
+
+{
+  \setbeamertemplate{footline}{}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+
+\addMember{Giuseppe}{De Fina}{Responsabile}
+\addMember{Francesco}{Pasqual}{Amministratore}
+\addMember{Leonardo}{Pellizzon}{Progettista}
+\addMember{Valeria}{Baleanu}{Verificatore}
+\addMember{Filippo}{Venzo}{Analista}
+\addMember{Christian}{Libralato}{Analista}
+\addMember{Luca}{Granziero}{Analista}
+\makeMembersFrame
+
+\begin{frame}{Avanzamenti settimanali}
+\begin{itemize}
+    \item Aggiornato documento \textbf{Analisi dei Requisiti} alla versione 0.1.2 (aggiunti \textit{Use Cases} fino a UC4 e UC4.1)
+    \item Definito \textit{workflow} di versionamento e approvazione documenti tramite \textit{Git} (\textit{branch feature}, \textit{develop} e \textit{release})
+    \item Implementato processo di revisione sistematica tramite \textit{pull request} con commenti in linea
+    \item Aggiornato documento \textbf{Norme di Progetto} alla versione 0.1.5 con nuova struttura tabella attività completate
+    \item Redatto verbale interno del 17/11/2025 con decisioni su \textit{workflow} e \textit{dashboard}
+    \item Definite responsabilità operative per revisione documenti e controllo qualità
+\end{itemize}
+\end{frame}
+
+\addPrecedentTodo{vi\_2025\_11\_07.a1}{-}{Aggiungere alle \textbf{Norme di Progetto} la nuova tabella delle attività svolte}{F. Venzo}{10/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_07.a2}{-}{Redazione diapositive per diario di bordo}{L. Pellizzon, C. Libralato}{09/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_07.a3}{-}{Creazione di \texttt{template.sty}}{L. Pellizzon}{11/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_07.a4}{-}{Individuare alternativa alla duplicazione del logo}{V. Baleanu}{14/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_07.a5}{-}{Definizione delle domande di analisi dei requisiti per il primo colloquio}{V. Baleanu, G. De Fina, L. Granziero, F. Pasqual}{12/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_17.a1}{-}{Individuare quale \textit{dashboard} utilizzare per il tracciamento delle attività}{F. Pasqual}{23/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_17.a2}{\#2}{Redazione diapositive per diario di bordo}{G. De Fina, V. Baleanu}{23/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_17.a3}{-}{Creazione dei \textit{branch} \textit{develop} e \textit{release}}{G. De Fina}{19/11/2025}
+\makePrecedentTodoFrame
+
+\begin{frame}{Limiti o blocchi incontrati}
+\begin{itemize}
+    \item Requisiti non funzionali ancora in fase di identificazione e definizione
+    \item Scelta della \textit{dashboard} per tracciamento attività ancora in valutazione (\textit{Jira} vs \textit{GitHub Projects})
+    \item Criticità nel processo di revisione: gestione dei conflitti \textit{Git} e tracciabilità dei commenti nelle \textit{pull request}
+\end{itemize}
+\end{frame}
+
+\end{document}
