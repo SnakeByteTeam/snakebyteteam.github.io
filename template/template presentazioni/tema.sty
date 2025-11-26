@@ -1,0 +1,63 @@
+\ProvidesPackage{beamerthemeAzienda}
+
+% temi standard
+\useinnertheme{default}
+\useoutertheme{default}
+\usecolortheme{default}
+
+% pacchetti 
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage{xstring}
+\RequirePackage{etoolbox}
+
+% definizione variabili
+\newcommand{\AziendaLogo}{}
+\newcommand{\Date}{}
+
+\newcommand{\setAziendaLogo}[1]{\renewcommand{\AziendaLogo}{#1}}
+\newcommand{\setDate}[1]{\renewcommand{\Date}{#1}}
+
+% rimuovere i simboli di navigazione
+\setbeamertemplate{navigation symbols}{}
+
+% pagina iniziale
+\setbeamertemplate{title page}{
+  \vspace{2em}
+  \begin{center}
+      \includegraphics[height=3cm]{img/logo-crop.pdf}
+  \end{center}
+  \begin{center}
+      {\usebeamerfont{title}\color{black}\textbf{\inserttitle}\par}
+    \vspace{0.5em}
+    {\usebeamerfont{date}\insertauthor\par}
+    {\usebeamerfont{date}\Date\par}
+  \end{center}
+}
+
+% footer
+\setbeamertemplate{footline}{
+  \vspace{2ex}
+  \hbox{
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hspace*{0.5em}
+      \raggedright\usebeamerfont{footline}\inserttitle
+    \end{minipage}%
+    \begin{minipage}[t]{0.20\paperwidth}
+      \centering\usebeamerfont{footline}Pagina \insertframenumber{} di \inserttotalframenumber
+    \end{minipage}%
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hfill
+      \insertshortauthor
+      \hspace*{0.8em}
+      \raisebox{-0.25\height}{\includegraphics[width=0.7cm]{img/logo-crop.pdf}}
+      \hspace*{1.3em}
+    \end{minipage}
+  }
+  \vspace{0.8ex}
+}
+
+% colori vari
+\definecolor{aziendaPrimary}{RGB}{84, 150, 104}
+\setbeamercolor{structure}{fg=aziendaPrimary}
+\setbeamercolor{frametitle}{bg=aziendaPrimary!10,fg=aziendaPrimary}

@@ -1,0 +1,24 @@
+(slide 2)
+nelle norme di progetto ci siamo posti l'obiettivo di utilizzare un approccio
+agile, abbiamo definito la cadenza degli incontri e come verranno gestiti e redatti i documenti.
+In seguito alla scelta degli strumenti il gruppo si è allineato in modo da bilanciare le 
+conoscenze.
+Successivamente a una prima analisi dei capitolati sono state stilate una serie di domande 
+per ciascuna proponente di maggior interesse.
+
+(slide 3)
+In previsione al prossimo incontro le risposte ai quesiti da parte delle proponenti serviranno
+per terminare l'analisi dei capitolati con una successiva scelta definitiva. In seguito 
+il gruppo si ritroverà per stipulare la dichiarazione degli impegni.
+
+(slide 4)
+Alcuni sono i dubbi emersi durante i primi incontri, in particolare in riferimento alle norme di
+Progetto:
+- in prima istanza come rendere fruibili i documenti a seguito di varie discussioni si è
+scelto che tutti i documenti saranno consultabili tramite il sito web dedicato.
+- per quanto riguarda il come attuare il versionamento dei documenti sono sorti diversi punti,
+ - il primo riguarda alla nominazione dei documenti coerentemente alla propria versione;
+ - vi è poi la definizione della granularità dei cambiamenti che portano a un avanzamento di versione
+in riferimento a ciò si è arrivati a una decisione unanime che però potrebbe subire variazioni
+- riguardo alla divisione tra decisioni e obiettivi fissati durante gli incontri si è giunti
+alla conclusione che metodi di tracciamento indipendenti che utilizzano codici univoci.

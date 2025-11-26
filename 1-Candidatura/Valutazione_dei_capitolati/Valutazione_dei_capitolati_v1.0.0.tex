@@ -1,0 +1,321 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[nomarginpar, margin=2.75cm, tmargin=3cm, bmargin=1.75cm]{geometry}
+\usepackage[
+    colorlinks=true,      
+    linkcolor=black,      
+    urlcolor=blue,       
+    citecolor=black       
+]{hyperref}
+\usepackage{graphicx}
+\usepackage[table, x11names]{xcolor}
+\usepackage{tabularx}
+\renewcommand{\arraystretch}{1.2} % migliora la leggibilità
+\renewcommand{\contentsname}{Indice}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{SnakeByte} 
+\fancyhead[R]{Valutazione dei Capitolati}
+\fancyfoot[C]{\thepage}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \begin{center}
+            \includegraphics[width=0.6\textwidth]{./img/logo.pdf}
+        \end{center}
+        \vspace{4cm}
+        \huge\textbf{Valutazione dei Capitolati}\par
+        \vspace{2cm}
+        \large \textbf{SnakeByte} (Gruppo 1):\\
+        \large Valeria Baleanu, Leonardo Pellizzon, Filippo Venzo, Giuseppe De Fina, \\
+         Francesco Pasqual, Christian Libralato, Luca Granziero \\
+        (2109911, 2111006, 2113705, 2113187, 2103119, 2101047, 2075512)
+        \vfill
+        \small
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \multicolumn{4}{|c|}{\textbf{Informazioni documento}} \\
+                \hline
+                \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
+                \hline
+                1.0.0 & 30/10/2025 & Approvato & SnakeByte, prof. Vardanega Tullio e prof. Cardin Riccardo \\
+                \hline
+            \end{tabular}
+        \end{center}
+        \vfill
+        \large Contatti: snakebyteteam@gmail.com
+    \end{center}
+\end{titlepage}
+
+\begin{center}
+    \begin{tabularx}{\textwidth}{|c|c|c|c|c|X|}
+        \hline
+        \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
+        \hline
+        \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+        \hline
+        1.0.0 & 30/10/2025 & V. Baleanu & G. De Fina & L. Pellizzon & Approvazione\\
+        \hline
+        0.1.1 & 29/10/2025 & V. Baleanu & G. De Fina & - & Correzione errori ortografici \\
+        \hline 
+        0.1.0 & 28/10/2025 & V. Baleanu & F. Venzo & - & Prima stesura \\
+        \hline
+    \end{tabularx}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduzione}
+\subsection{Finalità del documento}
+Il presente documento descrive l'analisi dei capitolati${_G}$ d'appalto condotta dal gruppo \textit{SnakeByte}, finalizzata a identificare la proposta più in linea con i suoi obiettivi e interessi. \\Durante il processo sono stati presi in considerazione diversi fattori di valutazione, utili a confrontare in modo oggettivo e realistico le varie opzioni. \\Il documento approfondisce le motivazioni alla base della selezione del capitolato \textit{View4Life} del proponente \textbf{Vimar S.p.A.} e propone un confronto con le alternative non scelte, evidenziandone gli aspetti positivi e negativi che hanno influito sulla decisione finale.
+
+\subsection{Glossario}
+Il documento cita alcuni termini la cui definizione può risultare ambigua. Per questo è possibile consultare il \textit{glossario$_{G}$} il quale contiene le definizioni di tali espressioni, che saranno marcate da una lettera \textit{G} a pedice.
+
+\section{Fattori considerati nella selezione del progetto}
+A seguire vengono elencati i criteri di valutazione adottati dal gruppo \textit{SnakeByte} per l'analisi comparativa dei capitolati, con l'obiettivo di identificare il progetto più idoneo.
+\begin{itemize}
+    \item \textbf{Complessità tecnica}: Rappresenta il livello di difficoltà del progetto in termini di architettura software, analisi dei requisiti, integrazione di sistemi e raggiungimento dei vincoli minimi. Un progetto più complesso può offrire una sfida stimolante e un prodotto finale interessante, ma aumenta il rischio di superare il numero massimo di ore disponibili per ciascun componente del gruppo, compromettendo la qualità del risultato finale;
+    \item \textbf{Opportunità di apprendimento}: Misura il potenziale del progetto di favorire la crescita professionale e l’acquisizione di nuove competenze. La scelta privilegia progetti che consentano di sperimentare tecnologie e strumenti diffusi nel mercato;
+    \item \textbf{Chiarezza progettuale}: Una documentazione dettagliata facilita la stima delle tempistiche e la corretta suddivisione del lavoro, riducendo le richieste di continui chiarimenti al proponente e aumentando la produttività del gruppo;
+    \item \textbf{Supporto da parte del proponente}: La presenza di risorse e referenti tecnici per il supporto durante lo sviluppo del progetto è fondamentale. Un adeguato supporto del proponente può diminuire il fattore di rischio e aumentare la qualità del risultato finale;
+    \item \textbf{Estensibilità del progetto}: Riguarda la possibilità di migliorare o ampliare il progetto con requisiti aggiuntivi "nice to have" e opzionali. Un adeguato numero di queste funzionalità, qualora si riescano a completare i requisiti obbligatori in tempo, consente di perfezionare ulteriormente il prodotto finale;
+    \item \textbf{Interesse}: Rappresenta il livello di motivazione e coinvolgimento del gruppo nei confronti del progetto. Una buona condivisione degli obiettivi comuni aumenta la collaborazione, aumentando la produttività e la qualità del prodotto finale.
+\end{itemize}
+Tutti i fattori elencati contribuiscono in egual misura alla scelta del capitolato.
+
+
+\section{Valutazione del Capitolato selezionato}
+\subsection{C9 - View4Life}
+\textbf{Proponente}: Vimar.
+\subsubsection{Obiettivo}
+Il progetto consiste nella realizzazione di una piattaforma unica \textit{View4Life} per la gestione intelligente degli impianti \textit{Smart} nelle residenze protette per anziani, sfruttando i dispositivi domotici Vimar connessi in rete \textit{mesh Bluetooth} tramite l’\textit{API KNX IoT 3rd-party$_{G}$}. Questa soluzione mira a supportare il lavoro del personale sanitario fornendo uno strumento che integri un sistema di gestione degli allarmi (come il rilevamento di cadute o presenze prolungate in determinate stanze) per garantire un intervento rapido e tempestivo. Inoltre, la piattaforma è progettata per permettere il monitoraggio del consumo energetico e la rilevazione di anomalie nell’impianto.
+\subsubsection{Considerazioni}
+
+    \paragraph{Complessità tecnica} Il progetto presenta un livello di complessità medio-alto. I requisiti obbligatori sono sostanziosi e richiedono una soluzione \textit{full-stack}; è infatti richiesto lo sviluppo di: 
+    \begin{itemize}
+        \item Un’infrastruttura \textit{cloud} basata su container \textit{Docker} e \textit{Infrastructure as Code${_G}$} (IaC);
+        \item Un’applicazione web responsive completa di sistema d’accesso, dashboard, gestione allarmi, analytics;
+        \item Integrazione con l’\textit{API KNX IoT 3rd-party};
+        \item Numerosi test, raggiungendo minimo il 75\% \textit{unit/integration} e 80\% \textit{E2E} (opzionalmente sopra il 90\%).
+    \end{itemize}
+    \paragraph{Opportunità di apprendimento} Si interagisce con numerose tecnologie:
+    \begin{itemize}
+        \item \textit{IoT${_G}$}: integrazione con un sistema domotico fisico (\textit{Vimar View Wireless}) e dispositivi reali (\textit{sensori UWB}, attuatori, …);
+        \item \textit{API e Standard}: si utilizza lo standard internazionale \textit{KNX IoT} con moderni protocolli (\textit{OAuth2}, notifiche push/subscriptions);
+        \item \textit{Cloud e DevOps${_G}$}: \textit{Docker} e docker-compose, \textit{IaC}, \textit{Continuous Integration${_G}$}, opzionalmente anche \textit{AWS${_G}$} (\textit{C2}, \textit{LightSail}, \textit{Lambda}, \textit{SNS});
+        \item \textit{Database}: database relazionali (\textit{MySQL}, \textit{PostgreSQL});
+        \item \textit{Backend}: \textit{Node.js}, \textit{Java/Spring} o \textit{Python} (\textit{Flask});
+        \item \textit{Frontend}: sviluppo di un'applicazione web responsive partendo da wireframe (suggeriti \textit{Figma}/\textit{Draw.io}). Tecnologie suggerite: \textit{Angular}, \textit{React}, \textit{Bootstrap}, \textit{Tailwind}.
+    \end{itemize}
+In relazione agli altri capitolati, questo progetto offre un potenziale formativo elevato.
+\paragraph{Chiarezza progettuale} Si ritiene la documentazione estremamente completa, chiara e ben organizzata. I requisiti sono suddivisi in dettaglio tra obbligatori, opzionali e "nice to have". I bozzetti grafici rappresentano molto bene l’idea generale del prodotto finale e sono un valore aggiunto alla complessiva facilità di comprensione del capitolato. Anche i prodotti attesi sono elencati in modo puntuale.
+\paragraph{Supporto da parte del proponente} Il supporto è specificato in dettaglio; Vimar infatti offre:
+\begin{itemize}
+    \item \textit{SAL} (Stato Avanzamento Lavori) bisettimanali di un’ora e a seguito del \textit{Proof of Concept} anche settimanale della durata di mezz’ora;
+    \item Possibilità di richiedere incontri extra (in presenza a Padova o da remoto) per approfondimenti tecnici;
+    \item Almeno due incontri in presenza obbligatori (inizio e fine progetto);
+    \item Contatti email diretti per comunicazioni asincrone e utilizzo di \textit{Microsoft Teams};
+    \item Fornitura del materiale: kit hardware, accesso a impianti remoti, documentazione \textit{API} e spazio \textit{cloud} su \textit{AWS}.
+\end{itemize}
+\paragraph{Estensibilità del progetto} Il capitolato identifica chiaramente numerosi requisiti opzionali e "nice to have". Tra questi vi sono:
+\begin{itemize}
+    \item L’implementazione di un ruolo amministratore (con gestione \textit{CRUD${_G}$} utenti);
+    \item La gestione avanzata degli allarmi (soglie, abilitazione/disabilitazione);
+    \item L'invio di notifiche web push;
+    \item La possibilità di invio comandi ai dispositivi (ad esempio accendere la luce);
+    \item Il rilascio del prodotto su \textit{AWS};
+    \item La creazione di un \textit{SDK${_G}$} riutilizzabile per le \textit{API KNX IoT}.
+\end{itemize}
+In relazione agli altri capitolati, l’opportunità di estensione del progetto risulta superiore e interessante.
+\paragraph{Interesse} Il gruppo ha dimostrato in maniera uniforme e da subito un alto interesse per il capitolato soprattutto per il tema proposto.
+\\\\In conclusione, il gruppo ha valutato questo capitolato come il più adatto tra le proposte esaminate. 
+
+\section{Valutazione degli altri Capitolati}
+\subsection{C1 - Automated EN18031 Compliance Verification}
+\textbf{Proponente}: Bluewind.
+\subsubsection{Obiettivo}
+Il progetto prevede lo sviluppo di un’interfaccia grafica che guida nella valutazione e compilazione delle domande presenti negli alberi di decisione relative ai requisiti imposti dallo \textit{standard tecnico EN 18031}. Al termine della valutazione, l’output atteso consiste in una risposta affidabile e concisa ( “Pass”, “Fail”, “Not Applicable”) riguardo il fatto che il requisito possa essere applicato o soddisfatto. 
+Il software dovrà essere in grado di importare la documentazione riguardante le componenti di rete da analizzare, importare i file in cui sono descritti i decision tree, eseguire i \textit{decision tree}, tradurli in file dal formato facilmente comprensibile e modificabile e fornire l’output corretto. Inoltre, il tutto dovrà essere visualizzato tramite una dashboard interattiva. 
+Nel concreto, l’obiettivo finale è dunque quello di velocizzare, automatizzare e standardizzare il processo di valutazione di conformità allo standard e di creazione della relativa documentazione, che altrimenti sarebbe ripetitivo, complesso e soggetto a errori, nonché molto oneroso in termini di tempo.
+\subsubsection{Considerazioni}
+    \paragraph{Complessità tecnica} Lo sviluppo del progetto è strettamente vincolato alle norme definite dallo \textit{standard EN 18031}, in particolare al gruppo di requisiti descritti nella parte \textit{EN 18031-1} relativi alla gestione del controllo degli accessi (Access Control Mechanism) e all’autenticazione (Authentication Mechanism). Tali requisiti, come indicato nella documentazione, dovranno essere automatizzati e organizzati in base alle rispettive dipendenze gerarchiche. Questo procedimento risulterà tutt’altro che semplice e richiederà un’analisi approfondita delle singole norme dello standard.
+    \paragraph{Opportunità di apprendimento} Permette di approfondire la tematica della sicurezza informatica e della conformità narrativa, settori in costante espansione. Tuttavia, in relazione agli altri capitolati, il potenziale formativo risulta minore.
+    \paragraph{Chiarezza progettuale} Dal punto di vista degli obiettivi e delle casistiche d’uso, la documentazione risulta chiara e ben strutturata; tuttavia, non vengono esplicitate le preferenze tecnologiche del proponente, fatta eccezione per il \textit{Backend} dell’applicazione dove si predilige l’utilizzo di \textit{Python}. Di conseguenza, durante l’analisi dei requisiti, sarà necessario investire tempo e risorse aggiuntive per valutare le diverse opzioni tecnologiche disponibili, che dovranno successivamente essere sottoposte all’approvazione del proponente.
+    \paragraph{Supporto da parte del proponente} Il proponente si impegna a fornire un’assistenza allo sviluppo del progetto continua e approfondita combinando riunioni in presenza e da remoto.
+    \paragraph{Estensibilità del progetto} Per quanto riguarda i requisiti opzionali, il proponente consiglia di integrare:
+    \begin{itemize}
+        \item Un editor di documenti;
+        \item L’esportazione dei risultati in vari formati come PDF e CSV;
+        \item Una sezione relativa alla giustificazione del risultato;
+        \item Un editor grafico per la modifica degli alberi di decisione.
+    \end{itemize}
+    In relazione ai capitolati descritti in seguito, le opportunità di estensione del progetto sono molto limitate.
+    \paragraph{Interesse} Il gruppo ha manifestato un interesse limitato nei confronti dello \textit{standard EN 18031} e degli alberi di decisione.
+\\\\In conclusione, il gruppo ha ritenuto più opportuno focalizzarsi su altri capitolati.
+
+
+\subsection{C2 - Code Guardian}
+\textbf{Proponente}: Var Group.
+\subsubsection{Obiettivo}
+L’obiettivo del progetto è realizzare una piattaforma web basata su un sistema ad agenti coordinati da un orchestratore centrale in grado di analizzare repository \textit{GitHub${_G}$} al fine di valutarne qualità, sicurezza e manutenzione. A seguito delle analisi, il software dovrà fornire dei report generati automaticamente riguardo i test e la copertura da essi fornita, la sicurezza e la documentazione presenti nella repository e, in caso vengano individuate lacune o vulnerabilità, suggerire delle \textit{remediation${_G}$}.\\
+Ai fini della valutazione della sicurezza, il software dovrà basare il proprio report sul confronto con le regole dello standard per la sicurezza del software \textit{OWASP${_G}$}.
+Infine, lo stato della repository in analisi dovrà essere mostrato tramite una dashboard web.
+\subsubsection{Considerazioni}
+    \paragraph{Complessità tecnica} Il progetto presenta una complessità elevata, dovuta alla necessità di implementare, come requisiti obbligatori, un’architettura multi-agente con orchestratore, l’integrazione di analisi \textit{OWASP}, la gestione delle repository GitHub e lo sviluppo di una dashboard web interattiva. Tali caratteristiche rendono il progetto molto interessante, stimolante e attuale ma potenzialmente impegnativo in termini di tempo e risorse.
+    \paragraph{Opportunità di apprendimento} La documentazione propone l’utilizzo delle seguenti tecnologie:
+    \begin{itemize}
+        \item \textit{Node.js} e \textit{Python} per lo sviluppo \textit{Backend} e orchestratore;
+        \item \textit{React.js} per lo sviluppo \textit{Frontend};
+        \item \textit{MongoDB} o \textit{PostgreSQL} per la base di dati;
+        \item \textit{GitHub Actions} per l’\textit{integrazione CI/CD${_G}$};
+        \item \textit{AWS} per l’architettura \textit{cloud};
+        \item \textit{SonarCloud} per l’analisi statica.
+\end{itemize}
+Tuttavia, anche altri capitolati prevedono l’uso di tecnologie simili quindi il potenziale formativo risulta in linea con la media degli altri progetti.
+\paragraph{Chiarezza progettuale} La documentazione fornita è chiara negli obiettivi e nelle tecnologie. Tuttavia, alcuni aspetti legati alla gestione degli agenti e all’analisi \textit{OWASP} potrebbero richiedere ulteriori chiarimenti in fase di analisi dei requisiti.
+\paragraph{Supporto da parte del proponente} Il proponente si impegna a fornire supporto nell’apprendimento delle tecnologie suggerite e nello sviluppo software, senza tuttavia specificare le modalità di svolgimento degli incontri (in presenza o da remoto).
+\paragraph{Estensibilità del progetto} Per quanto riguarda i requisiti nice-to-have, il proponente desidera:
+\begin{itemize}
+    \item Integrazione con \textit{CI/CD};
+\item Analisi storica delle versioni del progetto;
+\item Ranking dei progetti in base alla qualità complessiva;
+\item Remediation interattiva;
+\item Notifiche integrate;
+\item \textit{Plugin system}.
+\end{itemize}
+In relazione agli altri capitolati, le opportunità di estensione del progetto sono ampie.
+\paragraph{Interesse} Il gruppo ha manifestato forte interesse nei confronti del progetto, in particolare per l’architettura multi-agente con orchestratore.
+\\\\In conclusione, il gruppo ha deciso di inserire il progetto tra i propri preferiti.
+
+
+\subsection{C3 - DIPReader}
+\textbf{Proponente}: Sanmarco Informatica.
+\subsubsection{Obiettivo}
+L'obiettivo principale è sviluppare un’applicazione multipiattaforma (\textit{web-based} o \textit{standalone}) in grado di consentire la consultazione e la ricerca di documenti provenienti da un sistema di conservazione digitale (DIP). Il prodotto deve mostrare in modo chiaro i contenuti tecnici del pacchetto (documenti, metadati, report, schemi), rendere i documenti ricercabili tramite metadati (con estensione possibile verso ricerche semantiche e \textit{NLP${_G}$}), permettere l’anteprima dei formati comuni (PDF, XML…), la selezione e il salvataggio locale di sottoinsiemi di documenti e la verifica delle informazioni di processo legate alla conservazione. L’architettura dovrà essere leggera, autonoma (nessuna installazione obbligatoria per l'utente), multipiattaforma e facilmente estendibile per nuove modalità di reperimento ed elaborazione dei dati.
+\subsubsection{Considerazioni}
+\paragraph{Complessità tecnica} Il progetto presenta una complessità media. Infatti, viene richiesto di sviluppare un’architettura scalabile, modulare e capace di gestire un elevato numero di metadati, con un’attenzione particolare all’efficienza delle ricerche e alla visualizzazione delle informazioni.
+\paragraph{Opportunità di apprendimento} La documentazione propone l’utilizzo delle seguenti tecnologie:
+    \begin{itemize}
+        \item \textit{SQLite} per la gestione dei dati;
+        \item \textit{FAISS${_G}$} per la ricerca di documenti multimediali;
+        \item \textit{Angular} o \textit{React} per lo sviluppo \textit{Frontend}.
+\end{itemize}
+Tuttavia, anche altri capitolati prevedono l’uso di tecnologie simili quindi il potenziale formativo risulta in linea con la media degli altri progetti.
+\paragraph{Chiarezza progettuale} La documentazione fornita è chiara sugli obiettivi, le funzionalità richieste e i materiali da consegnare. Eventuali ambiguità potranno sorgere durante la fase di definizione dei meccanismi di ricerca dei documenti.
+\paragraph{Supporto da parte del proponente} Il proponente si impegna a fornire supporto al gruppo, rendendo anche disponibili esempi di pacchetti e relative documentazioni. Tuttavia non vengono specificate le modalità di svolgimento degli incontri (in presenza o da remoto).
+\paragraph{Estensibilità del progetto} La possibilità di integrare funzionalità opzionali come la ricerca semantica, la verifica delle firme digitali, l’accesso a pacchetti \textit{cloud} e la stampa selettiva di documenti offre buone opportunità di perfezionamento del prodotto finale. In relazione agli altri capitolati, le opportunità di estensione del progetto sono nella media.
+\paragraph{Interesse} Il gruppo ha manifestato un interesse limitato nei confronti del progetto.
+\\\\In conclusione, il gruppo ha reputato più opportuno focalizzarsi su altri capitolati.
+
+\subsection{C4 - L'app che Protegge e Trasforma}
+\textbf{Proponente}: Miriade.
+\subsubsection{Obiettivo}
+L’oggetto del capitolato consiste nella realizzazione di un’applicazione mobile atta alla prevenzione e al supporto delle vittime di violenza di genere. 
+L’applicazione deve offrire un’interfaccia facile da usare e implementare varie funzionalità legate al riconoscimento delle situazioni di rischio tramite sistemi basati sull’intelligenza artificiale e la comunicazione con servizi di supporto, garantendo la privacy e la sicurezza dell’utente attraverso funzionalità personalizzate.
+Il sistema deve soddisfare requisiti legati alla sicurezza e robustezza attraverso un’architettura modulare e scalabile che garantisca manutenibilità ed eventuali estensioni future.
+\subsubsection{Considerazioni}
+\paragraph{Complessità tecnica} La difficoltà dal punto di vista tecnico di questo progetto consiste principalmente nell’implementazione del sistema di sicurezza dei dati e rispetto della privacy, seguita dallo sviluppo dell’applicazione in un contesto mobile, riguardo il quale il gruppo non possiede esperienza pregressa. Per quanto concerne il lato Backend invece il livello di complessità risulta essere in linea con quello degli altri capitolati.
+\paragraph{Opportunità di apprendimento} Essendo il prodotto destinato all’utilizzo su dispositivi \textit{mobile} è necessario acquisire familiarità con le tecnologie utilizzate in questo ambito (il proponente suggerisce infatti l’utilizzo del \textit{framework} \textit{Flutter}). Inoltre, le varie funzionalità dell’applicativo permettono di approfondire temi che spaziano dall’intelligenza artificiale alla sicurezza informatica, includendo anche la psicologia orientata alla violenza di genere.  
+Viene richiesto l’utilizzo di standard di settore, \textit{database} scalabili e resilienti (e.g. \textit{NoSQL}), e soluzioni basate su tecnologie di containerizzazione (e.g. \textit{Docker}) o architetture serverless (e.g. \textit{AWS Lambda}). Le tecnologie proposte risultano dunque in linea a quelle suggerite dagli altri capitolati.
+\paragraph{Chiarezza progettuale} La descrizione del capitolato è caratterizzata da un elenco di vari requisiti funzionali e opzionali, che vengono presentati ad alto livello. Se da un lato ciò assicura maggiore libertà al team, dall’altro comporta un maggior rischio legato alla scelta delle tecnologie impiegate. È comunque fornita una bozza di soluzione basata su \textit{AWS}.
+\paragraph{Supporto da parte del proponente} Il proponente offre supporto sia in ambito tecnico che in riferimento alle specifiche di progetto, inoltre garantisce la possibilità di essere contattato in modalità sincrona e asincrona.
+Vi è la possibilità di utilizzare strumenti forniti dall’azienda, come \textit{Atlassian}, e di ricevere una formazione iniziale legata alla prevenzione della violenza di genere e al supporto delle vittime.
+\paragraph{Estensibilità del progetto} L’applicativo presenta vari requisiti opzionali che mirano a sfruttare a pieno le funzionalità dei dispositivi garantendo ampio margine per l’estensibilità.
+\paragraph{Interesse} Il gruppo ha dimostrato un interesse limitato nei confronti del capitolato, in particolare nello sviluppo mobile con il \textit{framework} \textit{Flutter}.
+\\\\In conclusione, il gruppo ha ritenuto più opportuno focalizzarsi su altri capitolati.
+
+\subsection{C5 - NEXUM}
+\textbf{Proponente}: Eggon.
+\subsubsection{Obiettivo}
+Il capitolato propone come obiettivo l’evoluzione della piattaforma digitale di comunicazione interna e gestione delle risorse umane già esistente. Il progetto esposto mira a rendere \textit{NEXUM} più intelligente, modulare e interoperabile, migliorando l’efficienza dei processi \textit{HR}, il dialogo con gli studi dei Consulenti del Lavoro e l’esperienza digitale dei dipendenti.
+In particolare, il progetto prevede l’introduzione in una dashboard amministrativa di un \textit{AI Assistant Generativo} per automatizzare e supportare le pratiche amministrative e la comunicazione interna, e di un \textit{AI Co-Pilot} per operare con gli studi dei consulenti del lavoro, capace di gestire il riconoscimento, la classificazione e il dispaccio dei documenti, al contempo garantendo controllo delle scadenze e diminuendo errori di compilazione. 
+È inoltre prevista l’estensione del modulo di timbratura già presente per includere la gestione di ferie, permessi, malattia e straordinari, insieme alla creazione di un modulo di rilevamento di eventuali anomalie nei suddetti casi. 
+\subsubsection{Considerazioni}
+\paragraph{Complessità tecnica} Il progetto presenta un livello di complessità tecnica medio-alto. Tale considerazione nasce dalla richiesta di implementazione di diversi moduli (\textit{AI Assistant Generativo}, \textit{AI Co-Pilot} per i Consulenti del Lavoro, estensione del modulo di timbratura e sistema di rilevamento anomalie) in un’architettura molto articolata e dalla forte integrazione richiesta con la già esistente piattaforma. Questa combinazione rende il progetto tecnicamente stimolante, ma potenzialmente molto impegnativo per un gruppo di studenti dall’esperienza limitata.
+\paragraph{Opportunità di apprendimento} La documentazione propone l’utilizzo delle seguenti tecnologie:
+    \begin{itemize}
+        \item \textit{Ruby on Rails} per lo sviluppo \textit{Backend} in modalità \textit{API-first${_G}$};
+        \item \textit{Angular} per la realizzazione della dashboard amministrativa;
+        \item \textit{Next.js} per la \textit{PWA} destinata agli utenti finali;
+        \item \textit{AWS} per l’infrastruttura \textit{cloud}, comprendente componenti come \textit{ECS Fargate}, \textit{S3}, \textit{RDS PostgreSQL}, \textit{ElastiCache for Redis}, \textit{CloudFront} e \textit{Cognito};
+        \item Strumenti di controllo e sicurezza come \textit{CloudWatch}, \textit{AWS Config} e \textit{GuardDuty};
+        \item \textit{Sidekiq} e \textit{SQS} per la gestione dei job asincroni.
+\end{itemize}
+In relazione agli altri capitolati, l’offerta formativa risulta superiore.
+\paragraph{Chiarezza progettuale} La documentazione è completa e ben organizzata. Gli obiettivi, i casi d’uso e i requisiti funzionali sono chiaramente descritti, consentendo di comprendere con precisione il comportamento atteso del sistema. Alcune difficoltà potrebbero emergere nella fase di integrazione con la piattaforma \textit{NEXUM} già esistente.
+\paragraph{Supporto da parte del proponente} Il proponente fornisce un buon livello di supporto, mettendo a disposizione documentazione, ambiente di test e referenti tecnici. Non sono però chiare le modalità di tutoring e meeting previste.
+\paragraph{Estensibilità del progetto} La struttura modulare della piattaforma consente l’aggiunta di funzionalità opzionali, come l’ampliamento delle capacità dell’\textit{AI Assistant} o l’integrazione di nuovi strumenti di analisi e reporting. Questo offre buone possibilità di estendere il progetto oltre i requisiti minimi, migliorando la qualità complessiva del prodotto finale.
+\paragraph{Interesse} Il team ha dimostrato basso interesse per il tema proposto dal capitolato. 
+\\\\In conclusione, il gruppo ha ritenuto più opportuno focalizzarsi su altri capitolati. 
+
+
+\subsection{C6 - Second Brain}
+\textbf{Proponente}: Zucchetti.
+\subsubsection{Obiettivo}
+Sviluppare un editor di testo basato sul linguaggio \textit{Markdown} che integra un \textit{LLM} (\textit{Large Language Model}) per assistere l’utente nella scrittura, analisi e rielaborazione dei testi. L’obiettivo del progetto è di provare la capacità di critica dei \textit{LLM} attraverso la tecnica dei “sei cappelli per pensare”: verifica dei fatti oggettivi, creatività, aspetti negativi, emozioni, organizzazione e aspetti positivi.
+\subsubsection{Considerazioni}
+\paragraph{Complessità tecnica} Il progetto presenta una complessità media. Le principali difficoltà riguardano la gestione sicura delle chiamate \textit{API} ai \textit{LLM}, il \textit{prompt engineering${_G}$} efficace per le varie funzionalità e, con l’eventuale estensione lato server, la gestione delle relazioni tra le note.
+\paragraph{Opportunità di apprendimento} Nel caso in cui venga implementata la componente server come requisito opzionale, la documentazione suggerisce l’utilizzo di \textit{Java} o \textit{Python} per lo sviluppo del sistema di gestione delle chiamate \textit{HTTP}. Non vengono però indicate ulteriori tecnologie da impiegare, per esempio, per la realizzazione dell’editor di testo.
+Inoltre, anche altri capitolati prevedono l’uso di tecnologie analoghe quindi il potenziale formativo può considerarsi in linea con la media degli altri progetti.
+\paragraph{Chiarezza progettuale} Il capitolato è chiaro nei requisiti obbligatori e nelle fasi di sviluppo, ma meno preciso nella definizione delle tecnologie e dei requisiti opzionali. Infatti, pur suggerendo l’integrazione di una base di dati, introduce al contempo la possibilità di aggiungere o modificare i requisiti proposti in corso d’opera. Questa flessibilità, se da un lato consente una certa libertà al gruppo nella scelta evolutiva del progetto, dall’altro riduce la stabilità dell’ambito funzionale. Una maggiore chiarezza nella definizione dei requisiti opzionali garantirebbe un processo di sviluppo più rapido e strutturato. Inoltre, il capitolato non specifica criteri di valutazione per misurare le prestazioni e la qualità delle risposte generate dai LLM, con il rischio di ottenere un prodotto che, pur rispettando i requisiti minimi, presenti una qualità complessiva limitata.
+\paragraph{Supporto da parte del proponente} Il supporto non viene specificato.
+\paragraph{Estensibilità del progetto} Per quanto riguarda i requisiti opzionali, il proponente consiglia di integrare una base di dati per permettere le seguenti operazioni:
+\begin{itemize}
+    \item Archivio dei testi;
+    \item Recupero e modifica di note scritte in precedenza;
+    \item Associazione di note attraverso link nel \textit{markup};
+    \item Organizzazione logica dei testi.
+\end{itemize}
+In relazione agli altri capitolati, le opportunità di estensione del progetto sono molto limitate.
+\paragraph{Interesse} Il gruppo ha manifestato un interesse limitato nei confronti del \textit{LLM} e, in generale, nello sviluppo di un editor di testo.
+\\\\In conclusione, il gruppo ha ritenuto più opportuno focalizzarsi su altri capitolati.
+
+\subsection{C7 - Sistema di acquisizione dati da sensori}
+\textbf{Proponente}: M31.
+\subsubsection{Obiettivo}
+Sviluppare un’architettura \textit{cloud} con lo scopo di fornire un simulatore di \textit{gateway} che riceve dati provenienti da sensori distribuiti per poi eseguire operazioni di aggregazione, normalizzazione e smistamento in modo affidabile, sicuro e scalabile consentendo a più soggetti di utilizzare lo stesso sistema in modalità \textit{multi-tenant}.
+\subsubsection{Considerazioni}
+\paragraph{Complessità tecnica} Il progetto presenta un livello di complessità tecnica medio-alto. Questa classificazione è giustificata dal fatto che si richiede un'architettura complessa con requisiti minimi sostanziosi e requisiti di sicurezza molto articolati. Infatti, il proponente non fornisce un \textit{gateway} fisico per la comunicazione, richiedendo pertanto la realizzazione di una simulazione di tale componente. Questo aspetto, unito all’ampia richiesta di funzionalità, mettono in luce la principale problematica del progetto: la qualità del risultato finale ne potrebbe risentire a causa del tempo a disposizione.
+\paragraph{Opportunità di apprendimento} Diverse sono le tecnologie con le quali si interagisce:
+\begin{itemize}
+    \item \textit{Bluetooth Low Energy} con \textit{WiFi} per le comunicazioni con il \textit{gateway};
+    \item \textit{Go} utilizzato per eventuali componenti ad alte prestazioni, come i servizi di sincronizzazione;
+    \item \textit{Node.js} e \textit{Nest.js} per lo sviluppo dei microservizi;
+    \item \textit{NATS} o \textit{Apache Kafka} per la comunicazione tra i microservizi;
+    \item \textit{Google Cloud Platform} come sistema di orchestrazione e gestione centralizzata;
+    \item \textit{Kubernetes} per la gestione e orchestrazione di \textit{container};
+    \item \textit{MongoDB} o \textit{PostgreSQL} per la persistenza di dati strutturati;
+    \item \textit{Redis} come sistema di \textit{caching};
+    \item \textit{Angular} per l’interfaccia utente.
+\end{itemize}
+In relazione agli altri capitolati, il potenziale formativo di questo progetto risulta superiore, poiché consente di confrontarsi con un ampio insieme di tecnologie moderne e diffuse.
+\paragraph{Chiarezza progettuale} La documentazione risulta completa e ben organizzata. I requisiti, sia obbligatori che opzionali, sono chiari. Tuttavia, non viene definito in modo preciso l’aspetto e il comportamento atteso del prodotto finale dal punto di vista dell’esperienza utente.
+\paragraph{Supporto da parte del proponente} Il supporto non viene specificato.
+\paragraph{Estensibilità del progetto} Il proponente fornisce alcuni requisiti funzionali opzionali che riguardano l’integrazione con applicazioni di terze parti e la gestione degli eventi e notifiche. Più corposi e interessanti sono i requisiti di sicurezza opzionali che rendono il progetto molto più completo.
+\paragraph{Interesse} Il gruppo ha dimostrato un interesse moderato nei confronti del tema proposto dal capitolato.
+\\\\In conclusione, il gruppo ha deciso di inserire il progetto tra i propri preferiti.
+
+
+\subsection{C8 - Smart Order}
+\textbf{Proponente}: Ergon.
+\subsubsection{Obiettivo}
+Sviluppare una piattaforma in grado di automatizzare la ricezione dell'ordine di acquisto da parte dei clienti di un’azienda. L’obiettivo è interpretare correttamente dati spesso non strutturati, ricevuti tramite testi scritti (email, chat e moduli), messaggi vocali (registrazioni e telefonate) o immagini, e trasformarli in ordini cliente normalizzati, pronti per l’inserimento nel \textit{database} aziendale. 
+Il problema può essere affrontato efficacemente mediante l’uso di modelli di \textit{Machine Learning} in grado di compiere l’elaborazione sopra citata, con particolare attenzione alla modularità con cui essi devono agire nella pipeline dell’ordine.
+\subsubsection{Considerazioni}
+\paragraph{Complessità tecnica} Il capitolato presenta un livello di complessità tecnica medio, in quanto l’architettura proposta richiede l’implementazione di numerosi moduli tra cui la raccolta dei dati e il pre-processing. Inoltre, si richiede l’integrazione con \textit{API REST${_G}$} e un database vettoriale. Per quanto riguarda il ruolo del \textit{ML}, viene proposto l’utilizzo di modelli \textit{pre-trained} i quali rendono molto più semplice il loro utilizzo rispetto che alla loro creazione e addestramento.
+\paragraph{Opportunità di apprendimento} Le opportunità di apprendimento sono molteplici, soprattutto per quanto riguarda le tecnologie usate per la rappresentazione dei dati, come \textit{Angular} o \textit{React.js}, l’utilizzo di modelli di \textit{IA} e la memorizzazione tramite database vettoriali. Invece non presenta particolari punti innovativi per la memorizzazione permanente dei dati attraverso database relazionali, come \textit{MySQL}. Inoltre non permette di approfondire l’\textit{IA} oltre che al suo utilizzo \textit{black-box${_G}$}.
+\paragraph{Chiarezza progettuale} Il capitolato è stato presentato chiaramente, descrivendo dettagliatamente le tecnologie proposte. In modo meno esplicito sono stati descritti i requisiti della piattaforma.
+\paragraph{Supporto da parte del proponente} Il supporto dell’azienda, secondo il documento di presentazione del progetto, è adeguato. Ergon si impegna a fornire ampio supporto da parte del team di Ricerca e Sviluppo (R\&D), assegnando una persona di riferimento interna. Assicura la possibilità di confronti in presenza o da remoto tramite email, chat e incontri.
+\paragraph{Estensibilità del progetto} Essendo i requisiti essenziali non ben specificati, risulta difficile l’individuazione di eventuali funzionalità aggiuntive. Questo potrebbe essere fatto conseguentemente all’analisi dei requisiti.
+\paragraph{Interesse} Il gruppo ha dimostrato un interesse ridotto, in quanto le tecnologie e le opportunità di apprendimento proposte da questo sono molto simili ad altri capitolati di maggiore interesse.
+\\\\In conclusione, il gruppo ha ritenuto più opportuno focalizzarsi su altri capitolati.
+\end{document}

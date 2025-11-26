@@ -1,0 +1,51 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../template}
+
+\setDocIndex{nome documento senza versione}
+\setDocTitle{titolo documento}
+\setDocVersion{versione documento}
+\setDocState{0}
+\setDocRecipient{1}
+
+% comandi extra (rimuovere questi commenti una volta approvato il documento)
+%
+% -- costanti --
+% \noOne [-]
+% \noRole [ND]
+% \firstDraft [Prima stesura]
+% \approval [Approvazione]
+% \teamName [SnakeByte]
+% \teamEmail [snakebyteteam@gmail.com]
+% \teamRepo [https://github.com/SnakeByteTeam/snakebyteteam.github.io]
+% \teamSite [https://snakebyteteam.github.io/]
+% \recipientTeachers [prof. Vardanega Tullio, prof. Cardin Riccardo]
+% \vimar [Vimar]
+% \vimarspa [Vimar S.p.A.]
+%
+% -- variabili --
+% \docIndex | \setDocIndex{nome documento senza versione}
+% \docTitle | \setDocTitle{titolo documento} 
+% \docData | \setDocData{data documento} [GG/MM/AAAA]
+% \docVersion | \setDocVersion{versione documento}
+% \docState | \setDocState{0|1|2} [Da verificare][Verificato][Approvato]
+% \docRecipient [table] | \setDocRecipient{0|1|2} [SnakeByte][SnakeByte, prof][SnakeByte, prof, vimar]
+%
+% -- pagine intere --
+% \makeTitlePage
+% \addChangelog{versione}{data}{autore}{verificatore}{approvatore}{descrizione} | \makeTodoTable
+
+\begin{document}
+
+\makeTitlePage
+
+\addChangelog{\docVersion}{\docData}{autore}{verificatore}{approvatore}{descrizione}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\end{document}
