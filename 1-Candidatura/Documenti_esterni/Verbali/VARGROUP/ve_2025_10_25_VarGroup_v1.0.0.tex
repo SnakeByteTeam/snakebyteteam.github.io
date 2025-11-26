@@ -1,0 +1,146 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[nomarginpar, margin=2.75cm, tmargin=3cm, bmargin=1.75cm]{geometry}
+\usepackage[
+    colorlinks=true,      
+    linkcolor=black,      
+    urlcolor=blue,       
+    citecolor=black
+]{hyperref}
+\usepackage{graphicx}
+\usepackage[table, x11names]{xcolor}
+\usepackage{tabularx}
+\renewcommand{\arraystretch}{1.2} % migliora la leggibilità
+\renewcommand{\contentsname}{Indice}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{SnakeByte} 
+\fancyhead[R]{Verbale esterno 25/10/2025}
+\fancyfoot[C]{\thepage}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \begin{center}
+            \includegraphics[width=0.6\textwidth]{./img/logo.pdf}
+        \end{center}
+        \vspace{4cm}
+        \huge\textbf{Verbale esterno 25/10/2025}\par
+        \vspace{2cm}
+        \large \textbf{SnakeByte} (Gruppo 1):\\
+        \large Valeria Baleanu, Leonardo Pellizzon, Filippo Venzo, Giuseppe De Fina, \\
+         Francesco Pasqual, Christian Libralato, Luca Granziero \\
+        (2109911, 2111006, 2113705, 2113187, 2103119, 2101047, 2075512)
+        \vfill
+        \small
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \multicolumn{4}{|c|}{\textbf{Informazioni documento}} \\
+                \hline
+                \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
+                \hline
+                1.0.0 & 25/10/2025 & Approvato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo, VarGroup\\
+                \hline
+            \end{tabular}
+        \end{center}
+        \vfill
+        \large Contatti: snakebyteteam@gmail.com
+    \end{center}
+\end{titlepage}
+
+\newpage
+
+\begin{center}
+    \begin{tabularx}{\textwidth}{|c|c|c|c|c|X|}
+        \hline
+        \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
+        \hline
+        \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+        \hline
+        1.0.0 & 29/10/2025 & C. Libralato & V. Baleanu & L. Pellizzon & Approvazione \\
+        \hline
+        0.1.0 & 25/10/2025 & C. Libralato & V. Baleanu & - & Prima stesura \\
+        \hline
+    \end{tabularx}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Informazioni}{
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \rowcolor{lightgray} \textbf{Data} & \textbf{Ora inizio} & \textbf{Ora fine} & \textbf{Modalità} \\
+            \hline
+            25/10/2025 & - & - & via Email \\
+            \hline
+        \end{tabular}    
+    \end{center}
+}
+
+\section{Presenze}{
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \rowcolor{lightgray} \textbf{Nome} & \textbf{Cognome} & \textbf{Ruolo} & \textbf{Presenza} \\
+            \hline
+            Valeria & Baleanu & ND & P \\
+            \hline
+            Leonardo & Pellizzon & Responsabile & P \\
+            \hline
+            Filippo & Venzo & ND & P \\
+            \hline
+            Giuseppe & De Fina & ND & P \\
+            \hline
+            Francesco & Pasqual & ND & P \\
+            \hline
+            Christian & Libralato & ND & P \\
+            \hline
+            Luca & Granziero & ND & P \\
+            \hline
+        \end{tabular}    
+    \end{center}
+}
+
+\section{Ordine del giorno}{
+    Il gruppo ha posto alcune domande al proponente \textbf{Var Group S.p.A.} riguardo al capitolato \textbf{Code Guardian}.
+}
+
+\section{Approfondimento}{
+    \subsection{Domande}{
+        \begin{enumerate}
+            \item \textbf{Domanda}: Nel progetto si parla di agenti in grado di analizzare repository e suggerire azioni di remediation: ci verranno forniti alcuni agenti pre-addestrati (e quindi noi ci occuperemo solo di creare l’architettura e l’orchestratore) o ci si aspetta che li sviluppiamo e addestriamo autonomamente? Nel secondo caso, è necessario, ai fini di un’analisi accurata e completa, l’utilizzo di LLM di grandi dimensioni o è sufficiente usare modelli più leggeri che girano facilmente in locale? \\ \\
+            \textbf{Risposta}: Prenderemo una decisione definitiva dopo l’attività di design thinking, potrebbe essere che alcune cose vengano fornite da noi altre che dovrete realizzare voi più che altro per verificare il funzionamento dei processi di orchestrazione e aggiunta e modifica degli LLM non tanto per il risultato finale del singolo agente.
+            \item \textbf{Domanda}: In entrambi i casi del punto 1, è previsto che l’azienda metta a disposizione licenze o accessi a servizi, API o LLM professionali a pagamento, oppure dovremo lavorare esclusivamente con modelli open source o gratuiti, con le relative limitazioni di utilizzo? \\ \\
+            \textbf{Risposta}: Si in base alle necessità metteremo a disposizione gli strumenti utili. Dove possibile partiamo prima da modelli open source. \\
+            \item \textbf{Domanda}: Se le repository proprietarie del cliente sono private in che modo si dovrà implementare un sistema per averne accesso?\\ \\
+            \textbf{Risposta}: vi metteremo a disposizione degli accessi Github.\\
+            \item \textbf{Domanda}: L'analisi statica di N repository è computazionalmente onerosa. Qual è la strategia di architettura su AWS (visto che è un requisito) per scalare gli agenti di analisi in modo efficiente mantenendo i costi operativi sostenibili?  \\ \\
+            \textbf{Risposta}: L’analisi statica la faremo verso servizi quali sonarCloud o altra soluzione che è già in uso in azienda. Ma prima dobbiamo analizzare i flussi nel design thinking. 
+            \item \textbf{Domanda}: Per quanto riguarda il supporto fornito dal vostro team: saranno previsti incontri formativi per approcciarsi alle nuove tecnologie proposte? In caso positivo, verranno svolti in presenza? E con quale cadenza? \\ \\
+            \textbf{Risposta}: A seguito del design thinking mapperemo le vostre necessità e organizzeremo dei corsi formativi. 
+        \end{enumerate}
+    }
+}
+
+\section{Attività da svolgere}{
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|c|X|c|}
+            \hline
+            \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Id GitHub Issue} \\
+            \hline
+            ve\_2025\_10\_25\_VarGroup.a1 & Ogni componente del gruppo dovrà analizzare le risposte ricevute al fine di valutare se il capitolato \emph{Code Guardian} rispecchia il suo interesse & - \\
+            \hline
+        \end{tabularx}
+    \end{center}
+}
+
+
+\end{document}

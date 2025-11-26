@@ -1,0 +1,143 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[nomarginpar, margin=2.75cm, tmargin=3cm, bmargin=1.75cm]{geometry}
+\usepackage[
+    colorlinks=true,      
+    linkcolor=black,      
+    urlcolor=blue,       
+    citecolor=black
+]{hyperref}
+\usepackage{graphicx}
+\usepackage[table, x11names]{xcolor}
+\usepackage{tabularx}
+\renewcommand{\arraystretch}{1.2} % migliora la leggibilità
+\renewcommand{\contentsname}{Indice}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{SnakeByte} 
+\fancyhead[R]{Verbale esterno 21/10/2025}
+\fancyfoot[C]{\thepage}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \begin{center}
+            \includegraphics[width=0.6\textwidth]{./img/logo.pdf}
+        \end{center}
+        \vspace{4cm}
+        \huge\textbf{Verbale esterno 21/10/2025}\par
+        \vspace{2cm}
+        \large \textbf{SnakeByte} (Gruppo 1):\\
+        \large Valeria Baleanu, Leonardo Pellizzon, Filippo Venzo, Giuseppe De Fina, \\
+         Francesco Pasqual, Christian Libralato, Luca Granziero \\
+        (2109911, 2111006, 2113705, 2113187, 2103119, 2101047, 2075512)
+        \vfill
+        \small
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \multicolumn{4}{|c|}{\textbf{Informazioni documento}} \\
+                \hline
+                \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
+                \hline
+                0.1.0 & 21/10/2025 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo, M31 \\
+                \hline
+            \end{tabular}
+        \end{center}
+        \vfill
+        \large Contatti: snakebyteteam@gmail.com
+    \end{center}
+\end{titlepage}
+
+\newpage
+
+\begin{center}
+    \begin{tabularx}{\textwidth}{|c|c|c|c|c|X|}
+        \hline
+        \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
+        \hline
+        \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+        \hline
+        0.1.0 & 21/10/2025 & V. Baleanu & C. Libralato & - & Prima stesura \\
+        \hline
+    \end{tabularx}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Informazioni}{
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \rowcolor{lightgray} \textbf{Data} & \textbf{Ora inizio} & \textbf{Ora fine} & \textbf{Modalità} \\
+            \hline
+            21/10/2025 & - & - & via Email \\
+            \hline
+        \end{tabular}    
+    \end{center}
+}
+
+\section{Presenze}{
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \rowcolor{lightgray} \textbf{Nome} & \textbf{Cognome} & \textbf{Ruolo} & \textbf{Presenza} \\
+            \hline
+            Valeria & Baleanu & ND & P \\
+            \hline
+            Leonardo & Pellizzon & Responsabile & P \\
+            \hline
+            Filippo & Venzo & ND & P \\
+            \hline
+            Giuseppe & De Fina & ND & P \\
+            \hline
+            Francesco & Pasqual & ND & P \\
+            \hline
+            Christian & Libralato & ND & P \\
+            \hline
+            Luca & Granziero & ND & P \\
+            \hline
+        \end{tabular}    
+    \end{center}
+}
+
+\section{Ordine del giorno}{
+    Il gruppo ha posto alcune domande al proponente \textbf{M31 S.r.l.} riguardo al progetto \textbf{Sistema di acquisizione dati da sensori}.
+}
+
+\section{Approfondimento}{
+    \subsection{Domande}{
+        \begin{enumerate}
+            \item \textbf{Domanda}: Per dimensionare correttamente il simulatore gateway, sarà necessario avere una stima del flusso di comunicazione medio tra sensori e gateway (frequenza di trasmissione o numero medio di sensori attivi)? \\ \\
+            \textbf{Risposta}: Per quanto riguarda il simulatore, vorremmo che fosse configurabile, ad esempio tramite un file .env  contenente i parametri necessari. Molto dipenderà dal modo in cui si deciderà di implementarlo, ma questi dettagli potremo definirli insieme al momento opportuno.
+Ci teniamo in particolare che, una volta registrati i sensori all’interno della dashboard, i loro identificativi restino persistenti (vedi RQ2.4). In questo modo, anche dopo un riavvio del simulatore, sarà possibile visualizzare i dati relativi a specifici sensori su un intervallo di giorni più ampio.
+            \item \textbf{Domanda}: Per quanto riguarda la dashboard per gli utenti, ci sono linee guida e/o stili aziendali che si andranno ad usare oppure avremo ‘carta bianca’ sullo stile dell’interfaccia utente? \\ \\
+            \textbf{Risposta}: Non esistono linee guida aziendali da seguire a riguardo, quindi avete piena libertà decisionale. L’interfaccia minimale che realizzerete ci serve principalmente per poter testare il funzionamento dell’applicativo. Sebbene apprezziamo un’interfaccia pulita e coerente, preferiremmo che vi concentraste maggiormente sulla parte architetturale, poiché sicuramente più formativa e pertinente al corso di ingegneria. \\
+            \item \textbf{Domanda}: Sensori e gateway simulato dovranno comunicare simulando esattamente la comunicazione tra i dispositivi fisici? Quale sarà il livello di similarità tra gateway simulato e reale?\\ \\
+            \textbf{Risposta}: No, non è necessario simulare la comunicazione reale: sarà sufficiente gestire la generazione dei dati in modo programmatico, come indicato nel RQ1. Il gateway, per noi, sarà semplicemente un applicativo (realizzato nel linguaggio che sceglierete) che permetta quanto descritto nel RQ2. I dettagli specifici li definiremo insieme. Siamo consapevoli del tempo limitato a vostra disposizione e siamo disponibili a venirvi incontro, se necessario.\\
+            \item \textbf{Domanda}: Il simulatore deve permettere la connessione con nuovi sensori e la loro configurazione? \\ \\
+            \textbf{Risposta}: Sì, come già accennato in alcune risposte precedenti, ci aspettiamo che tramite l’interfaccia sia possibile effettuare il commissioning dei sensori, ovvero registrarli. 
+        \end{enumerate}
+    }
+}
+
+\section{Attività da svolgere}{
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|c|X|c|}
+            \hline
+            \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Id GitHub Issue} \\
+            \hline
+            ve\_21-10-2025\_M31.a1 & Ogni componente del gruppo dovrà analizzare le risposte ricevute al fine di valutare se il capitolato \emph{Sistema di acquisizione dati da sensori} rispecchia il suo interesse & - \\
+            \hline
+        \end{tabularx}
+    \end{center}
+}
+
+
+\end{document}
