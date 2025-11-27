@@ -58,6 +58,7 @@
 }
 
 \newcommand{\noRole}{ND}
+\newcommand{\noOne}{-}
 
 % aggiungere un partecipante alla riunione
 \newcommand{\memberEntries}{}
@@ -86,6 +87,10 @@
 
 \newcommand{\addPrecedentTodo}[5]{
   \gappto{\precedentTodoEntries}{#1 & #2 & #3 & #4 & #5 \\ \hline}
+}
+
+\newcommand{\addManualTodo}[5]{
+  \gappto{\todoEntries}{#1 & #2 & #3 & #4 & #5 \\ \hline}
 }
 
 \newcounter{todoctr}
@@ -121,11 +126,11 @@
 % imposta tabella delle attività da svolgere
 \newcommand{\makeTodoFrame}{
     \begin{frame}{Attività da completare}
-      \small
+      \tiny
       \begin{center}
-          \begin{tabularx}{\textwidth}{|c|c|X|X|c|}
+          \begin{tabularx}{\textwidth}{|c|c|X|p{2cm}|c|}
               \hline
-              \rowcolor{aziendaPrimary!10} \textcolor{aziendaPrimary}{\textbf{Id}} & \textcolor{aziendaPrimary}{\textbf{Id GitHub Issue}} 
+              \rowcolor{aziendaPrimary!10} \textcolor{aziendaPrimary}{\textbf{Id}} & \textcolor{aziendaPrimary}{\textbf{Issue}} 
               & \textcolor{aziendaPrimary}{\textbf{Descrizione}} & \textcolor{aziendaPrimary}{\textbf{Assegnatario}} 
               & \textcolor{aziendaPrimary}{\textbf{Scadenza}} \\
               \hline
