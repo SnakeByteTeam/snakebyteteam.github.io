@@ -20,6 +20,8 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/ifvtex.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/iftex/iftex.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/url/url.sty
+INPUT /usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/kvsetkeys/kvsetkeys.sty
@@ -56,8 +58,6 @@ INPUT /usr/share/texlive/texmf-dist/tex/generic/intcalc/intcalc.sty
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
 INPUT /usr/share/texlive/texmf-dist/tex/latex/hyperref/puenc.def
-INPUT /usr/share/texlive/texmf-dist/tex/latex/url/url.sty
-INPUT /usr/share/texlive/texmf-dist/tex/latex/url/url.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/bitset/bitset.sty
 INPUT /usr/share/texlive/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
