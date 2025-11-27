@@ -1,5 +1,0 @@
-\contentsline {section}{\numberline {1}Informazioni}{3}{section.1}%
-\contentsline {section}{\numberline {2}Presenze}{3}{section.2}%
-\contentsline {section}{\numberline {3}Attività svolte}{3}{section.3}%
-\contentsline {section}{\numberline {4}Attività da svolgere}{3}{section.4}%
-\contentsline {section}{\numberline {5}Decisioni}{3}{section.5}%
