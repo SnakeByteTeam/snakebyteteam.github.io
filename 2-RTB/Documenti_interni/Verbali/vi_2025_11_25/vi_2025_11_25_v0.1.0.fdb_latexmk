@@ -1,9 +1,9 @@
 # Fdb version 4
-["pdflatex"] 1764263220.79738 "/home/francesco/Desktop/swe/snakebyteteam.github.io/2-RTB/Documenti_interni/Verbali/vi_2025_11_25/vi_2025_11_25_v0.1.0.tex" "vi_2025_11_25_v0.1.0.pdf" "vi_2025_11_25_v0.1.0" 1764263223.29842 0
-  "../../../../template/template.sty" 1764263213.85729 8028 e122d129025fd444787dea6b08876657 ""
+["pdflatex"] 1764266202.39513 "/home/francesco/Desktop/swe/snakebyteteam.github.io/2-RTB/Documenti_interni/Verbali/vi_2025_11_25/vi_2025_11_25_v0.1.0.tex" "vi_2025_11_25_v0.1.0.pdf" "vi_2025_11_25_v0.1.0" 1764266202.93299 0
+  "../../../../template/template.sty" 1764263267.59269 8028 e122d129025fd444787dea6b08876657 ""
   "/etc/texmf/web2c/texmf.cnf" 1761040179.88912 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/home/francesco/.texlive2025/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk" 1761040259.9808 11524 d5cdd46201ab8d583855bd8114926e00 ""
-  "/home/francesco/Desktop/swe/snakebyteteam.github.io/2-RTB/Documenti_interni/Verbali/vi_2025_11_25/vi_2025_11_25_v0.1.0.tex" 1764263107.78875 7994 5c99d94782e8b8e1ad2b139d6fd98576 ""
+  "/home/francesco/Desktop/swe/snakebyteteam.github.io/2-RTB/Documenti_interni/Verbali/vi_2025_11_25/vi_2025_11_25_v0.1.0.tex" 1764266202.20241 7972 ea2fb82945abab15745837ecbac1d40a ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/jknappen/ec/tcrm1000.tfm" 1136768653 1536 e07581a4bb3136ece9eeb4c3ffab8233 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/cm/cmbx10.tfm" 1136768653 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -87,10 +87,10 @@
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1761040192 128227 ed67923a37f7748d267799454bc1f95b ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1763283539 1928197 e69b68dedd73ae56dde5a3d38dcf3f0c ""
   "img/logo.pdf" 1764225405.85033 5682 395b15d11fd80d41fe6207fe5184dd96 ""
-  "vi_2025_11_25_v0.1.0.aux" 1764263223.0774 1056 509162ffe9a6257e2a8daa9114988cc9 "pdflatex"
-  "vi_2025_11_25_v0.1.0.out" 1764263223.07941 802 47a4c8d39edc09d2e6f33870b98fc8d8 "pdflatex"
-  "vi_2025_11_25_v0.1.0.tex" 1764263107.78875 7994 5c99d94782e8b8e1ad2b139d6fd98576 ""
-  "vi_2025_11_25_v0.1.0.toc" 1764263223.0804 490 68b055eaac9c3696e3e6244d49b346c3 "pdflatex"
+  "vi_2025_11_25_v0.1.0.aux" 1764266202.8894 1056 509162ffe9a6257e2a8daa9114988cc9 "pdflatex"
+  "vi_2025_11_25_v0.1.0.out" 1764266202.8904 802 47a4c8d39edc09d2e6f33870b98fc8d8 "pdflatex"
+  "vi_2025_11_25_v0.1.0.tex" 1764266202.20241 7972 ea2fb82945abab15745837ecbac1d40a ""
+  "vi_2025_11_25_v0.1.0.toc" 1764266202.8904 490 68b055eaac9c3696e3e6244d49b346c3 "pdflatex"
   (generated)
   "vi_2025_11_25_v0.1.0.aux"
   "vi_2025_11_25_v0.1.0.log"
