@@ -278,12 +278,50 @@ La stesura e l'aggiornamento dei documenti è affidata alla persona che ricopre,
 Differentemente dagli altri documenti, ogni verbale viene redatto da una persona decisa durante la rispettiva riunione. 
 
 \trisubsection{Redazione dell'analisi dei requisiti}
-Differentemente dagli altri documenti, l'analisi dei requisiti viene redatta dalla persona incaricata in quel momento del ruolo di \textit{analista} (\hyperref[sec:Analista]{Sezione \textit{§4.1.1.5}}). 
+Differentemente dagli altri documenti, l'analisi dei requisiti viene redatta dalla persona incaricata in quel momento del ruolo di 
+\textit{analista} (\hyperref[sec:Analista]{Sezione \textit{§4.1.1.5}}). 
 
 \subsubsection{Verifica dei documenti}
 Ogni documento dopo essere stato redatto, deve essere verificato, ovvero la correttezza delle informazioni in esso contenute devono essere confermate.
 
 L'azione di verifica dei documenti viene effettuata dalla persona che ricopre, in quel periodo, il ruolo di \textit{verificatore$_{G}$}. 
+
+\trisubsection{Processo di verifica tramite \textit{pull request$_G$}}
+Il processo di verifica dei documenti adotta il meccanismo delle \textit{pull request} offerto dalla piattaforma \textit{GitHub}.
+Tale strumento garantisce che nessuna modifica venga integrata nel \textit{branch} principale (\texttt{develop}) senza un controllo esplicito del verificatore,
+il quale può approvare il documento o richiedere ulteriori modifiche direttamente all'interno della sezione \textit{pull request} di \textit{GitHub}. 
+L'intero ciclo di revisione, incluse eventuali correzioni successive, avviene all'interno di un'unica \textit{pull request}, 
+garantendo la tracciabilità delle discussioni e dei \textit{commit} di modifica. \\
+
+Di seguito viene dettagliato il \textit{workflow} operativo:
+
+\begin{enumerate}
+    \item \textbf{Apertura della Richiesta} \\
+    Il redattore, completato il lavoro sul proprio \textit{branch} locale ed effettuato il \textit{push} in remoto, apre una nuova \textit{pull request} 
+    verso il branch \texttt{develop}. In questa fase deve:
+    \begin{itemize}
+        \item Assegnare il corretto verificatore e impostare i \textit{tag};
+        \item collegare la richiesta alla relativa \textit{Issue} di progetto.
+    \end{itemize}
+
+    \item \textbf{Revisione} \\
+    Il verificatore riceve la notifica ed esamina le modifiche. A questo punto si presentano due scenari:
+    \begin{enumerate}
+        \item \textbf{Esito Positivo:} Se il lavoro è corretto e completo, il verificatore approva la \textit{pull request} 
+        e procede al \textit{merge} automatico del branch. \\ Il processo di verifica è concluso.
+        \item \textbf{Richiesta di Modifiche:} Se sono necessari cambiamenti, il verificatore inserisce commenti \textit{inline} 
+        sui punti critici e imposta lo stato della revisione su \textit{Request changes}.
+    \end{enumerate}
+
+    \item \textbf{Risoluzione e Nuova Verifica} (in caso di esito negativo) \\
+    Nel caso siano state richieste modifiche:
+    \begin{enumerate}
+        \item Il redattore applica le correzioni in locale ed effettua un nuovo \textit{push} sullo stesso branch 
+        (aggiornando automaticamente la \textit{pull request} esistente).
+        \item Il redattore risponde ai commenti o li risolve e richiede una nuova revisione (\textit{Re-request review}).
+        \item Il processo riprende dal punto 2 fino all'ottenimento dell'approvazione.
+    \end{enumerate}
+\end{enumerate}
 
 \subsubsection{Approvazione dei documenti}
 Ogni documento, dopo essere stato approvato, deve essere approvato per poter essere rilasciato sulla documentazione ufficiale del progetto.
