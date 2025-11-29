@@ -290,12 +290,12 @@ L'azione di verifica dei documenti viene effettuata dalla persona che ricopre, i
 
 \trisubsection{Processo di verifica tramite \textit{pull request$_G$}}
 Il processo di verifica dei documenti adotta il meccanismo delle \textit{pull request} offerto dalla piattaforma \textit{GitHub}.
-Tale strumento garantisce che nessuna modifica venga integrata nel \textit{branch} principale (\texttt{develop}) senza un controllo esplicito del verificatore,
-il quale può approvare il documento o richiedere ulteriori modifiche direttamente all'interno della sezione \textit{pull request} di \textit{GitHub}. 
+Tale strumento garantisce che nessuna modifica venga integrata nel \textit{branch} principale (\texttt{main}) o nel branch di sviluppo principale (\texttt{develop}) senza un controllo esplicito del verificatore,
+il quale può approvare il documento o richiedere ulteriori modifiche direttamente all'interno della sezione \textit{pull request} di \textit{GitHub}. \\
 L'intero ciclo di revisione, incluse eventuali correzioni successive, avviene all'interno di un'unica \textit{pull request}, 
 garantendo la tracciabilità delle discussioni e dei \textit{commit} di modifica. \\
 
-Di seguito viene dettagliato il \textit{workflow} operativo:
+Di seguito viene definito il \textit{workflow} operativo:
 
 \begin{enumerate}
     \item \textbf{Apertura della Richiesta} \\
@@ -310,7 +310,7 @@ Di seguito viene dettagliato il \textit{workflow} operativo:
     Il verificatore riceve la notifica ed esamina le modifiche. A questo punto si presentano due scenari:
     \begin{enumerate}
         \item \textbf{Esito Positivo:} Se il lavoro è corretto e completo, il verificatore approva la \textit{pull request} 
-        e procede al \textit{merge} automatico del branch. \\ Il processo di verifica è concluso.
+        e procede al \textit{merge} automatico del branch nel branch di sviluppo principale o nel \texttt{main}. \\ Il processo di verifica è concluso.
         \item \textbf{Richiesta di Modifiche:} Se sono necessari cambiamenti, il verificatore inserisce commenti \textit{inline} 
         sui punti critici e imposta lo stato della revisione su \textit{Request changes}.
     \end{enumerate}
@@ -326,7 +326,8 @@ Di seguito viene dettagliato il \textit{workflow} operativo:
 \end{enumerate}
 
 \subsubsection{Approvazione dei documenti}
-Ogni documento, dopo essere stato approvato, deve essere approvato per poter essere rilasciato sulla documentazione ufficiale del progetto.
+Ogni documento, dopo essere stato verificato, deve essere approvato per poter essere rilasciato come documentazione ufficiale 
+del progetto nel branch (\texttt{main}).
 
 L'approvazione avviene da chi, in quel periodo, ricopre la figura di \textit{responsabile$_{G}$}
 
