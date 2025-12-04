@@ -13,6 +13,8 @@
 \renewcommand{\arraystretch}{1.2} % migliora la leggibilità
 \renewcommand{\contentsname}{Indice}
 \usepackage{fancyhdr}
+\usepackage{template}
+
 %Comandi per livello di sottosezioni = 3
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -64,9 +66,9 @@
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
         \hline
-        0.1.2 & 24/10/2025 & F. Venzo & - & - & Aggiunta Use Cases UC4, UC4.1 \\
+        0.1.2 & 24/10/2025 & F. Venzo & - & - & Modifica UC1, UC2 \\
         \hline
-        0.1.1 & 20/10/2025 & F. Venzo & V. Baleanu & - & Aggiunta Use Cases UC1, UC1.1, UC1.2, UC1.3, UC2, UC2.1, UC2.2, UC2.3, UC2.4, UC2.5, UC2.6, UC2.7, UC3 \\
+        0.1.1 & 20/10/2025 & F. Venzo & V. Baleanu & - & Aggiunta Use Cases UC1, UC1.1, UC1.2, UC1.3, UC2, UC2.1, UC2.1, UC2.3, UC2.4, UC2.5, UC2.6, UC2.7, UC3 \\
         \hline
         0.1.0 & 05/10/2025 & L. Granziero & L. Pellizon & - & Prima Stesura \\
         \hline
@@ -122,7 +124,7 @@ Il presente documento è stato sviluppato in modo graduale e incrementale, con l
 \begin{itemize}
     \item \textbf{Norme di Progetto}: 
     
-    \url{link-alle-norme-di-progetto} 
+    \url{link-alle-norme-di-progetto}  (non ci sono sul sito)
     
     (consultato il 30/10/2025);
     \item \textbf{Vimar View4Life Capitolato di Ingegneria del Software Università di Padova 2025 - 2026:}
@@ -223,649 +225,283 @@ Di seguito vengono riportati gli attori individuati
         \hline
         \rowcolor{lightgray} \textbf{Attore} & \textbf{Descrizione} \\
         \hline
+        Utente & Rappresenta l'utente generico (sia Admin che del personale sanitario) \\
+        \hline
         Utente personale sanitario & Rappresenta il personale sanitario. \\
-        \hline         
+        \hline 
+        Utente admin & Rappresenta l'amministratore della struttura il quale gestice la struttura e il personale sanitario \\
+        \hline          
     \end{tabularx}
 \end{center}
 
+
+
 \subsection{Lista dei casi d'uso}
 
-\subsubsection{UC1: Autenticazione}
+\subsubsection{UC1: Autenticazione} \label{UC1}
 
 \begin{center}
     \includegraphics[width=0.6\textwidth]{./img/UC1.pdf}
 \end{center}
 
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente non è autenticato nel Sistema.}
+\addPostCondizione{L'utente è autenticato nel Sistema}
+\addTrigger{L'utente vuole autenticarsi nel Sistema}
+\addScenarioPrincipale{L'utente inserisce il proprio Username;}
+\addScenarioPrincipale{L'utente inserisce la propria Password.}
+\addInclusione{Inserimento Username \hyperref[UC1.1]{\textit{§UC1.1}}}
+\addInclusione{Inserimento Password \hyperref[UC1.2]{\textit{§UC1.2}}}
+\addScenarioAlternativo{L'utente inserisce Username o Password errate.}
+\addEstensione{Autenticazione fallita \hyperref[UC1.3]{\textit{§UC1.3}}}
 
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo
-            \item L'utente del personale sanitario non è autenticato nel Sistema.
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario è autenticato nel Sistema.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole autenticarsi nel Sistema;
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario inserisce il proprio Username;
-            \item L'utente del personale sanitario inserisce la propria Password.
-        \end{itemize}
-    
-    \item \textbf{Inclusioni}:
-        \begin{itemize}
-            \item \hyperref[UC1.1]{§UC1.1}
-            \item \hyperref[UC1.2]{§UC1.2}
-        \end{itemize}
-
-    \item \textbf{Scenari alternativi}:
-        \begin{itemize}
-            \item L'utente del personale sanitario inserisce Username o Password errate.
-        \end{itemize}
-
-    \item \textbf{Estensioni}:
-        \begin{itemize}
-            \item \hyperref[UC1.3]{§UC1.3}
-        \end{itemize}
-    
-\end{itemize}
+\makeTable
 
 
 \trisubsection{UC1.1 Inserimento Username} \label{UC1.1}
-\texttt{<diagramma d'uso>}
 
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente non è autenticato nel Sistema;}
+\addPreCondizione{Il Sistema non conosce l'Username dell'utente.}
 
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario non è autenticato nel Sistema;
-            \item L'utente del personale sanitario ha selezionato l'opzione di inserimento dell'Username;
-            \item Il Sistema non conosce l'Username dell'utente del personale sanitario.
-        \end{itemize}
+\addPostCondizione{Il Sistema conosce l'Username dell'utente.}
+\addScenarioPrincipale{L'utente inserisce il proprio Username.}
 
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item Il Sistema conosce l'Username dell'utente del personale sanitario.
-        \end{itemize}
+\addTrigger{L'utente ha selezionato l'opzione di inserimento dell'Username.}
 
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole autenticarsi nel Sistema;
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario inserisce il proprio Username;
-        \end{itemize}
-    
-\end{itemize}
+\makeTable
 
 \trisubsection{UC1.2 Inserimento Password} \label{UC1.2}
-\texttt{<diagramma d'uso>}
 
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente non è autenticato nel Sistema;}
+\addPreCondizione{Il Sistema non conosce la Password dell'utente.}
 
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario non è autenticato nel Sistema;
-            \item L'utente del personale sanitario ha selezionato l'opzione di inserimento della Password;
-            \item Il Sistema non conosce la Password dell'utente del personale sanitario.
-        \end{itemize}
+\addPostCondizione{Il Sistema conosce la Password dell'utente.}
+\addScenarioPrincipale{L'utente inserisce la propria Password.}
 
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item Il Sistema conosce la Password dell'utente del personale sanitario.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole autenticarsi nel Sistema;
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario inserisce la propria Password;
-        \end{itemize}
-    
-\end{itemize}
+\addTrigger{L'utente ha selezionato l'opzione di inserimento della Password;}
+\makeTable
 
 \trisubsection{UC1.3 Autenticazione fallita} \label{UC1.3}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario non è autenticato nel Sistema;
-            \item L'utente del personale sanitario ha immesso Username o Password errati;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item Il Sistema segnala l'errore di autenticazione; 
-            \item L'utente del personale sanitario non è autenticato.
-        \end{itemize}
-
-    \item \textbf{Trigger}: 
-    \begin{itemize}
-        \item L'utente del personale sanitario ha immesso Username errato;
-        \item L'utente del personale sanitario ha immesso Password errata;
-    \end{itemize}
-    
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item Il Sistema non autentica l'utente del personale sanitario;
-        \end{itemize}
-    
-\end{itemize}
-
-\subsubsection{UC2 Visualizza Dashboard} \label{UC2}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Dashboard riassuntiva.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole vedere la Dashboard riassuntiva.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario seleziona il menù relativo alla Dashboard. 
-        \end{itemize}
-    
-\end{itemize}
-
-
-\trisubsection{UC2.1 Visualizza sezione Allarmi attivi Dashboard} \label{UC2.1}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la sezione riassuntiva degli allarmi attivi nella Dashboard.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole vedere la sezione riassuntiva degli allarmi attivi nella Dashboard.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Dashboard (Vedi \hyperref[UC2]{§UC2})
-            \item L'utente sanitario visualizza la sezione riassuntiva degli allarmi attivi nella Dashboard
-        \end{itemize}
-    
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC2]{§UC2}
-        \end{itemize}
-    
-\end{itemize}
-
-\trisubsection{UC2.2 Visualizza sezione Statistiche allarmi Dashboard} \label{UC2.2}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la sezione riassuntiva delle statistiche allarmi nella Dashboard.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole vedere la sezione riassuntiva delle statistiche allarmi nella Dashboard.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Dashboard (Vedi \hyperref[UC2]{§UC2})
-            \item L'utente sanitario visualizza la sezione riassuntiva degli statistiche allarmi nella Dashboard
-        \end{itemize}
-    
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC2]{§UC2}
-        \end{itemize}
-\end{itemize}
-
-\trisubsection{UC2.3 Visualizza sezione Informazioni utente Dashboard} \label{UC2.3}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la sezione delle informazioni utente nella Dashboard.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole vedere la sezione delle informazioni utente nella Dashboard.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Dashboard (Vedi \hyperref[UC2]{§UC2})
-            \item L'utente sanitario visualizza la sezione delle informazioni utente nella Dashboard
-        \end{itemize}
-    
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC2]{§UC2}
-        \end{itemize}
-\end{itemize}
-
-\trisubsection{UC2.4 Visualizza sezione Analytics Dashboard} \label{UC2.4}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la sezione Analytics nella Dashboard.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole vedere la sezione Analytics nella Dashboard.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Dashboard (Vedi \hyperref[UC2]{§UC2})
-            \item L'utente sanitario visualizza la sezione Analytics nella Dashboard
-        \end{itemize}
-    
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC2]{§UC2}
-        \end{itemize}
-\end{itemize}
-
-\trisubsection{UC2.5 Visualizza informazioni allarme attivo} \label{UC2.5}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-            \item Il Sistema ha segnalato almeno un allarme.
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza le informazioni sull'allarme attivo.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole visualizzare la informazioni dell'allarme attivo.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Dashboard (Vedi \hyperref[UC2]{§UC2});
-            \item L'utente del personale sanitario visualizza la sezione allarmi attivi nella Dashboard (Vedi \hyperref[UC2.1]{§UC2.1});
-            \item L'utente del personale sanitario seleziona l'allarme attivo di cui vuole visualizzare le informazioni.
-        \end{itemize}
-    
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC2]{§UC2};
-            \item \hyperref[UC2.1]{§UC2.1}.
-        \end{itemize}
-\end{itemize}
-
-\trisubsection{UC2.6 Presa in carico allarme attivo} \label{UC2.6}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-            \item Il Sistema ha segnalato almeno un allarme.
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario prende in carico un allarme attivo.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole prendere in carico un allarme attivo.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Dashboard (Vedi \hyperref[UC2]{§UC2});
-            \item L'utente del personale sanitario visualizza la sezione allarmi attivi nella Dashboard (Vedi \hyperref[UC2.1]{§UC2.1});
-            \item L'utente del personale sanitario seleziona l'allarme attivo di cui vuole visualizzare le informazioni (Vedi \hyperref[UC2.5]{§UC2.5});
-            \item L'utente del personale sanitario seleziona l'allarme attivo di cui vuole prendere carico.
-        \end{itemize}
-    
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC2]{§UC2};
-            \item \hyperref[UC2.1]{§UC2.1};
-            \item \hyperref[UC2.5]{§UC2.5}.
-        \end{itemize}
-\end{itemize}
-
-\trisubsection{UC2.7 Risolvi allarme attivo} \label{UC2.7}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-            \item Il Sistema ha segnalato almeno un allarme;
-            \item L'utente del personale sanitario ha preso carico di almeno un'allarme.
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario risolve un allarme attivo.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole risolvere un allarme attivo.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Dashboard (Vedi \hyperref[UC2]{§UC2});
-            \item L'utente del personale sanitario visualizza la sezione allarmi attivi nella Dashboard (Vedi \hyperref[UC2.1]{§UC2.1});
-            \item L'utente del personale sanitario seleziona l'opzione di risoluzione, nella sezione degli allarmi attivi nella Dashboard, di un'allarme a suo carico.
-        \end{itemize}
-    
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC2]{§UC2};
-            \item \hyperref[UC2.1]{§UC2.1};
-        \end{itemize}
-\end{itemize}
-
-\trisubsection{UC2.8 Visualizza notifica Allarme attivo} \label{UC2.8}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-            \item Il Sistema ha segnalato almeno un allarme.
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la notifica di un allarme attivo.
-        \end{itemize}
-
-    \item \textbf{Trigger}: Il Sistema segnala, tramite notifica, l'attivazione di un allarme.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Dashboard (Vedi \hyperref[UC2]{§UC2});
-            \item L'utente del personale sanitario riceve la notifica Allarme attivo;
-            \item L'utente del personale sanitario visualizza la notifica Allarmo attivo.
-        \end{itemize}
-    
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC2]{§UC2};
-        \end{itemize}
-\end{itemize}
-
-\subsubsection{UC3 Visualizza Gestione allarmi} \label{UC3}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la sezione Gestione allarmi.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole vedere la sezione dedicata alla gestione degli allarmi.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario seleziona il menù relativo alla Gestione allarmi. 
-        \end{itemize}
-\end{itemize}
-
-\trisubsection{UC3.1 Visualizza allarmi attivi} \label{UC3.1}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza gli allarmi attivi nella sezione Gestione allarmi.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole vedere gli allarmi attivi nella sezione dedicata alla gestione degli allarmi.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Gestione allarmi (Vedi \hyperref[UC3]{§UC3}) 
-            \item L'utente del personale sanitario visualizza gli allarmi attivi nella Gestione allarmi
-        \end{itemize}
-
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC3]{§UC3}
-        \end{itemize}
-\end{itemize}
-
-\trisubsection{UC3.2 Visualizza allarmi passati} \label{UC3.2}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza gli allarmi passati nella sezione Gestione allarmi.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole vedere gli allarmi passati nella sezione dedicata alla gestione degli allarmi.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Gestione allarmi (Vedi \hyperref[UC3]{§UC3}) 
-            \item L'utente del personale sanitario visualizza gli allarmi passati nella Gestione allarmi
-        \end{itemize}
-
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC3]{§UC3}
-        \end{itemize}
-\end{itemize}
-
-\trisubsection{UC3.3 Visualizza informazioni allarme passato} \label{UC3.3}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza le informazioni di un allarme passato.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole visualizzare le informazioni di un allarme passato.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la Gestione allarmi (Vedi \hyperref[UC3]{§UC3}) 
-            \item L'utente del personale sanitario visualizza gli allarmi passati nella Gestione allarmi (Vedi \hyperref[UC3.2]{§UC3.2})
-            \item L'utente del personale sanitario visualizza le informazioni di un allarme passato.
-        \end{itemize}
-
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC3]{§UC3}
-            \item \hyperref[UC3.2]{§UC3.2}
-        \end{itemize}
-\end{itemize}
-
-\subsubsection{UC 4 Visualizza Analytics} \label{UC4}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la sezione Analytics.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole vedere la sezione dedicata alle statistiche della piattaforma e dell'impianto
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario seleziona il menù relativo alla sezione Analytics. 
-        \end{itemize}
-\end{itemize}
-
-\trisubsection{UC 4.1 Visualizza Analytics Energia consumata}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza il grafico dedicato all'energia consumata, nelle Analytics.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole visualizzare le Analytics realativa all'energia consumata.
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la sezione Analytics (Vedi \hyperref[UC4]{§UC4})
-            \item L'utente del personale sanitario seleziona il grafico dedicato all'energia consumata.
-        \end{itemize}
-
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC4]{§UC4}
-        \end{itemize}
-\end{itemize}
-
-\trisubsection{UC 4.2 Visualizza Analytics Anomalie di impianto}
-\texttt{<diagramma d'uso>}
-
-\begin{itemize}
-    \item \textbf{Attore principale}: Utente personale sanitario
-
-    \item \textbf{Pre-condizioni}: 
-        \begin{itemize}
-            \item Il Sistema è attivo;
-            \item L'utente del personale sanitario è autenticato nel Sistema;
-        \end{itemize}
-
-    \item \textbf{Post-condizioni}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza il grafico dedicato alle anomalie di impianto, nelle Analytics.
-        \end{itemize}
-
-    \item \textbf{Trigger}: L'utente del personale sanitario vuole visualizzare le Analytics relative alle anomalie di impianto
-    
-    \item \textbf{Scenario principale}:
-        \begin{itemize}
-            \item L'utente del personale sanitario visualizza la sezione Analytics (Vedi \hyperref[UC4]{§UC4})
-            \item L'utente del personale sanitario seleziona il grafico dedicato alle anomalie di impianto.
-        \end{itemize}
-
-    \item \textbf{Inclusioni}
-        \begin{itemize}
-            \item \hyperref[UC4]{§UC4}
-        \end{itemize}
-\end{itemize}
 
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente non è autenticato nel Sistema;}
 
+\addPostCondizione{L'utente non è autenticato.}
 
+\addScenarioPrincipale{Il Sistema segnala l'errore di autenticazione.}
 
+\addTrigger{L'utente ha immesso Username o Password errati.}
 
+\makeTable
+
+\trisubsection{UC1.4 Registrazione utente personale sanitario} \label{UC1.4}
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{./img/UC1.4.pdf}
+\end{center}
+
+\addAttore{Utente admin;}
+\addAttore{Utente personale sanitario.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente admin è autenticato nel Sistema.}
+
+\addPostCondizione{Un nuovo utente del personale sanitario è registrato presso il Sistema}
+
+\addScenarioPrincipale{L'utente admin crea un nome utente per l'utente del personale sanitario;}
+\addScenarioPrincipale{L'utente admin crea una password temporanea per l'utente del personale sanitario;}
+\addScenarioPrincipale{Il nuovo utente del personale sanitario si autentica nel Sistema con le credenziali fornite dall'utente admin;}
+\addScenarioPrincipale{L'utente del personale sanitario aggiorna la password.}
+
+\addTrigger{L'utente admin vuole registrare un nuovo utente del personale sanitario.}
+
+\addInclusione{Autenticazione \hyperref[UC1]{\textit{§UC1}}}
+\addInclusione{Aggiornamento password utente personale sanitario \hyperref[UC1.4.1]{\textit{§UC1.4.1}}}
+
+\makeTable
+
+
+\trisubsection{UC1.4.1 Aggiornamento password utente personale sanitario} \label{UC1.4.1}
+
+\addAttore{Utente personale sanitario}
+
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente del personale sanitario è autenticato nel Sistema.}
+
+\addPostCondizione{Il Sistema conosce la nuova password dell'utente del personale sanitario;}
+
+\addScenarioPrincipale{L'utente del personale sanitario sceglie una nuova Password.}
+
+\addTrigger{L'utete del personale sanitario si è autenticato con una password temporanea.}
+
+\makeTable
+
+
+
+\subsubsection{UC2 Visualizzazione Dashboard} \label{UC2}
+\begin{center}
+    \includegraphics{./img/UC2.pdf}
+\end{center}
+
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente è autenticato nel Sistema.}
+
+\addPostCondizione{Il Sistema mostra a schermo la Dashboard, contenente i Moduli.}
+
+\addScenarioPrincipale{L'utente seleziona dal menù l'opzione relativa alla Dashboard;}
+\addScenarioPrincipale{L'utente visualizza i Moduli opzionali presenti nella Dashboard.}
+\addScenarioPrincipale{L'utente visualizza il Modulo di gestione allarmi presenti nella Dashboard.}
+
+\addTrigger{L'utente vuole visualizzare la Dashboard.}
+
+\addInclusione{Visualizzazione Modulo opzionale Dashboard \hyperref[UC2.1]{\textit{§UC2.1}}}
+\addInclusione{Visualizzazione Modulo gestione allarmi \hyperref[UC2.2]{\textit{§UC2.2}}}
+
+\makeTable
+
+\trisubsection{UC2.1 Visualizzazione Modulo opzionale Dashboard} \label{UC2.1}
+
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente è autenticato nel Sistema.}
+\addPreCondizione{L'utente sta visualizzando la Dashboard.}
+
+\addPostCondizione{Il Sistema mostra i moduli opzionali presenti nella Dashboard.}
+
+\addScenarioPrincipale{L'utente visualizza, nella Dashboard, i Moduli da lui selezionati. (Vedi \hyperref[UC2.3]{\textit{§UC2.3}})}
+
+\addTrigger{L'utente vuole visualizzare un Modulo opzionale nella Dashboard.}
+\makeTable
+
+\trisubsection{UC2.2 Visualizzazione Modulo gestione allarmi} \label{UC2.2}
+
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente è autenticato nel Sistema;}
+\addPreCondizione{L'utente sta visualizzando la Dashboard.}
+
+\addPostCondizione{Il Sistema mostra il Modulo di gestione allarmi nella Dashboard.}
+
+\addScenarioPrincipale{L'utente visualizza, nella Dashboard, il Modulo di gestione allarmi il quale non può essere rimosso.}
+
+\addTrigger{L'utente vuole visualizzare il Modulo di gestione allarmi nella Dashboard.}
+
+\makeTable
+
+
+\trisubsection{UC2.3 Aggiunta Modulo opzionale Dashboard} \label{UC2.3}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{./img/UC2.3.pdf}
+\end{center}
+
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente è autenticato nel Sistema.}
+
+\addPostCondizione{Il Sistema aggiunge alla Dashboard il Modulo selezionato dall'utente.}
+
+\addScenarioPrincipale{L'utente visualizza la Dashboard;}
+\addScenarioPrincipale{L'utente seleziona l'opzione di modifica della Dashboard;}
+\addScenarioPrincipale{L'utente sceglie un Modulo non presente nella Dashboard.}
+
+\addScenarioAlternativo{Il Modulo selezionato è già presente nella Dashboard;}
+\addScenarioAlternativo{È stato raggiunto il massimo numero di Moduli visualizzabili nella Dashboard.}
+
+\addInclusione{Visualizzazione Dashboard \hyperref[UC2]{\textit{§UC2}}}
+\addInclusione{Selezione Modulo non presente \hyperref[UC2.4.1]{\textit{§UC2.4.1}}}
+
+\addEstensione{Selezione Modulo già presente \hyperref[UC2.3.1]{\textit{§UC2.3.1}}}
+\addEstensione{Limite Moduli raggiunti \hyperref[UC2.3.2]{\textit{§UC2.3.2}}}
+
+\addTrigger{L'utente vuole modificare quali Moduli sono visualizzati nella Dashboard}
+\makeTable
+
+\trisubsection{UC2.3.1 Selezione Modulo già presente nella Dashboard} \label{UC2.3.1}
+
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente è autenticato nel Sistema;}
+\addPreCondizione{L'utente sta modificando quali Moduli sono visualizzati nella Dashboard.}
+
+\addPostCondizione{Il Modulo selezionato è rimosso dalla Dashboard}
+
+\addScenarioPrincipale{Il Sistema rimuove il Modulo selezionato dalla Dashboard}
+
+\addTrigger{L'utente seleziona un Modulo già presente nella Dashboard}
+\makeTable
+
+\trisubsection{UC2.3.2 Errore limite Moduli visualizzabili nella Dashboard} \label{UC2.3.2}
+
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente è autenticato nel Sistema;}
+\addPreCondizione{L'utente sta modificando quali Moduli sono visualizzati nella Dashboard; }
+\addPreCondizione{Il limite massimo di Moduli visualizzabili nella Dashboard è stato raggiunto.}
+
+\addPostCondizione{Il Modulo selezionato non è inserito nella Dashboard}
+
+\addScenarioPrincipale{Il Sistema non inserisce il Modulo selezionato nella Dashboard;}
+\addScenarioPrincipale{Il Sistema segnala la condizione di massima capienza raggiunta.}
+
+\addTrigger{L'utente seleziona un Modulo.}
+
+\makeTable
+
+
+\trisubsection{UC2.4 Rimozione Modulo opzionale Dashboard}
+
+\begin{center}
+    \includegraphics[width=0.6\textwidth]{./img/UC2.4.pdf}
+\end{center}
+
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente è autenticato nel Sistema.}
+
+\addPostCondizione{Il Sistema rimuove dalla Dashboard il Modulo selezionato dall'utente.}
+
+\addScenarioPrincipale{L'utente visualizza la Dashboard;}
+\addScenarioPrincipale{L'utente seleziona l'opzione di modifica della Dashboard;}
+\addScenarioPrincipale{L'utente seleziona un Modulo opzionale attualmente presente nella Dashboard}
+
+\addScenarioAlternativo{Il Modulo selezionato non è presente nella Dashboard.}
+
+\addInclusione{Visualizzazione Dashboard \hyperref[UC2]{\textit{§UC2}}}
+\addInclusione{Selezione Modulo già presente \hyperref[UC2.3.1]{\textit{§UC2.3.1}}}
+
+\addEstensione{Selezione Modulo non presente \hyperref[UC2.4.1]{\textit{§UC2.4.1}}}
+
+
+\addTrigger{L'utente vuole rimuovere un Modulo opzionale dalla Dashboard}
+\makeTable
+
+\trisubsection{UC2.4.1 Selezione modulo non presente in Dashboard} \label{UC2.4.1}
+\addAttore{Utente}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente è autenticato nel Sistema;}
+\addPreCondizione{L'utente sta modificando quali Moduli sono visualizzati nella Dashboard.}
+
+\addPostCondizione{Il Modulo selezionato viene aggiunto alla Dashboard.}
+
+\addScenarioPrincipale{L'utente seleziona un Modulo, non presente nella Dashboard, tra:
+                        \begin{itemize}
+                            \item informazioni utente;
+                            \item statistiche allarmi;
+                            \item analisi clima;
+                            \item analisi consumi;
+                            \item dispositivi accessi;
+                            \item temperatura impostata.
+                        \end{itemize} }
+
+\addScenarioPrincipale{Il Sistema aggiunge alla Dashboard il Modulo selezionato.}
+
+\addTrigger{L'utente seleziona un Modulo non presente nella Dashboard}
+\makeTable
 
 \end{document}
