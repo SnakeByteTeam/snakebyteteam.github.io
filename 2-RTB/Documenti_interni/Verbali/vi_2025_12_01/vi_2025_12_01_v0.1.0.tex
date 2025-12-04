@@ -1,0 +1,89 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 01/12/2025}
+\setDocVersion{0.1.0}
+\setDocData{01/12/2025}
+\setDocIndex{vi\_2025\_12\_01}
+\setDocState{1}
+\setDocRecipient{1}
+
+% comandi extra (rimuovere questi commenti una volta approvato il documento)
+%
+% -- costanti --
+% \noOne [-]
+% \noRole [ND]
+% \firstDraft [Prima stesura]
+% \approval [Approvazione]
+% \teamName [SnakeByte]
+% \teamEmail [snakebyteteam@gmail.com]
+% \teamRepo [https://github.com/SnakeByteTeam/snakebyteteam.github.io]
+% \teamSite [https://snakebyteteam.github.io/]
+% \recipientTeachers [prof. Vardanega Tullio, prof. Cardin Riccardo]
+% \vimar [Vimar]
+% \vimarspa [Vimar S.p.A.]
+%
+% -- variabili --
+% \docIndex | \setDocIndex{nome documento senza versione}
+% \docTitle | \setDocTitle{titolo documento} 
+% \docData | \setDocData{data documento} [GG/MM/AAAA]
+% \docVersion | \setDocVersion{versione documento}
+% \docState | \setDocState{0|1|2} [Da verificare][Verificato][Approvato]
+% \docRecipient [table] | \setDocRecipient{0|1|2} [SnakeByte][SnakeByte, prof][SnakeByte, prof, vimar]
+% 
+% -- tabelle -- [gli id sono automatici dove serve]
+% \makeMeetingInfoTable{data}{ora inizio}{ora fine}{modalità}
+% \addParticipant{nome}{cognome}{ruolo}{presenza} | \makeMeetingParticipantsTable
+% \addTodo{id github issue}{descrizione}{assegnatario}{scadenza} | \makeTodoTable
+% \addPrecedentTodo{id todo}{id github issue todo}{assegnatario todo}{data} | \makePrecedentTodoTable
+% \addDecision{descrizione decisione} | \makeDecisionTable
+%
+% -- pagine intere --
+% \makeTitlePage
+% \addChangelog{versione}{data}{autore}{verificatore}{approvatore}{descrizione} | \makeTodoTable
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\addChangelog{\docVersion}{\docData}{F. Pasqual}{L. Pellizzon}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{01/12/2025}{12:30}{13:30}{via presenza}
+
+\addParticipant{nome}{cognome}{ruolo}{presenza}
+\makeMeetingParticipantsTable
+
+\addPrecedentTodo{id todo}{id github issue todo}{assegnatario todo}{data}
+\makePrecedentTodoTable
+
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Xxx;
+    \item yyy.
+\end{itemize}
+
+\section{Approfondimento}
+
+\subsection*{Xxx}
+Estensione di ordine del giorno
+
+
+\addDecision{descrizione decisione}
+\makeDecisionTable
+
+\addTodo{id github issue}{descrizione}{assegnatario}{scadenza}
+\makeTodoTable
+
+
+
+\end{document}
