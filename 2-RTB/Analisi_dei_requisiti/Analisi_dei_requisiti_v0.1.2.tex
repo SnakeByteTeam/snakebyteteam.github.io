@@ -249,27 +249,27 @@ Di seguito vengono riportati gli attori individuati
 \addPreCondizione{L'utente non è autenticato nel Sistema.}
 \addPostCondizione{L'utente è autenticato nel Sistema}
 \addTrigger{L'utente vuole autenticarsi nel Sistema}
-\addScenarioPrincipale{L'utente inserisce il proprio Username;}
+\addScenarioPrincipale{L'utente inserisce il proprio username;}
 \addScenarioPrincipale{L'utente inserisce la propria Password.}
-\addInclusione{Inserimento Username \hyperref[UC1.1]{\textit{§UC1.1}}}
+\addInclusione{Inserimento username \hyperref[UC1.1]{\textit{§UC1.1}}}
 \addInclusione{Inserimento Password \hyperref[UC1.2]{\textit{§UC1.2}}}
-\addScenarioAlternativo{L'utente inserisce Username o Password errate.}
+\addScenarioAlternativo{L'utente inserisce username o Password errate.}
 \addEstensione{Autenticazione fallita \hyperref[UC1.3]{\textit{§UC1.3}}}
 
 \makeTable
 
 
-\trisubsection{UC1.1 Inserimento Username} \label{UC1.1}
+\trisubsection{UC1.1 Inserimento username} \label{UC1.1}
 
 \addAttore{Utente}
 \addPreCondizione{Il Sistema è attivo;}
 \addPreCondizione{L'utente non è autenticato nel Sistema;}
-\addPreCondizione{Il Sistema non conosce l'Username dell'utente.}
+\addPreCondizione{Il Sistema non conosce l'username dell'utente.}
 
-\addPostCondizione{Il Sistema conosce l'Username dell'utente.}
-\addScenarioPrincipale{L'utente inserisce il proprio Username.}
+\addPostCondizione{Il Sistema conosce l'username dell'utente.}
+\addScenarioPrincipale{L'utente inserisce il proprio username.}
 
-\addTrigger{L'utente ha selezionato l'opzione di inserimento dell'Username.}
+\addTrigger{L'utente ha selezionato l'opzione di inserimento dell'username.}
 
 \makeTable
 
@@ -296,47 +296,104 @@ Di seguito vengono riportati gli attori individuati
 
 \addScenarioPrincipale{Il Sistema segnala l'errore di autenticazione.}
 
-\addTrigger{L'utente ha immesso Username o Password errati.}
+\addTrigger{L'utente ha immesso username o Password errati.}
 
 \makeTable
 
-\trisubsection{UC1.4 Registrazione utente personale sanitario} \label{UC1.4}
+\trisubsection{UC1.4 Creazione nuovo utente personale sanitario} \label{UC1.4}
 \begin{center}
     \includegraphics[width=0.6\textwidth]{./img/UC1.4.pdf}
 \end{center}
 
 \addAttore{Utente admin;}
-\addAttore{Utente personale sanitario.}
 \addPreCondizione{Il Sistema è attivo;}
 \addPreCondizione{L'utente admin è autenticato nel Sistema.}
 
 \addPostCondizione{Un nuovo utente del personale sanitario è registrato presso il Sistema}
 
-\addScenarioPrincipale{L'utente admin crea un nome utente per l'utente del personale sanitario;}
+\addScenarioPrincipale{L'utente admin crea uno username per l'utente del personale sanitario;}
 \addScenarioPrincipale{L'utente admin crea una password temporanea per l'utente del personale sanitario;}
-\addScenarioPrincipale{Il nuovo utente del personale sanitario si autentica nel Sistema con le credenziali fornite dall'utente admin;}
-\addScenarioPrincipale{L'utente del personale sanitario aggiorna la password.}
+
+\addInclusione{Creazione username utente personale sanitario \hyperref[UC1.4.1]{\textit{§UC1.4.1}}}
+\addInclusione{Generazione password temporanea \hyperref[UC1.4.2]{\textit{§UC1.4.2}}}
 
 \addTrigger{L'utente admin vuole registrare un nuovo utente del personale sanitario.}
-
-\addInclusione{Autenticazione \hyperref[UC1]{\textit{§UC1}}}
-\addInclusione{Aggiornamento password utente personale sanitario \hyperref[UC1.4.1]{\textit{§UC1.4.1}}}
 
 \makeTable
 
 
-\trisubsection{UC1.4.1 Aggiornamento password utente personale sanitario} \label{UC1.4.1}
+\trisubsection{UC1.4.1 Creazione username utente personale sanitario} \label{UC1.4.1}
+
+\addAttore{Utente admin}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente admin è autenticato nel Sistema.}
+
+\addPostCondizione{Il Sistema conosce lo username dell'utente del personale sanitario;}
+
+\addScenarioPrincipale{L'utente admin sceglie uno username per l'utente del personale sanitario.}
+
+\addScenarioAlternativo{L'username scelto è già in uso nel Sistema;}
+\addEstensione{Errore username già in uso \hyperref[UC1.4.3]{\textit{§UC1.4.3}}}
+
+\makeTable
+
+\trisubsection{UC1.4.2 Generazione password temporanea} \label{UC1.4.2}
+
+\addAttore{Utente admin}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente admin è autenticato nel Sistema.}
+
+\addPostCondizione{Il Sistema conosce la password temporanea per l'utente del personale sanitario;}
+
+\addScenarioPrincipale{L'utente admin genera una Password temporanea per l'utente del personale sanitario.}
+
+\makeTable
+
+\trisubsection{UC1.4.3 Errore username già in uso} \label{UC1.4.3}
+\addAttore{Utente admin}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente admin è autenticato nel Sistema.}
+
+\addPostCondizione{Il Sistema non registra il nuovo utente del personale sanitario.}
+
+\addScenarioPrincipale{Il Sistema segnala l'errore di username già in uso.}
+\addScenarioPrincipale{Il Sistema ripropone all'utente admin di scegliere uno username.}
+
+\addTrigger{L'utente admin sceglie uno username già in uso nel Sistema.}
+
+\addInclusione{Creazione username utente personale sanitario \hyperref[UC1.4.1]{\textit{§UC1.4.1}}}
+
+\makeTable
+
+
+\trisubsection{UC1.5 Registrazione utente personale sanitario} \label{UC1.5}
 
 \addAttore{Utente personale sanitario}
 
 \addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente del personale sanitario è autenticato nel Sistema.}
+\addPreCondizione{L'utente del personale sanitario non è autenticato nel Sistema.}
 
-\addPostCondizione{Il Sistema conosce la nuova password dell'utente del personale sanitario;}
+\addPostCondizione{L'utente del personale sanitario è autenticato nel Sistema}
 
-\addScenarioPrincipale{L'utente del personale sanitario sceglie una nuova Password.}
+\addScenarioPrincipale{L'utente del personale si autentica con le credenziali fornite dall'utente admin;}
+\addScenarioPrincipale{Il Sistema obbliga l'utente del personale sanitario ad aggiornare la Password temporanea;}
 
-\addTrigger{L'utete del personale sanitario si è autenticato con una password temporanea.}
+\addInclusione{Autenticazione \hyperref[UC1]{\textit{§UC1}}}
+\addInclusione{Aggiornamento Password \hyperref[UC1.5.1]{\textit{§UC1.5.1}}}        
+
+\addTrigger{L'utente del personale sanitario si è autenticato per la prima volta.}
+
+\makeTable
+
+
+\trisubsection{UC1.5.1 Aggiornamento Password} \label{UC1.5.1}
+\addAttore{Utente personale sanitario}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'utente del personale sanitario è autenticato nel Sistema con una Password temporanea.}
+
+\addPostCondizione{L'utente del personale sanitario ha aggiornato la propria Password.}
+
+\addScenarioPrincipale{L'utente del personale sanitario inserisce una nuova Password.}
 
 \makeTable
 
@@ -350,6 +407,7 @@ Di seguito vengono riportati gli attori individuati
 \addAttore{Utente}
 \addPreCondizione{Il Sistema è attivo;}
 \addPreCondizione{L'utente è autenticato nel Sistema.}
+
 
 \addPostCondizione{Il Sistema mostra a schermo la Dashboard, contenente i Moduli.}
 
@@ -403,17 +461,16 @@ Di seguito vengono riportati gli attori individuati
 \addAttore{Utente}
 \addPreCondizione{Il Sistema è attivo;}
 \addPreCondizione{L'utente è autenticato nel Sistema.}
+\addPreCondizione{L'utente sta visualizzando la Dashboard.}
 
 \addPostCondizione{Il Sistema aggiunge alla Dashboard il Modulo selezionato dall'utente.}
 
-\addScenarioPrincipale{L'utente visualizza la Dashboard;}
 \addScenarioPrincipale{L'utente seleziona l'opzione di modifica della Dashboard;}
 \addScenarioPrincipale{L'utente sceglie un Modulo non presente nella Dashboard.}
 
 \addScenarioAlternativo{Il Modulo selezionato è già presente nella Dashboard;}
 \addScenarioAlternativo{È stato raggiunto il massimo numero di Moduli visualizzabili nella Dashboard.}
 
-\addInclusione{Visualizzazione Dashboard \hyperref[UC2]{\textit{§UC2}}}
 \addInclusione{Selezione Modulo non presente \hyperref[UC2.4.1]{\textit{§UC2.4.1}}}
 
 \addEstensione{Selezione Modulo già presente \hyperref[UC2.3.1]{\textit{§UC2.3.1}}}
@@ -421,6 +478,7 @@ Di seguito vengono riportati gli attori individuati
 
 \addTrigger{L'utente vuole modificare quali Moduli sono visualizzati nella Dashboard}
 \makeTable
+
 
 \trisubsection{UC2.3.1 Selezione Modulo già presente nella Dashboard} \label{UC2.3.1}
 
@@ -463,16 +521,15 @@ Di seguito vengono riportati gli attori individuati
 \addAttore{Utente}
 \addPreCondizione{Il Sistema è attivo;}
 \addPreCondizione{L'utente è autenticato nel Sistema.}
+\addPreCondizione{L'utente sta visualizzando la Dashboard.}
 
 \addPostCondizione{Il Sistema rimuove dalla Dashboard il Modulo selezionato dall'utente.}
 
-\addScenarioPrincipale{L'utente visualizza la Dashboard;}
 \addScenarioPrincipale{L'utente seleziona l'opzione di modifica della Dashboard;}
 \addScenarioPrincipale{L'utente seleziona un Modulo opzionale attualmente presente nella Dashboard}
 
 \addScenarioAlternativo{Il Modulo selezionato non è presente nella Dashboard.}
 
-\addInclusione{Visualizzazione Dashboard \hyperref[UC2]{\textit{§UC2}}}
 \addInclusione{Selezione Modulo già presente \hyperref[UC2.3.1]{\textit{§UC2.3.1}}}
 
 \addEstensione{Selezione Modulo non presente \hyperref[UC2.4.1]{\textit{§UC2.4.1}}}
@@ -480,6 +537,7 @@ Di seguito vengono riportati gli attori individuati
 
 \addTrigger{L'utente vuole rimuovere un Modulo opzionale dalla Dashboard}
 \makeTable
+
 
 \trisubsection{UC2.4.1 Selezione modulo non presente in Dashboard} \label{UC2.4.1}
 \addAttore{Utente}
