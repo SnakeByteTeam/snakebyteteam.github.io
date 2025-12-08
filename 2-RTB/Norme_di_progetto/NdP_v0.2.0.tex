@@ -46,7 +46,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                0.2.0 & 06/12/2025 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
+                0.2.0 & 08/12/2025 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
                 \hline
             \end{tabular}
         \end{center}
@@ -61,7 +61,7 @@
     \hline
     \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
     \hline
-    0.2.0 & 06/12/2025 & C. Libralato & L. Pellizzon & - & Aggiunte a processo di verifica e approvazione (sez. 3.1.4, 3.1.5). Aggiunta Sviluppo con Analisi Requisiti ai processi primari (sez. 2.2 )\\ 
+    0.2.0 & 08/12/2025 & C. Libralato & L. Pellizzon & - & Aggiunte a processo di verifica e approvazione (sez. 3.1.4, 3.1.5). Aggiunta Sviluppo con Analisi Requisiti ai processi primari (sez. 2.2 )\\ 
     \hline
     0.1.6 & 29/11/2025 & F. Pasqual & V. Baleanu & - & Aggiunto processo di verifica tramite \textit{pull request} \\ 
     \hline
@@ -184,12 +184,70 @@ Il processo di sviluppo si compone delle seguenti attività:
     \item \textbf{Software installation};
 \end{itemize}
 
-\subsubsection{Documentazione risultante?}
-a
+\subsubsection{Documentazione risultante}
+La documentazione prodotta durante il processo di Sviluppo consiste in:
+\begin{itemize}
+    \item \textbf{\textit{Diagrammi UML$_{G}$}}: diagrammi realizzati secondo lo standard \textit{UML2.5$_{G}$} utili alla definizione dei \textit{casi d'uso$_{G}$} all'interno dell'Analisi dei Requisiti.
+    \item \textbf{Analisi dei Requisiti}: documento che racchiude i risultati della \textit{System requirements analysis} (requisiti funzionali) e \textit{Software requirements analysis} (requisiti non funzionali).
+
+\end{itemize}
 
 \subsubsection{Analisi dei Requisiti}
-b
+Il suddetto documento, la cui redazione è affidata al ruolo dell'Analista, è necessario al fine di determinare e tracciare l'insieme di
+requisiti che l'applicativo deve soddisfare. 
 
+L'analisi è strutturata in maniera tale da ricavare i requisiti a partire dai \textit{casi d'uso}, che 
+consistono in una serie di scenari che condividono uno scopo per un utente che interagisce con il sistema. La ricerca dei casi d'uso avviene tramite \textit{brainstorming$_{G}$} interno al gruppo e si
+avvale di \textit{feedback$_{G}$} da parte della Proponente.\\
+Il documento è strutturato nel seguente modo:
+
+\trisubsection{Introduzione}
+Una breve introduzione descrive le finalità del documento, i Riferimenti Informativi e Normativi.
+
+\trisubsection{Descrizione del prodotto}
+In questa sezione viene descritto lo scopo e l'obiettivo principale del prodotto, oltre che  le principali funzionalità
+che deve possedere e l'insieme di utenti a cui è destinato.
+
+\trisubsection{Elenco \textit{casi d'uso}}
+I \textit{casi d'uso} vengono elencati seguendo la numerazione associata, sono presentati attraverso un diagramma \textit{UML} e una descrizione testuale in forma tabellare contenente sia le informazioni
+all'interno del diagramma sia quelle non rappresentabili da esso, tra cui Pre-condizioni e le Post-condizioni.\\
+La struttura è la seguente:
+
+%==============================
+%Da cambiare con template che però non è ancora confermato
+\begin{center}
+    \begin{tabularx}{\textwidth}{|c| >{\centering\arraybackslash}X|}
+        \hline
+        \rowcolor{lightgray} \textbf{Campo} & \textbf{Descrizione} \\
+        \hline
+        Attori & Coloro che partecipano attivamente al caso d'uso per raggiungere un preciso obiettivo  \\
+        \hline
+        Pre-condizioni & Condizioni che devono essere soddisfatte prima dello scenario descritto dal caso d'uso\\
+        \hline
+        Post-condizioni & Condizioni che risultano soddisfatte dopo il completamento dello scenario principale del caso d'uso. Se viene completato uno scenario alternativo, saranno soddisfatte le Post-condizioni di quest'ultimo \\
+        \hline
+        Trigger & La motivazione che porta l'utente a svolgere i passi del caso d'uso \\
+        \hline
+        Scenario principale & Sequenza di passi che l'utente deve seguire per completare il caso d'uso \\
+        \hline
+        Scenari alternativi & Scenario divergente dal principale per il verificarsi di una particolare condizione \\
+        \hline
+        Estensioni &  Casi d'uso ulteriori eseguiti al verificarsi di una particolare condizione nel caso d'uso primario. Modificano Scenario e Post-condizioni \\
+        \hline
+        Inclusioni & Casi d'uso ulteriori eseguiti al fine di completare il caso d'uso principale. Vengono eseguiti tutti incondizionatamente. \\
+        \hline
+        
+    \end{tabularx}
+\end{center}
+%==========================
+La crezione della tabella è facilitata dall'utilizzo del template \texttt{templateAdR.sty}.\\
+Non tutti i \textit{casi d'uso} necessitano della tabella nella sua interezza, la presenza dei campi: Trigger, Scenari alternativi, Estensioni e Inclusioni
+dipende dalla situazione.
+
+
+ 
+\trisubsection{\textbf{Elenco requisiti}}
+I requisiti sono identificati da un codice univoco e sono associati agli casi d'uso da cui sono stati generati.
 
 \section{Processi di supporto}
 \subsection{Documentazione}
@@ -313,7 +371,7 @@ Differentemente dagli altri documenti, l'analisi dei requisiti viene redatta dal
 \subsubsection{Verifica dei documenti}
 Ogni documento dopo essere stato redatto, deve essere verificato, ovvero la correttezza delle informazioni in esso contenute deve essere confermata.
 
-L'azione di verifica dei documenti viene effettuata dalla persona che ricopre, in quel periodo, il ruolo di \textit{verificatore$_{G}$}. 
+L'azione di verifica dei documenti viene effettuata dalla persona che ricopre, in quel periodo, il ruolo di Verificatore.
 
 \label{sec:Verifica}
 \trisubsection{Processo di verifica tramite \textit{pull request$_G$}}
@@ -328,13 +386,13 @@ Di seguito viene definito il \textit{workflow} operativo:
 \begin{enumerate}
     \item \textbf{Esecuzione modifiche} \\
     Il redattore crea un nuovo branch denominato \texttt{modifica-<nome\_documento>} nel suo repository locale (la versione del documento non va inclusa all'interno del nome del branch di modifica).\\
-    Per costruzione, le modifiche contemporanee su documenti diversi dovranno essere presentate attraverso branch di modifica e pull request diverse.
+    Per definizione, le modifiche su documenti diversi dovranno essere presentate attraverso branch di modifica e pull request diverse.
 
     \item \textbf{Apertura della Richiesta} \\
     Il redattore, completato il lavoro in locale sul \textit{branch} dedicato, effettua il \textit{push} in remoto del branch di modifica e apre una nuova \textit{pull request} 
     verso il branch \texttt{develop}. In questa fase deve:
     \begin{itemize}
-        \item Assegnare il corretto verificatore e impostare i \textit{tag};
+        \item definire come assegnatario e reviewer il verificatore e impostare i \textit{tag};
         \item collegare la richiesta alla relativa \textit{Issue} di progetto.
     \end{itemize}
 
@@ -366,7 +424,7 @@ Ogni documento, dopo essere stato verificato, deve essere approvato per poter es
 nel branch \texttt{main}. L'approvazione avviene in maniera simile alla verifica da chi, in quel periodo, ricopre la figura di \textit{responsabile$_{G}$}.
 
 I documenti vengono approvati in maniera progressiva al fine di evitare l'accumulo di un carico di lavoro insostenibile per il responsabile
-quando si raggiunge una baseline, una volta che tutti i documenti contenuti nel branch \texttt{develop} sono stati approvati si può procedere
+quando si raggiunge una baseline. Una volta che tutti i documenti contenuti nel branch \texttt{develop} sono stati approvati si può procedere
 con il \textit{merge} del branch \texttt{develop} verso il branch \texttt{main}.
 
 Il momento opportuno per sottoporre un documento ad approvazione non è a seguito della verifica ma è definito in base alle tempistiche imposte dalle baselines.\\
@@ -376,8 +434,7 @@ L'approvazione di un singolo documento consiste nei seguenti passi:
     Il redattore crea un branch locale denominato \texttt{approvazione-<nome\_documento>} (la versione del documento non va inclusa nel nome) 
     in cui modifica \textbf{esclusivamente} la versione aumentando l'indice \textit{Major} e azzerando gli altri (X.0.0).
     \item \textbf{Apertura Richiesta}\\
-    Viene effettuata la \textit{push} e aperta una \textit{pull request} verso il branch \texttt{develop}. Devono essere impostati i \textit{tag}
-    e l'assegnatario deve essere il responsabile.
+    Viene effettuata la \textit{push} e aperta una \textit{pull request} verso il branch \texttt{develop}. Devono essere impostati i \textit{tag}, l'assegnatario e il \textit{reviewer} devono coincidere con il responsabile.
     \item \textbf{Approvazione}\\
     Il responsabile viene notificato, controlla il documento e fornisce un verdetto:
     \begin{enumerate}
