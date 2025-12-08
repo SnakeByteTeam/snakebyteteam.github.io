@@ -2,16 +2,26 @@
 \ProvidesPackage{template}[2014/08/21 Example package]
 
 \RequirePackage{enumitem}
-
+\RequirePackage{xltabular}
 \RequirePackage{etoolbox}
+\RequirePackage{xstring}
 
-%Comando che genera variabile vuota che salva una serie di attori
+% ------------------------
+% Costanti
+% ------------------------
+
+\newcommand{\user}{Utente }
+\newcommand{\userna}{Utente non autenticato }
+\newcommand{\os}{Operatore Sanitario }
+\newcommand{\admin}{Amministratore }
+
+% ------------------------
+% Liste
+% ------------------------
+
 \newcommand{\listaAttori}{}
-%Comando che aggiunge l'attore passato come parametro alla lista
-%\newcommand{nomeComando}[n. parametri]}{comportamento}
-%\gappto{variabile}{contenuto che viene aggiunto come append alla variabile}
 \newcommand{\addAttore}[1]{
-    \gappto{\listaAttori}{\item #1}      % #1 si indica la stringa passata come primo parametro
+    \gappto{\listaAttori}{\item #1}
 }
 %=============================
 \newcommand{\listaPreCondizioni}{}
@@ -49,87 +59,96 @@
     \gappto{\listaEstensioni}{\item #1}
 }
 %=============================
+\newcommand{\rif}[1]{\hyperref[UC#1]{§UC#1}}
+%=============================
 
+\newcommand{\makeUC}[2]{%
+    \label{UC#1}
+    \IfSubStr{#1}{.}{%
+        \trisubsection{UC#1:\ #2}%
+    }{%
+        \subsubsection{UC#1:\ #2}%
+    }%
+    \IfFileExists{./img/UC#1.pdf}{%
+        \begin{center}
+        \includegraphics[width=0.6\textwidth]{./img/UC#1.pdf}
+        \captionof{figure}{UC#1 #2}
+        \end{center}
+    }{}%
+    \begin{xltabular}{\textwidth}{|>{\columncolor{lightgray}}c|X|}
+    \hline
+        % Attori
+        \ifdefempty{\listaAttori}{}{%
+            \textbf{Attori} &
+            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+                \listaAttori
+            \end{itemize}\\ \hline
+        }%
 
-\newcommand{\makeTable}{
-  \begin{center}
-    \begin{tabularx}{\textwidth}{|>{\columncolor{lightgray}}c|X|}
-      \hline
-      % Attori
-      \ifdefempty{\listaAttori}{}{
-        \textbf{Attori} &
-        \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
-          \listaAttori
-        \end{itemize} \\ \hline
-      }
+        % Pre-condizioni
+        \ifdefempty{\listaPreCondizioni}{}{%
+            \textbf{Pre-condizioni} &
+            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+                \listaPreCondizioni
+            \end{itemize}\\ \hline
+        }%
 
-      % Pre-condizioni
-      \ifdefempty{\listaPreCondizioni}{}{
-        \textbf{Pre-condizioni} &
-        \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
-          \listaPreCondizioni
-        \end{itemize} \\ \hline
-      }
+        % Post-condizioni
+        \ifdefempty{\listaPostCondizioni}{}{%
+            \textbf{Post-condizioni} &
+            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+                \listaPostCondizioni
+            \end{itemize}\\ \hline
+        }%
 
-      % Post-condizioni
-      \ifdefempty{\listaPostCondizioni}{}{
-        \textbf{Post-condizioni} &
-        \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
-          \listaPostCondizioni
-        \end{itemize} \\ \hline
-      }
+        % Trigger
+        \ifdefempty{\listaTrigger}{}{%
+            \textbf{Trigger} &
+            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+                \listaTrigger
+            \end{itemize}\\ \hline
+        }%
 
-      % Trigger
-      \ifdefempty{\listaTrigger}{}{
-        \textbf{Trigger} &
-        \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
-          \listaTrigger
-        \end{itemize} \\ \hline
-      }
+        % Scenario principale (enumerato)
+        \ifdefempty{\listaScenarioPrincipale}{}{%
+            \textbf{Scenario principale} &
+            \begin{enumerate}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=15pt]
+                \listaScenarioPrincipale
+            \end{enumerate}\\ \hline
+        }%
 
-      % Scenario principale
-      \ifdefempty{\listaScenarioPrincipale}{}{
-        \textbf{Scenario principale} &
-        \begin{enumerate}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
-          \listaScenarioPrincipale
-        \end{enumerate} \\ \hline
-      }
+        % Inclusioni
+        \ifdefempty{\listaInclusioni}{}{%
+            \textbf{Inclusioni} &
+            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+                \listaInclusioni
+            \end{itemize}\\ \hline
+        }%
 
-      % Inclusioni
-      \ifdefempty{\listaInclusioni}{}{
-        \textbf{Inclusioni} &
-        \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
-          \listaInclusioni
-        \end{itemize} \\ \hline
-      }
+        % Scenari alternativi
+        \ifdefempty{\listaScenariAlternativi}{}{%
+            \textbf{Scenari alternativi} &
+            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+                \listaScenariAlternativi
+            \end{itemize}\\ \hline
+        }%
 
-      % Scenari alternativi
-      \ifdefempty{\listaScenariAlternativi}{}{
-        \textbf{Scenari alternativi} &
-        \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
-          \listaScenariAlternativi
-        \end{itemize} \\ \hline
-      }
+        % Estensioni
+        \ifdefempty{\listaEstensioni}{}{%
+            \textbf{Estensioni} &
+            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+                \listaEstensioni
+            \end{itemize}\\ \hline
+        }%
+    \end{xltabular}
 
-      % Estensioni
-      \ifdefempty{\listaEstensioni}{}{
-        \textbf{Estensioni} &
-        \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
-          \listaEstensioni
-        \end{itemize} \\ \hline
-      }
-    \end{tabularx}
-  \end{center}
-
-  % Pulisce le variabili per la prossima tabella
-  \renewcommand{\listaAttori}{}
-  \renewcommand{\listaPreCondizioni}{}
-  \renewcommand{\listaPostCondizioni}{}
-  \renewcommand{\listaTrigger}{}
-  \renewcommand{\listaScenarioPrincipale}{}
-  \renewcommand{\listaScenariAlternativi}{}
-  \renewcommand{\listaInclusioni}{}
-  \renewcommand{\listaEstensioni}{}
+    % Pulisce le variabili per riempire la prossima tabella
+    \renewcommand{\listaAttori}{}
+    \renewcommand{\listaPreCondizioni}{}
+    \renewcommand{\listaPostCondizioni}{}
+    \renewcommand{\listaTrigger}{}
+    \renewcommand{\listaScenarioPrincipale}{}
+    \renewcommand{\listaScenariAlternativi}{}
+    \renewcommand{\listaInclusioni}{}
+    \renewcommand{\listaEstensioni}{}
 }
-
-
