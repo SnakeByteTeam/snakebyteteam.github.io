@@ -361,83 +361,163 @@ Di seguito vengono riportati gli attori individuati:
 \addScenarioPrincipale{L'utente del \os inserisce una nuova Password.}
 \makeUC{1.5.1}{Aggiornamento Password}
 
-\addAttore{Utente.}
+\addAttore{\user.}
 \addPreCondizione{Il Sistema è attivo;}
 \addPreCondizione{L'utente è autenticato nel Sistema.}
-\addPostCondizione{Il Sistema mostra a schermo la Dashboard, contenente i Moduli.}
-\addScenarioPrincipale{L'utente seleziona dal menù l'opzione relativa alla Dashboard;}
-\addScenarioPrincipale{L'utente visualizza i Moduli opzionali presenti nella Dashboard.}
-\addScenarioPrincipale{L'utente visualizza il Modulo di gestione allarmi presenti nella Dashboard.}
-\addTrigger{L'utente vuole visualizzare la Dashboard.}
-\addInclusione{Visualizzazione Modulo opzionale Dashboard \rif{2.1}}
-\addInclusione{Visualizzazione Modulo gestione allarmi \rif{2.2}}
+\addPostCondizione{L'utente visualizza la sezione Dashboard.}
+\addScenarioPrincipale{L'utente seleziona dal menù l'opzione relativa alla sezione Dashboard;}
+\addScenarioPrincipale{L'utente visualizza i seguenti Moduli opzionali presenti nella Dashboard:
+\begin{itemize}
+    \item Informazioni utente;
+    \item statistiche allarmi;
+    \item analisi clima;
+    \item analisi consumi;
+    \item dispositivi accesi;
+    \item temperatura impostata.
+\end{itemize}
+L'utente inoltre visualizza il seguente Modulo non modificabile:
+\begin{itemize}
+    \item Gestione allarmi.
+\end{itemize}
+}
+\addTrigger{L'utente vuole visualizzare la sezione Dashboard.}
+\addInclusione{Visualizzazione informazioni utente \rif{2.1}}
+\addInclusione{Visualizzazione statistiche allarmi \rif{2.2}}
+\addInclusione{Visualizzazione analisi clima \rif{2.3}}
+\addInclusione{Visualizzazione analisi consumi \rif{2.4}}
+\addInclusione{Visualizzazione dispositivi accesi \rif{2.5}}
+\addInclusione{Visualizzazione temperatura impostata \rif{2.6}}
+\addInclusione{Visualizzazione gestione allarmi \rif{2.7}}
 \makeUC{2}{Visualizzazione Dashboard}
 
-\addAttore{Utente.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente è autenticato nel Sistema.}
-\addPreCondizione{L'utente sta visualizzando la Dashboard.}
-\addPostCondizione{Il Sistema mostra i moduli opzionali presenti nella Dashboard.}
-\addScenarioPrincipale{L'utente visualizza, nella Dashboard, i Moduli da lui selezionati. (Vedi \rif{2.3})}
-\addTrigger{L'utente vuole visualizzare un Modulo opzionale nella Dashboard.}
-\makeUC{2.1}{Visualizzazione Modulo opzionale Dashboard}
+\addAttore{\user.}
+\addPreCondizione{L'utente si trova nella sezione Dashboard.}
+\addPostCondizione{Il Sistema mostra il Modulo relativo alle informazioni utente.}
+\addScenarioPrincipale{L'utente visualizza le informazioni utente, caratterizzate da:
+\begin{itemize}
+    \item Nome e cognome dell'utente;
+    \item ruolo dell'utente.
+\end{itemize}
+}
+\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo alle informazioni utente.}
+\addInclusione{Visualizzazione Nome e cognome utente \rif{2.1.1}}
+\addInclusione{Visualizzazione ruolo utente \rif{2.1.2}}
+\makeUC{2.1}{Visualizzazione informazioni utente}
 
-\addAttore{Utente.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente è autenticato nel Sistema;}
-\addPreCondizione{L'utente sta visualizzando la Dashboard.}
-\addPostCondizione{Il Sistema mostra il Modulo di gestione allarmi nella Dashboard.}
-\addScenarioPrincipale{L'utente visualizza, nella Dashboard, il Modulo di gestione allarmi il quale non può essere rimosso.}
-\addTrigger{L'utente vuole visualizzare il Modulo di gestione allarmi nella Dashboard.}
-\makeUC{2.2}{Visualizzazione Modulo gestione allarmi}
 
-\addAttore{Utente.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente è autenticato nel Sistema.}
-\addPreCondizione{L'utente sta visualizzando la Dashboard.}
-\addPostCondizione{Il Sistema aggiunge alla Dashboard il Modulo selezionato dall'utente.}
+\addAttore{\user.}
+\addPreCondizione{L'utente si trova nella sezione Dashboard.}
+\addPostCondizione{Il Sistema mostra il Modulo relativo alle statistiche allarmi.}
+\addScenarioPrincipale{L'utente visualizza le statistiche allarmi, caratterizzate da:
+\begin{itemize}
+    \item ???
+\end{itemize}
+}
+\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo alle statistiche allarmi.}
+\makeUC{2.2}{Visualizzazione statistiche allarmi}
+
+
+\addAttore{\user.}
+\addPreCondizione{L'utente si trova nella sezione Dashboard.}
+\addPostCondizione{Il Sistema mostra il Modulo relativo all'analisi del clima.}
+\addScenarioPrincipale{L'utente visualizza le analisi del clima, caratterizzate da:
+\begin{itemize}
+    \item ???
+\end{itemize}
+}
+\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo all'analisi clima.}
+\makeUC{2.3}{Visualizzazione analisi clima}
+
+
+\addAttore{\user.}
+\addPreCondizione{L'utente si trova nella sezione Dashboard.}
+\addPostCondizione{Il Sistema mostra il Modulo relativo all'analisi dei consumi.}
+\addScenarioPrincipale{L'utente visualizza le analisi dei consumi, caratterizzate da:
+\begin{itemize}
+    \item ???
+\end{itemize}
+}
+\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo all'analisi consumi.}
+\makeUC{2.4}{Visualizzazione analisi consumi}
+
+
+\addAttore{\user.}
+\addPreCondizione{L'utente si trova nella sezione Dashboard.}
+\addPostCondizione{Il Sistema mostra il Modulo relativo ai dispositivi accesi.}
+\addScenarioPrincipale{L'utente visualizza i dispositivi accesi, caratterizzati da:
+\begin{itemize}
+    \item Nome dispositivo;
+    \item stato dispositivo.
+\end{itemize}
+}
+\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo ai dispositivi accesi.}
+\makeUC{2.5}{Visualizzazione dispositivi accesi}
+
+
+\addAttore{\user.}
+\addPreCondizione{L'utente si trova nella sezione Dashboard.}
+\addPostCondizione{Il Sistema mostra il Modulo relativo alla temperatura impostata.}
+\addScenarioPrincipale{L'utente visualizza la temperatura impostata, caratterizzata da:
+\begin{itemize}
+    \item Nome impianto;
+    \item Temperatura impostata.
+\end{itemize}
+}
+\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo alla temperatura impostata.}
+\makeUC{2.6}{Visualizzazione temperatura impostata}
+
+\addAttore{\user.}
+\addPreCondizione{L'utente si trova nella sezione Dashboard.}
+\addPostCondizione{Il Sistema mostra il Modulo relativo alla gestione allarmi.}
+\addScenarioPrincipale{L'utente visualizza la gestione allarmi, caratterizzata da:
+\begin{itemize}
+    \item Allarmi in corso;
+    \item azioni da poter eseguire sugli allarmi.
+\end{itemize}
+}
+\addTrigger{L'utente vuole visualizzare il Modulo relativo alla gestione allarmi.}
+\makeUC{2.7}{Visualizzazione gestione allarmi}
+
+\addAttore{\user.}
+\addPreCondizione{L'utente si trova nella sezione Dashboard.}
+\addPostCondizione{L'utente visualizza nella sezione Dashboard il Modulo selezionato.}
 \addScenarioPrincipale{L'utente seleziona l'opzione di modifica della Dashboard;}
-\addScenarioPrincipale{L'utente sceglie un Modulo non presente nella Dashboard.}
+\addScenarioPrincipale{L'utente seleziona un Modulo non presente nella Dashboard.}
 \addScenarioAlternativo{Il Modulo selezionato è già presente nella Dashboard;}
 \addScenarioAlternativo{È stato raggiunto il massimo numero di Moduli visualizzabili nella Dashboard.}
-\addInclusione{Selezione Modulo non presente \rif{2.4.1}}
-\addEstensione{Selezione Modulo già presente \rif{2.3.1}}
-\addEstensione{Limite Moduli raggiunti \rif{2.3.2}}
-\addTrigger{L'utente vuole modificare quali Moduli sono visualizzati nella Dashboard}
-\makeUC{2.3}{Aggiunta Modulo opzionale Dashboard}
+\addEstensione{Selezione Modulo già presente \rif{2.8.1}}
+\addEstensione{Limite Moduli raggiunti \rif{2.8.2}}
+\addTrigger{L'utente vuole aggiungere un Modulo nella sezione Dashboard.}
+\makeUC{2.8}{Aggiunta Modulo opzionale Dashboard}
 
 \addAttore{Utente.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente è autenticato nel Sistema;}
+\addPreCondizione{L'utente si trova nella sezione Dashboard;}
 \addPreCondizione{L'utente sta modificando quali Moduli sono visualizzati nella Dashboard.}
-\addPostCondizione{Il Modulo selezionato è rimosso dalla Dashboard}
-\addScenarioPrincipale{Il Sistema rimuove il Modulo selezionato dalla Dashboard}
-\addTrigger{L'utente seleziona un Modulo già presente nella Dashboard}
-\makeUC{2.3.1}{Selezione Modulo già presente nella Dashboard}
+\addPostCondizione{Il Modulo selezionato è rimosso dalla Dashboard.}
+\addScenarioPrincipale{Il Sistema rimuove il Modulo selezionato dalla Dashboard.}
+\addTrigger{L'utente vuole aggiungere un Modulo già presente nella Dashboard.}
+\makeUC{2.8.1}{Selezione Modulo già presente nella Dashboard}
 
 \addAttore{Utente.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente è autenticato nel Sistema;}
-\addPreCondizione{L'utente sta modificando quali Moduli sono visualizzati nella Dashboard; }
+\addPreCondizione{L'utente si trova nella sezione Dashboard;}
+\addPreCondizione{L'utente sta modificando quali Moduli sono visualizzati nella Dashboard.}
 \addPreCondizione{Il limite massimo di Moduli visualizzabili nella Dashboard è stato raggiunto.}
-\addPostCondizione{Il Modulo selezionato non è inserito nella Dashboard}
+\addPostCondizione{Il Modulo selezionato non è inserito nella Dashboard.}
 \addScenarioPrincipale{Il Sistema non inserisce il Modulo selezionato nella Dashboard;}
 \addScenarioPrincipale{Il Sistema segnala la condizione di massima capienza raggiunta.}
-\addTrigger{L'utente seleziona un Modulo.}
-\makeUC{2.3.2}{Errore limite Moduli visualizzabili nella Dashboard}
+\addTrigger{L'utente vuole aggiungere un Modulo nella Dashboard.}
+\makeUC{2.8.2}{Errore limite Moduli visualizzabili nella Dashboard}
 
 \addAttore{Utente.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente è autenticato nel Sistema.}
-\addPreCondizione{L'utente sta visualizzando la Dashboard.}
+\addPreCondizione{L'utente si trova nella sezione Dashboard;}
 \addPostCondizione{Il Sistema rimuove dalla Dashboard il Modulo selezionato dall'utente.}
 \addScenarioPrincipale{L'utente seleziona l'opzione di modifica della Dashboard;}
-\addScenarioPrincipale{L'utente seleziona un Modulo opzionale attualmente presente nella Dashboard}
-\addScenarioAlternativo{Il Modulo selezionato non è presente nella Dashboard.}
-\addInclusione{Selezione Modulo già presente \rif{2.3.1}}
-\addEstensione{Selezione Modulo non presente \rif{2.4.1}}
-\addTrigger{L'utente vuole rimuovere un Modulo opzionale dalla Dashboard}
-\makeUC{2.4}{Rimozione Modulo opzionale Dashboard}
+\addScenarioPrincipale{L'utente seleziona un Modulo opzionale attualmente presente nella Dashboard.}
+\addScenarioAlternativo{Il Modulo selezionato non è attualmente presente nella Dashboard.}
+\addInclusione{(???) Selezione Modulo già presente \rif{2.8.1}}
+\addEstensione{Selezione Modulo non presente \rif{2.9.1}}
+\addTrigger{L'utente vuole rimuovere un Modulo opzionale dalla Dashboard.}
+\makeUC{2.9}{Rimozione Modulo opzionale Dashboard}
 
 \addAttore{Utente.}
 \addPreCondizione{Il Sistema è attivo;}
@@ -455,7 +535,7 @@ Di seguito vengono riportati gli attori individuati:
                         \end{itemize} }
 \addScenarioPrincipale{Il Sistema aggiunge alla Dashboard il Modulo selezionato.}
 \addTrigger{L'utente seleziona un Modulo non presente nella Dashboard}
-\makeUC{2.4.1}{Selezione modulo non presente in Dashboard}
+\makeUC{2.9.1}{Selezione Modulo non presente in Dashboard}
 
 
 % ======= UC Analytics =======
@@ -600,7 +680,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addEstensione{\rif{7}}
 \makeUC{3.9}{Visualizzazione frequenza delle cadute rilevate}
 
-% ======= UC Analytics: Inserimento modulo grafico energia consumata =======
+% ======= UC Analytics: Inserimento Modulo grafico energia consumata =======
 \addAttore{\os.}
 \addPreCondizione{L'\os si trova nella sezione Analytics;}
 \addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
@@ -610,7 +690,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
 \makeUC{3.3.1}{Inserimento grafico sul calcolo dell'energia consumata dall'illuminazione}
 
-% ======= UC Analytics: Rimozione modulo grafico energia consumata =======
+% ======= UC Analytics: Rimozione Modulo grafico energia consumata =======
 \addAttore{\os.}
 \addPreCondizione{L'\os si trova nella sezione Analytics;}
 \addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
@@ -620,7 +700,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addScenarioPrincipale{L'\os seleziona la funzionalità di rimozione del grafico.}
 \makeUC{3.3.2}{Rimozione grafico sul calcolo dell'energia consumata dall'illuminazione}
 
-% ======= UC Analytics: Inserimento modulo grafico variazione cambio temp =======
+% ======= UC Analytics: Inserimento Modulo grafico variazione cambio temp =======
 \addAttore{\os.}
 \addPreCondizione{L'\os si trova nella sezione Analytics;}
 \addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
@@ -630,7 +710,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
 \makeUC{3.6.1}{Inserimento grafico di variazione e cambio temperatura}
 
-% ======= UC Analytics: Rimozione modulo grafico variazione cambio temp. =======
+% ======= UC Analytics: Rimozione Modulo grafico variazione cambio temp. =======
 \addAttore{\os.}
 \addPreCondizione{L'\os si trova nella sezione Analytics;}
 \addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
@@ -640,7 +720,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addScenarioPrincipale{L'\os seleziona la funzionalità di rimozione del grafico.}
 \makeUC{3.6.2}{Rimozione grafico di variazione e cambio temperatura}
 
-% ======= UC Analytics: Inserimento modulo grafico sugli allarmi inviati e risolti =======
+% ======= UC Analytics: Inserimento Modulo grafico sugli allarmi inviati e risolti =======
 \addAttore{\os.}
 \addPreCondizione{L'\os si trova nella sezione Analytics;}
 \addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
@@ -650,7 +730,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
 \makeUC{3.7.1}{Inserimento grafico sugli allarmi inviati e risolti}
 
-% ======= UC Analytics: Rimozione modulo grafico sugli allarmi inviati e risolti =======
+% ======= UC Analytics: Rimozione Modulo grafico sugli allarmi inviati e risolti =======
 \addAttore{\os.}
 \addPreCondizione{L'\os si trova nella sezione Analytics;}
 \addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
