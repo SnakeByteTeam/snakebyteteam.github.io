@@ -46,7 +46,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                0.1.6 & 29/11/2025 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
+                0.2.0 & 08/12/2025 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
                 \hline
             \end{tabular}
         \end{center}
@@ -60,6 +60,8 @@
     \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
     \hline
     \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
+    \hline
+    0.2.0 & 08/12/2025 & C. Libralato & L. Pellizzon & - & Aggiunte a processo di verifica e approvazione (sez. 3.1.4, 3.1.5). Aggiunta Sviluppo con Analisi Requisiti ai processi primari (sez. 2.2 )\\ 
     \hline
     0.1.6 & 29/11/2025 & F. Pasqual & V. Baleanu & - & Aggiunto processo di verifica tramite \textit{pull request} \\ 
     \hline
@@ -129,6 +131,7 @@ Il documento cita alcuni termini la cui definizione può risultare ambigua. Per 
 \end{itemize}
 
 \section{Processi primari}
+Le attività  che compongono i processi primari considerate in questa sede sono un sottoinsieme proprio delle attività previste dallo Standard ISO/IEC 12207:1995. 
 \subsection{Fornitura}
 Il processo di fornitura, come specificato nello Standard ISO/IEC 12207:1995, definisce le attività dell'organizzazione che fornisce il prodotto software all'acquirente, dalla concezione fino alla consegna del prodotto. Viene istanziato conseguentemente alla redazione della \textit{Valutazione dei \textit{capitolati$_{G}$}}.
 
@@ -163,6 +166,88 @@ La documentazione prodotta durante le attività di fornitura, la quale verrà co
         \item Riassunto costi complessivi e data prevista di consegna.
     \end{itemize}
 \end{itemize}
+
+\subsection{Sviluppo}
+Il processo di Sviluppo consiste in un'insieme di attività necessarie per la realizzazione del prodotto software, queste sono particolarmente
+orientate verso analisi dei requisiti, design, codifica, integrazione e testing; si tratta infatti del processo primario principale che
+guida la realizzazione del prodotto software per la quasi totalità del ciclo di vita.
+
+\subsubsection{Attività}
+Il processo di sviluppo si compone delle seguenti attività:
+\begin{itemize}
+    \item \textbf{System requirements analysis};
+    \item \textbf{Software requirements analysis};
+    \item \textbf{Software architectural design};
+    \item \textbf{Software detailed design};
+    \item \textbf{Software coding and testing};
+    \item \textbf{Software qualification testing};
+    \item \textbf{Software installation};
+\end{itemize}
+
+\subsubsection{Documentazione risultante}
+La documentazione prodotta durante il processo di Sviluppo consiste in:
+\begin{itemize}
+    \item \textbf{\textit{Diagrammi UML$_{G}$}}: diagrammi realizzati secondo lo standard \textit{UML2.5$_{G}$} utili alla definizione dei \textit{casi d'uso$_{G}$} all'interno dell'Analisi dei Requisiti.
+    \item \textbf{Analisi dei Requisiti}: documento che racchiude i risultati della \textit{System requirements analysis} (requisiti funzionali) e \textit{Software requirements analysis} (requisiti non funzionali).
+
+\end{itemize}
+
+\subsubsection{Analisi dei Requisiti}
+Il suddetto documento, la cui redazione è affidata al ruolo dell'Analista, è necessario al fine di determinare e tracciare l'insieme di
+requisiti che l'applicativo deve soddisfare. 
+
+L'analisi è strutturata in maniera tale da ricavare i requisiti a partire dai \textit{casi d'uso}, che 
+consistono in una serie di scenari che condividono uno scopo per un utente che interagisce con il sistema. La ricerca dei casi d'uso avviene tramite \textit{brainstorming$_{G}$} interno al gruppo e si
+avvale di \textit{feedback$_{G}$} da parte della Proponente.\\
+Il documento è strutturato nel seguente modo:
+
+\trisubsection{Introduzione}
+Una breve introduzione descrive le finalità del documento, i Riferimenti Informativi e Normativi.
+
+\trisubsection{Descrizione del prodotto}
+In questa sezione viene descritto lo scopo e l'obiettivo principale del prodotto, oltre che  le principali funzionalità
+che deve possedere e l'insieme di utenti a cui è destinato.
+
+\trisubsection{Elenco \textit{casi d'uso}}
+I \textit{casi d'uso} vengono elencati seguendo la numerazione associata, sono presentati attraverso un diagramma \textit{UML} e una descrizione testuale in forma tabellare contenente sia le informazioni
+all'interno del diagramma sia quelle non rappresentabili da esso, tra cui Pre-condizioni e le Post-condizioni.\\
+La struttura è la seguente:
+
+%==============================
+%Da cambiare con template che però non è ancora confermato
+\begin{center}
+    \begin{tabularx}{\textwidth}{|c| >{\centering\arraybackslash}X|}
+        \hline
+        \rowcolor{lightgray} \textbf{Campo} & \textbf{Descrizione} \\
+        \hline
+        Attori & Coloro che partecipano attivamente al caso d'uso per raggiungere un preciso obiettivo  \\
+        \hline
+        Pre-condizioni & Condizioni che devono essere soddisfatte prima dello scenario descritto dal caso d'uso\\
+        \hline
+        Post-condizioni & Condizioni che risultano soddisfatte dopo il completamento dello scenario principale del caso d'uso. Se viene completato uno scenario alternativo, saranno soddisfatte le Post-condizioni di quest'ultimo \\
+        \hline
+        Trigger & La motivazione che porta l'utente a svolgere i passi del caso d'uso \\
+        \hline
+        Scenario principale & Sequenza di passi che l'utente deve seguire per completare il caso d'uso \\
+        \hline
+        Scenari alternativi & Scenario divergente dal principale per il verificarsi di una particolare condizione \\
+        \hline
+        Estensioni &  Casi d'uso ulteriori eseguiti al verificarsi di una particolare condizione nel caso d'uso primario. Modificano Scenario e Post-condizioni \\
+        \hline
+        Inclusioni & Casi d'uso ulteriori eseguiti al fine di completare il caso d'uso principale. Vengono eseguiti tutti incondizionatamente. \\
+        \hline
+        
+    \end{tabularx}
+\end{center}
+%==========================
+La crezione della tabella è facilitata dall'utilizzo del template \texttt{templateAdR.sty}.\\
+Non tutti i \textit{casi d'uso} necessitano della tabella nella sua interezza, la presenza dei campi: Trigger, Scenari alternativi, Estensioni e Inclusioni
+dipende dalla situazione.
+
+
+ 
+\trisubsection{\textbf{Elenco requisiti}}
+I requisiti sono identificati da un codice univoco e sono associati ai casi d'uso da cui sono stati generati.
 
 \section{Processi di supporto}
 \subsection{Documentazione}
@@ -284,52 +369,92 @@ Differentemente dagli altri documenti, l'analisi dei requisiti viene redatta dal
 \textit{analista} (\hyperref[sec:Analista]{Sezione \textit{§4.1.1.5}}). 
 
 \subsubsection{Verifica dei documenti}
-Ogni documento dopo essere stato redatto, deve essere verificato, ovvero la correttezza delle informazioni in esso contenute devono essere confermate.
+Ogni documento dopo essere stato redatto, deve essere verificato, ovvero la correttezza delle informazioni in esso contenute deve essere confermata.
 
-L'azione di verifica dei documenti viene effettuata dalla persona che ricopre, in quel periodo, il ruolo di \textit{verificatore$_{G}$}. 
+L'azione di verifica dei documenti viene effettuata dalla persona che ricopre, in quel periodo, il ruolo di Verificatore.
 
+\label{sec:Verifica}
 \trisubsection{Processo di verifica tramite \textit{pull request$_G$}}
 Il processo di verifica dei documenti adotta il meccanismo delle \textit{pull request} offerto dalla piattaforma \textit{GitHub}.
 Tale strumento garantisce che nessuna modifica venga integrata nel \textit{branch} principale (\texttt{main}) o nel branch di sviluppo principale (\texttt{develop}) senza un controllo esplicito del verificatore,
-il quale può approvare il documento o richiedere ulteriori modifiche direttamente all'interno della sezione \textit{pull request} di \textit{GitHub}. \\
-L'intero ciclo di revisione, incluse eventuali correzioni successive, avviene all'interno di un'unica \textit{pull request}, 
+il quale può approvare il documento o richiedere ulteriori modifiche direttamente all'interno della sezione \textit{pull request} di \textit{GitHub} tramite i commenti. \\
+L'intero ciclo di verifica, incluse eventuali correzioni successive, avviene all'interno di un'unica \textit{pull request}, 
 garantendo la tracciabilità delle discussioni e dei \textit{commit} di modifica. \\
 
 Di seguito viene definito il \textit{workflow} operativo:
 
 \begin{enumerate}
+    \item \textbf{Esecuzione modifiche} \\
+    Il redattore crea un nuovo branch denominato \texttt{modifica-<nome\_documento>} nel suo repository locale (la versione del documento non va inclusa all'interno del nome del branch di modifica).\\
+    Per definizione, le modifiche su documenti diversi dovranno essere presentate attraverso branch di modifica e pull request diverse.
+
     \item \textbf{Apertura della Richiesta} \\
-    Il redattore, completato il lavoro sul proprio \textit{branch} locale ed effettuato il \textit{push} in remoto, apre una nuova \textit{pull request} 
+    Il redattore, completato il lavoro in locale sul \textit{branch} dedicato, effettua il \textit{push} in remoto del branch di modifica e apre una nuova \textit{pull request} 
     verso il branch \texttt{develop}. In questa fase deve:
     \begin{itemize}
-        \item Assegnare il corretto verificatore e impostare i \textit{tag};
+        \item definire come assegnatario e reviewer il verificatore e impostare i \textit{tag};
         \item collegare la richiesta alla relativa \textit{Issue} di progetto.
     \end{itemize}
 
-    \item \textbf{Revisione} \\
+    \item \textbf{Verifica} \\
     Il verificatore riceve la notifica ed esamina le modifiche. A questo punto si presentano due scenari:
     \begin{enumerate}
         \item \textbf{Esito Positivo:} Se il lavoro è corretto e completo, il verificatore approva la \textit{pull request} 
-        e procede al \textit{merge} automatico del branch nel branch di sviluppo principale o nel \texttt{main}. \\ Il processo di verifica è concluso.
-        \item \textbf{Richiesta di Modifiche:} Se sono necessari cambiamenti, il verificatore inserisce commenti \textit{inline} 
-        sui punti critici e imposta lo stato della revisione su \textit{Request changes}.
+        e procede al \textit{merge} automatico del branch di modifica nel branch di \texttt{develop}. L'operazione porta all'eliminazione 
+        automatica del branch di modifica previa attivazione dell'impostazione dedicata di GitHub (Settings$>$General$>$Automatically delete head branches)\\
+        Il processo di verifica è concluso.\\
+        Spetta all'autore eliminare manualmente il branch di modifica nel suo repository locale.
+        \item \textbf{Esito Negativo:} Se sono necessari cambiamenti, il verificatore inserisce commenti \textit{inline} 
+        sui punti critici e imposta lo stato della revisione su \textit{Request changes}.\\
     \end{enumerate}
 
-    \item \textbf{Risoluzione e Nuova Verifica} (in caso di esito negativo) \\
-    Nel caso siano state richieste modifiche:
+    \item \textbf{Risoluzione e Nuova Verifica}\\
+    Nel caso siano state richieste modifiche, il redattore:
     \begin{enumerate}
-        \item Il redattore applica le correzioni in locale ed effettua un nuovo \textit{push} sullo stesso branch 
-        (aggiornando automaticamente la \textit{pull request} esistente).
-        \item Il redattore risponde ai commenti o li risolve e richiede una nuova revisione (\textit{Re-request review}).
-        \item Il processo riprende dal punto 2 fino all'ottenimento dell'approvazione.
+        \item viene notificato;
+        \item applica le correzioni in locale ed effettua un nuovo \textit{push} sullo stesso branch 
+        (aggiornando automaticamente la \textit{pull request} esistente);
+        \item risponde ai commenti o li risolve e richiede una nuova revisione (\textit{Re-request review});
+        \item in caso di esito di verifica negativo itera il punto 4.
     \end{enumerate}
 \end{enumerate}
 
 \subsubsection{Approvazione dei documenti}
-Ogni documento, dopo essere stato verificato, deve essere approvato per poter essere rilasciato come documentazione ufficiale 
-del progetto nel branch (\texttt{main}).
+Ogni documento, dopo essere stato verificato, deve essere approvato per poter essere rilasciato come documentazione ufficiale del progetto 
+nel branch \texttt{main}. L'approvazione avviene in maniera simile alla verifica da chi, in quel periodo, ricopre la figura di \textit{responsabile$_{G}$}.
 
-L'approvazione avviene da chi, in quel periodo, ricopre la figura di \textit{responsabile$_{G}$}
+\trisubsection{Processo di approvazione tramite \textit{pull request}}
+I documenti vengono approvati in maniera progressiva al fine di evitare l'accumulo di un carico di lavoro insostenibile per il responsabile
+quando si raggiunge una baseline. Una volta che tutti i documenti contenuti nel branch \texttt{develop} sono stati approvati si può procedere
+con il \textit{merge} del branch \texttt{develop} verso il branch \texttt{main}.
+
+Il momento opportuno per sottoporre un documento ad approvazione non è a seguito della verifica ma è definito in base alle tempistiche imposte dalle baselines.\\
+L'approvazione di un singolo documento consiste nei seguenti passi:
+\begin{enumerate}
+    \item \textbf{Aggiornamento versione}\\
+    Il redattore crea un branch locale denominato \texttt{approvazione-<nome\_documento>} (la versione del documento non va inclusa nel nome) 
+    in cui modifica \textbf{esclusivamente} la versione aumentando l'indice \textit{Major} e azzerando gli altri (X.0.0).
+    \item \textbf{Apertura Richiesta}\\
+    Viene effettuata la \textit{push} e aperta una \textit{pull request} verso il branch \texttt{develop}. Devono essere impostati i \textit{tag}, l'assegnatario e il \textit{reviewer} devono coincidere con il responsabile.
+    \item \textbf{Approvazione}\\
+    Il responsabile viene notificato, controlla il documento e fornisce un verdetto:
+    \begin{enumerate}
+        \item \textbf{Esito Positivo:} il documento è approvato con successo, il responsabile approva la \textit{pull request} e il 
+        \textit{merge} sul branch \texttt{develop}.\\
+        Spetta al redattore eliminare manualmente il branch di approvazione in locale.
+        \item \textbf{Esito Negativo:} il documento non è adatto e richiede variazioni che vengono comunicate come commenti, lo stato
+        revisione viene impostato a \textit{Request Changes}.
+    \end{enumerate}
+    \item \textbf{Risoluzione e Nuova Approvazione}\\
+    In caso di esito di approvazione negativo, il redattore:
+    \begin{enumerate}
+        \item viene notificato;
+        \item applica le modifiche e ripete il processo di verifica (\hyperref[sec:Verifica]{Sezione \textit{§3.1.4.1}});
+        \item rinnova la \textit{pull request} esistente per l'approvazione;
+        \item in caso di esito negativo itera il punto 4.
+    \end{enumerate}
+
+\end{enumerate}
 
 \subsubsection{Nomenclatura dei documenti}
 \trisubsection{Acronimi}
