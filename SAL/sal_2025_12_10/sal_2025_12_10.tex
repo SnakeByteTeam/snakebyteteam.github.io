@@ -33,22 +33,29 @@
         \item Aggiornato documento \textbf{Norme di Progetto} alla versione 0.2.0 : aggiunta sezione Sviluppo e Analisi dei Requisiti
         \item Redatto il verbale interno del 01/12/2025 con decisioni sulla revisione della struttura degli \textit{use case$_G$} 
                 e sul trasferimento di attività non completate tra uno sprint e l'altro
-        \item Redatto e inviato per revisione il verbale esterno relativo al SAL del 27/12/2025 
+        \item Redatto e inviato per revisione il verbale esterno relativo al SAL del 27/11/2025 
         \item Ricevuto il secondo \textit{kit di impianto portatile Smart$_G$}
         \item Debugging autenticazione \textit{KNX IoT 3rd party API$_G$}
 \end{itemize}
 \end{frame}
 
-\addPrecedentTodo{ve\_2025\_11\_27.a1}{\#18}{Inviare bozza dell'Analisi dei Requisiti}{C. Libralato, V. Baleanu, G. De Fina, F. Pasqual{05/12/2025}
-\addPrecedentTodo{ve\_2025\_11\_27.a2}{-}{Decisione definitiva sul sistema di tracciamente delle attività di progetto}{SnakeByte}{01/12/2025}
+% PRIMO FRAME: Attività terminate dal verbale esterno 
+\addPrecedentTodo{ve\_2025\_11\_27.a1}{\#18}{Inviare bozza dell'Analisi dei Requisiti}{C. Libralato, V. Baleanu, G. De Fina, F. Pasqual}{05/12/2025}
+\addPrecedentTodo{ve\_2025\_11\_27.a2}{-}{Decisione definitiva sul sistema di tracciamento delle attività di progetto}{SnakeByte}{01/12/2025}
 \addPrecedentTodo{ve\_2025\_11\_27.a3}{-}{Correggere l'implementazione dell'autenticazione con \textit{KNX IoT 3rd party API$_G$}}{L. Pellizzon}{07/12/2025}
 \addPrecedentTodo{ve\_2025\_11\_27.a4}{-}{Contattare il referente di \textit{Vimar S.p.A.} per la consegna del secondo kit hardware}{F. Pasqual}{28/11/2025}
+\makePrecedentTodoFrame
+
+% Reset delle entries per il secondo frame 
+\renewcommand{\precedentTodoEntries}{}
+
+%  SECONDO FRAME: Attività terminate dal verbale interno
 \addPrecedentTodo{vi\_2025\_12\_01.a1}{\#17}{Stesura e verifica del verbale dell'incontro del 01/12/2025}{F. Pasqual, L. Pellizzon}{05/12/2025}
 \addPrecedentTodo{vi\_2025\_12\_01.a2}{\#19}{Stesura, verifica e consegna del verbale esterno dell'incontro \textit{SAL} del 27/11/2025}{F. Pasqual, L. Pellizzon}{05/12/2025}
 \addPrecedentTodo{vi\_2025\_12\_01.a3}{\#22}{Aggiornare il consuntivo di periodo nel Piano di Progetto}{C. Libralato}{08/12/2025}
 \addPrecedentTodo{vi\_2025\_12\_01.a4}{-}{Assegnare ai membri le nuove \textit{issue} per il nuovo (corrente) sprint}{F. Pasqual}{02/12/2025}
 \addPrecedentTodo{vi\_2025\_12\_01.a5}{-}{Spostare le issue non concluse nel backlog del nuovo (corrente) sprint}{F. Pasqual}{02/12/2025}
-\addPrecedentTodo{vi\_2025\_12\_01.a6}{\#5}{Stesura \textit{use case} cruscotto}}{F. Venzo}{05/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_01.a6}{\#5}{Stesura \textit{use case} cruscotto}{F. Venzo}{05/12/2025}
 \addPrecedentTodo{vi\_2025\_12\_01.a7}{-}{Aggiornare struttura e forma \textit{use case}}{G. De Fina, V. Baleanu, F. Venzo}{05/12/2025}
 \addPrecedentTodo{vi\_2025\_12\_01.a8}{\#6}{Stesura \textit{use case} autenticazione}{F. Venzo}{05/12/2025}
 \addPrecedentTodo{vi\_2025\_12\_01.a9}{\#26}{Creazione presentazione per SAL del 10/12/2025}{F. Pasqual}{09/12/2025}
@@ -61,7 +68,7 @@
 \begin{frame}{Limiti o blocchi incontrati}
 Nel proseguimento dell'attività di Analisi dei Requisiti e stesura della bozza del documento sono emersi i seguenti dubbi:
     \begin{itemize}
-        \item considerare il Database e i dispositivi (sensori) come attoris secondari?
+        \item considerare il Database e i dispositivi (sensori) come attori secondari?
         \item mantenere gli \textit{use case} contenenti solo \textit{extend}?
         \item il \textit{trigger} di uno \textit{use case} deve essere considerato un'azione?
             Può essere conseguenza della volontà dell'utente di fare un'azione?
