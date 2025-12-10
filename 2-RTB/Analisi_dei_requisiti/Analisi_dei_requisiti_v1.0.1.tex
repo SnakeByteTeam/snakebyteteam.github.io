@@ -49,7 +49,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                1.0.1 & 8/12/2025 & Da verificare &       
+                1.0.2 & 10/12/2025 & Da verificare &       
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
@@ -68,6 +68,8 @@
         \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+        \hline
+        1.0.2 & 10/12/2025 & V. Baleanu & L. Pellizzon & - & Sistemazione UC3. Aggiunta dispositivi in Scenario Principale di UC4. Rimozione UC8.\\
         \hline
         1.0.1 & 8/12/2025 & V. Baleanu & L. Pellizzon & - & Sistemazione UC3 e UC4. Aggiunta Use Cases UC7 e UC8. Aggiunta diagramma Attori. \\
         \hline
@@ -145,7 +147,7 @@ Il presente documento è stato sviluppato in modo graduale e incrementale, con l
 \begin{itemize}
     \item \textbf{Norme di Progetto}: 
     
-    \url{link-alle-norme-di-progetto}  (non ci sono sul sito)
+    \url{https://github.com/SnakeByteTeam/snakebyteteam.github.io/blob/develop/2-RTB/Norme_di_progetto/NdP_v0.2.0.pdf}  (link temporaneo, da cambiare una volta pubblicato nel sito)
     
     (consultato il 30/10/2025);
     \item \textbf{Vimar View4Life Capitolato di Ingegneria del Software Università di Padova 2025 - 2026:}
@@ -172,12 +174,12 @@ Il presente documento è stato sviluppato in modo graduale e incrementale, con l
 
 \section{Descrizione del prodotto}
 \subsection{Prospettiva del prodotto}
-La prospettiva del prodotto è un sistema domotico integrato per anziani autosufficienti che si basa su dispositivi Vimar con connessione mesh Bluetooth.
+La prospettiva del prodotto è un sistema domotico integrato per persone autosufficienti (ad esempio anziani) che si basa su dispositivi Vimar con connessione mesh Bluetooth.
 Gli obiettivi principali sono la sicurezza e il comfort delle persone occupanti, l'aumento dell'efficienza energetica della struttura e la semplificazione della gestione operativa dell'impianto elettrico.
 Tali risultati vengono raggiunti attraverso la centralizzazione del controllo di illuminazione, temperatura, televisione e dispositivi di sicurezza mediante l'app View e i relativi servizi cloud, con la possibilità di controllo da remoto da parte del personale medico.
 
 \subsection{Obiettivi del prodotto}{
-Il progetto consiste nella realizzazione di una piattaforma unica \textit{View4Life} per la gestione intelligente degli impianti \textit{Smart} nelle residenze protette per anziani, sfruttando i dispositivi domotici Vimar connessi in rete \textit{mesh Bluetooth} tramite l’\textit{API KNX IoT 3rd-party$_{G}$}. Questa soluzione mira a supportare il lavoro del \os fornendo uno strumento che integri un sistema di gestione degli allarmi (come il rilevamento di cadute o presenze prolungate in determinate stanze) per garantire un intervento rapido e tempestivo. Inoltre, la piattaforma è progettata per permettere il monitoraggio del consumo energetico e la rilevazione di anomalie nell’impianto.
+Il progetto consiste nella realizzazione di una piattaforma unica \textit{View4Life} per la gestione intelligente degli impianti \textit{Smart} nelle residenze protette, sfruttando i dispositivi domotici Vimar connessi in rete \textit{mesh Bluetooth} che vengono poi esposti tramite l'interfaccia \textit{API KNX IoT 3rd-party$_{G}$}. Questa soluzione mira a supportare il lavoro del \os fornendo uno strumento che integri un sistema di gestione degli allarmi (come il rilevamento di cadute o presenze prolungate in determinate stanze) per garantire un intervento rapido e tempestivo. Inoltre, la piattaforma è progettata per permettere il monitoraggio del consumo energetico e la rilevazione di anomalie nell’impianto (ad esempio le disconnessioni).
 }
 
 \subsection{Funzionalità del prodotto}
@@ -195,7 +197,7 @@ Il prodotto si rivolge principalmente a quattro categorie principali di utenti, 
 
 \begin{itemize}
     \item \textbf{Personale medico e operatori sanitari} che utilizzano l'applicazione per monitorare lo stato di ambienti e dispositivi, oltre a ricevere notifiche di allarme e gestire da remoto funzioni come temperatura, illuminazione e sicurezza delle stanze degli ospiti presenti. 
-    \item \textbf{Personale amministrativo} che si fa carico della configurazione e manutenzione del sistema e del monitoraggio dei consumi elettrici, e quindi a una conseguente ottimizzazione dell'efficienza dell'impianto elettrico.
+    \item \textbf{Personale amministrativo} che si fa carico della configurazione e manutenzione del sistema e del monitoraggio delle statistiche prodotte (ad esempio sui consumi elettrici o sulla variazione delle temperatura), e quindi a una conseguente ottimizzazione dell'efficienza dell'impianto elettrico.
 \end{itemize}
 Questa sezione evidenzia come il sistema domotico proposto miri a centralizzare il controllo e la gestione degli impianti all’interno della residenza, semplificando le operazioni quotidiane del personale e migliorando la qualità della vita degli ospiti.
 Attraverso l’app View e i servizi cloud Vimar, l’applicazione permette di gestire in modo integrato illuminazione, temperatura e sicurezza, contribuendo a maggior efficienza energetica, sicurezza e comfort abitativo per tutti gli utenti coinvolti.
@@ -514,7 +516,7 @@ L'utente inoltre visualizza il seguente Modulo non modificabile:
 \addScenarioPrincipale{L'utente seleziona l'opzione di modifica della Dashboard;}
 \addScenarioPrincipale{L'utente seleziona un Modulo opzionale attualmente presente nella Dashboard.}
 \addScenarioAlternativo{Il Modulo selezionato non è attualmente presente nella Dashboard.}
-\addInclusione{(???) Selezione Modulo già presente \rif{2.8.1}}
+\addInclusione{(Selezione Modulo già presente \rif{2.8.1}}
 \addEstensione{Selezione Modulo non presente \rif{2.9.1}}
 \addTrigger{L'utente vuole rimuovere un Modulo opzionale dalla Dashboard.}
 \makeUC{2.9}{Rimozione Modulo opzionale Dashboard}
@@ -526,7 +528,7 @@ L'utente inoltre visualizza il seguente Modulo non modificabile:
 \addPostCondizione{Il Modulo selezionato viene aggiunto alla Dashboard.}
 \addScenarioPrincipale{L'utente seleziona un Modulo, non presente nella Dashboard, tra:
                         \begin{itemize}
-                            \item informazioni utente;
+                            \item Informazioni utente;
                             \item statistiche allarmi;
                             \item analisi clima;
                             \item analisi consumi;
@@ -614,6 +616,26 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addEstensione{\rif{7}}
 \makeUC{3.3}{Visualizzazione grafico energia consumata}
 
+% ======= UC Analytics: Inserimento Modulo grafico energia consumata =======
+\addAttore{\os.}
+\addPreCondizione{L'\os si trova nella sezione Analytics;}
+\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
+\addPostCondizione{L'\os aggiunge la visualizzazione del grafico.}
+\addTrigger{Il \os vuole aggiungere la visualizzazione del grafico.}
+\addScenarioPrincipale{L'\os seleziona il grafico sul calcolo dell'energia consumata dall'illuminazione;}
+\addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
+\makeUC{3.3.1}{Inserimento grafico sul calcolo dell'energia consumata dall'illuminazione}
+
+% ======= UC Analytics: Rimozione Modulo grafico energia consumata =======
+\addAttore{\os.}
+\addPreCondizione{L'\os si trova nella sezione Analytics;}
+\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
+\addPostCondizione{L'\os rimuove la visualizzazione del grafico.}
+\addTrigger{Il \os vuole rimuovere la visualizzazione del grafico.}
+\addScenarioPrincipale{L'\os seleziona il grafico sul calcolo dell'energia consumata dall'illuminazione;}
+\addScenarioPrincipale{L'\os seleziona la funzionalità di rimozione del grafico.}
+\makeUC{3.3.2}{Rimozione grafico sul calcolo dell'energia consumata dall'illuminazione}
+
 % ======= UC Analytics: Grafico rilevamento presenza, assenza e caduta =======
 \addAttore{\os.}
 \addPreCondizione{L'\os si trova nella sezione Analytics.}
@@ -647,6 +669,26 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addEstensione{\rif{7}}
 \makeUC{3.6}{Visualizzazione grafico variazione e cambio temperatura}
 
+% ======= UC Analytics: Inserimento Modulo grafico variazione cambio temp =======
+\addAttore{\os.}
+\addPreCondizione{L'\os si trova nella sezione Analytics;}
+\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
+\addPostCondizione{L'\os aggiunge la visualizzazione del grafico.}
+\addTrigger{Il \os vuole aggiungere la visualizzazione del grafico.}
+\addScenarioPrincipale{L'\os seleziona il grafico sul calcolo di variazione e cambio temperatura;}
+\addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
+\makeUC{3.6.1}{Inserimento grafico di variazione e cambio temperatura}
+
+% ======= UC Analytics: Rimozione Modulo grafico variazione cambio temp. =======
+\addAttore{\os.}
+\addPreCondizione{L'\os si trova nella sezione Analytics;}
+\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
+\addPostCondizione{L'\os rimuove la visualizzazione del grafico.}
+\addTrigger{Il \os vuole rimuovere la visualizzazione del grafico.}
+\addScenarioPrincipale{L'\os seleziona il grafico di variazione e cambio temperatura;}
+\addScenarioPrincipale{L'\os seleziona la funzionalità di rimozione del grafico.}
+\makeUC{3.6.2}{Rimozione grafico di variazione e cambio temperatura}
+
 % ======= UC Analytics: Grafico allarmi inviati e risolti =======
 \addAttore{\os.}
 \addPreCondizione{L'\os si trova nella sezione Analytics.}
@@ -657,6 +699,26 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addScenarioAlternativo{Il Sistema non dispone di dati sufficienti (Vedi \rif{7})}
 \addEstensione{\rif{7}}
 \makeUC{3.7}{Visualizzazione grafico allarmi inviati e risolti}
+
+% ======= UC Analytics: Inserimento Modulo grafico sugli allarmi inviati e risolti =======
+\addAttore{\os.}
+\addPreCondizione{L'\os si trova nella sezione Analytics;}
+\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
+\addPostCondizione{L'\os aggiunge la visualizzazione del grafico.}
+\addTrigger{Il \os vuole aggiungere la visualizzazione del grafico.}
+\addScenarioPrincipale{L'\os seleziona il grafico sugli allarmi inviati e risolti;}
+\addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
+\makeUC{3.7.1}{Inserimento grafico sugli allarmi inviati e risolti}
+
+% ======= UC Analytics: Rimozione Modulo grafico sugli allarmi inviati e risolti =======
+\addAttore{\os.}
+\addPreCondizione{L'\os si trova nella sezione Analytics;}
+\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
+\addPostCondizione{L'\os rimuove la visualizzazione del grafico.}
+\addTrigger{Il \os vuole rimuovere la visualizzazione del grafico.}
+\addScenarioPrincipale{L'\os seleziona il grafico sugli allarmi inviati e risolti;}
+\addScenarioPrincipale{L'\os seleziona la funzionalità di rimozione del grafico.}
+\makeUC{3.7.2}{Rimozione grafico sugli allarmi inviati e risolti}
 
 % ======= UC Analytics: Grafico frequenza degli allarmi rilevati =======
 \addAttore{\os.}
@@ -680,66 +742,6 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addEstensione{\rif{7}}
 \makeUC{3.9}{Visualizzazione frequenza delle cadute rilevate}
 
-% ======= UC Analytics: Inserimento Modulo grafico energia consumata =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os aggiunge la visualizzazione del grafico.}
-\addTrigger{Il \os vuole aggiungere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico sul calcolo dell'energia consumata dall'illuminazione;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
-\makeUC{3.3.1}{Inserimento grafico sul calcolo dell'energia consumata dall'illuminazione}
-
-% ======= UC Analytics: Rimozione Modulo grafico energia consumata =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os rimuove la visualizzazione del grafico.}
-\addTrigger{Il \os vuole rimuovere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico sul calcolo dell'energia consumata dall'illuminazione;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di rimozione del grafico.}
-\makeUC{3.3.2}{Rimozione grafico sul calcolo dell'energia consumata dall'illuminazione}
-
-% ======= UC Analytics: Inserimento Modulo grafico variazione cambio temp =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os aggiunge la visualizzazione del grafico.}
-\addTrigger{Il \os vuole aggiungere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico sul calcolo di variazione e cambio temperatura;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
-\makeUC{3.6.1}{Inserimento grafico di variazione e cambio temperatura}
-
-% ======= UC Analytics: Rimozione Modulo grafico variazione cambio temp. =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os rimuove la visualizzazione del grafico.}
-\addTrigger{Il \os vuole rimuovere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico di variazione e cambio temperatura;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di rimozione del grafico.}
-\makeUC{3.6.2}{Rimozione grafico di variazione e cambio temperatura}
-
-% ======= UC Analytics: Inserimento Modulo grafico sugli allarmi inviati e risolti =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os aggiunge la visualizzazione del grafico.}
-\addTrigger{Il \os vuole aggiungere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico sugli allarmi inviati e risolti;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
-\makeUC{3.7.1}{Inserimento grafico sugli allarmi inviati e risolti}
-
-% ======= UC Analytics: Rimozione Modulo grafico sugli allarmi inviati e risolti =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os rimuove la visualizzazione del grafico.}
-\addTrigger{Il \os vuole rimuovere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico sugli allarmi inviati e risolti;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di rimozione del grafico.}
-\makeUC{3.7.2}{Rimozione grafico sugli allarmi inviati e risolti}
-
 % ======= UC Dispositivi =======
 \addAttore{\os.}
 \addPreCondizione{Il Sistema è attivo;}
@@ -751,10 +753,12 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addScenarioPrincipale{L'\os visualizza l'elenco di tutti i dispositivi associati all'impianto selezionato. I dispositivi visualizzabili sono:
 \begin{itemize}
     \item Termostato (Vedi \rif{4.1});
-    \item Tapparelle (Vedi \rif{4.2});
-    \item Sensori \textit{Ultra Wide Band} di caduta (Vedi \rif{4.3});
-    \item Sensori \textit{Ultra Wide Band} di presenza (Vedi \rif{4.4});
-    \item Luci (Vedi\rif{4.5}).
+    \item tapparelle (Vedi \rif{4.2});
+    \item sensori \textit{Ultra Wide Band} di caduta (Vedi \rif{4.3});
+    \item sensori \textit{Ultra Wide Band} di presenza (Vedi \rif{4.4});
+    \item luci (Vedi \rif{4.5});
+    \item pulsante di allarme (Vedi \rif{4.6});
+    \item porta di ingresso (Vedi \rif{4.7}).
 \end{itemize}}
 \makeUC{4}{Visualizzazione Dispositivi}
 
@@ -767,17 +771,15 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addTrigger{L'\os vuole visualizzare il termostato dell'impianto.}
 \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo termostato:
 \begin{itemize}
-    \item Lo stato corrente del dispositivo (Vedi \rif{4.6});
-    \item il nome del dispositivo (Vedi \rif{4.7});
-    \item l'ambiente in cui risiede (Vedi \rif{4.8});
-    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.9}).
+    \item Lo stato corrente del dispositivo (Vedi \rif{4.8});
+    \item il nome del dispositivo (Vedi \rif{4.9});
+    \item l'ambiente in cui risiede (Vedi \rif{4.10});
+    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.11}).
 \end{itemize}}
-\addScenarioAlternativo{Il Sistema non riesce a visualizzare le caratteristiche del dispositivo (Vedi \rif{8}).}
-\addEstensione{\rif{8}}
-\addInclusione{\rif{4.6}}
-\addInclusione{\rif{4.7}}
 \addInclusione{\rif{4.8}}
 \addInclusione{\rif{4.9}}
+\addInclusione{\rif{4.10}}
+\addInclusione{\rif{4.11}}
 \makeUC{4.1}{Visualizzazione Termostato}
 
 % ======= UC Tapparelle =======
@@ -789,17 +791,15 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addTrigger{L'\os vuole visualizzare la tapparella dell'impianto.}
 \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo tapparella:
 \begin{itemize}
-    \item Lo stato corrente del dispositivo (Vedi \rif{4.6});
-    \item il nome del dispositivo (Vedi \rif{4.7});
-    \item l'ambiente in cui risiede (Vedi \rif{4.8});
-    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.9}).
+    \item Lo stato corrente del dispositivo (Vedi \rif{4.8});
+    \item il nome del dispositivo (Vedi \rif{4.9});
+    \item l'ambiente in cui risiede (Vedi \rif{4.10});
+    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.11}).
 \end{itemize}}
-\addScenarioAlternativo{Il Sistema non riesce a visualizzare le caratteristiche del dispositivo (Vedi \rif{8}).}
-\addEstensione{\rif{8}}
-\addInclusione{\rif{4.6}}
-\addInclusione{\rif{4.7}}
 \addInclusione{\rif{4.8}}
 \addInclusione{\rif{4.9}}
+\addInclusione{\rif{4.10}}
+\addInclusione{\rif{4.11}}
 \makeUC{4.2}{Visualizzazione Tapparella}
 
 % ======= UC UWB CADUTA =======
@@ -811,17 +811,15 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addTrigger{L'\os vuole visualizzare il sensore \textit{UWB} caduta dell'impianto.}
 \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo sensore \textit{UWB} caduta:
 \begin{itemize}
-    \item Lo stato corrente del dispositivo (Vedi \rif{4.6});
-    \item il nome del dispositivo (Vedi \rif{4.7});
-    \item l'ambiente in cui risiede (Vedi \rif{4.8});
-    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.9}).
+    \item Lo stato corrente del dispositivo (Vedi \rif{4.8});
+    \item il nome del dispositivo (Vedi \rif{4.9});
+    \item l'ambiente in cui risiede (Vedi \rif{4.10});
+    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.11}).
 \end{itemize}}
-\addScenarioAlternativo{Il Sistema non riesce a visualizzare le caratteristiche del dispositivo (Vedi \rif{8}).}
-\addEstensione{\rif{8}}
-\addInclusione{\rif{4.6}}
-\addInclusione{\rif{4.7}}
 \addInclusione{\rif{4.8}}
 \addInclusione{\rif{4.9}}
+\addInclusione{\rif{4.10}}
+\addInclusione{\rif{4.11}}
 \makeUC{4.3}{Visualizzazione sensore \textit{UWB} di caduta}
 
 % ======= UC UWB PRESENZA =======
@@ -832,17 +830,15 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addTrigger{L'\os vuole visualizzare il sensore \textit{UWB} presenza dell'impianto.}
 \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo sensore \textit{UWB} presenza:
 \begin{itemize}
-    \item Lo stato corrente del dispositivo (Vedi \rif{4.6});
-    \item il nome del dispositivo (Vedi \rif{4.7});
-    \item l'ambiente in cui risiede (Vedi \rif{4.8});
-    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.9}).
+    \item Lo stato corrente del dispositivo (Vedi \rif{4.8});
+    \item il nome del dispositivo (Vedi \rif{4.9});
+    \item l'ambiente in cui risiede (Vedi \rif{4.10});
+    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.11}).
 \end{itemize}}
-\addScenarioAlternativo{Il Sistema non riesce a visualizzare le caratteristiche del dispositivo (Vedi \rif{8}).}
-\addEstensione{\rif{8}}
-\addInclusione{\rif{4.6}}
-\addInclusione{\rif{4.7}}
 \addInclusione{\rif{4.8}}
 \addInclusione{\rif{4.9}}
+\addInclusione{\rif{4.10}}
+\addInclusione{\rif{4.11}}
 \makeUC{4.4}{Visualizzazione sensore \textit{UWB} di presenza}
 
 % ======= UC Luci =======
@@ -854,18 +850,56 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addTrigger{L'\os vuole visualizzare la luce dell'impianto.}
 \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo luce:
 \begin{itemize}
-    \item Lo stato corrente del dispositivo (Vedi \rif{4.6});
-    \item il nome del dispositivo (Vedi \rif{4.7});
-    \item l'ambiente in cui risiede (Vedi \rif{4.8});
-    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.9}).
+    \item Lo stato corrente del dispositivo (Vedi \rif{4.8});
+    \item il nome del dispositivo (Vedi \rif{4.9});
+    \item l'ambiente in cui risiede (Vedi \rif{4.10});
+    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.11}).
 \end{itemize}}
-\addScenarioAlternativo{Il Sistema non riesce a visualizzare le caratteristiche del dispositivo (Vedi \rif{8}).}
-\addEstensione{\rif{8}}
-\addInclusione{\rif{4.6}}
-\addInclusione{\rif{4.7}}
 \addInclusione{\rif{4.8}}
 \addInclusione{\rif{4.9}}
+\addInclusione{\rif{4.10}}
+\addInclusione{\rif{4.11}}
 \makeUC{4.5}{Visualizzazione luce}
+
+% ======= UC pulsante di allarme =======
+\addAttore{\os.}
+\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
+\addPreCondizione{L'\os ha selezionato un impianto;}
+\addPreCondizione{L'\os ha selezionato il dispositivo pulsante di allarme.}
+\addPostCondizione{L'\os visualizza il dispositivo pulsante di allarme di un impianto specifico.}
+\addTrigger{L'\os vuole visualizzare il pulsante di allarme dell'impianto.}
+\addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo pulsante di allarme:
+\begin{itemize}
+    \item Lo stato corrente del dispositivo (Vedi \rif{4.8});
+    \item il nome del dispositivo (Vedi \rif{4.9});
+    \item l'ambiente in cui risiede (Vedi \rif{4.10});
+    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.11}).
+\end{itemize}}
+\addInclusione{\rif{4.8}}
+\addInclusione{\rif{4.9}}
+\addInclusione{\rif{4.10}}
+\addInclusione{\rif{4.11}}
+\makeUC{4.6}{Visualizzazione pulsante di allarme}
+
+% ======= UC pulsante di allarme =======
+\addAttore{\os.}
+\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
+\addPreCondizione{L'\os ha selezionato un impianto;}
+\addPreCondizione{L'\os ha selezionato il dispositivo porta di ingresso.}
+\addPostCondizione{L'\os visualizza il dispositivo porta di ingresso di un impianto specifico.}
+\addTrigger{L'\os vuole visualizzare la porta di ingresso dell'impianto.}
+\addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo porta di ingresso:
+\begin{itemize}
+    \item Lo stato corrente del dispositivo (Vedi \rif{4.8});
+    \item il nome del dispositivo (Vedi \rif{4.9});
+    \item l'ambiente in cui risiede (Vedi \rif{4.10});
+    \item le azioni eseguibili sul dispositivo (Vedi \rif{4.11}).
+\end{itemize}}
+\addInclusione{\rif{4.8}}
+\addInclusione{\rif{4.9}}
+\addInclusione{\rif{4.10}}
+\addInclusione{\rif{4.11}}
+\makeUC{4.7}{Visualizzazione porta di ingresso}
 
 % ======= UC Accesso =======
 % VALERIA: in che senso 'controllo dell'accesso'???
@@ -879,7 +913,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addPostCondizione{L'\os visualizza lo stato del dispositivo.}
 \addTrigger{L'\os vuole visualizzare lo stato di un dispositivo.}
 \addScenarioPrincipale{L'\os visualizza lo stato del dispositivo, caratterizzato dallo stato corrente e dalla data di ultima modifica dello stato.}
-\makeUC{4.6}{Visualizzazione stato del dispositivo}
+\makeUC{4.8}{Visualizzazione stato del dispositivo}
 
 % ======= UC Nome dispositivo =======
 \addAttore{\os.}
@@ -889,7 +923,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addPostCondizione{L'\os visualizza il nome del dispositivo.}
 \addTrigger{L'\os vuole visualizzare il nome di un dispositivo.}
 \addScenarioPrincipale{L'\os visualizza il nome del dispositivo.}
-\makeUC{4.7}{Visualizzazione nome del dispositivo}
+\makeUC{4.9}{Visualizzazione nome del dispositivo}
 
 % ======= UC Ambiente dispositivo =======
 \addAttore{\os.}
@@ -899,7 +933,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addPostCondizione{L'\os visualizza l'ambiente in cui risiede il dispositivo.}
 \addTrigger{L'\os vuole visualizzare l'ambiente in cui risiede il dispositivo.}
 \addScenarioPrincipale{L'\os visualizza l'ambiente in cui risiede il dispositivo.}
-\makeUC{4.8}{Visualizzazione ambiente del dispositivo}
+\makeUC{4.10}{Visualizzazione ambiente del dispositivo}
 
 % ======= UC Azioni dispositivo =======
 \addAttore{\os.}
@@ -909,7 +943,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addPostCondizione{L'\os visualizza le azioni disponibili del dispositivo.}
 \addTrigger{L'\os vuole visualizzare le azioni disponibili di un dispositivo.}
 \addScenarioPrincipale{L'\os visualizza le azioni disponibili del dispositivo.}
-\makeUC{4.9}{Visualizzazione azioni del dispositivo}
+\makeUC{4.11}{Visualizzazione azioni del dispositivo}
 
 %
 %
@@ -1159,14 +1193,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 
 
 % ======= UC Errore dispositivo non disponibile  =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato un dispositivo.}
-\addTrigger{Il Sistema non trova informazioni relative al dispositivo.}
-\addPostCondizione{L'\os visualizza un messaggio di errore.}
-\addScenarioPrincipale{L'\os visualizza la lista di dispositivi associati all'impianto;}
-\addScenarioPrincipale{Il Sistema mostra all'\os un messaggio di errore.}
-\makeUC{8}{Errore dispositivo non risponde (\textit{offline})}
+% Rimosso, dopo consiglio di Mariano
+% Abbiamo la visibilità solo del gateway
 
 \end{document}
