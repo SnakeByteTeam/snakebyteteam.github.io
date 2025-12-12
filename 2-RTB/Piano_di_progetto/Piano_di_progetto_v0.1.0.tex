@@ -1,0 +1,372 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../template/template}
+\usepackage{tabularx}
+\usepackage{eurosym}
+
+%Queste macro sono in relazione all'ultima modifica
+\setDocIndex{Piano di progetto}
+\setDocTitle{Piano di progetto}
+\setDocVersion{0.1.0}
+\setDocState{1}
+\setDocData{09/12/2025}
+\setDocRecipient{1}
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\newcommand{\trisubsection}[1]{\paragraph{#1}\mbox{}\\}
+
+
+\newcommand{\checkLevel}[1]{%
+  \ifnum#1=0\relax
+  \else\ifnum#1=1\relax
+  \else\ifnum#1=2\relax
+  \else
+    \errmessage{Valore non valido (#1). Usare solo 0,1,2}%
+  \fi\fi\fi
+}
+
+\newcommand{\convertLevel}[1]{%
+  \ifnum#1=0 Basso\fi
+  \ifnum#1=1 Medio\fi
+  \ifnum#1=2 Alto\fi
+}
+
+\newcounter{rtctr}
+\newcommand{\newTRisk}[5]{
+    \checkLevel{#4}
+    \checkLevel{#5}
+    \stepcounter{rtctr}
+    \subsubsection{Rischio RT\thertctr : #1}
+    \begin{center}
+        \begin{tabularx}{0.9\textwidth}{|l|X|}%0.9 è un po meglio per l'indentazione
+        \hline
+        \rowcolor{lightgray}
+        \textbf{Attributo} & \textbf{Valore} \\
+        \hline
+        Codice & RT\thertctr \label{RT\thertctr} \\
+        \hline
+        Nome & #1 \\
+        \hline
+        Descrizione & #2 \\
+        \hline
+        Mitigazione & #3 \\
+        \hline
+        Livello di occorrenza & \convertLevel{#4} \\
+        \hline
+        Livello di impatto & \convertLevel{#5} \\
+        \hline
+        \end{tabularx}
+    \end{center}
+}
+
+\newcounter{rictr}
+\newcommand{\newIRisk}[5]{
+    \checkLevel{#4}
+    \checkLevel{#5}
+    \stepcounter{rictr}
+    \subsubsection{Rischio RI\therictr : #1}
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \rowcolor{lightgray}
+        \textbf{Attributo} & \textbf{Valore} \\
+        \hline
+        Codice & RI\therictr \label{RI\therictr} \\
+        \hline
+        Nome & #1 \\
+        \hline
+        Descrizione & #2 \\
+        \hline
+        Mitigazione & #3 \\
+        \hline
+        Livello di occorrenza & \convertLevel{#4} \\
+        \hline
+        Livello di impatto & \convertLevel{#5} \\
+        \hline
+        \end{tabularx}
+    \end{center}
+}
+
+\newcounter{rcctr}
+\newcommand{\newCRisk}[5]{
+    \checkLevel{#4}
+    \checkLevel{#5}
+    \stepcounter{rcctr}
+    \subsubsection{Rischio RC\thercctr : #1}
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \rowcolor{lightgray}
+        \textbf{Attributo} & \textbf{Valore} \\
+        \hline
+        Codice & RC\thercctr \label{RC\thercctr} \\
+        \hline
+        Nome & #1 \\
+        \hline
+        Descrizione & #2 \\
+        \hline
+        Mitigazione & #3 \\
+        \hline
+        Livello di occorrenza & \convertLevel{#4} \\
+        \hline
+        Livello di impatto & \convertLevel{#5} \\
+        \hline
+        \end{tabularx}
+    \end{center}
+}
+
+
+\newcounter{roctr}
+\newcommand{\newORisk}[5]{
+    \checkLevel{#4}
+    \checkLevel{#5}
+    \stepcounter{roctr}
+    \subsubsection{Rischio RO\theroctr : #1}
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|l|X|}
+        \hline
+        \rowcolor{lightgray}
+        \textbf{Attributo} & \textbf{Valore} \\
+        \hline
+        Codice & RO\theroctr \label{RO\theroctr} \\
+        \hline
+        Nome & #1 \\
+        \hline
+        Descrizione & #2 \\
+        \hline
+        Mitigazione & #3 \\
+        \hline
+        Livello di occorrenza & \convertLevel{#4} \\
+        \hline
+        Livello di impatto & \convertLevel{#5} \\
+        \hline
+        \end{tabularx}
+    \end{center}
+}
+
+
+
+
+% comandi extra (rimuovere questi commenti una volta approvato il documento)
+%
+% -- costanti --
+% \noOne [-]
+% \noRole [ND]
+% \firstDraft [Prima stesura]
+% \approval [Approvazione]
+% \teamName [SnakeByte]
+% \teamEmail [snakebyteteam@gmail.com]
+% \teamRepo [https://github.com/SnakeByteTeam/snakebyteteam.github.io]
+% \teamSite [https://snakebyteteam.github.io/]
+% \recipientTeachers [prof. Vardanega Tullio, prof. Cardin Riccardo]
+% \vimar [Vimar]
+% \vimarspa [Vimar S.p.A.]
+%
+% -- variabili --
+% \docIndex | \setDocIndex{nome documento senza versione}
+% \docTitle | \setDocTitle{titolo documento} 
+% \docData | \setDocData{data documento} [GG/MM/AAAA]
+% \docVersion | \setDocVersion{versione documento}
+% \docState | \setDocState{0|1|2} [Da verificare][Verificato][Approvato]
+% \docRecipient [table] | \setDocRecipient{0|1|2} [SnakeByte][SnakeByte, prof][SnakeByte, prof, vimar]
+%
+% -- pagine intere --
+% \makeTitlePage
+% \addChangelog{versione}{data}{autore}{verificatore}{approvatore}{descrizione} | \makeTodoTable
+
+\begin{document}
+
+\makeTitlePage
+
+\addChangelog{0.1.0}{09/12/2025}{C. Libralato}{L. Pellizzon}{\noOne}{Prima stesura}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduzione}
+\subsection{Contenuto documento}
+Il Piano di Progetto, nell'ambito dell'Ingegneria del Software, è un documento che ha lo scopo di definire in maniera chiara e dettagliata una struttura che funga 
+da tabella di marcia per il progetto e da strumento di coordinazione per il team.
+
+La suddetta struttura consiste in pianificazioni riguardo:
+\begin{itemize}
+    \item la dislocazione temporale dell'esecuzione delle attività di processo;
+    \item i preventivi e le scadenze;
+    \item la suddivisione di responsabilità dei ruoli;
+    \item gestione dei rischi;
+    \item la gestione delle risorse;
+\end{itemize}
+
+\subsubsection{Struttura del contenuto}
+Il documento è suddiviso in quattro macrosezioni:
+\begin{enumerate}
+    \item \textbf{Introduzione}: sezione introduttiva che espone il contenuto e lo scopo del documento, oltre che i Riferimenti Normativi e Informativi.
+    \item \textbf{Gestione rischi}: consiste in una classificazione e descrizione dei rischi che possono insorgere durante l'avanzamento del ciclo
+    di vita del prodotto. Ad ogni rischio vengono associati comportamenti e regole sia per la sua prevenzione che per la mitigazione degli effetti in caso di occorrenza.
+    \item \textbf{Previsioni a lungo termine}: presenta le stime iniziali eseguite in fase di Candidatura riguardo i costi, l'impegno orario e le responsabilità oltre che le stime future sugli
+    stati di avanzamento previsti in vista delle scadenze quali RTB e PB.
+    \item \textbf{Periodi di avanzamento}: elenco dei singoli periodi di avanzamento, definiti come \textit{sprint$_G$} di durata pari a due settimane, di cui si analizzano i seguenti aspetti:
+    \begin{itemize}
+        \item Consuntivo di periodo:
+        \begin{itemize}
+            \item avanzamento previsto e avanzamento effettivo;
+            \item rischi attesi, rischi occorsi e relativa gestione;
+            \item costi attesi ed costi effettivi.
+        \end{itemize}
+        \item Preventivo a finire:
+        \begin{itemize}
+            \item revisione calendario e risorse;
+            \item retrospettiva.
+        \end{itemize}
+        
+    \end{itemize}
+\end{enumerate}
+
+
+\subsection{Glossario}
+All'interno del documento possono essere presenti termini il cui significato può risultare ambiguo o sconosciuto, essi sono
+riportati in italico e alla loro prima occorrenza è associata una \textit{G} a pedice ad indicare la presenza del suddetto termine all'interno del \textit{glossario$_G$}, che è disponibile al seguente link: \href{https://snakebyteteam.github.io/glossary.html}{Glossario}.
+
+\subsection{Riferimenti Normativi}
+\begin{itemize}
+    \item \textbf{Norme di Progetto}\\
+    \url{link-finale-norme-di-progetto}
+\end{itemize}
+
+\subsection{Riferimenti Formativi}
+\begin{itemize}
+    \item \textbf{Regolamento del progetto didattico}\\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf}
+    \item \textbf{Gestione di progetto}\\
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/T04.pdf}
+\end{itemize}
+
+
+
+\section{Analisi e gestione rischi}
+    \subsection{Introduzione}
+        Nella seguente sezione vengono analizzati i possibili rischi che potrebbero emergere durante il progetto e definite le modalità 
+        per ridurne l'impatto. Sono state individuate cinque tipologie principali di rischio:
+        \begin{itemize}
+            \item \textbf{rischi tecnologici}: sono legati alla scelta e all'utilizzo delle tecnologie adottate durante lo sviluppo;
+            \item \textbf{rischi di comunicazione}: sono causati da una mancanza di comunicazione tra parti del progetto, quali membri del gruppo, Proponente e professori;
+            \item \textbf{rischi individuali}: emergono da imprevisti della vita quotidiana o impegni personali;
+            \item \textbf{rischi organizzativi}: sono legati ad un'organizzazione errata o non adatta allo svolgimento di un'attività
+            \item \textbf{rischi legati alle stime}: originati da previsioni che errate.
+        \end{itemize}
+    
+
+    \subsection{Rischi tecnologici}
+        \newTRisk{Incompatibilità tecnologie}{test}{test}{0}{0} % 0 | 1 | 2
+        \newTRisk{Bug nel codice}{test}{test}{0}{0}
+        \newTRisk{Test non efficaci}{test}{test}{0}{0}
+    
+    \subsection{Rischi individuali}
+        \newIRisk{Impegni personali}{test}{test}{0}{0}
+        \newIRisk{Impegni universitari}{test}{test}{0}{0}
+    
+    \subsection{Rischi di comunicazione}
+        \newCRisk{Mancanza di coordinamento tra componenti}{test}{test}{0}{0}
+        \newCRisk{Divergenza tra Proponente e gruppo}{test}{test}{0}{0}
+        \newCRisk{Disparità di conoscenze tra componenti}{test}{test}{0}{0}
+        \newCRisk{Incomprensione requisiti}{test}{test}{0}{0}
+
+    \subsection{Rischi organizzativi}
+        \newORisk{Carico di lavoro eccessivo}{test}{test}{0}{0}
+        \newORisk{Inadempimento scadenza baseline}{test}{test}{0}{0}
+        \newORisk{Inadempimento scadenza milestone}{test}{test}{0}{0}
+        \newORisk{Inadempimento scadenza Proponente (? boh non so)}{test}{test}{0}{0}
+        \newORisk{Inadempimento scadenza issue}{test}{test}{0}{0}
+        \newORisk{Divergenza tra fase di sviluppo e progettazione}{test}{test}{0}{0}
+        \newORisk{Sovrastima costi e ora}{test}{test}{0}{0}
+        \newORisk{Sottostima costi e ora}{test}{test}{0}{0}
+
+
+\section{Previsioni a lungo termine}
+
+\section{Periodi di avanzamento}
+
+\subsection{Sprint 1}
+\subsubsection{Consuntivo}
+\trisubsection{Avanzamento}
+Lista di attività da svolgere (prese dai verbali) e attività svolgimento
+
+\trisubsection{Rischi}
+Tabella con indice rischio, descrizione contesto, mitigazione?
+\begin{center}
+    \begin{tabularx}{\textwidth}{|c|X|X|}
+        \hline
+        \rowcolor{lightgray} \textbf{Codice Richio} & \textbf{Contesto} & \textbf{Mitigazione}\\
+        \hline
+        RX &
+        Durante la fase pre candidatura sono state cambiate le convenzioni della struttura di alcuni
+        documenti già approvati blablabla è un esempio &
+        Abbiamo modifciatou tute le cose e bleblebl loremi ipsum loremi ipsumloremi ipsumloremi ipsum
+        loremi ipsumloremi ipsumloremi ipsumloremi ipsum
+        loremi ipsum\\
+        \hline
+    \end{tabularx}
+\end{center}
+
+\trisubsection{Costi}
+Tabella con confronto di ore previste e ora svolte
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \rowcolor{lightgray} \textbf{Membro} & \textbf{Ruolo} & \textbf{Ore previste} & \textbf{Ore reali} & \textbf{Differenza} \\
+        \hline
+        V. Baleanu & & & & \\
+        \hline
+        L. Pellizzon & & & & \\
+        \hline
+        F. Venzo & & & & \\
+        \hline
+        G. De Fina & & & & \\
+        \hline
+        F. Pasqual & & & & \\
+        \hline
+        C. Libralato & & & & \\
+        \hline
+        L. Granziero & & & & \\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsubsection{Preventivo a finire}
+\trisubsection{Revisione}
+Aggiornamento delle ore rimanenti
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \hline
+        \rowcolor{lightgray} \rotatebox[origin=c]{55}{\textbf{Ruolo}} & \rotatebox[origin=c]{55}{\textbf{Costo orario}} 
+        & \rotatebox[origin=c]{55}{\textbf{Ore previste}} & \rotatebox[origin=c]{55}{\textbf{Ore effettive}} 
+        & \rotatebox[origin=c]{55}{\textbf{Costo previsto}} & \rotatebox[origin=c]{55}{\textbf{Costo effettivo}} 
+        & \rotatebox[origin=c]{55}{\textbf{Ore rimanenti}} & \rotatebox[origin=c]{55}{\textbf{Budget rimanente}} \\
+        \hline
+        Responsabile & 30 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
+        \hline
+        Amministratore & 20 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
+        \hline
+        Analista & 25 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
+        \hline
+        Progettista & 25 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
+        \hline
+        Programmatore & 15 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
+        \hline
+        Verificatore & 15 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\trisubsection{Retrospettiva}
+
+\subsection{Sprint2 ...}
+
+
+
+\end{document}
