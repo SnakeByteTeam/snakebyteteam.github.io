@@ -49,7 +49,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                1.0.2 & 10/12/2025 & Da verificare &       
+                1.0.3 & 12/12/2025 & Da verificare &       
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
@@ -68,6 +68,8 @@
         \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+        \hline
+        1.0.3 & 12/12/2025 & V. Baleanu & L. Pellizzon & - & Aggiunta UC10 e UC10.1. Creazione diagrammi per UC3, UC3.3.1, UC3.3.2, UC3.6.1, UC3.6.2, UC3.7.1, UC3.7.2, UC3.10.\\
         \hline
         1.0.2 & 10/12/2025 & V. Baleanu & L. Pellizzon & - & Sistemazione UC3. Aggiunta dispositivi in Scenario Principale di UC4. Rimozione UC8.\\
         \hline
@@ -547,6 +549,7 @@ L'utente inoltre visualizza il seguente Modulo non modificabile:
 \addPostCondizione{L'\os è all'interno della sezione Analytics.}
 \addTrigger{L’\os vuole visualizzare la sezione Analytics.}
 \addScenarioPrincipale{L'\os seleziona la sezione Analytics dal menù principale;}
+\addScenarioPrincipale{L'\os seleziona il gruppo di impianti che si vuole analizzare (\rif{3.10});}
 \addScenarioPrincipale{L'\os visualizza la sezione Analytics, che permette di visualizzare i seguenti moduli relativi agli impianti monitorati negli ultimi 30 giorni (o in un periodo superiore):
 \begin{itemize}
     \item Suggerimenti per il risparmio energetico (\rif{3.1});
@@ -565,6 +568,7 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
     \item grafico di variazione e cambio di temperatura (inserimento \rif{3.6.1} e rimozione \rif{3.6.2});
     \item grafico sugli allarmi inviati e risolti (inserimento \rif{3.7.1} e rimozione \rif{3.7.2}).
 \end{itemize}}
+\addInclusione{\rif{3.10}}
 \addInclusione{\rif{3.1}}
 \addInclusione{\rif{3.2}}
 \addInclusione{\rif{3.3}}
@@ -574,13 +578,14 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addInclusione{\rif{3.7}}
 \addInclusione{\rif{3.8}}
 \addInclusione{\rif{3.9}}
-\addEstensione{\rif{3.3.1}}
-\addEstensione{\rif{3.3.2}}
-\addEstensione{\rif{3.6.1}}
-\addEstensione{\rif{3.6.2}}
-\addEstensione{\rif{3.7.1}}
-\addEstensione{\rif{3.7.2}}
 \makeUC{3}{Visualizzazione Analytics}
+Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso: 
+\begin{center}
+    \includegraphics[width=\textwidth]{./img/UC3_inclusioni.pdf}
+    \captionof{figure}{UC3 Relazioni di inclusione}
+\end{center}
+
+
 
 % ======= UC Analytics: Suggerimenti risparmio energetico =======
 \addAttore{\os.}
@@ -741,6 +746,29 @@ Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
 \addScenarioAlternativo{Il Sistema non dispone di dati sufficienti (\rif{7}).}
 \addEstensione{\rif{7}}
 \makeUC{3.9}{Visualizzazione frequenza delle cadute rilevate}
+
+% ======= UC Analytics: Selezione gruppo di impianti da analizzare  =======
+\addAttore{\os.}
+\addPreCondizione{L'\os si trova nella sezione Analytics.}
+\addPostCondizione{Il gruppo di impianti selezionato è impostato come filtro attivo per la visualizzazione delle Analytics.}
+\addTrigger{L’\os vuole selezionare un gruppo di impianti da analizzare.}
+\addScenarioPrincipale{L'\os seleziona uno tra i seguenti gruppi di impianti:
+\begin{itemize}
+    \item Tutti gli impianti;
+    \item un singolo reparto (\rif{3.10.1}).
+\end{itemize}}
+\addInclusione{\rif{3.10.1}}
+\makeUC{3.10}{Selezione del gruppo di impianti da analizzare}
+
+
+% ======= UC Analytics: Visualizzazione dei reparti  =======
+\addAttore{\os.}
+\addPreCondizione{L'\os si trova nella sezione Analytics.}
+\addPostCondizione{Il Sistema mostra l'elenco dei reparti disponibili.}
+\addTrigger{L'\os vuole visualizzare l'elenco dei reparti.}
+\addScenarioPrincipale{Il Sistema recupera l'elenco dei reparti esistenti disponibili per la selezione.}
+\makeUC{3.10.1}{Visualizzazione dei reparti}
+
 
 % ======= UC Dispositivi =======
 \addAttore{\os.}

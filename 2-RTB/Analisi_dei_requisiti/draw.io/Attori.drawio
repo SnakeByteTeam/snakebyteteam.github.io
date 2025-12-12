@@ -1,0 +1,42 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36" version="29.2.5">
+  <diagram name="Page-1" id="c5xhaKsyGaSuFlAo_2lH">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" background="light-dark(#FFFFFF,#121212)" math="0" shadow="0" adaptiveColors="none">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hKWt88oKCAk5-E1UcRbf-1" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;labelBackgroundColor=none;labelPosition=center;align=center;" value="Utente" vertex="1">
+          <mxGeometry height="60" width="30" x="425" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="iknwFqW8zNRqEV0_d5Ck-4" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;labelBackgroundColor=none;labelPosition=center;align=center;" value="Amministratore" vertex="1">
+          <mxGeometry height="60" width="30" x="360" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="iknwFqW8zNRqEV0_d5Ck-5" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;labelBackgroundColor=none;labelPosition=center;align=center;" value="Operatore sanitario" vertex="1">
+          <mxGeometry height="60" width="30" x="480" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="iknwFqW8zNRqEV0_d5Ck-6" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;labelBackgroundColor=none;labelPosition=center;align=center;" value="Utente non autenticato" vertex="1">
+          <mxGeometry height="60" width="30" x="250" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="iknwFqW8zNRqEV0_d5Ck-7" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;endFill=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="380" y="250" />
+              <mxPoint x="430" y="250" />
+            </Array>
+            <mxPoint x="380" y="260" as="sourcePoint" />
+            <mxPoint x="430" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="iknwFqW8zNRqEV0_d5Ck-10" edge="1" parent="1" style="endArrow=block;html=1;rounded=0;endFill=0;" value="">
+          <mxGeometry height="50" relative="1" width="50" as="geometry">
+            <Array as="points">
+              <mxPoint x="500" y="250" />
+              <mxPoint x="450" y="250" />
+            </Array>
+            <mxPoint x="500" y="260" as="sourcePoint" />
+            <mxPoint x="450" y="230" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
