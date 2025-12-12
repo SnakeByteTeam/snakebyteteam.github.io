@@ -3,6 +3,7 @@
 \usepackage{../../template/template}
 \usepackage{tabularx}
 \usepackage{eurosym}
+\usepackage{spreadtab,simplekv,xpatch}
 
 %Queste macro sono in relazione all'ultima modifica
 \setDocIndex{Piano di progetto}
@@ -26,7 +27,12 @@
   \fi\fi\fi
 }
 
-\newcommand{\convertLevel}[1]{%
+\newcommand{\convertLevelF}[1]{%
+  \ifnum#1=0 Bassa\fi
+  \ifnum#1=1 Media\fi
+  \ifnum#1=2 Alta\fi
+}
+\newcommand{\convertLevelM}[1]{%
   \ifnum#1=0 Basso\fi
   \ifnum#1=1 Medio\fi
   \ifnum#1=2 Alto\fi
@@ -52,9 +58,9 @@
         \hline
         Mitigazione & #3 \\
         \hline
-        Livello di occorrenza & \convertLevel{#4} \\
+        Probabilità di occorrenza & \convertLevelF{#4} \\
         \hline
-        Livello di impatto & \convertLevel{#5} \\
+        Livello di impatto & \convertLevelM{#5} \\
         \hline
         \end{tabularx}
     \end{center}
@@ -67,7 +73,7 @@
     \stepcounter{rictr}
     \subsubsection{Rischio RI\therictr : #1}
     \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|}
+        \begin{tabularx}{0.9\textwidth}{ |l|X|}
         \hline
         \rowcolor{lightgray}
         \textbf{Attributo} & \textbf{Valore} \\
@@ -80,9 +86,9 @@
         \hline
         Mitigazione & #3 \\
         \hline
-        Livello di occorrenza & \convertLevel{#4} \\
+        Probabilità di occorrenza & \convertLevelF{#4} \\
         \hline
-        Livello di impatto & \convertLevel{#5} \\
+        Livello di impatto & \convertLevelM{#5} \\
         \hline
         \end{tabularx}
     \end{center}
@@ -95,7 +101,7 @@
     \stepcounter{rcctr}
     \subsubsection{Rischio RC\thercctr : #1}
     \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|}
+        \begin{tabularx}{0.9\textwidth}{|l|X|}
         \hline
         \rowcolor{lightgray}
         \textbf{Attributo} & \textbf{Valore} \\
@@ -108,9 +114,9 @@
         \hline
         Mitigazione & #3 \\
         \hline
-        Livello di occorrenza & \convertLevel{#4} \\
+        Probabilità di occorrenza & \convertLevelF{#4} \\
         \hline
-        Livello di impatto & \convertLevel{#5} \\
+        Livello di impatto & \convertLevelM{#5} \\
         \hline
         \end{tabularx}
     \end{center}
@@ -124,7 +130,7 @@
     \stepcounter{roctr}
     \subsubsection{Rischio RO\theroctr : #1}
     \begin{center}
-        \begin{tabularx}{\textwidth}{|l|X|}
+        \begin{tabularx}{0.9\textwidth}{|l|X|}
         \hline
         \rowcolor{lightgray}
         \textbf{Attributo} & \textbf{Valore} \\
@@ -137,15 +143,15 @@
         \hline
         Mitigazione & #3 \\
         \hline
-        Livello di occorrenza & \convertLevel{#4} \\
+        Probabilità di occorrenza & \convertLevelF{#4} \\
         \hline
-        Livello di impatto & \convertLevel{#5} \\
+        Livello di impatto & \convertLevelM{#5} \\
         \hline
         \end{tabularx}
     \end{center}
 }
 
-
+\newcommand{\rif}[1]{\hyperref[#1]{§#1}}
 
 
 % comandi extra (rimuovere questi commenti una volta approvato il documento)
@@ -249,20 +255,29 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
 
 
 \section{Analisi e gestione rischi}
-    \subsection{Introduzione}
-        Nella seguente sezione vengono analizzati i possibili rischi che potrebbero emergere durante il progetto e definite le modalità 
-        per ridurne l'impatto. Sono state individuate cinque tipologie principali di rischio:
-        \begin{itemize}
-            \item \textbf{rischi tecnologici}: sono legati alla scelta e all'utilizzo delle tecnologie adottate durante lo sviluppo;
-            \item \textbf{rischi di comunicazione}: sono causati da una mancanza di comunicazione tra parti del progetto, quali membri del gruppo, Proponente e professori;
-            \item \textbf{rischi individuali}: emergono da imprevisti della vita quotidiana o impegni personali;
-            \item \textbf{rischi organizzativi}: sono legati ad un'organizzazione errata o non adatta allo svolgimento di un'attività
-            \item \textbf{rischi legati alle stime}: originati da previsioni che errate.
-        \end{itemize}
+    Nella seguente sezione vengono analizzati i possibili rischi che potrebbero emergere durante il progetto e definite le modalità 
+    per ridurne l'impatto. Sono state individuate quattro tipologie principali di rischio:
+    \begin{itemize}
+        \item \textbf{rischi tecnologici}: sono legati alla scelta e all'utilizzo delle tecnologie adottate durante lo sviluppo;
+        \item \textbf{rischi individuali}: emergono da imprevisti della vita quotidiana o impegni personali;
+        \item \textbf{rischi di comunicazione}: sono causati da una mancanza di comunicazione tra parti del progetto, quali membri del gruppo, Proponente e professori;
+        \item \textbf{rischi organizzativi}: sono legati ad un'organizzazione errata o non adatta allo svolgimento di un'attività
+    \end{itemize}
     
 
     \subsection{Rischi tecnologici}
-        \newTRisk{Incompatibilità tecnologie}{test}{test}{0}{0} % 0 | 1 | 2
+        \newTRisk{Conoscenza insufficiente di una tecnologia}
+        {Il progetto richiede l'utilizzo di molte tecnologie diverse che risultano spesso sconosciute
+        a causa dell'inesperienza e dell'ampia offerta di strumenti nell'ambito.}
+        {Dedicare ore di calendario allo studio individuale di una tecnologia e, in caso di componenti 
+        del gruppo con conoscenze pregresse sull'argomento, organizzare dei momenti di allineamento generale.} 
+        {2}{2}
+
+        \newTRisk{Incompatibilità tecnologie}
+        {}
+        {test}
+        {0}{0} % 0 | 1 | 2
+
         \newTRisk{Bug nel codice}{test}{test}{0}{0}
         \newTRisk{Test non efficaci}{test}{test}{0}{0}
     
@@ -288,30 +303,64 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
 
 
 \section{Previsioni a lungo termine}
+Durante la fase di pianificazione di progetto, in vista della candidatura, sono state effettuate delle stime riguardo la distribuzione
+oraria per ogni ruolo e il costo associato, da cui si è poi ricavato il costo complessivo del progetto. 
+
+All'interno di questo documento è possibile confrontare queste stime con il consumo effettivo delle risorse nei
+singoli periodi di avanzamento\\
+Dal documento Dichiarazione degli Impegni si riporta:
+\begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \rowcolor{lightgray} \textbf{Ruolo} & \textbf{Costo orario} & \textbf{Ore totali} & \textbf{Costo totale}
+        \\
+        \hline
+        Responsabile & 30,00 \euro/h & 78 & 2.340,00\euro \\
+        \hline
+        Amministratore & 20,00\euro/h & 76 & 1520,00\euro\\
+        \hline
+        Analista & 25,00\euro/h & 86 & 2.150,00\euro \\
+        \hline
+        Progettista & 25,00\euro/h & 111 & 2.775,00\euro \\
+        \hline
+        Programmatore & 15,00\euro/h & 142 & 2.130,00\euro\\
+        \hline
+        Verificatore & 15,00\euro/h & 142 & 2.130,00\euro \\
+        \hline
+        \cellcolor{lightgray}{\textbf{Totale}} & - & 635 & 13.045,00\euro \\
+        \hline
+    \end{tabular}
+\end{center}
+Adottando una rotazione dei ruoli avente luogo alla fine di ogni ciclo di avanzamento, ossia ogni 2 settimane, e con
+preventivo dei costi che ammonta ad un totale di 13.045,00 \euro, è stata fissata come scadenza ultima di consegna del 
+progetto la data 18 marzo 2026.
+
+\subsection{RTB}
+
+\subsection{PB}
+
+
 
 \section{Periodi di avanzamento}
 
-\subsection{Sprint 1}
+\subsection{Sprint 1 (03/11/2025 - 16/11/2025)}
 \subsubsection{Consuntivo}
 \trisubsection{Avanzamento}
 Lista di attività da svolgere (prese dai verbali) e attività svolgimento
+\begin{itemize}
+    \item Redazione Norme di Progetto
+    \item Primo contatto con la Proponente
+    \item Definizione di prime domande per l'Analisi dei requisiti
+    \item Perfezionamento struttura documenti tramite templates
+\end{itemize}
 
 \trisubsection{Rischi}
 Tabella con indice rischio, descrizione contesto, mitigazione?
-\begin{center}
-    \begin{tabularx}{\textwidth}{|c|X|X|}
-        \hline
-        \rowcolor{lightgray} \textbf{Codice Richio} & \textbf{Contesto} & \textbf{Mitigazione}\\
-        \hline
-        RX &
-        Durante la fase pre candidatura sono state cambiate le convenzioni della struttura di alcuni
-        documenti già approvati blablabla è un esempio &
-        Abbiamo modifciatou tute le cose e bleblebl loremi ipsum loremi ipsumloremi ipsumloremi ipsum
-        loremi ipsumloremi ipsumloremi ipsumloremi ipsum
-        loremi ipsum\\
-        \hline
-    \end{tabularx}
-\end{center}
+\begin{itemize}
+    \item \rif{RT1}\\
+    \textbf{Contesto}: Durante la fase pre candidatura sono emerse disparità di conoscenze riguardo lo strumento \LaTeX.\\
+    \textbf{Mitigazione}: forse non ha senso, è già spiegato in RT1??\\
+\end{itemize}
 
 \trisubsection{Costi}
 Tabella con confronto di ore previste e ora svolte
@@ -320,19 +369,19 @@ Tabella con confronto di ore previste e ora svolte
         \hline
         \rowcolor{lightgray} \textbf{Membro} & \textbf{Ruolo} & \textbf{Ore previste} & \textbf{Ore reali} & \textbf{Differenza} \\
         \hline
-        V. Baleanu & & & & \\
+        V. Baleanu & Analista & 5 & & \\
         \hline
-        L. Pellizzon & & & & \\
+        L. Pellizzon & Verificatore & 8 & & \\
         \hline
-        F. Venzo & & & & \\
+        F. Venzo & Responsabile & 8 & & \\
         \hline
-        G. De Fina & & & & \\
+        G. De Fina & Analista & 5 & & \\
         \hline
-        F. Pasqual & & & & \\
+        F. Pasqual & Analista & 5 & & \\
         \hline
-        C. Libralato & & & & \\
+        C. Libralato & Amministratore & 9 & & \\
         \hline
-        L. Granziero & & & & \\
+        L. Granziero & Analista & 5 & & \\
         \hline
     \end{tabular}
 \end{center}
@@ -343,27 +392,28 @@ Aggiornamento delle ore rimanenti
 \begin{center}
     \begin{tabular}{|c|c|c|c|c|c|c|c|}
         \hline
-        \rowcolor{lightgray} \rotatebox[origin=c]{55}{\textbf{Ruolo}} & \rotatebox[origin=c]{55}{\textbf{Costo orario}} 
-        & \rotatebox[origin=c]{55}{\textbf{Ore previste}} & \rotatebox[origin=c]{55}{\textbf{Ore effettive}} 
-        & \rotatebox[origin=c]{55}{\textbf{Costo previsto}} & \rotatebox[origin=c]{55}{\textbf{Costo effettivo}} 
-        & \rotatebox[origin=c]{55}{\textbf{Ore rimanenti}} & \rotatebox[origin=c]{55}{\textbf{Budget rimanente}} \\
+        \rowcolor{lightgray} \rotatebox[origin=c]{90}{\textbf{Ruolo}} & \rotatebox[origin=c]{90}{\textbf{Costo orario}} 
+        & \rotatebox[origin=c]{90}{\textbf{Ore previste}} & \rotatebox[origin=c]{90}{\textbf{Ore effettive}} 
+        & \rotatebox[origin=c]{90}{\textbf{Costo previsto}} & \rotatebox[origin=c]{90}{\textbf{Costo effettivo}} 
+        & \rotatebox[origin=c]{90}{\textbf{Ore rimanenti}} & \rotatebox[origin=c]{90}{\textbf{ Budget rimanente }} \\
         \hline
-        Responsabile & 30 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
+        Responsabile & 30 \euro/h & 8 & 0 & 240 \euro & 0 \euro & 0 &  0 \euro\\
         \hline
-        Amministratore & 20 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
+        Amministratore & 20 \euro/h & 9 & 0 & 180 \euro & 0 \euro & 0 &  0 \euro\\
         \hline
-        Analista & 25 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
+        Analista & 25 \euro/h & 20 & 0 & 500 \euro & 0 \euro & 0 &  0 \euro\\
         \hline
         Progettista & 25 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
         \hline
         Programmatore & 15 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
         \hline
-        Verificatore & 15 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
+        Verificatore & 15 \euro/h & 8 & 0 & 120 \euro & 0 \euro & 0 &  13.4343,00 \euro\\
         \hline
     \end{tabular}
 \end{center}
 
 \trisubsection{Retrospettiva}
+
 
 \subsection{Sprint2 ...}
 
