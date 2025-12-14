@@ -597,9 +597,8 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addPostCondizione{L'\os visualizza i suggerimenti relativi al risparmio energetico.}
 \addTrigger{L'\os vuole visualizzare i suggerimenti per ridurre i consumi energetici.}
 \addScenarioPrincipale{L'\os seleziona i suggerimenti per il risparmio energetico;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare;}
-\addScenarioPrincipale{L'\os visualizza i suggerimenti per il risparmio energetico.}
-\addScenarioAlternativo{Il Sistema non ha sufficienti dati per generare suggerimenti (\rif{7})}
+\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
+\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
 \addEstensione{\rif{7}}
 \makeUC{3.1}{Visualizzazione suggerimenti risparmio energetico}
 
@@ -609,8 +608,8 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addPostCondizione{L'\os visualizza grafico dedicato alle anomalie di impianto.}
 \addTrigger{L’\os vuole visualizzare grafico dedicato alle anomalie di impianto.}
 \addScenarioPrincipale{L'\os seleziona le anomalie di impianto;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare.}
-\addScenarioAlternativo{Il Sistema non dispone di sufficenti dati per generare il grafico (\rif{7})}
+\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
+\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
 \addEstensione{\rif{7}}
 \makeUC{3.2}{Visualizzazione grafico anomalie di impianto}
 
@@ -620,8 +619,8 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addPostCondizione{L'\os visualizza il grafico dedicato all'energia consumata dall’illuminazione in base al tempo.}
 \addTrigger{L’\os vuole visualizzare grafico dedicato all'energia consumata dall’illuminazione.}
 \addScenarioPrincipale{L'\os seleziona l'energia consumata;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare.}
-\addScenarioAlternativo{Il Sistema non dispone di sufficenti dati per generare il grafico (\rif{7})}
+\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
+\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
 \addEstensione{\rif{7}}
 \makeUC{3.3}{Visualizzazione grafico energia consumata}
 
@@ -651,8 +650,8 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addPostCondizione{L'\os visualizza il grafico relativo al rilevamento di presenza, assenza e caduta.}
 \addTrigger{L’\os vuole visualizzare il grafico relativo a presenza, assenza e caduta.}
 \addScenarioPrincipale{L'\os seleziona il rilevamento di presenza, assenza e caduta;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare.}
-\addScenarioAlternativo{Il Sistema non dispone di dati sufficienti per generare il grafico (\rif{7})}
+\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
+\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
 \addEstensione{\rif{7}}
 \makeUC{3.4}{Visualizzazione grafico rilevamento presenza, assenza e caduta}
 
@@ -662,8 +661,8 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addPostCondizione{L'\os visualizza il grafico relativo alla presenza prolungata nello stesso ambiente.}
 \addTrigger{L’\os vuole visualizzare il grafico sulla presenza prolungata nello stesso ambiente.}
 \addScenarioPrincipale{L'\os seleziona la presenza prolungata;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare.}
-\addScenarioAlternativo{Il Sistema non dispone di dati sufficienti per generare il grafico (\rif{7}).}
+\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
+\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
 \addEstensione{\rif{7}}
 \makeUC{3.5}{Visualizzazione grafico presenza prolungata nello stesso ambiente}
 
@@ -673,8 +672,8 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addPostCondizione{L'\os visualizza il grafico delle variazioni di temperatura nel tempo.}
 \addTrigger{L’\os vuole visualizzare il grafico di variazione e cambio temperatura.}
 \addScenarioPrincipale{L'\os seleziona la temperatura;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare.}
-\addScenarioAlternativo{Il Sistema non dispone di dati sufficienti per generare il grafico (\rif{7})}
+\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
+\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
 \addEstensione{\rif{7}}
 \makeUC{3.6}{Visualizzazione grafico variazione e cambio temperatura}
 
@@ -704,8 +703,8 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addPostCondizione{L'\os visualizza il grafico sugli allarmi inviati e risolti giornalmente.}
 \addTrigger{L’\os vuole visualizzare il grafico sugli allarmi.}
 \addScenarioPrincipale{L'\os seleziona  gli allarmi;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare.}
-\addScenarioAlternativo{Il Sistema non dispone di dati sufficienti (\rif{7})}
+\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
+\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
 \addEstensione{\rif{7}}
 \makeUC{3.7}{Visualizzazione grafico allarmi inviati e risolti}
 
@@ -735,8 +734,8 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addPostCondizione{L'\os visualizza la frequenza oraria degli allarmi in un periodo selezionato.}
 \addTrigger{L’\os vuole visualizzare il grafico sulla frequenza degli allarmi.}
 \addScenarioPrincipale{L'\os seleziona la frequenza degli allarmi rilevati;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare.}
-\addScenarioAlternativo{Il Sistema non dispone di dati sufficienti (\rif{7})}
+\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
+\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
 \addEstensione{\rif{7}}
 \makeUC{3.8}{Visualizzazione frequenza degli allarmi rilevati}
 
@@ -746,8 +745,8 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addPostCondizione{L'\os visualizza la frequenza oraria delle cadute in un periodo selezionato.}
 \addTrigger{L’\os vuole visualizzare il grafico sulla frequenza delle cadute.}
 \addScenarioPrincipale{L'\os seleziona il grafico sulla frequenza delle cadute rilevate;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare.}
-\addScenarioAlternativo{Il Sistema non dispone di dati sufficienti (\rif{7}).}
+\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
+\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
 \addEstensione{\rif{7}}
 \makeUC{3.9}{Visualizzazione frequenza delle cadute rilevate}
 
