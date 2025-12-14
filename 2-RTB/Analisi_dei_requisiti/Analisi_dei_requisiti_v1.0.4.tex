@@ -27,6 +27,8 @@
 \fancyfoot[C]{Pagina \thepage\ di \pageref{LastPage}}
 
 \begin{document}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
 
 \begin{titlepage}
     \begin{center}
@@ -49,7 +51,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                1.0.3 & 12/12/2025 & Da verificare &       
+                1.0.4 & 14/12/2025 & Da verificare &       
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
@@ -69,7 +71,9 @@
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
         \hline
-        1.0.3 & 12/12/2025 & V. Baleanu & L. Pellizzon & - & Aggiunta UC10 e UC10.1. Creazione diagrammi per UC3, UC3.3.1, UC3.3.2, UC3.6.1, UC3.6.2, UC3.7.1, UC3.7.2, UC3.10.\\
+        1.0.4 & 14/12/2025 & V. Baleanu & L. Pellizzon & - & Creazione diagrammi UML per UC4, UC4.1, UC4.2, UC4.3, UC4.4, UC4.5, UC4.6, UC4.7.\\
+        \hline
+        1.0.3 & 12/12/2025 & V. Baleanu & L. Pellizzon & - & Aggiunta UC10 e UC10.1. Creazione diagrammi UML per UC3, UC3.3.1, UC3.3.2, UC3.6.1, UC3.6.2, UC3.7.1, UC3.7.2, UC3.10.\\
         \hline
         1.0.2 & 10/12/2025 & V. Baleanu & L. Pellizzon & - & Sistemazione UC3. Aggiunta dispositivi in Scenario Principale di UC4. Rimozione UC8.\\
         \hline
@@ -808,7 +812,7 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addInclusione{\rif{4.9}}
 \addInclusione{\rif{4.10}}
 \addInclusione{\rif{4.11}}
-\makeUC{4.1}{Visualizzazione Termostato}
+\makeUC{4.1}{Visualizzazione termostato}
 
 % ======= UC Tapparelle =======
 \addAttore{\os.}
@@ -828,7 +832,7 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addInclusione{\rif{4.9}}
 \addInclusione{\rif{4.10}}
 \addInclusione{\rif{4.11}}
-\makeUC{4.2}{Visualizzazione Tapparella}
+\makeUC{4.2}{Visualizzazione tapparella}
 
 % ======= UC UWB CADUTA =======
 \addAttore{\os.}

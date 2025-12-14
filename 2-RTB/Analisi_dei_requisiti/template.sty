@@ -6,10 +6,32 @@
 \RequirePackage{etoolbox}
 \RequirePackage{xstring}
 
+\newcount\UC@depth
+\newcommand{\UCcountdepth}[1]{%
+    \StrCount{#1}{.}[\UC@depth]%
+}
+
+% ------------------------
+% Livello profondità sezioni
+% ------------------------
+
+\newcommand{\UCtoclevel}{subsubsection}
+
+\newcommand{\UCsettoclevel}{%
+    \ifcase\UC@depth
+        \def\UCtoclevel{subsubsection}% UC1
+    \or
+        \def\UCtoclevel{paragraph}% UC1.1
+    \or
+        \def\UCtoclevel{subparagraph}% UC1.1.1
+    \else
+        \def\UCtoclevel{subparagraph}% UC1.1.1.x...
+    \fi
+}
+
 % ------------------------
 % Costanti
 % ------------------------
-
 \newcommand{\user}{Utente }
 \newcommand{\userna}{Utente non autenticato }
 \newcommand{\os}{Operatore Sanitario }
@@ -64,14 +86,16 @@
 
 \newcommand{\makeUC}[2]{%
     \label{UC#1}
-    \IfSubStr{#1}{.}{%
-        \trisubsection{UC#1:\ #2}%
-    }{%
-        \subsubsection{UC#1:\ #2}%
-    }%
+    \UCcountdepth{#1}%
+    \UCsettoclevel%
+    
+    \phantomsection
+    \subsubsection*{UC#1:\ #2}%
+    \addcontentsline{toc}{\UCtoclevel}{UC#1:\ #2}%
+
     \IfFileExists{./img/UC#1.pdf}{%
         \begin{center}
-        \includegraphics[width=0.6\textwidth]{./img/UC#1.pdf}
+        \includegraphics[width=\textwidth]{./img/UC#1.pdf}
         \captionof{figure}{UC#1 #2}
         \end{center}
     }{}%
