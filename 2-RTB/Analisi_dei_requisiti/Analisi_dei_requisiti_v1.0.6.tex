@@ -22,7 +22,7 @@
 
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{SnakeByte} 
+\fancyhead[L]{SnakeByte}
 \fancyhead[R]{Analisi dei Requisiti}
 \fancyfoot[C]{Pagina \thepage\ di \pageref{LastPage}}
 
@@ -70,6 +70,10 @@
         \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+        \hline
+        1.0.6 & 14/12/2025 & G. De Fina & L. Pellizzon & - & Aggiunta Use Cases UC5.4 (Gestione utenti e permessi) e relativi sotto-casi  \\
+        \hline
+        1.0.5 & 14/12/2025 & G. De Fina & L. Pellizzon & - & Modifica UC5.1.4 per utilizzo gruppi/reparti invece di singoli operatori  \\
         \hline
         1.0.4 & 14/12/2025 & V. Baleanu & L. Pellizzon & - & Creazione diagrammi UML per UC4, UC4.1, UC4.2, UC4.3, UC4.4, UC4.5, UC4.6, UC4.7.\\
         \hline
@@ -1045,7 +1049,7 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addPreCondizione{Il Sistema è attivo;}
 \addPreCondizione{L'\admin è autenticato nel Sistema;}
 \addPreCondizione{L'\admin sta aggiungendo un nuovo allarme;}
-\addPreCondizione{Esistono livelli di priorità configurati nel Sistema (3-4 livelli).}
+\addPreCondizione{Esistono livelli di priorità configurati nel Sistema 4 livelli.}
 \addPostCondizione{La priorità dell'allarme è selezionata.}
 \addTrigger{L'\admin deve assegnare una priorità all'allarme.}
 \addScenarioPrincipale{L'\admin visualizza i livelli di priorità disponibili;}
@@ -1071,13 +1075,13 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addPreCondizione{Il Sistema è attivo;}
 \addPreCondizione{L'\admin è autenticato nel Sistema;}
 \addPreCondizione{L'\admin sta aggiungendo un nuovo allarme;}
-\addPreCondizione{Esistono utenti OSS registrati nel Sistema.}
+\addPreCondizione{Esistono gruppi/reparti configurati nel Sistema.}
 \addPostCondizione{Il multicast per la notifica dell'allarme è configurato.}
-\addTrigger{L'\admin deve configurare a quali operatori inviare l'allarme.}
-\addScenarioPrincipale{L'\admin visualizza la lista degli operatori OSS disponibili;}
-\addScenarioPrincipale{L'\admin seleziona gli operatori che riceveranno la notifica;}
+\addTrigger{L'\admin deve configurare a quali gruppi/reparti inviare l'allarme.}
+\addScenarioPrincipale{L'\admin visualizza la lista dei gruppi/reparti disponibili;}
+\addScenarioPrincipale{L'\admin seleziona i gruppi/reparti che riceveranno la notifica;}
 \addScenarioPrincipale{Il Sistema associa il multicast all'allarme.}
-\addScenarioAlternativo{Non ci sono operatori OSS registrati.}
+\addScenarioAlternativo{Non ci sono gruppi/reparti configurati.}
 \addEstensione{Errore configurazione multicast \rif{5.1.4.1}}
 \makeUC{5.1.4}{Configurare multicast}
 
@@ -1183,6 +1187,183 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addScenarioPrincipale{Il Sistema mostra un messaggio che spiega perché l'allarme non può essere eliminato.}
 \makeUC{5.3.1}{Errore eliminazione allarme}
 
+
+% ======= UC5.4: Gestione utenti e permessi (admin) =======
+\texttt{<diagramma d'uso>}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema.}
+\addPostCondizione{L'\admin ha gestito gli utenti e i permessi del Sistema.}
+\addTrigger{L'\admin vuole gestire gli utenti del \os e i relativi permessi.}
+\addScenarioPrincipale{L'\admin accede alla sezione di gestione utenti;}
+\addScenarioPrincipale{L'\admin registra un nuovo utente del \os;}
+\addScenarioPrincipale{L'\admin aggiunge impianti monitorabili all'utente;}
+\addScenarioPrincipale{L'\admin rimuove impianti monitorabili dall'utente;}
+\addScenarioPrincipale{L'\admin gestisce i permessi degli utenti;}
+\addScenarioPrincipale{L'\admin elimina un utente del \os.}
+\addScenarioAlternativo{Non ci sono impianti disponibili da assegnare;}
+\addScenarioAlternativo{L'operazione di gestione utenti fallisce.}
+\addInclusione{Registrazione utente del \os \rif{5.4.1}}
+\addInclusione{Aggiungi impianto monitorabile \rif{5.4.2}}
+\addInclusione{Rimuovi impianto monitorabile \rif{5.4.3}}
+\addInclusione{Eliminazione utente del \os \rif{5.4.4}}
+\addInclusione{Gestione permessi utenti \rif{5.4.5}}
+\addEstensione{Errore gestione utenti \rif{5.4.6}}
+\makeUC{5.4}{Gestione utenti e permessi}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema;}
+\addPreCondizione{L'\admin sta visualizzando la sezione di gestione utenti.}
+\addPostCondizione{Il nuovo utente del \os è registrato nel Sistema.}
+\addTrigger{L'\admin vuole registrare un nuovo utente del \os.}
+\addScenarioPrincipale{L'\admin inserisce i dati anagrafici del nuovo utente del \os (nome, cognome, email);}
+\addScenarioPrincipale{L'\admin genera le credenziali di accesso;}
+\addScenarioPrincipale{Il Sistema registra il nuovo utente del \os;}
+\addScenarioPrincipale{Il Sistema invia le credenziali al nuovo utente via email.}
+\addScenarioAlternativo{I dati inseriti sono incompleti o non validi;}
+\addScenarioAlternativo{L'email fornita è già registrata nel Sistema;}
+\addScenarioAlternativo{Il Sistema non riesce a inviare l'email con le credenziali.}
+\addEstensione{Errore registrazione utente del \os \rif{5.4.1.1}}
+\makeUC{5.4.1}{Registrazione utente del \os}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema;}
+\addPreCondizione{L'\admin sta tentando di registrare un nuovo utente del \os.}
+\addPostCondizione{Il Sistema notifica l'errore e non registra l'utente.}
+\addTrigger{I dati inseriti per la registrazione non sono validi.}
+\addScenarioPrincipale{Il Sistema verifica i dati inseriti;}
+\addScenarioPrincipale{Il Sistema rileva errori (campi mancanti, email duplicata, formato non valido);}
+\addScenarioPrincipale{Il Sistema mostra un messaggio di errore con i dettagli specifici.}
+\makeUC{5.4.1.1}{Errore registrazione utente del \os}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema;}
+\addPreCondizione{L'\admin sta visualizzando la sezione di gestione utenti;}
+\addPreCondizione{Esiste almeno un utente del \os registrato;}
+\addPreCondizione{Esistono impianti configurati nel Sistema.}
+\addPostCondizione{Gli impianti selezionati sono aggiunti all'utente del \os.}
+\addTrigger{L'\admin vuole aggiungere specifici impianti/residenze a un utente del \os.}
+\addScenarioPrincipale{L'\admin seleziona un utente del \os;}
+\addScenarioPrincipale{L'\admin visualizza la lista degli impianti/residenze disponibili;}
+\addScenarioPrincipale{L'\admin seleziona gli impianti da aggiungere;}
+\addScenarioPrincipale{Il Sistema aggiunge gli impianti all'utente del \os;}
+\addScenarioPrincipale{Il Sistema salva l'assegnazione.}
+\addScenarioAlternativo{Non ci sono impianti disponibili da assegnare;}
+\addScenarioAlternativo{L'utente del \os selezionato è già assegnato a tutti gli impianti disponibili.}
+\addEstensione{Errore aggiunta impianti \rif{5.4.2.1}}
+\makeUC{5.4.2}{Aggiungi impianto monitorabile}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema;}
+\addPreCondizione{L'\admin sta tentando di aggiungere impianti a un utente del \os.}
+\addPostCondizione{Il Sistema notifica l'errore e non applica l'aggiunta.}
+\addTrigger{Si verifica un errore durante l'aggiunta degli impianti.}
+\addScenarioPrincipale{Il Sistema tenta di salvare l'aggiunta;}
+\addScenarioPrincipale{Il Sistema rileva un errore (es. impianto non più disponibile, problema di connessione);}
+\addScenarioPrincipale{Il Sistema mostra un messaggio di errore.}
+\makeUC{5.4.2.1}{Errore aggiunta impianti}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema;}
+\addPreCondizione{L'\admin sta visualizzando la sezione di gestione utenti;}
+\addPreCondizione{Esiste almeno un utente del \os registrato;}
+\addPreCondizione{L'utente del \os ha almeno un impianto assegnato.}
+\addPostCondizione{Gli impianti selezionati sono rimossi dall'utente del \os.}
+\addTrigger{L'\admin vuole rimuovere specifici impianti/residenze da un utente del \os.}
+\addScenarioPrincipale{L'\admin seleziona un utente del \os;}
+\addScenarioPrincipale{L'\admin visualizza la lista degli impianti/residenze assegnati;}
+\addScenarioPrincipale{L'\admin seleziona gli impianti da rimuovere;}
+\addScenarioPrincipale{Il Sistema rimuove gli impianti dall'utente del \os;}
+\addScenarioPrincipale{Il Sistema salva la modifica.}
+\addScenarioAlternativo{L'utente del \os non ha impianti assegnati;}
+\addScenarioAlternativo{L'\admin tenta di rimuovere tutti gli impianti assegnati.}
+\addEstensione{Errore rimozione impianti \rif{5.4.3.1}}
+\makeUC{5.4.3}{Rimuovi impianto monitorabile}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema;}
+\addPreCondizione{L'\admin sta tentando di rimuovere impianti da un utente del \os.}
+\addPostCondizione{Il Sistema notifica l'errore e non applica la rimozione.}
+\addTrigger{Si verifica un errore durante la rimozione degli impianti.}
+\addScenarioPrincipale{Il Sistema tenta di salvare la rimozione;}
+\addScenarioPrincipale{Il Sistema rileva un errore (es. violazione vincoli, problema di connessione);}
+\addScenarioPrincipale{Il Sistema mostra un messaggio di errore.}
+\makeUC{5.4.3.1}{Errore rimozione impianti}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema;}
+\addPreCondizione{L'\admin sta visualizzando la sezione di gestione utenti;}
+\addPreCondizione{Esiste almeno un utente del \os registrato.}
+\addPostCondizione{L'utente del \os è eliminato dal Sistema.}
+\addTrigger{L'\admin vuole eliminare un utente del \os.}
+\addScenarioPrincipale{L'\admin seleziona un utente del \os;}
+\addScenarioPrincipale{L'\admin conferma l'eliminazione;}
+\addScenarioPrincipale{Il Sistema rimuove l'utente del \os dal Sistema;}
+\addScenarioPrincipale{Il Sistema revoca tutti gli accessi e le assegnazioni dell'utente.}
+\addScenarioAlternativo{L'\admin annulla l'operazione;}
+\addScenarioAlternativo{L'utente ha allarmi attivi in carico.}
+\addEstensione{Errore eliminazione utente \rif{5.4.4.1}}
+\makeUC{5.4.4}{Eliminazione utente del \os}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema;}
+\addPreCondizione{L'\admin sta tentando di eliminare un utente del \os.}
+\addPostCondizione{Il Sistema notifica l'errore e non elimina l'utente.}
+\addTrigger{Si verifica un errore durante l'eliminazione dell'utente.}
+\addScenarioPrincipale{Il Sistema verifica se l'utente può essere eliminato;}
+\addScenarioPrincipale{Il Sistema rileva un errore (es. utente con allarmi attivi, violazione vincoli);}
+\addScenarioPrincipale{Il Sistema mostra un messaggio di errore.}
+\makeUC{5.4.4.1}{Errore eliminazione utente}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema;}
+\addPreCondizione{L'\admin sta visualizzando la sezione di gestione utenti;}
+\addPreCondizione{Esiste almeno un utente del \os registrato.}
+\addPostCondizione{I permessi dell'utente del \os sono aggiornati.}
+\addTrigger{L'\admin vuole modificare i permessi di un utente del \os.}
+\addScenarioPrincipale{L'\admin seleziona un utente del \os;}
+\addScenarioPrincipale{L'\admin visualizza i permessi attuali;}
+\addScenarioPrincipale{L'\admin modifica i permessi (visualizzazione dashboard, gestione allarmi, accesso analytics, presa in carico allarmi);}
+\addScenarioPrincipale{Il Sistema aggiorna i permessi dell'utente;}
+\addScenarioPrincipale{Il Sistema salva le modifiche.}
+\addScenarioAlternativo{L'\admin tenta di rimuovere tutti i permessi a un utente del \os;}
+\addScenarioAlternativo{Si verifica un errore durante il salvataggio dei permessi.}
+\addEstensione{Errore gestione permessi \rif{5.4.5.1}}
+\makeUC{5.4.5}{Gestione permessi utenti}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema;}
+\addPreCondizione{L'\admin sta tentando di modificare i permessi di un utente del \os.}
+\addPostCondizione{Il Sistema notifica l'errore e mantiene i permessi precedenti.}
+\addTrigger{La configurazione dei permessi non è valida.}
+\addScenarioPrincipale{Il Sistema verifica la configurazione dei permessi;}
+\addScenarioPrincipale{Il Sistema rileva che almeno un permesso base deve rimanere attivo;}
+\addScenarioPrincipale{Il Sistema mostra un messaggio di errore.}
+\makeUC{5.4.5.1}{Errore gestione permessi}
+
+\addAttore{\admin.}
+\addPreCondizione{Il Sistema è attivo;}
+\addPreCondizione{L'\admin è autenticato nel Sistema;}
+\addPreCondizione{L'\admin sta eseguendo un'operazione di gestione utenti.}
+\addPostCondizione{Il Sistema notifica l'errore e mantiene lo stato precedente.}
+\addTrigger{Si verifica un errore generico durante la gestione utenti.}
+\addScenarioPrincipale{Il Sistema tenta di eseguire l'operazione richiesta;}
+\addScenarioPrincipale{Il Sistema rileva un errore di sistema (es. database non disponibile);}
+\addScenarioPrincipale{Il Sistema mostra un messaggio di errore e suggerisce di riprovare.}
+\makeUC{5.4.6}{Errore gestione utenti}
+
+
 \addAttore{\admin.}
 \addPreCondizione{Il Sistema è attivo;}
 \addPreCondizione{L'\admin è autenticato nel Sistema;}
@@ -1214,10 +1395,6 @@ Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso:
 \addTrigger{Il valore della soglia è troppo basso.}
 \addScenarioPrincipale{Il Sistema mostra un messaggio indicando il valore minimo consentito per quella soglia.}
 \makeUC{6.2}{La soglia (valore) è troppo bassa}
-
-
-%\subsection*{UC7: Gestione utenti e permessi (\admin)}
-%\texttt{TBD, sincronizzare con pippovenzo}
 
 
 % ======= UC Analytics: Errore dati insufficienti =======
