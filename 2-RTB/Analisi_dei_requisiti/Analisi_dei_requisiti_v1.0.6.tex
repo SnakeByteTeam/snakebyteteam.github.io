@@ -260,7 +260,7 @@ Di seguito vengono riportati gli attori individuati:
         \hline
         \os & Rappresenta l'utente \os. \\
         \hline 
-        \admin & Rappresenta l'amministratore della struttura il quale gestice la struttura e l'\os. \\
+        \admin & Rappresenta l'amministratore della struttura il quale gestice la struttura e l'\os \\
         \hline          
     \end{tabularx}
 \end{center}
@@ -271,7 +271,6 @@ Di seguito vengono riportati gli attori individuati:
 
 \addAttore{\userna.}
 \addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente non è autenticato nel Sistema.}
 \addPostCondizione{L'utente è autenticato nel Sistema}
 \addTrigger{L'utente vuole autenticarsi nel Sistema}
 \addScenarioPrincipale{L'utente inserisce il proprio username;}
@@ -284,7 +283,6 @@ Di seguito vengono riportati gli attori individuati:
 
 \addAttore{\userna.}
 \addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente non è autenticato nel Sistema;}
 \addPreCondizione{Il Sistema non conosce l'username dell'utente.}
 \addPostCondizione{Il Sistema conosce l'username dell'utente.}
 \addScenarioPrincipale{L'utente inserisce il proprio username.}
@@ -293,7 +291,6 @@ Di seguito vengono riportati gli attori individuati:
 
 \addAttore{\userna.}
 \addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente non è autenticato nel Sistema;}
 \addPreCondizione{Il Sistema non conosce la Password dell'utente.}
 \addPostCondizione{Il Sistema conosce la Password dell'utente.}
 \addScenarioPrincipale{L'utente inserisce la propria Password.}
@@ -302,7 +299,6 @@ Di seguito vengono riportati gli attori individuati:
 
 \addAttore{\userna.}
 \addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente non è autenticato nel Sistema;}
 \addPostCondizione{L'utente non è autenticato.}
 \addScenarioPrincipale{Il Sistema segnala l'errore di autenticazione.}
 \addTrigger{L'utente ha immesso username o Password errati.}
@@ -312,32 +308,29 @@ Di seguito vengono riportati gli attori individuati:
 \addPreCondizione{Il Sistema è attivo;}
 \addPreCondizione{L'\admin è autenticato nel Sistema.}
 \addPostCondizione{Un nuovo utente del \os è registrato presso il Sistema}
-\addScenarioPrincipale{L'\admin crea uno username per l'utente del \os;}
-\addScenarioPrincipale{L'\admin crea una password temporanea per l'utente del \os;}
+\addScenarioPrincipale{L'\admin crea uno username per l'\os;}
+\addScenarioPrincipale{L'\admin crea una password temporanea per l'\os;}
 \addInclusione{Creazione username utente \os \rif{1.4.1}}
 \addInclusione{Generazione password temporanea \rif{1.4.2}}
 \addTrigger{L'\admin vuole registrare un nuovo utente del \os.}
 \makeUC{1.4}{Creazione nuovo utente \os}
 
 \addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema.}
-\addPostCondizione{Il Sistema conosce lo username dell'utente del \os;}
-\addScenarioPrincipale{L'\admin sceglie uno username per l'utente del \os.}
+\addPreCondizione{L'\admin sta creando un nuovo utente \os;}
+\addPostCondizione{Il Sistema conosce lo username delL'\os;}
+\addScenarioPrincipale{L'\admin sceglie uno username per l'\os}
 \addScenarioAlternativo{L'username scelto è già in uso nel Sistema;}
 \addEstensione{Errore username già in uso \rif{1.4.3}}
 \makeUC{1.4.1}{Creazione username utente \os}
 
 \addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema.}
-\addPostCondizione{Il Sistema conosce la password temporanea per l'utente del \os;}
-\addScenarioPrincipale{L'\admin genera una Password temporanea per l'utente del \os.}
+\addPreCondizione{L'\admin sta creando un nuovo utente \os;}
+\addPostCondizione{Il Sistema conosce la password temporanea per l'\os;}
+\addScenarioPrincipale{L'\admin genera una Password temporanea per l'\os}
 \makeUC{1.4.2}{Generazione password temporanea}
 
 \addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema.}
+\addPreCondizione{L'\admin sta creando un nuovo utente \os;}
 \addPostCondizione{Il Sistema non registra il nuovo utente del \os.}
 \addScenarioPrincipale{Il Sistema segnala l'errore di username già in uso.}
 \addScenarioPrincipale{Il Sistema ripropone all'\admin di scegliere uno username.}
@@ -345,30 +338,82 @@ Di seguito vengono riportati gli attori individuati:
 \addInclusione{Creazione username utente \os \rif{1.4.1}}
 \makeUC{1.4.3}{Errore username già in uso}
 
-\addAttore{\os.}
+\addAttore{\userna.}
 \addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente del \os non è autenticato nel Sistema.}
-\addPostCondizione{L'utente del \os è autenticato nel Sistema}
-\addScenarioPrincipale{L'utente del personale si autentica con le credenziali fornite dall'\admin;}
-\addScenarioPrincipale{Il Sistema obbliga l'utente del \os ad aggiornare la Password temporanea;}
-\addInclusione{Autenticazione \rif{UC1}}
+\addPostCondizione{L'utente è autenticato nel Sistema;}
+\addPostCondizione{L'\userna è riconosciuto come \os.}
+
+\addScenarioPrincipale{L'\userna si autentica con le credenziali fornite dall'\admin; (vedi Creazione nuovo utente \os \rif{1.4})}
+\addScenarioPrincipale{Il Sistema obbliga l'\os ad aggiornare la Password temporanea;}
+
+\addInclusione{Autenticazione \rif{1}}
 \addInclusione{Aggiornamento Password \rif{1.5.1}}
-\addTrigger{L'utente del \os si è autenticato per la prima volta.}
+\addTrigger{L'\os si è autenticato per la prima volta.}
 \makeUC{1.5}{Registrazione utente \os}
 
 \addAttore{\os.}
 \addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente del \os è autenticato nel Sistema con una Password temporanea.}
-\addPostCondizione{L'utente del \os ha aggiornato la propria Password.}
-\addScenarioPrincipale{L'utente del \os inserisce una nuova Password.}
+\addPreCondizione{L'\os è autenticato nel Sistema}
+\addPostCondizione{L'\os ha aggiornato la propria Password.}
+
+\addScenarioPrincipale{L'\os inserisce la Password attuale;}
+\addScenarioPrincipale{L'\os inserisce una nuova Password;}
+\addScenarioPrincipale{L'\os conferma la nuova Password reinserendola.}
+
+\addScenarioAlternativo{L'\os inserisce la Password attuale come nuova Password;}
+\addScenarioAlternativo{L'\os inserisce una nuova Password non valida;}
+\addScenarioAlternativo{L'\os non conferma correttamente la nuova Password.}
+\addScenarioAlternativo{L'\os inserisce la propria Password attuale errata;}
+
+
+\addEstensione{Errore Password attuale ripetuta \rif{1.5.2}}
+\addEstensione{Errore nuova Password non valida \rif{1.5.3}}
+\addEstensione{Errore conferma nuova Password \rif{1.5.4}}
+\addEstensione{Errore Password attuale errata \rif{1.5.5}}
 \makeUC{1.5.1}{Aggiornamento Password}
+
+\addAttore{\os.}
+\addPreCondizione{L'\os sta aggiornando la propria Password;}
+\addPostCondizione{La password dell'\os non è stata aggiornata.}
+\addScenarioPrincipale{Il Sistema segnala l'errore di Password attuale errata.}
+\addScenarioPrincipale{Il sistema ripropone all'\os la schermata di aggiornamento Password.}
+\addTrigger{L'\os inserisce una Password attuale errata.}
+\addInclusione{Aggiornamento Password \rif{1.5.1}}
+\makeUC{1.5.2}{Errore Password attuale ripetuta}
+
+\addAttore{\os.}
+\addPreCondizione{L'\os sta aggiornando la propria Password;}
+\addPostCondizione{La password dell'\os non è stata aggiornata.}
+\addScenarioPrincipale{Il Sistema segnala l'errore di nuova Password non valida.}
+\addScenarioPrincipale{Il sistema ripropone all'\os la schermata di aggiornamento Password.}
+\addTrigger{L'\os inserisce una nuova Password non valida.}
+\addInclusione{Aggiornamento Password \rif{1.5.1}}
+\makeUC{1.5.3}{Errore nuova Password non valida}
+
+\addAttore{\os.}
+\addPreCondizione{L'\os sta aggiornando la propria Password;}
+\addPostCondizione{La password dell'\os non è stata aggiornata.}
+\addScenarioPrincipale{Il Sistema segnala l'errore di conferma della nuova Password errata.}
+\addScenarioPrincipale{Il sistema ripropone all'\os la schermata di aggiornamento Password.}
+\addTrigger{L'\os non conferma correttamente la nuova Password.}
+\addInclusione{Aggiornamento Password \rif{1.5.1}}
+\makeUC{1.5.4}{Errore conferma nuova Password}
+
+\addAttore{\os.}
+\addPreCondizione{L'\os sta aggiornando la propria Password;}
+\addPostCondizione{La password dell'\os non è stata aggiornata.}
+\addScenarioPrincipale{Il Sistema segnala l'errore di Password attuale errata.}
+\addScenarioPrincipale{Il sistema ripropone all'\os la schermata di aggiornamento Password.}
+\addTrigger{L'\os inserisce la propria Password attuale errata.}
+\makeUC{1.5.5}{Errore Password attuale errata}
+
 
 \addAttore{\user.}
 \addPreCondizione{Il Sistema è attivo;}
 \addPreCondizione{L'utente è autenticato nel Sistema.}
 \addPostCondizione{L'utente visualizza la sezione Dashboard.}
 \addScenarioPrincipale{L'utente seleziona dal menù l'opzione relativa alla sezione Dashboard;}
-\addScenarioPrincipale{L'utente visualizza i seguenti Moduli opzionali presenti nella Dashboard:
+\addScenarioPrincipale{L'utente visualizza i Moduli opzionali presenti tra:
 \begin{itemize}
     \item Informazioni utente;
     \item statistiche allarmi;
@@ -377,7 +422,9 @@ Di seguito vengono riportati gli attori individuati:
     \item dispositivi accesi;
     \item temperatura impostata.
 \end{itemize}
-L'utente inoltre visualizza il seguente Modulo non modificabile:
+}
+\addScenarioPrincipale{
+L'utente visualizza il seguente Modulo fisso (non rimovibile):
 \begin{itemize}
     \item Gestione allarmi.
 \end{itemize}
@@ -398,7 +445,8 @@ L'utente inoltre visualizza il seguente Modulo non modificabile:
 \addScenarioPrincipale{L'utente visualizza le informazioni utente, caratterizzate da:
 \begin{itemize}
     \item Nome e cognome dell'utente;
-    \item ruolo dell'utente.
+    \item ruolo dell'utente;
+    \item reparto asseganto.
 \end{itemize}
 }
 \addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo alle informazioni utente.}
@@ -412,7 +460,11 @@ L'utente inoltre visualizza il seguente Modulo non modificabile:
 \addPostCondizione{Il Sistema mostra il Modulo relativo alle statistiche allarmi.}
 \addScenarioPrincipale{L'utente visualizza le statistiche allarmi, caratterizzate da:
 \begin{itemize}
-    \item ???
+    \item Numero di allarmi risolti;
+    \item Numero di allarmi risolti suddivisi per tipologia;
+    \item Tempo medio di risoluzione allarmi;
+    \item Allarmi risolti per residenza;
+    \item Distribuzione Allarmi risolti per Priorità;
 \end{itemize}
 }
 \addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo alle statistiche allarmi.}
@@ -424,7 +476,10 @@ L'utente inoltre visualizza il seguente Modulo non modificabile:
 \addPostCondizione{Il Sistema mostra il Modulo relativo all'analisi del clima.}
 \addScenarioPrincipale{L'utente visualizza le analisi del clima, caratterizzate da:
 \begin{itemize}
-    \item ???
+    \item Temperatura media giornaliera per residenza;
+    \item Variazione della temperatura nell'arco della giornata per residenza;
+    \item Differenza tra temperatura impostata e temperatura reale per residenza;
+    \item Differenza di temperatura tra le varie residenze.
 \end{itemize}
 }
 \addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo all'analisi clima.}
@@ -436,7 +491,9 @@ L'utente inoltre visualizza il seguente Modulo non modificabile:
 \addPostCondizione{Il Sistema mostra il Modulo relativo all'analisi dei consumi.}
 \addScenarioPrincipale{L'utente visualizza le analisi dei consumi, caratterizzate da:
 \begin{itemize}
-    \item ???
+    \item Consumo in kWh giornaliero per residenza;
+    \item Andamento in kWh nell'arco della giornata per residenza;
+    \item Media consumo in kWh dell'ultima settimana per residenza.
 \end{itemize}
 }
 \addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo all'analisi consumi.}
@@ -487,8 +544,9 @@ L'utente inoltre visualizza il seguente Modulo non modificabile:
 \addScenarioPrincipale{L'utente seleziona un Modulo non presente nella Dashboard.}
 \addScenarioAlternativo{Il Modulo selezionato è già presente nella Dashboard;}
 \addScenarioAlternativo{È stato raggiunto il massimo numero di Moduli visualizzabili nella Dashboard.}
-\addEstensione{Selezione Modulo già presente \rif{2.8.1}}
-\addEstensione{Limite Moduli raggiunti \rif{2.8.2}}
+\addInclusione{Selezione Modulo non presente \rif{2.9.1}}
+\addEstensione{Selezione Modulo presente \rif{2.8.1}}
+\addEstensione{Limite Moduli raggiunto \rif{2.8.2}}
 \addTrigger{L'utente vuole aggiungere un Modulo nella sezione Dashboard.}
 \makeUC{2.8}{Aggiunta Modulo opzionale Dashboard}
 
@@ -496,9 +554,18 @@ L'utente inoltre visualizza il seguente Modulo non modificabile:
 \addPreCondizione{L'utente si trova nella sezione Dashboard;}
 \addPreCondizione{L'utente sta modificando quali Moduli sono visualizzati nella Dashboard.}
 \addPostCondizione{Il Modulo selezionato è rimosso dalla Dashboard.}
+\addScenarioPrincipale{L'utente seleziona un Modulo, presente nella Dashboard, tra:
+                        \begin{itemize}
+                            \item Informazioni utente;
+                            \item statistiche allarmi;
+                            \item analisi clima;
+                            \item analisi consumi;
+                            \item dispositivi accessi;
+                            \item temperatura impostata.
+                        \end{itemize} }
 \addScenarioPrincipale{Il Sistema rimuove il Modulo selezionato dalla Dashboard.}
-\addTrigger{L'utente vuole aggiungere un Modulo già presente nella Dashboard.}
-\makeUC{2.8.1}{Selezione Modulo già presente nella Dashboard}
+\addTrigger{L'utente seleziona un Modulo già presente nella Dashboard.}
+\makeUC{2.8.1}{Selezione Modulo presente nella Dashboard}
 
 \addAttore{Utente.}
 \addPreCondizione{L'utente si trova nella sezione Dashboard;}
@@ -516,7 +583,7 @@ L'utente inoltre visualizza il seguente Modulo non modificabile:
 \addScenarioPrincipale{L'utente seleziona l'opzione di modifica della Dashboard;}
 \addScenarioPrincipale{L'utente seleziona un Modulo opzionale attualmente presente nella Dashboard.}
 \addScenarioAlternativo{Il Modulo selezionato non è attualmente presente nella Dashboard.}
-\addInclusione{(Selezione Modulo già presente \rif{2.8.1}}
+\addInclusione{Selezione Modulo presente \rif{2.8.1}}
 \addEstensione{Selezione Modulo non presente \rif{2.9.1}}
 \addTrigger{L'utente vuole rimuovere un Modulo opzionale dalla Dashboard.}
 \makeUC{2.9}{Rimozione Modulo opzionale Dashboard}
