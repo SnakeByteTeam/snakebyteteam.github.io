@@ -1,9 +1,10 @@
 \documentclass[10pt, letterpaper]{article}
 
 \usepackage{../../template/template}
-\usepackage{tabularx}
-\usepackage{eurosym}
+\usepackage{templatePdP}
 \usepackage{spreadtab,simplekv,xpatch}
+
+\usepackage[table]{xcolor}
 
 %Queste macro sono in relazione all'ultima modifica
 \setDocIndex{Piano di progetto}
@@ -153,6 +154,9 @@
 
 \newcommand{\rif}[1]{\hyperref[#1]{§#1}}
 
+\newcommand{\rotaz}{0}
+
+
 
 % comandi extra (rimuovere questi commenti una volta approvato il documento)
 %
@@ -180,6 +184,79 @@
 % -- pagine intere --
 % \makeTitlePage
 % \addChangelog{versione}{data}{autore}{verificatore}{approvatore}{descrizione} | \makeTodoTable
+
+
+
+% ============= STRUTTURA SPRINT GENERICO =============
+\iffalse
+%================================
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsection{SprintX (GG/MM/AAAA - GG/MM/AAAA)}
+\subsubsection{Avanzamento}
+\trisubsection{Attività programmate}
+Si prevede l'esecuzione delle seguenti attività:
+\begin{itemize}
+    \item
+\end{itemize}
+
+\trisubsection{Attività svolte}
+Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\subsubsection{Rischi}
+\trisubsection{Rischi attesi}
+\begin{itemize}
+    \item 
+\end{itemize}
+\trisubsection{Rishi manifestati}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\subsubsection{Costi}
+Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riportate:
+
+\setRuoloFilippo{\Anal}
+\setRuoloChristian{\Anal}
+\setRuoloValeria{\Verif}
+\setRuoloGiuseppe{\Resp}
+\setRuoloFrancesco{\Amm}
+\setRuoloLuca{\Anal}
+\setRuoloLeonardo{\Proge}
+
+\setHPrevisteFilippo{0}
+\setHPrevisteChristian{0}
+\setHPrevisteValeria{0}
+\setHPrevisteGiuseppe{0}
+\setHPrevisteFrancesco{0}
+\setHPrevisteLuca{0}
+\setHPrevisteLeonardo{0}
+
+\setHRealiFilippo{0}
+\setHRealiChristian{0}
+\setHRealiValeria{0}
+\setHRealiGiuseppe{0}
+\setHRealiFrancesco{0}
+\setHRealiLuca{0}
+\setHRealiLeonardo{0}
+
+\makeTableRuoli
+Si deriva il consuntivo delle ore e dei costi rispetto ai singoli ruoli:
+%\makeTableDeviazioni
+
+\subsubsection{Preventivo a finire}
+Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i campi "iniziali" fanno riferimento all'inizio dello sprint corrente:
+
+%\makeTablePreventivo
+\fi
+
+% ============== LEGGI =================
+% Se le modifiche sulle tabelle non compaiono, elimina i file extra e fai rebuild
 
 \begin{document}
 
@@ -260,8 +337,8 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
     \begin{itemize}
         \item \textbf{rischi tecnologici}: sono legati alla scelta e all'utilizzo delle tecnologie adottate durante lo sviluppo;
         \item \textbf{rischi individuali}: emergono da imprevisti della vita quotidiana o impegni personali;
-        \item \textbf{rischi di comunicazione}: sono causati da una mancanza di comunicazione tra parti del progetto, quali membri del gruppo, Proponente e professori;
-        \item \textbf{rischi organizzativi}: sono legati ad un'organizzazione errata o non adatta allo svolgimento di un'attività
+        \item \textbf{rischi di comunicazione}: sono causati da una mancanza di comunicazione tra le figure coinvolte nel progetto, quali membri del gruppo, Proponente e professori;
+        \item \textbf{rischi organizzativi}: sono legati ad un'organizzazione errata o non adatta allo svolgimento di un'attività.
     \end{itemize}
     
 
@@ -270,20 +347,52 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
         {Il progetto richiede l'utilizzo di molte tecnologie diverse che risultano spesso sconosciute
         a causa dell'inesperienza e dell'ampia offerta di strumenti nell'ambito.}
         {Dedicare ore di calendario allo studio individuale di una tecnologia e, in caso di componenti 
-        del gruppo con conoscenze pregresse sull'argomento, organizzare dei momenti di allineamento generale.} 
+        del gruppo con conoscenze pregresse sull'argomento, organizzare dei momenti di allineamento
+        generale.}
         {2}{2}
 
         \newTRisk{Incompatibilità tecnologie}
-        {}
-        {test}
-        {0}{0} % 0 | 1 | 2
+        {La scelta delle tecnologie in fase di progettazione, se non presa con cura, può provocare problemi
+        di compatibilità in fase di sviluppo, in particolare durante la realizzazione del Proof of Concept.}
+        {È necessario interrompere lo sviluppo delle parti che coinvolgono le tecnologie in conflitto e rielaborare la scelta progettuale 
+        in maniera più attenta e motivata.}
+        {0}{2} % 0 | 1 | 2
 
-        \newTRisk{Bug nel codice}{test}{test}{0}{0}
-        \newTRisk{Test non efficaci}{test}{test}{0}{0}
+        \newTRisk{\textit{Bug$_G$} nel codice}
+        {Nonostante l'utilizzo di metodi automatizzati di verifica del codice si può presentare
+        un comportamento inatteso o errato dell'applicativo.}
+        {Individuare la parte di codice che genera il \textit{bug} attraverso analisi del codice 
+        e strumenti come \textit{debugger$_G$}. Modificare il codice per correggere il comportamento
+        fallace. Verificare occorrenza del rishio \rif{RT4}.}
+        {2}{1}
+
+        \newTRisk{Test non esaustivi}
+        {Casistica in cui i test automatici del codice risultano essere non esaustivi o insufficienti al
+        fine di produrre un codice funzionante, robusto e manutenibile, secondo lo stato dell'arte.}
+        {Effettuare un controllo dell'esaustività, della correttezza e del livello di copertura del codice dei 
+        test automatici; su necessità aggiungere test o modificare quelli esistenti.}
+        {1}{1}
     
     \subsection{Rischi individuali}
-        \newIRisk{Impegni personali}{test}{test}{0}{0}
-        \newIRisk{Impegni universitari}{test}{test}{0}{0}
+        \newIRisk{Impegni personali}
+        {Le singole componenti del gruppo possono essere indisponibili allo svolgimento delle attività
+        assegnate per un certo periodo di tempo a causa di motivi personali.}
+        {Comunicare l'indisponibilità al gruppo il prima possibile, organizzare una riunione urgente per 
+        effettuare una ripianificazione delle attività di periodo. In base al momento d'occorrenza, alle 
+        attività in sospeso e al carico di lavoro dei componenti, decidere tra le opzioni:
+        \begin{itemize}
+            \item redistribuire le attività in sospeso tra i componenti;
+            \item rimandare lo svolgimento delle attività in sospeso al periodo di avanzamento successivo.
+        \end{itemize}}
+        {0}{1}
+
+        \newIRisk{Impegni universitari}
+        {Gli impegni universitari possono ridurre il tempo disponibile per lo svolgimento delle attività,
+        specialmente nel periodo della sessione, avendo effetto contemporaneamente sull'intero gruppo e
+        dunque rallentando l'avanzamento.}
+        {Gestire l'organizzazione del team e delle attività considerando questo rischio anticipatamente e assegnando un carico
+        lavoro appropriato per evitare cambi di programma durante il periodo d'interesse.}
+        {2}{2}
     
     \subsection{Rischi di comunicazione}
         \newCRisk{Mancanza di coordinamento tra componenti}{test}{test}{0}{0}
@@ -335,87 +444,411 @@ Adottando una rotazione dei ruoli avente luogo alla fine di ogni ciclo di avanza
 preventivo dei costi che ammonta ad un totale di 13.045,00 \euro, è stata fissata come scadenza ultima di consegna del 
 progetto la data 18 marzo 2026.
 
-\subsection{RTB}
+\subsection{RTB} 
+In vista della Requirement and Technlogy Baseline (RTB), il gruppo SnakeByte fissa come data prevista per la candidatura il
+GG/MM/AAAA (?); termine entro il quale si prevede la terminazione delle seguenti attività: 
+\begin{itemize}
+    \item stesura dell'Analisi Requisiti (AdR);
+    \item stesura delle Norme di Progetto (NdP);
+    \item stesura del Piano di Progetto (PdP);
+    \item stesura del Piano di Qualifica (PdQ);
+    \item scrittura e consegna Proof of Concept (PoC);
+\end{itemize}
+Al momento della candidatura, avente luogo durante lo Sprint 6 (?), in base alle previsioni sulla 
+distribuzione oraria dei ruoli, si stima uno stato delle risorse corrispondente a quanto riportato:
+\begin{center}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        \rowcolor{lightgray} \textbf{Ruolo} & \textbf{Ore rimanenti} & \textbf{Risorse rimanenti} 
+        \\
+        \hline
+        Responsabile  & 0 & 0\euro\\
+        \hline
+        Amministratore  & 0 & 0\euro\\
+        \hline
+        Analista & 0 & 0\euro\\
+        \hline
+        Progettista & 0 & 0\euro \\
+        \hline
+        Programmatore & 0 & 0\euro\\
+        \hline
+        Verificatore & 0 & 0\euro\\
+        \hline
+        \cellcolor{lightgray}{\textbf{Totale}} & - & - \euro \\
+        \hline
+    \end{tabular}
+\end{center}
 
 \subsection{PB}
+DA COMPILARE IN DETTAGLIO A SEGUITO DELLA RTB
 
+A questo punto le uniche previsioni sono
+\begin{itemize}
+    \item Consegna MVP alla Proponente
+    \item Condidatura al PB
+\end{itemize}
 
 
 \section{Periodi di avanzamento}
+\subsection{Pre-candidatura}
+\subsubsection{Avanzamento}
+Durante il periodo precedente alla candidatura il gruppo ha portato a termine le seguenti attività:
+\begin{itemize}
+    \item definizione del nome e del logo del gruppo;
+    \item scelta dei canali di comunicazione e della frequenza degli incontri;
+    \item analisi dei capitolati dei progetti di maggior interesse;
+    \item creazione del repository e del sito web associato al progetto;
+    \item prima stesura delle Norme di Progetto;
+    \item prima definizione dei template per i documenti;
+    \item contatto con le aziende per chiarire dubbi sui capitolati;
+    \item stesura della documento di valutazione dei capitolati;
+    \item stesura della Dichiarazione degli Impegni;
+    \item stesura della Lettera di Candidatura.
+\end{itemize}
+
+\subsubsection{Rischi}
+Si è manifestato il rischio \rif{RT1}, riferito allo strumento utilizzato per la redazione
+dei documenti, ossia \LaTeX.
+
+\subsubsection{Retrospettiva}
+In questa prima fase di assestamento lo svolgimento delle attività è stato gestito
+in maniera ancora incerta ma funzionale, senza una divisione dei ruoli, ed è stata caratterizzata da 
+decisioni che hanno richiesto molta riflessione, tra cui le convenzioni per le versioni dei file e la struttura dei documenti.
+
 
 \subsection{Sprint 1 (03/11/2025 - 16/11/2025)}
-\subsubsection{Consuntivo}
-\trisubsection{Avanzamento}
-Lista di attività da svolgere (prese dai verbali) e attività svolgimento
+\subsubsection{Avanzamento}
+\trisubsection{Attività programmate}
 \begin{itemize}
-    \item Redazione Norme di Progetto
-    \item Primo contatto con la Proponente
-    \item Definizione di prime domande per l'Analisi dei requisiti
-    \item Perfezionamento struttura documenti tramite templates
+    \item 
+\end{itemize}
+\trisubsection{Attività svolte}
+Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+\begin{itemize}
+    \item continuazione della scrittura delle Norme di Progetto;
+    \item primo incontro con la Proponente;
+    \item inizio definizione dei requisiti;
+    \item incontro di approfondimento sulle tecnologie con la Proponente;
+    \item definizione di prime domande per l'Analisi dei requisiti;
+    \item perfezionamento struttura documenti tramite templates.
 \end{itemize}
 
-\trisubsection{Rischi}
-Tabella con indice rischio, descrizione contesto, mitigazione?
+\subsubsection{Rischi}
 \begin{itemize}
-    \item \rif{RT1}\\
-    \textbf{Contesto}: Durante la fase pre candidatura sono emerse disparità di conoscenze riguardo lo strumento \LaTeX.\\
-    \textbf{Mitigazione}: forse non ha senso, è già spiegato in RT1??\\
+    \item 
 \end{itemize}
+\trisubsection{Rischi attesi}
+\begin{itemize}
+    \item 
+\end{itemize}
+\trisubsection{Rishi manifestati}
+In questo sprint si sono verificati i rischi legati alla sovrastima delle ore (\rif{RO7}).
 
-\trisubsection{Costi}
-Tabella con confronto di ore previste e ora svolte
-\begin{center}
-    \begin{tabular}{|c|c|c|c|c|}
-        \hline
-        \rowcolor{lightgray} \textbf{Membro} & \textbf{Ruolo} & \textbf{Ore previste} & \textbf{Ore reali} & \textbf{Differenza} \\
-        \hline
-        V. Baleanu & Analista & 5 & & \\
-        \hline
-        L. Pellizzon & Verificatore & 8 & & \\
-        \hline
-        F. Venzo & Responsabile & 8 & & \\
-        \hline
-        G. De Fina & Analista & 5 & & \\
-        \hline
-        F. Pasqual & Analista & 5 & & \\
-        \hline
-        C. Libralato & Amministratore & 9 & & \\
-        \hline
-        L. Granziero & Analista & 5 & & \\
-        \hline
-    \end{tabular}
-\end{center}
+\subsubsection{Costi}
+Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riportate:
+
+% Inizializzazione NECESSARIA e SUFFICIENTE per la costruzione delle tabelle successive
+\setRuoloFilippo{\Resp}
+\setRuoloChristian{\Amm}
+\setRuoloValeria{\Anal}
+\setRuoloGiuseppe{\Anal}
+\setRuoloFrancesco{\Anal}
+\setRuoloLuca{\Anal}
+\setRuoloLeonardo{\Verif}
+
+\setHPrevisteFilippo{8}
+\setHPrevisteChristian{9}
+\setHPrevisteValeria{5}
+\setHPrevisteGiuseppe{5}
+\setHPrevisteFrancesco{5}
+\setHPrevisteLuca{5}
+\setHPrevisteLeonardo{8}
+
+\setHRealiFilippo{6}
+\setHRealiChristian{6}
+\setHRealiValeria{5}
+\setHRealiGiuseppe{5}
+\setHRealiFrancesco{5}
+\setHRealiLuca{5}
+\setHRealiLeonardo{6}
+
+\makeTableRuoli
+Si deriva il consuntivo delle ore e dei costi rispetto ai singoli ruoli:
+\makeTableDeviazioni
 
 \subsubsection{Preventivo a finire}
-\trisubsection{Revisione}
-Aggiornamento delle ore rimanenti
-\begin{center}
-    \begin{tabular}{|c|c|c|c|c|c|c|c|}
-        \hline
-        \rowcolor{lightgray} \rotatebox[origin=c]{90}{\textbf{Ruolo}} & \rotatebox[origin=c]{90}{\textbf{Costo orario}} 
-        & \rotatebox[origin=c]{90}{\textbf{Ore previste}} & \rotatebox[origin=c]{90}{\textbf{Ore effettive}} 
-        & \rotatebox[origin=c]{90}{\textbf{Costo previsto}} & \rotatebox[origin=c]{90}{\textbf{Costo effettivo}} 
-        & \rotatebox[origin=c]{90}{\textbf{Ore rimanenti}} & \rotatebox[origin=c]{90}{\textbf{ Budget rimanente }} \\
-        \hline
-        Responsabile & 30 \euro/h & 8 & 0 & 240 \euro & 0 \euro & 0 &  0 \euro\\
-        \hline
-        Amministratore & 20 \euro/h & 9 & 0 & 180 \euro & 0 \euro & 0 &  0 \euro\\
-        \hline
-        Analista & 25 \euro/h & 20 & 0 & 500 \euro & 0 \euro & 0 &  0 \euro\\
-        \hline
-        Progettista & 25 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
-        \hline
-        Programmatore & 15 \euro/h & 0 & 0 & 0 \euro & 0 \euro & 0 &  0 \euro\\
-        \hline
-        Verificatore & 15 \euro/h & 8 & 0 & 120 \euro & 0 \euro & 0 &  13.4343,00 \euro\\
-        \hline
-    \end{tabular}
-\end{center}
+Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i campi "iniziali" fanno riferimento all'inizio dello sprint corrente:
 
-\trisubsection{Retrospettiva}
+\makeTablePreventivo
+
+\subsubsection{Retrospettiva}
+Il periodo mostra ancora gli effetti dell'assestamento iniziale e della sperimentazione con i nuovi
+strumenti. È stata effettuata una sovrastima nell'assegnazione delle ore ai ruoli: Verificatore, Responsabile e Amministratore.
+
+%================================
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsection{Sprint 2 (17/11/2025 - 30/11/2025)}
+\subsubsection{Avanzamento}
+\trisubsection{Attività programmate}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\trisubsection{Attività svolte}
+Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\subsubsection{Rischi}
+\trisubsection{Rischi attesi}
+\begin{itemize}
+    \item 
+\end{itemize}
+\trisubsection{Rishi manifestati}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\subsubsection{Costi}
+Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riportate:
+
+\setRuoloFilippo{\Anal}
+\setRuoloChristian{\Anal}
+\setRuoloValeria{\Verif}
+\setRuoloGiuseppe{\Resp}
+\setRuoloFrancesco{\Amm}
+\setRuoloLuca{\Anal}
+\setRuoloLeonardo{\Proge}
+
+\setHPrevisteFilippo{9}
+\setHPrevisteChristian{9}
+\setHPrevisteValeria{9}
+\setHPrevisteGiuseppe{8}
+\setHPrevisteFrancesco{8}
+\setHPrevisteLuca{9}
+\setHPrevisteLeonardo{12}
+
+\setHRealiFilippo{9}
+\setHRealiChristian{6}
+\setHRealiValeria{9}
+\setHRealiGiuseppe{8}
+\setHRealiFrancesco{8}
+\setHRealiLuca{9}
+\setHRealiLeonardo{12}
+
+\makeTableRuoli
+Si deriva il consuntivo delle ore e dei costi rispetto ai singoli ruoli:
+\makeTableDeviazioni
+
+\subsubsection{Preventivo a finire}
+Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i campi "iniziali" fanno riferimento all'inizio dello sprint corrente:
+
+\makeTablePreventivo
+
+\subsubsection{Retrospettiva}
 
 
-\subsection{Sprint2 ...}
+%================================
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsection{Sprint 3 (01/12/2025 - 14/12/2025)}
+\subsubsection{Avanzamento}
+\trisubsection{Attività programmate}
+Si prevede l'esecuzione delle seguenti attività:
+\begin{itemize}
+    \item
+\end{itemize}
+
+\trisubsection{Attività svolte}
+Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\subsubsection{Rischi}
+\trisubsection{Rischi attesi}
+\begin{itemize}
+    \item 
+\end{itemize}
+\trisubsection{Rishi manifestati}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\subsubsection{Costi}
+Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riportate:
+
+\setRuoloFilippo{\Anal}
+\setRuoloChristian{\Anal}
+\setRuoloValeria{\Verif}
+\setRuoloGiuseppe{\Resp}
+\setRuoloFrancesco{\Amm}
+\setRuoloLuca{\Anal}
+\setRuoloLeonardo{\Proge}
+
+\setHPrevisteFilippo{0}
+\setHPrevisteChristian{0}
+\setHPrevisteValeria{0}
+\setHPrevisteGiuseppe{0}
+\setHPrevisteFrancesco{0}
+\setHPrevisteLuca{0}
+\setHPrevisteLeonardo{0}
+
+\setHRealiFilippo{0}
+\setHRealiChristian{0}
+\setHRealiValeria{0}
+\setHRealiGiuseppe{0}
+\setHRealiFrancesco{0}
+\setHRealiLuca{0}
+\setHRealiLeonardo{0}
+
+\makeTableRuoli
+Si deriva il consuntivo delle ore e dei costi rispetto ai singoli ruoli:
+\makeTableDeviazioni
+
+\subsubsection{Preventivo a finire}
+Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i campi "iniziali" fanno riferimento all'inizio dello sprint corrente:
+
+\makeTablePreventivo
+
+%================================
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsection{Sprint 4 (15/12/2025 - 28/12/2025)}
+\subsubsection{Avanzamento}
+\trisubsection{Attività programmate}
+Si prevede l'esecuzione delle seguenti attività:
+\begin{itemize}
+    \item terminazione Analisi Requisiti;
+    \item continuazione stesura del Piano di Progetto;
+    \item definizione metriche e prima stesura del Piano di Qualifica;
+    \item inizio implementazione del Proof of Concept;
+    \item definizione Gantt;
+    \item correzioni documenti valutati Round Review;
+    \item configurazione secondo kit.
+\end{itemize}
+
+\trisubsection{Attività svolte}
+Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\subsubsection{Rischi}
+\trisubsection{Rischi attesi}
+\trisubsection{Rishi manifestati}
+
+\subsubsection{Costi}
+Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riportate:
+
+\setRuoloFilippo{\Anal}
+\setRuoloChristian{\Anal}
+\setRuoloValeria{\Verif}
+\setRuoloGiuseppe{\Resp}
+\setRuoloFrancesco{\Amm}
+\setRuoloLuca{\Anal}
+\setRuoloLeonardo{\Proge}
+
+\setHPrevisteFilippo{0}
+\setHPrevisteChristian{0}
+\setHPrevisteValeria{0}
+\setHPrevisteGiuseppe{0}
+\setHPrevisteFrancesco{0}
+\setHPrevisteLuca{0}
+\setHPrevisteLeonardo{0}
+
+\setHRealiFilippo{0}
+\setHRealiChristian{0}
+\setHRealiValeria{0}
+\setHRealiGiuseppe{0}
+\setHRealiFrancesco{0}
+\setHRealiLuca{0}
+\setHRealiLeonardo{0}
+
+\makeTableRuoli
+Si deriva il consuntivo delle ore e dei costi rispetto ai singoli ruoli:
+\makeTableDeviazioni
+
+\subsubsection{Preventivo a finire}
+Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i campi "iniziali" fanno riferimento all'inizio dello sprint corrente:
+
+\makeTablePreventivo
+
+\subsubsection{Retrospettiva}
+
+
+%================================
+\vspace{1em}
+\hrule
+\vspace{1em}
+
+\subsection{Sprint 5 (29/12/2025 - 11/01/2025)}
+\subsubsection{Avanzamento}
+\trisubsection{Attività programmate}
+Si prevede l'esecuzione delle seguenti attività:
+\begin{itemize}
+    \item
+\end{itemize}
+
+\trisubsection{Attività svolte}
+Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\subsubsection{Rischi}
+\trisubsection{Rischi attesi}
+\begin{itemize}
+    \item 
+\end{itemize}
+\trisubsection{Rishi manifestati}
+\begin{itemize}
+    \item 
+\end{itemize}
+
+\subsubsection{Costi}
+Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riportate:
+
+\setRuoloFilippo{\Anal}
+\setRuoloChristian{\Anal}
+\setRuoloValeria{\Verif}
+\setRuoloGiuseppe{\Resp}
+\setRuoloFrancesco{\Amm}
+\setRuoloLuca{\Anal}
+\setRuoloLeonardo{\Proge}
+
+\setHPrevisteFilippo{0}
+\setHPrevisteChristian{0}
+\setHPrevisteValeria{0}
+\setHPrevisteGiuseppe{0}
+\setHPrevisteFrancesco{0}
+\setHPrevisteLuca{0}
+\setHPrevisteLeonardo{0}
+
+\setHRealiFilippo{0}
+\setHRealiChristian{0}
+\setHRealiValeria{0}
+\setHRealiGiuseppe{0}
+\setHRealiFrancesco{0}
+\setHRealiLuca{0}
+\setHRealiLeonardo{0}
+
+\makeTableRuoli
+Si deriva il consuntivo delle ore e dei costi rispetto ai singoli ruoli:
+\makeTableDeviazioni
+
+\subsubsection{Preventivo a finire}
+Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i campi "iniziali" fanno riferimento all'inizio dello sprint corrente:
+
+\makeTablePreventivo
 
 
 
