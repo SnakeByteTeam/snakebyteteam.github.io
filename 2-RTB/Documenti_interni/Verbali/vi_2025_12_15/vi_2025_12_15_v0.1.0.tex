@@ -1,0 +1,137 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 15/12/2025}
+\setDocVersion{0.1.0}
+\setDocData{18/12/2025}
+\setDocIndex{vi\_2025\_12\_15}
+\setDocState{1}
+\setDocRecipient{1}
+
+% comandi extra (rimuovere questi commenti una volta approvato il documento)
+%
+% -- costanti --
+% \noOne [-]
+% \noRole [ND]
+% \firstDraft [Prima stesura]
+% \approval [Approvazione]
+% \teamName [SnakeByte]
+% \teamEmail [snakebyteteam@gmail.com]
+% \teamRepo [https://github.com/SnakeByteTeam/snakebyteteam.github.io]
+% \teamSite [https://snakebyteteam.github.io/]
+% \recipientTeachers [prof. Vardanega Tullio, prof. Cardin Riccardo]
+% \vimar [Vimar]
+% \vimarspa [Vimar S.p.A.]
+%
+% -- variabili --
+% \docIndex | \setDocIndex{nome documento senza versione}
+% \docTitle | \setDocTitle{titolo documento} 
+% \docData | \setDocData{data documento} [GG/MM/AAAA]
+% \docVersion | \setDocVersion{versione documento}
+% \docState | \setDocState{0|1|2} [Da verificare][Verificato][Approvato]
+% \docRecipient [table] | \setDocRecipient{0|1|2} [SnakeByte][SnakeByte, prof][SnakeByte, prof, vimar]
+% 
+% -- tabelle -- [gli id sono automatici dove serve]
+% \makeMeetingInfoTable{data}{ora inizio}{ora fine}{modalità}
+% \addParticipant{nome}{cognome}{ruolo}{presenza} | \makeMeetingParticipantsTable
+% \addTodo{id github issue}{descrizione}{assegnatario}{scadenza} | \makeTodoTable
+% \addPrecedentTodo{id todo}{id github issue todo}{assegnatario todo}{data} | \makePrecedentTodoTable
+% \addDecision{descrizione decisione} | \makeDecisionTable
+%
+% -- pagine intere --
+% \makeTitlePage
+% \addChangelog{versione}{data}{autore}{verificatore}{approvatore}{descrizione} | \makeTodoTable
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\addChangelog{\docVersion}{\docData}{C. Libralato}{F. Pasqual}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{15/12/2025}{17:00}{18:30}{via Discord}
+
+\addParticipant{Christian}{Libralato}{Responsabile}{P}
+\addParticipant{Giuseppe}{De Fina}{Amministratore}{P}
+\addParticipant{Valeria}{Baleanu}{Progettista}{NP}
+\addParticipant{Francesco}{Pasqual}{Verificatore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Analista}{P}
+\addParticipant{Filippo}{Venzo}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Programmatore}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{vi\_2025\_12\_01.a1}{\#17}{F. Pasqual, L. Pellizzon}{10/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_01.a2}{\#19}{F. Pasqual, L. Pellizzon}{05/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_01.a3}{\#22}{C. Libralato}{14/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_01.a4}{\noOne}{F. Pasqual}{02/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_01.a5}{\noOne}{F. Pasqual}{02/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_01.a6}{\#5}{F. Venzo}{08/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_01.a7}{\noOne}{G. De Fina, V. Baleanu, F. Venzo}{07/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_01.a8}{\#6}{F. Venzo}{08/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_01.a9}{\#18}{G. De Fina, V. Baleanu, F. Venzo}{05/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_01.a10}{\#16}{C. Libralato}{09/12/2025}
+\makePrecedentTodoTable
+
+
+\section{Ordine del giorno}
+\begin{itemize}
+    \item \textit{Sprint Retrospective$_G$};
+    \item revisione analisi requisiti;
+    \item discussione piani di progetto e di qualifica;
+    \item ridistribuzione ore e ruoli;
+    \item proposta di utilizzo di \textit{Prisma$_G$}.
+\end{itemize}
+
+\section{Approfondimento}
+\subsection*{\textit{Sprint Retrospective}}
+Dall'analisi del precedente periodo di avanzamento non sono emerse particolari criticità, le attività sono
+state portate a termine secondo le scadenze. L'unica difficoltà incontrata è stata la coordinazione tra analisti sulle 
+convenzioni da adottare riguardo la struttura dei casi d'uso, che ha complicato il processo di unificazione
+dei vari lavori svolti in autonomia.
+
+\subsection*{Revisione analisi requisiti}
+È stata identificata la necessità di correggere la struttura dei casi d'uso e la gestione degli errori all'interno
+dell'analisi dei requisiti in vista del colloquio con il professor Cardin.
+
+\subsection*{Discussione piani di progetto e di qualifica}
+Durante la riunione è emersa la necessità di velocizzare la redazione del Piano di Progetto e del Piano di Qualifica, 
+in riferimento a quest'ultimo si è riflettuto sulle metriche da utilizzare per misurare il livello di avanzamento e la qualità. 
+Sebbene queste non siano state identificate in maniera definitiva, si ritiene che il piano conterrà circa cinque metriche legate
+all'avanzamento.
+
+\subsection*{Ridistribuzione ore e ruoli}
+Dalla prima stesura del Piano di Progetto è emerso, come era lecito aspettarsi, che le ore previste per i singoli ruoli
+non risultano perfettamente accurate, è emerso dunque il dubbio su come gestire le ore avanzate.
+È stato deciso che, in caso di sovrastime delle ore svolte da un ruolo in uno sprint, queste
+verranno tracciate e, in caso di necessità, redistribuite ad altri ruoli.
+Inoltre è avvenuta una variazione dei ruoli previsti per lo sprint corrente, in particolare, a
+Leonardo Pellizzon è stato assegnato il ruolo Analista.
+
+\subsection*{Proposta di utilizzo di \textit{Prisma}}
+Al fine di semplificare e velocizzare l'interazione con il database è stato proposto lo strumento
+\textit{Prisma}, sarà necessario discutere con la Proponente la possibilità di utlizzare la suddetta tecnologia.
+
+
+\addDecision{Le ore non consumate da un ruolo in uno sprint possono essere distribuite su necessità}
+\makeDecisionTable
+
+\addTodo{\#33}{Terminazione AdR}{L. Pellizzon}{30/10/2025}
+\addTodo{\#34}{Compilazione PdP}{G. De Fina}{30/10/2025}
+\addTodo{\#35}{Prima Stesura PdQ}{G. De Fina}{30/10/2025}
+\addTodo{\#36}{Inizio implementazione PoC}{F. Venzo, L. Granziero}{30/10/2025}
+\addTodo{\#37}{Definizione diagramma Gantt}{G. De Fina}{30/10/2025}
+\addTodo{\#38}{Scrittura verbale esterno 10/12/2025}{C. Libralato}{20/10/2025}
+\addTodo{\#39}{Scrittura verbaleinterno 15/12/2025}{C. Libralato}{20/10/2025}
+\makeTodoTable
+
+\end{document}
