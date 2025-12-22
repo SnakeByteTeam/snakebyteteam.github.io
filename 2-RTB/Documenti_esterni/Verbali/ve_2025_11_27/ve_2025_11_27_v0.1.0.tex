@@ -3,7 +3,7 @@
 \usepackage{../../../../template/template}
 
 \setDocTitle{Verbale esterno 27/11/2025}
-\setDocVersion{0.1.0}
+\setDocVersion{0.1.1}
 \setDocData{27/11/2025}
 \setDocIndex{ve\_2025\_11\_27}
 \setDocState{1}
@@ -49,7 +49,8 @@
 
 \newpage
 
-\addChangelog{\docVersion}{\docData}{F. Pasqual}{L. Pellizzon}{\noOne}{\firstDraft}
+\addChangelog{\docVersion}{12/12/2025}{F. Pasqual}{L. Pellizzon}{\noOne}{Modifiche Q\&A dashboard}
+\addChangelog{0.1.0}{\docData}{F. Pasqual}{L. Pellizzon}{\noOne}{\firstDraft}
 \makeChangelog
 
 \newpage
@@ -117,27 +118,28 @@ Il team si impegnerà per inviare una bozza del documento entro il 05/12/2025.
 
 
 \subsection*{Q\_\&A tecnico-funzionale: autenticazione, permessi, allarmi, gestione impianti}
-Per quanto riguarda l'autenticazione e i permessi:
+Per quanto riguarda \textbf{l'autenticazione e i permessi}:
 \begin{itemize}
     \item è stata stabilita la necessità di disaccoppiare i permessi. Gli utenti finali (OSS) non devono dipendere
     dall'account \textit{MyVimar} dell'amministratore di impianto;
     \item la piattaforma dovrà gestire un proprio layer di permessi interno, 
     dove l'amministratore può creare, gestire e assegnare reparti/strutture agli Operatori Socio-Sanitari (OSS).
 \end{itemize}
-Per quanto riguarda gli allarmi e le loro priorità:
+Per quanto riguarda \textbf{gli allarmi e le loro priorità} :
 \begin{itemize}
     \item il team ha ricevuto conferma che solo dispositivi specifici (pulsanti, sensori di caduta, termostati) generano allarmi, mentre l'attuazione (luci, tapparelle) no;
     \item si è definito che l'evento "Gateway Offline" deve essere considerato un allarme prioritario, in quanto nega la possibilità di ricevere notifiche in cloud;
     \item la proponente ha suggerito di rendere le soglie di allarme e le logiche di priorità (es. in base alla frequenza di attivazione) parametrizzabili da parte dell'amministratore.
 \end{itemize}
-Per quanto riguarda la gestione degli impianti:
+Per quanto riguarda \textbf{la gestione degli impianti} :
 \begin{itemize}
     \item è stato chiarito che la piattaforma non deve fornire la possibilità di modificare la struttura fisica degli impianti (aggiungere o togliere stanze/dispositivi);
-    \item l'amministratore dovrà, al primo accesso, selezionare quali impianti gestire tra quelli disponibili tramite l'account \textit{KNX IoT}.
+    \item l'amministratore dovrà, al primo accesso, selezionare quali impianti gestire tra quelli disponibili tramite il proprio account \textit{MyVimar}.
 \end{itemize}
-Per quanto riguarda la dashboard e l'interfaccia:
+Per quanto riguarda \textbf{la dashboard e l'interfaccia} :
 \begin{itemize}
-    \item è auspicabile che la dashboard permetta anche di prendere in carico gli allarmi (azione \textit{nice to have});
+    \item la dashboard deve permettere all'OSS di disattivare un allarme qualsiasi sia il caso che l'ha generato in prima istanza;
+    \item è auspicabile che la dashboard permetta all'OSS di prendere in carico (come sua propria responsabilità [di utente registrato]) un allarme e di disattivarlo non appena ha gestito il caso critico (azione \textit{nice to have});
     \item si è concordato di definire chiaramente i requisiti della dashboard prima di valutare la mole di lavoro necessaria per una eventuale personalizzazione dei widget;
     \item per la visualizzazione dei dispositivi, l'obiettivo è una mappa topologica (a box annidati) per una migliore esperienza utente, 
     anche se una semplice tabella con filtri è accettata come alternativa se i tempi non lo permetteranno.
@@ -145,7 +147,7 @@ Per quanto riguarda la dashboard e l'interfaccia:
 
 \subsection*{Valutazioni su \textit{analytics} e intelligenza artificiale}
 E' stato fortemente sconsigliato l'uso di \textit{Large Language Models} (LLM) in locale.
-La parte di suggerimenti e \textit{analytics} dovrà essere gestita tramite logiche statiche, soglie predefinite e algoritmi di \textit{AI} semplici.
+La parte di suggerimenti e \textit{analytics} dovrà essere gestita tramite logiche statiche, soglie predefinite ed eventuali algoritmi di \textit{AI} semplici.
 
 \subsection*{Logistica hardware: consegna del secondo \textit{kit di impianto portatile Smart}}
 La proponente è stata informata del fatto che F. Pasqual sarà il responsabile del secondo kit di sensori. 
