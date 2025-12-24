@@ -6,12 +6,12 @@
 
 \usepackage[table]{xcolor}
 
-%Queste macro sono in relazione all'ultima modifica
+% Macro sono in relazione all'ultima modifica
 \setDocIndex{Piano di progetto}
 \setDocTitle{Piano di progetto}
-\setDocVersion{0.1.0}
+\setDocVersion{0.1.3}
 \setDocState{1}
-\setDocData{09/12/2025}
+\setDocData{23/12/2025}
 \setDocRecipient{1}
 
 \setcounter{tocdepth}{4}
@@ -262,6 +262,9 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 
 \makeTitlePage
 
+\addChangelog{0.1.3}{23/12/2025}{G. De Fina}{F. Pasqual}{\noOne}{Redatti rischi di comunicazione e organizzativi con descrizioni e mitigazioni dettagliate}
+\addChangelog{0.1.2}{21/12/2025}{G. De Fina}{F. Pasqual}{\noOne}{Aggiunti parametri completi relativi allo Sprint 3}
+\addChangelog{0.1.1}{19/12/2025}{G. De Fina}{F. Pasqual}{\noOne}{Aggiunte attività previste e da svolgere, migliorate restrospettive e mitigazioni relative allo Sprint 1 e 2}
 \addChangelog{0.1.0}{09/12/2025}{C. Libralato}{L. Pellizzon}{\noOne}{Prima stesura}
 \makeChangelog
 
@@ -395,20 +398,135 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
         {2}{2}
     
     \subsection{Rischi di comunicazione}
-        \newCRisk{Mancanza di coordinamento tra componenti}{test}{test}{0}{0}
-        \newCRisk{Divergenza tra Proponente e gruppo}{test}{test}{0}{0}
-        \newCRisk{Disparità di conoscenze tra componenti}{test}{test}{0}{0}
-        \newCRisk{Incomprensione requisiti}{test}{test}{0}{0}
+        \newCRisk{Mancanza di coordinamento tra componenti}
+        {La collaborazione tra i membri del gruppo può risultare inefficace a causa di una comunicazione 
+        insufficiente o poco chiara, portando a duplicazione di lavoro, incomprensioni sugli obiettivi 
+        o ritardi nelle attività.}
+        {Stabilire canali di comunicazione chiari e utilizzarli regolarmente. Organizzare riunioni periodiche 
+        di allineamento per verificare lo stato di avanzamento delle attività. Utilizzare strumenti di 
+        tracciamento condivisi (\textit{GitHub Projects$_G$}) per mantenere visibilità sulle attività in corso. 
+        Documentare decisioni importanti nei verbali per garantire che tutti i membri abbiano accesso alle 
+        informazioni necessarie.}
+        {1}{2}
+        
+        \newCRisk{Divergenza tra Proponente e gruppo}
+        {Possono emergere incomprensioni o divergenze di visione tra il gruppo e la Proponente riguardo 
+        requisiti, priorità o direzione del progetto, causando rilavorazioni o sviluppo di funzionalità 
+        non conformi alle aspettative.}
+        {Organizzare incontri frequenti con la Proponente (SAL ogni due settimane) per presentare l'avanzamento 
+        e raccogliere feedback continuo. Inviare documentazione intermedia (bozze) per validazione anticipata. 
+        Mantenere un canale di comunicazione diretto per chiarimenti rapidi. Documentare e confermare per 
+        iscritto le decisioni prese durante gli incontri tramite verbali esterni.}
+        {1}{2}
+        
+        \newCRisk{Disparità di conoscenze tra componenti}
+        {I membri del gruppo possono avere livelli di conoscenza diversi su tecnologie, metodologie o 
+        domini specifici del progetto, causando difficoltà nella collaborazione e nella produzione di 
+        output omogenei.}
+        {Organizzare sessioni di studio condiviso e momenti di allineamento quando un componente acquisisce 
+        nuove competenze. Favorire la condivisione di conoscenze attraverso documentazione interna e 
+        spiegazioni durante le riunioni. Assegnare compiti che permettano ai membri meno esperti di apprendere 
+        affiancati da chi ha maggiore esperienza. Dedicare tempo alla revisione collaborativa del lavoro per 
+        uniformare approcci e terminologia.}
+        {2}{1}
+        
+        \newCRisk{Incomprensione requisiti}
+        {I requisiti del progetto possono essere interpretati in modo errato o incompleto, portando allo 
+        sviluppo di funzionalità non richieste o non conformi alle aspettative della Proponente.}
+        {Analizzare approfonditamente il capitolato e preparare domande specifiche per la Proponente. 
+        Validare la comprensione dei requisiti attraverso la redazione di casi d'uso dettagliati e diagrammi, 
+        da sottoporre alla Proponente per conferma. In caso di dubbi, richiedere chiarimenti tempestivamente 
+        senza procedere con assunzioni. Coinvolgere i docenti per validazione metodologica dell'Analisi dei 
+        Requisiti.}
+        {1}{2}
 
     \subsection{Rischi organizzativi}
-        \newORisk{Carico di lavoro eccessivo}{test}{test}{0}{0}
-        \newORisk{Inadempimento scadenza baseline}{test}{test}{0}{0}
-        \newORisk{Inadempimento scadenza milestone}{test}{test}{0}{0}
-        \newORisk{Inadempimento scadenza Proponente (? boh non so)}{test}{test}{0}{0}
-        \newORisk{Inadempimento scadenza issue}{test}{test}{0}{0}
-        \newORisk{Divergenza tra fase di sviluppo e progettazione}{test}{test}{0}{0}
-        \newORisk{Sovrastima costi e ora}{test}{test}{0}{0}
-        \newORisk{Sottostima costi e ora}{test}{test}{0}{0}
+        \newORisk{Carico di lavoro eccessivo}
+        {Un membro del gruppo può trovarsi sovraccarico di attività a causa di una distribuzione non 
+        equilibrata del lavoro o di imprevisti, causando ritardi e potenziale deterioramento della qualità 
+        del lavoro prodotto.}
+        {Monitorare regolarmente il carico di lavoro di ciascun membro durante le riunioni interne. 
+        Redistribuire le attività in modo più equilibrato quando emergono situazioni di sovraccarico. 
+        Favorire la comunicazione precoce di difficoltà nel rispettare le scadenze, permettendo 
+        ripianificazioni tempestive. Mantenere un buffer di tempo nelle pianificazioni per gestire imprevisti.}
+        {1}{2}
+        
+        \newORisk{Inadempimento scadenza \textit{baseline$_G$}}
+        {Il gruppo potrebbe non riuscire a completare tutte le attività necessarie entro la scadenza della 
+        candidatura per la RTB o PB, compromettendo la possibilità di avanzare nel progetto nei tempi 
+        previsti.}
+        {Pianificare le attività con anticipo sufficiente rispetto alla scadenza, identificando le milestone 
+        intermedie. Monitorare costantemente l'avanzamento rispetto al piano. Dare priorità alle attività 
+        critiche per la candidatura. In caso di ritardo, valutare la possibilità di posticipare attività 
+        non essenziali e concentrare le risorse sugli obiettivi minimi per la baseline. Comunicare 
+        tempestivamente ai docenti eventuali criticità.}
+        {0}{2}
+        
+        \newORisk{Inadempimento scadenza \textit{milestone$_G$} interne}
+        {Il gruppo può non rispettare le milestone intermedie definite internamente per lo \textit{sprint$_G$}, 
+        causando accumulo di lavoro arretrato e pressione crescente verso le scadenze finali.}
+        {Definire milestone realistiche basate sull'esperienza degli sprint precedenti. Monitorare 
+        quotidianamente l'avanzamento tramite lo strumento di tracciamento (\textit{GitHub Projects$_G$}). 
+        Organizzare riunioni di verifica intermedie durante lo sprint per identificare tempestivamente 
+        ritardi. Ripianificare le attività rimanenti se necessario, spostando quelle meno prioritarie allo 
+        sprint successivo.}
+        {2}{1}
+        
+        \newORisk{Inadempimento scadenza Proponente}
+        {Il gruppo potrebbe non rispettare le scadenze concordate con la Proponente per consegne intermedie 
+        (bozze di documenti, SAL, demo), compromettendo il rapporto di fiducia e la possibilità di ricevere 
+        feedback tempestivo.}
+        {Concordare scadenze realistiche con la Proponente considerando il carico di lavoro e altre priorità. 
+        Pianificare il completamento delle attività con anticipo rispetto alla scadenza esterna per avere 
+        margine per imprevisti. Comunicare tempestivamente alla Proponente eventuali difficoltà nel 
+        rispettare una scadenza, proponendo alternative. Assegnare alta priorità alle attività con scadenze 
+        esterne.}
+        {1}{2}
+        
+        \newORisk{Inadempimento scadenza \textit{issue$_G$}}
+        {Le singole \textit{issue} assegnate ai membri del gruppo possono non essere completate entro 
+        i tempi previsti, causando ritardi nell'avanzamento complessivo dello sprint.}
+        {Assegnare \textit{issue} con stime realistiche basate sulla complessità dell'attività. Monitorare 
+        lo stato delle \textit{issue} durante lo sprint e intervenire tempestivamente in caso di blocchi. 
+        Favorire la comunicazione immediata di difficoltà da parte dei membri senza timore di ripercussioni. 
+        Ridistribuire le \textit{issue} tra i membri del gruppo se necessario per bilanciare il carico di 
+        lavoro. Suddividere \textit{issue} particolarmente complesse in sotto-attività più gestibili per 
+        facilitarne il completamento.}
+        {2}{1}
+        
+        \newORisk{Divergenza tra fase di sviluppo e progettazione}
+        {Durante lo sviluppo possono emergere problematiche che rendono la progettazione iniziale inadeguata 
+        o irrealizzabile, richiedendo modifiche architetturali significative con conseguente perdita di 
+        tempo e risorse.}
+        {Realizzare un \textit{Proof of Concept$_G$} completo prima della progettazione definitiva per 
+        validare le scelte tecnologiche e architetturali. Mantenere la progettazione sufficientemente 
+        flessibile da accogliere modifiche. Documentare le decisioni progettuali e le motivazioni per 
+        facilitare eventuali revisioni. Prevedere momenti di validazione della progettazione con sviluppo 
+        di prototipi prima di procedere con l'implementazione completa.}
+        {1}{2}
+        
+        \newORisk{Sovrastima costi e ore}
+        {Le ore preventivate per le attività possono risultare eccessive rispetto a quelle effettivamente 
+        necessarie, portando a uno spreco di risorse allocate e a una pianificazione inefficiente degli 
+        sprint successivi.}
+        {Analizzare sistematicamente i consuntivi degli sprint precedenti per identificare pattern di 
+        sovrastima. Raffinare progressivamente le stime basandosi sui dati storici raccolti. Considerare 
+        la crescente esperienza del team nelle tecnologie e nei processi quando si pianificano attività 
+        simili a quelle già svolte. Evitare di sovrastimare sistematicamente per "sicurezza", puntando 
+        invece a stime realistiche.}
+        {2}{2}
+        
+        \newORisk{Sottostima costi e ore}
+        {Le ore preventivate possono risultare insufficienti rispetto alla complessità effettiva delle 
+        attività, causando ritardi, accumulo di lavoro arretrato e potenziale superamento del budget 
+        complessivo del progetto.}
+        {Analizzare attentamente la complessità delle attività prima di stimarle, considerando eventuali 
+        dipendenze e rischi. Includere nelle stime il tempo per verifica, correzioni e documentazione, 
+        non solo l'implementazione. Prevedere buffer di tempo per attività nuove o particolarmente 
+        complesse. Monitorare costantemente il rapporto tra ore preventivate e reali, intervenendo con 
+        ripianificazioni tempestive quando si rilevano sottostime significative. Utilizzare i dati degli 
+        sprint precedenti per calibrare meglio le stime future.}
+        {2}{2}
 
 
 \section{Previsioni a lungo termine}
@@ -519,30 +637,40 @@ decisioni che hanno richiesto molta riflessione, tra cui le convenzioni per le v
 \subsection{Sprint 1 (03/11/2025 - 16/11/2025)}
 \subsubsection{Avanzamento}
 \trisubsection{Attività programmate}
+All'inizio dello Sprint 1 sono state pianificate le seguenti attività:
 \begin{itemize}
-    \item 
+    \item proseguimento della stesura delle Norme di Progetto;
+    \item organizzazione del primo incontro con la Proponente per allineamento iniziale sul progetto;
+    \item avvio dell'attività di analisi e identificazione dei requisiti;
+    \item approfondimento tecnico sulle tecnologie proposte;
+    \item definizione delle prime domande da sottoporre alla Proponente nell'ambito dell'Analisi dei Requisiti;
+    \item miglioramento della struttura documentale attraverso l'ottimizzazione dei template.
 \end{itemize}
+
 \trisubsection{Attività svolte}
-Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+Durante lo Sprint 1 il gruppo ha completato tutte le attività programmate:
 \begin{itemize}
-    \item continuazione della scrittura delle Norme di Progetto;
-    \item primo incontro con la Proponente;
-    \item inizio definizione dei requisiti;
-    \item incontro di approfondimento sulle tecnologie con la Proponente;
-    \item definizione di prime domande per l'Analisi dei requisiti;
-    \item perfezionamento struttura documenti tramite templates.
+    \item \textbf{Norme di Progetto}: prosecuzione della redazione con particolare attenzione alle convenzioni documentali e ai processi organizzativi;
+    \item \textbf{Incontro con la Proponente}: primo meeting formale per discutere gli obiettivi di progetto e chiarire le aspettative;
+    \item \textbf{Analisi dei Requisiti}: avvio dell'identificazione dei casi d'uso e dei requisiti funzionali;
+    \item \textbf{Approfondimento tecnologico}: sessione di studio con la Proponente sulle tecnologie da utilizzare per l'implementazione;
+    \item \textbf{Template documentali}: perfezionamento della struttura dei documenti con creazione di template riutilizzabili.
 \end{itemize}
 
 \subsubsection{Rischi}
-\begin{itemize}
-    \item 
-\end{itemize}
 \trisubsection{Rischi attesi}
+All'inizio dello sprint erano previsti i seguenti rischi:
 \begin{itemize}
-    \item 
+    \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: rischio legato all'apprendimento di nuovi strumenti e tecnologie;
+    \item \rif{RI2} - Impegni universitari: possibile interferenza con altri esami e attività accademiche;
+    \item \rif{RO7} - Sovrastima costi e ore: difficoltà nella stima accurata delle ore necessarie per le attività.
 \end{itemize}
-\trisubsection{Rishi manifestati}
-In questo sprint si sono verificati i rischi legati alla sovrastima delle ore (\rif{RO7}).
+
+\trisubsection{Rischi manifestati}
+Durante lo Sprint 1 si sono verificati i seguenti rischi:
+\begin{itemize}
+    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore per i ruoli di Verificatore, Responsabile e Amministratore. La mitigazione è avvenuta attraverso una ripianificazione più accurata per gli sprint successivi, basata sull'esperienza acquisita.
+\end{itemize}
 
 \subsubsection{Costi}
 Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riportate:
@@ -582,8 +710,18 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 \makeTablePreventivo
 
 \subsubsection{Retrospettiva}
-Il periodo mostra ancora gli effetti dell'assestamento iniziale e della sperimentazione con i nuovi
-strumenti. È stata effettuata una sovrastima nell'assegnazione delle ore ai ruoli: Verificatore, Responsabile e Amministratore.
+Lo Sprint 1 ha rappresentato l'avvio operativo del progetto con l'applicazione concreta delle metodologie definite durante la Candidatura. 
+
+Il gruppo ha completato tutte le attività programmate, dimostrando buona capacità di adattamento ai nuovi strumenti e processi. L'incontro con la Proponente ha permesso di chiarire aspetti fondamentali del progetto (soprattuto pratici) e stabilire una base solida per la collaborazione e comunicazione futura.
+
+L'analisi dei dati ha evidenziato una leggera sovrastima delle ore per i ruoli di Verificatore (-2 ore), Responsabile (-2 ore) e Amministratore (-3 ore), per un totale di 7 ore di scostamento negativo. Questo è attribuibile all'inesperienza nella pianificazione e alla fase di assestamento iniziale. Si nota tuttavia che tale sovrastima è relativamente contenuta rispetto a quanto si verificherà negli sprint successivi.
+
+Per i prossimi sprint, il gruppo intende:
+\begin{itemize}
+    \item utilizzare i dati raccolti per migliorare le stime;
+    \item monitorare più frequentemente l'avanzamento delle attività;
+    \item calibrare meglio l'assegnazione delle ore.
+\end{itemize}
 
 %================================
 \vspace{1em}
@@ -593,24 +731,42 @@ strumenti. È stata effettuata una sovrastima nell'assegnazione delle ore ai ruo
 \subsection{Sprint 2 (17/11/2025 - 30/11/2025)}
 \subsubsection{Avanzamento}
 \trisubsection{Attività programmate}
+All'inizio dello Sprint 2 sono state pianificate le seguenti attività:
 \begin{itemize}
-    \item 
+    \item proseguimento della stesura dell'Analisi dei Requisiti con definizione dei casi d'uso;
+    \item definizione e implementazione del \textit{workflow$_G$} di versionamento tramite \textit{Git$_G$} con introduzione dei \textit{branch$_G$} \textit{feature}, \textit{develop} e \textit{release};
+    \item implementazione di un processo di revisione sistematica tramite \textit{pull request$_G$};
+    \item aggiornamento delle Norme di Progetto con nuova struttura per il tracciamento delle attività;
+    \item valutazione e scelta della \textit{dashboard$_G$} per il tracciamento delle attività del gruppo;
+    \item preparazione delle diapositive per il diario di bordo e il SAL.
 \end{itemize}
 
 \trisubsection{Attività svolte}
-Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+Durante lo Sprint 2 il gruppo ha completato le seguenti attività:
 \begin{itemize}
-    \item 
+    \item \textbf{Analisi dei Requisiti}: aggiornamento alla versione 0.1.2 con aggiunta dei casi d'uso fino a UC4 e UC4.1;
+    \item \textbf{\textit{Workflow} di versionamento}: definizione e implementazione del processo di versionamento con creazione dei \textit{branch} \textit{develop} e \textit{release};
+    \item \textbf{Processo di revisione}: implementazione di un sistema di revisione tramite \textit{pull request} con commenti in linea;
+    \item \textbf{Norme di Progetto}: aggiornamento alla versione 0.1.5 con nuova struttura della tabella delle attività completate;
+    \item \textbf{Verbali}: redazione del verbale interno del 17/11/2025 e del 25/11/2025;
+    \item \textbf{Responsabilità operative}: definizione chiara delle responsabilità per revisione documenti e controllo qualità;
+    \item \textbf{Presentazioni}: redazione delle diapositive per il diario di bordo del 24/11/2025 e preparazione del SAL del 27/11/2025.
 \end{itemize}
 
 \subsubsection{Rischi}
 \trisubsection{Rischi attesi}
+All'inizio dello sprint erano previsti i seguenti rischi:
 \begin{itemize}
-    \item 
+    \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: rischio legato all'adozione di nuovi strumenti come \textit{Git} e sistemi di tracciamento;
+    \item \rif{RI2} - Impegni universitari: possibile interferenza con esami e altre attività accademiche;
+    \item \rif{RO7} - Sovrastima costi e ore: persistenza delle difficoltà di stima già riscontrate nello Sprint 1.
 \end{itemize}
-\trisubsection{Rishi manifestati}
+
+\trisubsection{Rischi manifestati}
+Durante lo Sprint 2 si sono verificati i seguenti rischi:
 \begin{itemize}
-    \item 
+    \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: il gruppo ha affrontato una curva di apprendimento significativa nell'adozione del nuovo \textit{workflow} \textit{Git} con gestione dei conflitti e delle \textit{pull request}. La mitigazione è avvenuta attraverso sessioni di studio condiviso e documentazione nelle Norme di Progetto.
+    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una lieve sovrastima per il ruolo di Analista (Christian: -3 ore). La pianificazione sta gradualmente migliorando grazie all'esperienza acquisita.
 \end{itemize}
 
 \subsubsection{Costi}
@@ -650,6 +806,11 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 \makeTablePreventivo
 
 \subsubsection{Retrospettiva}
+Lo Sprint 2 ha segnato un importante passo avanti nell'organizzazione del gruppo con l'introduzione del \textit{workflow} \textit{Git} e del sistema di \textit{pull request}, che hanno migliorato la tracciabilità delle modifiche e il processo di revisione.
+
+L'Analisi dei Requisiti è progredita con l'aggiunta dei primi casi d'uso, mostrando una complessità maggiore del previsto. La collaborazione tra gli analisti ha garantito coerenza nella documentazione.
+
+La sovrastima delle ore è stata limitata a un solo componente (-3 ore), indicando un miglioramento nella capacità di pianificazione rispetto allo Sprint 1. Permangono criticità nella gestione dei conflitti \textit{Git} e nell'identificazione dei requisiti non funzionali, che saranno affrontate negli sprint successivi.
 
 
 %================================
@@ -660,53 +821,70 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 \subsection{Sprint 3 (01/12/2025 - 14/12/2025)}
 \subsubsection{Avanzamento}
 \trisubsection{Attività programmate}
-Si prevede l'esecuzione delle seguenti attività:
+All'inizio dello Sprint 3 sono state pianificate le seguenti attività:
 \begin{itemize}
-    \item
+    \item completamento degli \textit{use case$_G$} per amministratore e gestione permessi;
+    \item proseguimento dell'Analisi dei Requisiti con redazione e invio della bozza del documento alla Proponente;
+    \item test dell'\textit{API$_G$} \textit{KNX IoT 3rd party$_G$} e correzione dell'implementazione dell'autenticazione;
+    \item decisione definitiva sul sistema di tracciamento delle attività di progetto;
+    \item aggiornamento delle Norme di Progetto con sezione Sviluppo e Analisi dei Requisiti;
+    \item configurazione del secondo \textit{kit$_G$} hardware ricevuto dalla Proponente.
 \end{itemize}
 
 \trisubsection{Attività svolte}
-Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+Durante lo Sprint 3 il gruppo ha completato le seguenti attività:
 \begin{itemize}
-    \item 
+    \item \textbf{Analisi dei Requisiti}: redazione e invio della bozza del documento alla Proponente per revisione; completamento degli \textit{use case} relativi a cruscotto, autenticazione, amministratore e gestione permessi;
+    \item \textbf{Norme di Progetto}: aggiornamento alla versione 0.2.0 con aggiunta della sezione Sviluppo e della sezione Analisi dei Requisiti;
+    \item \textbf{Sistema di tracciamento}: decisione finale di adottare \textit{GitHub Projects$_G$} per il tracciamento delle attività di progetto;
+    \item \textbf{Verbali}: redazione del verbale interno del 01/12/2025 e del verbale esterno relativo al SAL del 27/11/2025;
+    \item \textbf{Presentazioni}: preparazione e presentazione del SAL del 10/12/2025 con la Proponente;
+    \item \textbf{Hardware}: ricezione e avvio della configurazione del secondo kit hardware;
+    \item \textbf{Test tecnologici}: \textit{debugging$_G$} dell'autenticazione con \textit{KNX IoT 3rd party API}.
 \end{itemize}
 
 \subsubsection{Rischi}
 \trisubsection{Rischi attesi}
+All'inizio dello sprint erano previsti i seguenti rischi:
 \begin{itemize}
-    \item 
+    \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: rischio legato all'apprendimento delle \textit{API} \textit{KNX IoT} e delle tecnologie per il PoC;
+    \item \rif{RC3} - Disparità di conoscenze tra componenti: possibili difficoltà nella collaborazione asincrona per la redazione dell'Analisi dei Requisiti;
+    \item \rif{RO7} - Sovrastima costi e ore: possibile persistenza delle difficoltà di stima riscontrate negli sprint precedenti.
 \end{itemize}
-\trisubsection{Rishi manifestati}
+
+\trisubsection{Rischi manifestati}
+Durante lo Sprint 3 si sono verificati i seguenti rischi:
 \begin{itemize}
-    \item 
+    \item \rif{RC3} - Disparità di conoscenze tra componenti: la redazione asincrona della bozza dell'Analisi dei Requisiti ha evidenziato differenze terminologiche e di approccio tra gli analisti. La mitigazione è avvenuta attraverso riunioni di allineamento tra gli analisti e revisione condivisa della struttura degli \textit{use case}.
+    \item \rif{RO7} - Sovrastima costi e ore: si registra una sottostima per alcuni ruoli (Luca: +2 ore come Progettista) e sovrastima per altri (Filippo: -2.5 ore, Valeria: -2 ore, Leonardo: -1 ora). Il gruppo sta ancora calibrando la pianificazione.
 \end{itemize}
 
 \subsubsection{Costi}
 Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riportate:
 
 \setRuoloFilippo{\Anal}
-\setRuoloChristian{\Anal}
-\setRuoloValeria{\Verif}
-\setRuoloGiuseppe{\Resp}
-\setRuoloFrancesco{\Amm}
-\setRuoloLuca{\Anal}
-\setRuoloLeonardo{\Proge}
+\setRuoloChristian{\Amm}
+\setRuoloValeria{\Anal}
+\setRuoloGiuseppe{\Anal}
+\setRuoloFrancesco{\Resp}
+\setRuoloLuca{\Proge}
+\setRuoloLeonardo{\Verif}
 
-\setHPrevisteFilippo{0}
-\setHPrevisteChristian{0}
-\setHPrevisteValeria{0}
-\setHPrevisteGiuseppe{0}
-\setHPrevisteFrancesco{0}
-\setHPrevisteLuca{0}
-\setHPrevisteLeonardo{0}
+\setHPrevisteFilippo{10}
+\setHPrevisteChristian{7}
+\setHPrevisteValeria{10}
+\setHPrevisteGiuseppe{10}
+\setHPrevisteFrancesco{8}
+\setHPrevisteLuca{14}
+\setHPrevisteLeonardo{10}
 
-\setHRealiFilippo{0}
-\setHRealiChristian{0}
-\setHRealiValeria{0}
-\setHRealiGiuseppe{0}
-\setHRealiFrancesco{0}
-\setHRealiLuca{0}
-\setHRealiLeonardo{0}
+\setHRealiFilippo{7.5}
+\setHRealiChristian{8}
+\setHRealiValeria{8}
+\setHRealiGiuseppe{10}
+\setHRealiFrancesco{8}
+\setHRealiLuca{16}
+\setHRealiLeonardo{9}
 
 \makeTableRuoli
 Si deriva il consuntivo delle ore e dei costi rispetto ai singoli ruoli:
@@ -716,6 +894,14 @@ Si deriva il consuntivo delle ore e dei costi rispetto ai singoli ruoli:
 Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i campi "iniziali" fanno riferimento all'inizio dello sprint corrente:
 
 \makeTablePreventivo
+
+\subsubsection{Retrospettiva}
+Lo Sprint 3 ha visto un significativo avanzamento nell'Analisi dei Requisiti con la redazione della prima bozza completa del documento inviata alla Proponente per revisione. L'adozione di \textit{GitHub Projects} come sistema di tracciamento ha migliorato l'organizzazione delle attività.
+
+La collaborazione asincrona sulla bozza del documento ha evidenziato criticità legate a differenze terminologiche e di approccio tra gli analisti, mitigate attraverso riunioni di allineamento dedicate. Sono emersi dubbi metodologici sulla corretta modellazione degli \textit{use case} (attori secondari, relazioni \textit{extend}, granularità), che hanno portato alla richiesta di un colloquio chiarificatore con il prof. Cardin.
+
+L'analisi dei dati mostra una maggiore variabilità rispetto agli sprint precedenti: si registra una sottostima significativa per il ruolo di Progettista (+2 ore) e sovrastima per alcuni Analisti e per il Verificatore. Il gruppo sta ancora affinando la capacità di pianificazione, con particolare difficoltà nella stima delle attività di analisi.
+
 
 %================================
 \vspace{1em}
