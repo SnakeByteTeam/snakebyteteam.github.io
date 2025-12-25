@@ -435,25 +435,25 @@ Ore effettive
     \begin{center}
     \begin{tabular}{|c|c|c|c|c|}
         \hline
-        \rowcolor{lightgray}{\textbf{Ruolo}} & \textbf{Ore rimanenti} & \textbf{Ore iniziali} & \textbf{Budget rimanente} & \textbf{Budget iniziale} \\
+        \rowcolor{lightgray}{\textbf{Ruolo}} & \textbf{Ore iniziali} & \textbf{Ore rimanenti} & \textbf{Budget iniziale} & \textbf{Budget rimanente} \\
         \hline
-        \Resp & \oreTotRespRimasteTMP & \oreTotRespRimaste & \budgetRespRimastoTMP \euro & \budgetRespRimasto \euro\\
+        \Resp & \oreTotRespRimaste & \oreTotRespRimasteTMP & \budgetRespRimasto \euro & \budgetRespRimastoTMP \euro\\
         \hline
-        \Amm & \oreTotAmmRimasteTMP & \oreTotAmmRimaste & \budgetAmmRimastoTMP \euro & \budgetAmmRimasto \euro\\
+        \Amm & \oreTotAmmRimaste & \oreTotAmmRimasteTMP & \budgetAmmRimasto \euro & \budgetAmmRimastoTMP \euro\\
         \hline
-        \Anal & \oreTotAnalRimasteTMP & \oreTotAnalRimaste & \budgetAnalRimastoTMP \euro & \budgetAnalRimasto \euro\\
+        \Anal & \oreTotAnalRimaste & \oreTotAnalRimasteTMP & \budgetAnalRimasto \euro & \budgetAnalRimastoTMP \euro\\
         \hline
-        \Proge & \oreTotProgeRimasteTMP & \oreTotProgeRimaste & \budgetProgeRimastoTMP \euro & \budgetProgeRimasto \euro\\
+        \Proge & \oreTotProgeRimaste & \oreTotProgeRimasteTMP & \budgetProgeRimasto \euro & \budgetProgeRimastoTMP \euro\\
         \hline
-        \Progr & \oreTotProgrRimasteTMP & \oreTotProgrRimaste & \budgetProgrRimastoTMP \euro & \budgetProgrRimasto \euro\\
+        \Progr & \oreTotProgrRimaste & \oreTotProgrRimasteTMP & \budgetProgrRimasto \euro & \budgetProgrRimastoTMP \euro\\
         \hline
-        \Verif & \oreTotVerifRimasteTMP & \oreTotVerifRimaste & \budgetVerifRimastoTMP \euro & \budgetVerifRimasto \euro\\
+        \Verif & \oreTotVerifRimaste & \oreTotVerifRimasteTMP & \budgetVerifRimasto \euro & \budgetVerifRimastoTMP \euro\\
         \hline
         \cellcolor{lightgray}{\textbf{Totale}} 
-        & \fpeval{\oreTotRespRimasteTMP + \oreTotAmmRimasteTMP + \oreTotAnalRimasteTMP + \oreTotProgeRimasteTMP + \oreTotProgrRimasteTMP + \oreTotVerifRimasteTMP}
         & \fpeval{\oreTotRespRimaste + \oreTotAmmRimaste + \oreTotAnalRimaste + \oreTotProgeRimaste + \oreTotProgrRimaste + \oreTotVerifRimaste}
-        & \fpeval{\budgetRespRimastoTMP + \budgetAmmRimastoTMP + \budgetAnalRimastoTMP  + \budgetProgeRimastoTMP + \budgetProgrRimastoTMP + \budgetVerifRimastoTMP} \euro
-        & \fpeval{\budgetRespRimasto + \budgetAmmRimasto + \budgetAnalRimasto + \budgetProgeRimasto + \budgetProgrRimasto + \budgetVerifRimasto} \euro \\
+        & \fpeval{\oreTotRespRimasteTMP + \oreTotAmmRimasteTMP + \oreTotAnalRimasteTMP + \oreTotProgeRimasteTMP + \oreTotProgrRimasteTMP + \oreTotVerifRimasteTMP}
+        & \fpeval{\budgetRespRimasto + \budgetAmmRimasto + \budgetAnalRimasto + \budgetProgeRimasto + \budgetProgrRimasto + \budgetVerifRimasto} \euro
+        & \fpeval{\budgetRespRimastoTMP + \budgetAmmRimastoTMP + \budgetAnalRimastoTMP  + \budgetProgeRimastoTMP + \budgetProgrRimastoTMP + \budgetVerifRimastoTMP} \euro \\
         \hline
     \end{tabular}
 \end{center}

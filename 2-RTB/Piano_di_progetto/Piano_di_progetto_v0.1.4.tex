@@ -203,7 +203,7 @@ Si prevede l'esecuzione delle seguenti attività:
 \end{itemize}
 
 \trisubsection{Attività svolte}
-Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+Nel corso del periodo di avanzamento sono state svolte le seguenti attività:
 \begin{itemize}
     \item 
 \end{itemize}
@@ -213,7 +213,7 @@ Nel corso del primo periodo di avanzamento sono state svolte le seguenti attivit
 \begin{itemize}
     \item 
 \end{itemize}
-\trisubsection{Rishi manifestati}
+\trisubsection{Rischi manifestati}
 \begin{itemize}
     \item 
 \end{itemize}
@@ -285,30 +285,30 @@ La suddetta struttura consiste in pianificazioni riguardo:
     \item la dislocazione temporale dell'esecuzione delle attività di processo;
     \item i preventivi e le scadenze;
     \item la suddivisione di responsabilità dei ruoli;
-    \item gestione dei rischi;
+    \item la gestione dei rischi;
     \item la gestione delle risorse;
 \end{itemize}
 
 \subsubsection{Struttura del contenuto}
 Il documento è suddiviso in quattro macrosezioni:
 \begin{enumerate}
-    \item \textbf{Introduzione}: sezione introduttiva che espone il contenuto e lo scopo del documento, oltre che i Riferimenti Normativi e Informativi.
+    \item \textbf{Introduzione}: espone il contenuto e lo scopo del documento, oltre che i Riferimenti Normativi e Informativi.
     \item \textbf{Gestione rischi}: consiste in una classificazione e descrizione dei rischi che possono insorgere durante l'avanzamento del ciclo
     di vita del prodotto. Ad ogni rischio vengono associati comportamenti e regole sia per la sua prevenzione che per la mitigazione degli effetti in caso di occorrenza.
     \item \textbf{Previsioni a lungo termine}: presenta le stime iniziali eseguite in fase di Candidatura riguardo i costi, l'impegno orario e le responsabilità oltre che le stime future sugli
     stati di avanzamento previsti in vista delle scadenze quali RTB e PB.
-    \item \textbf{Periodi di avanzamento}: elenco dei singoli periodi di avanzamento, definiti come \textit{sprint$_G$} di durata pari a due settimane, di cui si analizzano i seguenti aspetti:
+    \item \textbf{Periodi di avanzamento}: elenco dei singoli periodi di avanzamento, definiti come \texorpdfstring{\textit{sprint$_G$}}{sprint} di durata pari a due settimane, di cui si analizzano i seguenti aspetti:
     \begin{itemize}
         \item Consuntivo di periodo:
         \begin{itemize}
             \item avanzamento previsto e avanzamento effettivo;
             \item rischi attesi, rischi occorsi e relativa gestione;
-            \item costi attesi ed costi effettivi.
+            \item costi attesi e costi effettivi.
         \end{itemize}
         \item Preventivo a finire:
         \begin{itemize}
-            \item revisione calendario e risorse;
-            \item retrospettiva.
+            \item revisione calendario e risorse utilizzate;
+            \item \texorpdfstring{\textit{sprint retrospective$_G$}}{sprint retrospective}.
         \end{itemize}
         
     \end{itemize}
@@ -317,7 +317,7 @@ Il documento è suddiviso in quattro macrosezioni:
 
 \subsection{Glossario}
 All'interno del documento possono essere presenti termini il cui significato può risultare ambiguo o sconosciuto, essi sono
-riportati in italico e alla loro prima occorrenza è associata una \textit{G} a pedice ad indicare la presenza del suddetto termine all'interno del \textit{glossario$_G$}, che è disponibile al seguente link: \href{https://snakebyteteam.github.io/glossary.html}{Glossario}.
+riportati in italico e alla loro prima occorrenza è associata una \textit{G} a pedice ad indicare la presenza del suddetto termine all'interno del \texorpdfstring{\textit{glossario$_G$}}{glossario}, che è disponibile al seguente link: \href{https://snakebyteteam.github.io/glossary.html}{Glossario}.
 
 \subsection{Riferimenti Normativi}
 \begin{itemize}
@@ -337,7 +337,7 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
 
 \section{Analisi e gestione rischi}
     Nella seguente sezione vengono analizzati i possibili rischi che potrebbero emergere durante il progetto e definite le modalità 
-    per ridurne l'impatto. Sono state individuate quattro tipologie principali di rischio:
+    per ridurne l'impatto (mitigazione). Sono state individuate quattro tipologie principali di rischio:
     \begin{itemize}
         \item \textbf{rischi tecnologici}: sono legati alla scelta e all'utilizzo delle tecnologie adottate durante lo sviluppo;
         \item \textbf{rischi individuali}: emergono da imprevisti della vita quotidiana o impegni personali;
@@ -356,8 +356,8 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
         {2}{2}
 
         \newTRisk{Incompatibilità tecnologie}
-        {La scelta delle tecnologie in fase di progettazione, se non presa con cura, può provocare problemi
-        di compatibilità in fase di sviluppo, in particolare durante la realizzazione del Proof of Concept.}
+        {La scelta delle tecnologie in fase di progettazione, se non effettuata con cura, può provocare problemi
+        di compatibilità in fase di sviluppo, in particolare durante la realizzazione del \textbf{Proof of Concept} (PoC$_G$).}
         {È necessario interrompere lo sviluppo delle parti che coinvolgono le tecnologie in conflitto e rielaborare la scelta progettuale 
         in maniera più attenta e motivata.}
         {0}{2} % 0 | 1 | 2
@@ -367,7 +367,7 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
         un comportamento inatteso o errato dell'applicativo.}
         {Individuare la parte di codice che genera il \textit{bug} attraverso analisi del codice 
         e strumenti come \textit{debugger$_G$}. Modificare il codice per correggere il comportamento
-        fallace. Verificare occorrenza del rishio \rif{RT4}.}
+        fallace. Verificare occorrenza del rischio \rif{RT4}.}
         {2}{1}
 
         \newTRisk{Test non esaustivi}
@@ -379,7 +379,7 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
     
     \subsection{Rischi individuali}
         \newIRisk{Impegni personali}
-        {Le singole componenti del gruppo possono essere indisponibili allo svolgimento delle attività
+        {I singoli componenti del gruppo possono essere indisponibili allo svolgimento delle attività
         assegnate per un certo periodo di tempo a causa di motivi personali.}
         {Comunicare l'indisponibilità al gruppo il prima possibile, organizzare una riunione urgente per 
         effettuare una ripianificazione delle attività di periodo. In base al momento d'occorrenza, alle 
@@ -394,7 +394,7 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
         {Gli impegni universitari possono ridurre il tempo disponibile per lo svolgimento delle attività,
         specialmente nel periodo della sessione, avendo effetto contemporaneamente sull'intero gruppo e
         dunque rallentando l'avanzamento.}
-        {Gestire l'organizzazione del team e delle attività considerando questo rischio anticipatamente e assegnando un carico
+        {Gestire l'organizzazione del team e delle attività considerando questo rischio anticipatamente e assegnando un carico di
         lavoro appropriato per evitare cambi di programma durante il periodo d'interesse.}
         {2}{2}
     
@@ -420,7 +420,7 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
         iscritto le decisioni prese durante gli incontri tramite verbali esterni.}
         {1}{2}
         
-        \newCRisk{Disparità di conoscenze tra componenti}
+        \newCRisk{Disparit\`a di conoscenze tra componenti}
         {I membri del gruppo possono avere livelli di conoscenza diversi su tecnologie, metodologie o 
         domini specifici del progetto, causando difficoltà nella collaborazione e nella produzione di 
         output omogenei.}
@@ -535,7 +535,7 @@ Durante la fase di pianificazione di progetto, in vista della candidatura, sono 
 oraria per ogni ruolo e il costo associato, da cui si è poi ricavato il costo complessivo del progetto. 
 
 All'interno di questo documento è possibile confrontare queste stime con il consumo effettivo delle risorse nei
-singoli periodi di avanzamento\\
+singoli periodi di avanzamento.\
 Dal documento Dichiarazione degli Impegni si riporta:
 \begin{center}
     \begin{tabular}{|c|c|c|c|c|}
@@ -559,13 +559,13 @@ Dal documento Dichiarazione degli Impegni si riporta:
         \hline
     \end{tabular}
 \end{center}
-Adottando una rotazione dei ruoli avente luogo alla fine di ogni ciclo di avanzamento, ossia ogni 2 settimane, e con
+Adottando la rotazione dei ruoli all'inizio di ogni ciclo di avanzamento, ossia ogni 2 settimane, e con
 preventivo dei costi che ammonta ad un totale di 13.045,00 \euro, è stata fissata come scadenza ultima di consegna del 
 progetto la data 18 marzo 2026.
 
 \subsection{RTB} 
-In vista della Requirement and Technlogy Baseline (RTB), il gruppo SnakeByte fissa come data prevista per la candidatura il
-GG/MM/AAAA (?); termine entro il quale si prevede la terminazione delle seguenti attività: 
+In vista della Requirement and Technology Baseline (RTB), il gruppo SnakeByte fissa come data prevista per la candidatura il
+GG/MM/AAAA (?); termine entro il quale si prevede il completamento delle seguenti attività: 
 \begin{itemize}
     \item stesura dell'Analisi Requisiti (AdR);
     \item stesura delle Norme di Progetto (NdP);
@@ -601,10 +601,10 @@ distribuzione oraria dei ruoli, si stima uno stato delle risorse corrispondente 
 \subsection{PB}
 DA COMPILARE IN DETTAGLIO A SEGUITO DELLA RTB
 
-A questo punto le uniche previsioni sono
+A questo punto le uniche previsioni sono:
 \begin{itemize}
-    \item Consegna MVP alla Proponente
-    \item Condidatura al PB
+    \item Consegna MVP alla Proponente;
+    \item Candidatura al PB.
 \end{itemize}
 
 
@@ -631,8 +631,8 @@ dei documenti, ossia \LaTeX.
 
 \subsubsection{Retrospettiva}
 In questa prima fase di assestamento lo svolgimento delle attività è stato gestito
-in maniera ancora incerta ma funzionale, senza una divisione dei ruoli, ed è stata caratterizzata da 
-decisioni che hanno richiesto molta riflessione, tra cui le convenzioni per le versioni dei file e la struttura dei documenti.
+in maniera ancora incerta ma funzionale, senza una divisione formale dei ruoli, ed è stata caratterizzata da 
+decisioni che hanno richiesto molta riflessione, tra cui le convenzioni per il versionamento dei file e la struttura dei documenti.
 
 
 \subsection{Sprint 1 (03/11/2025 - 16/11/2025)}
@@ -713,7 +713,7 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 \subsubsection{Retrospettiva}
 Lo Sprint 1 ha rappresentato l'avvio operativo del progetto con l'applicazione concreta delle metodologie definite durante la Candidatura. 
 
-Il gruppo ha completato tutte le attività programmate, dimostrando buona capacità di adattamento ai nuovi strumenti e processi. L'incontro con la Proponente ha permesso di chiarire aspetti fondamentali del progetto (soprattuto pratici) e stabilire una base solida per la collaborazione e comunicazione futura.
+Il gruppo ha completato tutte le attività programmate, dimostrando buona capacità di adattamento ai nuovi strumenti e processi. L'incontro con la Proponente ha permesso di chiarire aspetti fondamentali del progetto (soprattutto pratici) e stabilire una base solida per la collaborazione e comunicazione future.
 
 L'analisi dei dati ha evidenziato una leggera sovrastima delle ore per i ruoli di Verificatore (-2 ore), Responsabile (-2 ore) e Amministratore (-3 ore), per un totale di 7 ore di scostamento negativo. Questo è attribuibile all'inesperienza nella pianificazione e alla fase di assestamento iniziale. Si nota tuttavia che tale sovrastima è relativamente contenuta rispetto a quanto si verificherà negli sprint successivi.
 
@@ -924,14 +924,14 @@ Si prevede l'esecuzione delle seguenti attività:
 \end{itemize}
 
 \trisubsection{Attività svolte}
-Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+Nel corso del periodo di avanzamento sono state svolte le seguenti attività:
 \begin{itemize}
     \item 
 \end{itemize}
 
 \subsubsection{Rischi}
 \trisubsection{Rischi attesi}
-\trisubsection{Rishi manifestati}
+\trisubsection{Rischi manifestati}
 
 \subsubsection{Costi}
 Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riportate:
@@ -986,7 +986,7 @@ Si prevede l'esecuzione delle seguenti attività:
 \end{itemize}
 
 \trisubsection{Attività svolte}
-Nel corso del primo periodo di avanzamento sono state svolte le seguenti attività:
+Nel corso del periodo di avanzamento sono state svolte le seguenti attività:
 \begin{itemize}
     \item 
 \end{itemize}
@@ -996,7 +996,7 @@ Nel corso del primo periodo di avanzamento sono state svolte le seguenti attivit
 \begin{itemize}
     \item 
 \end{itemize}
-\trisubsection{Rishi manifestati}
+\trisubsection{Rischi manifestati}
 \begin{itemize}
     \item 
 \end{itemize}
