@@ -1,0 +1,22 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{template}[2014/08/21 Example package]
+
+\RequirePackage{enumitem}
+\RequirePackage{xltabular}
+\RequirePackage{etoolbox}
+\RequirePackage{xstring}
+\RequirePackage{xcolor}
+\RequirePackage{colortbl}
+\RequirePackage{float}
+
+\newcommand{\Metrica}[3]{
+\vspace{-\baselineskip}
+\begin{center}
+\begin{xltabular}{\textwidth}{|>{\columncolor{lightgray}}c|X|}
+\hline
+\textbf{Codice} & #1 \\ \hline
+\textbf{Formula} & #3 \\ \hline
+\textbf{Descrizione} & #2 \\ \hline
+\end{xltabular}
+\end{center}
+}
