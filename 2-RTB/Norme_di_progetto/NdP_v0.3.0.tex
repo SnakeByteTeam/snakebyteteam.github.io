@@ -635,7 +635,7 @@ In questa sezione vengono definite le metriche di qualità adottate per monitora
 e valutare in modo quantitativo l'efficacia e l'efficienza dei processi utilizzati 
 durante lo sviluppo del progetto. 
 \\ Ogni metrica di qualità di processo è identificata 
-da un codice univoco della forma \textit{MPCX}, dove \textit{X} rappresenta 
+da un codice univoco nella forma \textit{MPCX}, dove \textit{X} rappresenta 
 un numero intero progressivo.
 
 \subsection{Processi primari}
@@ -648,50 +648,50 @@ un numero intero progressivo.
 {Valore pianificato del lavoro che, secondo il piano, 
 dovrebbe essere completato fino alla fine di un determinato \textit{sprint}. 
 Il \textit{Planned Value} viene calcolato al termine di ciascuno \textit{sprint} per monitorare 
-l'avanzamento del progetto rispetto alla pianificazione.
-Questa metrica è utile perché fornisce un punto di riferimento temporale per 
-valutare se il progetto sta procedendo secondo la schedulazione prevista, 
-permettendo di identificare tempestivamente eventuali ritardi o anticipi 
-rispetto al piano originale.}
+l'avanzamento del progetto rispetto alla pianificazione.}
 {\[ PV_k = BAC \cdot \mbox{Percentuale completamento pianificato allo sprint k} \] Dove:
 \begin{itemize}
     \item $BAC$ = Budget totale previsto (\textit{Budget At Completion});
     \item $k$ = Numero dello sprint di riferimento.
 \end{itemize}
 }
+{Fornisce un punto di riferimento temporale per 
+valutare se il progetto sta procedendo secondo la schedulazione prevista, 
+permettendo di identificare tempestivamente eventuali ritardi o anticipi 
+rispetto al piano originale.}
 
 \trisubsection{MPC2 - Earned Value (EV)}
 \label{sec:MPC2}
 \Metrica{MPC2}
 {Valore effettivo del lavoro che è stato completato fino alla fine di un determinato \textit{sprint}.
 L'\textit{Earned Value} viene calcolato al termine di ciascuno sprint per monitorare il progresso 
-reale del progetto rispetto al piano. 
-Questa metrica è utile per confrontare il lavoro completato sia con i costi 
-sostenuti (tramite CPI) che con la pianificazione temporale 
-(tramite SPI), costituendo quindi la base per tutte le analisi di performance.}
+reale del progetto rispetto al piano.}
 {\[ EV_k = BAC \cdot \mbox{Percentuale completamento effettivo allo sprint k} \] Dove:
 \begin{itemize}
     \item $BAC$ = Budget totale previsto (\textit{Budget At Completion});
     \item $k$ = Numero dello sprint di riferimento.
 \end{itemize}
 }
+{Confronta il lavoro completato sia con i costi 
+sostenuti (tramite CPI) che con la pianificazione temporale 
+(tramite SPI), costituendo quindi la base per tutte le analisi di performance.}
 
 \trisubsection{MPC3 - Actual Cost (AC)}
 \label{sec:MPC3}
 \Metrica
 {MPC3}
 {Rappresenta il costo effettivo, cioè il costo reale sostenuto per il lavoro svolto
-fino ad un determinato \textit{sprint}. Viene calcolato alla fine di ogni \textit{sprint}.
-Questa metrica è utile per confrontare le spese effettive 
-con il budget pianificato e con il valore prodotto, consentendo di rilevare 
-tempestivamente sforamenti di budget o inefficienze nell'utilizzo 
-delle risorse.}
+fino ad un determinato \textit{sprint}. Viene calcolato alla fine di ogni \textit{sprint}.}
 {\[ AC_k = \sum_{i=1}^{k} \mbox{Costo sostenuto nello sprint i} \] 
 Dove:
 \begin{itemize}
     \item $k$ = Numero dello sprint di riferimento.
 \end{itemize}
 }
+{Permette di confrontare le spese effettive 
+con il budget pianificato e con il valore prodotto, consentendo di rilevare 
+tempestivamente sforamenti di budget o inefficienze nell'utilizzo 
+delle risorse.}
 
 \trisubsection{MPC4 - Cost Performance Index (CPI)}
 \label{sec:MPC4}
@@ -699,10 +699,6 @@ Dove:
 {Rappresenta l'efficienza con cui il budget viene utilizzato e corrisponde al 
 rapporto tra il valore del lavoro completato e il costo reale sostenuto fino ad un 
 determinato \textit{sprint}.
-Questa metrica è utile per quantificare l'efficienza nell'uso delle risorse e di 
-prevedere se il progetto terminerà entro il budget previsto. Un monitoraggio 
-costante del CPI permette di identificare tempestivamente inefficienze e di 
-adottare misure correttive per evitare sforamenti significativi.
 Interpretazione dei valori:
 \begin{itemize}
     \item CPI $> 1$: il progetto è sotto il budget;
@@ -717,16 +713,17 @@ Dove:
     \item $k$ = Numero dello sprint di riferimento.
 \end{itemize}
 }
+{Quantifica l'efficienza nell'uso delle risorse e 
+prevede se il progetto terminerà entro il budget previsto. Un monitoraggio 
+costante del CPI permette di identificare tempestivamente inefficienze e di 
+adottare misure correttive per evitare sforamenti significativi.}
 
 \trisubsection{MPC5 - Schedule Performance Index (SPI)}
 \label{sec:MPC5}
 \Metrica{MPC5}
 {Rappresenta l'efficienza con cui il lavoro viene completato rispetto alla 
 pianificazione e corrisponde al rapporto tra il valore del lavoro completato
-e il valore pianificato del lavoro fino ad un determinato \textit{sprint}.
-Questa metrica è utile per valutare se il gruppo ha rispettato le 
-scadenze previste e permette di stimare se il progetto terminerà 
-nei tempi pianificati. 
+e il valore pianificato del lavoro fino ad un determinato \textit{sprint}. 
 Interpretazione dei valori:
 \begin{itemize}
     \item SPI $> 1$: il progetto è in anticipo rispetto alla pianificazione;
@@ -743,15 +740,16 @@ Dove:
     \item $PV_k$ = \textit{Planned Value} allo \textit{sprint} k (si veda §\ref{sec:MPC1});
     \item $k$ = Numero dello sprint di riferimento.
 \end{itemize} }
+{Permette di valutare se il gruppo ha rispettato le 
+scadenze previste e permette di stimare se il progetto terminerà 
+nei tempi pianificati.}
 
 \trisubsection{MPC6 - Estimate At Completion (EAC)}
 \label{sec:MPC6}
 \Metrica{MPC6}
 {Stima del costo totale finale del progetto al completamento, calcolata proiettando 
 le performance attuali (sia in termini di costi che di schedulazione) sul lavoro 
-rimanente, al termine di un determinato \textit{sprint}. 
-La metrica \textit{EAC} fornisce una previsione realistica del budget necessario 
-considerando le inefficienze o efficienze riscontrate durante l'esecuzione del progetto. 
+rimanente, al termine di un determinato \textit{sprint}.  
 La formula si compone di due elementi:
 \begin{itemize}
     \item Costi già sostenuti (AC): il totale delle spese effettivamente 
@@ -762,10 +760,7 @@ La formula si compone di due elementi:
 \end{itemize}
 Il denominatore $CPI \cdot SPI$ rappresenta l'efficienza complessiva del progetto: 
 valori inferiori a 1 indicano che il lavoro rimanente costerà più del previsto, 
-mentre valori superiori a 1 suggeriscono risparmi potenziali. Questa metrica 
-consente di identificare tempestivamente potenziali sforamenti di budget, 
-permettendo di applicare azioni correttive prima che gli scostamenti 
-diventino critici.}
+mentre valori superiori a 1 suggeriscono risparmi potenziali.}
 {\[EAC_k = AC_k + \frac{BAC - EV_k}{CPI_k \cdot SPI_k} \]
 Dove:
 \begin{itemize}
@@ -777,6 +772,11 @@ Dove:
     \item $k$ = Numero dello sprint di riferimento.
 \end{itemize}
 }
+{La metrica \textit{EAC} fornisce una previsione realistica del budget necessario 
+considerando le inefficienze o efficienze riscontrate durante l'esecuzione del progetto.
+Consente inoltre di identificare tempestivamente potenziali sforamenti di budget, 
+permettendo di applicare azioni correttive prima che gli scostamenti 
+diventino critici.}
 
 \trisubsection{MPC7 - Estimate To Complete (ETC)}
 \label{sec:MPC7}
@@ -785,9 +785,7 @@ Dove:
 calcolata al termine di un determinato \textit{sprint}. 
 Rappresenta la proiezione delle risorse economiche ancora necessarie per portare 
 a termine tutte le attività non ancora completate e viene calcolata come la 
-differenza tra il costo finale stimato e il costo sostenuto.
-Questa metrica è utile perché permette di valutare se le risorse economiche 
-residue sono sufficienti per completare il progetto.}
+differenza tra il costo finale stimato e il costo sostenuto.}
 {\[ ETC_k = EAC_k - AC_k \]
 Dove: 
 \begin{itemize}
@@ -796,6 +794,8 @@ Dove:
     \item $k$ = Numero dello sprint di riferimento.
 \end{itemize}
 }
+{Permette di valutare se le risorse economiche 
+residue sono sufficienti per completare il progetto.}
 
 \subsubsection{Sviluppo}
 
@@ -821,18 +821,14 @@ Dove:
     \item $R_{aggiunti}$ = Numero di nuovi requisiti aggiunti durante il progetto.
 \end{itemize}
 }
+{Valuta la qualità dell'analisi iniziale dei requisiti e identifica problemi 
+nella loro definizione.}
 
 \trisubsection{MPC9 - Requirements Completion Velocity (RCV)}
 \label{sec:MPC9}
 \Metrica{MPC9}
 {Rappresenta il numero medio di requisiti completati per \textit{sprint}, 
-calcolato su un periodo di riferimento.
-Questa metrica è utile per la pianificazione futura: permette di stimare 
-realisticamente quanti requisiti possono essere completati negli sprint 
-rimanenti e di prevedere la data di completamento del progetto. Una RCV 
-stabile indica un processo di sviluppo maturo e prevedibile, mentre variazioni 
-significative possono segnalare problemi di stima o complessità variabile dei 
-requisiti.}
+calcolato su un periodo di riferimento.}
 {\[ RCV = \frac{\sum_{i=1}^{k} RC_i}{k} \]
 Dove:
 \begin{itemize}
@@ -840,18 +836,15 @@ Dove:
     \item $k$ = Numero dello \textit{sprint} di riferimento.
 \end{itemize}
 }
+{Questa metrica è utile per la pianificazione futura: permette di stimare 
+realisticamente quanti requisiti possono essere completati negli sprint 
+rimanenti e di prevedere la data di completamento del progetto.}
 
 \trisubsection{MPC10 - Percentuale Attività in Ritardo (PAR)}
 \label{sec:MPC10}
 \Metrica{MPC10}
 {Rappresenta la percentuale di attività completate in ritardo rispetto alla 
 scadenza prevista durante un determinato \textit{sprint}.
-Questa metrica è fondamentale per valutare l'efficacia della pianificazione 
-e l'aderenza alle tempistiche: un valore elevato indica problemi sistematici 
-nella stima dei tempi, nella gestione delle priorità o nella disponibilità 
-delle risorse. Permette di identificare problematiche nel processo di 
-sviluppo e di adottare azioni correttive per migliorare la prevedibilità 
-delle consegne e il rispetto delle \textit{milestone} di progetto.
 Interpretazione dei valori:
 \begin{itemize}
     \item PAR $= 0\%$: tutte le attività sono state completate nei tempi previsti;
@@ -867,6 +860,12 @@ Dove:
     \item $k$ = Numero dello \textit{sprint} di riferimento.
 \end{itemize}
 }
+{Valuta l'efficacia della pianificazione e l'aderenza alle tempistiche: 
+un valore elevato indica problemi sistematici nella stima dei tempi, 
+nella gestione delle priorità o nella disponibilità 
+delle risorse. Permette di identificare problematiche nel processo di 
+sviluppo e di adottare azioni correttive per migliorare la prevedibilità 
+delle consegne e il rispetto delle \textit{milestone} di progetto.}
 
 \subsection{Processi di supporto}
 \subsubsection{Documentazione}
@@ -874,9 +873,6 @@ Dove:
 \Metrica{MPC11}
 {Indice che misura la leggibilità di un testo in lingua italiana, basato sulla 
 lunghezza delle parole e delle frasi.
-Questa metrica è utile per garantire la qualità della documentazione di 
-progetto: assicura che i documenti siano comprensibili, riducendo ambiguità e incomprensioni che potrebbero 
-causare errori o ritardi.
 Interpretazione dei valori:
 \begin{itemize}
     \item IG $\geq 80$: testo molto facile, comprensibile da studenti di scuola elementare;
@@ -892,13 +888,13 @@ Dove:
     \item $N_{parole}$ = Numero totale di parole nel testo.
 \end{itemize}
 }
+{Garantisce la qualità della documentazione: assicura che i documenti siano comprensibili, 
+riducendo ambiguità e incomprensioni.}
 
 \trisubsection{MPC12 - Densità Errori Ortografici (DEO)}
 \Metrica{MPC12}
 {Rappresenta il numero di errori ortografici presenti ogni 1000 parole di 
 documentazione prodotta.
-Questa metrica è fondamentale per garantire la professionalità della 
-documentazione.
 Interpretazione dei valori:
 \begin{itemize}
     \item DEO = 0: il testo non presenta alcun errore;
@@ -915,6 +911,7 @@ Dove:
     \item $N_{parole}$ = Numero totale di parole nel documento.
 \end{itemize}
 }
+{Garantisce la professionalità della documentazione.}
 
 \trisubsection{MPC13 - Indice di Frammentazione (IF)}
 \Metrica{MPC13}
@@ -939,6 +936,9 @@ Dove:
     \item $N_{linee}$ = Numero totale di linee di testo del documento.
 \end{itemize}
 }
+{Assicura che la documentazione sia strutturata in modo da facilitare la consultazione 
+e il reperimento rapido delle informazioni. Previene inoltre problemi di leggibilità dovuti 
+a testo eccessivamente denso o frammentato.}
 
 
 \subsubsection{Verifica}
@@ -946,8 +946,7 @@ Dove:
 \trisubsection{MPC14 - Test Success Rate (TSR)}
 \Metrica{MPC14}
 {Percentuale di casi di test che sono stati eseguiti con esito positivo rispetto al
-numero totale di casi di test eseguiti. Questa metrica fornisce una misura della
-correttezza del software e dell'efficacia dell'attività di \textit{testing}.
+numero totale di casi di test eseguiti.
 Interpretazione dei valori:
 \begin{itemize}
     \item TSR $= 100\%$: qualità eccellente, tutti i test sono stati superati;
@@ -962,6 +961,8 @@ Dove:
     \item $T_{totali}$ = Numero di test eseguiti.
 \end{itemize}
 }
+{Fornisce una misura della correttezza del \textit{software} e dell'efficacia 
+dell'attività di \textit{testing}.}
 
 \subsubsection{Gestione della qualità}
 \trisubsection{MPC15 - Percentuale Metriche Soddisfatte (PMS)}
@@ -981,14 +982,16 @@ Dove:
     \item $M_{totali}$ = Numero di metriche definite.
 \end{itemize}
 }
+{Offre una valutazione della qualità complessiva del progetto. 
+Facilita il controllo dell'aderenza agli standard di qualità definiti e 
+l'identificazione tempestiva di criticità che richiedono azioni correttive.}
 
 \subsection{Processi organizzativi}
 \subsubsection{Gestione dei processi}
 \trisubsection{MPC16 - Percentuale Rischi Inattesi (PRI)}
 \Metrica{MPC16}
-{Percentuale di rischi non individuati in fase di analisi iniziale che si sono manifestati
-nel corso del progetto. Questa metrica fornisce una misura del livello di accuratezza
-dell'attività di analisi e gestione dei rischi.
+{Percentuale di rischi non previsti in fase di analisi iniziale che si sono manifestati
+nel corso del progetto.
 Interpretazione dei valori:
 \begin{itemize}
     \item PRI = 0: eccellente;
@@ -1000,19 +1003,18 @@ Interpretazione dei valori:
 {\[ PRI = \frac{R_{inattesi}}{R_{totali}} \cdot 100 \] 
 Dove:
 \begin{itemize}
-    \item $R_{inattesi}$ = Numero di rischi non individuati che si sono verificati;
+    \item $R_{inattesi}$ = Numero di rischi non previsti che si sono verificati;
     \item $R_{totali}$ = Numero di rischi totali che si sono verificati;
 \end{itemize}
 }
+{Fornisce una misura del livello di accuratezza dell'attività di analisi 
+e gestione dei rischi.}
 
 \trisubsection{MPC17 - Labor Efficiency (LE)}
 \Metrica{MPC17}
 {Rappresenta il rapporto tra le ore di lavoro pianificate per lo 
 svolgimento di determinate attività e le ore effettivamente impiegate 
 per il loro completamento nello \textit{sprint} di riferimento. 
-Mentre lo SPI (si veda §\ref{sec:MPC5}) valuta l'avanzamento in termini di valore economico, 
-questa metrica permette di monitorare direttamente la precisione delle 
-stime temporali effettuate dal team durante la pianificazione.
 Interpretazione dei valori:
 \begin{itemize}
     \item LE $> 100\%$: il gruppo è stato più veloce del previsto;
@@ -1030,12 +1032,15 @@ Dove:
     \item $k$ = Numero dello sprint di riferimento.
 \end{itemize}
 }
+{Mentre lo SPI (si veda §\ref{sec:MPC5}) valuta l'avanzamento in termini di valore economico, 
+questa metrica permette di monitorare direttamente la precisione delle 
+stime temporali effettuate dal team durante la pianificazione.}
 
 \section{Metriche di qualità di prodotto}
 In questa sezione vengono definite le metriche di qualità adottate per 
 garantire che i prodotti di progetto (documentazione e \textit{software}) 
 soddisfino i requisiti qualitativi stabiliti.
-\\Ogni metrica è identificata da un codice univoco della forma \textit{MPDX}, dove \textit{X} rappresenta 
+\\Ogni metrica è identificata da un codice univoco nella forma \textit{MPDX}, dove \textit{X} rappresenta 
 un numero intero progressivo.
 
 \subsection{Funzionalità}
@@ -1059,6 +1064,10 @@ Dove:
     \item $RO_{totali}$ = Requisiti obbligatori totali.
 \end{itemize}
 }
+{Determina se il prodotto ha raggiunto il livello minimo di funzionalità 
+necessario per il rilascio. Permette inoltre di 
+identificare tempestivamente ritardi che potrebbero compromettere la 
+consegna del prodotto nei tempi concordati.}
 
 \trisubsection{MPD2 -  Percentuale Requisiti Opzionali Soddisfatti (PRPS)}
 \Metrica{MPD2}
@@ -1073,6 +1082,9 @@ Dove:
     \item $RP_{totali}$ = Requisiti opzionali totali.
 \end{itemize}
 }
+{Misura il valore aggiunto fornito dal prodotto oltre le funzionalità minime 
+richieste e permette di comunicare al proponente il livello 
+di arricchimento del prodotto rispetto alle aspettative base.}
 
 \trisubsection{MPD3 -  Percentuale Requisiti Desiderabili Soddisfatti (PRDS)}
 \Metrica{MPD3}
@@ -1087,14 +1099,13 @@ Dove:
     \item $RD_{totali}$ = Requisiti desiderabili totali.
 \end{itemize}
 }
+{Valuta il valore aggiunto fornito dal prodotto oltre le funzionalità minime e opzionali.}
 
 \subsection{Affidabilità}
 \trisubsection{MPD4 - Line Coverage (LC)}
 \Metrica{MPD4}
 {Indica la percentuale di linee di codice eseguite dai test automatici 
 rispetto alle linee di codice totali.
-Questa metrica fornisce una misura delle linee di codice
-coperte dai casi di test.
 Interpretazione dei valori:
 \begin{itemize}
     \item LC $\geq 80\%$: copertura eccellente, codice ben testato;
@@ -1108,6 +1119,9 @@ Dove:
     \item $L_{eseguite}$ = Numero di linee di codice eseguite dai test;
     \item $L_{totali}$ = Numero di linee di codice totali.
 \end{itemize}}
+{Quantifica l'efficacia dei test automatici nell'individuare difetti e garantire 
+la correttezza del codice. Permette inoltre di identificare porzioni di 
+codice non testate che potrebbero contenere errori.}
 
 \trisubsection{MPD5 - Branch Coverage (BC)}
 \Metrica{MPD5}
@@ -1125,6 +1139,9 @@ Dove:
     \item $B_{eseguite}$ = Numero di rami (\textit{branch}) decisionali eseguiti dai test;
     \item $B_{totali}$ = Numero di rami decisionali totali.
 \end{itemize}}
+{Fornisce una misura più rigorosa della qualità dei test rispetto alla 
+semplice copertura delle linee, garantendo che la logica condizionale sia 
+correttamente testata.}
 
 \trisubsection{MPD6 - Statement Coverage (SC)}
 \Metrica{MPD6}
@@ -1142,18 +1159,22 @@ Dove:
     \item $S_{eseguite}$ = Numero di istruzioni (\textit{statement}) eseguite dai test;
     \item $S_{totali}$ = Numero di istruzioni totali.
 \end{itemize}}
+{Garantisce che ogni singola istruzione del codice sia stata eseguita almeno 
+una volta durante i test, identificando codice inutilizzato o non raggiungibile.}
 
 \subsection{Usabilità}
 \trisubsection{MPD7 - Facilità di Apprendimento (FA)}
 \Metrica{MPD7}
 {Tempo medio necessario ad un utente per completare un'operazione 
-specifica, senza supporto esterno.}
+di reperimento di informazioni, senza supporto esterno.}
 {\[ FA = \frac{\sum_{i=1}^{k} T_i}{k} \]
 Dove:
 \begin{itemize}
 \item $T_{i}$ = Tempo impiegato dall'utente $i$-esimo;
 \item $k$ = Numero di utenti testati;
 \end{itemize}}
+{Valuta l'intuitività dell'interfaccia nella ricerca e consultazione delle 
+informazioni.}
 
 \subsection{Efficienza}
 \trisubsection{MPD8 - Tempo Medio di Risposta (TMR)}
@@ -1174,6 +1195,8 @@ Dove:
     \item $k$ = Numero di richieste testate;
 \end{itemize}
 }
+{Garantisce che il sistema soddisfi le aspettative degli utenti in termini di 
+reattività e fluidità d'uso.}
 
 \subsection{Manutenibilità}
 
@@ -1196,6 +1219,8 @@ Dove:
     \item $L_{totali}$ = Linee totali nel codice.
 \end{itemize}
 }
+{Assicura che il codice sia adeguatamente documentato per facilitarne la 
+comprensione e ridurre i tempi di manutenzione.}
 
 \trisubsection{MPD10 - Complessità Ciclomatica (CC)}
 \label{sec:MPD10}
@@ -1219,5 +1244,27 @@ Dove:
     \item $P$ = Numero di componenti connesse.
 \end{itemize}
 }
+{Permette di misurare la complessità delle funzioni per evitare difficoltà nel 
+\textit{testing} del codice e nella sua comprensione.}
+
+\subsection{Portabilità}
+\trisubsection{MPD11 - Compatibilità Cross-Browser (CCB)}
+\Metrica{MPD11}
+{Percentuale di browser testati su cui il prodotto funziona correttamente 
+rispetto al totale dei browser target definiti nel progetto.
+Interpretazione dei valori:
+\begin{itemize}
+    \item CCB $= 100\%$: piena compatibilità, il prodotto funziona su tutti i browser target;
+    \item $80\% \leq $ CCB $ < 100\%$: compatibilità buona, problemi solo su browser marginali;
+    \item $60\% \leq $ CCB $ < 80\%$: compatibilità parziale, alcuni browser principali presentano problemi;
+    \item CCB $< 60\%$: compatibilità insufficiente, il prodotto non è utilizzabile su molti browser.
+\end{itemize}}
+{\[ CCB = \frac{B_{supportati}}{B_{target}} \cdot 100 \]
+Dove:
+\begin{itemize}
+    \item $B_{supportati}$ = Numero di browser su cui il prodotto funziona correttamente;
+    \item $B_{target}$ = Numero totale di browser target definiti per il progetto.
+\end{itemize}}
+{Garantisce che il prodotto sia utilizzabile dalla maggior parte dei browser.}
 
 \end{document}
