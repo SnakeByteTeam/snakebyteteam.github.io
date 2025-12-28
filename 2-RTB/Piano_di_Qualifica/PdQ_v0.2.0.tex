@@ -10,7 +10,6 @@
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{caption}
-\usepackage[table, x11names]{xcolor}
 \usepackage{lastpage} 
 \renewcommand{\arraystretch}{1.05} % migliora la leggibilità
 \renewcommand{\contentsname}{Indice}
@@ -51,7 +50,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                0.1.0 & 22/12/2025 & Verificato &       
+                0.2.0 & 28/12/2025 & Verificato &       
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
@@ -70,6 +69,8 @@
         \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+        0.2.0 & 28/12/2025 & V. Baleanu & F. Pasqual & - & Aggiunta tabelle delle soglie per le metriche di processo e di prodotto \\
+        \hline
         0.1.1 & 27/12/2025 & V. Baleanu & F. Pasqual & - & Aggiunta Introduzione \\
         \hline
         0.1.0 & 22/12/2025 & V. Baleanu & F. Pasqual & - & Prima Stesura \\
@@ -87,7 +88,7 @@
 \subsection{Finalità del documento}
 Il presente documento ha lo scopo di definire e documentare gli obiettivi di qualità 
 che il gruppo \textit{SnakeByte} si impegna a perseguire durante l'intero ciclo di vita del 
-progetto. In particolare, il Piano di Qualifica${_G}$ comprende i seguenti elementi:
+progetto. In particolare, il Piano di qualifica${_G}$ comprende i seguenti elementi:
 \begin{itemize}
     \item \textbf{Piano della Qualità}: tutte le attività volte a definire gli obiettivi 
     qualitativi e a stabilire i processi e le risorse necessarie per il loro conseguimento;
@@ -108,22 +109,26 @@ pedice.
 \subsubsection{Riferimenti Normativi}
 \begin{itemize}
     \item \textbf{Norme di Progetto}: 
-    \url{https://github.com/SnakeByteTeam/snakebyteteam.github.io/blob/develop/2-RTB/Norme_di_progetto/NdP_v0.2.0.pdf}
+    \\ \url{https://github.com/SnakeByteTeam/snakebyteteam.github.io/blob/develop/2-RTB/Norme_di_progetto/NdP_v0.2.0.pdf}
     \\ (consultato il 22/12/2025).
     \item \textbf{Vimar View4Life Capitolato di Ingegneria del Software Università di Padova 2025-2026}:
-    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C9.pdf}
+    \\ \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C9.pdf}
     \\ (consultato il 22/12/2025).
 \end{itemize}
 \subsubsection{Riferimenti Informativi}
 \begin{itemize}
-    \item \textbf{Glossario}: \url{https://snakebyteteam.github.io/glossary.html}
+    \item \textbf{Glossario}: 
+    \\ \url{https://snakebyteteam.github.io/glossary.html}
     \\ (consultato il 22/12/2025).
     \item \textbf{Standard ISO 9000:2015 - Quality management systems. Fundamentals and vocabulary}:
-    \url{https://www.iso.org/standard/45481.html}
+    \\ \url{https://www.iso.org/standard/45481.html}
     \\ (consultato il 23/12/2025).
     \item \textbf{Standard ISO/IEC 12207:1995}: 
-    \url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}
+    \\ \url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}
     \\ (consultato il 27/12/2025).
+    \item \textbf{Standard ISO/IEC 9126:2001}:
+    \\ \url{https://it.wikipedia.org/wiki/ISO/IEC_9126}
+    \\ (consultato il 28/12/2025).
 \end{itemize}
 
 \section{Qualità di processo}
@@ -137,7 +142,7 @@ fa riferimento allo standard ISO/IEC 12207:1995, che descrive i processi
 del ciclo di vita del software e li suddivide nelle seguenti categorie:
 \begin{itemize}
     \item \textbf{Processi primari}: sono direttamente coinvolti nella
-    realizzazione, fornitura e mantenimento del prodotto software;
+    realizzazione, fornitura e mantenimento del prodotto \textit{software};
     \item \textbf{Processi di supporto}: affiancano i processi primari fornendo 
     attività di supporto come la documentazione e la verifica;
     \item \textbf{Processi organizzativi}: forniscono le risorse necessarie 
@@ -146,17 +151,102 @@ del ciclo di vita del software e li suddivide nelle seguenti categorie:
 \end{itemize}
 \subsection{Processi primari}
 \subsubsection{Fornitura}
+\sogliatabella{
+    \sogliariga{MPC1}{Planned Value}{$\geq 0$}{$\leq BAC$}
+    \sogliariga{MPC2}{Earned Value}{$\geq 0$}{$\leq EAC$}
+    \sogliariga{MPC3}{Actual Cost}{$\geq 0$}{$\leq EAC$}
+    \sogliariga{MPC4}{Cost Performance Index}{$\geq 0.80$}{$1.00$}
+    \sogliariga{MPC5}{Schedule Performance Index}{$\geq 0.80$}{$1.00$}
+    \sogliariga{MPC6}{Estimate At Completion (EAC)}{$\leq 120\% \cdot BAC$}{$\leq BAC$}
+    \sogliariga{MPC7}{Estimate To Complete}{$\geq 0$}{$\leq BAC$}
+}
+
 \subsubsection{Sviluppo}
+\sogliatabella{
+    \sogliariga{MPC8}{Requirements Stability Index}{$\geq 60\%$}{$\geq 85\%$}
+    \sogliariga{MPC9}{Requirements Completion Velocity}{$> 0$}{$\geq 5$}
+    \sogliariga{MPC10}{Percentuale Attività in Ritardo}{$\leq 15\%$}{$0\%$}
+}
 
 \subsection{Processi di supporto}
 \subsubsection{Documentazione}
+\sogliatabella{
+    \sogliariga{MPC11}{Indice di Gulpease}{$\geq 60$}{$\geq 80$}
+    \sogliariga{MPC12}{Densità Errori Ortografici}{$\leq 5$}{$0$}
+    \sogliariga{MPC13}{Indice di Frammentazione (IF)}{$5\% \leq IF \leq 20\%$}{$10\% \leq IF \leq 15\%$}
+}
+
 \subsubsection{Verifica}
+\sogliatabella{
+    \sogliariga{MPC14}{Test Success Rate}{$\geq 80\%$}{$100\%$}
+}
+
+\subsubsection{Gestione della qualità}
+\sogliatabella{
+    \sogliariga{MPC15}{Percentuale Metriche Soddisfatte}{$\geq 80\%$}{$100\%$}
+}
 
 \subsection{Processi organizzativi}
 \subsubsection{Gestione dei processi}
-
+\sogliatabella{
+    \sogliariga{MPC16}{Percentuale Rischi Inattesi}{$\leq 20\%$}{$0\%$}
+    \sogliariga{MPC17}{Labor Efficiency}{$\geq 70\%$}{$\geq 100\%$}
+}
 
 \section{Qualità di prodotto}
+La qualità di prodotto$_G$ è definita secondo un modello basato sullo standard 
+ISO/IEC 9126, che struttura la qualità in caratteristiche e sottocaratteristiche 
+misurabili attraverso metriche specifiche.
+\\Per il prodotto \textit{software} sviluppato, il gruppo \textit{SnakeByte} 
+ha individuato le seguenti caratteristiche qualitative da monitorare e garantire:
+\begin{itemize}
+    \item \textbf{Funzionalità}: capacità di fornire funzioni che soddisfino 
+    i requisiti definiti;
+    \item \textbf{Affidabilità}: capacità di mantenere il livello di prestazione 
+    richiesto quando utilizzato in condizioni specifiche;
+    \item \textbf{Usabilità}: facilità con cui gli utenti possono apprendere, 
+    comprendere e utilizzare il prodotto;
+    \item \textbf{Efficienza}: capacità di fornire prestazioni adeguate in 
+    relazione alle risorse utilizzate;
+    \item \textbf{Manutenibilità}: facilità con cui il prodotto può essere 
+    modificato, corretto o esteso, favorendo interventi di manutenzione;
+    \item \textbf{Portabilità}: capacità di essere trasferito e adattato a 
+    diversi ambienti operativi, piattaforme o configurazioni hardware e software.
+\end{itemize}
+\subsection{Funzionalità}
+\sogliatabella{
+    \sogliariga{MPD1}{Percentuale Requisiti Obbligatori Soddisfatti}{$100\%$}{$100\%$}
+    \sogliariga{MPD2}{Percentuale Requisiti Opzionali Soddisfatti}{$0\%$}{$100\%$}
+    \sogliariga{MPD3}{Percentuale Requisiti Desiderabili Soddisfatti}{$0\%$}{$100\%$}
+}
+
+\subsection{Affidabilità}
+\sogliatabella{
+    \sogliariga{MPD4}{Line Coverage}{$\geq 75\%$}{$100\%$}
+    \sogliariga{MPD5}{Branch Coverage}{$\geq 75\%$}{$100\%$}
+    \sogliariga{MPD6}{Statement Coverage}{$\geq 75\%$}{$100\%$}
+}
+
+\subsection{Usabilità}
+\sogliatabella{
+    \sogliariga{MPD7}{Facilità di Apprendimento}{$\leq 60$ secondi}{$\leq 30$ secondi}
+}
+
+\subsection{Efficienza}
+\sogliatabella{
+    \sogliariga{MPD8}{Tempo Medio di Risposta}{$\leq 5$ secondi}{$\leq 1$ secondi}
+}
+
+\subsection{Manutenibilità}
+\sogliatabella{
+    \sogliariga{MPD9}{Densità dei Commenti (DC)}{$> 0\%$}{$10\% \leq DC \leq 30\%$}
+    \sogliariga{MPD10}{Complessità Ciclomatica}{$\leq 20$}{$\leq 10$}
+}
+
+\subsection{Portabilità}
+\sogliatabella{
+    \sogliariga{MPD11}{Compatibilità cross-browser}{$\geq 80\%$}{100\%}
+}
 
 \section{Strategie di Testing}
 
