@@ -8,7 +8,7 @@
 \setDocData{28/12/2025}
 \setDocIndex{ve\_2025\_12\_23}
 \setDocState{1}
-\setDocRecipient{1}
+\setDocRecipient{2}
 
 % comandi extra (rimuovere questi commenti una volta approvato il documento)
 %
@@ -93,23 +93,23 @@ I dubbi e le domande si sono concentrate sui seguenti argomenti:
     \item \textbf{Metriche di avanzamento}: nel contesto del Piano di Qualifica il team ha esposto alcuni dubbi legati alla specificità
     delle metriche per misurare l'avanzamento ed ha espresso la preferenza di ricercare un numero contenuto di metriche, circa 5, significative e di alto livello
     che si dimostrino utili e comprensibili.
-    \item \textbf{Gestione ore}: dal consuntivo dei primi \textit{sprint$_G$} è emersa una prevedibile differenza tra le ore programmate e quelle reali svolte da ogni ruolo. È dunque sorto il dubbio
-    relativo alla gestione delle ore in eccesso, il gruppo ha proposto di mantenere un contatore d'accumulo, da cui attingere in caso
-    di sottostime orarie future. In associazione a ciò, il team ha comunicato che spesso è stato necessario effettuare variazioni dei ruoli previsti nello sprint successivo.
+    \item \textbf{Gestione ore}: dal consuntivo dei primi \textit{sprint$_G$} è emersa una differenza tra le ore programmate e quelle reali svolte da ogni ruolo. È dunque sorto il dubbio
+    relativo alla gestione delle ore non consumate, il gruppo ha proposto di mantenere un contatore d'accumulo, da cui attingere in caso
+    di sottostime orarie future. In aggiunta a ciò, il team ha comunicato che spesso è stato necessario effettuare variazioni dei ruoli previsti nello sprint successivo.
     La Proponente ha espresso un'opinione positiva riguardo al metodo proposto per la gestione delle ore in eccesso, e, in relazione al secondo problema, qualora le previsioni siano molto diverse dalla realtà,
-    ha suggerito di effettuare una revisione completa della distribuzione dei ruoli utilizzando eventualmente anche le ore in eccesso. In ogni caso è stato suggerito un confronto
+    ha suggerito di effettuare una revisione completa della distribuzione dei ruoli considerando eventualmente anche le ore in eccesso. In ogni caso è stato suggerito un confronto
     con il prof. Vardanega per trattare queste tematiche.
     \item \textbf{Duplicazione Amministratore}: dato che nel periodo corrente l'Amministratore ha il compito di redigere i Piani di Progetto e di Qualifica, il team ha proposto una duplicazione del ruolo Amministratore
-    per il periodo rimanente dello \textit{sprint} corrente ed eventualmente anche per il periodo successivo, sostituendo la figura del Progettista, che in riferimento all'implementazione del \textit{PoC$_G$}, è stato ritenuto
-    meno indispensabile. Anche in questo caso è stato suggerito un confronto con il prof. Vardanega in quanto, sebbene la presenza di più amministratori non sia comune, potrebbe rivelarsi utile per il caso in esame.
+    per il periodo rimanente dello \textit{sprint} ed eventualmente anche per il periodo successivo. Questa variazione porterebbe alla temporanea assenza della figura del
+    Progettista. Anche in questo caso è stato suggerito un confronto con il prof. Vardanega in quanto, sebbene la presenza di più amministratori non sia comune, potrebbe rivelarsi utile per il caso in esame.
 \end{itemize}
 
 \subsection*{Stato del \textit{PoC$_G$}}
 Riguardo al \textit{PoC} sono emerse alcune difficoltà riguardanti la traduzione dalla teoria alla pratica nel contesto delle architetture e alcuni dubbi sul grado di riutilizzabilità dello stesso.\\\\
 In riferimento all'implementazione è stato consigliato di sperimentare con le API reali senza ricorrere a \textit{Mocking$_G$} per esse, se non in casi bloccanti,  per i quali la Proponente si è resa 
 disponibile ad offrire supporto in caso di necessità.\\\\
-È inoltre stata ricordata l'importanza dello sviluppo di una micro-libreria, come requisito Nice-to-Have, per disaccoppiare la logica applicativa dalle API e fornire una semantica di alto livello, al fine di 
-favorire la riutilizzabilità, una maggior strutturazione e un potenziale rilascio open-source.\\\\
+È inoltre stata ricordata l'importanza dello sviluppo di una micro-libreria, come requisito \textit{nice-to-have}, per disaccoppiare la logica applicativa dalle API e fornire una semantica di alto livello, al fine di 
+favorire la riutilizzabilità, una maggior separazione e un potenziale rilascio open-source.\\\\
 A livello di prospettive future è stata definita una possibile presentazione del \textit{PoC} a fine gennaio, che coinvolgerebbe varie componenti aziendali tra cui Responsabile sviluppo software, Tutor, Team cloud, ed eventualmente il reparto marketing, 
 al fine di avere un feedback tecnico, architetturale e di valore di business.
 
@@ -131,12 +131,13 @@ Da una successiva analisi dei permessi tra ruoli per le sezioni Analytics e Dash
 \end{itemize}
 Infine è stata trattata la gestione dei requisiti non funzionali, la cui inclusione è stata consigliata per completezza documentale.
 
-\addDecision{Struttura ciclo di vita degli allarmi confermata}
-\addDecision{Inclusione requisiti non funzionali nell'Analisi dei Requisiti}
+\addDecision{Struttura del ciclo di vita degli allarmi confermat.}
+\addDecision{Permessi dei ruoli per le sezioni Analytics e Dashboard.}
+\addDecision{Inclusione requisiti non funzionali nell'Analisi dei Requisiti.}
 
 \makeDecisionTable
 
-\addTodo{\noOne}{Ottenere un feedback dal prof. Vardanega riguardo la duplicazione Amministratore.}{\teamName}{11/01/2026}
+\addTodo{\noOne}{Chidere conferma al prof. Vardanega riguardo la duplicazione Amministratore.}{\teamName}{11/01/2026}
 \addTodo{\noOne}{Effettuare revisione della distribuzione ruoli e ore.}{\teamName}{11/01/2026}
 
 \makeTodoTable
