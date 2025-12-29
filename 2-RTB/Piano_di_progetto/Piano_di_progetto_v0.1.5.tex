@@ -9,9 +9,9 @@
 % Macro sono in relazione all'ultima modifica
 \setDocIndex{Piano di progetto}
 \setDocTitle{Piano di progetto}
-\setDocVersion{0.1.4}
+\setDocVersion{0.1.5}
 \setDocState{1}
-\setDocData{24/12/2025}
+\setDocData{29/12/2025}
 \setDocRecipient{1}
 
 \setcounter{tocdepth}{4}
@@ -262,6 +262,7 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 
 \makeTitlePage
 
+\addChangelog{0.1.5}{29/12/2025}{G. De Fina}{F. Pasqual}{\noOne}{Modifica RO2 e piccole correzioni}
 \addChangelog{0.1.4}{24/12/2025}{G. De Fina}{F. Pasqual}{\noOne}{Aggiunti Sprint 6, 7, 8, 9 e 10 con struttura completa}
 \addChangelog{0.1.3}{23/12/2025}{G. De Fina}{F. Pasqual}{\noOne}{Redatti rischi di comunicazione e organizzativi con descrizioni e mitigazioni dettagliate}
 \addChangelog{0.1.2}{21/12/2025}{G. De Fina}{F. Pasqual}{\noOne}{Aggiunti parametri completi relativi allo Sprint 3}
@@ -414,7 +415,7 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
         {Possono emergere incomprensioni o divergenze di visione tra il gruppo e la Proponente riguardo 
         requisiti, priorità o direzione del progetto, causando rilavorazioni o sviluppo di funzionalità 
         non conformi alle aspettative.}
-        {Organizzare incontri frequenti con la Proponente (SAL ogni due settimane) per presentare l'avanzamento 
+        {Organizzare incontri frequenti con la Proponente (\textit{SAL$_G$} ogni due settimane) per presentare l'avanzamento 
         e raccogliere feedback continuo. Inviare documentazione intermedia (bozze) per validazione anticipata. 
         Mantenere un canale di comunicazione diretto per chiarimenti rapidi. Documentare e confermare per 
         iscritto le decisioni prese durante gli incontri tramite verbali esterni.}
@@ -452,15 +453,15 @@ riportati in italico e alla loro prima occorrenza è associata una \textit{G} a 
         ripianificazioni tempestive. Mantenere un buffer di tempo nelle pianificazioni per gestire imprevisti.}
         {1}{2}
         
-        \newORisk{Inadempimento scadenza \textit{baseline$_G$}}
-        {Il gruppo potrebbe non riuscire a completare tutte le attività necessarie entro la scadenza della 
-        candidatura per la RTB o PB, compromettendo la possibilità di avanzare nel progetto nei tempi 
-        previsti.}
-        {Pianificare le attività con anticipo sufficiente rispetto alla scadenza, identificando le milestone 
-        intermedie. Monitorare costantemente l'avanzamento rispetto al piano. Dare priorità alle attività 
-        critiche per la candidatura. In caso di ritardo, valutare la possibilità di posticipare attività 
-        non essenziali e concentrare le risorse sugli obiettivi minimi per la baseline. Comunicare 
-        tempestivamente ai docenti eventuali criticità.}
+        \newORisk{Non conformità ai requisiti della \textit{baseline$_G$}}
+        {Il gruppo potrebbe non soddisfare pienamente i livelli di qualità e completezza richiesti per la 
+        baseline RTB o PB, producendo documenti o prodotti non sufficientemente dettagliati, verificati o 
+        conformi agli standard richiesti, compromettendo l'approvazione della candidatura.}
+        {Definire chiaramente i criteri di qualità e completezza per ciascun documento e prodotto della baseline. 
+        Effettuare revisioni interne frequenti durante lo sviluppo per verificare la conformità agli standard. 
+        Allocare tempo sufficiente per cicli di verifica e correzione. Consultare i docenti per validazione 
+        metodologica e confronto con le aspettative. Utilizzare checklist di completezza per ogni \textit{deliverable$_G$} 
+        della baseline prima della candidatura.}
         {0}{2}
         
         \newORisk{Inadempimento scadenza \textit{milestone$_G$} interne}
@@ -829,7 +830,7 @@ All'inizio dello Sprint 3 sono state pianificate le seguenti attività:
     \item test dell'\textit{API$_G$} \textit{KNX IoT 3rd party$_G$} e correzione dell'implementazione dell'autenticazione;
     \item decisione definitiva sul sistema di tracciamento delle attività di progetto;
     \item aggiornamento delle Norme di Progetto con sezione Sviluppo e Analisi dei Requisiti;
-    \item configurazione del secondo \textit{kit$_G$} hardware ricevuto dalla Proponente.
+    \item configurazione del secondo \textit{kit$_G$} hardware.
 \end{itemize}
 
 \trisubsection{Attività svolte}
@@ -918,9 +919,8 @@ Si prevede l'esecuzione delle seguenti attività:
     \item continuazione stesura del Piano di Progetto;
     \item definizione metriche e prima stesura del Piano di Qualifica;
     \item inizio implementazione del Proof of Concept;
-    \item definizione Gantt;
+    \item definizione diagramma Gantt;
     \item correzioni documenti valutati Round Review;
-    \item configurazione secondo kit.
 \end{itemize}
 
 \trisubsection{Attività svolte}
