@@ -840,37 +840,37 @@ Dove:
 realisticamente quanti requisiti possono essere completati negli sprint 
 rimanenti e di prevedere la data di completamento del progetto.}
 
-\trisubsection{MPC10 - Percentuale Attività in Ritardo (PAR)}
-\label{sec:MPC10}
-\Metrica{MPC10}
-{Rappresenta la percentuale di attività completate in ritardo rispetto alla 
-scadenza prevista durante un determinato \textit{sprint}.
-Interpretazione dei valori:
-\begin{itemize}
-    \item PAR $= 0\%$: tutte le attività sono state completate nei tempi previsti;
-    \item PAR $\leq 15\%$: buona pianificazione, anche se con alcuni ritardi;
-    \item $15\% < $ PAR $ \leq 30\%$: problemi moderati di stima o esecuzione;
-    \item PAR $> 30\%$: problemi significativi, necessario rivedere il processo di pianificazione.
-\end{itemize}}
-{\[ PAR_k = \frac{ACR_k}{ACT_k} \cdot 100 \]
-Dove:
-\begin{itemize}
-    \item $ACR_k$ = Numero di attività completate in ritardo nello \textit{sprint} k;
-    \item $ACT_k$ = Numero di attività completate in totale nello \textit{sprint} k;
-    \item $k$ = Numero dello \textit{sprint} di riferimento.
-\end{itemize}
-}
-{Valuta l'efficacia della pianificazione e l'aderenza alle tempistiche: 
-un valore elevato indica problemi sistematici nella stima dei tempi, 
-nella gestione delle priorità o nella disponibilità 
-delle risorse. Permette di identificare problematiche nel processo di 
-sviluppo e di adottare azioni correttive per migliorare la prevedibilità 
-delle consegne e il rispetto delle \textit{milestone} di progetto.}
+% \trisubsection{MPC10 - Percentuale Attività in Ritardo (PAR)}
+% \label{sec:MPC10}
+% \Metrica{MPC10}
+% {Rappresenta la percentuale di attività completate in ritardo rispetto alla 
+% scadenza prevista durante un determinato \textit{sprint}.
+% Interpretazione dei valori:
+% \begin{itemize}
+%     \item PAR $= 0\%$: tutte le attività sono state completate nei tempi previsti;
+%     \item PAR $\leq 15\%$: buona pianificazione, anche se con alcuni ritardi;
+%     \item $15\% < $ PAR $ \leq 30\%$: problemi moderati di stima o esecuzione;
+%     \item PAR $> 30\%$: problemi significativi, necessario rivedere il processo di pianificazione.
+% \end{itemize}}
+% {\[ PAR_k = \frac{ACR_k}{ACT_k} \cdot 100 \]
+% Dove:
+% \begin{itemize}
+%     \item $ACR_k$ = Numero di attività completate in ritardo nello \textit{sprint} k;
+%     \item $ACT_k$ = Numero di attività completate in totale nello \textit{sprint} k;
+%     \item $k$ = Numero dello \textit{sprint} di riferimento.
+% \end{itemize}
+% }
+% {Valuta l'efficacia della pianificazione e l'aderenza alle tempistiche: 
+% un valore elevato indica problemi sistematici nella stima dei tempi, 
+% nella gestione delle priorità o nella disponibilità 
+% delle risorse. Permette di identificare problematiche nel processo di 
+% sviluppo e di adottare azioni correttive per migliorare la prevedibilità 
+% delle consegne e il rispetto delle \textit{milestone} di progetto.}
 
 \subsection{Processi di supporto}
 \subsubsection{Documentazione}
-\trisubsection{MPC11 - Indice di Gulpease (IG)}
-\Metrica{MPC11}
+\trisubsection{MPC10 - Indice di Gulpease (IG)}
+\Metrica{MPC10}
 {Indice che misura la leggibilità di un testo in lingua italiana, basato sulla 
 lunghezza delle parole e delle frasi.
 Interpretazione dei valori:
@@ -891,30 +891,30 @@ Dove:
 {Garantisce la qualità della documentazione: assicura che i documenti siano comprensibili, 
 riducendo ambiguità e incomprensioni.}
 
-\trisubsection{MPC12 - Densità Errori Ortografici (DEO)}
-\Metrica{MPC12}
-{Rappresenta il numero di errori ortografici presenti ogni 1000 parole di 
-documentazione prodotta.
-Interpretazione dei valori:
-\begin{itemize}
-    \item DEO = 0: il testo non presenta alcun errore;
-    \item $0 < $ DEO $ \leq 5$: il testo presenta pochi errori;
-    \item $5 < $ DEO $ \leq 10$: il testo presenta alcuni errori, è necessario 
-    revisionare il documento;
-    \item DEO $> 10$: il testo presenta troppi errori, è necessario correggere 
-    il documento.
-\end{itemize}}
-{\[ DEO = \frac{N_{errori}}{N_{parole}} \cdot 1000 \] 
-Dove:
-\begin{itemize}
-    \item $N_{errori}$ = Numero totale di errori ortografici rilevati nel documento;
-    \item $N_{parole}$ = Numero totale di parole nel documento.
-\end{itemize}
-}
-{Garantisce la professionalità della documentazione.}
+% \trisubsection{MPC12 - Densità Errori Ortografici (DEO)}
+% \Metrica{MPC12}
+% {Rappresenta il numero di errori ortografici presenti ogni 1000 parole di 
+% documentazione prodotta.
+% Interpretazione dei valori:
+% \begin{itemize}
+%     \item DEO = 0: il testo non presenta alcun errore;
+%     \item $0 < $ DEO $ \leq 5$: il testo presenta pochi errori;
+%     \item $5 < $ DEO $ \leq 10$: il testo presenta alcuni errori, è necessario 
+%     revisionare il documento;
+%     \item DEO $> 10$: il testo presenta troppi errori, è necessario correggere 
+%     il documento.
+% \end{itemize}}
+% {\[ DEO = \frac{N_{errori}}{N_{parole}} \cdot 1000 \] 
+% Dove:
+% \begin{itemize}
+%     \item $N_{errori}$ = Numero totale di errori ortografici rilevati nel documento;
+%     \item $N_{parole}$ = Numero totale di parole nel documento.
+% \end{itemize}
+% }
+% {Garantisce la professionalità della documentazione.}
 
-\trisubsection{MPC13 - Indice di Frammentazione (IF)}
-\Metrica{MPC13}
+\trisubsection{MPC11 - Indice di Frammentazione (IF)}
+\Metrica{MPC11}
 {Misura il grado di suddivisione del testo in unità logiche (sezioni e paragrafi). 
 Un valore bilanciato indica che il documento non presenta "muri di testo" 
 eccessivi, facilitando la lettura veloce e la 
@@ -943,8 +943,8 @@ a testo eccessivamente denso o frammentato.}
 
 \subsubsection{Verifica}
 
-\trisubsection{MPC14 - Test Success Rate (TSR)}
-\Metrica{MPC14}
+\trisubsection{MPC12 - Test Success Rate (TSR)}
+\Metrica{MPC12}
 {Percentuale di casi di test che sono stati eseguiti con esito positivo rispetto al
 numero totale di casi di test eseguiti.
 Interpretazione dei valori:
@@ -965,8 +965,8 @@ Dove:
 dell'attività di \textit{testing}.}
 
 \subsubsection{Gestione della qualità}
-\trisubsection{MPC15 - Percentuale Metriche Soddisfatte (PMS)}
-\Metrica{MPC15}
+\trisubsection{MPC13 - Percentuale Metriche Soddisfatte (PMS)}
+\Metrica{MPC13}
 {Percentuale di metriche di qualità soddisfatte rispetto al numero di metriche totali.
 Interpretazione dei valori:
 \begin{itemize}
@@ -988,8 +988,8 @@ l'identificazione tempestiva di criticità che richiedono azioni correttive.}
 
 \subsection{Processi organizzativi}
 \subsubsection{Gestione dei processi}
-\trisubsection{MPC16 - Percentuale Rischi Inattesi (PRI)}
-\Metrica{MPC16}
+\trisubsection{MPC14 - Percentuale Rischi Inattesi (PRI)}
+\Metrica{MPC14}
 {Percentuale di rischi non previsti in fase di analisi iniziale che si sono manifestati
 nel corso del progetto.
 Interpretazione dei valori:
@@ -1010,8 +1010,8 @@ Dove:
 {Fornisce una misura del livello di accuratezza dell'attività di analisi 
 e gestione dei rischi.}
 
-\trisubsection{MPC17 - Labor Efficiency (LE)}
-\Metrica{MPC17}
+\trisubsection{MPC15 - Labor Efficiency (LE)}
+\Metrica{MPC15}
 {Rappresenta il rapporto tra le ore di lavoro pianificate per lo 
 svolgimento di determinate attività e le ore effettivamente impiegate 
 per il loro completamento nello \textit{sprint} di riferimento. 
@@ -1163,18 +1163,26 @@ Dove:
 una volta durante i test, identificando codice inutilizzato o non raggiungibile.}
 
 \subsection{Usabilità}
-\trisubsection{MPD7 - Facilità di Apprendimento (FA)}
+\trisubsection{MPD7 - Profondità Massima di Navigazione (PMN)}
 \Metrica{MPD7}
-{Tempo medio necessario ad un utente per completare un'operazione 
-di reperimento di informazioni, senza supporto esterno.}
-{\[ FA = \frac{\sum_{i=1}^{k} T_i}{k} \]
+{Misura il massimo numero di click necessari per completare qualsiasi operazione, date $k$ operazioni analizzate. 
+Valuta il caso peggiore di navigazione, garantendo che anche le operazioni 
+più profonde rimangano accessibili.
+Interpretazione dei valori:
+\begin{itemize}
+    \item PMN $\leq 3$: tutte le operazioni sono immediate;
+    \item $3 < $ PMN $ \leq 5$: la navigazione è buona anche nel caso peggiore;
+    \item $5 < $ PMN $ \leq 7$: accettabile, nonostante alcune operazioni richiedano troppi passaggi;
+    \item PMN $> 7$: inefficiente, sono presenti percorsi eccessivamente profondi.
+\end{itemize}}
+{\[ PMN = \max_{i=1,\dots,k} \{C_i\} \]
 Dove:
 \begin{itemize}
-\item $T_{i}$ = Tempo impiegato dall'utente $i$-esimo;
-\item $k$ = Numero di utenti testati;
+    \item $C_{i}$ = Numero di click necessari per completare l'operazione $i$-esima;
+    \item $k$ = Numero totale di operazioni analizzate.
 \end{itemize}}
-{Valuta l'intuitività dell'interfaccia nella ricerca e consultazione delle 
-informazioni.}
+{Garantisce che nessuna funzionalità del sistema sia eccessivamente nascosta 
+o difficile da raggiungere, rischiando di compromettere l'usabilità del prodotto.}
 
 \subsection{Efficienza}
 \trisubsection{MPD8 - Tempo Medio di Risposta (TMR)}
@@ -1199,32 +1207,30 @@ Dove:
 reattività e fluidità d'uso.}
 
 \subsection{Manutenibilità}
+% \trisubsection{MPD9 - Densità dei Commenti (DC)}
+% \Metrica{MPD9}
+% {Rapporto tra le righe dedicate ai commenti e le righe di codice totali. 
+% Una densità adeguata favorisce maggior manutenibilità.
+% Interpretazione dei valori:
+% \begin{itemize}
+% \item DC $< 10\%$: il codice è scarsamente documentato, rendendo difficile l'analisi e la manutenzione futura;
+% \item $10\% \le$ DC $\le 30\%$: densità ottimale per un codice ben scritto e auto-esplicativo;
+% \item DC $> 30\%$: il codice potrebbe essere eccessivamente commentato. Valori molto alti possono indicare la 
+% presenza di una logica eccessivamente complessa che richiede troppe spiegazioni.
+% \end{itemize}
+% }
+% {\[ DC = \frac{L_{commenti}}{L_{totali}} \cdot 100 \] 
+% Dove:
+% \begin{itemize}
+%     \item $L_{commenti}$ = Linee dedicate ai commenti;
+%     \item $L_{totali}$ = Linee totali nel codice.
+% \end{itemize}
+% }
+% {Assicura che il codice sia adeguatamente documentato per facilitarne la 
+% comprensione e ridurre i tempi di manutenzione.}
 
-\trisubsection{MPD9 - Densità dei Commenti (DC)}
+\trisubsection{MPD9 - Complessità Ciclomatica (CC)}
 \Metrica{MPD9}
-{Rapporto tra le righe dedicate ai commenti e le righe di codice totali. 
-Una densità adeguata favorisce maggior manutenibilità.
-Interpretazione dei valori:
-\begin{itemize}
-\item DC $< 10\%$: il codice è scarsamente documentato, rendendo difficile l'analisi e la manutenzione futura;
-\item $10\% \le$ DC $\le 30\%$: densità ottimale per un codice ben scritto e auto-esplicativo;
-\item DC $> 30\%$: il codice potrebbe essere eccessivamente commentato. Valori molto alti possono indicare la 
-presenza di una logica eccessivamente complessa che richiede troppe spiegazioni.
-\end{itemize}
-}
-{\[ DC = \frac{L_{commenti}}{L_{totali}} \cdot 100 \] 
-Dove:
-\begin{itemize}
-    \item $L_{commenti}$ = Linee dedicate ai commenti;
-    \item $L_{totali}$ = Linee totali nel codice.
-\end{itemize}
-}
-{Assicura che il codice sia adeguatamente documentato per facilitarne la 
-comprensione e ridurre i tempi di manutenzione.}
-
-\trisubsection{MPD10 - Complessità Ciclomatica (CC)}
-\label{sec:MPD10}
-\Metrica{MPD10}
 {Misura la complessità strutturale del codice calcolando il numero di percorsi 
 linearmente indipendenti attraverso il codice sorgente. Viene calcolata per 
 ciascuna funzione o metodo del sistema. Una bassa complessità indica codice 
@@ -1248,8 +1254,8 @@ Dove:
 \textit{testing} del codice e nella sua comprensione.}
 
 \subsection{Portabilità}
-\trisubsection{MPD11 - Compatibilità Cross-Browser (CCB)}
-\Metrica{MPD11}
+\trisubsection{MPD10 - Compatibilità Cross-Browser (CCB)}
+\Metrica{MPD10}
 {Percentuale di browser testati su cui il prodotto funziona correttamente 
 rispetto al totale dei browser target definiti nel progetto.
 Interpretazione dei valori:
