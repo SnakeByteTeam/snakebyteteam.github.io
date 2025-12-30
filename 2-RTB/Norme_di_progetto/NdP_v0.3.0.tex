@@ -747,33 +747,19 @@ nei tempi pianificati.}
 \trisubsection{MPC6 - Estimate At Completion (EAC)}
 \label{sec:MPC6}
 \Metrica{MPC6}
-{Stima del costo totale finale del progetto al completamento, calcolata proiettando 
-le performance attuali (sia in termini di costi che di schedulazione) sul lavoro 
-rimanente, al termine di un determinato \textit{sprint}.  
-La formula si compone di due elementi:
-\begin{itemize}
-    \item Costi già sostenuti (AC): il totale delle spese effettivamente 
-    sostenute fino allo \textit{sprint k};
-    \item Stima del lavoro rimanente ($\frac{BAC - EV}{CPI \cdot SPI}$): 
-    il valore del lavoro ancora da completare (BAC - EV), corretto in base alle 
-    performance attuali di costo (CPI) e schedulazione (SPI).
-\end{itemize}
-Il denominatore $CPI \cdot SPI$ rappresenta l'efficienza complessiva del progetto: 
-valori inferiori a 1 indicano che il lavoro rimanente costerà più del previsto, 
-mentre valori superiori a 1 suggeriscono risparmi potenziali.}
-{\[EAC_k = AC_k + \frac{BAC - EV_k}{CPI_k \cdot SPI_k} \]
+{Stima del costo totale finale del progetto al completamento, calcolata come la somma 
+tra i costi sostenuti fino al momento della misurazione e il budget rimanente.}
+{\[EAC_k = AC_k + (BAC - EV_k) \]
 Dove:
 \begin{itemize}
     \item $AC_k$ = \textit{Actual Cost} allo \textit{sprint} k (si veda §\ref{sec:MPC3});
     \item $BAC$ = Budget totale previsto (\textit{Budget At Completion}); 
     \item $EV_k$ = \textit{Earned Value} allo \textit{sprint} k (si veda §\ref{sec:MPC2});
-    \item $CPI_k$ = \textit{Cost Performance Index} allo \textit{sprint} k (si veda §\ref{sec:MPC4});
-    \item $SPI_k$ = \textit{Schedule Performance Index} allo \textit{sprint} k (si veda §\ref{sec:MPC5});
     \item $k$ = Numero dello sprint di riferimento.
 \end{itemize}
 }
 {La metrica \textit{EAC} fornisce una previsione realistica del budget necessario 
-considerando le inefficienze o efficienze riscontrate durante l'esecuzione del progetto.
+considerando il lavoro effettivo già eseguito.
 Consente inoltre di identificare tempestivamente potenziali sforamenti di budget, 
 permettendo di applicare azioni correttive prima che gli scostamenti 
 diventino critici.}
