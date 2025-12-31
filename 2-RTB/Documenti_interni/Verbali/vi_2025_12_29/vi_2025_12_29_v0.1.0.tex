@@ -1,0 +1,145 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 29/12/2025}
+\setDocVersion{0.1.0}
+\setDocData{29/12/2025}
+\setDocIndex{vi\_2025\_12\_29}
+\setDocState{0}
+\setDocRecipient{1}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\addChangelog{\docVersion}{\docData}{L. Granziero}{\noOne}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{29/12/2025}{13:20}{14:00}{via Discord}
+
+\addParticipant{Valeria}{Baleanu}{Amministratore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Responsabile}{P}
+\addParticipant{Francesco}{Pasqual}{Programmatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Verificatore}{P}
+\addParticipant{Christian}{Libralato}{Programmatore}{P}
+\addParticipant{Filippo}{Venzo}{Verificatore}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{vi\_2025\_12\_15.a2}{\#34}{G. de Fina}{27/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_15.a4}{\#36}{F. Venzo, L. Granziero}{29/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_15.a6}{\#38}{C. Libralato}{23/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_15.a7}{\#39}{C. Libralato}{23/12/2025}
+\makePrecedentTodoTable
+
+
+
+
+
+
+
+
+
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+    \item definizione e selezione delle metriche di qualità;
+    \item metriche di processo, sviluppo, documentazione e prodotto;
+    \item automazione del calcolo delle metriche;
+    \item gestione Gantt e monitoraggio attività;
+    \item organizzazione ruoli per il prossimo sprint$_G$;
+    \item gestione repository Git$_G$;
+    \item requisiti e use case$_G$;
+    \item comunicazioni esterne e scadenze.
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Metriche di processo e fornitura}
+Valeria presenta le metriche di processo per la fornitura: \textit{planned value}, \textit{earned value},
+\textit{actual cost}, \textit{Cost Performance Index (CPI)} e \textit{Schedule Performance Index (SPI)}.
+Viene confermata l’importanza di tali metriche per il monitoraggio di tempi e costi; alcune metriche
+ridondanti, come le variance, vengono escluse.
+
+\subsection*{Metriche per lo sviluppo}
+Vengono illustrate le metriche \textit{requirements stability index}, \textit{RCV} e \textit{PAR},
+ritenute utili per valutare stabilità dei requisiti e avanzamento delle attività.  
+Il gruppo concorda nel mantenerle.
+
+\subsection*{Metriche per la documentazione}
+Si discute l’utilità di metriche quali indice di Gulpiz, densità degli errori ortografici e indice di frammentazione.
+Emergono dubbi sulla misurabilità e sull’effettiva utilità di alcune metriche.
+Si decide di eliminare l’indice di Gulpiz e la densità dei commenti nel codice, mantenendo almeno una
+metrica per categoria.
+
+\subsection*{Metriche di qualità di prodotto}
+Vengono analizzate metriche relative ai requisiti, al \textit{code coverage} e alla manutenibilità.
+Si conferma il mantenimento della complessità ciclomatica e l’eliminazione della densità dei commenti.
+Resta aperta la valutazione sulla metrica di facilità di apprendimento.
+
+\subsection*{Automazione e strumenti}
+Il gruppo concorda sulla necessità di automatizzare il più possibile il calcolo delle metriche.
+Viene confermato l’utilizzo di Excel per la creazione dei grafici e di strumenti online per alcune
+metriche di documentazione.
+
+\subsection*{Gestione Gantt}
+GDF illustra diverse opzioni per la gestione del Gantt: screenshot da GitHub, pacchetti \LaTeX{}$_G$ o Excel.
+Si preferisce una visualizzazione ad alto livello, valutando l’uso delle milestone$_G$ GitHub.
+
+\subsection*{Organizzazione ruoli e sprint}
+Per il prossimo sprint viene confermata una composizione di tre programmatori e due verificatori,
+con possibilità di flessibilità sui ruoli in base alle necessità.
+
+\subsection*{Gestione repository Git} (TOGLIERE?)
+Viene chiarito che il merge$_G$ sposta tutti i commit$_G$ del branch$_G$.
+Si conferma di non caricare la cartella \texttt{node\_modules} nel repository e di gestirla tramite
+\texttt{.gitignore}.
+
+\subsection*{Requisiti e use case}
+Viene confermata la suddivisione dettagliata dei requisiti, motivata dalla presenza di diverse precondizioni.
+LeoPelli proseguirà con la stesura degli use case.
+
+\subsection*{Comunicazioni esterne}
+Viene fatta presente la creazione del diario di bordo entro la data stabilita dal prof. Vardanega con i vari progressi e dubbi emersi.
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+\addDecision{Mantenere le metriche principali di processo e fornitura}
+\addDecision{Eliminare indice di Gulpiz e densità commenti nel codice}
+\addDecision{Utilizzare Excel per i grafici delle metriche}
+\addDecision{Non caricare la cartella node\_modules su Git TOGLIERE?}
+\addDecision{Assegnare tre programmatori e due verificatori per il prossimo sprint}
+\addDecision{Utilizzare milestone GitHub per il Gantt}
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+
+\addTodo{\#33}{Terminazione AdR}{L. Pellizzon}{30/12/2025}
+\addTodo{\#35}{Prima stesura PqQ}{G. de Fina}{30/12/2025}
+\addTodo{\#37}{Definizione Gantt}{C. Libralato}{ND}
+\addTodo{\#55}{Aggiungere "derivable" al Glossario}{L. Granziero}{3/01/2026}
+\addTodo{\#56}{Scrittura verbale interno}{L. Granziero}{3/01/2026}
+\makeTodoTable
+
+\end{document}
