@@ -6,6 +6,8 @@
 \usepackage{multirow}
 \usepackage{xfp}
 \usepackage{ifthen}
+\usepackage{etoolbox}
+
 \iffalse
 COMANDI PER I NUMERI
 \fpeval{3.5 + 2.1}
@@ -51,6 +53,7 @@ Ore effettive
 \newcommand{\oreTotProge}{111}
 \newcommand{\oreTotProgr}{142}
 \newcommand{\oreTotVerif}{142}
+\newcommand{\oreTotVacante}{0}
 %Costo totale progetto
 \newcommand{\costoTotResp}{\fpeval{\costoHResp * \oreTotResp}}
 \newcommand{\costoTotAmm}{\fpeval{\costoHAmm * \oreTotAmm}}
@@ -58,6 +61,7 @@ Ore effettive
 \newcommand{\costoTotProge}{\fpeval{\costoHProge * \oreTotProge}}
 \newcommand{\costoTotProgr}{\fpeval{\costoHProgr * \oreTotProgr}}
 \newcommand{\costoTotVerif}{\fpeval{\costoHVerif * \oreTotVerif}}
+\newcommand{\costoTotVacante}{\fpeval{\costoHProge * \oreTotVacante}}
 
 %VARIABILI
 % Ore e budget rimasti non vengono mai resettati ma ad ogni sprint di sottraggono le risorse consumate
@@ -68,6 +72,8 @@ Ore effettive
 \newcommand{\oreTotProgeRimaste}{\oreTotProge}
 \newcommand{\oreTotProgrRimaste}{\oreTotProgr}
 \newcommand{\oreTotVerifRimaste}{\oreTotVerif}
+\newcommand{\oreTotVacanteRimaste}{\oreTotVacante}
+\newcommand{\oreTotVacanteRimasteTMP}{}
 %Budget rimasto per i prox sprint
 \newcommand{\budgetRespRimasto}{\costoTotResp}
 \newcommand{\budgetAmmRimasto}{\costoTotAmm}
@@ -75,6 +81,8 @@ Ore effettive
 \newcommand{\budgetProgeRimasto}{\costoTotProge}
 \newcommand{\budgetProgrRimasto}{\costoTotProgr}
 \newcommand{\budgetVerifRimasto}{\costoTotVerif}
+\newcommand{\budgetVacanteRimasto}{\costoTotVacante}
+\newcommand{\budgetVacanteRimastoTMP}{}
 %% Ruoli, ore previste e reali vanno resettate ad ogni sprint
 %ore previste
 \newcommand{\HPrevisteFilippo}{}
@@ -84,6 +92,7 @@ Ore effettive
 \newcommand{\HPrevisteChristian}{}
 \newcommand{\HPrevisteLeonardo}{}
 \newcommand{\HPrevisteFrancesco}{}
+\newcommand{\HPrevisteVacante}{0}
 %ore reali
 \newcommand{\HRealiFilippo}{}
 \newcommand{\HRealiValeria}{}
@@ -92,6 +101,7 @@ Ore effettive
 \newcommand{\HRealiChristian}{}
 \newcommand{\HRealiLeonardo}{}
 \newcommand{\HRealiFrancesco}{}
+\newcommand{\HRealiVacante}{0}
 %ruoli
 \newcommand{\ruoloFilippo}{}
 \newcommand{\ruoloValeria}{}
@@ -100,6 +110,7 @@ Ore effettive
 \newcommand{\ruoloChristian}{}
 \newcommand{\ruoloLeonardo}{}
 \newcommand{\ruoloFrancesco}{}
+\newcommand{\ruoloVacante}{}
 %SETTER
 %ore previste
 \newcommand{\setHPrevisteFilippo}[1]{\xappto{\HPrevisteFilippo}{#1}}
@@ -109,6 +120,7 @@ Ore effettive
 \newcommand{\setHPrevisteChristian}[1]{\xappto{\HPrevisteChristian}{#1}}
 \newcommand{\setHPrevisteLeonardo}[1]{\xappto{\HPrevisteLeonardo}{#1}}
 \newcommand{\setHPrevisteFrancesco}[1]{\xappto{\HPrevisteFrancesco}{#1}}
+\newcommand{\setHPrevisteVacante}[1]{\xappto{\HPrevisteVacante}{#1}}
 %ore reali
 \newcommand{\setHRealiFilippo}[1]{\xappto{\HRealiFilippo}{#1}}
 \newcommand{\setHRealiValeria}[1]{\xappto{\HRealiValeria}{#1}}
@@ -117,6 +129,7 @@ Ore effettive
 \newcommand{\setHRealiChristian}[1]{\xappto{\HRealiChristian}{#1}}
 \newcommand{\setHRealiLeonardo}[1]{\xappto{\HRealiLeonardo}{#1}}
 \newcommand{\setHRealiFrancesco}[1]{\xappto{\HRealiFrancesco}{#1}}
+\newcommand{\setHRealiVacante}[1]{\xappto{\HRealiVacante}{#1}}
 %ruoli
 \newcommand{\setRuoloFilippo}[1]{\xappto{\ruoloFilippo}{#1}}
 \newcommand{\setRuoloValeria}[1]{\xappto{\ruoloValeria}{#1}}
@@ -125,6 +138,7 @@ Ore effettive
 \newcommand{\setRuoloChristian}[1]{\xappto{\ruoloChristian}{#1}}
 \newcommand{\setRuoloLeonardo}[1]{\xappto{\ruoloLeonardo}{#1}}
 \newcommand{\setRuoloFrancesco}[1]{\xappto{\ruoloFrancesco}{#1}}
+\newcommand{\setRuoloVacante}[1]{\xappto{\ruoloVacante}{#1}}
 %ore previste per ruolo
 \newcommand{\HPrevisteResp}{0}
 \newcommand{\HPrevisteAmm}{0}
@@ -196,6 +210,7 @@ Ore effettive
     \ifthenelse{\equal{\ruoloChristian}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteChristian}}{}
     \ifthenelse{\equal{\ruoloLeonardo}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteLeonardo}}{}
     \ifthenelse{\equal{\ruoloFrancesco}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteFrancesco}}{}
+    \ifthenelse{\equal{\ruoloVacante}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteVacante}}{}
 }
 
 \newcommand{\CalcolaHPrevisteProgr}{
@@ -258,6 +273,7 @@ Ore effettive
     \ifthenelse{\equal{\ruoloChristian}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiChristian}}{}
     \ifthenelse{\equal{\ruoloLeonardo}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiLeonardo}}{}
     \ifthenelse{\equal{\ruoloFrancesco}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiFrancesco}}{}
+    \ifthenelse{\equal{\ruoloVacante}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiVacante}}{}
 }
 
 \newcommand{\CalcolaHRealiProgr}{
@@ -294,6 +310,9 @@ Ore effettive
             \ruoloFrancesco & F. Pasqual & \HPrevisteFrancesco & \HRealiFrancesco\\ \hline
             \ruoloLeonardo & L. Pellizzon & \HPrevisteLeonardo & \HRealiLeonardo\\ \hline
             \ruoloFilippo & F. Venzo & \HPrevisteFilippo & \HRealiFilippo\\ \hline
+            \ifthenelse{\equal{\ruoloVacante}{\Resp} \OR \equal{\ruoloVacante}{\Amm} \OR \equal{\ruoloVacante}{\Anal} \OR \equal{\ruoloVacante}{\Proge} \OR \equal{\ruoloVacante}{\Progr} \OR \equal{\ruoloVacante}{\Verif}}{
+                \ruoloVacante & - & \HPrevisteVacante & \HRealiVacante\\ \hline
+            }{}
 
             \cellcolor{lightgray} \textbf{Totale} & - 
             &\fpeval{\HPrevisteFilippo+\HPrevisteChristian+\HPrevisteValeria+\HPrevisteGiuseppe+\HPrevisteFrancesco+\HPrevisteLuca+\HPrevisteLeonardo}
@@ -380,6 +399,7 @@ Ore effettive
     \renewcommand{\HPrevisteChristian}{}
     \renewcommand{\HPrevisteLeonardo}{}
     \renewcommand{\HPrevisteFrancesco}{}
+    \renewcommand{\HPrevisteVacante}{}
 
     \renewcommand{\HRealiFilippo}{}
     \renewcommand{\HRealiValeria}{}
@@ -388,6 +408,7 @@ Ore effettive
     \renewcommand{\HRealiChristian}{}
     \renewcommand{\HRealiLeonardo}{}
     \renewcommand{\HRealiFrancesco}{}
+    \renewcommand{\HRealiVacante}{}
 
     \renewcommand{\ruoloFilippo}{}
     \renewcommand{\ruoloValeria}{}
@@ -396,6 +417,7 @@ Ore effettive
     \renewcommand{\ruoloChristian}{}
     \renewcommand{\ruoloLeonardo}{}
     \renewcommand{\ruoloFrancesco}{}
+    \renewcommand{\ruoloVacante}{}
 
     \renewcommand{\HPrevisteResp}{0}
     \renewcommand{\HPrevisteAmm}{0}
