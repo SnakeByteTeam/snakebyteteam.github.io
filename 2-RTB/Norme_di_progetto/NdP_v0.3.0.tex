@@ -11,6 +11,7 @@
 \renewcommand{\contentsname}{Indice}
 \usepackage{fancyhdr}
 \usepackage{tabularx}
+\usepackage{template}
 
 %Comandi per livello di sottosezioni = 3
 \setcounter{tocdepth}{4}
@@ -46,7 +47,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                0.2.0 & 08/12/2025 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
+                0.3.0 & 1/1/2026 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
                 \hline
             \end{tabular}
         \end{center}
@@ -61,21 +62,23 @@
     \hline
     \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
     \hline
+    0.3.0 & 1/1/2026 & V. Baleanu & F. Venzo & - & Aggiunta metriche di qualità di processo e di prodotto. \\ 
+    \hline
     0.2.0 & 08/12/2025 & C. Libralato & L. Pellizzon & - & Aggiunte a processo di verifica e approvazione (sez. 3.1.4, 3.1.5). Aggiunta Sviluppo con Analisi Requisiti ai processi primari (sez. 2.2 )\\ 
     \hline
     0.1.6 & 29/11/2025 & F. Pasqual & V. Baleanu & - & Aggiunto processo di verifica tramite \textit{pull request} \\ 
     \hline
-    0.1.5 & 8/11/2025 & Filippo Venzo & - & - & Aggiunta tabella attività completate nella struttura dei verbali\\
+    0.1.5 & 8/11/2025 & F. Venzo & L. Granziero & - & Aggiunta tabella attività completate nella struttura dei verbali\\
     \hline
-    0.1.4 & 30/10/2025 & Filippo Venzo & Luca Granziero & - & Modifica struttura tabella attività, modifiche tipografiche\\
+    0.1.4 & 30/10/2025 & F. Venzo & L. Granziero & - & Modifica struttura tabella attività, modifiche tipografiche\\
     \hline
-    0.1.3 & 26/10/2025 & Filippo Venzo & Luca Granziero & - & Aggiunta sezioni e termini glossario, modifica convenzione date nei nomi dei file \\
+    0.1.3 & 26/10/2025 & F. Venzo & L. Granziero & - & Aggiunta sezioni e termini glossario, modifica convenzione date nei nomi dei file \\
     \hline
-    0.1.2 & 23/10/2025 & Filippo Venzo & Luca Granziero & - & Correzione errori ortografici e aggiunta link \\
+    0.1.2 & 23/10/2025 & F. Venzo & L. Granziero & - & Correzione errori ortografici e aggiunta link \\
     \hline
-    0.1.1 & 22/10/2025 & Filippo Venzo & Luca Granziero & - & Aggiunta sezioni e sotto sezioni \\
+    0.1.1 & 22/10/2025 & F. Venzo & L. Granziero & - & Aggiunta sezioni e sotto sezioni \\
     \hline
-    0.1.0 & 17/10/2025 & Filippo Venzo & Luca Granziero & - & Prima stesura \\
+    0.1.0 & 17/10/2025 & F. Venzo & L. Granziero & - & Prima stesura \\
     \hline
 \end{tabularx}    
 \end{center}
@@ -240,7 +243,7 @@ La struttura è la seguente:
     \end{tabularx}
 \end{center}
 %==========================
-La crezione della tabella è facilitata dall'utilizzo del template \texttt{templateAdR.sty}.\\
+La creazione della tabella è facilitata dall'utilizzo del template \texttt{templateAdR.sty}.\\
 Non tutti i \textit{casi d'uso} necessitano della tabella nella sua interezza, la presenza dei campi: Trigger, Scenari alternativi, Estensioni e Inclusioni
 dipende dalla situazione.
 
@@ -332,7 +335,7 @@ I verbali sia interni che esterni, oltre alla struttura descritta nel capitolo \
 \trisubsection{Tabella delle decisioni}
 Per il tracciamento e l'organizzazione di ogni decisione presa collettivamente dal gruppo \textit{SnakeByte}, al termine di ogni verbale, deve essere presente una tabella che riporta le decisioni prese in seguito alla riunione in questione. Per ogni decisione deve essere riportato
 \begin{itemize}
-    \item Identificativo alfanumerico della decisioni, così composto\\ \texttt{v\{i, e\}}\_AAAA\_MM\_GG.d\texttt{<numero\_decisione>};
+    \item Identificativo alfanumerico della decisione, così composto\\ \texttt{v\{i, e\}}\_AAAA\_MM\_GG.d\texttt{<numero\_decisione>};
     \item Descrizione testuale della decisione presa.
 \end{itemize}
 
@@ -359,7 +362,7 @@ Per il tracciamento delle attività svolte, deve essere presente una tabella che
 
 
 \subsubsection{Redazione dei documenti}
-La stesura e l'aggiornamento dei documenti è affidata alla persona che ricopre, in quel periodo, il ruolo di \textit{amministratore$_{G}$}. Le informazioni che verranno usate per redarre i documenti saranno ricavate dalle riunioni e comunicazioni con gli altri componenti del gruppo.
+La stesura e l'aggiornamento dei documenti è affidata alla persona che ricopre, in quel periodo, il ruolo di \textit{amministratore$_{G}$}. Le informazioni che verranno usate per redigere i documenti saranno ricavate dalle riunioni e comunicazioni con gli altri componenti del gruppo.
 
 \trisubsection{Redazione dei verbali}
 Differentemente dagli altri documenti, ogni verbale viene redatto da una persona decisa durante la rispettiva riunione. 
@@ -479,7 +482,7 @@ Nella nomenclatura e all'interno dei documenti sono utilizzati i seguenti acroni
 \end{center}
 
 \trisubsection{Convenzione}
-La convenzione in uso per la nomenclatura dei file è la seguente (dove X, Y e Z sono le versione descritte nella sezione \hyperref[sec:Versionamento]{\textit{§3.2.1}})
+La convenzione in uso per la nomenclatura dei file è la seguente (dove X, Y e Z sono le versioni descritte nella sezione \hyperref[sec:Versionamento]{\textit{§3.2.1}})
 \begin{itemize}
     \item \textbf{Verbali}: vi\_AAAA\_MM\_GG\_vX.Y.Z    
     \item \textbf{Generale}: \texttt{<ACR.DOC.>}\_vX.Y.Z (dove \texttt{<ACR.DOC.>} è l'acronimo del documento)
@@ -621,8 +624,638 @@ Altre eventuali riunioni possono essere fissate tramite confronto e accordo tra 
 Per le comunicazioni interne, il gruppo \textit{SnakeByte} ha individuato come mezzo per la trasmissione di informazioni in formato sincrono e asincrono la piattaforma \textit{\textit{Discord$_{G}$}}.
 
 \trisubsection{Comunicazioni esterne}
-Per le comunicazioni esterne, il gruppo \textit{SnakeByte} ha individuato come mezzo per la trasmissione di informazioni in formato asincrono i messaggi email, esclusivamente tramite l'indirizzo ufficiale del gruppo (\textit{snakebyteteam@gmail.com}). Mentre per le comunicazioni sincrone l'applicazione di videoconferenze \textit{Google Meet}. 
+Per le comunicazioni esterne, il gruppo \textit{SnakeByte} ha individuato come mezzo per la trasmissione di informazioni in formato asincrono i messaggi email, esclusivamente tramite l'indirizzo ufficiale del gruppo (\textit{snakebyteteam@gmail.com}). Mentre per le comunicazioni sincrone l'applicazione di videoconferenze \textit{Google Meet}.
 
 %Scrivere di , google sheets, validazione dei documenti.
+
+
+
+\section{Metriche di qualità di processo}
+In questa sezione vengono definite le metriche di qualità adottate per monitorare
+e valutare in modo quantitativo l'efficacia e l'efficienza dei processi utilizzati 
+durante lo sviluppo del progetto. 
+\\ Ogni metrica di qualità di processo è identificata 
+da un codice univoco nella forma \textit{MPCX}, dove \textit{X} rappresenta 
+un numero intero progressivo.
+
+\subsection{Processi primari}
+
+\subsubsection{Fornitura}
+
+\trisubsection{MPC1 - Planned Value (PV)}
+\label{sec:MPC1}
+\Metrica{MPC1}
+{Valore pianificato del lavoro che, secondo il piano, 
+dovrebbe essere raggiunto al termine dello \textit{sprint} k. 
+Il \textit{Planned Value} viene calcolato al termine di ciascuno \textit{sprint} per monitorare 
+l'avanzamento del progetto rispetto alla pianificazione.}
+{\[ PV_k = BAC \cdot \mbox{Percentuale completamento pianificato allo sprint k} \] Dove:
+\begin{itemize}
+    \item $BAC$ = Budget totale previsto (\textit{Budget At Completion});
+    \item $k$ = Numero dello sprint di riferimento.
+\end{itemize}
+}
+{Fornisce un punto di riferimento temporale per 
+valutare se il progetto sta procedendo secondo la schedulazione prevista, 
+permettendo di identificare tempestivamente eventuali ritardi o anticipi 
+rispetto al piano originale.}
+
+\trisubsection{MPC2 - Earned Value (EV)}
+\label{sec:MPC2}
+\Metrica{MPC2}
+{Valore effettivo del lavoro che è stato raggiunto al termine dello \textit{sprint} k.
+L'\textit{Earned Value} viene calcolato al termine di ciascuno sprint per monitorare il progresso 
+reale del progetto rispetto al piano.}
+{\[ EV_k = BAC \cdot \mbox{Percentuale completamento effettivo allo sprint k} \] Dove:
+\begin{itemize}
+    \item $BAC$ = Budget totale previsto (\textit{Budget At Completion});
+    \item $k$ = Numero dello sprint di riferimento.
+\end{itemize}
+}
+{Confronta il lavoro completato sia con i costi 
+sostenuti (tramite CPI) che con la pianificazione temporale 
+(tramite SPI), costituendo quindi la base per tutte le analisi di performance.}
+
+\trisubsection{MPC3 - Actual Cost (AC)}
+\label{sec:MPC3}
+\Metrica
+{MPC3}
+{Rappresenta il costo effettivo, cioè il costo reale sostenuto per il lavoro svolto
+fino ad un determinato \textit{sprint}. Viene calcolato alla fine di ogni \textit{sprint}.}
+{\[ AC_k = \sum_{i=1}^{k} \mbox{Costo sostenuto nello sprint i} \] 
+Dove:
+\begin{itemize}
+    \item $k$ = Numero dello sprint di riferimento.
+\end{itemize}
+}
+{Permette di confrontare le spese effettive 
+con il budget pianificato e con il valore prodotto, consentendo di rilevare 
+tempestivamente sforamenti di budget o inefficienze nell'utilizzo 
+delle risorse.}
+
+\trisubsection{MPC4 - Cost Performance Index (CPI)}
+\label{sec:MPC4}
+\Metrica{MPC4}
+{Rappresenta l'efficienza con cui il budget viene utilizzato e corrisponde al 
+rapporto tra il valore del lavoro raggiunto e il costo reale sostenuto, al termine dello \textit{sprint} k.
+Interpretazione dei valori:
+\begin{itemize}
+    \item CPI $> 1$: il progetto è sotto il budget;
+    \item CPI $< 1$: il progetto è sopra il budget;
+    \item CPI $= 1$: il progetto è in linea con il budget pianificato.
+\end{itemize}}
+{\[ CPI_k = \frac{EV_k}{AC_k} \]
+Dove: 
+\begin{itemize}
+    \item $EV_k$ = \textit{Earned Value} allo \textit{sprint} k (si veda §\ref{sec:MPC2});
+    \item $AC_k$ = \textit{Actual Cost} allo \textit{sprint} k (si veda §\ref{sec:MPC3});
+    \item $k$ = Numero dello sprint di riferimento.
+\end{itemize}
+}
+{Quantifica l'efficienza nell'uso delle risorse e 
+prevede se il progetto terminerà entro il budget previsto. Un monitoraggio 
+costante del CPI permette di identificare tempestivamente inefficienze e di 
+adottare misure correttive per evitare sforamenti significativi.}
+
+\trisubsection{MPC5 - Schedule Performance Index (SPI)}
+\label{sec:MPC5}
+\Metrica{MPC5}
+{Rappresenta l'efficienza con cui il lavoro viene completato rispetto alla 
+pianificazione e corrisponde al rapporto tra il valore del lavoro completato
+e il valore pianificato del lavoro fino ad un determinato \textit{sprint}. 
+Interpretazione dei valori:
+\begin{itemize}
+    \item SPI $> 1$: il progetto è in anticipo rispetto alla pianificazione;
+    \item SPI $< 1$: il progetto è in ritardo rispetto alla pianificazione;
+    \item SPI $= 1$: il progetto procede secondo i tempi previsti.
+\end{itemize}
+Un SPI costantemente inferiore a 1 segnala la necessità di rivedere 
+la pianificazione o di allocare risorse aggiuntive per recuperare i 
+ritardi accumulati.}
+{ \[ SPI_k = \frac{EV_k}{PV_k} \] 
+Dove: 
+\begin{itemize}
+    \item $EV_k$ = \textit{Earned Value} allo \textit{sprint} k (si veda §\ref{sec:MPC2});
+    \item $PV_k$ = \textit{Planned Value} allo \textit{sprint} k (si veda §\ref{sec:MPC1});
+    \item $k$ = Numero dello sprint di riferimento.
+\end{itemize} }
+{Permette di valutare se il gruppo ha rispettato le 
+scadenze previste e permette di stimare se il progetto terminerà 
+nei tempi pianificati.}
+
+\trisubsection{MPC6 - Estimate At Completion (EAC)}
+\label{sec:MPC6}
+\Metrica{MPC6}
+{Stima del costo totale finale del progetto al completamento, calcolata come la somma 
+tra i costi sostenuti fino al momento della misurazione e il budget rimanente.}
+{\[EAC_k = AC_k + (BAC - EV_k) \]
+Dove:
+\begin{itemize}
+    \item $AC_k$ = \textit{Actual Cost} allo \textit{sprint} k (si veda §\ref{sec:MPC3});
+    \item $BAC$ = Budget totale previsto (\textit{Budget At Completion}); 
+    \item $EV_k$ = \textit{Earned Value} allo \textit{sprint} k (si veda §\ref{sec:MPC2});
+    \item $k$ = Numero dello sprint di riferimento.
+\end{itemize}
+}
+{La metrica \textit{EAC} fornisce una previsione realistica del budget necessario 
+considerando il lavoro effettivo già eseguito.
+Consente inoltre di identificare tempestivamente potenziali sforamenti di budget, 
+permettendo di applicare azioni correttive prima che gli scostamenti 
+diventino critici.}
+
+\trisubsection{MPC7 - Estimate To Complete (ETC)}
+\label{sec:MPC7}
+\Metrica{MPC7}
+{Stima del costo necessario per completare il lavoro rimanente del progetto, 
+calcolata al termine di un determinato \textit{sprint}. 
+Rappresenta la proiezione delle risorse economiche ancora necessarie per portare 
+a termine tutte le attività non ancora completate e viene calcolata come la 
+differenza tra il costo finale stimato e il costo sostenuto.}
+{\[ ETC_k = EAC_k - AC_k \]
+Dove: 
+\begin{itemize}
+    \item $EAC_k$ = \textit{Estimate at Completion} allo \textit{sprint} k (si veda §\ref{sec:MPC6});
+    \item $AC_k$ = \textit{Actual Cost} allo \textit{sprint} k (si veda §\ref{sec:MPC3});
+    \item $k$ = Numero dello sprint di riferimento.
+\end{itemize}
+}
+{Permette di valutare se le risorse economiche 
+residue sono sufficienti per completare il progetto.}
+
+\subsubsection{Sviluppo}
+
+\trisubsection{MPC8 - Requirements Stability Index (RSI)}
+\label{sec:MPC8}
+\Metrica{MPC8}
+{Indice che misura la stabilità dei requisiti del progetto durante il suo ciclo 
+di vita, quantificando la percentuale di requisiti che non hanno subito modifiche, 
+aggiunte o cancellazioni rispetto al totale.
+Interpretazione dei valori:
+\begin{itemize}
+    \item RSI $\geq 85\%$: requisiti molto stabili, eccellente analisi iniziale;
+    \item $60\% \leq $ RSI $ < 85\%$: stabilità accettabile, alcune modifiche sono normali;
+    \item $40\% \leq $ RSI $ < 60\%$: elevata volatilità, problemi nella definizione dei requisiti;
+    \item RSI $< 40\%$: instabilità critica.
+\end{itemize}}
+{\[RSI = \frac{R_{iniziali} - (R_{modificati} + R_{cancellati})}{R_{iniziali} + R_{aggiunti}} \cdot 100\]
+Dove:
+\begin{itemize}
+    \item $R_{iniziali}$ = Numero di requisiti definiti all'inizio del progetto;
+    \item $R_{modificati}$ = Numero di requisiti iniziali che hanno subito modifiche;
+    \item $R_{cancellati}$ = Numero di requisiti iniziali che sono stati rimossi;
+    \item $R_{aggiunti}$ = Numero di nuovi requisiti aggiunti durante il progetto.
+\end{itemize}
+}
+{Valuta la qualità dell'analisi iniziale dei requisiti e identifica problemi 
+nella loro definizione.}
+
+\trisubsection{MPC9 - Requirements Completion Velocity (RCV)}
+\label{sec:MPC9}
+\Metrica{MPC9}
+{Rappresenta il numero medio di requisiti completati per \textit{sprint}, 
+calcolato su un periodo di riferimento.}
+{\[ RCV = \frac{\sum_{i=1}^{k} RC_i}{k} \]
+Dove:
+\begin{itemize}
+    \item $RC_i$ = Numero di requisiti completati nello \textit{sprint} i;
+    \item $k$ = Numero dello \textit{sprint} di riferimento.
+\end{itemize}
+}
+{Questa metrica è utile per la pianificazione futura: permette di stimare 
+realisticamente quanti requisiti possono essere completati negli sprint 
+rimanenti e di prevedere la data di completamento del progetto.}
+
+% \trisubsection{MPC10 - Percentuale Attività in Ritardo (PAR)}
+% \label{sec:MPC10}
+% \Metrica{MPC10}
+% {Rappresenta la percentuale di attività completate in ritardo rispetto alla 
+% scadenza prevista durante un determinato \textit{sprint}.
+% Interpretazione dei valori:
+% \begin{itemize}
+%     \item PAR $= 0\%$: tutte le attività sono state completate nei tempi previsti;
+%     \item PAR $\leq 15\%$: buona pianificazione, anche se con alcuni ritardi;
+%     \item $15\% < $ PAR $ \leq 30\%$: problemi moderati di stima o esecuzione;
+%     \item PAR $> 30\%$: problemi significativi, necessario rivedere il processo di pianificazione.
+% \end{itemize}}
+% {\[ PAR_k = \frac{ACR_k}{ACT_k} \cdot 100 \]
+% Dove:
+% \begin{itemize}
+%     \item $ACR_k$ = Numero di attività completate in ritardo nello \textit{sprint} k;
+%     \item $ACT_k$ = Numero di attività completate in totale nello \textit{sprint} k;
+%     \item $k$ = Numero dello \textit{sprint} di riferimento.
+% \end{itemize}
+% }
+% {Valuta l'efficacia della pianificazione e l'aderenza alle tempistiche: 
+% un valore elevato indica problemi sistematici nella stima dei tempi, 
+% nella gestione delle priorità o nella disponibilità 
+% delle risorse. Permette di identificare problematiche nel processo di 
+% sviluppo e di adottare azioni correttive per migliorare la prevedibilità 
+% delle consegne e il rispetto delle \textit{milestone} di progetto.}
+
+\subsection{Processi di supporto}
+\subsubsection{Documentazione}
+\trisubsection{MPC10 - Indice di Gulpease (IG)}
+\Metrica{MPC10}
+{Indice che misura la leggibilità di un testo in lingua italiana, basato sulla 
+lunghezza delle parole e delle frasi.
+Interpretazione dei valori:
+\begin{itemize}
+    \item IG $\geq 80$: testo molto facile, comprensibile da studenti di scuola elementare;
+    \item $60 \leq$ IG $< 80$: testo facile, comprensibile da studenti di scuola media;
+    \item $40 \leq$ IG $< 60$: testo abbastanza difficile, comprensibile da studenti di scuola superiore;
+    \item IG $< 40$: testo difficile, richiede istruzione universitaria.
+\end{itemize}}
+{\[ IG = 89 + \frac{300 \cdot N_{frasi} - 10 \cdot N_{lettere}}{N_{parole}} \]
+Dove:
+\begin{itemize}
+    \item $N_{frasi}$ = Numero di frasi nel testo;
+    \item $N_{lettere}$ = Numero di lettere nel testo;
+    \item $N_{parole}$ = Numero totale di parole nel testo.
+\end{itemize}
+}
+{Garantisce la qualità della documentazione: assicura che i documenti siano comprensibili, 
+riducendo ambiguità e incomprensioni.}
+
+% \trisubsection{MPC12 - Densità Errori Ortografici (DEO)}
+% \Metrica{MPC12}
+% {Rappresenta il numero di errori ortografici presenti ogni 1000 parole di 
+% documentazione prodotta.
+% Interpretazione dei valori:
+% \begin{itemize}
+%     \item DEO = 0: il testo non presenta alcun errore;
+%     \item $0 < $ DEO $ \leq 5$: il testo presenta pochi errori;
+%     \item $5 < $ DEO $ \leq 10$: il testo presenta alcuni errori, è necessario 
+%     revisionare il documento;
+%     \item DEO $> 10$: il testo presenta troppi errori, è necessario correggere 
+%     il documento.
+% \end{itemize}}
+% {\[ DEO = \frac{N_{errori}}{N_{parole}} \cdot 1000 \] 
+% Dove:
+% \begin{itemize}
+%     \item $N_{errori}$ = Numero totale di errori ortografici rilevati nel documento;
+%     \item $N_{parole}$ = Numero totale di parole nel documento.
+% \end{itemize}
+% }
+% {Garantisce la professionalità della documentazione.}
+
+\trisubsection{MPC11 - Indice di Frammentazione (IF)}
+\Metrica{MPC11}
+{Misura il grado di suddivisione del testo in unità logiche (sezioni e paragrafi). 
+Un valore bilanciato indica che il documento non presenta "muri di testo" 
+eccessivi, facilitando la lettura veloce e la 
+memorizzazione dei concetti. 
+Interpretazione dei valori:
+\begin{itemize}
+    \item IF $< 5\%$: il testo è molto denso e difficile da leggere;
+    \item $5\% \le$ IF $\le 20\%$: bilanciamento ottimale tra contenuto 
+    e suddivisione spaziale;
+    \item IF $> 20\%$: il testo è eccessivamente frammentato, 
+    rischiando di perdere coesione.
+\end{itemize}
+}
+{\[ IF = \frac{N_{sezioni} + N_{paragrafi}}{N_{linee}} \cdot 100 \] 
+Dove: 
+\begin{itemize}
+    \item $N_{sezioni}$ = Numero di sezioni e sottosezioni del documento;
+    \item $N_{paragrafi}$ = Numero di paragrafi del documento;
+    \item $N_{linee}$ = Numero totale di linee di testo del documento.
+\end{itemize}
+}
+{Assicura che la documentazione sia strutturata in modo da facilitare la consultazione 
+e il reperimento rapido delle informazioni. Previene inoltre problemi di leggibilità dovuti 
+a testo eccessivamente denso o frammentato.}
+
+
+\subsubsection{Verifica}
+
+\trisubsection{MPC12 - Test Success Rate (TSR)}
+\Metrica{MPC12}
+{Percentuale di casi di test che sono stati eseguiti con esito positivo rispetto al
+numero totale di casi di test eseguiti.
+Interpretazione dei valori:
+\begin{itemize}
+    \item TSR $= 100\%$: qualità eccellente, tutti i test sono stati superati;
+    \item $80\% \leq $ TSR $ < 100\%$: qualità accettabile;
+    \item $70\% \leq $ TSR $ < 80\%$: qualità discreta, sono necessarie correzioni;
+    \item TSR $< 70\%$: qualità inaccettabile, necessaria revisione approfondita del codice.
+\end{itemize}}
+{\[ TSR = \frac{T_{successo}}{T_{totali}} \cdot 100 \]
+Dove:
+\begin{itemize}
+    \item $T_{successo}$ = Numero di test eseguiti con esito positivo;
+    \item $T_{totali}$ = Numero di test eseguiti.
+\end{itemize}
+}
+{Fornisce una misura della correttezza del \textit{software} e dell'efficacia 
+dell'attività di \textit{testing}.}
+
+\subsubsection{Gestione della qualità}
+\trisubsection{MPC13 - Percentuale Metriche Soddisfatte (PMS)}
+\Metrica{MPC13}
+{Percentuale di metriche di qualità soddisfatte rispetto al numero di metriche totali.
+Interpretazione dei valori:
+\begin{itemize}
+    \item PMS $\geq 90\%$: eccellente, il progetto rispetta gli standard di qualità;
+    \item $80\% \leq $ PMS $ < 90\%$: buono, ma alcune aree richiedono miglioramento;
+    \item $70\% \leq $ PMS $ < 80\%$: sufficiente, necessarie azioni correttive;
+    \item PMS $< 70\%$: insoddisfacente, il progetto presenta problemi significativi di qualità.
+\end{itemize}}
+{\[ PMS = \frac{M_{soddisfatte}}{M_{totali}} \cdot 100 \] 
+Dove:
+\begin{itemize}
+    \item $M_{soddisfatte}$ = Numero di metriche soddisfatte;
+    \item $M_{totali}$ = Numero di metriche definite.
+\end{itemize}
+}
+{Offre una valutazione della qualità complessiva del progetto. 
+Facilita il controllo dell'aderenza agli standard di qualità definiti e 
+l'identificazione tempestiva di criticità che richiedono azioni correttive.}
+
+\subsection{Processi organizzativi}
+\subsubsection{Gestione dei processi}
+\trisubsection{MPC14 - Percentuale Rischi Inattesi (PRI)}
+\Metrica{MPC14}
+{Percentuale di rischi non previsti che si sono manifestati nel corso dello \textit{sprint} k.
+Interpretazione dei valori:
+\begin{itemize}
+    \item PRI = 0: eccellente;
+    \item PRI $\leq 5\%$: buono, alcuni rischi non previsti sono normali;
+    \item $5\% < $ PRI $ \leq 20\%$: accettabile ma migliorabile;
+    \item $20\% < $ PRI $ \leq 40\%$: insufficiente, è necessario migliorare l'analisi dei rischi;
+    \item PRI $> 40\%$: gestione inadeguata, l'attività di gestione dei rischi è inefficace.
+\end{itemize}}
+{\[ PRI_k = \frac{R_{inattesi,k}}{R_{totali,k}} \cdot 100 \] 
+Dove:
+\begin{itemize}
+    \item $R_{inattesi,k}$ = Numero di rischi non previsti che si sono verificati nello \textit{sprint} k;
+    \item $R_{totali,k}$ = Numero di rischi totali che si sono verificati nello \textit{sprint} k;
+    \item $k$ = Numero dello \textit{sprint} di riferimento.
+\end{itemize}
+}
+{Fornisce una misura del livello di accuratezza dell'attività di analisi 
+e gestione dei rischi.}
+
+\trisubsection{MPC15 - Labor Efficiency (LE)}
+\Metrica{MPC15}
+{Rappresenta il rapporto tra le ore di lavoro pianificate per lo 
+svolgimento di determinate attività e le ore effettivamente impiegate 
+per il loro completamento nello \textit{sprint} di riferimento. 
+Interpretazione dei valori:
+\begin{itemize}
+    \item LE $> 100\%$: il gruppo è stato più veloce del previsto;
+    \item LE $< 100\%$: il team ha impiegato più tempo del previsto;
+    \item LE $= 100\%$: le stime sono perfettamente in linea con la capacità produttiva.
+\end{itemize}
+}
+{\[ LE_k = \frac{H_{pianificate}}{H_{effettive}} \cdot 100 \]
+Dove:
+\begin{itemize}
+    \item $H_{pianificate}$ = Somma delle ore stimate per le attività 
+    completate nello \textit{sprint} k;
+    \item $H_{effettive}$ = Somma delle ore rendicontate dai membri 
+    del gruppo per lo \textit{sprint} k;
+    \item $k$ = Numero dello sprint di riferimento.
+\end{itemize}
+}
+{Mentre lo SPI (si veda §\ref{sec:MPC5}) valuta l'avanzamento in termini di valore economico, 
+questa metrica permette di monitorare direttamente la precisione delle 
+stime temporali effettuate dal team durante la pianificazione.}
+
+\section{Metriche di qualità di prodotto}
+In questa sezione vengono definite le metriche di qualità adottate per 
+garantire che i prodotti di progetto (documentazione e \textit{software}) 
+soddisfino i requisiti qualitativi stabiliti.
+\\Ogni metrica è identificata da un codice univoco nella forma \textit{MPDX}, dove \textit{X} rappresenta 
+un numero intero progressivo.
+
+\subsection{Funzionalità}
+\trisubsection{MPD1 -  Percentuale Requisiti Obbligatori Soddisfatti (PROS)}
+\Metrica{MPD1}
+{Percentuale di requisiti obbligatori soddisfatti rispetto al numero totale 
+di requisiti obbligatori definiti.
+Interpretazione dei valori:
+\begin{itemize}
+    \item PROS $= 100\%$: tutti i requisiti obbligatori sono stati 
+    implementati, il prodotto è completo;
+    \item $90\% \leq $ PROS $ < 100\%$: il prodotto è quasi completo, 
+    mancano poche funzionalità;
+    \item $70\% \leq $ PROS $ < 90\%$: il prodotto è parzialmente funzionante;
+    \item PROS $< 70\%$: il prodotto è incompleto, non rilasciabile.
+\end{itemize}}
+{\[ PROS =  \frac{RO_{soddisfatti}}{RO_{totali}} \cdot 100\] 
+Dove: 
+\begin{itemize}
+    \item $RO_{soddisfatti}$ = Requisiti obbligatori soddisfatti;
+    \item $RO_{totali}$ = Requisiti obbligatori totali.
+\end{itemize}
+}
+{Determina se il prodotto ha raggiunto il livello minimo di funzionalità 
+necessario per il rilascio. Permette inoltre di 
+identificare tempestivamente ritardi che potrebbero compromettere la 
+consegna del prodotto nei tempi concordati.}
+
+\trisubsection{MPD2 -  Percentuale Requisiti Opzionali Soddisfatti (PRPS)}
+\Metrica{MPD2}
+{Percentuale di requisiti opzionali soddisfatti rispetto al numero totale 
+di requisiti opzionali definiti.
+L'implementazione di requisiti opzionali 
+aumenta il valore del prodotto ma non è essenziale per il suo funzionamento base.}
+{\[ PRPS =  \frac{RP_{soddisfatti}}{RP_{totali}} \cdot 100\] 
+Dove: 
+\begin{itemize}
+    \item $RP_{soddisfatti}$ = Requisiti opzionali soddisfatti;
+    \item $RP_{totali}$ = Requisiti opzionali totali.
+\end{itemize}
+}
+{Misura il valore aggiunto fornito dal prodotto oltre le funzionalità minime 
+richieste e permette di comunicare al proponente il livello 
+di arricchimento del prodotto rispetto alle aspettative base.}
+
+\trisubsection{MPD3 -  Percentuale Requisiti Desiderabili Soddisfatti (PRDS)}
+\Metrica{MPD3}
+{Percentuale di requisiti desiderabili soddisfatti rispetto al numero totale 
+di requisiti desiderabili definiti.
+I requisiti desiderabili migliorano 
+significativamente l'esperienza utente e la competitività del prodotto.}
+{\[ PRDS =  \frac{RD_{soddisfatti}}{RD_{totali}} \cdot 100\] 
+Dove: 
+\begin{itemize}
+    \item $RD_{soddisfatti}$ = Requisiti desiderabili soddisfatti;
+    \item $RD_{totali}$ = Requisiti desiderabili totali.
+\end{itemize}
+}
+{Valuta il valore aggiunto fornito dal prodotto oltre le funzionalità minime e opzionali.}
+
+\subsection{Affidabilità}
+\trisubsection{MPD4 - Line Coverage (LC)}
+\Metrica{MPD4}
+{Indica la percentuale di linee di codice eseguite dai test automatici 
+rispetto alle linee di codice totali.
+Interpretazione dei valori:
+\begin{itemize}
+    \item LC $\geq 80\%$: copertura eccellente, codice ben testato;
+    \item $60\% \leq $ LC $ < 80\%$: copertura buona, ma migliorabile;
+    \item $40\% \leq $ LC $ < 60\%$: copertura insufficiente, è necessario aumentare i test;
+    \item LC $< 40\%$: copertura critica, il codice è poco testato.
+\end{itemize}}
+{\[ LC = \frac{L_{eseguite}}{L_{totali}} \cdot 100 \] 
+Dove:
+\begin{itemize}
+    \item $L_{eseguite}$ = Numero di linee di codice eseguite dai test;
+    \item $L_{totali}$ = Numero di linee di codice totali.
+\end{itemize}}
+{Quantifica l'efficacia dei test automatici nell'individuare difetti e garantire 
+la correttezza del codice. Permette inoltre di identificare porzioni di 
+codice non testate che potrebbero contenere errori.}
+
+\trisubsection{MPD5 - Branch Coverage (BC)}
+\Metrica{MPD5}
+{Indica la percentuale di rami decisionali del codice eseguiti dai test.
+Interpretazione dei valori:
+\begin{itemize}
+    \item BC $\geq 75\%$: copertura eccellente dei percorsi decisionali;
+    \item $60\% \leq $ BC $ < 75\%$: copertura buona;
+    \item $40\% \leq $ BC $ < 60\%$: copertura insufficiente;
+    \item BC $< 40\%$: molti percorsi decisionali non testati, rischio elevato di errori.
+\end{itemize}}
+{\[ BC = \frac{B_{eseguite}}{B_{totali}} \cdot 100 \] 
+Dove:
+\begin{itemize}
+    \item $B_{eseguite}$ = Numero di rami (\textit{branch}) decisionali eseguiti dai test;
+    \item $B_{totali}$ = Numero di rami decisionali totali.
+\end{itemize}}
+{Fornisce una misura più rigorosa della qualità dei test rispetto alla 
+semplice copertura delle linee, garantendo che la logica condizionale sia 
+correttamente testata.}
+
+\trisubsection{MPD6 - Statement Coverage (SC)}
+\Metrica{MPD6}
+{Indica la percentuale di istruzioni nel codice eseguite dai test.
+Interpretazione dei valori:
+\begin{itemize}
+    \item SC $\geq 80\%$: copertura eccellente delle istruzioni;
+    \item $60\% \leq $ SC $ < 80\%$: copertura buona;
+    \item $40\% \leq $ SC $ < 60\%$: copertura insufficiente;
+    \item SC $< 40\%$: molte istruzioni non testate.
+\end{itemize}}
+{\[ SC = \frac{S_{eseguite}}{S_{totali}} \cdot 100 \] 
+Dove:
+\begin{itemize}
+    \item $S_{eseguite}$ = Numero di istruzioni (\textit{statement}) eseguite dai test;
+    \item $S_{totali}$ = Numero di istruzioni totali.
+\end{itemize}}
+{Garantisce che ogni singola istruzione del codice sia stata eseguita almeno 
+una volta durante i test, identificando codice inutilizzato o non raggiungibile.}
+
+\subsection{Usabilità}
+\trisubsection{MPD7 - Profondità Massima di Navigazione (PMN)}
+\Metrica{MPD7}
+{Misura il massimo numero di click necessari per completare qualsiasi operazione, date $k$ operazioni analizzate. 
+Valuta il caso peggiore di navigazione, garantendo che anche le operazioni 
+più profonde rimangano accessibili.
+Interpretazione dei valori:
+\begin{itemize}
+    \item PMN $\leq 3$: tutte le operazioni sono immediate;
+    \item $3 < $ PMN $ \leq 5$: la navigazione è buona anche nel caso peggiore;
+    \item $5 < $ PMN $ \leq 7$: accettabile, nonostante alcune operazioni richiedano troppi passaggi;
+    \item PMN $> 7$: inefficiente, sono presenti percorsi eccessivamente profondi.
+\end{itemize}}
+{\[ PMN = \max_{i=1,\dots,k} \{C_i\} \]
+Dove:
+\begin{itemize}
+    \item $C_{i}$ = Numero di click necessari per completare l'operazione $i$-esima;
+    \item $k$ = Numero totale di operazioni analizzate.
+\end{itemize}}
+{Garantisce che nessuna funzionalità del sistema sia eccessivamente nascosta 
+o difficile da raggiungere, rischiando di compromettere l'usabilità del prodotto.}
+
+\subsection{Efficienza}
+\trisubsection{MPD8 - Tempo Medio di Risposta (TMR)}
+\Metrica{MPD8}
+{Tempo medio che intercorre tra l'invio di una richiesta al sistema 
+e la ricezione della risposta completa.
+Interpretazione dei valori:
+\begin{itemize}
+    \item TMR $\leq 1$ secondo: eccellente, risposta immediata;
+    \item $1 < $ TMR $ \leq 3$ secondi: buono, risposta rapida;
+    \item $3 < $ TMR $ \leq 5$ secondi: accettabile, ma migliorabile;
+    \item TMR $> 5$ secondi: inaccettabile, l'utente percepisce lentezza.
+\end{itemize}}
+{\[ TMR = \frac{\sum_{i=1}^{k} T_i}{k} \] 
+Dove:
+\begin{itemize}
+    \item $T_{i}$ = Tempo di risposta per la richiesta $i$-esima;
+    \item $k$ = Numero di richieste testate;
+\end{itemize}
+}
+{Garantisce che il sistema soddisfi le aspettative degli utenti in termini di 
+reattività e fluidità d'uso.}
+
+\subsection{Manutenibilità}
+% \trisubsection{MPD9 - Densità dei Commenti (DC)}
+% \Metrica{MPD9}
+% {Rapporto tra le righe dedicate ai commenti e le righe di codice totali. 
+% Una densità adeguata favorisce maggior manutenibilità.
+% Interpretazione dei valori:
+% \begin{itemize}
+% \item DC $< 10\%$: il codice è scarsamente documentato, rendendo difficile l'analisi e la manutenzione futura;
+% \item $10\% \le$ DC $\le 30\%$: densità ottimale per un codice ben scritto e auto-esplicativo;
+% \item DC $> 30\%$: il codice potrebbe essere eccessivamente commentato. Valori molto alti possono indicare la 
+% presenza di una logica eccessivamente complessa che richiede troppe spiegazioni.
+% \end{itemize}
+% }
+% {\[ DC = \frac{L_{commenti}}{L_{totali}} \cdot 100 \] 
+% Dove:
+% \begin{itemize}
+%     \item $L_{commenti}$ = Linee dedicate ai commenti;
+%     \item $L_{totali}$ = Linee totali nel codice.
+% \end{itemize}
+% }
+% {Assicura che il codice sia adeguatamente documentato per facilitarne la 
+% comprensione e ridurre i tempi di manutenzione.}
+
+\trisubsection{MPD9 - Complessità Ciclomatica (CC)}
+\Metrica{MPD9}
+{Misura la complessità strutturale del codice calcolando il numero di percorsi 
+linearmente indipendenti attraverso il codice sorgente. Viene calcolata per 
+ciascuna funzione o metodo del sistema. Una bassa complessità indica codice 
+più leggibile, testabile e manutenibile.
+Interpretazione dei valori:
+\begin{itemize}
+    \item CC $\leq 10$: complessità bassa, codice semplice e manutenibile;
+    \item $10 < $ CC $ \leq 20$: complessità moderata, ancora accettabile;
+    \item $20 < $ CC $ \leq 30$: complessità elevata;
+    \item CC $> 30$: complessità critica, il codice è difficile da testare e mantenere.
+\end{itemize}}
+{\[ CC = E - N + 2P \]
+Dove:
+\begin{itemize}
+    \item $E$ = Numero di archi del grafo di controllo di flusso;
+    \item $N$ = Numero di nodi del grafo di controllo di flusso;
+    \item $P$ = Numero di componenti connesse.
+\end{itemize}
+}
+{Permette di misurare la complessità delle funzioni per evitare difficoltà nel 
+\textit{testing} del codice e nella sua comprensione.}
+
+\subsection{Portabilità}
+\trisubsection{MPD10 - Compatibilità Cross-Browser (CCB)}
+\Metrica{MPD10}
+{Percentuale di browser testati su cui il prodotto funziona correttamente 
+rispetto al totale dei browser target definiti nel progetto.
+Interpretazione dei valori:
+\begin{itemize}
+    \item CCB $= 100\%$: piena compatibilità, il prodotto funziona su tutti i browser target;
+    \item $80\% \leq $ CCB $ < 100\%$: compatibilità buona, problemi solo su browser marginali;
+    \item $60\% \leq $ CCB $ < 80\%$: compatibilità parziale, alcuni browser principali presentano problemi;
+    \item CCB $< 60\%$: compatibilità insufficiente, il prodotto non è utilizzabile su molti browser.
+\end{itemize}}
+{\[ CCB = \frac{B_{supportati}}{B_{target}} \cdot 100 \]
+Dove:
+\begin{itemize}
+    \item $B_{supportati}$ = Numero di browser su cui il prodotto funziona correttamente;
+    \item $B_{target}$ = Numero totale di browser target definiti per il progetto.
+\end{itemize}}
+{Garantisce che il prodotto sia utilizzabile dalla maggior parte dei browser.}
 
 \end{document}
