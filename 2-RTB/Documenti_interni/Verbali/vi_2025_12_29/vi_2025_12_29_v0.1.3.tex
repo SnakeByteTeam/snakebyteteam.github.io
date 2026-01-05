@@ -3,10 +3,10 @@
 \usepackage{../../../../template/template}
 
 \setDocTitle{Verbale interno 29/12/2025}
-\setDocVersion{0.1.2}
-\setDocData{03/01/2026}
+\setDocVersion{0.1.3}
+\setDocData{05/01/2026}
 \setDocIndex{vi\_2025\_12\_29}
-\setDocState{0}
+\setDocState{1}
 \setDocRecipient{1}
 
 \begin{document}
@@ -14,7 +14,8 @@
 \makeTitlePage
 
 \newpage
-\addChangelog{\docVersion}{03/01/2026}{L. Granziero}{F. Venzo}{\noOne}{Correzione errori}
+\addChangelog{\docVersion}{05/01/2026}{L. Granziero}{F. Venzo}{\noOne}{Aggiunte le ultime mancanze e correzione errori}
+\addChangelog{0.1.2}{03/01/2026}{L. Granziero}{F. Venzo}{\noOne}{Correzione errori}
 \addChangelog{0.1.1}{02/01/2026}{L. Granziero}{F. Venzo}{\noOne}{Correzione errori}
 \addChangelog{0.1.0}{29/12/2025}{L. Granziero}{F. Venzo}{\noOne}{\firstDraft}
 \makeChangelog
@@ -53,9 +54,7 @@
 \section{Ordine del giorno}
 \begin{itemize}
     \item definizione e selezione delle metriche di qualità di processo;
-    \item metriche di fornitura, sviluppo, documentazione, verifica, gestione della qualità e dei processi;
     \item definizione e selezione delle metriche di qualità di prodotto;
-    \item metriche di funzionalità, affidabilità, usabilità, efficienza, manutenibilità e portabilità;
     \item automazione del calcolo delle metriche;
     \item gestione Gantt e monitoraggio attività;
     \item requisiti e use case$_G$;
@@ -68,18 +67,20 @@
 \section{Approfondimento}
 
 \subsection*{Metriche di fornitura}
-Vengono presentate le metriche di processo per la fornitura: \textit{PV (planned value)}, \textit{EV (earned value)},
-\textit{AC (actual cost)}, \textit{CPI (Cost Performance Index)}, \textit{SPI (Schedule Performance Index)}, \textit{EAC (Estimated At Completion)}, \textit{ETC (Estimated To Complete)}
-Viene confermata l’importanza di tali metriche per il monitoraggio di tempi e costi; alcune metriche
-ridondanti, come le variance, vengono escluse.
+Vengono presentate le metriche di processo per la fornitura: \textit{PV (Planned Value)}, \textit{EV (Earned Value)},
+\textit{AC (Actual Cost)}, \textit{CPI (Cost Performance Index)}, \textit{SPI (Schedule Performance Index)}, \textit{EAC (Estimated At Completion)}, \textit{ETC (Estimated To Complete)}.
+Viene confermata l’importanza di tali metriche per il monitoraggio di tempi e costi; alcune metriche ridondanti, come le variance, vengono escluse.
 
 \subsection*{Metriche per lo sviluppo}
-Vengono illustrate le metriche \textit{RSI (Requirements Stability Index)}, \textit{RCV (Requirements Completion Velocity)},
-ritenute utili per valutare stabilità dei requisiti e avanzamento delle attività.  
-Il gruppo concorda nel mantenerle.
+Vengono illustrate le metriche \textit{RSI (Requirements Stability Index)} e
+\textit{RCV (Requirements Completion Velocity)}, ritenute utili per valutare la
+stabilità dei requisiti e l’avanzamento delle attività.
+La metrica \textit{PAR (Percentuale Attività in Ritardo)} viene invece esclusa.
 
 \subsection*{Metriche per la documentazione}
-Si discute l’utilità di metriche quali \textit{IG (indice di Gulpease)}, e \textit{IF (indice di frammentazione)}. Anche queste vengono salvaguardate.
+Vengono illustrate le metriche \textit{IG (indice di Gulpease)} e
+\textit{IF (indice di frammentazione)}, ritenute utili per valutare la qualità e la leggibilità della documentazione.
+La metrica \textit{DEO (Densità Errori Ortografici)} viene invece esclusa.
 
 \subsection*{Metriche per la verifica}
 Viene presentata la metrica \textit{TSR (Test Success Rate)} per la verifica. Viene pattuita la sua permanenza.
@@ -89,7 +90,7 @@ Viene mostrata la metrica \textit{PMS (Percentuale Metriche Soddisfatte)} per qu
 
 
 \subsection*{Metriche per la gestione dei processi}
-Vengono illustrate le metriche \textit{PRI (Percentuale Rischi Inattesi)}, \textit{LE (Labor Efficiency)} per la gestione dei processi. Anch'esse vengono approvate.
+Vengono illustrate le metriche \textit{PRI (Percentuale Rischi Inattesi)}, \textit{LE (Labor Efficiency)} per la gestione dei processi. Anche queste vengono approvate.
 
 \subsection*{Metriche di funzionalità}
 Vengono analizzate le seguenti metriche: \textit{PROS (Percentuale Requisiti Obbligatori Soddisfatti)}, \textit{PRPS (Percentuale Requisiti Opzionali Soddisfatti)}, \textit{PRDS (Percentuale Requisiti Desiderabili Soddisfatti)}.
@@ -100,13 +101,14 @@ Il gruppo concorda sulla loro coerenza e ne conferma l'utilizzo.
 Vengono prese in esame le metriche \textit{LC (Line Coverage)}, \textit{BC (Branch Coverage)}, \textit{SC (Statement Coverage)} in merito all'affidabilità. Vengono giudicate come adeguate dal gruppo e quindi accettate.
 
 \subsection*{Metriche per usabilità}
-Viene valutata la metrica \textit{PMN (Profondità Massima di Navigazione)} in merito a l'usabilità. Non emergono criticità sull'utilizzo della metrica.
+Viene valutata la metrica \textit{PMN (Profondità Massima di Navigazione)} in merito all'usabilità. Non emergono criticità sull'utilizzo della metrica.
 
 \subsection*{Metriche per l'efficienza}
 Viene esaminata la metrica \textit{TMR (Tempo Medio di Risposta)} con riferimento all'efficienza. Il gruppo concorda sul mantenerla.
 
 \subsection*{Metriche per manutenibilità}
 Viene discussa la metrica \textit{CC (Complessità Ciclomatica)} per quanto riguarda la manutenibilità. Viene giudicata come idonea dal gruppo. 
+La metrica \textit{DC (Densità dei Commenti)} viene invece esclusa.
 
 \subsection*{Metriche per portabilità}
 Viene presentata la metrica \textit{CCB (Compatibilità Cross-Browser)} in relazione alla portabilità. Viene approvata dal gruppo.
@@ -130,10 +132,11 @@ Viene fatta presente la creazione del diario di bordo entro la data stabilita da
 % Decisioni
 % -------------------------------------------------
 
-\addDecision{Mantenere le metriche principali di processo e prodotto}
+\addDecision{Mantenere le metriche principali di qualità di processo e prodotto}
+\addDecision{Escluse le metriche \textit{PAR}, \textit{DEO} e \textit{DC}}
 \addDecision{Utilizzare Excel per i grafici delle metriche}
 \addDecision{Assegnare tre programmatori e due verificatori per il prossimo sprint}
-\addDecision{Utilizzare la roadmap di GitHub  projects per il Gantt}
+\addDecision{Utilizzare la roadmap di GitHub projects per il Gantt}
 \makeDecisionTable
 
 % -------------------------------------------------
