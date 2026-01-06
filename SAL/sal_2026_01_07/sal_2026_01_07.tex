@@ -1,0 +1,80 @@
+\documentclass{beamer}
+
+\usepackage{../tema}
+
+
+\title{SAL}
+\author[L. Granziero, V. Baleanu]{L. Granziero, V. Baleanu}
+\setDate{07/01/2026}
+
+\begin{document}
+
+{
+  \setbeamertemplate{footline}{}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+
+\addMember{Christian}{Libralato}{Programmatore}
+\addMember{Giuseppe}{De Fina}{Verificatore}
+\addMember{Leonardo}{Pellizzon}{Programmatore}
+\addMember{Valeria}{Baleanu}{Amministratore}
+\addMember{Luca}{Granziero}{Responsabile}
+\addMember{Filippo}{Venzo}{Verificatore}
+\addMember{Francesco}{Pasqual}{Programmatore}
+\makeMembersFrame
+
+\begin{frame}{Avanzamenti settimanali}
+    \begin{itemize}
+        \item Effettuata riunione interna in data 29/12 e redatto il verbale interno ad essa relativo;
+        \item Aggiornato il documento di Norme di Progetto inserendo metriche di qualità di prodotto e di processo;
+        \item Avvio del cruscotto di qualità;
+        \item Finalizzazione del documento dell'Analisi dei Requisiti;
+        \item Aggiornamento del Piano di Progetto allo sprint 4;
+        \item Allineamento tra vecchi e nuovi programmatori del PoC.
+\end{itemize}
+\end{frame}
+
+% PRIMO FRAME: Attività terminate dal verbale esterno 
+\addPrecedentTodo{ve\_2025\_12\_23.a2}{\noOne}{Effettuare revisione della distribuzione ruoli e ore}{SnakeByte}{11/01/2026} 
+\makePrecedentTodoFrame
+
+% Reset delle entries per il secondo frame 
+\renewcommand{\precedentTodoEntries}{}
+
+%  SECONDO FRAME: Attività terminate dal verbale interno
+\addPrecedentTodo{vi\_2025\_12\_15.a2}{\#34}{Compilazione PdP}{G. de Fina}{27/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_15.a4}{\#36}{Inizio implementazione PoC}{L. Granziero, F. Venzo}{29/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_29.a5}{\#56}{Scrittura verbale interno 29/12/2025}{L. Granziero, F. Venzo}{05/01/2026}
+\addPrecedentTodo{vi\_2025\_12\_15.a5}{\#37}{Definizione diagramma Gantt}{G. De Fina}{30/12/2025}
+\makePrecedentTodoFrame
+
+\addManualTodo{vi\_2025\_12\_15.a1}{\#33}{Terminazione AdR}{L. Pellizzon}{30/12/2025}
+\addManualTodo{vi\_2025\_12\_15.a3}{\#35}{Prima Stesura PdQ}{G. De Fina}{30/12/2025}
+
+\makeTodoFrame
+
+\begin{frame}{Limiti o blocchi incontrati}
+Durante l'ultimo periodo di avanzamento sono emersi alcuni dubbi:
+  \begin{itemize}
+      \item Le metriche di qualità scelte sono adeguate?
+      \item Decidere un range di data per la candidatura all'RTB;
+      \item Qual è il livello minimo richiesto per il PoC? Quanto è già stato realizzato è sufficiente oppure sono necessarie ulteriori 
+      integrazioni?
+      \item È concesso l'utilizzo di Prisma, un ORM (Object-Relational Mapping) che, partendo dal modello dei dati, può generare le migrazioni per creare automaticamente le tabelle nel database.
+      \item È concesso l'utilizzo del logo Vimar all'interno del PoC?
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Limiti o blocchi incontrati}
+Durante l'ultimo periodo di avanzamento sono emersi alcuni blocchi:
+  
+  \begin{itemize}
+     \item Studio individuale delle tecnologie riguardanti il PoC;
+  \end{itemize}
+
+\end{frame}
+
+
+\end{document}
