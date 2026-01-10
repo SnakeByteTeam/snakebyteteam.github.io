@@ -13,6 +13,7 @@
 \usepackage{lastpage} 
 \renewcommand{\arraystretch}{1.05} % migliora la leggibilità
 \renewcommand{\contentsname}{Indice}
+\renewcommand{\listfigurename}{Elenco dei grafici}
 \usepackage{fancyhdr}
 %Comandi per livello di sottosezioni = 3
 \setcounter{tocdepth}{4}
@@ -81,6 +82,9 @@
 \newpage
 
 \tableofcontents
+
+\newpage
+\listoffigures
 
 \newpage
 
@@ -248,6 +252,91 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
 }
 
 \section{Strategie di Testing}
+
+\section{Cruscotto di qualità}
+
+\subsection{MPC1 e MPC2 - Planned Value e Earned Value}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC1_2.pdf}
+    \caption{Andamento PV e EV in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+\subsection{MPC3 e MPC7 - Actual Cost e Estimate To Complete}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC3_7.pdf}
+    \caption{Andamento AC e ETC in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+\subsection{MPC4 e MPC5 - Cost Performance Index e Schedule Performance Index}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC4_5.pdf}
+    \caption{Andamento CPI e SPI in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+\subsection{MPC6 - Estimate At Completion}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC6_7.pdf}
+    \caption{Andamento EAC in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+\subsection{MPC8 - Requirements Stability Index}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC8.pdf}
+    \caption{Andamento RSI in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+\subsection{MPC9 - Indice di Gulpease}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC9.pdf}
+    \caption{Andamento IG dei documenti principali, in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+\subsection{MPC10 - Indice di Frammentazione}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC10.pdf}
+    \caption{Andamento IF dei documenti principali, in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+Spiegare che il Glossario non è incluso perché per come è strutturato è ovviamente frammentato (un termine equivale ad una section).
+
+
+\subsection{MPC12 - Percentuale Metriche Soddisfatte}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC12.pdf}
+    \caption{Andamento PMS in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+\subsection{MPC13 - Percentuale Rischi Inattesi}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC13.pdf}
+    \caption{Andamento PRI in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+\subsection{MPC14 - Labor Efficiency}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC14.pdf}
+    \caption{Andamento LE in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
 
 
 \end{document}
