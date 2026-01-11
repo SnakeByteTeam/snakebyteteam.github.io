@@ -47,7 +47,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                0.3.0 & 1/1/2026 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
+                0.4.0 & 11/1/2026 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
                 \hline
             \end{tabular}
         \end{center}
@@ -62,11 +62,13 @@
     \hline
     \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
     \hline
+    0.4.0 & 11/1/2026 & V. Baleanu & F. Venzo & - & Aggiunta processo di Verifica e Validazione. \\ 
+    \hline
     0.3.0 & 1/1/2026 & V. Baleanu & F. Venzo & - & Aggiunta metriche di qualità di processo e di prodotto. \\ 
     \hline
-    0.2.0 & 08/12/2025 & C. Libralato & L. Pellizzon & - & Aggiunte a processo di verifica e approvazione (sez. 3.1.4, 3.1.5). Aggiunta Sviluppo con Analisi Requisiti ai processi primari (sez. 2.2 )\\ 
+    0.2.0 & 08/12/2025 & C. Libralato & L. Pellizzon & - & Aggiunte a processo di verifica e approvazione dei documenti (sez. 3.1.4, 3.1.5). Aggiunta Sviluppo con Analisi Requisiti ai processi primari (sez. 2.2 )\\ 
     \hline
-    0.1.6 & 29/11/2025 & F. Pasqual & V. Baleanu & - & Aggiunto processo di verifica tramite \textit{pull request} \\ 
+    0.1.6 & 29/11/2025 & F. Pasqual & V. Baleanu & - & Aggiunto processo di verifica dei documenti tramite \textit{pull request} \\ 
     \hline
     0.1.5 & 8/11/2025 & F. Venzo & L. Granziero & - & Aggiunta tabella attività completate nella struttura dei verbali\\
     \hline
@@ -136,7 +138,7 @@ Il documento cita alcuni termini la cui definizione può risultare ambigua. Per 
 \section{Processi primari}
 Le attività  che compongono i processi primari considerate in questa sede sono un sottoinsieme proprio delle attività previste dallo Standard ISO/IEC 12207:1995. 
 \subsection{Fornitura}
-Il processo di fornitura, come specificato nello Standard ISO/IEC 12207:1995, definisce le attività dell'organizzazione che fornisce il prodotto software all'acquirente, dalla concezione fino alla consegna del prodotto. Viene istanziato conseguentemente alla redazione della \textit{Valutazione dei \textit{capitolati$_{G}$}}.
+Il processo di fornitura, come specificato nello Standard ISO/IEC 12207:1995, definisce le attività dell'organizzazione che fornisce il prodotto \textit{software} all'acquirente, dalla concezione fino alla consegna del prodotto. Viene istanziato conseguentemente alla redazione della \textit{Valutazione dei \textit{capitolati$_{G}$}}.
 
 \subsubsection{Attività}
 Il processo di fornitura si compone delle seguenti attività
@@ -171,9 +173,9 @@ La documentazione prodotta durante le attività di fornitura, la quale verrà co
 \end{itemize}
 
 \subsection{Sviluppo}
-Il processo di Sviluppo consiste in un'insieme di attività necessarie per la realizzazione del prodotto software, queste sono particolarmente
+Il processo di Sviluppo consiste in un'insieme di attività necessarie per la realizzazione del prodotto \textit{software}, queste sono particolarmente
 orientate verso analisi dei requisiti, design, codifica, integrazione e testing; si tratta infatti del processo primario principale che
-guida la realizzazione del prodotto software per la quasi totalità del ciclo di vita.
+guida la realizzazione del prodotto \textit{software} per la quasi totalità del ciclo di vita.
 
 \subsubsection{Attività}
 Il processo di sviluppo si compone delle seguenti attività:
@@ -378,8 +380,9 @@ L'azione di verifica dei documenti viene effettuata dalla persona che ricopre, i
 
 \label{sec:Verifica}
 \trisubsection{Processo di verifica tramite \textit{pull request$_G$}}
-Il processo di verifica dei documenti adotta il meccanismo delle \textit{pull request} offerto dalla piattaforma \textit{GitHub}.
-Tale strumento garantisce che nessuna modifica venga integrata nel \textit{branch} principale (\texttt{main}) o nel branch di sviluppo principale (\texttt{develop}) senza un controllo esplicito del verificatore,
+\label{sec:Verifica_doc}
+Il processo di verifica dei documenti adotta il meccanismo delle \textit{pull request} offerto dalla piattaforma \textit{GitHub}${_G}$.
+Tale strumento garantisce che nessuna modifica venga integrata nel \textit{branch} principale (\texttt{main}) o nel \textit{branch} di sviluppo principale (\texttt{develop}) senza un controllo esplicito del verificatore,
 il quale può approvare il documento o richiedere ulteriori modifiche direttamente all'interno della sezione \textit{pull request} di \textit{GitHub} tramite i commenti. \\
 L'intero ciclo di verifica, incluse eventuali correzioni successive, avviene all'interno di un'unica \textit{pull request}, 
 garantendo la tracciabilità delle discussioni e dei \textit{commit} di modifica. \\
@@ -388,12 +391,12 @@ Di seguito viene definito il \textit{workflow} operativo:
 
 \begin{enumerate}
     \item \textbf{Esecuzione modifiche} \\
-    Il redattore crea un nuovo branch denominato \texttt{modifica-<nome\_documento>} nel suo repository locale (la versione del documento non va inclusa all'interno del nome del branch di modifica).\\
-    Per definizione, le modifiche su documenti diversi dovranno essere presentate attraverso branch di modifica e pull request diverse.
+    Il redattore crea un nuovo \textit{branch} denominato \texttt{modifica-<nome\_documento>} nel suo repository locale (la versione del documento non va inclusa all'interno del nome del \textit{branch} di modifica).\\
+    Per definizione, le modifiche su documenti diversi dovranno essere presentate attraverso \textit{branch} di modifica e pull request diverse.
 
     \item \textbf{Apertura della Richiesta} \\
-    Il redattore, completato il lavoro in locale sul \textit{branch} dedicato, effettua il \textit{push} in remoto del branch di modifica e apre una nuova \textit{pull request} 
-    verso il branch \texttt{develop}. In questa fase deve:
+    Il redattore, completato il lavoro in locale sul \textit{branch} dedicato, effettua il \textit{push} in remoto del \textit{branch} di modifica e apre una nuova \textit{pull request} 
+    verso il \textit{branch} \texttt{develop}. In questa fase deve:
     \begin{itemize}
         \item definire come assegnatario e reviewer il verificatore e impostare i \textit{tag};
         \item collegare la richiesta alla relativa \textit{Issue} di progetto.
@@ -403,10 +406,10 @@ Di seguito viene definito il \textit{workflow} operativo:
     Il verificatore riceve la notifica ed esamina le modifiche. A questo punto si presentano due scenari:
     \begin{enumerate}
         \item \textbf{Esito Positivo:} Se il lavoro è corretto e completo, il verificatore approva la \textit{pull request} 
-        e procede al \textit{merge} automatico del branch di modifica nel branch di \texttt{develop}. L'operazione porta all'eliminazione 
-        automatica del branch di modifica previa attivazione dell'impostazione dedicata di GitHub (Settings$>$General$>$Automatically delete head branches)\\
+        e procede al \textit{merge} automatico del \textit{branch} di modifica nel \textit{branch} di \texttt{develop}. L'operazione porta all'eliminazione 
+        automatica del \textit{branch} di modifica previa attivazione dell'impostazione dedicata di GitHub (Settings$>$General$>$Automatically delete head branches)\\
         Il processo di verifica è concluso.\\
-        Spetta all'autore eliminare manualmente il branch di modifica nel suo repository locale.
+        Spetta all'autore eliminare manualmente il \textit{branch} di modifica nel suo repository locale.
         \item \textbf{Esito Negativo:} Se sono necessari cambiamenti, il verificatore inserisce commenti \textit{inline} 
         sui punti critici e imposta lo stato della revisione su \textit{Request changes}.\\
     \end{enumerate}
@@ -415,7 +418,7 @@ Di seguito viene definito il \textit{workflow} operativo:
     Nel caso siano state richieste modifiche, il redattore:
     \begin{enumerate}
         \item viene notificato;
-        \item applica le correzioni in locale ed effettua un nuovo \textit{push} sullo stesso branch 
+        \item applica le correzioni in locale ed effettua un nuovo \textit{push} sullo stesso \textit{branch} 
         (aggiornando automaticamente la \textit{pull request} esistente);
         \item risponde ai commenti o li risolve e richiede una nuova revisione (\textit{Re-request review});
         \item in caso di esito di verifica negativo itera il punto 4.
@@ -424,27 +427,27 @@ Di seguito viene definito il \textit{workflow} operativo:
 
 \subsubsection{Approvazione dei documenti}
 Ogni documento, dopo essere stato verificato, deve essere approvato per poter essere rilasciato come documentazione ufficiale del progetto 
-nel branch \texttt{main}. L'approvazione avviene in maniera simile alla verifica da chi, in quel periodo, ricopre la figura di \textit{responsabile$_{G}$}.
+nel \textit{branch} \texttt{main}. L'approvazione avviene in maniera simile alla verifica da chi, in quel periodo, ricopre la figura di \textit{responsabile$_{G}$}.
 
 \trisubsection{Processo di approvazione tramite \textit{pull request}}
 I documenti vengono approvati in maniera progressiva al fine di evitare l'accumulo di un carico di lavoro insostenibile per il responsabile
-quando si raggiunge una baseline. Una volta che tutti i documenti contenuti nel branch \texttt{develop} sono stati approvati si può procedere
-con il \textit{merge} del branch \texttt{develop} verso il branch \texttt{main}.
+quando si raggiunge una baseline. Una volta che tutti i documenti contenuti nel \textit{branch} \texttt{develop} sono stati approvati si può procedere
+con il \textit{merge} del \textit{branch} \texttt{develop} verso il \textit{branch} \texttt{main}.
 
 Il momento opportuno per sottoporre un documento ad approvazione non è a seguito della verifica ma è definito in base alle tempistiche imposte dalle baselines.\\
 L'approvazione di un singolo documento consiste nei seguenti passi:
 \begin{enumerate}
     \item \textbf{Aggiornamento versione}\\
-    Il redattore crea un branch locale denominato \texttt{approvazione-<nome\_documento>} (la versione del documento non va inclusa nel nome) 
+    Il redattore crea un \textit{branch} locale denominato \texttt{approvazione-<nome\_documento>} (la versione del documento non va inclusa nel nome) 
     in cui modifica \textbf{esclusivamente} la versione aumentando l'indice \textit{Major} e azzerando gli altri (X.0.0).
     \item \textbf{Apertura Richiesta}\\
-    Viene effettuata la \textit{push} e aperta una \textit{pull request} verso il branch \texttt{develop}. Devono essere impostati i \textit{tag}, l'assegnatario e il \textit{reviewer} devono coincidere con il responsabile.
+    Viene effettuata la \textit{push} e aperta una \textit{pull request} verso il \textit{branch} \texttt{develop}. Devono essere impostati i \textit{tag}, l'assegnatario e il \textit{reviewer} devono coincidere con il responsabile.
     \item \textbf{Approvazione}\\
     Il responsabile viene notificato, controlla il documento e fornisce un verdetto:
     \begin{enumerate}
         \item \textbf{Esito Positivo:} il documento è approvato con successo, il responsabile approva la \textit{pull request} e il 
-        \textit{merge} sul branch \texttt{develop}.\\
-        Spetta al redattore eliminare manualmente il branch di approvazione in locale.
+        \textit{merge} sul \textit{branch} \texttt{develop}.\\
+        Spetta al redattore eliminare manualmente il \textit{branch} di approvazione in locale.
         \item \textbf{Esito Negativo:} il documento non è adatto e richiede variazioni che vengono comunicate come commenti, lo stato
         revisione viene impostato a \textit{Request Changes}.
     \end{enumerate}
@@ -518,7 +521,163 @@ I repository creati per la gestione della configurazione sono
 Gli strumenti adottati per la gestione della configurazione e del versionamento dei file di progetto sono:
 \begin{itemize}
     \item \textbf{Git}$_{G}$: Version Control System distribuito e OpenSource
-    \item \textbf{Github}$_{G}$: servizio di hosting per progetti software e implementazione di Git.
+    \item \textbf{Github}: servizio di hosting per progetti \textit{software} e implementazione di Git.
+\end{itemize}
+
+\subsection{Verifica}
+Il processo di verifica garantisce che i prodotti realizzati siano conformi ai 
+requisiti e agli standard di qualità definiti nel \textit{Piano di Qualifica} 
+(sezione 4), assicurando la correttezza e la completezza di ciascun prodotto.
+Le attività di verifica sono assegnate al membro del gruppo che, nel periodo di
+riferimento, ricopre il ruolo di verificatore. Tale figura è responsabile della
+registrazione degli esiti delle verifiche e, qualora vengano riscontrate non
+conformità rispetto ai vincoli stabiliti, della richiesta di opportune modifiche
+e correzioni.
+\\Il gruppo \textit{SnakeByte} applica il processo di verifica ai seguenti prodotti:
+\begin{itemize}
+    \item \textbf{Documenti}: ogni documento prodotto è sottoposto a verifica 
+    seguendo il procedimento descritto nella sezione \ref{sec:Verifica} e 
+    prevede controlli di conformità formale, correttezza ortografica e contenutistica;
+    \item \textbf{Codice}: il processo di verifica del codice sarà definito e 
+    implementato nella fase successiva al raggiungimento della 
+    \textit{Requirements and Technology Baseline}, quando saranno disponibili 
+    i componenti \textit{software} da verificare. Tale processo includerà sia tecniche 
+    di analisi statica che dinamica, come descritto nelle sezioni successive.
+\end{itemize}
+
+\subsubsection{Strumenti}
+Lo strumento adottato per la verifica dei prodotti è \textit{pull request} della piattaforma \textit{GitHub}: come viene dettagliatamente spiegato nella sezione §\ref{sec:Verifica_doc}, questo servizio 
+consente di effettuare attività di controllo e di richiedere eventuali correzioni o miglioramenti degli artefatti di progetto, velocizzando il processo di verifica.
+
+\subsubsection{Analisi statica}
+L'analisi statica è una tipologia di verifica che non richiede l'esecuzione del prodotto. 
+L'attività di verifica consiste nel controllo degli artefatti di progetto mediante
+tecniche di ispezione e analisi, quali il controllo sintattico, il controllo semantico
+e la verifica della conformità agli standard adottati. Attraverso tali attività è 
+possibile individuare errori formali, incongruenze, violazioni delle convenzioni e 
+potenziali difetti, sia nel codice che nella documentazione.
+\\Le principali tecniche di analisi statica sono:
+\begin{itemize}
+    \item \textbf{Walkthrough}: l'autore del documento o del codice spiega la logica e le 
+    scelte implementative al verificatore, il quale fornisce un \textit{feedback}. 
+    Questa tecnica richiede una discussione attiva e sincrona tra autore e verificatore; 
+    \item \textbf{Inspection}: il verificatore esamina il materiale utilizzando una lista di controllo (\textit{checklist}), 
+    identificando anomalie e difetti in modo sistematico. Successivamente, durante una riunione, vengono discussi i 
+    difetti rilevati. 
+\end{itemize}
+Tra le due possibili strategie, il gruppo \textit{SnakeByte} ha preferito implementare \textit{Inspection} poiché 
+ garantisce un approccio più strutturato e ripetibile, riducendo la dipendenza 
+dalla presenza simultanea di autore e verificatore. L'utilizzo di \textit{checklist} 
+predefinite consente inoltre di standardizzare il processo di verifica, assicurando 
+che tutti gli aspetti critici vengano sistematicamente esaminati.
+
+
+\subsubsection{Analisi dinamica}
+L'analisi dinamica è una tipologia di verifica che richiede l'esecuzione del 
+prodotto software in un ambiente controllato. L'attività di verifica consiste 
+nell'esecuzione di test specifici per valutare la conformità ai requisiti funzionali 
+e non funzionali e individuare eventuali difetti che si manifestano durante l'esecuzione.
+L'analisi dinamica permette di rilevare problematiche legate al comportamento 
+a \textit{runtime}, impossibili dunque da individuare con l'analisi statica.
+\\Per garantire l'efficacia del processo di verifica, i test devono 
+possedere le seguenti caratteristiche:
+\begin{itemize}
+    \item \textbf{Ripetibilità}: i test devono produrre risultati consistenti 
+    quando eseguiti più volte nelle medesime condizioni;
+    
+    \item \textbf{Automatizzazione}: l'esecuzione automatica dei test consente di ridurre
+     i tempi di verifica, minimizzare gli errori umani e facilitare l'integrazione 
+     nel processo di sviluppo continuo;
+    
+    \item \textbf{Determinismo}: ogni test deve avere un risultato atteso 
+    chiaramente definito, permettendo una valutazione oggettiva del successo 
+    o del fallimento dell'esecuzione;
+    
+    \item \textbf{Indipendenza}: ciascun test deve essere autonomo e non 
+    dipendere da altri test o dall'ambiente di esecuzione.
+\end{itemize}
+Il gruppo \textit{SnakeByte} implementerà le seguenti tipologie di test:
+\begin{itemize}
+    \item Test di unità;
+    \item Test di integrazione;
+    \item Test di sistema;
+    \item Test di regressione.
+\end{itemize}
+
+\trisubsection{Test di unità}
+I test di unità verificano il corretto funzionamento delle singole unità di codice (funzioni, metodi o classi). 
+Ogni unità viene testata indipendentemente dalle altre componenti per garantire 
+che produca i risultati attesi per diversi input, inclusi casi limite ed 
+eccezionali.
+
+\trisubsection{Test di integrazione}
+I test di integrazione verificano la corretta interazione tra 
+le diverse componenti del sistema. L'obiettivo è 
+individuare difetti nelle comunicazioni tra moduli, 
+garantendo che le componenti collaborino correttamente. 
+L'integrazione può avvenire seguendo una strategia \textit{top-down}, che prevede
+l'integrazione progressiva a partire dai moduli con maggiori dipendenze d'uso, oppure una
+strategia \textit{bottom-up}, che parte dai moduli con minori dipendenze d'uso per poi
+risalire verso quelli superiori.
+
+\trisubsection{Test di sistema}
+I test di sistema verificano il comportamento dell'intero sistema integrato,
+valutandone la conformità ai requisiti funzionali e non funzionali.
+Analizzano dunque il sistema dal punto di vista dell'utente finale, 
+senza considerare la struttura interna del codice.
+Attraverso tali test si verifica che il sistema risponda correttamente agli
+scenari d'uso previsti e soddisfi le aspettative definite in fase di analisi.
+
+\trisubsection{Test di regressione}
+I test di regressione hanno lo scopo di garantire che modifiche o correzioni 
+apportati al sistema non introducano nuovi difetti o compromettano
+funzionalità precedentemente verificate.
+Essi consistono nella riesecuzione di test già validati, al fine di garantire 
+la stabilità e l'affidabilità complessiva del sistema nel tempo.
+
+\subsubsection{Nomenclatura dei test}
+Ogni test da svolgere è identificato da un codice univoco nella forma:
+\begin{center}
+    \textbf{T[Tipo-test][X]}
+\end{center}
+dove: 
+\begin{itemize}
+    \item \textbf{Tipo-test} rappresenta la tipologia del test (\textbf{U} = Unità, 
+    \textbf{I} = Integrazione, \textbf{S} = Sistema o \textbf{R} = Regressione);
+    \item \textbf{X} rappresenta un numero intero progressivo.
+\end{itemize}
+
+\subsubsection{Stato dei test}
+Ogni test, in base all'esito ottenuto, può avere uno dei seguenti stati:
+\begin{itemize}
+    \item \textbf{NI}: il test non è ancora stato implementato;
+    \item \textbf{S}: il test ha avuto successo;
+    \item \textbf{F}: il test ha fallito.
+\end{itemize}
+
+\subsection{Validazione}
+Il processo di validazione ha lo scopo di confermare che il prodotto finale 
+soddisfi le aspettative e i bisogni della proponente, verificando che il sistema 
+realizzato sia quello effettivamente richiesto.
+\\La validazione viene effettuata attraverso test di accettazione condotti in 
+presenza della proponente, utilizzando casi d'uso e scenari 
+rappresentativi delle esigenze reali. L'esito positivo della validazione 
+costituisce il presupposto per il rilascio del prodotto.
+
+\subsubsection{Collaudo}
+Il collaudo rappresenta l'attività conclusiva del processo di validazione e 
+consiste nella verifica formale del soddisfacimento dei requisiti concordati.
+Durante il collaudo vengono eseguiti test di accettazione 
+che dimostrano la conformità del sistema alle specifiche funzionali e non 
+funzionali definite.
+\\Il gruppo \textit{SnakeByte} pianificherà le attività di collaudo in modo da:
+\begin{itemize}
+    \item Predisporre un ambiente di test rappresentativo dello scenario d'uso 
+    reale del sistema;
+    \item documentare in modo completo e tracciabile l'esito di ogni test di 
+    accettazione svolto;
+    \item raccogliere \textit{feedback} per eventuali 
+    miglioramenti o correzioni.
 \end{itemize}
 
 
@@ -530,7 +689,7 @@ ruolo che debba gestire i rispettivi processi.
 \subsubsection{Pianificazione}
 
 \trisubsection{Assegnazione delle responsabilità}
-Per tutta la durata del progetto, per ragioni formative, i membri del gruppo ricopriranno a rotazione 6 ruoli fondamentali nel campo dell'ingegneria del software. Ogni componente del gruppo \textit{SnakeByte} dovrà ricoprire almeno una volta tutti i seguenti ruoli:
+Per tutta la durata del progetto, per ragioni formative, i membri del gruppo ricopriranno a rotazione 6 ruoli fondamentali nel campo dell'ingegneria del \textit{software}. Ogni componente del gruppo \textit{SnakeByte} dovrà ricoprire almeno una volta tutti i seguenti ruoli:
 \begin{itemize}
     \item Responsabile (\hyperref[sec:Responsabile]{Sezione \textit{§4.1.1.2}})
     \item Amministratore (\hyperref[sec:Amministratore]{Sezione \textit{§4.1.1.3}})
@@ -565,7 +724,7 @@ Le persone incaricate come amministratore devono essere una per periodo.
 
 \label{sec:Progettista}
 \trisubsection{Progettista}
-Il progettista ha competenze tecniche e tecnologiche aggiornate e per questo ha il ruolo di determinare le scelte realizzative del prodotto. Segue il progetto durante la fase di sviluppo software ma non durante la sua manutenzione. \\
+Il progettista ha competenze tecniche e tecnologiche aggiornate e per questo ha il ruolo di determinare le scelte realizzative del prodotto. Segue il progetto durante la fase di sviluppo \textit{software} ma non durante la sua manutenzione. \\
 
 I principali compiti del progettista sono
 \begin{itemize}
@@ -592,15 +751,15 @@ Il compito principale del verificatore è analizzare la conformità agli obietti
 
 I principali compiti del verificatore sono
 \begin{itemize}
-    \item Verificare che gli artefatti software e di documentazione siano aderenti alle \textit{Norme di Progetto} e agli obiettivi;
+    \item Verificare che gli artefatti \textit{software} e di documentazione siano aderenti alle \textit{Norme di Progetto} e agli obiettivi;
     \item Segnalare eventuali errori da correggere;
-    \item Redigere test di verifica e di aderenza ai requisiti per i prodotti software.
+    \item Redigere test di verifica e di aderenza ai requisiti per i prodotti \textit{software}.
 \end{itemize}
 Più membri possono essere occupati in questo ruolo contemporaneamente.
 
 \label{sec:Programmatore}
 \trisubsection{Programmatore}
-Il programmatore è la figura responsabile della realizzazione e manutenzione del prodotto software. Ha competenze tecniche ampie ma deleghe limitate.
+Il programmatore è la figura responsabile della realizzazione e manutenzione del prodotto \textit{software}. Ha competenze tecniche ampie ma deleghe limitate.
 
 I principali compiti del programmatore sono
 \begin{itemize}
