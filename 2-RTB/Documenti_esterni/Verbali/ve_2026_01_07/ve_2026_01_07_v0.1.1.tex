@@ -1,0 +1,97 @@
+
+%============================
+% Verbale riunione – Pianificazione RTB
+%============================
+\documentclass[10pt, letterpaper]{article}
+\usepackage{../../../../template/template}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Verbale esterno 07/01/2026}
+\setDocVersion{0.1.1}
+\setDocData{13/01/2026}
+\setDocIndex{ve\_2026\_01\_07}
+\setDocState{1} % 0=Da verificare
+\setDocRecipient{2} % solo interni
+\begin{document}
+
+\makeTitlePage
+
+\newpage 
+\addChangelog{\docVersion}{\docData}{L. Granziero}{F. Venzo}{\noOne}{Correzione errori}
+\addChangelog{0.1.0}{11/01/2026}{L. Granziero}{F. Venzo}{\noOne}{\firstDraft}
+\makeChangelog
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{07/01/2026}{16:10}{17:30}{via \textit{Microsoft Teams$_G$}}
+% ------------------------
+% Partecipanti
+% ------------------------
+\addParticipant{Luca}{Granziero}{Responsabile}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Filippo}{Venzo}{Verificatore}{P}
+\addParticipant{Christian}{Libralato}{Programmatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Verificatore}{P}
+\addParticipant{Valeria}{Baleanu}{Amministratore}{P}
+\addParticipant{Francesco}{Pasqual}{Programmatore}{P}
+\makeMeetingParticipantsTable
+
+
+
+\addPrecedentTodo{vi\_2025\_12\_23.a2}{-}{\teamName}{29/12/2025}
+
+\makePrecedentTodoTable
+
+
+\section{Ordine del giorno}
+\begin{itemize}
+  \item Pianificazione revisioni RTB;
+  \item Stato avanzamento Sprint$_G$ 5;
+  \item Implementazione e requisiti minimi del PoC$_G$;
+  \item Q\&A tecnico e architetturale.
+\end{itemize}
+
+\section{Approfondimento}
+\subsection{Pianificazione revisioni RTB}
+È stata discussa la pianificazione di alcune revisioni del PoC con la proponente in vista della RTB, tenendo conto degli impegni accademici del team e delle disponibilità dei docenti Cardin e Vardanega. È stato concordato lo svolgimento di una prima revisione tecnica e una successiva assieme al team marketing Vimar.
+
+\subsection{Stato avanzamento Sprint 5}
+Il responsabile ha presentato lo stato di avanzamento dello Sprint 5, illustrando la suddivisione dei ruoli, le attività completate e quelle in corso. È stato evidenziato l’avvio dell’implementazione del PoC, con particolare attenzione alla necessità di adattare soluzioni esistenti e di concentrarsi sulle funzionalità chiave.
+
+\subsection{Implementazione e requisiti minimi del PoC}
+Viene illustrata l’architettura del server del PoC, basata su un approccio ispirato all’architettura esagonale, ricevendo suggerimenti per migliorare la separazione tra porte e adapter e per mantenere distinta la logica di business.
+
+\subsection{Q\&A tecnico e architetturale}
+Sono stati infine chiariti diversi dubbi tecnici riguardanti metriche di qualità, utilizzo di Prisma ORM$_G$, requisiti minimi del PoC e uso del logo Vimar.
+
+
+
+% ------------------------
+% Decisioni
+% ------------------------
+\addDecision{La revisione tecnica interna per la RTB verrà pianificata indicativamente nella settimana 19--23 gennaio}
+
+\addDecision{Il PoC dovrà includere almeno la gestione dell’impianto e un’utenza base; la gestione degli allarmi e i grafici analitici saranno implementati a livello di prototipo.}
+\addDecision{È consentito l’utilizzo dell’ORM Prisma, a condizione che la scelta sia motivata e coerente con i requisiti accademici e infrastrutturali.}
+\addDecision{È consentito esclusivamente l’utilizzo del logo Vimar fornito nel capitolato, con esclusione del logo ufficiale aziendale.}
+\makeDecisionTable
+
+\addTodo{\noOne}{Definire la data dell’incontro di revisione tecnica interna (settimana 19--23 gennaio).}{\teamName}{12/01/2026}
+
+\addTodo{\noOne}{Raffinare l’architettura esagonale, con particolare attenzione alla separazione tra porte e adapter.}{\teamName}{22/01/2026}
+
+\addTodo{\noOne}{Revisionare e sistemare i file Dockerfile e docker-compose.}{\teamName}{22/01/2026}
+\addTodo{\noOne}{Chiarire col prof. Vardanega la possibilità di inserimento di un secondo amministratore per fronteggiare il pesante carico di lavoro presente.}{\teamName}{08/01/2026}
+\makeTodoTable
+
+
+\end{document}
+
