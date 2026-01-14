@@ -92,7 +92,7 @@ Ore effettive
 \newcommand{\HPrevisteChristian}{}
 \newcommand{\HPrevisteLeonardo}{}
 \newcommand{\HPrevisteFrancesco}{}
-\newcommand{\HPrevisteVacante}{0}
+\newcommand{\HPrevisteVacante}{}
 %ore reali
 \newcommand{\HRealiFilippo}{}
 \newcommand{\HRealiValeria}{}
@@ -101,7 +101,7 @@ Ore effettive
 \newcommand{\HRealiChristian}{}
 \newcommand{\HRealiLeonardo}{}
 \newcommand{\HRealiFrancesco}{}
-\newcommand{\HRealiVacante}{0}
+\newcommand{\HRealiVacante}{}
 %ruoli
 \newcommand{\ruoloFilippo}{}
 \newcommand{\ruoloValeria}{}
@@ -315,8 +315,12 @@ Ore effettive
             }{}
 
             \cellcolor{lightgray} \textbf{Totale} & - 
-            &\fpeval{\HPrevisteFilippo+\HPrevisteChristian+\HPrevisteValeria+\HPrevisteGiuseppe+\HPrevisteFrancesco+\HPrevisteLuca+\HPrevisteLeonardo}
-            &\fpeval{\HRealiFilippo+\HRealiChristian+\HRealiValeria+\HRealiGiuseppe+\HRealiFrancesco+\HRealiLuca+\HRealiLeonardo}\\
+            &\ifthenelse{\equal{\HPrevisteVacante}{}}%
+                {\fpeval{\HPrevisteFilippo+\HPrevisteChristian+\HPrevisteValeria+\HPrevisteGiuseppe+\HPrevisteFrancesco+\HPrevisteLuca+\HPrevisteLeonardo}}%
+                {\fpeval{\HPrevisteFilippo+\HPrevisteChristian+\HPrevisteValeria+\HPrevisteGiuseppe+\HPrevisteFrancesco+\HPrevisteLuca+\HPrevisteLeonardo+\HPrevisteVacante}}
+            &\ifthenelse{\equal{\HRealiVacante}{}}%
+                {\fpeval{\HRealiFilippo+\HRealiChristian+\HRealiValeria+\HRealiGiuseppe+\HRealiFrancesco+\HRealiLuca+\HRealiLeonardo}}%
+                {\fpeval{\HRealiFilippo+\HRealiChristian+\HRealiValeria+\HRealiGiuseppe+\HRealiFrancesco+\HRealiLuca+\HRealiLeonardo+\HRealiVacante}}\\
             \hline
 
         \end{tabular}
