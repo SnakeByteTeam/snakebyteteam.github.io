@@ -1067,13 +1067,26 @@ Nel corso del periodo di avanzamento sono state svolte le seguenti attività:
 
 \subsubsection{Rischi}
 \trisubsection{Rischi attesi}
+All'inizio dello sprint erano previsti i seguenti rischi:
 \begin{itemize}
-    \item
+    \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: rischio legato all'apprendimento delle tecnologie per il \textit{PoC} dei nuovi sviluppatori;
+    \item \rif{RI2} - Impegni universitari: interferenza molto probabile con altri esami e con i periodi dedicati alla loro preparazione;
+    \item \rif{RC3} - Disparità di conoscenze tra componenti: rischio legato alla differente preparazione tra vecchi e nuovi sviluppatori a seguito del lavoro dei primi sul \textit{PoC}. Necessità quasi certa di allineamento e tutoring;
+    \item \rif{RO1} - Carico di lavoro eccessivo: qualunque membro del gruppo potrà trovarsi sovraccarico di attività da svolgere nel futuro prossimo a causa degli impegni richiesti dalla sessione invernale d'esami;
+    \item \rif{RO5} - Inadempimento scadenza \textit{issue}: segue da \rif{RT1} e \rif{RO1} che alcune attività di progetto potrebbero non essere svolte nei termini concordati;
+    \item \rif{RO7} - Sovrastima costi e ore: possibile persistenza delle difficoltà di stima riscontrate negli sprint precedenti.
 \end{itemize}
 
 \trisubsection{Rischi manifestati}
 \begin{itemize}
-    \item
+    \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: il livello di conoscenza delle tecnologie impiegate nel \textit{PoC} dei nuovi programmatori si è rivelato insufficiente.
+          \\La mitigazione è avvenuta, durante la prima parte dello sprint, facendo ulteriore attività di palestra al fine di produrre lavoro effettivo ed utile;
+    \item \rif{RC3} - Disparità di conoscenza tra componenti: la differenza tra vecchi e nuovi programmatori riguardo la conoscenza dello stato di avanzamento dei lavori sul \textit{PoC} è stata considerevole.
+          \\La mitigazione è avvenuta svolgendo riunioni interne tra programmatori per allineare le conoscenze e programmare le attività di sviluppo future.
+    \item \rif{R07} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore per alcuni ruoli (Filippo: -4 ore, Christian: -2 ore).
+          \\La mitigazione è avvenuta attraverso una ripianificazione più accurata per gli sprint successivi.
+    \item \rif{RO8} (non previsto) - Sottostima costi e ore: è stata riscontrata una sottostima nell'assengazione delle ore per alcuni ruoli (Francesco: +1 ora, Luca: +1 ora).
+          \\La mitigazione è avvenuta attraverso una ripianificazione più accurata per gli sprint successivi.
 \end{itemize}
 
 \subsubsection{Costi}
@@ -1113,7 +1126,26 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 \makeTablePreventivo
 
 \subsubsection{Retrospettiva}
+Durante lo sprint 5, le attività svolte hanno permesso un avanzamento significativo su più fronti,
+In particolare, il team ha raggiunto ormai l'imminente terminazione dell'Analisi dei Requisiti (si attende un colloquio per scagionare gli ultimi dubbi)
+e ha fatto notevoli passi avanti nella realizzazione del \textit{PoC}, dove sono stati implementate nuove funzionalità e la logica di business. Anche il Piano di Qualifica
+prende sempre più forma a seguito dell'inserimento dei grafici delle metriche misurate.
 
+
+Nella presentazione del lavoro svolto sul \textit{PoC} sono emersi dei dubbi e proposti dei miglioramenti
+per quanto concerne la modellazione delle principali entità del dominio, ossia gli Allarmi e le relative Soglie d'allarme.
+A seguito di un confronto che ha coinvolto il pensiero di tutto il team, si è riscontrato che, seppur la modellazione di base sia solida e corretta,
+sarà preferibile accorpare completamente l'entità Soglia all'interno dell'entità Allarme.
+
+Complessivamente, ci si ritiene soddisfatti del lavoro, che è stato svolto in maniera puntuale nonostante
+gli impegni nello studio e gli incombenti esami, che hanno inevitabilmente portato a una differenza in negativo di 4 ore di lavoro effettivo svolto rispetto al programmato.
+La leggera variazione e lo svolgimento del lavoro sottolineano però una buona capacità di organizzazione da parte dei membri del gruppo
+e una divisione dei compiti abbastanza ragionevole.
+Anche di fronte ai rischi manifestati, gli interessati sono riusciti a impiegare prontamente le tecniche di mitigazione e limitare i danni.
+A tal proposito, si è notato che in futuro bisognerà portare particolare attenzione al passaggio al ruolo di programmatore: i programmatori di questo sprint
+non sono infatti riusciti a svolgere lavoro utile nella prima settimana, in quanto le attività di preparazione e allineamento sono state molto più onerose del previsto.
+Infine, permangono le difficoltà riguardo l'assegnazione a priori di ore e ruoli, con discordanze nelle ore svolte dai singoli ruoli e membri però meno marcate rispetto allo sprint precedente,
+evidenziando un miglioramento del team anche sul fronte della pianificazione.
 
 %================================
 \vspace{1em}
