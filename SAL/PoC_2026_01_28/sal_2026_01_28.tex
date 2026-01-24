@@ -35,9 +35,10 @@
 
 \begin{frame}{Metodo di lavoro}
   \begin{itemize}
-    \item Abbiamo scelto una metodologia \textbf{agile}, composta da \textbf{sprint} di 2 settimane ciascuno;
+    \item Abbiamo scelto una metodologia \textbf{agile} con framework \textbf{scrum}, composta da \textbf{sprint} di 2 settimane ciascuno;
     \item Ad ogni sprint viene effettuata una rotazione dei seguenti ruoli tra i membri del gruppo:
   \end{itemize}
+  ** è capitato di non concludere alcune issue -> abbiamo scelto di mantenere 2 settimane e di spostare le issue allo sprint successivo
   \begin{center}
     \begin{tabular}{|l|}
       \hline
@@ -202,24 +203,37 @@ Svantaggi
 \end{tabularx}
 \end{frame}
 
+\begin{frame}{Scelta del Database}
+  da fare
+  MySQL, PostgreSQL
+
+  non rel (mongoDB?, Prisma da citare come ORM, TimeScaleDB, InfluxDB)
+\end{frame}
+
 \begin{frame}{Architettura esagonale}
   da fare
+  reparazione responsabilita
+  isolamento del dominio
+  ...
 \end{frame}
 
 \begin{frame}{Analytics}
-  
+  analisi consumo en, anomalie impianto, rilevamento presenza, presenza prolungata, 
+  variazione temp, allarmi inviati, allarmi risolti, frequenza allarmi
+  \\chart.js - open source
 \end{frame}
 
 \begin{frame}{Suggerimenti}
-  
+  soglie prefissate e sulla base dei dati delle analytics, vengono mostrati o meno i 
+  suggerimenti 
 \end{frame}
 
 \begin{frame}{Gestione degli allarmi}
-  
+  soglie allarmi, ...
 \end{frame}
 
 \begin{frame}{Interfaccia grafica}
-  
+  screen
 \end{frame}
 
 \begin{frame}{Limiti o blocchi incontrati}
@@ -228,6 +242,7 @@ Durante l'avanzamento del progetto i principali limiti incontrati sono stati:
      \item Pianificazione iniziale dei ruoli e delle ore per la definizione del costo complessivo;
      \item studio individuale delle tecnologie riguardanti il PoC;
      \item allineamento tra programmatori dopo lo scambio dei ruoli;
+     \item Chiedere
   \end{itemize}
 \end{frame}
 
