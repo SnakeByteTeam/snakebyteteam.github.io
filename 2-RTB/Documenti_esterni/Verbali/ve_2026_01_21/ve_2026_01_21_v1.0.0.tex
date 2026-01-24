@@ -10,16 +10,17 @@
 % ------------------------
 
 \setDocTitle{Verbale esterno 21/01/2026}
-\setDocVersion{0.1.0}
-\setDocData{22/01/2026}
+\setDocVersion{1.0.0}
+\setDocData{24/01/2026}
 \setDocIndex{ve\_2026\_01\_21}
-\setDocState{1} % 0=Da verificare
+\setDocState{2} % 0=Da verificare
 \setDocRecipient{2} % solo interni
 \begin{document}
 
 \makeTitlePage
 
 \newpage 
+\addChangelog{1.0.0}{24/01/2026}{\noOne}{\noOne}{V. Baleanu, M. Sciacco}{Approvazione interna ed esterna del documento}
 \addChangelog{\docVersion}{22/01/2026}{V. Baleanu}{L. Granziero}{\noOne}{Prima stesura}
 \makeChangelog
 
@@ -44,7 +45,7 @@
 \makeMeetingParticipantsTable
 
 
-
+\addPrecedentTodo{ve\_2025\_12\_23.a1}{-}{SnakeByte}{8/01/2026}
 \addPrecedentTodo{vi\_2026\_01\_13.a1}{-}{L. Pellizzon}{20/01/2026}
 \addPrecedentTodo{vi\_2026\_01\_13.a5}{\#75}{C. Libralato, F. Pasqual, V. Baleanu}{21/01/2026}
 
@@ -67,24 +68,24 @@ Il responsabile ha sottolineato che, durante l'ultimo periodo, l'avanzamento del
 \subsection{Stato del PoC: difficoltà e possibili soluzioni}
 I programmatori hanno illustrato le difficoltà incontrate nella continuazione dello sviluppo del \textit{PoC}, in 
 particolare sull'esposizione degli \textit{endpoint} pubblici e sulla simulazione delle \textit{subscription}. 
-La proponente ha suggerito l'uso di servizi \textit{cloud} (per esempio \textit{Digital Ocean}) e \textit{tool} (per esempio \textit{Ngrok}) per poter 
+La Proponente ha suggerito l'uso di servizi \textit{cloud} (per esempio \textit{Digital Ocean}) e \textit{tool} (per esempio \textit{Ngrok}) per poter 
 esporre un \textit{endpoint} locale su un dominio pubblico.
 \\È stato poi approfondito il tema della modellazione delle soglie e degli allarmi e del recupero dell'identificatore del dispositivo \textit{IoT} a partire dall'identificatore del \textit{datapoint}. 
-La proponente ha dunque suggerito due strategie implementabili:
+La Proponente ha dunque suggerito due strategie implementabili:
 \begin{itemize}
   \item \textit{Caching} dell'intera struttura dell'impianto;
   \item utilizzo di API dedicate.
 \end{itemize}
-Per quanto riguarda invece i grafici delle \textit{analytics}, la proponente ha affermato che è 
+Per quanto riguarda invece i grafici delle \textit{analytics}, la Proponente ha affermato che è 
 possibile produrre dei dati \textit{mock} per la loro visualizzazione.
 
 \subsection{Preparazione della presentazione relativa al PoC}
-La proponente ha suggerito a tutti i membri del gruppo, in vista della presentazione del 28 gennaio, 
+La Proponente ha suggerito a tutti i membri del gruppo, in vista della presentazione del 28 gennaio, 
 di prepararsi sulle seguenti tematiche:
 \begin{itemize}
   \item Motivazione delle tecnologie adottate (per esempio giustificare la separazione tra \textit{backend} e \textit{frontend} oppure la scelta di utilizzare \textit{Angular}$_G$ invece di altri linguaggi come PHP);
   \item Motivazione della scelta dell'architettura esagonale rispetto ad altre tipologie di architetture alternative;
-  \item Disegno architetturale del progetto presentato tramite il modello C4, il quale scompone il sistema \textit{software} in livelli gerarchici (\textit{System, Container, Component} e \textit{Code}), permettendo una rappresentazione progressiva e strutturata;
+  \item Disegno architetturale del progetto presentato tramite il modello C4, il quale scompone il sistema \textit{software} in livelli gerarchici (\textit{System, Container}$_G$\textit{, Component} e \textit{Code}), permettendo una rappresentazione progressiva e strutturata;
   \item Scelta sulle statistiche (\textit{analytics}) da visualizzare, sulla gestione degli allarmi e sui suggerimenti relativi al risparmio energetico.
 \end{itemize}
 È stato dunque richiesto l'invio anticipato di una bozza della presentazione e di suddividere 
@@ -98,8 +99,8 @@ l'esposizione tra tutti i membri del gruppo.
 \addDecision{Suddivisione della presentazione relativa al \textit{PoC} tra tutti i membri del gruppo}
 \makeDecisionTable
 
-\addTodo{\noOne}{Valutare la stategia migliore per esporre l'\textit{endpoint} pubblico}{\teamName}{27/01/2026}
-\addTodo{\noOne}{Valutare la strategia migliore per il recupro dell'identificatore dei dispositivi \textit{IoT} a partire dall'identificatore del \textit{datapoint}}{\teamName}{27/01/2026}
+\addTodo{\noOne}{Valutare la strategia migliore per esporre l'\textit{endpoint} pubblico}{\teamName}{27/01/2026}
+\addTodo{\noOne}{Valutare la strategia migliore per il recupero dell'identificatore dei dispositivi \textit{IoT} a partire dall'identificatore del \textit{datapoint}}{\teamName}{27/01/2026}
 \addTodo{\#81}{Inviare una bozza della presentazione del 28/01 con i suggerimenti forniti}{C. Libralato, F. Pasqual, V. Baleanu}{25/01/2026}
 \makeTodoTable
 
