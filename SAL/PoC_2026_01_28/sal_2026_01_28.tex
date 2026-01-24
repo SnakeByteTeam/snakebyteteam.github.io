@@ -36,9 +36,9 @@
 \begin{frame}{Metodo di lavoro}
   \begin{itemize}
     \item Abbiamo scelto una metodologia \textbf{agile} con framework \textbf{scrum}, composta da \textbf{sprint} di 2 settimane ciascuno;
+    \item Issue Tracking System: \textbf{GitHub Projects}. 
+    \\Le issue non completate in uno sprint vengono spostate e gestite nello sprint successivo;
     \item Ad ogni sprint viene effettuata una rotazione dei seguenti ruoli tra i membri del gruppo:
-  \end{itemize}
-  ** è capitato di non concludere alcune issue -> abbiamo scelto di mantenere 2 settimane e di spostare le issue allo sprint successivo
   \begin{center}
     \begin{tabular}{|l|}
       \hline
@@ -53,6 +53,7 @@
     \hline
   \end{tabular}
   \end{center}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Avanzamento fino ad oggi}
@@ -204,10 +205,21 @@ Svantaggi
 \end{frame}
 
 \begin{frame}{Scelta del Database}
-  da fare
-  MySQL, PostgreSQL
-
-  non rel (mongoDB?, Prisma da citare come ORM, TimeScaleDB, InfluxDB)
+  Le opzioni sono:
+  \begin{enumerate}
+    \item Database relazionale (per l'applicativo web):
+    \\ \begin{itemize}
+            \item MySQL
+            \item PostgreSQL
+          \end{itemize}
+    Possibile implementazione di un \textit{Object Relational Mapper} come \textbf{Prisma}
+    \item Database non relazionale (per analytics):
+    \\ \begin{itemize}
+      \item TimescaleDB 
+      \item InfluxDB
+      \item MongoDB 
+    \end{itemize}
+  \end{enumerate}
 \end{frame}
 
 \begin{frame}{Architettura esagonale}
@@ -242,7 +254,7 @@ Durante l'avanzamento del progetto i principali limiti incontrati sono stati:
      \item Pianificazione iniziale dei ruoli e delle ore per la definizione del costo complessivo;
      \item studio individuale delle tecnologie riguardanti il PoC;
      \item allineamento tra programmatori dopo lo scambio dei ruoli;
-     \item Chiedere
+     \item tempo limitato a causa di esami o altri progetti universitari;
   \end{itemize}
 \end{frame}
 
