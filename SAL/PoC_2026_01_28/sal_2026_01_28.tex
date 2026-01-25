@@ -218,14 +218,41 @@ Svantaggi
 \end{frame}
 
 \begin{frame}{Analytics}
-  analisi consumo en, anomalie impianto, rilevamento presenza, presenza prolungata, 
-  variazione temp, allarmi inviati, allarmi risolti, frequenza allarmi
-  \\chart.js - open source
+  Nella sezione Analytics saranno visualizzate le statistiche riportate
+  nel capitolato sotto forma di grafici.\\
+  È stato previsto l'utilizzo di librerie per la visualizzazione dei grafici,
+  le proposte sono:
+  \begin{itemize}
+   \item \textit{ng2-charts}
+   \begin{itemize}
+    \item wrapper di \textit{Chart.js} per Angular
+    \item semplice e leggero
+    \item licenza MIT
+   \end{itemize} 
+   \item ngx-charts
+   \begin{itemize}
+    \item framework per Angular
+    \item licenza MIT
+   \end{itemize}
+   
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Suggerimenti}
-  soglie prefissate e sulla base dei dati delle analytics, vengono mostrati o meno i 
-  suggerimenti 
+  La funzionalità dei suggerimenti per limitare il consumo energetico è basata su:
+  \begin{itemize}
+   \item una raccolta fissa di consigli (definita staticamente);
+   \item visualizzazione del suggerimento qualora dei valori istantanei o statistici violino delle soglie (eventualmente parametrizzabili). Ad esempio:
+   \begin{itemize} 
+    \item Valore istantaneo: la temperatura supera 19° (simile al meccanismo degli allarmi)
+    \item Valore statistico: il consumo giornaliero di una luce supera un certo valore 
+   \end{itemize}
+  \end{itemize} 
+  
+\end{frame}
+
+\begin{frame}{Interfaccia Analytics}
+
 \end{frame}
 
 \begin{frame}{Gestione degli allarmi}
