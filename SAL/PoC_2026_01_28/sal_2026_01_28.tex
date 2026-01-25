@@ -11,48 +11,49 @@
 \begin{document}
 
 {
-  \setbeamertemplate{footline}{}
-  \begin{frame}
-    \titlepage
-  \end{frame}
+\setbeamertemplate{footline}{}
+\begin{frame}
+  \titlepage
+\end{frame}
 }
 
 \begin{frame}{L'obiettivo del progetto}
   % \begin{textblock*}{2cm}(10.5cm,0.5cm)
   %   \includegraphics[width=2cm]{immagine}
   % \end{textblock*}
-  Sviluppare un applicativo \textit{web} per permettere la gestione delle residenze protette da parte del personale sanitario 
-  e dell'amministratore, tramite 
+  Sviluppare un applicativo \textit{web} per permettere la gestione delle residenze protette da parte del personale sanitario
+  e dell'amministratore, tramite
   l'uso dei dispositivi \textit{IoT}.
   \\In particolare, l'applicativo deve:
-    \begin{itemize}
-        \item Visualizzare le informazioni dei vari dispositivi \textit{IoT};
-        \item gestire gli \textbf{allarmi}, che verrano presi in carico dal personale sanitario;
-        \item visualizzare le \textbf{\textit{analytics}} relative alla piattaforma e agli impianti, con relativi suggerimenti per il risparmio energetico;
-        \item visualizzare una \textbf{\textit{dashboard}} contenente le informazioni principali (stato dispositivi, allarmi attivi, ...).
-\end{itemize}
+  \begin{itemize}
+    \item Visualizzare le informazioni dei vari dispositivi \textit{IoT};
+    \item gestire gli \textbf{allarmi}, che verrano presi in carico dal personale sanitario;
+    \item visualizzare le \textbf{\textit{analytics}} relative alla piattaforma e agli impianti, con relativi suggerimenti per il risparmio energetico;
+    \item visualizzare una \textbf{\textit{dashboard}} contenente le informazioni principali (stato dispositivi, allarmi attivi, ...).
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Metodo di lavoro}
   \begin{itemize}
     \item Abbiamo scelto una metodologia \textbf{agile} con framework \textbf{scrum}, composta da \textbf{sprint} di 2 settimane ciascuno;
+    \item Issue Tracking System: \textbf{GitHub Projects}.
+          \\Le issue non completate in uno sprint vengono spostate e gestite nello sprint successivo;
     \item Ad ogni sprint viene effettuata una rotazione dei seguenti ruoli tra i membri del gruppo:
+          \begin{center}
+            \begin{tabular}{|l|}
+              \hline
+              \textbf{Ruoli} \\
+              \hline
+              Responsabile   \\
+              Amministratore \\
+              Analista       \\
+              Progettista    \\
+              Programmatore  \\
+              Verificatore   \\
+              \hline
+            \end{tabular}
+          \end{center}
   \end{itemize}
-  ** è capitato di non concludere alcune issue -> abbiamo scelto di mantenere 2 settimane e di spostare le issue allo sprint successivo
-  \begin{center}
-    \begin{tabular}{|l|}
-      \hline
-      \textbf{Ruoli} \\
-      \hline
-      Responsabile \\
-      Amministratore \\
-      Analista \\
-      Progettista \\
-      Programmatore \\
-      Verificatore \\
-    \hline
-  \end{tabular}
-  \end{center}
 \end{frame}
 
 \begin{frame}{Avanzamento fino ad oggi}
@@ -92,129 +93,154 @@
 \end{frame}
 
 \begin{frame}{Tecnologie frontend}
-\centering
-\scriptsize
-\renewcommand{\arraystretch}{1.2}
-\begin{tabularx}{\textwidth}{|
-p{2cm}|
->{\raggedright\arraybackslash}X|
->{\raggedright\arraybackslash}X|
->{\raggedright\arraybackslash}X|}
-\hline
-\textbf{Categoria} 
-& \textbf{Angular} 
-& \textbf{React} 
-& \textbf{Flask} \\ \hline
+  \centering
+  \scriptsize
+  \renewcommand{\arraystretch}{1.2}
+  \begin{tabularx}{\textwidth}{|
+      p{2cm}|
+      >{\raggedright\arraybackslash}X|
+      >{\raggedright\arraybackslash}X|
+      >{\raggedright\arraybackslash}X|}
+    \hline
+    \textbf{Categoria}
+     & \textbf{Angular}
+     & \textbf{React}
+     & \textbf{Flask}                  \\ \hline
 
-Tipologia 
-& Framework frontend completo 
-& Libreria frontend 
-& Micro-framework backend \\ \hline
+    Tipologia
+     & Framework frontend completo
+     & Libreria frontend
+     & Micro-framework backend         \\ \hline
 
-Struttura 
-& Fortemente strutturato 
-& Flessibile, non prescrittivo 
-& Minima \\ \hline
+    Struttura
+     & Fortemente strutturato
+     & Flessibile, non prescrittivo
+     & Minima                          \\ \hline
 
-Tipizzazione 
-& TypeScript obbligatorio 
-& TypeScript opzionale 
-& Dinamica \\ \hline
+    Tipizzazione
+     & TypeScript obbligatorio
+     & TypeScript opzionale
+     & Dinamica                        \\ \hline
 
-Scalabilità 
-& Elevata (enterprise) 
-& Media-Alta 
-& Limitata al backend \\ \hline
+    Scalabilità
+     & Elevata (enterprise)
+     & Media-Alta
+     & Limitata al backend             \\ \hline
 
-Velocità di apprendimento 
-& Bassa (curva ripida) 
-& Alta 
-& Alta \\ \hline
+    Velocità di apprendimento
+     & Bassa (curva ripida)
+     & Alta
+     & Alta                            \\ \hline
 
-Tooling 
-& Completo e integrato 
-& Ecosistema frammentato 
-& Essenziale \\ \hline
+    Tooling
+     & Completo e integrato
+     & Ecosistema frammentato
+     & Essenziale                      \\ \hline
 
-Svantaggi 
-& Complessità iniziale, verbosità 
-& Mancanza di standard nativi 
-& Non adatto al frontend \\ \hline
-\end{tabularx}
+    Svantaggi
+     & Complessità iniziale, verbosità
+     & Mancanza di standard nativi
+     & Non adatto al frontend          \\ \hline
+  \end{tabularx}
 \end{frame}
 
 \begin{frame}{Tecnologie backend}
-\centering
-\scriptsize
-\renewcommand{\arraystretch}{1.2}
+  \centering
+  \scriptsize
+  \renewcommand{\arraystretch}{1.2}
 
-\begin{tabularx}{\textwidth}{|
-p{2cm}|
->{\raggedright\arraybackslash}X|
->{\raggedright\arraybackslash}X|
->{\raggedright\arraybackslash}X|}
-\hline
+  \begin{tabularx}{\textwidth}{|
+      p{2cm}|
+      >{\raggedright\arraybackslash}X|
+      >{\raggedright\arraybackslash}X|
+      >{\raggedright\arraybackslash}X|}
+    \hline
 
-\textbf{Categoria} 
-& \textbf{Node.js + Express} 
-& \textbf{Java + Spring} 
-& \textbf{Python + Flask / FastAPI} \\ \hline
+    \textbf{Categoria}
+     & \textbf{Node.js + Express}
+     & \textbf{Java + Spring}
+     & \textbf{Python + Flask / FastAPI} \\ \hline
 
-Tipologia 
-& Runtime JS con framework leggero 
-& Framework backend completo 
-& Framework leggero \\ \hline
+    Tipologia
+     & Runtime JS con framework leggero
+     & Framework backend completo
+     & Framework leggero                 \\ \hline
 
-Struttura 
-& Poco prescrittiva 
-& Fortemente strutturata
-& Minima e flessibile \\ \hline
+    Struttura
+     & Poco prescrittiva
+     & Fortemente strutturata
+     & Minima e flessibile               \\ \hline
 
-Tipizzazione 
-& Dinamica (TypeScript opzionale) 
-& Statica (Java) 
-& Dinamica (typing opzionale) \\ \hline
+    Tipizzazione
+     & Dinamica (TypeScript opzionale)
+     & Statica (Java)
+     & Dinamica (typing opzionale)       \\ \hline
 
-Prestazioni 
-& Ottime per API e I/O 
-& Elevate e stabili sotto carico 
-& Buone, FastAPI molto performante \\ \hline
+    Prestazioni
+     & Ottime per API e I/O
+     & Elevate e stabili sotto carico
+     & Buone, FastAPI molto performante  \\ \hline
 
-Tooling 
-& Modulare (npm, tool esterni) 
-& Completo e integrato 
-& Essenziale, estendibile \\ \hline
+    Tooling
+     & Modulare (npm, tool esterni)
+     & Completo e integrato
+     & Essenziale, estendibile           \\ \hline
 
-Sicurezza 
-& Gestita tramite middleware 
-& Forte supporto nativo 
-& Supporto base, estendibile \\ \hline
+    Sicurezza
+     & Gestita tramite middleware
+     & Forte supporto nativo
+     & Supporto base, estendibile        \\ \hline
 
-Svantaggi 
-& Poca struttura nativa 
-& Complessità e verbosità 
-& Meno standardizzazione \\ \hline
+    Svantaggi
+     & Poca struttura nativa
+     & Complessità e verbosità
+     & Meno standardizzazione            \\ \hline
 
-\textbf{Ambito ideale} 
-& \textbf{API REST, microservizi} 
-& \textbf{Applicazioni enterprise} 
-& \textbf{API rapide, prototipi} \\ \hline
-
-\end{tabularx}
+    \textbf{Ambito ideale}
+     & \textbf{API REST, microservizi}
+     & \textbf{Applicazioni enterprise}
+     & \textbf{API rapide, prototipi}    \\ \hline
+  \end{tabularx}
 \end{frame}
 
 \begin{frame}{Scelta del Database}
-  da fare
-  MySQL, PostgreSQL
+  Le opzioni sono:
+  \begin{enumerate}
+    \item Database relazionale (per l'applicativo web):
+          \\ \begin{itemize}
+            \item MySQL
+            \item PostgreSQL
+          \end{itemize}
+          Possibile implementazione di un \textit{Object Relational Mapper} come \textbf{Prisma}
+    \item Database non relazionale (per analytics):
+          \\ \begin{itemize}
+            \item TimescaleDB
+            \item InfluxDB
+            \item MongoDB
+          \end{itemize}
+  \end{enumerate}
+\end{frame}
 
-  non rel (mongoDB?, Prisma da citare come ORM, TimeScaleDB, InfluxDB)
+\begin{frame}{Backend: Architettura esagonale}
+  \textit{In ottica delle successive fasi di progettazione e design.}
+  \\Alcuni punti di forza e ragioni della scelta:
+  \begin{itemize}
+    \item Il più importante, da cui gli altri seguono, \textbf{inversione delle dipendenze};
+    \item isolamento del dominio;
+    \item ampia possibilità di compatibilità ed estensibilità con sistemi esterni (\textit{adapters});
+    \item focus sull'implementazione di interfacce stabili (\textit{ports}).
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Architettura esagonale}
-  da fare
-  reparazione responsabilita
-  isolamento del dominio
-  ...
+  \begin{figure}
+    \centering
+    \includegraphics[
+      width=\textwidth,
+      height=0.9\textheight,
+      keepaspectratio
+    ]{./backend_hex.png}
+  \end{figure}
 \end{frame}
 
 \begin{frame}{Analytics}
@@ -252,11 +278,25 @@ Svantaggi
 \end{frame}
 
 \begin{frame}{Interfaccia Analytics}
-
+  \centering
+  \includegraphics[
+    width=\textwidth,
+    height=0.9\textheight,
+    keepaspectratio
+  ]{PreviewAnalytics.png}
 \end{frame}
 
 \begin{frame}{Gestione degli allarmi}
-  soglie allarmi, ...
+
+  \begin{itemize}
+    \item E' possibile creare delle \texttt{Threshold}, unità di controllo dei valori rilevati da un \textit{datapoint}. 
+    \item Vengono definiti valore di scatto e operatore di confronto;
+    \item\texttt{Alarm} è l'evento generato alla violazione della soglia;
+    \item I valori che possono far scattare la soglia provengono dalle \textit{subscription}
+  \end{itemize}
+
+  \texttt{Ampliamo a voce}
+
 \end{frame}
 
 \begin{frame}{Interfaccia grafica}
@@ -264,12 +304,12 @@ Svantaggi
 \end{frame}
 
 \begin{frame}{Limiti o blocchi incontrati}
-Durante l'avanzamento del progetto i principali limiti incontrati sono stati:
+  Durante l'avanzamento del progetto i principali limiti incontrati sono stati:
   \begin{itemize}
-     \item Pianificazione iniziale dei ruoli e delle ore per la definizione del costo complessivo;
-     \item studio individuale delle tecnologie riguardanti il PoC;
-     \item allineamento tra programmatori dopo lo scambio dei ruoli;
-     \item Chiedere
+    \item Pianificazione iniziale dei ruoli e delle ore per la definizione del costo complessivo;
+    \item studio individuale delle tecnologie riguardanti il PoC;
+    \item allineamento tra programmatori dopo lo scambio dei ruoli;
+    \item tempo limitato a causa di esami o altri progetti universitari;
   \end{itemize}
 \end{frame}
 
