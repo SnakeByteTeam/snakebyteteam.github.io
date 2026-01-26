@@ -222,6 +222,38 @@
 \end{frame}
 
 \begin{frame}{Backend: Architettura esagonale}
+  \footnotesize
+  \setlength{\extrarowheight}{2pt}
+  \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+    \hline
+                 & \textbf{Layered}                                             & \textbf{Esagonale}                                                \\
+    \hline
+    Dominio      & Dipende da Persistent Logic                                  & Isolato, guida lo sviluppo                                        \\
+    \hline
+    Dipendenze   & App→Bus→Pers. Dati guidano sviluppo                          & App→Bus←Pers. Domain guida sviluppo                               \\
+    \hline
+    Testabilità  & Difficile testare senza mocking oneroso o avviare PostGre    & Facile e veloce, in particolare per Domain (Unit Test)            \\
+    \hline
+    Integrazioni & Chiamate API nei Service. Cambio API = cambio Business Logic & API come Secondary Adapters, interscambiabili rispetto al dominio \\
+    \hline
+  \end{tabularx}
+\end{frame}
+
+\begin{frame}{Backend: Architettura esagonale (continua)}
+  \footnotesize
+  \setlength{\extrarowheight}{2pt}
+  \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
+    \hline
+                               & \textbf{Layered}                                                               & \textbf{Esagonale}                                                                 \\
+    \hline
+    Database                   & Ruolo chiave, fondamenta. Sistema rigido e fragile                             & Dettaglio implementativo, ampia possibilità di cambiamento                         \\
+    \hline
+    Struttura e Manutenibilità & Layer nascondono la complessità. Difficoltà orientarsi con progetto che avanza & Indirizza lo sviluppo, mantiene chiarezza e trasparenza nelle integrazioni esterne \\
+    \hline
+  \end{tabularx}
+\end{frame}
+
+\begin{frame}{Backend: Architettura esagonale}
   \textit{In ottica delle successive fasi di progettazione e design.}
   \\Alcuni punti di forza e ragioni della scelta:
   \begin{itemize}
@@ -249,32 +281,32 @@
   È stato previsto l'utilizzo di librerie per la visualizzazione dei grafici,
   le proposte sono:
   \begin{itemize}
-   \item \textit{ng2-charts}
-   \begin{itemize}
-    \item wrapper di \textit{Chart.js} per Angular
-    \item semplice e leggero
-    \item licenza MIT
-   \end{itemize} 
-   \item ngx-charts
-   \begin{itemize}
-    \item framework per Angular
-    \item licenza MIT
-   \end{itemize}
-   
+    \item \textit{ng2-charts}
+          \begin{itemize}
+            \item wrapper di \textit{Chart.js} per Angular
+            \item semplice e leggero
+            \item licenza MIT
+          \end{itemize}
+    \item ngx-charts
+          \begin{itemize}
+            \item framework per Angular
+            \item licenza MIT
+          \end{itemize}
+
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Suggerimenti}
   La funzionalità dei suggerimenti per limitare il consumo energetico è basata su:
   \begin{itemize}
-   \item una raccolta fissa di consigli (definita staticamente);
-   \item visualizzazione del suggerimento qualora dei valori istantanei o statistici violino delle soglie (eventualmente parametrizzabili). Ad esempio:
-   \begin{itemize} 
-    \item Valore istantaneo: la temperatura supera 19° (simile al meccanismo degli allarmi)
-    \item Valore statistico: il consumo giornaliero di una luce supera un certo valore 
-   \end{itemize}
-  \end{itemize} 
-  
+    \item una raccolta fissa di consigli (definita staticamente);
+    \item visualizzazione del suggerimento qualora dei valori istantanei o statistici violino delle soglie (eventualmente parametrizzabili). Ad esempio:
+          \begin{itemize}
+            \item Valore istantaneo: la temperatura supera 19° (simile al meccanismo degli allarmi)
+            \item Valore statistico: il consumo giornaliero di una luce supera un certo valore
+          \end{itemize}
+  \end{itemize}
+
 \end{frame}
 
 \begin{frame}{Interfaccia Analytics}
