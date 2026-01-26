@@ -5,54 +5,57 @@
 \RequirePackage{xltabular}
 \RequirePackage{etoolbox}
 \RequirePackage{xstring}
+\RequirePackage{xparse}
+\RequirePackage{xspace}
 
-\newcount\UC@depth
-\newcommand{\UCcountdepth}[1]{%
-    \StrCount{#1}{.}[\UC@depth]%
-}
-
-% ------------------------
-% Livello profondità sezioni
-% ------------------------
-
-\newcommand{\UCtoclevel}{subsubsection}
-
-\newcommand{\UCsettoclevel}{%
-    \ifcase\UC@depth
-        \def\UCtoclevel{subsubsection}% UC1
-    \or
-        \def\UCtoclevel{paragraph}% UC1.1
-    \or
-        \def\UCtoclevel{subparagraph}% UC1.1.1
-    \else
-        \def\UCtoclevel{subparagraph}% UC1.1.1.x...
-    \fi
-}
+% \newcount\UC@depth
+% \newcommand{\UCcountdepth}[1]{%
+%     \StrCount{#1}{.}[\UC@depth]%
+% }
 
 % ------------------------
 % Costanti
 % ------------------------
-\newcommand{\user}{Utente }
-\newcommand{\userna}{Utente non autenticato }
-\newcommand{\os}{Operatore Sanitario }
-\newcommand{\admin}{Amministratore }
+\newcommand{\user}{Utente\xspace}
+\newcommand{\os}{Operatore Sanitario\xspace}
+\newcommand{\admin}{Amministratore\xspace}
+\newcommand{\db}{Database\xspace}
+\newcommand{\cloud}{Cloud Vimar\xspace}
+\newcommand{\capitolato}{\href{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C9.pdf}{Capitolato C9 Vimar}}
 
 % ------------------------
 % Liste
 % ------------------------
 
+\newcounter{numAtt}
+\setcounter{numAtt}{0}
 \newcommand{\listaAttori}{}
 \newcommand{\addAttore}[1]{
+    \stepcounter{numAtt}%
     \gappto{\listaAttori}{\item #1}
 }
 %=============================
+\newcounter{numAttSec}
+\setcounter{numAttSec}{0}
+\newcommand{\listaAttoriSec}{}
+\newcommand{\addAttoreSec}[1]{
+    \stepcounter{numAttSec}%
+    \gappto{\listaAttoriSec}{\item #1}
+}
+%=============================
+\newcounter{numPre}
+\setcounter{numPre}{0}
 \newcommand{\listaPreCondizioni}{}
-\newcommand{\addPreCondizione}[1]{
+\newcommand{\addPrC}[1]{
+    \stepcounter{numPre}%
     \gappto{\listaPreCondizioni}{\item #1}
 }
 %=============================
+\newcounter{numPost}
+\setcounter{numPost}{0}
 \newcommand{\listaPostCondizioni}{}
-\newcommand{\addPostCondizione}[1]{
+\newcommand{\addPoC}[1]{
+    \stepcounter{numPost}%
     \gappto{\listaPostCondizioni}{\item #1}
 }
 %=============================
@@ -61,14 +64,20 @@
     \gappto{\listaTrigger}{\item #1}
 }
 %=============================
+\newcounter{numSpr}
+\setcounter{numSpr}{0}
 \newcommand{\listaScenarioPrincipale}{}
 \newcommand{\addScenarioPrincipale}[1]{
+    \stepcounter{numSpr}%
     \gappto{\listaScenarioPrincipale}{\item #1}
 }
 %=============================
+\newcounter{numInc}
+\setcounter{numInc}{0}
 \newcommand{\listaInclusioni}{}
 \newcommand{\addInclusione}[1]{
-    \gappto{\listaInclusioni}{\item #1}
+    \stepcounter{numInc}%
+    \gappto{\listaInclusioni}{\item #1}%
 }
 %=============================
 \newcommand{\listaScenariAlternativi}{}
@@ -81,22 +90,24 @@
     \gappto{\listaEstensioni}{\item #1}
 }
 %=============================
-\newcommand{\rif}[1]{\hyperref[UC#1]{§UC#1}}
+\newcommand{\listaGeneralizzazioni}{}
+\newcommand{\addGeneralizzazione}[1]{
+    \gappto{\listaGeneralizzazioni}{\item #1}
+}
+%=============================
+\newcommand{\rif}[1]{%
+  \hyperref[UC#1]{UC#1 }\S\ref{UC#1}%
+}
 %=============================
 
-\newcommand{\makeUC}[2]{%
-    \label{UC#1}
-    \UCcountdepth{#1}%
-    \UCsettoclevel%
-    
-    \phantomsection
-    \subsubsection*{UC#1:\ #2}%
-    \addcontentsline{toc}{\UCtoclevel}{UC#1:\ #2}%
+\NewDocumentCommand{\makeUC}{O{0.5} O{0.5} O{0.5} m m}{%
+    \subsubsection{UC#4\ #5}
+    \label{UC#4}
 
-    \IfFileExists{./img/UC#1.pdf}{%
+    \IfFileExists{./img/UC#4.pdf}{%
         \begin{center}
-        \includegraphics[width=\textwidth]{./img/UC#1.pdf}
-        \captionof{figure}{UC#1 #2}
+        \includegraphics[width=#1\textwidth]{./img/UC#4.pdf}
+        \captionof{figure}{UC#4 #5}
         \end{center}
     }{}%
     \begin{xltabular}{\textwidth}{|>{\columncolor{lightgray}}c|X|}
@@ -104,50 +115,160 @@
         % Attori
         \ifdefempty{\listaAttori}{}{%
             \textbf{Attori} &
-            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+            \ifnum\value{numAtt}=1
+                \parbox[t]{\linewidth}{
+                    \vspace*{-10pt}
+                    \begin{itemize}[
+                        topsep=0pt,
+                        partopsep=0pt,
+                        itemsep=0pt,
+                        leftmargin=2pt,
+                        label={}
+                        ]
+                        \item \listaAttori
+                    \end{itemize}
+                    \vspace*{6pt}
+                }
+            \else
+                \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
                 \listaAttori
-            \end{itemize}\\ \hline
+                \end{itemize}
+            \fi
+            \\ \hline
+        }%
+
+        % Attori secondari
+        \ifdefempty{\listaAttoriSec}{}{%
+            \textbf{Attori secondari} &
+            \ifnum\value{numAttSec}=1
+                \parbox[t]{\linewidth}{
+                    \vspace*{-10pt}
+                    \begin{itemize}[
+                        topsep=0pt,
+                        partopsep=0pt,
+                        itemsep=0pt,
+                        leftmargin=2pt,
+                        label={}
+                        ]
+                        \item \listaAttoriSec
+                    \end{itemize}
+                    \vspace*{6pt}
+                }
+            \else
+                \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+                \listaAttoriSec
+                \end{itemize}
+            \fi
+            \\ \hline
         }%
 
         % Pre-condizioni
         \ifdefempty{\listaPreCondizioni}{}{%
             \textbf{Pre-condizioni} &
-            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+            \ifnum\value{numPre}=1
+                \parbox[t]{\linewidth}{
+                    \vspace*{-10pt}
+                    \begin{itemize}[
+                        topsep=0pt,
+                        partopsep=0pt,
+                        itemsep=0pt,
+                        leftmargin=2pt,
+                        label={}
+                        ]
+                        \item \listaPreCondizioni
+                    \end{itemize}
+                    \vspace*{6pt}
+                }
+            \else
+                \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
                 \listaPreCondizioni
-            \end{itemize}\\ \hline
+                \end{itemize}
+            \fi
+            \\ \hline
         }%
 
         % Post-condizioni
         \ifdefempty{\listaPostCondizioni}{}{%
             \textbf{Post-condizioni} &
-            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+            \ifnum\value{numPost}=1
+                \parbox[t]{\linewidth}{
+                    \vspace*{-10pt}
+                    \begin{itemize}[
+                        topsep=0pt,
+                        partopsep=0pt,
+                        itemsep=0pt,
+                        leftmargin=2pt,
+                        label={}
+                        ]
+                        \item \listaPostCondizioni
+                    \end{itemize}
+                    \vspace*{6pt}
+                }
+            \else
+                \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
                 \listaPostCondizioni
-            \end{itemize}\\ \hline
+                \end{itemize}
+            \fi
+            \\ \hline
         }%
 
         % Trigger
-        \ifdefempty{\listaTrigger}{}{%
-            \textbf{Trigger} &
-            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
-                \listaTrigger
-            \end{itemize}\\ \hline
-        }%
+        %\ifdefempty{\listaTrigger}{}{%
+        %    \textbf{Trigger} &
+        %    \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+        %         \listaTrigger
+        %    \end{itemize}\\ \hline
+        %}%
 
         % Scenario principale (enumerato)
         \ifdefempty{\listaScenarioPrincipale}{}{%
             \textbf{Scenario principale} &
-            \begin{enumerate}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=15pt]
+            \ifnum\value{numSpr}=1
+                \parbox[t]{\linewidth}{
+                    \vspace*{-10pt}
+                    \begin{itemize}[
+                        topsep=0pt,
+                        partopsep=0pt,
+                        itemsep=0pt,
+                        leftmargin=2pt,
+                        label={}
+                        ]
+                        \item \listaScenarioPrincipale
+                    \end{itemize}
+                    \vspace*{6pt}
+                }
+            \else
+                \begin{enumerate}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=12pt]
                 \listaScenarioPrincipale
-            \end{enumerate}\\ \hline
+                \end{enumerate}
+            \fi
+            \\ \hline
         }%
 
         % Inclusioni
         \ifdefempty{\listaInclusioni}{}{%
             \textbf{Inclusioni} &
-            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+            \ifnum\value{numInc}=1
+                \parbox[t]{\linewidth}{
+                    \vspace*{-10pt}
+                    \begin{itemize}[
+                        topsep=0pt,
+                        partopsep=0pt,
+                        itemsep=0pt,
+                        leftmargin=2pt,
+                        label={}
+                        ]
+                        \item \listaInclusioni
+                    \end{itemize}
+                    \vspace*{6pt}
+                }
+            \else
+                \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
                 \listaInclusioni
-            \end{itemize}\\ \hline
-        }%
+                \end{itemize}
+            \fi
+            \\ \hline
+        }
 
         % Scenari alternativi
         \ifdefempty{\listaScenariAlternativi}{}{%
@@ -164,10 +285,33 @@
                 \listaEstensioni
             \end{itemize}\\ \hline
         }%
+
+        % Generalizzazioni
+        \ifdefempty{\listaGeneralizzazioni}{}{%
+            \textbf{Generalizzazioni} &
+            \begin{itemize}[topsep=0pt, partopsep=0pt, itemsep=0pt, leftmargin=10pt]
+                \listaGeneralizzazioni
+            \end{itemize}\\ \hline
+        }%
     \end{xltabular}
+
+    \IfFileExists{./img/UC#4i.pdf}{%
+        \begin{center}
+        \includegraphics[width=#2\textwidth]{./img/UC#4i.pdf}
+        \captionof{figure}{Inclusioni dell'UC#4}
+        \end{center}
+    }{}%
+
+    \IfFileExists{./img/UC#4g.pdf}{%
+        \begin{center}
+        \includegraphics[width=#3\textwidth]{./img/UC#4g.pdf}
+        \captionof{figure}{Generalizzazione dell'UC#4}
+        \end{center}
+    }{}%
 
     % Pulisce le variabili per riempire la prossima tabella
     \renewcommand{\listaAttori}{}
+    \renewcommand{\listaAttoriSec}{}
     \renewcommand{\listaPreCondizioni}{}
     \renewcommand{\listaPostCondizioni}{}
     \renewcommand{\listaTrigger}{}
@@ -175,4 +319,119 @@
     \renewcommand{\listaScenariAlternativi}{}
     \renewcommand{\listaInclusioni}{}
     \renewcommand{\listaEstensioni}{}
+    \renewcommand{\listaGeneralizzazioni}{}
+    \setcounter{numAtt}{0}
+    \setcounter{numAttSec}{0}
+    \setcounter{numPost}{0}
+    \setcounter{numPre}{0}
+    \setcounter{numSpr}{0}
+    \setcounter{numInc}{0}
+}
+
+% --- Req funzionali ---
+
+\newcommand{\reqFEntries}{}
+\newcounter{refctr}
+\newcommand{\addReqF}[3]{%
+  \begingroup
+    \stepcounter{refctr}
+    \edef\RF@id{\therefctr}
+    \edef\@tempa{
+        \noexpand\gappto\noexpand{\noexpand\reqFEntries}{
+        RF\RF@id-%
+        \ifnum#1=2 OB%
+        \else\ifnum#1=1 DE%
+        \else\ifnum#1=0 OP%
+        \else ??%
+        \fi\fi\fi & \unexpanded{#2} & \unexpanded{\parbox[t]{\linewidth}{#3}} \\ \noexpand\hline
+      }
+    }
+  \@tempa
+  \endgroup
+}
+
+\newcommand{\makeReqFtable}{
+    \subsection{Funzionali}{
+        \renewcommand{\arraystretch}{1.25}
+        \begin{center}
+            \begin{xltabular}{\textwidth}{|c|X|p{3.40cm}|}
+            \hline
+            \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Fonti} \\
+            \hline
+            \reqFEntries
+            \end{xltabular}
+        \end{center}
+    }
+}
+
+% --- Req di qualità ---
+
+\newcommand{\reqQEntries}{}
+\newcounter{reqctr}
+\newcommand{\addReqQ}[3]{%
+  \begingroup
+    \stepcounter{reqctr}
+    \edef\RQ@id{\thereqctr}
+    \edef\@tempa{
+        \noexpand\gappto\noexpand{\noexpand\reqQEntries}{
+        RQ\RQ@id-%
+        \ifnum#1=2 OB%
+        \else\ifnum#1=1 DE%
+        \else\ifnum#1=0 OP%
+        \else ??%
+        \fi\fi\fi & \unexpanded{#2} & \unexpanded{\parbox[t]{\linewidth}{#3}} \\ \noexpand\hline
+      }
+    }
+  \@tempa
+  \endgroup
+}
+
+\newcommand{\makeReqQtable}{
+    \subsection{Di qualità}{
+        \renewcommand{\arraystretch}{1.25}
+        \begin{center}
+            \begin{xltabular}{\textwidth}{|c|X|p{3.85cm}|}
+            \hline
+            \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Fonti} \\
+            \hline
+            \reqQEntries
+            \end{xltabular}
+        \end{center}
+    }
+}
+
+% --- Req di vincolo ---
+
+\newcommand{\reqVEntries}{}
+\newcounter{revctr}
+\newcommand{\addReqV}[3]{%
+  \begingroup
+    \stepcounter{revctr}
+    \edef\RV@id{\therevctr}
+    \edef\@tempa{
+        \noexpand\gappto\noexpand{\noexpand\reqVEntries}{
+        RV\RV@id-%
+        \ifnum#1=2 OB%
+        \else\ifnum#1=1 DE%
+        \else\ifnum#1=0 OP%
+        \else ??%
+        \fi\fi\fi & \unexpanded{#2} & \unexpanded{#3} \\ \noexpand\hline
+      }
+    }
+  \@tempa
+  \endgroup
+}
+
+\newcommand{\makeReqVtable}{
+    \subsection{Di vincolo}{
+        \renewcommand{\arraystretch}{1.25}
+        \begin{center}
+            \begin{xltabular}{\textwidth}{|c|X|c|}
+            \hline
+            \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Fonti} \\
+            \hline
+            \reqVEntries
+            \end{xltabular}
+        \end{center}
+    }
 }

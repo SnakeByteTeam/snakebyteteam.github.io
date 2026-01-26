@@ -14,6 +14,8 @@
 \usepackage{lastpage} 
 \renewcommand{\arraystretch}{1.05} % migliora la leggibilità
 \renewcommand{\contentsname}{Indice}
+\renewcommand{\listfigurename}{Elenco delle figure}
+\renewcommand{\listtablename}{Elenco delle tabelle}
 \usepackage{fancyhdr}
 %Comandi per livello di sottosezioni = 3
 \setcounter{tocdepth}{4}
@@ -25,6 +27,59 @@
 \fancyhead[L]{SnakeByte}
 \fancyhead[R]{Analisi dei Requisiti}
 \fancyfoot[C]{Pagina \thepage\ di \pageref{LastPage}}
+
+\newcommand\Au{1} % Autenticazione
+\newcommand\Aucp{2} % Autenticazione con mod. pas.
+
+\newcommand\VaMV{3} % Visualizza account MyVimar
+\newcommand\CaMV{4} % Collega account MyVimar
+\newcommand\RaMV{5} % Rimuovi account MyVimar
+
+\newcommand\Vu{6} % Visualizza utenti OS
+\newcommand\Cu{7} % Creazione OS
+\newcommand\Eu{8} % Eliminazione OS
+
+\newcommand\Vr{9} % Visualizza reparti
+
+\newcommand\Cr{10} % Creazione reparto
+\newcommand\Mr{11} % Modifica nome reparto
+\newcommand\Er{12} % Eliminazione reparto
+
+\newcommand\Aaosr{13} % Aggiunta assegnazione OS - reparto
+\newcommand\Raosr{14} % Rimozion assegnazione OS - reparto
+
+\newcommand\Aaapr{15} % Aggiunta assegnazione appartamento - reparto
+\newcommand\Raapr{16} % Rimozion assegnazione appartamento - reparto
+
+\newcommand\Vd{17} % Visualizzazione Dashboard
+
+\newcommand\Va{27} % Visualizzazione analytics
+
+\newcommand\Vap{28} % Visualizzazione Appartamento
+
+\newcommand\Aapp{29} % Abilita appartamento
+\newcommand\Dapp{30} % Disabilita appartamento
+
+\newcommand\Aa{31} % Aggiunta allarme
+\newcommand\Mpa{32} % Modifica priorità allarme
+\newcommand\Msia{33} % Modifica soglia intervento allarme
+\newcommand\Moaa{34} % Modifica orario attivazione allarme
+\newcommand\Moda{35} % Modifica orario disattivazione allarme
+\newcommand\Aal{36} % Abilita allarme
+\newcommand\Dal{37} % Disabilita allarme
+\newcommand\Ea{38} % Elimina allarme
+
+\newcommand\Vn{39} % Visualizzazione notifiche
+
+\newcommand\Erunr{40} % Errore username non registrato o password errata
+\newcommand\Erpte{41} % Errore username non registrato o password temporeanea errata
+\newcommand\Ernpupt{42} % Errore nuova password è uguale alla password temporeanea
+\newcommand\Ernpnv{43} % Errore nuova password non valida
+\newcommand\Eruu{44} % Errore username già in uso
+\newcommand\Ernru{45} % Errore nome reparto già in uso
+\newcommand\Erns{46} % Errore nessun sensore selezionato
+\newcommand\Ernlp{47} % Errore nessun livello di priorità selezionato
+\newcommand\Ernss{48} % Errore nessun soglia di intervento selezionata
 
 \begin{document}
 \setcounter{tocdepth}{5}
@@ -71,7 +126,9 @@
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
         \hline
-        1.0.7 & 15/12/2025 & F. Venzo & - & - & Aggiunti diagrammi UML Use Cases UC1, UC1.4, UC1.5, UC2, UC2.8, UC2.9  \\
+        1.1.0 & 26/01/2026 & L. Pellizzon & - & - & Modifica diagrammi UML Use Cases da UC1 a UC7, aggiunta Use Cases da UC8 a UC48 e modifica Attori \\
+        \hline
+        1.0.7 & 15/12/2025 & F. Venzo & F. Pasqual & - & Aggiunti diagrammi UML Use Cases UC1, UC1.4, UC1.5, UC2, UC2.8, UC2.9  \\
         \hline
         1.0.6 & 14/12/2025 & G. De Fina & L. Pellizzon & - & Aggiunta Use Cases UC5.4 (Gestione utenti e permessi) e relativi sotto-casi  \\
         \hline
@@ -85,7 +142,7 @@
         \hline
         1.0.1 & 8/12/2025 & V. Baleanu & L. Pellizzon & - & Sistemazione UC3 e UC4. Aggiunta Use Cases UC7 e UC8. Aggiunta diagramma Attori. \\
         \hline
-        1.0.0 & 5/12/2025 & F. Venzo & L. Pellizzon & F. Pasqual & Approvazione del documento per l'invio alla proponente.\\
+        1.0.0 & 5/12/2025 & F. Venzo & L. Pellizzon & F. Pasqual & Approvazione \\
         \hline
         0.5.0 & 5/12/2025 & F. Venzo & L. Pellizzon & - & Aggiunta Use Cases UC7 e correzioni varie  \\
         \hline
@@ -117,14 +174,14 @@
 
 \section{Introduzione}
 \subsection{Finalità del documento}{
-Il documento di analisi dei requisiti, in un contesto di ingegneria del software, ha lo scopo fondamentale di tradurre l'esigenza dell'utenza e degli stakeholder, in questo caso la proponente Vimar S.p.A., in una specifica completa, coerente e verificabile di requisiti, destinata a guidare le fasi di progettazione e sviluppo, verifica e infine validazione del sistema.
+Il documento di analisi dei requisiti, in un contesto di ingegneria del software, ha lo scopo fondamentale di tradurre l'esigenza dell'utenza e degli stakeholder, in questo caso la proponente Vimar S.p.A., in una specifica completa, coerente e verificabile di requisiti, destinata a guidare le fasi di progettazione e sviluppo, verifica e infine validazione del Sistema.
 
 \noindent
 \\
-\textbf{Definire chiaramente “cosa” il sistema deve fare e “in quali condizioni”:}
+\textbf{Definire chiaramente “cosa” il Sistema deve fare e “in quali condizioni”:}
 \begin{itemize}
     \item L’analisi dei requisiti serve a identificare le funzioni (requisiti funzionali) e le qualità (requisiti non funzionali: prestazioni, usabilità, affidabilità, portabilità...) del software.
-    \item Definisce i limiti del sistema e i vincoli (tecnici, di interfaccia...)
+    \item Definisce i limiti del Sistema e i vincoli (tecnici, di interfaccia...)
     \item Permette di evitare ambiguità o fraintendimenti sulle funzionalità richieste. 
 \end{itemize}
 
@@ -132,13 +189,13 @@ Il documento di analisi dei requisiti, in un contesto di ingegneria del software
 \textbf{Allineare tutti gli stakeholder su un linguaggio comune e condividere le aspettative:}
 \begin{itemize}
     \item Questo documento funge da contratto tra cliente/committente e il team di sviluppo: specifica ciò che sarà consegnato.
-    \item Aiuta a garantire che utenti, committenti, analisti, progettisti e tester abbiano la stessa comprensione del sistema.
+    \item Aiuta a garantire che utenti, committenti, analisti, progettisti e tester abbiano la stessa comprensione del Sistema.
 \end{itemize}
 
 \noindent
 \textbf{Fornire una base stabile per le fasi successive del ciclo di vita del software:}
 \begin{itemize}
-    \item Il documento di analisi dei requisiti serve come input per la progettazione del sistema, per la pianificazione dello sviluppo e per la pianificazione dei test.
+    \item Il documento di analisi dei requisiti serve come input per la progettazione del Sistema, per la pianificazione dello sviluppo e per la pianificazione dei test.
     \item Serve anche come base per la verifica e la convalida: si può usare come riferimento per capire se il prodotto finale soddisfa i requisiti richiesti. 
 \end{itemize}
 \noindent
@@ -186,12 +243,12 @@ Il presente documento è stato sviluppato in modo graduale e incrementale, con l
 
 \section{Descrizione del prodotto}
 \subsection{Prospettiva del prodotto}
-La prospettiva del prodotto è un sistema domotico integrato per persone autosufficienti (ad esempio anziani) che si basa su dispositivi Vimar con connessione mesh Bluetooth.
+La prospettiva del prodotto è un Sistema domotico integrato per persone autosufficienti (ad esempio anziani) che si basa su dispositivi Vimar con connessione mesh Bluetooth.
 Gli obiettivi principali sono la sicurezza e il comfort delle persone occupanti, l'aumento dell'efficienza energetica della struttura e la semplificazione della gestione operativa dell'impianto elettrico.
 Tali risultati vengono raggiunti attraverso la centralizzazione del controllo di illuminazione, temperatura, televisione e dispositivi di sicurezza mediante l'app View e i relativi servizi cloud, con la possibilità di controllo da remoto da parte del personale medico.
 
 \subsection{Obiettivi del prodotto}{
-Il progetto consiste nella realizzazione di una piattaforma unica \textit{View4Life} per la gestione intelligente degli impianti \textit{Smart} nelle residenze protette, sfruttando i dispositivi domotici Vimar connessi in rete \textit{mesh Bluetooth} che vengono poi esposti tramite l'interfaccia \textit{API KNX IoT 3rd-party$_{G}$}. Questa soluzione mira a supportare il lavoro del \os fornendo uno strumento che integri un sistema di gestione degli allarmi (come il rilevamento di cadute o presenze prolungate in determinate stanze) per garantire un intervento rapido e tempestivo. Inoltre, la piattaforma è progettata per permettere il monitoraggio del consumo energetico e la rilevazione di anomalie nell’impianto (ad esempio le disconnessioni).
+Il progetto consiste nella realizzazione di una piattaforma unica \textit{View4Life} per la gestione intelligente degli impianti \textit{Smart} nelle residenze protette, sfruttando i dispositivi domotici Vimar connessi in rete \textit{mesh Bluetooth} che vengono poi esposti tramite l'interfaccia \textit{API KNX IoT 3rd-party$_{G}$}. Questa soluzione mira a supportare il lavoro del \os fornendo uno strumento che integri un Sistema di gestione degli allarmi (come il rilevamento di cadute o presenze prolungate in determinate stanze) per garantire un intervento rapido e tempestivo. Inoltre, la piattaforma è progettata per permettere il monitoraggio del consumo energetico e la rilevazione di anomalie nell’impianto (ad esempio le disconnessioni).
 }
 
 \subsection{Funzionalità del prodotto}
@@ -209,15 +266,11 @@ Il prodotto si rivolge principalmente a quattro categorie principali di utenti, 
 
 \begin{itemize}
     \item \textbf{Personale medico e operatori sanitari} che utilizzano l'applicazione per monitorare lo stato di ambienti e dispositivi, oltre a ricevere notifiche di allarme e gestire da remoto funzioni come temperatura, illuminazione e sicurezza delle stanze degli ospiti presenti. 
-    \item \textbf{Personale amministrativo} che si fa carico della configurazione e manutenzione del sistema e del monitoraggio delle statistiche prodotte (ad esempio sui consumi elettrici o sulla variazione delle temperatura), e quindi a una conseguente ottimizzazione dell'efficienza dell'impianto elettrico.
+    \item \textbf{Personale amministrativo} che si fa carico della configurazione e manutenzione del Sistema e del monitoraggio delle statistiche prodotte (ad esempio sui consumi elettrici o sulla variazione delle temperatura), e quindi a una conseguente ottimizzazione dell'efficienza dell'impianto elettrico.
 \end{itemize}
-Questa sezione evidenzia come il sistema domotico proposto miri a centralizzare il controllo e la gestione degli impianti all’interno della residenza, semplificando le operazioni quotidiane del personale e migliorando la qualità della vita degli ospiti.
+Questa sezione evidenzia come il Sistema domotico proposto miri a centralizzare il controllo e la gestione degli impianti all’interno della residenza, semplificando le operazioni quotidiane del personale e migliorando la qualità della vita degli ospiti.
 Attraverso l’app View e i servizi cloud Vimar, l’applicazione permette di gestire in modo integrato illuminazione, temperatura e sicurezza, contribuendo a maggior efficienza energetica, sicurezza e comfort abitativo per tutti gli utenti coinvolti.
 }
-
-
-
-
 
 \section{Casi d'uso}
 Un \textit{caso d'uso$_{G}$} è la descrizione dettagliata, tramite \textit{diagramma UML$_G$} e descrizione testuale, di un insieme di scenari che hanno uno scopo comune, all'interno del Sistema, per un attore.
@@ -235,10 +288,10 @@ In particolare, le descrizioni dei casi d'uso contenute in questo documento cont
         Pre-condizioni & Condizioni che devono essere soddisfatte prima dello scenario descritto dal caso d'uso.\\
         \hline
         Post-condizioni & Condizioni che risultano soddisfatte dopo il completamento dello scenario principale del caso d'uso. Se viene completato uno scenario alternativo, saranno soddisfatte le Post-condizioni di quest'ultimo. \\
+        % \hline
+        % Trigger & La motivazione che porta l'\user a svolgere i passi del caso d'uso. \\
         \hline
-        Trigger & La motivazione che porta l'utente a svolgere i passi del caso d'uso. \\
-        \hline
-        Scenario principale & Sequenza di passi che l'utente deve seguire per completare il caso d'uso. \\
+        Scenario principale & Sequenza di passi che l'\user deve seguire per completare il caso d'uso. \\
         \hline
         Scenari alternativi & Scenario divergente dal principale per il verificarsi di una particolare condizione. \\
         \hline
@@ -246,7 +299,8 @@ In particolare, le descrizioni dei casi d'uso contenute in questo documento cont
         \hline
         Inclusioni & Casi d'uso ulteriori eseguiti al fine di completare il caso d'uso principale. Vengono eseguiti tutti incondizionatamente. \\
         \hline
-        
+        Generalizzazioni & Casi d'uso più specifici che ereditano comportamento e caratteristiche da un caso d'uso più generale, potendo aggiungere o specializzare ulteriori funzionalità. \\  \\
+        \hline
     \end{tabularx}
 \end{center}
 
@@ -256,7 +310,7 @@ Non tutti gli attributi sono necessari per ogni caso d'uso. Nel caso in cui un c
 Di seguito vengono riportati gli attori individuati:
 \begin{figure}[H]
     \centering
-    \includegraphics[width=0.6\textwidth]{./img/Attori.pdf}
+    \includegraphics[width=0.415\textwidth]{./img/Attori.pdf}
     \caption{Diagramma attori principali}
     \label{fig:attori}
 \end{figure}
@@ -266,1218 +320,1677 @@ Di seguito vengono riportati gli attori individuati:
         \hline
         \rowcolor{lightgray} \textbf{Attore} & \textbf{Descrizione} \\
         \hline
-        \userna & Rappresenta l'utente che vuole accedere nel Sistema. \\
+        \user & Rappresenta l'utente generico (sia \admin che \os) registrato nel Sistema. \\
         \hline
-        Utente & Rappresenta l'utente generico (sia \admin che \os) autenticato nel Sistema. \\
-        \hline
-        \os & Rappresenta l'utente \os. \\
+        \os & Rappresenta l'\user \os. \\
         \hline 
-        \admin & Rappresenta l'amministratore della struttura il quale gestice la struttura e l'\os. \\
+        \admin & Rappresenta un \user che ha particolari privilegi all'interno del Sistema. \\
+        \hline  
+        \db & Rappresenta il \db responsabile della persistenza dei dati. \\
+        \hline 
+        \cloud & Rappresenta il \cloud che mette a disposizione un'interfaccia per accedere ai dati riguardanti gli appartamenti, le stanze e i dispositivi. \\
         \hline          
     \end{tabularx}
 \end{center}
 
-
-
 \subsection{Lista dei casi d'uso}
 
-\addAttore{\userna.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPostCondizione{L'utente è autenticato nel Sistema}
-\addTrigger{L'utente vuole autenticarsi nel Sistema}
-\addScenarioPrincipale{L'utente inserisce il proprio username;}
-\addScenarioPrincipale{L'utente inserisce la propria Password.}
-\addInclusione{Inserimento username \rif{1.1}}
-\addInclusione{Inserimento Password \rif{1.2}}
-\addScenarioAlternativo{L'utente inserisce username o Password errate.}
-\addEstensione{Autenticazione fallita \rif{1.3}}
-\makeUC{1}{Autenticazione}
+% --------
 
-\addAttore{\userna.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{Il Sistema non conosce l'username dell'utente.}
-\addPostCondizione{Il Sistema conosce l'username dell'utente.}
-\addScenarioPrincipale{L'utente inserisce il proprio username.}
-\addTrigger{L'utente ha selezionato l'opzione di inserimento dell'username.}
-\makeUC{1.1}{Inserimento username}
+\addAttore{\user}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPoC{L'\user è autenticato nel Sistema;}
+\addPoC{L'\user è riconosciuto come \os.}
+\addTrigger{L'\user vuole autenticarsi nel Sistema}
+\addScenarioPrincipale{L'\user si autentica con le proprie credenziali:
+\begin{itemize}
+    \item inserimento username (\rif{\Au.1});
+    \item inserimento password (\rif{\Au.2}).
+\end{itemize}
+}
+\addInclusione{\rif{\Au.1}}
+\addInclusione{\rif{\Au.2}}
+\addScenarioAlternativo{L'\user non è registrato nel Sistema o la password è errata (\rif{\Erunr});}
+\addEstensione{\rif{\Erunr}}
+\makeUC[0.9]{\Au}{Autenticazione}
 
-\addAttore{\userna.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{Il Sistema non conosce la Password dell'utente.}
-\addPostCondizione{Il Sistema conosce la Password dell'utente.}
-\addScenarioPrincipale{L'utente inserisce la propria Password.}
-\addTrigger{L'utente ha selezionato l'opzione di inserimento della Password;}
-\makeUC{1.2}{Inserimento Password}
+\addAttore{\user}
+\addPrC{L'\user sta eseguendo l'autenticazione}
+\addPoC{L'\user ha inserito l'username.}
+\addScenarioPrincipale{L'\user inserisce l'username;}
+\makeUC{\Au.1}{Inserimento username}
 
-\addAttore{\userna.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPostCondizione{L'utente non è autenticato.}
-\addScenarioPrincipale{Il Sistema segnala l'errore di autenticazione.}
-\addTrigger{L'utente ha immesso username o Password errati.}
-\makeUC{1.3}{Autenticazione fallita}
+\addAttore{\user}
+\addPrC{L'\user sta eseguendo l'autenticazione}
+\addPoC{L'\user ha inserito la password.}
+\addScenarioPrincipale{L'\user inserisce la password;}
+\makeUC{\Au.2}{Inserimento password}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema.}
-\addPostCondizione{Un nuovo utente del \os è registrato presso il Sistema}
-\addScenarioPrincipale{L'\admin crea uno username per l'\os;}
-\addScenarioPrincipale{L'\admin crea una password temporanea per l'\os;}
-\addInclusione{Creazione username utente \os \rif{1.4.1}}
-\addInclusione{Generazione password temporanea \rif{1.4.2}}
-\addTrigger{L'\admin vuole registrare un nuovo utente del \os.}
-\makeUC{1.4}{Creazione nuovo utente \os}
+% --------
 
-\addAttore{\admin.}
-\addPreCondizione{L'\admin sta creando un nuovo utente \os;}
-\addPostCondizione{Il Sistema conosce lo username delL'\os;}
-\addScenarioPrincipale{L'\admin sceglie uno username per l'\os}
-\addScenarioAlternativo{L'username scelto è già in uso nel Sistema;}
-\addEstensione{Errore username già in uso \rif{1.4.3}}
-\makeUC{1.4.1}{Creazione username utente \os}
-
-\addAttore{\admin.}
-\addPreCondizione{L'\admin sta creando un nuovo utente \os;}
-\addPostCondizione{Il Sistema conosce la password temporanea per l'\os;}
-\addScenarioPrincipale{L'\admin genera una Password temporanea per l'\os}
-\makeUC{1.4.2}{Generazione password temporanea}
-
-\addAttore{\admin.}
-\addPreCondizione{L'\admin sta creando un nuovo utente \os;}
-\addPostCondizione{Il Sistema non registra il nuovo utente del \os.}
-\addScenarioPrincipale{Il Sistema segnala l'errore di username già in uso.}
-\addScenarioPrincipale{Il Sistema ripropone all'\admin di scegliere uno username.}
-\addTrigger{L'\admin sceglie uno username già in uso nel Sistema.}
-\addInclusione{Creazione username utente \os \rif{1.4.1}}
-\makeUC{1.4.3}{Errore username già in uso}
-
-\addAttore{\userna.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPostCondizione{L'utente è autenticato nel Sistema;}
-\addPostCondizione{L'\userna è riconosciuto come \os.}
-
-\addScenarioPrincipale{L'\userna si autentica con le credenziali fornite dall'\admin; (vedi Creazione nuovo utente \os \rif{1.4})}
-\addScenarioPrincipale{Il Sistema obbliga l'\os ad aggiornare la Password temporanea;}
-
-\addInclusione{Autenticazione \rif{1}}
-\addInclusione{Aggiornamento Password \rif{1.5.1}}
+\addAttore{\user}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\user si trova nella pagina registrazione;}
+\addPoC{L'\user è riconosciuto come \os.}
+\addScenarioPrincipale{L'\user si registra con le credenziali fornite dall'\admin:
+\begin{itemize}
+    \item inserimento username (\rif{\Aucp.1});
+    \item inserimento password temporanea (\rif{\Aucp.2});
+    \item inserimento nuova password (\rif{\Aucp.3});
+\end{itemize}
+}
+\addScenarioAlternativo{L'\user non è registrato nel Sistema o la password temporanea errata (\rif{\Erpte});}
+\addScenarioAlternativo{La nuova password è uguale alla password temporanea (\rif{\Ernpupt});}
+\addScenarioAlternativo{La nuova password non è valida (\rif{\Ernpnv});}
+\addInclusione{\rif{\Aucp.1}}
+\addInclusione{\rif{\Aucp.2}}
+\addInclusione{\rif{\Aucp.3}}
+\addEstensione{\rif{\Erpte}}
+\addEstensione{\rif{\Ernpupt}}
+\addEstensione{\rif{\Ernpnv}}
 \addTrigger{L'\os si è autenticato per la prima volta.}
-\makeUC{1.5}{Registrazione utente \os}
+\makeUC[1]{\Aucp}{Autenticazione con cambio password}
 
-\addAttore{\os.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\os è autenticato nel Sistema}
-\addPostCondizione{L'\os ha aggiornato la propria Password.}
+% \addAttore{\user}
+% \addPrC{L'\user sta eseguendo la registrazione}
+% \addPoC{Il Sistema riceve l'username dell'\os.}
+% \addScenarioPrincipale{L'\user inserisce l'username;}
+% \makeUC{\Aucp.1}{Inserimento username}
 
-\addScenarioPrincipale{L'\os inserisce la Password attuale;}
-\addScenarioPrincipale{L'\os inserisce una nuova Password;}
-\addScenarioPrincipale{L'\os conferma la nuova Password reinserendola.}
+\addAttore{\user}
+\addPrC{L'\user sta eseguendo l'autenticazione con cambio password}
+\addPoC{Il Sistema riceve l'username dell'\os.}
+\addScenarioPrincipale{L'\user inserisce l'username;}
+\makeUC{\Aucp.1}{Inserimento username}
 
-\addScenarioAlternativo{L'\os inserisce la Password attuale come nuova Password;}
-\addScenarioAlternativo{L'\os inserisce una nuova Password non valida;}
-\addScenarioAlternativo{L'\os non conferma correttamente la nuova Password.}
-\addScenarioAlternativo{L'\os inserisce la propria Password attuale errata;}
+\addAttore{\user}
+\addPrC{L'\user sta eseguendo l'autenticazione con cambio password}
+\addPoC{Il Sistema riceve la password temporanea dell'\os.}
+\addScenarioPrincipale{L'\user inserisce la password temporanea;}
+\makeUC{\Aucp.2}{Inserimento password temporanea}
 
+\addAttore{\user}
+\addPrC{L'\user sta eseguendo l'autenticazione con cambio password}
+\addPoC{Il Sistema riceve la nuova password dell'\os.}
+\addScenarioPrincipale{L'\user inserisce la nuova password;}
+\makeUC{\Aucp.3}{Inserimento nuova password}
 
-\addEstensione{Errore Password attuale ripetuta \rif{1.5.2}}
-\addEstensione{Errore nuova Password non valida \rif{1.5.3}}
-\addEstensione{Errore conferma nuova Password \rif{1.5.4}}
-\addEstensione{Errore Password attuale errata \rif{1.5.5}}
-\makeUC{1.5.1}{Aggiornamento Password}
+% --------
 
-\addAttore{\os.}
-\addPreCondizione{L'\os sta aggiornando la propria Password;}
-\addPostCondizione{La password dell'\os non è stata aggiornata.}
-\addScenarioPrincipale{Il Sistema segnala l'errore di Password attuale errata.}
-\addScenarioPrincipale{Il sistema ripropone all'\os la schermata di aggiornamento Password.}
-\addTrigger{L'\os inserisce una Password attuale errata.}
-\addInclusione{Aggiornamento Password \rif{1.5.1}}
-\makeUC{1.5.2}{Errore Password attuale ripetuta}
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta visualizzando la sezione di gestione account MyVimar.}
+\addPoC{L'\admin visualizza se è presente un account MyVimar collegato.}
+\addScenarioPrincipale{L'\admin visualizza se è presente un account MyVimar collegato.}
+\makeUC[0.6]{\VaMV}{Visualizzazione account MyVimar collegato}
 
-\addAttore{\os.}
-\addPreCondizione{L'\os sta aggiornando la propria Password;}
-\addPostCondizione{La password dell'\os non è stata aggiornata.}
-\addScenarioPrincipale{Il Sistema segnala l'errore di nuova Password non valida.}
-\addScenarioPrincipale{Il sistema ripropone all'\os la schermata di aggiornamento Password.}
-\addTrigger{L'\os inserisce una nuova Password non valida.}
-\addInclusione{Aggiornamento Password \rif{1.5.1}}
-\makeUC{1.5.3}{Errore nuova Password non valida}
+\addAttore{\admin}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta visualizzando la sezione di gestione account MyVimar.}
+\addPoC{Il Sistema aggiunge le credenziali fornite dal portale di Vimar alla propria configurazione}
+\addScenarioPrincipale{L'\admin viene reinderizzato al portale di Vimar per collegare l'account
+segue la procedura.}
+\makeUC[0.6]{\CaMV}{Collegamento account MyVimar}
 
-\addAttore{\os.}
-\addPreCondizione{L'\os sta aggiornando la propria Password;}
-\addPostCondizione{La password dell'\os non è stata aggiornata.}
-\addScenarioPrincipale{Il Sistema segnala l'errore di conferma della nuova Password errata.}
-\addScenarioPrincipale{Il sistema ripropone all'\os la schermata di aggiornamento Password.}
-\addTrigger{L'\os non conferma correttamente la nuova Password.}
-\addInclusione{Aggiornamento Password \rif{1.5.1}}
-\makeUC{1.5.4}{Errore conferma nuova Password}
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addAttoreSec{\cloud}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta visualizzando la sezione di gestione account MyVimar.}
+\addPoC{Il Sistema rimuove le credenziali dell'account MyVimar salvate dalla propria configurazione}
+\addScenarioPrincipale{L'\admin }
+\makeUC[0.6]{\RaMV}{Rimozione account MyVimar}
 
-\addAttore{\os.}
-\addPreCondizione{L'\os sta aggiornando la propria Password;}
-\addPostCondizione{La password dell'\os non è stata aggiornata.}
-\addScenarioPrincipale{Il Sistema segnala l'errore di Password attuale errata.}
-\addScenarioPrincipale{Il sistema ripropone all'\os la schermata di aggiornamento Password.}
-\addTrigger{L'\os inserisce la propria Password attuale errata.}
-\makeUC{1.5.5}{Errore Password attuale errata}
+% --------
 
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPoC{Viene visualizzato l'elenco degli utenti.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione utenti}
+\addScenarioPrincipale{L'\admin visualizza l'elenco degli utenti (\rif{\Vu.1}).}
+\addInclusione{\rif{\Vu.1}}
+\makeUC[0.6]{\Vu}{Visualizzazione elenco utenti}
 
-\addAttore{\user.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente è autenticato nel Sistema.}
-\addPostCondizione{L'utente visualizza la sezione Dashboard.}
-\addScenarioPrincipale{L'utente seleziona dal menù l'opzione relativa alla sezione Dashboard;}
-\addScenarioPrincipale{L'utente visualizza i Moduli opzionali presenti tra:
+\addPrC{L'\admin sta visualizzando l'elenco di tutti gli utenti.}
+\addPoC{Viene visualizzato un singolo utente con le proprie informazioni}
+\addScenarioPrincipale{L'\admin visualizza un singolo utente con le proprie informazioni:
 \begin{itemize}
-    \item Informazioni utente;
-    \item statistiche allarmi;
-    \item analisi clima;
-    \item analisi consumi;
-    \item dispositivi accesi;
-    \item temperatura impostata.
+    \item nome dell'utente (\rif{\Vr.1.1}).
+    \item cognome dell'utente (\rif{\Vr.1.2}).
+    \item l'username dell'utente (\rif{\Vr.1.3}).
 \end{itemize}
 }
+\addInclusione{\rif{\Vu.1.1}}
+\addInclusione{\rif{\Vu.1.2}}
+\addInclusione{\rif{\Vu.1.3}}
+\makeUC{\Vu.1}{Visualizzazione elemento elenco utenti}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta visualizzando un singolo utente.}
+\addPoC{L'\admin visualizza il nome dell'utente.}
+\addScenarioPrincipale{L'\admin visualizza il nome dell'utente.}
+\makeUC{\Vu.1.1}{Visualizzazione nome}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta visualizzando un singolo utente.}
+\addPoC{L'\admin visualizza il cognome dell'utente.}
+\addScenarioPrincipale{L'\admin visualizza il cognome dell'utente.}
+\makeUC{\Vu.1.2}{Visualizzazione cognome}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta visualizzando un singolo utente.}
+\addPoC{L'\admin visualizza l'username dell'utente.}
+\addScenarioPrincipale{L'\admin visualizza l'username dell'utente.}
+\makeUC{\Vu.1.3}{Visualizzazione username}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta visualizzando la sezione gestione utenti.}
+\addPoC{Un nuovo utente \os è stato creato all'interno del Sistema}
+\addScenarioPrincipale{L'\admin inserisce i seguenti dati per creare l'\user:
+\begin{itemize}
+    \item inserimento nome (\rif{\Cu.1});
+    \item inserimento cognome (\rif{\Cu.2});
+    \item inserimento nuovo username (\rif{\Cu.3});
+\end{itemize}
+successivamente genera la password temporanea (\rif{\Cu.4}).
+}
+\addInclusione{\rif{\Cu.1}}
+\addInclusione{\rif{\Cu.2}}
+\addInclusione{\rif{\Cu.3}}
+\addInclusione{\rif{\Cu.4}}
+\addScenarioAlternativo{L'username inserito è già in uso (\rif{\Eruu})}
+\addEstensione{\rif{\Eruu}}
+%\addTrigger{L'\admin vuole registrare un nuovo \user del \os.}
+\makeUC[1]{\Cu}{Creazione nuovo utente \os}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta creando un nuovo utente \os;}
+\addPoC{Il Sistema conosce il nome del'\os;}
+\addScenarioPrincipale{L'\admin inserisce il nome per l'\os}
+\makeUC{\Cu.1}{Inserimento nome}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta creando un nuovo utente \os;}
+\addPoC{Il Sistema conosce il cognome del'\os;}
+\addScenarioPrincipale{L'\admin inserisce il cognome per l'\os}
+\makeUC{\Cu.2}{Inserimento cognome}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta creando un nuovo utente \os;}
+\addPoC{Il Sistema conosce lo username del'\os;}
+\addScenarioPrincipale{L'\admin inserisce un username per l'\os}
+\makeUC{\Cu.3}{Inserimento username}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta creando un nuovo utente \os;}
+\addPoC{Il Sistema conosce la password temporanea per l'\os;}
+\addScenarioPrincipale{L'\admin genera una password temporanea per l'\os}
+\makeUC{\Cu.4}{Generazione password temporanea}
+
+\addAttore{\admin}
+\addPrC{Il Sistema è attivo;}
+\addAttoreSec{\db}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta visualizzando la sezione gestione utenti.}
+\addPrC{Esiste almeno un \user del \os registrato.}
+\addPoC{L'utente del \os è eliminato dal Sistema.}
+%\addTrigger{L'\admin vuole eliminare un \user del \os}
+\addScenarioPrincipale{L'\admin seleziona l'utente \os che vuole eliminare e conferma l'eliminazione}
+\makeUC[0.6]{\Eu}{Eliminazione utente \os}
+
+% --------
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPoC{Viene visualizzato l'elenco dei reparti.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti}
+\addScenarioPrincipale{L'\admin visualizza l'elenco dei reparti (\rif{\Vr.1}).}
+\addInclusione{\rif{\Vr.1}}
+\makeUC[0.6]{\Vr}{Visualizzazione elenco reparti}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta visualizzando l'elenco dei reparti.}
+\addPoC{Viene visualizzato un singolo reparto con le proprie informazioni}
+\addScenarioPrincipale{L'\admin visualizza un reparto con le proprie informazioni:
+\begin{itemize}
+    \item nome del reparto (\rif{\Vr.1.1})
+    \item elenco degli appartamenti (\rif{\Vr.1.2})
+\end{itemize}
+}
+\makeUC{\Vr.1}{Visualizzazione elemento elenco reparti}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta visualizzando un reparto.}
+\addPoC{L'\admin visualizza il nome della stanza.}
+\addScenarioPrincipale{L'\admin visualizza il nome della stanza.}
+\makeUC{\Vr.1.1}{Visualizzazione nome}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta visualizzando un reparto.}
+\addPoC{Viene visualizzato l'elenco degli appartamenti.}
+\addScenarioPrincipale{L'\admin visualizza la lista degli appartamenti (\rif{\Vr.1.2.1})}
+\addInclusione{\rif{\Vr.1.2.1}}
+\makeUC{\Vr.1.2}{Visualizzazione elenco appartamenti}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta visualizzando tutti gli appartamenti.}
+\addPoC{Viene visualizzato un singolo appartamento con le proprie informazioni}
+\addScenarioPrincipale{L'\admin visualizza un appartamento con le proprie informazioni:
+\begin{itemize}
+    \item nome dell'appartamento (\rif{\Vr.1.2.1.1})
+\end{itemize}
+}
+\addInclusione{\rif{\Vr.1.2.1.1}}
+\makeUC{\Vr.1.2.1}{Visualizzazione elemento elenco appartamenti}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta visualizzando un appartamento.}
+\addPoC{L'\admin visualizza il nome dell'appartamento.}
+\addScenarioPrincipale{L'\admin visualizza il nome dell'appartamento.}
+\makeUC{\Vr.1.2.1.1}{Visualizzazione nome appartamento}
+
+% --------
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin si trova nella sezione gestione reparti.}
+\addPoC{Il reparto viene aggiunto nel Sistema.}
+\addScenarioPrincipale{L'\admin inserisce i seguenti dati per creare un reparto:
+\begin{itemize}
+    \item inserimento nome (\rif{\Cr.1});
+\end{itemize}
+}
+\addScenarioAlternativo{Il nome inserito è già in uso (\rif{\Ernru})}
+\addEstensione{\rif{\Ernru}}
+\addInclusione{\rif{\Cr.1}}
+\makeUC[1]{\Cr}{Creazione reparto}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta creando un nuovo reparto;}
+\addPoC{Il Sistema conosce il nome del nuovo reparto;}
+\addScenarioPrincipale{L'\admin inserisce il nome del nuovo reparto.}
+\makeUC{\Cr.1}{Inserimento nome}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin si trova nella sezione gestione reparti.}
+\addPoC{Il nome del reparto viene aggiornato dal Sistema.}
+\addScenarioPrincipale{L'\admin modifica il nome del reparto il reparto}
+\makeUC[0.6]{\Mr}{Modifica nome reparto}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin si trova nella sezione gestione reparti.}
+\addPoC{Il reparto viene eliminato dal Sistema.}
+\addScenarioPrincipale{L'\admin elimina il reparto}
+\makeUC[0.6]{\Er}{Eliminazione reparto}
+
+% --------
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin si trova nella sezione gestione reparti.}
+\addPoC{L'assegnazione \os - reparto viene registrata nel Sistema.}
+\addScenarioPrincipale{L'\admin seleziona i seguenti elementi per assegnare un utente \os a un reparto:
+\begin{itemize}
+    \item selezione reparto (\rif{\Aaosr.1});
+    \item selezione utente \os (\rif{\Aaosr.2});
+\end{itemize}
+}
+\addInclusione{\rif{\Aaosr.1}}
+\addInclusione{\rif{\Aaosr.2}}
+\makeUC[0.6]{\Aaosr}{Aggiunta assegnazione utente \os - reparto}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta aggiungendo un'assegnazione utente \os - reparto;}
+\addPoC{Il Sistema conosce reparto che verrà assegnato all'utente \os;}
+\addScenarioPrincipale{L'\admin seleziona il reparto.}
+\makeUC{\Aaosr.1}{Selezione reparto}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta aggiungendo un'assegnazione utente \os - reparto;}
+\addPoC{Il Sistema conosce l'utente \os al quale verrà assegnato il reparto;}
+\addScenarioPrincipale{L'\admin seleziona il l'utente \os.}
+\makeUC{\Aaosr.2}{Selezione utente \os}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin si trova nella sezione gestione reparti.}
+\addPoC{L'assegnazione utente \os - reparto viene rimossa dal Sistema.}
+\addScenarioPrincipale{L'\admin rimuove l'assegnazione utente \os - reparto}
+\makeUC[0.6]{\Raosr}{Rimozione assegnazione utente \os - reparto}
+
+% --------
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin si trova nella sezione gestione reparti.}
+\addPoC{L'assegnazione appartamento - reparto viene registrata nel Sistema.}
+\addScenarioPrincipale{L'\admin seleziona i seguenti elementi per assegnare un appartamento a un reparto:
+\begin{itemize}
+    \item selezione reparto (\rif{\Aaapr.1});
+    \item selezione appartamento (\rif{\Aaapr.2});
+\end{itemize}
+}
+\addInclusione{\rif{\Aaapr.1}}
+\addInclusione{\rif{\Aaapr.2}}
+\makeUC[0.6]{\Aaapr}{Aggiunta assegnazione appartamento - reparto}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta aggiungendo un'assegnazione utente appartamento - reparto;}
+\addPoC{Il Sistema conosce reparto che verrà assegnato l'appartamento;}
+\addScenarioPrincipale{L'\admin seleziona il reparto.}
+\makeUC{\Aaapr.1}{Selezione reparto}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta aggiungendo un'assegnazione utente appartamento - reparto;}
+\addPoC{Il Sistema conosce l'appartamento al quale verrà assegnato il reparto;}
+\addScenarioPrincipale{L'\admin seleziona l'appartamento}
+\makeUC{\Aaapr.2}{Selezione appartamento}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin si trova nella sezione gestione reparti.}
+\addPoC{L'assegnazione appartamento - reparto viene rimossa dal Sistema.}
+\addScenarioPrincipale{L'\admin rimuove l'assegnazione appartamento - reparto}
+\makeUC[0.6]{\Raapr}{Rimozione assegnazione appartamento - reparto}
+
+% --------
+
+\addAttore{\user}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\user è autenticato nel Sistema.}
+\addScenarioPrincipale{L'\user seleziona dal menù l'opzione relativa alla visualizzazione dashboard}
+\addScenarioPrincipale{L'\user visualizza il seguente modulo non opzionale: visualizzazione gestione allarmi (\rif{\Vd.1}).}
 \addScenarioPrincipale{
-L'utente visualizza il seguente Modulo fisso (non rimovibile):
+L'\user visualizza i moduli opzionali presenti tra:
 \begin{itemize}
-    \item Gestione allarmi.
+    \item statistiche allarmi (\rif{\Vd.2});
+    \item informazioni \user (\rif{\Vd.3});
+    \item analisi clima (\rif{\Vd.4});
+    \item analisi consumi (\rif{\Vd.5});
+    \item analisi presenze (\rif{\Vd.6}).
 \end{itemize}
 }
-\addTrigger{L'utente vuole visualizzare la sezione Dashboard.}
-\addInclusione{Visualizzazione informazioni utente \rif{2.1}}
-\addInclusione{Visualizzazione statistiche allarmi \rif{2.2}}
-\addInclusione{Visualizzazione analisi clima \rif{2.3}}
-\addInclusione{Visualizzazione analisi consumi \rif{2.4}}
-\addInclusione{Visualizzazione dispositivi accesi \rif{2.5}}
-\addInclusione{Visualizzazione temperatura impostata \rif{2.6}}
-\addInclusione{Visualizzazione gestione allarmi \rif{2.7}}
-\makeUC{2}{Visualizzazione Dashboard}
+%\addTrigger{L'\user vuole visualizzare la sezione Dashboard.}
+\addInclusione{\rif{\Vd.1}}
+\addInclusione{\rif{\Vd.2}}
+\addInclusione{\rif{\Vd.3}}
+\addInclusione{\rif{\Vd.4}}
+\addInclusione{\rif{\Vd.5}}
+\addInclusione{\rif{\Vd.6}}
+\makeUC[0.6]{\Vd}{Visualizzazione dashboard}
 
-\addAttore{\user.}
-\addPreCondizione{L'utente si trova nella sezione Dashboard.}
-\addPostCondizione{Il Sistema mostra il Modulo relativo alle informazioni utente.}
-\addScenarioPrincipale{L'utente visualizza le informazioni utente, caratterizzate da:
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando la dashboard.}
+\addPoC{L'\user visualizza il modulo gestione allarmi}
+\addScenarioPrincipale{L'\user visualizza il modulo gestione allarmi che consiste in un elenco di allarmi (\rif{\Vd.1.1})}
+%\addTrigger{L'\user vuole visualizzare il modulo relativo alla gestione allarmi.}
+\addInclusione{\rif{\Vd.1.1}}
+\makeUC{\Vd.1}{Visualizzazione gestione allarmi}
+
+\addAttore{\user}
+\addPrC{L'\user visulizza il modulo gestione allarmi.}
+\addPoC{L'\user visualizza le informazioni relative ad un allarme.}
+\addScenarioPrincipale{Il Sistema mostra le informazioni relative ad un allarme:
 \begin{itemize}
-    \item Nome e cognome dell'utente;
-    \item ruolo dell'utente;
-    \item reparto asseganto.
+    \item il segnale di pericolo (\rif{\Vd.1.1.1});
+    \item il nome dell'allarme (\rif{\Vd.1.1.2});
+    \item il tempo trascorso dallo scatto dell'allarme (\rif{\Vd.1.1.3}).
 \end{itemize}
 }
-\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo alle informazioni utente.}
-\addInclusione{Visualizzazione Nome e cognome utente \rif{2.1.1}}
-\addInclusione{Visualizzazione ruolo utente \rif{2.1.2}}
-\makeUC{2.1}{Visualizzazione informazioni utente}
+\addInclusione{\rif{\Vd.1.1.1}}
+\addInclusione{\rif{\Vd.1.1.2}}
+\addInclusione{\rif{\Vd.1.1.3}}
+\makeUC{\Vd.1.1}{Visualizzazione allarme}
 
+\addAttore{\user}
+\addPrC{L'\user visulizza un allarme.}
+\addPoC{L'\user visualizza il segnale di pericolo.}
+\addScenarioPrincipale{L'\user visualizza il segnale di pericolo.}
+\makeUC{\Vd.1.1.1}{Visualizzazione segnale di pericolo}
 
-\addAttore{\user.}
-\addPreCondizione{L'utente si trova nella sezione Dashboard.}
-\addPostCondizione{Il Sistema mostra il Modulo relativo alle statistiche allarmi.}
-\addScenarioPrincipale{L'utente visualizza le statistiche allarmi, caratterizzate da:
+\addAttore{\user}
+\addPrC{L'\user visulizza un allarme.}
+\addPoC{L'\user visualizza il nome di un allarme.}
+\addScenarioPrincipale{L'\user visualizza il nome di un allarme.}
+\makeUC{\Vd.1.1.2}{Visualizzazione nome allarme}
+
+\addAttore{\user}
+\addPrC{L'\user visulizza un allarme.}
+\addPoC{L'\user visualizza il tempo trascorso dallo scatto dell'allarme.}
+\addScenarioPrincipale{L'\user visualizza il tempo trascorso dallo scatto dell'allarme.}
+\makeUC{\Vd.1.1.3}{Visualizzazione tempo trascorso dallo scatto dell'allarme}
+
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando la dashboard.}
+\addPoC{L'\user visualizza il modulo statistiche allarmi.}
+\addScenarioPrincipale{L'\user visualizza il modulo statistiche allarmi, caratterizzate da:
 \begin{itemize}
-    \item Numero di allarmi risolti;
-    \item Numero di allarmi risolti suddivisi per tipologia;
-    \item Tempo medio di risoluzione allarmi;
-    \item Allarmi risolti per residenza;
-    \item Distribuzione Allarmi risolti per Priorità;
+    \item numero di allarmi risolti (\rif{\Vd.2.1});
+    \item numero di allarmi attivi (\rif{\Vd.2.2}).
 \end{itemize}
 }
-\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo alle statistiche allarmi.}
-\makeUC{2.2}{Visualizzazione statistiche allarmi}
+\addInclusione{\rif{\Vd.2.1}}
+\addInclusione{\rif{\Vd.2.2}}
+%\addTrigger{L'\user vuole visualizzare il modulo opzionale relativo alle statistiche allarmi.}
+\makeUC{\Vd.2}{Visualizzazione statistiche allarmi}
 
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando statistiche allarmi.}
+\addPoC{L'\user visualizza il numero di allarmi risolte.}
+\addScenarioPrincipale{l'\user visualizza il numero di allarmi risolte.}
+\makeUC{\Vd.2.1}{Visualizzazione numero di allarmi risolte}
 
-\addAttore{\user.}
-\addPreCondizione{L'utente si trova nella sezione Dashboard.}
-\addPostCondizione{Il Sistema mostra il Modulo relativo all'analisi del clima.}
-\addScenarioPrincipale{L'utente visualizza le analisi del clima, caratterizzate da:
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando statistiche allarmi.}
+\addPoC{L'\user visualizza il numero di allarmi attive.}
+\addScenarioPrincipale{l'\user visualizza il numero di allarmi attive.}
+\makeUC{\Vd.2.2}{Visualizzazione numero di allarmi attive}
+
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando la dashboard.}
+\addPoC{L'\user visualizza il modulo informazioni \user.}
+\addScenarioPrincipale{L'\user visualizza il modulo informazioni \user, caratterizzate da:
 \begin{itemize}
-    \item Temperatura media giornaliera per residenza;
-    \item Variazione della temperatura nell'arco della giornata per residenza;
-    \item Differenza tra temperatura impostata e temperatura reale per residenza;
-    \item Differenza di temperatura tra le varie residenze.
+    \item nome dell'\user (\rif{\Vd.3.1});
+    \item cognome dell'\user (\rif{\Vd.3.2}).
 \end{itemize}
 }
-\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo all'analisi clima.}
-\makeUC{2.3}{Visualizzazione analisi clima}
+%\addTrigger{L'\user vuole visualizzare il modulo opzionale relativo alle informazioni \user}
+\addInclusione{\rif{\Vd.3.1}}
+\addInclusione{\rif{\Vd.3.2}}
+\makeUC{\Vd.3}{Visualizzazione informazioni \user}
 
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando le informazioni \user.}
+\addPoC{L'\user visualizza il nome dell'\user.}
+\addScenarioPrincipale{l'\user visualizza il nome dell'\user.}
+\makeUC{\Vd.3.1}{Visualizzazione nome \user}
 
-\addAttore{\user.}
-\addPreCondizione{L'utente si trova nella sezione Dashboard.}
-\addPostCondizione{Il Sistema mostra il Modulo relativo all'analisi dei consumi.}
-\addScenarioPrincipale{L'utente visualizza le analisi dei consumi, caratterizzate da:
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando le informazioni \user.}
+\addPoC{L'\user visualizza il cognome dell'\user.}
+\addScenarioPrincipale{l'\user visualizza il cognome dell'\user.}
+\makeUC{\Vd.3.2}{Visualizzazione cognome \user}
+
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando la dashboard.}
+\addPoC{L'\user visualizza il grafico che riporta l'andamento della temperatura nelle ultime 12 ore.}
+\addScenarioPrincipale{L'\user visualizza il grafico che riporta l'andamento della temperatura nelle ultime 12 ore.}
+%\addTrigger{L'\user vuole visualizzare il modulo opzionale relativo all'analisi clima.}
+\makeUC{\Vd.4}{Visualizzazione analisi clima}
+
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando la dashboard.}
+\addPoC{L'\user visualizza il grafico che riporta l'andamento dei consumi nelle ultime 12 ore.}
+\addScenarioPrincipale{L'\user visualizza il grafico che riporta l'andamento dei consumi nelle ultime 12 ore.}
+%\addTrigger{L'\user vuole visualizzare il modulo opzionale relativo all'analisi consumi.}
+\makeUC{\Vd.5}{Visualizzazione analisi consumi}
+
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando la dashboard.}
+\addPoC{L'\user visualizza il grafico che riporta l'andamento della presenza nelle ultime 12 ore.}
+\addScenarioPrincipale{L'\user visualizza il grafico che riporta l'andamento della presenza nelle ultime 12 ore.}
+%\addTrigger{L'\user vuole visualizzare il modulo opzionale relativo all'andamento della presenza.}
+\makeUC{\Vd.6}{Visualizzazione analisi presenze}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{L'\admin si trova nella sezione Dashboard.}
+\addPoC{Il Sistema aggiunge nella visualizzazione il modulo statistiche allarmi.}
+\addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo statistiche allarmi.}
+\makeUC[0.6]{18}{Aggiunta modulo statistiche allarmi}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{L'\admin si trova nella sezione Dashboard.}
+\addPoC{Il Sistema rimuove nella visualizzazione il modulo statistiche allarmi.}
+\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo statistiche allarmi.}
+\makeUC[0.6]{19}{Rimozione modulo statistiche allarmi}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{L'\admin si trova nella sezione Dashboard.}
+\addPoC{Il Sistema aggiunge nella visualizzazione il modulo informazioni \user}
+\addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo informazioni \user}
+\makeUC[0.6]{20}{Aggiunta modulo informazioni \user}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{L'\admin si trova nella sezione Dashboard.}
+\addPoC{Il Sistema rimuove nella visualizzazione il modulo informazioni \user}
+\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo informazioni \user}
+\makeUC[0.6]{21}{Rimozione modulo informazioni \user}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{L'\admin si trova nella sezione Dashboard.}
+\addPoC{Il Sistema aggiunge nella visualizzazione il modulo analisi clima.}
+\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo analisi clima.}
+\makeUC[0.6]{22}{Aggiunta modulo analisi clima}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{L'\admin si trova nella sezione Dashboard.}
+\addPoC{Il Sistema rimuove nella visualizzazione il modulo analisi clima.}
+\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo analisi clima.}
+\makeUC[0.6]{23}{Rimozione modulo analisi clima}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{L'\admin si trova nella sezione Dashboard.}
+\addPoC{Il Sistema aggiunge nella visualizzazione il modulo analisi consumi.}
+\addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo analisi consumi.}
+\makeUC[0.6]{24}{Aggiunta modulo analisi consumi}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPoC{Il Sistema rimuove nella visualizzazione il modulo analisi consumi.}
+\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo analisi consumi.}
+\addPrC{L'\admin si trova nella sezione Dashboard.}
+\makeUC[0.6]{25}{Rimozione modulo analisi consumi}
+
+\addAttore{\user}
+\addPrC{L'\user si trova nella sezione Dashboard.}
+\addPoC{Il Sistema contrassegna l'allarme come risolta.}
+\addScenarioPrincipale{L'\user contrassegna l'allarme come risolta.}
+\makeUC[0.6]{26}{Risoluzione allarme}
+
+% --------
+
+\addAttore{\user}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\user è autenticato nel Sistema.}
+\addPoC{L'\user è all'interno della sezione analytics.}
+\addTrigger{L’\user vuole visualizzare la sezione analytics.}
+\addScenarioPrincipale{L'\user seleziona la sezione analytics dal menù principale;}
+%\addScenarioPrincipale{L'\user seleziona il gruppo di impianti che si vuole analizzare (\rif{3.10});}
+\addScenarioPrincipale{L'\user visualizza la sezione analytics, che permette di visualizzare i seguenti moduli relativi agli impianti 
+monitorati negli ultimi 30 giorni:
 \begin{itemize}
-    \item Consumo in kWh giornaliero per residenza;
-    \item Andamento in kWh nell'arco della giornata per residenza;
-    \item Media consumo in kWh dell'ultima settimana per residenza.
+    \item suggerimenti per il risparmio energetico (\rif{\Va.1});
+    \item grafico sul calcolo dell’energia consumata dall’illuminazione (\rif{\Va.2});
+    \item grafico sulle anomalie dell'impianto (\rif{\Va.3});
+    \item grafico sul rilevamento di presenza, assenza e caduta (\rif{\Va.4});
+    \item grafico sul rilevamento di presenza prolungata nello stesso ambiente (\rif{\Va.5});
+    \item grafico di variazione e cambio di temperatura (\rif{\Va.6});
+    \item grafico relativo agli allarmi inviati e risolti per giorno dagli operatori sanitari (\rif{\Va.7});
+    \item grafico relativo alla frequenza degli allarmi rilevati (\rif{\Va.8});
+    \item grafico relativo alla frequenza delle cadute rilevate (\rif{\Va.9}).
 \end{itemize}
 }
-\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo all'analisi consumi.}
-\makeUC{2.4}{Visualizzazione analisi consumi}
+\addInclusione{\rif{\Va.1}}
+\addInclusione{\rif{\Va.2}}
+\addInclusione{\rif{\Va.3}}
+\addInclusione{\rif{\Va.4}}
+\addInclusione{\rif{\Va.5}}
+\addInclusione{\rif{\Va.6}}
+\addInclusione{\rif{\Va.7}}
+\addInclusione{\rif{\Va.8}}
+\addInclusione{\rif{\Va.9}}
+\makeUC[0.6][0.55]{\Va}{Visualizzazione analytics}
 
+\addAttore{\user}
+\addPrC{L'\user si trova nella sezione analytics.}
+\addPoC{Il Sistema mostra l'elenco di tutti i suggerimenti risparmio energetico.}
+%\addTrigger{L'\user vuole visualizzare il modulo relativo ai suggerimenti risparmio energetico.}
+\addScenarioPrincipale{L'\user visualizza l'elenco di tutti i suggerimenti risparmio energetico (\rif{\Va.1.1})}
+\addInclusione{\rif{\Va.1.1}}
+\makeUC{\Va.1}{Visualizzazione elenco suggerimenti risparmio energetico}
 
-\addAttore{\user.}
-\addPreCondizione{L'utente si trova nella sezione Dashboard.}
-\addPostCondizione{Il Sistema mostra il Modulo relativo ai dispositivi accesi.}
-\addScenarioPrincipale{L'utente visualizza i dispositivi accesi, caratterizzati da:
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando l'elenco dei suggerimenti risparmio energetico.}
+\addPoC{Il Sistema mostra un suggerimenti risparmio energetico con le proprie informazioni.}
+%\addTrigger{L'\user vuole visualizzare il modulo relativo ai suggerimenti risparmio energetico.}
+\addScenarioPrincipale{L'\user visualizza un suggerimento risparmio energetico.}
+\makeUC{\Va.1.1}{Visualizzazione elemento elenco suggerimenti risparmio energetico}
+
+\addAttore{\user}
+\addPrC{L'\user si trova nella sezione analytics.}
+\addPoC{Il Sistema mostra il grafico dedicato al consumo energetico.}
+%\addTrigger{L'\user vuole visualizzare il grafico dedicato al consumo energetico.}
+\addScenarioPrincipale{L'\user visualizza il grafico dedicato al consumo energetico.}
+\makeUC{\Va.2}{Visualizzazione grafico dedicato al consumo energetico}
+
+\addAttore{\user}
+\addPrC{L'\user si trova nella sezione analytics.}
+\addPoC{Il Sistema mostra il grafico dedicato alle anomalie dell'impianto.}
+%\addTrigger{L'\user vuole visualizzare il grafico dedicato alle anomalie dell'impianto.}
+\addScenarioPrincipale{L'\user visualizza il grafico dedicato alle anomalie dell'impianto.}
+\makeUC{\Va.3}{Visualizzazione grafico dedicato alle anomalie dell'impianto}
+
+\addAttore{\user}
+\addPrC{L'\user si trova nella sezione analytics.}
+\addPoC{Il Sistema mostra il grafico relativo al rilevamento di presenza.}
+%\addTrigger{L'\user vuole visualizzare il grafico relativo al rilevamento di presenza.}
+\addScenarioPrincipale{L'\user visualizza il grafico relativo al rilevamento di presenza.}
+\makeUC{\Va.4}{Visualizzazione grafico relativo al rilevamento di presenza}
+
+\addAttore{\user}
+\addPrC{L'\user si trova nella sezione analytics.}
+\addPoC{Il Sistema mostra il grafico relativo alla presenza prolungata nello stesso ambiente.}
+%\addTrigger{L'\user vuole visualizzare il grafico relativo alla presenza prolungata nello stesso ambiente.}
+\addScenarioPrincipale{L'\user visualizza il grafico relativo alla presenza prolungata nello stesso ambiente.}
+\makeUC{\Va.5}{Visualizzazione grafico relativo alla presenza prolungata nello stesso ambiente}
+
+\addAttore{\user}
+\addPrC{L'\user si trova nella sezione analytics.}
+\addPoC{Il Sistema mostra il grafico relativo alle variazioni di temperatura.}
+%\addTrigger{L'\user vuole visualizzare il grafico relativo alla presenza prolungata nello stesso ambiente.}
+\addScenarioPrincipale{L'\user visualizza il grafico relativo alle variazioni di temperatura.}
+\makeUC{\Va.6}{Visualizzazione grafico relativo alle variazioni di temperatura}
+
+\addAttore{\user}
+\addPrC{L'\user si trova nella sezione analytics.}
+\addPoC{Il Sistema mostra il grafico relativo agli allarmi inviati e risolti.}
+%\addTrigger{L'\user vuole visualizzare il grafico relativo agli allarmi inviati e risolti.}
+\addScenarioPrincipale{L'\user visualizza il grafico relativo agli allarmi inviati e risolti.}
+\makeUC{\Va.7}{Visualizzazione grafico relativo agli allarmi inviati e risolti}
+
+\addAttore{\user}
+\addPrC{L'\user si trova nella sezione analytics.}
+\addPoC{Il Sistema mostra il grafico relativo alla frequenza degli allarmi.}
+%\addTrigger{L'\user vuole visualizzare il grafico relativo alla frequenza degli allarmi.}
+\addScenarioPrincipale{L'\user visualizza il grafico relativo alla frequenza degli allarmi.}
+\makeUC{\Va.8}{Visualizzazione grafico relativo alla frequenza degli allarmi}
+
+\addAttore{\user}
+\addPrC{L'\user si trova nella sezione analytics.}
+\addPoC{Il Sistema mostra il grafico relativo alla frequenza delle cadute.}
+%\addTrigger{L'\user vuole visualizzare il grafico relativo alla frequenza delle cadute.}
+\addScenarioPrincipale{L'\user visualizza il grafico relativo alla frequenza delle cadute.}
+\makeUC{\Va.9}{Visualizzazione grafico relativo alla frequenza delle cadute}
+
+\addAttore{\user}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\user è autenticato nel Sistema.}
+\addPrC{L'\user si trova nella sezione appartamento.}
+\addScenarioPrincipale{L'\user visualizza:
 \begin{itemize}
-    \item Nome dispositivo;
-    \item stato dispositivo.
+    \item il nome dell'appartamento (\rif{\Vap.1});
+    \item la mappa degli allarmi (\rif{\Vap.2})
+    \item le stanze dell'appartamento (\rif{\Vap.3})
 \end{itemize}
 }
-\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo ai dispositivi accesi.}
-\makeUC{2.5}{Visualizzazione dispositivi accesi}
+\addInclusione{\rif{\Vap.1}}
+\addInclusione{\rif{\Vap.2}}
+\addInclusione{\rif{\Vap.3}}
+\makeUC[0.6]{\Vap}{Visualizzazione appartamento}
 
+\addAttore{\user}
+\addPrC{l'\user sta visualizzando un appartamento}
+\addPoC{l'\user visualizza il nome dell'appartamento}
+\addScenarioPrincipale{l'\user visualizza il nome dell'appartamento}
+\makeUC{\Vap.1}{Visualizzazione nome appartamento}
 
-\addAttore{\user.}
-\addPreCondizione{L'utente si trova nella sezione Dashboard.}
-\addPostCondizione{Il Sistema mostra il Modulo relativo alla temperatura impostata.}
-\addScenarioPrincipale{L'utente visualizza la temperatura impostata, caratterizzata da:
+\addAttore{\admin}
+\addPrC{L'\admin sta visualizzando un appartamento.}
+\addPoC{L'\admin visualizza la mappa degli allarmi dell'appartamento.}
+\addScenarioPrincipale{L'\admin visualizza la mappa degli allarmi dell'appartamento.}
+\makeUC{\Vap.2}{Visualizzazione mappa allarmi}
+
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando un appartamento}
+\addPoC{Il Sistema mostra l'elenco di tutte le stanze}
+\addScenarioPrincipale{l'\user visualizza l'elenco di tutte le stanze (\rif{\Vap.3.1})}
+\addInclusione{\rif{\Vap.3.1}}
+\makeUC{\Vap.3}{Visualizzazione elenco stanze}
+
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando le stanze di un appartamento}
+\addPoC{Il Sistema mostra una stanza con le proprie informazioni}
+\addScenarioPrincipale{l'\user visualizza una stanza con le proprie informazioni:
 \begin{itemize}
-    \item Nome impianto;
-    \item Temperatura impostata.
+    \item nome della stanza (\rif{\Vap.3.1.1});
+    \item tutti di dispositivi presenti nella stanza (\rif{\Vap.3.1.2}).
+\end{itemize}}
+\addInclusione{\rif{\Vap.3.1.1}}
+\addInclusione{\rif{\Vap.3.1.2}}
+\makeUC{\Vap.3.1}{Visualizzazione elemento elenco stanze}
+
+\addAttore{\user}
+\addPrC{l'\user sta visualizzando una stanza di un appartamento}
+\addPoC{l'\user visualizza il nome della stanza}
+\addScenarioPrincipale{l'\user visualizza il nome della stanza}
+\makeUC{\Vap.3.1.1}{Visualizzazione nome}
+
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando una stanza di un appartamento}
+%\addTrigger{L'\os vuole visualizzare i dispositivi di una stanza.}
+\addPoC{L'\user visualizza l'elenco dei dispositivi di una stanza.}
+\addScenarioPrincipale{L'\user visualizza l'elenco dei dispositivi presenti in una stanza (\rif{\Vap.3.1.2.1})}
+\addInclusione{\rif{\Vap.3.1.2.1}}
+\makeUC{\Vap.3.1.2}{Visualizzazione elenco dispositivi}
+
+% -- da rimuovere in caso --
+
+\addAttore{\user}
+\addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+\addPoC{Viene visualizzato un dispositivo con le proprie informazioni}
+%\addTrigger{L'\os vuole visualizzare il termostato dell'impianto.}
+\addScenarioPrincipale{L'\os visualizza le caratteristiche relative al singolo dispositivo:
+\begin{itemize}
+    \item il nome del dispositivo (\rif{\Vap.3.1.2.1.1});
+    \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.1.2});
+    \item le azioni eseguibili (\rif{\Vap.3.1.2.1.3}).
 \end{itemize}
 }
-\addTrigger{L'utente vuole visualizzare il Modulo opzionale relativo alla temperatura impostata.}
-\makeUC{2.6}{Visualizzazione temperatura impostata}
+\addInclusione{\rif{\Vap.3.1.2.1.1}}
+\addInclusione{\rif{\Vap.3.1.2.1.2}}
+\addInclusione{\rif{\Vap.3.1.2.1.3}}
+\makeUC[0.725]{\Vap.3.1.2.1}{Visualizzazione elemento elenco dispositivi}
 
-\addAttore{\user.}
-\addPreCondizione{L'utente si trova nella sezione Dashboard.}
-\addPostCondizione{Il Sistema mostra il Modulo relativo alla gestione allarmi.}
-\addScenarioPrincipale{L'utente visualizza la gestione allarmi, caratterizzata da:
+\addAttore{\user}
+\addPrC{l'\user sta visualizzando un dispositivo}
+\addPoC{l'\user visualizza il nome del dispositivo}
+\addScenarioPrincipale{l'\user visualizza il nome del dispositivo}
+\makeUC{\Vap.3.1.2.1.1}{Visualizzazione nome}
+
+\addAttore{\user}
+\addPrC{l'\user sta visualizzando un dispositivo}
+\addPoC{l'\user visualizza lo stato del dispositivo}
+\addScenarioPrincipale{l'\user visualizza lo stato del dispositivo}
+\makeUC{\Vap.3.1.2.1.2}{Visualizzazione stato}
+
+\addAttore{\user}
+\addPrC{l'\user sta visualizzando un dispositivo}
+\addPoC{l'\user visualizza le azioni eseguibili per il dispositivo}
+\addScenarioPrincipale{l'\user visualizza le azioni eseguibili per il dispositivo}
+\makeUC{\Vap.3.1.2.1.3}{Visualizzazione azioni eseguibili}
+
+\addAttore{\user}
+\addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+\addPoC{Viene visualizzato un termostato con le proprie informazioni}
+%\addTrigger{L'\os vuole visualizzare il termostato dell'impianto.}
+\addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo termostato:
 \begin{itemize}
-    \item Allarmi in corso;
-    \item azioni da poter eseguire sugli allarmi.
+    \item il nome del dispositivo;
+    \item lo stato corrente del dispositivo;
+    \item le azioni eseguibili.
 \end{itemize}
 }
-\addTrigger{L'utente vuole visualizzare il Modulo relativo alla gestione allarmi.}
-\makeUC{2.7}{Visualizzazione gestione allarmi}
+\makeUC{\Vap.3.1.2.2}{Visualizzazione termostato}
 
-\addAttore{\user.}
-\addPreCondizione{L'utente si trova nella sezione Dashboard.}
-\addPostCondizione{L'utente visualizza nella sezione Dashboard il Modulo selezionato.}
-\addScenarioPrincipale{L'utente seleziona l'opzione di modifica della Dashboard;}
-\addScenarioPrincipale{L'utente seleziona un Modulo non presente nella Dashboard.}
-\addScenarioAlternativo{Il Modulo selezionato è già presente nella Dashboard;}
-\addScenarioAlternativo{È stato raggiunto il massimo numero di Moduli visualizzabili nella Dashboard.}
-\addInclusione{Selezione Modulo non presente \rif{2.9.1}}
-\addEstensione{Selezione Modulo presente \rif{2.8.1}}
-\addEstensione{Limite Moduli raggiunto \rif{2.8.2}}
-\addTrigger{L'utente vuole aggiungere un Modulo nella sezione Dashboard.}
-\makeUC{2.8}{Aggiunta Modulo opzionale Dashboard}
-
-\addAttore{Utente.}
-\addPreCondizione{L'utente si trova nella sezione Dashboard;}
-\addPreCondizione{L'utente sta modificando quali Moduli sono visualizzati nella Dashboard.}
-\addPostCondizione{Il Modulo selezionato è rimosso dalla Dashboard.}
-\addScenarioPrincipale{L'utente seleziona un Modulo, presente nella Dashboard, tra:
-                        \begin{itemize}
-                            \item Informazioni utente;
-                            \item statistiche allarmi;
-                            \item analisi clima;
-                            \item analisi consumi;
-                            \item dispositivi accessi;
-                            \item temperatura impostata.
-                        \end{itemize} }
-\addScenarioPrincipale{Il Sistema rimuove il Modulo selezionato dalla Dashboard.}
-\addTrigger{L'utente seleziona un Modulo già presente nella Dashboard.}
-\makeUC{2.8.1}{Selezione Modulo presente nella Dashboard}
-
-\addAttore{Utente.}
-\addPreCondizione{L'utente si trova nella sezione Dashboard;}
-\addPreCondizione{L'utente sta modificando quali Moduli sono visualizzati nella Dashboard.}
-\addPreCondizione{Il limite massimo di Moduli visualizzabili nella Dashboard è stato raggiunto.}
-\addPostCondizione{Il Modulo selezionato non è inserito nella Dashboard.}
-\addScenarioPrincipale{Il Sistema non inserisce il Modulo selezionato nella Dashboard;}
-\addScenarioPrincipale{Il Sistema segnala la condizione di massima capienza raggiunta.}
-\addTrigger{L'utente vuole aggiungere un Modulo nella Dashboard.}
-\makeUC{2.8.2}{Errore limite Moduli visualizzabili nella Dashboard}
-
-\addAttore{Utente.}
-\addPreCondizione{L'utente si trova nella sezione Dashboard;}
-\addPostCondizione{Il Sistema rimuove dalla Dashboard il Modulo selezionato dall'utente.}
-\addScenarioPrincipale{L'utente seleziona l'opzione di modifica della Dashboard;}
-\addScenarioPrincipale{L'utente seleziona un Modulo opzionale attualmente presente nella Dashboard.}
-\addScenarioAlternativo{Il Modulo selezionato non è attualmente presente nella Dashboard.}
-\addInclusione{Selezione Modulo presente \rif{2.8.1}}
-\addEstensione{Selezione Modulo non presente \rif{2.9.1}}
-\addTrigger{L'utente vuole rimuovere un Modulo opzionale dalla Dashboard.}
-\makeUC{2.9}{Rimozione Modulo opzionale Dashboard}
-
-\addAttore{Utente.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'utente è autenticato nel Sistema;}
-\addPreCondizione{L'utente sta modificando quali Moduli sono visualizzati nella Dashboard.}
-\addPostCondizione{Il Modulo selezionato viene aggiunto alla Dashboard.}
-\addScenarioPrincipale{L'utente seleziona un Modulo, non presente nella Dashboard, tra:
-                        \begin{itemize}
-                            \item Informazioni utente;
-                            \item statistiche allarmi;
-                            \item analisi clima;
-                            \item analisi consumi;
-                            \item dispositivi accessi;
-                            \item temperatura impostata.
-                        \end{itemize} }
-\addScenarioPrincipale{Il Sistema aggiunge alla Dashboard il Modulo selezionato.}
-\addTrigger{L'utente seleziona un Modulo non presente nella Dashboard}
-\makeUC{2.9.1}{Selezione Modulo non presente in Dashboard}
-
-
-% ======= UC Analytics =======
-\addAttore{\os.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\os è autenticato nel Sistema.}
-\addPostCondizione{L'\os è all'interno della sezione Analytics.}
-\addTrigger{L’\os vuole visualizzare la sezione Analytics.}
-\addScenarioPrincipale{L'\os seleziona la sezione Analytics dal menù principale;}
-\addScenarioPrincipale{L'\os seleziona il gruppo di impianti che si vuole analizzare (\rif{3.10});}
-\addScenarioPrincipale{L'\os visualizza la sezione Analytics, che permette di visualizzare i seguenti moduli relativi agli impianti monitorati negli ultimi 30 giorni (o in un periodo superiore):
+\addAttore{\user}
+\addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+\addPoC{Viene visualizzato un sensore di caduta con le proprie informazioni}
+\addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo sensore caduta:
 \begin{itemize}
-    \item Suggerimenti per il risparmio energetico (\rif{3.1});
-    \item grafico sulle anomalie di impianto (\rif{3.2});
-    \item grafico sul calcolo dell’energia consumata dall’illuminazione, a partire dal tempo (\rif{3.3});
-    \item grafico sul rilevamento di presenza, assenza e caduta (\rif{3.4});
-    \item grafico sul rilevamento di presenza prolungata nello stesso ambiente (\rif{3.5});
-    \item grafico di variazione e cambio di temperatura (\rif{3.6});
-    \item grafico sugli allarmi inviati e risolti per giorno dagli operatori sanitari (\rif{3.7});
-    \item grafico sulla frequenza degli allarmi rilevati nell’arco di un periodo a scelta, suddivisi per ore (\rif{3.8});
-    \item grafico sulla frequenza delle cadute rilevate nell’arco di un periodo a scelta, suddivise per ore (\rif{3.9}).
+    \item il nome del dispositivo;
+    \item lo stato corrente del dispositivo;
+    \item le azioni eseguibili.
+\end{itemize}}
+\makeUC{\Vap.3.1.2.3}{Visualizzazione sensore di caduta}
+
+\addAttore{\user}
+\addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+\addPoC{Il Sistema mostra per un sensore di presenza le sue informazioni.}
+\addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo sensore di presenza:
+\begin{itemize}
+    \item il nome del dispositivo;
+    \item lo stato corrente del dispositivo;
+    \item le azioni eseguibili.
+\end{itemize}}
+\makeUC{\Vap.3.1.2.4}{Visualizzazione sensore di presenza}
+
+\addAttore{\user}
+\addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+\addPoC{L'\user visualizza il dispositivo luce di un impianto specifico.}
+\addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo luce:
+\begin{itemize}
+    \item il nome del dispositivo;
+    \item lo stato corrente del dispositivo;
+    \item le azioni eseguibili.
+\end{itemize}}
+\makeUC{\Vap.3.1.2.5}{Visualizzazione punto luce}
+
+\addAttore{\user}
+\addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+\addPoC{L'\user visualizza il dispositivo pulsante di allarme di un impianto specifico.}
+\addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo pulsante di allarme:
+\begin{itemize}
+    \item il nome del dispositivo;
+    \item lo stato corrente del dispositivo;
+    \item le azioni eseguibili.
+\end{itemize}}
+\makeUC{\Vap.3.1.2.6}{Visualizzazione pulsante di allarme}
+
+\addAttore{\user}
+\addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+\addPoC{L'\user visualizza il dispositivo porta di ingresso di un impianto specifico.}
+\addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo porta di ingresso:
+\begin{itemize}
+    \item il nome del dispositivo;
+    \item lo stato corrente del dispositivo;
+    \item le azioni eseguibili.
+\end{itemize}}
+\makeUC{\Vap.3.1.2.7}{Visualizzazione porta di ingresso}
+
+\addAttore{\user}
+\addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+\addPoC{L'\user visualizza il dispositivo tapparella di un impianto specifico.}
+\addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo tapparella:
+\begin{itemize}
+    \item il nome del dispositivo;
+    \item lo stato corrente del dispositivo;
+    \item le azioni eseguibili.
+\end{itemize}}
+\makeUC{\Vap.3.1.2.8}{Visualizzazione tapparella}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando una stanza di un appartamento}
+% %\addTrigger{L'\os vuole visualizzare i dispositivi di una stanza.}
+% \addPoC{L'\user visualizza l'elenco dei dispositivi di una stanza.}
+% \addScenarioPrincipale{L'\user visualizza l'elenco dei dispositivi presenti in una stanza tra:
+% \begin{itemize}
+%     \item termostato (\rif{\Vap.3.1.2.1});
+%     \item sensori di caduta (\rif{\Vap.3.1.2.2});
+%     \item sensori di presenza (\rif{\Vap.3.1.2.3});
+%     \item punti luci (\rif{\Vap.3.1.2.4});
+%     \item pulsante di allarme (\rif{\Vap.3.1.2.5});
+%     \item porta di ingresso (\rif{\Vap.3.1.2.6});
+%     \item tapparella (\rif{\Vap.3.1.2.7}).
+% \end{itemize}}
+% \addInclusione{\rif{\Vap.3.1.2.1}}
+% \addInclusione{\rif{\Vap.3.1.2.2}}
+% \addInclusione{\rif{\Vap.3.1.2.3}}
+% \addInclusione{\rif{\Vap.3.1.2.4}}
+% \addInclusione{\rif{\Vap.3.1.2.5}}
+% \addInclusione{\rif{\Vap.3.1.2.6}}
+% \addInclusione{\rif{\Vap.3.1.2.7}}
+% \makeUC{\Vap.3.1.2}{Visualizzazione elenco dispositivi}
+
+% \addAttore{\user}
+% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+% %\addTrigger{L'\os vuole visualizzare il termostato dell'impianto.}
+% \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo termostato:
+% \begin{itemize}
+%     \item il nome del dispositivo (\rif{\Vap.3.1.2.1.1});
+%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.1.2});
+%     \item le azioni eseguibili (\rif{\Vap.3.1.2.1.3}).
+% \end{itemize}
+% }
+% \addInclusione{\rif{\Vap.3.1.2.1.1}}
+% \addInclusione{\rif{\Vap.3.1.2.1.2}}
+% \addInclusione{\rif{\Vap.3.1.2.1.3}}
+% \makeUC{\Vap.3.1.2.1}{Visualizzazione termostato}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un termostato}
+% \addPoC{l'\user visualizza il nome del termostato}
+% \addScenarioPrincipale{l'\user visualizza il nome del termostato}
+% \makeUC{\Vap.3.1.2.1.1}{Visualizzazione nome}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un termostato}
+% \addPoC{l'\user visualizza lo stato del termostato}
+% \addScenarioPrincipale{l'\user visualizza lo stato del termostato}
+% \makeUC{\Vap.3.1.2.1.2}{Visualizzazione stato}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un termostato}
+% \addPoC{l'\user visualizza le azioni eseguibili per il termostato}
+% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per il termostato}
+% \makeUC{\Vap.3.1.2.1.3}{Visualizzazione azioni eseguibili}
+
+% \addAttore{\user}
+% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+% \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo sensore caduta:
+% \begin{itemize}
+%     \item il nome del dispositivo (\rif{\Vap.3.1.2.2.1});
+%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.2.2});
+%     \item le azioni eseguibili (\rif{\Vap.3.1.2.2.3}).
+% \end{itemize}}
+% \addInclusione{\rif{\Vap.3.1.2.2.1}}
+% \addInclusione{\rif{\Vap.3.1.2.2.2}}
+% \addInclusione{\rif{\Vap.3.1.2.2.3}}
+% \makeUC{\Vap.3.1.2.2}{Visualizzazione sensore di caduta}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un sensore di caduta}
+% \addPoC{l'\user visualizza il nome del sensore di caduta}
+% \addScenarioPrincipale{l'\user visualizza il nome del sensore di caduta}
+% \makeUC{\Vap.3.1.2.2.1}{Visualizzazione nome}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un sensore di caduta}
+% \addPoC{l'\user visualizza lo stato del sensore di caduta}
+% \addScenarioPrincipale{l'\user visualizza lo stato del sensore di caduta}
+% \makeUC{\Vap.3.1.2.2.2}{Visualizzazione stato}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un sensore di caduta}
+% \addPoC{l'\user visualizza le azioni eseguibili per il sensore di caduta}
+% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per il sensore di caduta}
+% \makeUC{\Vap.3.1.2.2.3}{Visualizzazione azioni eseguibili}
+
+% \addAttore{\user}
+% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+% \addPoC{Il Sistema mostra per un sensore di presenza le sue informazioni.}
+% %\addTrigger{L'\os vuole visualizzare il sensore \textit{UWB} presenza dell'impianto.}
+% \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo sensore di presenza:
+% \begin{itemize}
+%     \item il nome del dispositivo (\rif{\Vap.3.1.2.3.1});
+%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.3.2});
+%     \item le azioni eseguibili (\rif{\Vap.3.1.2.3.3}).
+% \end{itemize}}
+% \addInclusione{\rif{\Vap.3.1.2.3.1}}
+% \addInclusione{\rif{\Vap.3.1.2.3.2}}
+% \addInclusione{\rif{\Vap.3.1.2.3.3}}
+% \makeUC{\Vap.3.1.2.3}{Visualizzazione sensore di presenza}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un sensore di presenza}
+% \addPoC{l'\user visualizza il nome del sensore di presenza}
+% \addScenarioPrincipale{l'\user visualizza il nome del sensore di presenza}
+% \makeUC{\Vap.3.1.2.3.1}{Visualizzazione nome}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un sensore di presenza}
+% \addPoC{l'\user visualizza lo stato del sensore di presenza}
+% \addScenarioPrincipale{l'\user visualizza lo stato del sensore di presenza}
+% \makeUC{\Vap.3.1.2.3.2}{Visualizzazione stato}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un sensore di presenza}
+% \addPoC{l'\user visualizza le azioni eseguibili per il sensore di presenza}
+% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per il sensore di presenza}
+% \makeUC{\Vap.3.1.2.3.3}{Visualizzazione azioni eseguibili}
+
+% \addAttore{\user}
+% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+% \addPoC{L'\user visualizza il dispositivo luce di un impianto specifico.}
+% %\addTrigger{L'\os vuole visualizzare la luce dell'impianto.}
+% \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo luce:
+% \begin{itemize}
+%     \item il nome del dispositivo (\rif{\Vap.3.1.2.4.1});
+%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.4.2});
+%     \item le azioni eseguibili (\rif{\Vap.3.1.2.4.3}).
+% \end{itemize}}
+% \addInclusione{\rif{\Vap.3.1.2.4.1}}
+% \addInclusione{\rif{\Vap.3.1.2.4.2}}
+% \addInclusione{\rif{\Vap.3.1.2.4.3}}
+% \makeUC{\Vap.3.1.2.4}{Visualizzazione punto luce}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un punto luce}
+% \addPoC{l'\user visualizza il nome del punto luce}
+% \addScenarioPrincipale{l'\user visualizza il nome del punto luce}
+% \makeUC{\Vap.3.1.2.4.1}{Visualizzazione nome}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un punto luce}
+% \addPoC{l'\user visualizza lo stato del punto luce}
+% \addScenarioPrincipale{l'\user visualizza lo stato del punto luce}
+% \makeUC{\Vap.3.1.2.4.2}{Visualizzazione stato}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un punto luce}
+% \addPoC{l'\user visualizza le azioni eseguibili per il punto luce}
+% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per il punto luce}
+% \makeUC{\Vap.3.1.2.4.3}{Visualizzazione azioni eseguibili}
+
+% \addAttore{\user}
+% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+% \addPoC{L'\user visualizza il dispositivo pulsante di allarme di un impianto specifico.}
+% %\addTrigger{L'\os vuole visualizzare il pulsante di allarme dell'impianto.}
+% \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo pulsante di allarme:
+% \begin{itemize}
+%     \item il nome del dispositivo (\rif{\Vap.3.1.2.5.1});
+%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.5.2});
+%     \item le azioni eseguibili (\rif{\Vap.3.1.2.5.3}).
+% \end{itemize}}
+% \addInclusione{\rif{\Vap.3.1.2.5.1}}
+% \addInclusione{\rif{\Vap.3.1.2.5.2}}
+% \addInclusione{\rif{\Vap.3.1.2.5.3}}
+% \makeUC{\Vap.3.1.2.5}{Visualizzazione pulsante di allarme}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un pulsante di allarme}
+% \addPoC{l'\user visualizza il nome del pulsante di allarme}
+% \addScenarioPrincipale{l'\user visualizza il nome del pulsante di allarme}
+% \makeUC{\Vap.3.1.2.5.1}{Visualizzazione nome}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un pulsante di allarme}
+% \addPoC{l'\user visualizza lo stato del pulsante di allarme}
+% \addScenarioPrincipale{l'\user visualizza lo stato del pulsante di allarme}
+% \makeUC{\Vap.3.1.2.5.2}{Visualizzazione stato}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando un pulsante di allarme}
+% \addPoC{l'\user visualizza le azioni eseguibili per il pulsante di allarme}
+% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per il pulsante di allarme}
+% \makeUC{\Vap.3.1.2.5.3}{Visualizzazione azioni eseguibili}
+
+% \addAttore{\user}
+% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+% \addPoC{L'\user visualizza il dispositivo porta di ingresso di un impianto specifico.}
+% %\addTrigger{L'\os vuole visualizzare la porta di ingresso dell'impianto.}
+% \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo porta di ingresso:
+% \begin{itemize}
+%     \item il nome del dispositivo (\rif{\Vap.3.1.2.6.1});
+%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.6.2});
+%     \item le azioni eseguibili (\rif{\Vap.3.1.2.6.3}).
+% \end{itemize}}
+% \addInclusione{\rif{\Vap.3.1.2.6.1}}
+% \addInclusione{\rif{\Vap.3.1.2.6.2}}
+% \addInclusione{\rif{\Vap.3.1.2.6.3}}
+% \makeUC{\Vap.3.1.2.6}{Visualizzazione porta di ingresso}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando una porta di ingresso}
+% \addPoC{l'\user visualizza il nome della porta di ingresso}
+% \addScenarioPrincipale{l'\user visualizza il nome della porta di ingresso}
+% \makeUC{\Vap.3.1.2.6.1}{Visualizzazione nome}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando una porta di ingresso}
+% \addPoC{l'\user visualizza lo stato della porta di ingresso}
+% \addScenarioPrincipale{l'\user visualizza lo stato della porta di ingresso}
+% \makeUC{\Vap.3.1.2.6.2}{Visualizzazione stato}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando una porta di ingresso}
+% \addPoC{l'\user visualizza le azioni eseguibili per la porta di ingresso}
+% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per la porta di ingresso}
+% \makeUC{\Vap.3.1.2.6.3}{Visualizzazione azioni eseguibili}
+
+% \addAttore{\user}
+% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
+% \addPoC{L'\user visualizza il dispositivo tapparella di un impianto specifico.}
+% %\addTrigger{L'\os vuole visualizzare la tapparella dell'impianto.}
+% \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo tapparella:
+% \begin{itemize}
+%     \item il nome del dispositivo (\rif{\Vap.3.1.2.7.1});
+%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.7.2});
+%     \item le azioni eseguibili (\rif{\Vap.3.1.2.7.3}).
+% \end{itemize}}
+% \addInclusione{\rif{\Vap.3.1.2.7.1}}
+% \addInclusione{\rif{\Vap.3.1.2.7.2}}
+% \addInclusione{\rif{\Vap.3.1.2.7.3}}
+% \makeUC{\Vap.3.1.2.7}{Visualizzazione tapparella}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando una tapparella}
+% \addPoC{l'\user visualizza il nome della tapparella}
+% \addScenarioPrincipale{l'\user visualizza il nome della tapparella}
+% \makeUC{\Vap.3.1.2.7.1}{Visualizzazione nome}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando una tapparella}
+% \addPoC{l'\user visualizza lo stato della tapparella}
+% \addScenarioPrincipale{l'\user visualizza lo stato della tapparella}
+% \makeUC{\Vap.3.1.2.7.2}{Visualizzazione stato}
+
+% \addAttore{\user}
+% \addPrC{l'\user sta visualizzando una tapparella}
+% \addPoC{l'\user visualizza le azioni eseguibili per la tapparella}
+% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per la tapparella}
+% \makeUC{\Vap.3.1.2.7.3}{Visualizzazione azioni eseguibili}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin si trova nella sezione dedicata alla visualizzazione di un appartamento.}
+\addPoC{Il Sistema abilita l'appartamento}
+\addScenarioPrincipale{L'\admin abilita l'appartamento}
+\makeUC[0.6]{\Aapp}{Abilita appartamento}
+
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin si trova nella sezione dedicata alla visualizzazione di un appartamento.}
+\addPoC{Il Sistema disabilita l'appartamento}
+\addScenarioPrincipale{L'\admin disabilita l'appartamento}
+\makeUC[0.6]{\Dapp}{Disabilita appartamento}
+
+% --------
+
+\addAttore{\admin}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta visualizzando la sezione di configurazione allarmi.}
+\addPoC{Un nuovo allarme è aggiunto alla configurazione del Sistema.}
+%\addTrigger{L'\admin vuole aggiungere un nuovo allarme.}
+\addScenarioPrincipale{L'\admin per caratteristiche un allarme:
+\begin{itemize}
+    \item seleziona il sensore (\rif{\Aa.1});
+    \item seleziona il livello di priorità (\rif{\Aa.2});
+    \item seleziona la soglia di intervento (\rif{\Aa.3});
+    \item seleziona l'orario di attivazione (\rif{\Aa.4});
+    \item seleziona l'orario di disattivazione (\rif{\Aa.5});
 \end{itemize}
-Inoltre, è possibile modificare la visualizzazione dei seguenti moduli:
-\begin{itemize}
-    \item Grafico sul calcolo dell’energia consumata dall’illuminazione (inserimento \rif{3.3.1} e rimozione \rif{3.3.2});
-    \item grafico di variazione e cambio di temperatura (inserimento \rif{3.6.1} e rimozione \rif{3.6.2});
-    \item grafico sugli allarmi inviati e risolti (inserimento \rif{3.7.1} e rimozione \rif{3.7.2}).
-\end{itemize}}
-\addInclusione{\rif{3.10}}
-\addInclusione{\rif{3.1}}
-\addInclusione{\rif{3.2}}
-\addInclusione{\rif{3.3}}
-\addInclusione{\rif{3.4}}
-\addInclusione{\rif{3.5}}
-\addInclusione{\rif{3.6}}
-\addInclusione{\rif{3.7}}
-\addInclusione{\rif{3.8}}
-\addInclusione{\rif{3.9}}
-\makeUC{3}{Visualizzazione Analytics}
-Come definito nella tabella, il caso d'uso 3 include 10 casi d'uso: 
-\begin{center}
-    \includegraphics[width=\textwidth]{./img/UC3_inclusioni.pdf}
-    \captionof{figure}{UC3 Relazioni di inclusione}
-\end{center}
+}
+\addScenarioAlternativo{Nessun sensore selezionato (\rif{\Erns})}
+\addScenarioAlternativo{Nessun livello di priorità selezionato (\rif{\Ernlp})}
+\addScenarioAlternativo{Nessuna soglia di intervento selezionata (\rif{\Ernss})}
+\addEstensione{\rif{\Erns}}
+\addEstensione{\rif{\Ernlp}}
+\addEstensione{\rif{\Ernss}}
+\addInclusione{\rif{\Aa.1}}
+\addInclusione{\rif{\Aa.2}}
+\addInclusione{\rif{\Aa.3}}
+\addInclusione{\rif{\Aa.4}}
+\addInclusione{\rif{\Aa.5}}
+\makeUC[1]{\Aa}{Creazione allarme}
 
+\addAttore{\admin}
+\addPrC{L'\admin sta aggiungendo un nuovo allarme;}
+\addPrC{Esistono sensori disponibili nel reparto selezionato.}
+\addPoC{Il sensore è selezionato per l'allarme che si vuole creare.}
+%\addTrigger{L'\admin deve selezionare un sensore per l'allarme.}
+\addScenarioPrincipale{L'\admin seleziona il sensore da collegare all'allarme tra la lista dei sensori del reparto selezionato in precedenza}
+\makeUC{\Aa.1}{Selezione sensore}
 
+\addAttore{\admin}
+\addPrC{L'\admin sta aggiungendo un nuovo allarme;}
+\addPoC{La priorità è selezionata per l'allarme che si vuole creare.}
+%\addTrigger{L'\admin deve assegnare una priorità all'allarme.}
+\addScenarioPrincipale{L'\admin seleziona la priorità dell'allarme che si vuole creare.
+}
+\makeUC{\Aa.2}{Selezione livello priorità allarme}
 
-% ======= UC Analytics: Suggerimenti risparmio energetico =======
-\addAttore{\os.}
-\addPreCondizione{L'\os è all'interno della sezione Analytics.}
-\addPostCondizione{L'\os visualizza i suggerimenti relativi al risparmio energetico.}
-\addTrigger{L'\os vuole visualizzare i suggerimenti per ridurre i consumi energetici.}
-\addScenarioPrincipale{L'\os seleziona i suggerimenti per il risparmio energetico;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
-\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
-\addEstensione{\rif{7}}
-\makeUC{3.1}{Visualizzazione suggerimenti risparmio energetico}
+\addGeneralizzazione{\rif{\Aa.2}}
+\addPrC{L'\admin sta creando un nuovo allarme;}
+\addPoC{La priorità è livello 1 per l'allarme che si vuole creare.}
+\addScenarioPrincipale{L'\admin seleziona la priorità livello 1 per l'allarme che vuole creare}
+\makeUC{\Aa.3}{Selezione livello priorità allarme 1 (bianco)}
 
-% ======= UC Analytics: Grafico anomalie di impianto =======
-\addAttore{\os.}
-\addPreCondizione{L'\os è all'interno della sezione Analytics.}
-\addPostCondizione{L'\os visualizza grafico dedicato alle anomalie di impianto.}
-\addTrigger{L’\os vuole visualizzare grafico dedicato alle anomalie di impianto.}
-\addScenarioPrincipale{L'\os seleziona le anomalie di impianto;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
-\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
-\addEstensione{\rif{7}}
-\makeUC{3.2}{Visualizzazione grafico anomalie di impianto}
+\addGeneralizzazione{\rif{\Aa.2}}
+\addPrC{L'\admin sta creando un nuovo allarme;}
+\addPoC{La priorità è livello 2 per l'allarme che si vuole creare.}
+\addScenarioPrincipale{L'\admin seleziona la priorità livello 2 per l'allarme che vuole creare}
+\makeUC{\Aa.4}{Selezione livello priorità allarme 2 (verde)}
 
-% ======= UC Analytics: Grafico energia consumata =======
-\addAttore{\os.}
-\addPreCondizione{L'\os è all'interno della sezione Analytics.}
-\addPostCondizione{L'\os visualizza il grafico dedicato all'energia consumata dall’illuminazione in base al tempo.}
-\addTrigger{L’\os vuole visualizzare grafico dedicato all'energia consumata dall’illuminazione.}
-\addScenarioPrincipale{L'\os seleziona l'energia consumata;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
-\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
-\addEstensione{\rif{7}}
-\makeUC{3.3}{Visualizzazione grafico energia consumata}
+\addGeneralizzazione{\rif{\Aa.2}}
+\addPrC{L'\admin sta creando un nuovo allarme;}
+\addPoC{La priorità è livello 3 per l'allarme che si vuole creare.}
+\addScenarioPrincipale{L'\admin seleziona la priorità livello 3 per l'allarme che vuole creare}
+\makeUC{\Aa.5}{Selezione livello priorità allarme 3 (arancione)}
 
-% ======= UC Analytics: Inserimento Modulo grafico energia consumata =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os aggiunge la visualizzazione del grafico.}
-\addTrigger{Il \os vuole aggiungere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico sul calcolo dell'energia consumata dall'illuminazione;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
-\makeUC{3.3.1}{Inserimento grafico sul calcolo dell'energia consumata dall'illuminazione}
+\addGeneralizzazione{\rif{\Aa.2}}
+\addPrC{L'\admin sta creando un nuovo allarme;}
+\addPoC{La priorità è livello 4 per l'allarme che si vuole creare.}
+\addScenarioPrincipale{L'\admin seleziona la priorità livello 4 per l'allarme che vuole creare}
+\makeUC{\Aa.6}{Selezione livello priorità allarme 4 (rosso)}
 
-% ======= UC Analytics: Rimozione Modulo grafico energia consumata =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os rimuove la visualizzazione del grafico.}
-\addTrigger{Il \os vuole rimuovere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico sul calcolo dell'energia consumata dall'illuminazione;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di rimozione del grafico.}
-\makeUC{3.3.2}{Rimozione grafico sul calcolo dell'energia consumata dall'illuminazione}
+\addAttore{\admin}
+\addPrC{L'\admin sta creando un nuovo allarme;}
+\addPoC{Le l'orario di attivazione è configurato per l'allarme che si vuole creare.}
+%\addTrigger{L'\admin deve configurare le soglie di attivazione dell'allarme.}
+\addScenarioPrincipale{L'\admin seleziona una soglia di intervento dell'allarme che vuole creare}
+\makeUC{\Aa.7}{Selezione soglia intervento allarme}
 
-% ======= UC Analytics: Grafico rilevamento presenza, assenza e caduta =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics.}
-\addPostCondizione{L'\os visualizza il grafico relativo al rilevamento di presenza, assenza e caduta.}
-\addTrigger{L’\os vuole visualizzare il grafico relativo a presenza, assenza e caduta.}
-\addScenarioPrincipale{L'\os seleziona il rilevamento di presenza, assenza e caduta;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
-\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
-\addEstensione{\rif{7}}
-\makeUC{3.4}{Visualizzazione grafico rilevamento presenza, assenza e caduta}
+\addAttore{\admin}
+\addPrC{L'\admin sta creando un nuovo allarme;}
+\addPoC{Le l'orario di attivazione è configurato per l'allarme che si vuole creare.}
+%\addTrigger{L'\admin deve configurare le soglie di attivazione dell'allarme.}
+\addScenarioPrincipale{L'\admin seleziona l'orario di attivazione dell'allarme che vuole creare}
+\makeUC{\Aa.8}{Selezione orario attivazione allarme}
 
-% ======= UC Analytics: Grafico rilevamento di presenza prolungata nello stesso ambiente =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics.}
-\addPostCondizione{L'\os visualizza il grafico relativo alla presenza prolungata nello stesso ambiente.}
-\addTrigger{L’\os vuole visualizzare il grafico sulla presenza prolungata nello stesso ambiente.}
-\addScenarioPrincipale{L'\os seleziona la presenza prolungata;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
-\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
-\addEstensione{\rif{7}}
-\makeUC{3.5}{Visualizzazione grafico presenza prolungata nello stesso ambiente}
+\addAttore{\admin}
+\addPrC{L'\admin sta creando un nuovo allarme;}
+\addPoC{Le l'orario di disattivazione è configurato per l'allarme che si vuole creare.}
+%\addTrigger{L'\admin deve configurare le soglie di attivazione dell'allarme.}
+\addScenarioPrincipale{L'\admin seleziona l'orario di disattivazione dell'allarme che vuole creare}
+\makeUC{\Aa.9}{Selezione orario disattivazione allarme}
 
-% ======= UC Analytics: Grafico variazione e cambio temperatura =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics.}
-\addPostCondizione{L'\os visualizza il grafico delle variazioni di temperatura nel tempo.}
-\addTrigger{L’\os vuole visualizzare il grafico di variazione e cambio temperatura.}
-\addScenarioPrincipale{L'\os seleziona la temperatura;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
-\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
-\addEstensione{\rif{7}}
-\makeUC{3.6}{Visualizzazione grafico variazione e cambio temperatura}
+% --------
 
-% ======= UC Analytics: Inserimento Modulo grafico variazione cambio temp =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os aggiunge la visualizzazione del grafico.}
-\addTrigger{Il \os vuole aggiungere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico sul calcolo di variazione e cambio temperatura;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
-\makeUC{3.6.1}{Inserimento grafico di variazione e cambio temperatura}
-
-% ======= UC Analytics: Rimozione Modulo grafico variazione cambio temp. =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os rimuove la visualizzazione del grafico.}
-\addTrigger{Il \os vuole rimuovere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico di variazione e cambio temperatura;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di rimozione del grafico.}
-\makeUC{3.6.2}{Rimozione grafico di variazione e cambio temperatura}
-
-% ======= UC Analytics: Grafico allarmi inviati e risolti =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics.}
-\addPostCondizione{L'\os visualizza il grafico sugli allarmi inviati e risolti giornalmente.}
-\addTrigger{L’\os vuole visualizzare il grafico sugli allarmi.}
-\addScenarioPrincipale{L'\os seleziona  gli allarmi;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
-\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
-\addEstensione{\rif{7}}
-\makeUC{3.7}{Visualizzazione grafico allarmi inviati e risolti}
-
-% ======= UC Analytics: Inserimento Modulo grafico sugli allarmi inviati e risolti =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os aggiunge la visualizzazione del grafico.}
-\addTrigger{Il \os vuole aggiungere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico sugli allarmi inviati e risolti;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di aggiunta del grafico.}
-\makeUC{3.7.1}{Inserimento grafico sugli allarmi inviati e risolti}
-
-% ======= UC Analytics: Rimozione Modulo grafico sugli allarmi inviati e risolti =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato la funzionalità di modifica della sezione Analytics.}
-\addPostCondizione{L'\os rimuove la visualizzazione del grafico.}
-\addTrigger{Il \os vuole rimuovere la visualizzazione del grafico.}
-\addScenarioPrincipale{L'\os seleziona il grafico sugli allarmi inviati e risolti;}
-\addScenarioPrincipale{L'\os seleziona la funzionalità di rimozione del grafico.}
-\makeUC{3.7.2}{Rimozione grafico sugli allarmi inviati e risolti}
-
-% ======= UC Analytics: Grafico frequenza degli allarmi rilevati =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics.}
-\addPostCondizione{L'\os visualizza la frequenza oraria degli allarmi in un periodo selezionato.}
-\addTrigger{L’\os vuole visualizzare il grafico sulla frequenza degli allarmi.}
-\addScenarioPrincipale{L'\os seleziona la frequenza degli allarmi rilevati;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
-\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
-\addEstensione{\rif{7}}
-\makeUC{3.8}{Visualizzazione frequenza degli allarmi rilevati}
-
-% ======= UC Analytics: Grafico frequenza degli allarmi rilevati =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics.}
-\addPostCondizione{L'\os visualizza la frequenza oraria delle cadute in un periodo selezionato.}
-\addTrigger{L’\os vuole visualizzare il grafico sulla frequenza delle cadute.}
-\addScenarioPrincipale{L'\os seleziona il grafico sulla frequenza delle cadute rilevate;}
-\addScenarioPrincipale{L'\os seleziona il periodo temporale da analizzare (ultimi 30 giorni oppure ultimi 60 giorni).}
-\addScenarioAlternativo{Il Sistema non dispone di alcun dato relativo al periodo temporale scelto (\rif{7}).}
-\addEstensione{\rif{7}}
-\makeUC{3.9}{Visualizzazione frequenza delle cadute rilevate}
-
-% ======= UC Analytics: Selezione gruppo di impianti da analizzare  =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics.}
-\addPostCondizione{Il gruppo di impianti selezionato è impostato come filtro attivo per la visualizzazione delle Analytics.}
-\addTrigger{L’\os vuole selezionare un gruppo di impianti da analizzare.}
-\addScenarioPrincipale{L'\os seleziona uno tra i seguenti gruppi di impianti:
-\begin{itemize}
-    \item Tutti gli impianti;
-    \item un singolo reparto (\rif{3.10.1}).
-\end{itemize}}
-\addInclusione{\rif{3.10.1}}
-\makeUC{3.10}{Selezione del gruppo di impianti da analizzare}
-
-
-% ======= UC Analytics: Visualizzazione dei reparti  =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics.}
-\addPostCondizione{Il Sistema mostra l'elenco dei reparti disponibili.}
-\addTrigger{L'\os vuole visualizzare l'elenco dei reparti.}
-\addScenarioPrincipale{Il Sistema recupera l'elenco dei reparti esistenti disponibili per la selezione.}
-\makeUC{3.10.1}{Visualizzazione dei reparti}
-
-
-% ======= UC Dispositivi =======
-\addAttore{\os.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\os è autenticato nel Sistema.}
-\addTrigger{L'\os vuole visualizzare i dispositivi di un impianto specifico.}
-\addPostCondizione{L'\os visualizza i dispositivi di un impianto specifico.}
-\addScenarioPrincipale{L'\os seleziona la sezione Dispositivi nel menù principale;}
-\addScenarioPrincipale{L'\os seleziona l'impianto in cui risiedono i dispositivi da visualizzare;}
-\addScenarioPrincipale{L'\os visualizza l'elenco di tutti i dispositivi associati all'impianto selezionato. I dispositivi visualizzabili sono:
-\begin{itemize}
-    \item Termostato (\rif{4.1});
-    \item tapparelle (\rif{4.2});
-    \item sensori \textit{Ultra Wide Band} di caduta (\rif{4.3});
-    \item sensori \textit{Ultra Wide Band} di presenza (\rif{4.4});
-    \item luci (\rif{4.5});
-    \item pulsante di allarme (\rif{4.6});
-    \item porta di ingresso (\rif{4.7}).
-\end{itemize}}
-\addInclusione{\rif{4.1}}
-\addInclusione{\rif{4.2}}
-\addInclusione{\rif{4.3}}
-\addInclusione{\rif{4.4}}
-\addInclusione{\rif{4.5}}
-\addInclusione{\rif{4.6}}
-\addInclusione{\rif{4.7}}
-\makeUC{4}{Visualizzazione Dispositivi}
-
-% ======= UC Termostato =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato il dispositivo termostato.}
-\addPostCondizione{L'\os visualizza il dispositivo termostato di un impianto specifico.}
-\addTrigger{L'\os vuole visualizzare il termostato dell'impianto.}
-\addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo termostato:
-\begin{itemize}
-    \item Lo stato corrente del dispositivo (\rif{4.8});
-    \item il nome del dispositivo (\rif{4.9});
-    \item l'ambiente in cui risiede (\rif{4.10});
-    \item le azioni eseguibili sul dispositivo (\rif{4.11}).
-\end{itemize}}
-\addInclusione{\rif{4.8}}
-\addInclusione{\rif{4.9}}
-\addInclusione{\rif{4.10}}
-\addInclusione{\rif{4.11}}
-\makeUC{4.1}{Visualizzazione termostato}
-
-% ======= UC Tapparelle =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato il dispositivo tapparella.}
-\addPostCondizione{L'\os visualizza il dispositivo tapparella di un impianto specifico.}
-\addTrigger{L'\os vuole visualizzare la tapparella dell'impianto.}
-\addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo tapparella:
-\begin{itemize}
-    \item Lo stato corrente del dispositivo (\rif{4.8});
-    \item il nome del dispositivo (\rif{4.9});
-    \item l'ambiente in cui risiede (\rif{4.10});
-    \item le azioni eseguibili sul dispositivo (\rif{4.11}).
-\end{itemize}}
-\addInclusione{\rif{4.8}}
-\addInclusione{\rif{4.9}}
-\addInclusione{\rif{4.10}}
-\addInclusione{\rif{4.11}}
-\makeUC{4.2}{Visualizzazione tapparella}
-
-% ======= UC UWB CADUTA =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato il dispositivo sensore \textit{UWB} caduta.}
-\addPostCondizione{L'\os visualizza il dispositivo sensore \textit{UWB} caduta di un impianto specifico.}
-\addTrigger{L'\os vuole visualizzare il sensore \textit{UWB} caduta dell'impianto.}
-\addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo sensore \textit{UWB} caduta:
-\begin{itemize}
-    \item Lo stato corrente del dispositivo (\rif{4.8});
-    \item il nome del dispositivo (\rif{4.9});
-    \item l'ambiente in cui risiede (\rif{4.10});
-    \item le azioni eseguibili sul dispositivo (\rif{4.11}).
-\end{itemize}}
-\addInclusione{\rif{4.8}}
-\addInclusione{\rif{4.9}}
-\addInclusione{\rif{4.10}}
-\addInclusione{\rif{4.11}}
-\makeUC{4.3}{Visualizzazione sensore \textit{UWB} di caduta}
-
-% ======= UC UWB PRESENZA =======
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato il dispositivo sensore \textit{UWB} presenza.}
-\addPostCondizione{L'\os visualizza il dispositivo sensore \textit{UWB} presenza di un impianto specifico.}
-\addTrigger{L'\os vuole visualizzare il sensore \textit{UWB} presenza dell'impianto.}
-\addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo sensore \textit{UWB} presenza:
-\begin{itemize}
-    \item Lo stato corrente del dispositivo (\rif{4.8});
-    \item il nome del dispositivo (\rif{4.9});
-    \item l'ambiente in cui risiede (\rif{4.10});
-    \item le azioni eseguibili sul dispositivo (\rif{4.11}).
-\end{itemize}}
-\addInclusione{\rif{4.8}}
-\addInclusione{\rif{4.9}}
-\addInclusione{\rif{4.10}}
-\addInclusione{\rif{4.11}}
-\makeUC{4.4}{Visualizzazione sensore \textit{UWB} di presenza}
-
-% ======= UC Luci =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato il dispositivo luce.}
-\addPostCondizione{L'\os visualizza il dispositivo luce di un impianto specifico.}
-\addTrigger{L'\os vuole visualizzare la luce dell'impianto.}
-\addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo luce:
-\begin{itemize}
-    \item Lo stato corrente del dispositivo (\rif{4.8});
-    \item il nome del dispositivo (\rif{4.9});
-    \item l'ambiente in cui risiede (\rif{4.10});
-    \item le azioni eseguibili sul dispositivo (\rif{4.11}).
-\end{itemize}}
-\addInclusione{\rif{4.8}}
-\addInclusione{\rif{4.9}}
-\addInclusione{\rif{4.10}}
-\addInclusione{\rif{4.11}}
-\makeUC{4.5}{Visualizzazione luce}
-
-% ======= UC pulsante di allarme =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato il dispositivo pulsante di allarme.}
-\addPostCondizione{L'\os visualizza il dispositivo pulsante di allarme di un impianto specifico.}
-\addTrigger{L'\os vuole visualizzare il pulsante di allarme dell'impianto.}
-\addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo pulsante di allarme:
-\begin{itemize}
-    \item Lo stato corrente del dispositivo (\rif{4.8});
-    \item il nome del dispositivo (\rif{4.9});
-    \item l'ambiente in cui risiede (\rif{4.10});
-    \item le azioni eseguibili sul dispositivo (\rif{4.11}).
-\end{itemize}}
-\addInclusione{\rif{4.8}}
-\addInclusione{\rif{4.9}}
-\addInclusione{\rif{4.10}}
-\addInclusione{\rif{4.11}}
-\makeUC{4.6}{Visualizzazione pulsante di allarme}
-
-% ======= UC pulsante di allarme =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato il dispositivo porta di ingresso.}
-\addPostCondizione{L'\os visualizza il dispositivo porta di ingresso di un impianto specifico.}
-\addTrigger{L'\os vuole visualizzare la porta di ingresso dell'impianto.}
-\addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo porta di ingresso:
-\begin{itemize}
-    \item Lo stato corrente del dispositivo (\rif{4.8});
-    \item il nome del dispositivo (\rif{4.9});
-    \item l'ambiente in cui risiede (\rif{4.10});
-    \item le azioni eseguibili sul dispositivo (\rif{4.11}).
-\end{itemize}}
-\addInclusione{\rif{4.8}}
-\addInclusione{\rif{4.9}}
-\addInclusione{\rif{4.10}}
-\addInclusione{\rif{4.11}}
-\makeUC{4.7}{Visualizzazione porta di ingresso}
-
-% ======= UC Accesso =======
-% VALERIA: in che senso 'controllo dell'accesso'???
-% l'utente operatore può modificare o solo leggere questi dispositivi?
-
-% ======= UC Stato dispositivo =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato un dispositivo.}
-\addPostCondizione{L'\os visualizza lo stato del dispositivo.}
-\addTrigger{L'\os vuole visualizzare lo stato di un dispositivo.}
-\addScenarioPrincipale{L'\os visualizza lo stato del dispositivo, caratterizzato dallo stato corrente e dalla data di ultima modifica dello stato.}
-\makeUC{4.8}{Visualizzazione stato del dispositivo}
-
-% ======= UC Nome dispositivo =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato un dispositivo.}
-\addPostCondizione{L'\os visualizza il nome del dispositivo.}
-\addTrigger{L'\os vuole visualizzare il nome di un dispositivo.}
-\addScenarioPrincipale{L'\os visualizza il nome del dispositivo.}
-\makeUC{4.9}{Visualizzazione nome del dispositivo}
-
-% ======= UC Ambiente dispositivo =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato un dispositivo.}
-\addPostCondizione{L'\os visualizza l'ambiente in cui risiede il dispositivo.}
-\addTrigger{L'\os vuole visualizzare l'ambiente in cui risiede il dispositivo.}
-\addScenarioPrincipale{L'\os visualizza l'ambiente in cui risiede il dispositivo.}
-\makeUC{4.10}{Visualizzazione ambiente del dispositivo}
-
-% ======= UC Azioni dispositivo =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Dispositivi;}
-\addPreCondizione{L'\os ha selezionato un impianto;}
-\addPreCondizione{L'\os ha selezionato un dispositivo.}
-\addPostCondizione{L'\os visualizza le azioni disponibili del dispositivo.}
-\addTrigger{L'\os vuole visualizzare le azioni disponibili di un dispositivo.}
-\addScenarioPrincipale{L'\os visualizza le azioni disponibili del dispositivo.}
-\makeUC{4.11}{Visualizzazione azioni del dispositivo}
-
-%
-%
-%
-%
-% configurazione allarmi e utenti
-%
-%
-%
-%
-
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin è nella sezione allarmi.}
-\addPostCondizione{L'\admin ha modificato la configurazione degli allarmi.}
-\addTrigger{L'\admin vuole modificare la configurazione degli allarmi.}
-\addScenarioPrincipale{L'\admin accede alla sezione di configurazione allarmi;}
-\addScenarioPrincipale{L'\admin visualizza gli allarmi configurati;}
-\addScenarioPrincipale{L'\admin modifica la configurazione.}
-\addScenarioAlternativo{Non ci sono allarmi configurati nel Sistema.}
-\addEstensione{Aggiungi allarme \rif{5.1}}
-\addEstensione{Modifica allarme \rif{5.2}}
-\addEstensione{Elimina allarme \rif{5.3}}
-\makeUC{5}{Modifica configurazione allarmi}
-
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta visualizzando la sezione di configurazione allarmi.}
-\addPostCondizione{Un nuovo allarme è aggiunto alla configurazione del Sistema.}
-\addTrigger{L'\admin vuole aggiungere un nuovo allarme.}
-\addScenarioPrincipale{L'\admin seleziona il sensore per l'allarme;}
-\addScenarioPrincipale{L'\admin seleziona la priorità dell'allarme;}
-\addScenarioPrincipale{L'\admin configura le soglie parametrizzabili;}
-\addScenarioPrincipale{L'\admin configura il multicast per la notifica;}
-\addScenarioPrincipale{Il Sistema salva il nuovo allarme.}
-\addScenarioAlternativo{Il sensore selezionato è già associato a un allarme;}
-\addScenarioAlternativo{I parametri inseriti non sono validi.}
-\addInclusione{Selezionare il sensore \rif{5.1.1}}
-\addInclusione{Selezionare priorità allarme \rif{5.1.2}}
-\addInclusione{Configurare le soglie parametrizzabili \rif{5.1.3}}
-\addInclusione{Configurare multicast \rif{5.1.4}}
-\addEstensione{Errore aggiunta allarme \rif{5.1.5}}
-\makeUC{5.1}{Aggiungi allarme}
-
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta aggiungendo un nuovo allarme;}
-\addPreCondizione{Esistono sensori disponibili nel Sistema.}
-\addPostCondizione{Il sensore è selezionato per l'allarme.}
-\addTrigger{L'\admin deve selezionare un sensore per l'allarme.}
-\addScenarioPrincipale{L'\admin visualizza la lista dei sensori disponibili (caduta, temperatura, presenza, pulsante emergenza, gateway offline);}
-\addScenarioPrincipale{L'\admin seleziona il tipo di sensore;}
-\addScenarioPrincipale{Il Sistema associa il sensore all'allarme.}
-\addScenarioAlternativo{Non ci sono sensori disponibili.}
-\makeUC{5.1.1}{Selezionare il sensore}
-
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta aggiungendo un nuovo allarme;}
-\addPreCondizione{Esistono livelli di priorità configurati nel Sistema 4 livelli.}
-\addPostCondizione{La priorità dell'allarme è selezionata.}
-\addTrigger{L'\admin deve assegnare una priorità all'allarme.}
-\addScenarioPrincipale{L'\admin visualizza i livelli di priorità disponibili;}
-\addScenarioPrincipale{L'\admin seleziona il livello di priorità appropriato;}
-\addScenarioPrincipale{Il Sistema associa la priorità all'allarme.}
-\makeUC{5.1.2}{Selezionare priorità allarme}
-
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta aggiungendo un nuovo allarme;}
-\addPreCondizione{Il sensore selezionato supporta soglie parametrizzabili.}
-\addPostCondizione{Le soglie parametrizzabili sono configurate per l'allarme.}
-\addTrigger{L'\admin deve configurare le soglie di attivazione dell'allarme.}
-\addScenarioPrincipale{L'\admin definisce le soglie di attivazione in base al tipo di sensore (temperatura in gradi, presenza in minuti);}
-\addScenarioPrincipale{Il Sistema valida i parametri inseriti;}
-\addScenarioPrincipale{Il Sistema associa le soglie all'allarme.}
-\addScenarioAlternativo{Le soglie inserite non sono nel range valido.}
-\addEstensione{Errore configurazione soglie \rif{6}}
-\makeUC{5.1.3}{Configurare le soglie parametrizzabili}
-
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta aggiungendo un nuovo allarme;}
-\addPreCondizione{Esistono gruppi/reparti configurati nel Sistema.}
-\addPostCondizione{Il multicast per la notifica dell'allarme è configurato.}
-\addTrigger{L'\admin deve configurare a quali gruppi/reparti inviare l'allarme.}
-\addScenarioPrincipale{L'\admin visualizza la lista dei gruppi/reparti disponibili;}
-\addScenarioPrincipale{L'\admin seleziona i gruppi/reparti che riceveranno la notifica;}
-\addScenarioPrincipale{Il Sistema associa il multicast all'allarme.}
-\addScenarioAlternativo{Non ci sono gruppi/reparti configurati.}
-\addEstensione{Errore configurazione multicast \rif{5.1.4.1}}
-\makeUC{5.1.4}{Configurare multicast}
-
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{La configurazione del multicast non è valida.}
-\addPostCondizione{Il Sistema notifica l'errore.}
-\addTrigger{Nessun operatore è stato assegnato all'allarme.}
-\addScenarioPrincipale{Il Sistema mostra un messaggio di errore.}
-\makeUC{5.1.4.1}{Errore configurazione multicast}
-
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta tentando di aggiungere un allarme;}
-\addPreCondizione{Si verifica un errore (sensore già utilizzato, parametri non validi).}
-\addPostCondizione{Il Sistema notifica l'errore e non aggiunge l'allarme.}
-\addTrigger{Si verifica un errore durante l'aggiunta dell'allarme.}
-\addScenarioPrincipale{Il Sistema rileva l'errore;}
-\addScenarioPrincipale{Il Sistema mostra un messaggio di errore con i dettagli.}
-\makeUC{5.1.5}{Errore aggiunta allarme}
-
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta visualizzando la sezione di configurazione allarmi;}
-\addPreCondizione{Esiste almeno un allarme configurato nel Sistema.}
-\addPostCondizione{L'allarme selezionato è modificato.}
-\addTrigger{L'\admin vuole modificare un allarme esistente.}
-\addScenarioPrincipale{L'\admin seleziona un allarme dalla lista;}
-\addScenarioPrincipale{L'\admin visualizza la configurazione attuale;}
-\addScenarioPrincipale{L'\admin modifica i parametri desiderati;}
-\addScenarioPrincipale{Il Sistema salva le modifiche.}
-\addScenarioAlternativo{I nuovi parametri inseriti non sono validi;}
-\addScenarioAlternativo{Si verifica un errore durante il salvataggio.}
-\addInclusione{Modifica priorità allarme \rif{5.2.1}}
-\addInclusione{Modifica soglie parametrizzabili \rif{5.2.2}}
-\addInclusione{Modifica assegnatari allarme \rif{5.2.3}}
-\addEstensione{Errore configurazione soglie \rif{6}}
-\makeUC{5.2}{Modifica allarme}
-
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta modificando un allarme esistente.}
-\addPostCondizione{La priorità dell'allarme è aggiornata.}
-\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
-\addScenarioPrincipale{L'\admin visualizza la priorità attuale dell'allarme;}
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta modificando un allarme esistente.}
+\addPoC{La priorità dell'allarme è aggiornata.}
+%\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
 \addScenarioPrincipale{L'\admin seleziona la nuova priorità;}
-\addScenarioPrincipale{Il Sistema aggiorna la priorità dell'allarme.}
-\makeUC{5.2.1}{Modifica priorità allarme}
+\makeUC[0.6]{\Mpa}{Modifica priorità allarme}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta modificando un allarme esistente;}
-\addPreCondizione{Il sensore dell'allarme supporta soglie parametrizzabili.}
-\addPostCondizione{Le soglie parametrizzabili dell'allarme sono aggiornate.}
-\addTrigger{L'\admin vuole modificare le soglie di attivazione dell'allarme.}
-\addScenarioPrincipale{L'\admin visualizza le soglie attuali;}
-\addScenarioPrincipale{L'\admin inserisce i nuovi valori delle soglie;}
-\addScenarioPrincipale{Il Sistema valida i parametri inseriti;}
-\addScenarioPrincipale{Il Sistema aggiorna le soglie.}
-\addScenarioAlternativo{Le soglie inserite non sono nel range valido.}
-\addEstensione{Errore configurazione soglie \rif{6}}
-\makeUC{5.2.2}{Modifica soglie parametrizzabili}
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta modificando un allarme esistente.}
+\addPoC{La soglia d'intervento dell'allarme è aggiornata.}
+%\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
+\addScenarioPrincipale{L'\admin seleziona la nuova soglia d'intervento;}
+\makeUC[0.6]{\Msia}{Modifica soglia intervento allarme}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta modificando un allarme esistente;}
-\addPreCondizione{Esistono utenti OSS registrati nel Sistema.}
-\addPostCondizione{Gli assegnatari dell'allarme sono aggiornati.}
-\addTrigger{L'\admin vuole modificare gli operatori che ricevono l'allarme.}
-\addScenarioPrincipale{L'\admin visualizza gli assegnatari attuali;}
-\addScenarioPrincipale{L'\admin modifica la lista degli operatori OSS;}
-\addScenarioPrincipale{Il Sistema aggiorna gli assegnatari.}
-\addScenarioAlternativo{Nessun operatore viene assegnato ad un allarme critico.}
-\makeUC{5.2.3}{Modifica assegnatari allarme}
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta modificando un allarme esistente.}
+\addPoC{La soglia d'intervento dell'allarme è aggiornata.}
+%\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
+\addScenarioPrincipale{L'\admin seleziona la nuova soglia d'intervento;}
+\makeUC[0.6]{\Moaa}{Modifica orario attivazione allarme}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta visualizzando la sezione di configurazione allarmi;}
-\addPreCondizione{Esiste almeno un allarme configurato nel Sistema.}
-\addPostCondizione{L'allarme selezionato è eliminato dal Sistema.}
-\addTrigger{L'\admin vuole eliminare un allarme esistente.}
-\addScenarioPrincipale{L'\admin seleziona un allarme dalla lista;}
-\addScenarioPrincipale{L'\admin conferma l'eliminazione;}
-\addScenarioPrincipale{Il Sistema elimina l'allarme.}
-\addScenarioAlternativo{L'allarme è critico e non può essere eliminato;}
-\addScenarioAlternativo{L'utente annulla l'operazione.}
-\addEstensione{Errore eliminazione allarme \rif{5.3.1}}
-\makeUC{5.3}{Elimina allarme}
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta modificando un allarme esistente.}
+\addPoC{La soglia d'intervento dell'allarme è aggiornata.}
+%\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
+\addScenarioPrincipale{L'\admin seleziona la nuova soglia d'intervento;}
+\makeUC[0.6]{\Moda}{Modifica orario disattivazione allarme}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'allarme selezionato è critico o si verifica un errore.}
-\addPostCondizione{Il Sistema notifica l'errore e non elimina l'allarme.}
-\addTrigger{L'allarme non può essere eliminato.}
-\addScenarioPrincipale{Il Sistema mostra un messaggio che spiega perché l'allarme non può essere eliminato.}
-\makeUC{5.3.1}{Errore eliminazione allarme}
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta visualizzando la sezione di configurazione allarmi.}
+\addPoC{L'allarme viene abilitato dal Sistema.}
+\addScenarioPrincipale{L'\admin abilita un allarme dal Sistema.}
+\makeUC[0.6]{\Aal}{Abilita allarme}
 
+\addAttore{\admin}
+\addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta visualizzando la sezione di configurazione allarmi.}
+\addPoC{L'allarme viene disabilitato dal Sistema.}
+\addScenarioPrincipale{L'\admin disabilita un allarme dal Sistema.}
+\makeUC[0.6]{\Dal}{Disabilita allarme}
 
-% ======= UC5.4: Gestione utenti e permessi (admin) =======
-\texttt{<diagramma d'uso>}
+% --------
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema.}
-\addPostCondizione{L'\admin ha gestito gli utenti e i permessi del Sistema.}
-\addTrigger{L'\admin vuole gestire gli utenti del \os e i relativi permessi.}
-\addScenarioPrincipale{L'\admin accede alla sezione di gestione utenti;}
-\addScenarioPrincipale{L'\admin registra un nuovo utente del \os;}
-\addScenarioPrincipale{L'\admin aggiunge impianti monitorabili all'utente;}
-\addScenarioPrincipale{L'\admin rimuove impianti monitorabili dall'utente;}
-\addScenarioPrincipale{L'\admin gestisce i permessi degli utenti;}
-\addScenarioPrincipale{L'\admin elimina un utente del \os.}
-\addScenarioAlternativo{Non ci sono impianti disponibili da assegnare;}
-\addScenarioAlternativo{L'operazione di gestione utenti fallisce.}
-\addInclusione{Registrazione utente del \os \rif{5.4.1}}
-\addInclusione{Aggiungi impianto monitorabile \rif{5.4.2}}
-\addInclusione{Rimuovi impianto monitorabile \rif{5.4.3}}
-\addInclusione{Eliminazione utente del \os \rif{5.4.4}}
-\addInclusione{Gestione permessi utenti \rif{5.4.5}}
-\addEstensione{Errore gestione utenti \rif{5.4.6}}
-\makeUC{5.4}{Gestione utenti e permessi}
+\addAttore{\admin}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\admin è autenticato nel Sistema;}
+\addPrC{L'\admin sta visualizzando la sezione di configurazione allarmi.}
+\addPoC{L'allarme viene eliminato dal Sistema.}
+%\addTrigger{L'\admin vuole eliminare un allarme esistente.}
+\addScenarioPrincipale{L'\admin elimina un allarme dal Sistema.}
+\makeUC[0.6]{\Ea}{Elimina allarme}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta visualizzando la sezione di gestione utenti.}
-\addPostCondizione{Il nuovo utente del \os è registrato nel Sistema.}
-\addTrigger{L'\admin vuole registrare un nuovo utente del \os.}
-\addScenarioPrincipale{L'\admin inserisce i dati anagrafici del nuovo utente del \os (nome, cognome, email);}
-\addScenarioPrincipale{L'\admin genera le credenziali di accesso;}
-\addScenarioPrincipale{Il Sistema registra il nuovo utente del \os;}
-\addScenarioPrincipale{Il Sistema invia le credenziali al nuovo utente via email.}
-\addScenarioAlternativo{I dati inseriti sono incompleti o non validi;}
-\addScenarioAlternativo{L'email fornita è già registrata nel Sistema;}
-\addScenarioAlternativo{Il Sistema non riesce a inviare l'email con le credenziali.}
-\addEstensione{Errore registrazione utente del \os \rif{5.4.1.1}}
-\makeUC{5.4.1}{Registrazione utente del \os}
+% --------
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta tentando di registrare un nuovo utente del \os.}
-\addPostCondizione{Il Sistema notifica l'errore e non registra l'utente.}
-\addTrigger{I dati inseriti per la registrazione non sono validi.}
-\addScenarioPrincipale{Il Sistema verifica i dati inseriti;}
-\addScenarioPrincipale{Il Sistema rileva errori (campi mancanti, email duplicata, formato non valido);}
-\addScenarioPrincipale{Il Sistema mostra un messaggio di errore con i dettagli specifici.}
-\makeUC{5.4.1.1}{Errore registrazione utente del \os}
+\addAttore{\user}
+\addPrC{Il Sistema è attivo;}
+\addPrC{L'\user è autenticato nel Sistema;}
+\addPoC{Viene visualizzato l'elenco delle notifiche}
+\addScenarioPrincipale{L'\user seleziona dal menù l'opzione relativa alla visualizzazione delle notifiche}
+\addScenarioPrincipale{L'\user visualizza l'elenco delle notifiche (\rif{\Vn.1})}
+\addInclusione{\rif{\Vn.1}}
+\makeUC[0.6]{\Vn}{Visualizzazione elenco notifiche}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta visualizzando la sezione di gestione utenti;}
-\addPreCondizione{Esiste almeno un utente del \os registrato;}
-\addPreCondizione{Esistono impianti configurati nel Sistema.}
-\addPostCondizione{Gli impianti selezionati sono aggiunti all'utente del \os.}
-\addTrigger{L'\admin vuole aggiungere specifici impianti/residenze a un utente del \os.}
-\addScenarioPrincipale{L'\admin seleziona un utente del \os;}
-\addScenarioPrincipale{L'\admin visualizza la lista degli impianti/residenze disponibili;}
-\addScenarioPrincipale{L'\admin seleziona gli impianti da aggiungere;}
-\addScenarioPrincipale{Il Sistema aggiunge gli impianti all'utente del \os;}
-\addScenarioPrincipale{Il Sistema salva l'assegnazione.}
-\addScenarioAlternativo{Non ci sono impianti disponibili da assegnare;}
-\addScenarioAlternativo{L'utente del \os selezionato è già assegnato a tutti gli impianti disponibili.}
-\addEstensione{Errore aggiunta impianti \rif{5.4.2.1}}
-\makeUC{5.4.2}{Aggiungi impianto monitorabile}
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando l'elenco delle notifiche.}
+\addPoC{Viene visualizzato una singola notifica con le proprie informazioni}
+\addScenarioPrincipale{L'\user visualizza una notifica con le proprie informazioni:
+\begin{itemize}
+    \item titolo della notifica (\rif{\Vn.1.1});
+    \item tempo trascorso dall'invio della notifica (\rif{\Vn.1.2});
+\end{itemize}
+}
+\addInclusione{\rif{\Vn.1.1}}
+\addInclusione{\rif{\Vn.1.2}}
+\makeUC{\Vn.1}{Visualizzazione elemento elenco notifiche}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta tentando di aggiungere impianti a un utente del \os.}
-\addPostCondizione{Il Sistema notifica l'errore e non applica l'aggiunta.}
-\addTrigger{Si verifica un errore durante l'aggiunta degli impianti.}
-\addScenarioPrincipale{Il Sistema tenta di salvare l'aggiunta;}
-\addScenarioPrincipale{Il Sistema rileva un errore (es. impianto non più disponibile, problema di connessione);}
-\addScenarioPrincipale{Il Sistema mostra un messaggio di errore.}
-\makeUC{5.4.2.1}{Errore aggiunta impianti}
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando una notifica.}
+\addPoC{L'\user visualizza il titolo della notifica}
+\addScenarioPrincipale{L'\user visualizza il titolo della notifica}
+\makeUC{\Vn.1.1}{Visualizzazione titolo}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta visualizzando la sezione di gestione utenti;}
-\addPreCondizione{Esiste almeno un utente del \os registrato;}
-\addPreCondizione{L'utente del \os ha almeno un impianto assegnato.}
-\addPostCondizione{Gli impianti selezionati sono rimossi dall'utente del \os.}
-\addTrigger{L'\admin vuole rimuovere specifici impianti/residenze da un utente del \os.}
-\addScenarioPrincipale{L'\admin seleziona un utente del \os;}
-\addScenarioPrincipale{L'\admin visualizza la lista degli impianti/residenze assegnati;}
-\addScenarioPrincipale{L'\admin seleziona gli impianti da rimuovere;}
-\addScenarioPrincipale{Il Sistema rimuove gli impianti dall'utente del \os;}
-\addScenarioPrincipale{Il Sistema salva la modifica.}
-\addScenarioAlternativo{L'utente del \os non ha impianti assegnati;}
-\addScenarioAlternativo{L'\admin tenta di rimuovere tutti gli impianti assegnati.}
-\addEstensione{Errore rimozione impianti \rif{5.4.3.1}}
-\makeUC{5.4.3}{Rimuovi impianto monitorabile}
+\addAttore{\user}
+\addPrC{L'\user sta visualizzando una notifica.}
+\addPoC{L'\user visualizza il tempo trascorso dall'invio della notifica}
+\addScenarioPrincipale{L'\user visualizza il tempo trascorso dall'invio della notifica}
+\makeUC{\Vn.1.2}{Visualizzazione tempo trascorso dall'invio}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta tentando di rimuovere impianti da un utente del \os.}
-\addPostCondizione{Il Sistema notifica l'errore e non applica la rimozione.}
-\addTrigger{Si verifica un errore durante la rimozione degli impianti.}
-\addScenarioPrincipale{Il Sistema tenta di salvare la rimozione;}
-\addScenarioPrincipale{Il Sistema rileva un errore (es. violazione vincoli, problema di connessione);}
-\addScenarioPrincipale{Il Sistema mostra un messaggio di errore.}
-\makeUC{5.4.3.1}{Errore rimozione impianti}
+% ---- Autenticazione ---- 
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta visualizzando la sezione di gestione utenti;}
-\addPreCondizione{Esiste almeno un utente del \os registrato.}
-\addPostCondizione{L'utente del \os è eliminato dal Sistema.}
-\addTrigger{L'\admin vuole eliminare un utente del \os.}
-\addScenarioPrincipale{L'\admin seleziona un utente del \os;}
-\addScenarioPrincipale{L'\admin conferma l'eliminazione;}
-\addScenarioPrincipale{Il Sistema rimuove l'utente del \os dal Sistema;}
-\addScenarioPrincipale{Il Sistema revoca tutti gli accessi e le assegnazioni dell'utente.}
-\addScenarioAlternativo{L'\admin annulla l'operazione;}
-\addScenarioAlternativo{L'utente ha allarmi attivi in carico.}
-\addEstensione{Errore eliminazione utente \rif{5.4.4.1}}
-\makeUC{5.4.4}{Eliminazione utente del \os}
+\addAttore{\user}
+\addPrC{L'\user ha inserito un username che non corrisponde ad un \user nel Sistema o una password
+errata per l'username inserito;}
+\addPoC{Il Sistema non registra il nuovo \user}
+\addScenarioPrincipale{Il Sistema segnala l'errore di username non registrato o password errata.}
+%\addTrigger{L'\admin sceglie uno username non registrato nel Sistema.}
+\makeUC{\Erunr}{Errore username non registrato o password errata}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta tentando di eliminare un utente del \os.}
-\addPostCondizione{Il Sistema notifica l'errore e non elimina l'utente.}
-\addTrigger{Si verifica un errore durante l'eliminazione dell'utente.}
-\addScenarioPrincipale{Il Sistema verifica se l'utente può essere eliminato;}
-\addScenarioPrincipale{Il Sistema rileva un errore (es. utente con allarmi attivi, violazione vincoli);}
-\addScenarioPrincipale{Il Sistema mostra un messaggio di errore.}
-\makeUC{5.4.4.1}{Errore eliminazione utente}
+\addAttore{\user}
+\addPrC{L'\user ha inserito un username che non corrisponde ad un \user nel Sistema o una password 
+temporanea errata per l'username inserito;}
+\addPoC{Il Sistema non registra il nuovo \user}
+\addScenarioPrincipale{Il Sistema segnala l'errore di username non registrato o password temporanea errata.}
+%\addTrigger{L'\os inserisce una nuova password non valida.}
+\makeUC{\Erpte}{Errore username non registrato o password temporanea errata}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta visualizzando la sezione di gestione utenti;}
-\addPreCondizione{Esiste almeno un utente del \os registrato.}
-\addPostCondizione{I permessi dell'utente del \os sono aggiornati.}
-\addTrigger{L'\admin vuole modificare i permessi di un utente del \os.}
-\addScenarioPrincipale{L'\admin seleziona un utente del \os;}
-\addScenarioPrincipale{L'\admin visualizza i permessi attuali;}
-\addScenarioPrincipale{L'\admin modifica i permessi (visualizzazione dashboard, gestione allarmi, accesso analytics, presa in carico allarmi);}
-\addScenarioPrincipale{Il Sistema aggiorna i permessi dell'utente;}
-\addScenarioPrincipale{Il Sistema salva le modifiche.}
-\addScenarioAlternativo{L'\admin tenta di rimuovere tutti i permessi a un utente del \os;}
-\addScenarioAlternativo{Si verifica un errore durante il salvataggio dei permessi.}
-\addEstensione{Errore gestione permessi \rif{5.4.5.1}}
-\makeUC{5.4.5}{Gestione permessi utenti}
+\addAttore{\user}
+\addPrC{L'\user ha inserito una nuova password che è uguale alla password temporanea;}
+\addPoC{Il Sistema non registra il nuovo \user}
+\addScenarioPrincipale{Il Sistema segnala l'errore di password attuale errata.}
+%\addTrigger{L'\os inserisce una password attuale errata.}
+\makeUC{\Ernpupt}{Errore nuova password uguale alla password temporanea}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta tentando di modificare i permessi di un utente del \os.}
-\addPostCondizione{Il Sistema notifica l'errore e mantiene i permessi precedenti.}
-\addTrigger{La configurazione dei permessi non è valida.}
-\addScenarioPrincipale{Il Sistema verifica la configurazione dei permessi;}
-\addScenarioPrincipale{Il Sistema rileva che almeno un permesso base deve rimanere attivo;}
-\addScenarioPrincipale{Il Sistema mostra un messaggio di errore.}
-\makeUC{5.4.5.1}{Errore gestione permessi}
+\addAttore{\user}
+\addPrC{L'\user ha inserito una nuova password che non rispetta i criteri richiesti;}
+\addPoC{Il Sistema non registra il nuovo \user}
+\addScenarioPrincipale{Il Sistema segnala l'errore di nuova password non valida.}
+%\addTrigger{L'\os inserisce una nuova password non valida.}
+\makeUC{\Ernpnv}{Errore nuova password non valida}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta eseguendo un'operazione di gestione utenti.}
-\addPostCondizione{Il Sistema notifica l'errore e mantiene lo stato precedente.}
-\addTrigger{Si verifica un errore generico durante la gestione utenti.}
-\addScenarioPrincipale{Il Sistema tenta di eseguire l'operazione richiesta;}
-\addScenarioPrincipale{Il Sistema rileva un errore di sistema (es. database non disponibile);}
-\addScenarioPrincipale{Il Sistema mostra un messaggio di errore e suggerisce di riprovare.}
-\makeUC{5.4.6}{Errore gestione utenti}
+% --- Creazione \user ---
 
+\addAttore{\admin}
+\addPrC{L'\admin ha inserito un username \os che è già registrato nel Sistema;}
+\addPoC{Il Sistema non crea un nuovo \user dall'username inserito.}
+%\addTrigger{L'\admin sceglie uno username già in uso nel Sistema.}
+\addScenarioPrincipale{Il Sistema segnala l'errore di username già in uso.}
+\makeUC{\Eruu}{Errore username già in uso}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{L'\admin sta configurando o modificando le soglie parametrizzabili;}
-\addPreCondizione{I valori delle soglie non sono nel range valido.}
-\addPostCondizione{Il Sistema notifica l'errore specifico e richiede correzione.}
-\addTrigger{I valori delle soglie non rispettano i vincoli del Sistema.}
-\addScenarioPrincipale{Il Sistema valida i valori inseriti;}
-\addScenarioPrincipale{Il Sistema rileva l'errore;}
-\addScenarioPrincipale{Il Sistema mostra un messaggio di errore specifico.}
-\addEstensione{La soglia (valore) è troppo alta \rif{6.1}}
-\addEstensione{La soglia (valore) è troppo bassa \rif{6.2}}
-\makeUC{6}{Errore configurazione soglie}
+% --- Creazione reparto ---
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{Il valore della soglia inserito supera il limite massimo consentito.}
-\addPostCondizione{Il Sistema mostra il valore massimo consentito.}
-\addTrigger{Il valore della soglia è troppo alto.}
-\addScenarioPrincipale{Il Sistema mostra un messaggio indicando il valore massimo consentito per quella soglia.}
-\makeUC{6.1}{La soglia (valore) è troppo alta}
+\addAttore{\admin}
+\addPrC{L'\admin ha inserito un nome reparto che è già registrato nel Sistema;}
+\addPoC{Il Sistema non crea un nuovo reparto dal nome inserito.}
+%\addTrigger{L'\admin sceglie uno username già in uso nel Sistema.}
+\addScenarioPrincipale{Il Sistema segnala l'errore di nome reparto già in uso.}
+\makeUC{\Ernru}{Errore nome reparto già in uso}
 
-\addAttore{\admin.}
-\addPreCondizione{Il Sistema è attivo;}
-\addPreCondizione{L'\admin è autenticato nel Sistema;}
-\addPreCondizione{Il valore della soglia inserito è inferiore al limite minimo consentito.}
-\addPostCondizione{Il Sistema mostra il valore minimo consentito.}
-\addTrigger{Il valore della soglia è troppo basso.}
-\addScenarioPrincipale{Il Sistema mostra un messaggio indicando il valore minimo consentito per quella soglia.}
-\makeUC{6.2}{La soglia (valore) è troppo bassa}
+% --- Aggiunta allarme ---
 
+\addAttore{\admin}
+\addPrC{L'\admin non ha selezionato alcun sensore a cui affidare l'allarme;}
+\addPoC{Il Sistema non aggiunge l'allarme}
+%\addTrigger{Nessun sensore è stato assegnato all'allarme.}
+\addScenarioPrincipale{Il Sistema segnala l'errore nessun sensore selezionato.}
+\makeUC{\Erns}{Errore nessun sensore selezionato}
 
-% ======= UC Analytics: Errore dati insufficienti =======
-\addAttore{\os.}
-\addPreCondizione{L'\os si trova nella sezione Analytics;}
-\addPreCondizione{L'\os ha selezionato un grafico oppure un suggerimento da visualizzare.}
-\addPostCondizione{L'\os visualizza un messaggio di errore.}
-\addTrigger{Il Sistema non dispone di un numero sufficiente di dati per generare il grafico o il suggerimento richiesto dall'\os.}
-\addScenarioPrincipale{Il Sistema mostra all'\os un messaggio di errore.}
-\makeUC{7}{Errore dati insufficienti}
+\addAttore{\admin}
+\addPrC{L'\admin non ha selezionato alcun livello di priorità;}
+\addPoC{Il Sistema non aggiunge l'allarme}
+%\addTrigger{Nessun livello di priorità è stato assegnato all'allarme.}
+\addScenarioPrincipale{Il Sistema segnala l'errore nessun livello di priorità.}
+\makeUC{\Ernlp}{Errore nessun livello di priorità selezionato}
 
+\addAttore{\admin}
+\addPrC{L'\admin non ha selezionato alcuna soglia di intervento;}
+\addPoC{Il Sistema non aggiunge l'allarme}
+%\addTrigger{Nessun livello di priorità è stato assegnato all'allarme.}
+\addScenarioPrincipale{Il Sistema segnala l'errore nessuna soglia di intervento selezionata.}
+\makeUC{\Ernss}{Errore nessuna soglia di intervento selezionata}
 
-% ======= UC Errore dispositivo non disponibile  =======
-% Rimosso, dopo consiglio di Mariano
-% Abbiamo la visibilità solo del gateway
+\newpage
+
+\section{Requisiti}{
+    In questa sezione viene presentata la specifica dei requisiti. In particolare i requisiti di dividono in:
+    \begin{itemize}
+        \item Funzionali;
+        \item Di qualità;
+        \item Di vincolo.
+    \end{itemize}
+
+    % --- Autenticazione ---
+    \addReqF{2}{L'\user deve potersi autenticare presso il Sistema}{\rif{\Au}}
+    \addReqF{2}{L'\user deve inserire il proprio username per autenticarsi presso il Sistema}{\rif{\Au}\\\rif{\Au.1}}
+    \addReqF{2}{L'\user deve inserire la propria password per autenticarsi presso il Sistema}{\rif{\Au}\\\rif{\Au.2}}
+    \addReqF{2}{L'\user deve ricevere un errore se l'username non è registrato nel Sistema o 
+    la password non è corretta per l'\user inserito}{\rif{\Erunr}}
+
+    % --- Autenticazione con cambio psw ---
+    \addReqF{2}{L'\user deve potersi autenticare presso il Sistema e impostare una nuova password}{\rif{\Aucp}}
+    % \addReqF{2}{L'\user deve inserire il proprio \user per registrarsi presso il Sistema}{}
+    \addReqF{2}{L'\user deve inserire la password temporanea che gli è stata fornita dall'amministratore per
+    autenticarsi presso il Sistema e impostare una nuova password}{\rif{\Aucp}\\\rif{\Aucp.1}}
+    \addReqF{2}{L'\user deve inserire la nuova password per registrarsi presso il Sistema}{\rif{\Aucp}\\\rif{\Aucp.2}}
+    \addReqF{2}{L'\user deve ricevere un errore se l'username non è registrato nel Sistema}{\rif{\Erunr}}
+    \addReqF{2}{L'\user deve ricevere un errore se l'username non è registrato nel Sistema o 
+    la password temporanea non è corretta per l'\user inserito}{\rif{\Erpte}}
+    \addReqF{2}{L'\user deve ricevere un errore se la nuova password è uguale alla password temporanea}{\rif{\Ernpupt}}
+    \addReqF{2}{L'\user deve ricevere un errore se la nuova password non rispetta i criteri richiesti}{\rif{\Ernpnv}}
+
+    % --- MYVimar e ab. dis. appartamenti ---
+    \addReqF{2}{L'\admin deve poter visualizzare se un account MyVimar è configurato nel Sistema}{\rif{\VaMV}}
+    \addReqF{2}{L'\admin deve poter collegare un account MyVimar nel Sistema}{\rif{\CaMV}}
+    \addReqF{2}{L'\admin deve poter rimuovere un account MyVimar dal Sistema}{\rif{\RaMV}}
+
+    % --- CRUD utente ---
+    \addReqF{1}{L'\admin deve poter visualizzare l'elenco degli utenti del Sistema}{\rif{\Vu}}
+    \addReqF{2}{L'\admin visualizzando l'elenco degli utenti del sistema deve visualizzare un utente del Sistema nel dettaglio}{\rif{\Vu}\\\rif{\Vu.1}}
+    \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare il nome}{\rif{\Vu.1}\\\rif{\Vu.1.1}}
+    \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare il cognome}{\rif{\Vu.1}\\\rif{\Vu.1.2}}
+    \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare l'username}{\rif{\Vu.1}\\\rif{\Vu.1.3}}
+    \addReqF{1}{L'\admin deve poter creare un utente \os}{\rif{\Cu}}
+    \addReqF{1}{L'\admin deve inserire il nome dell'\os per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.1}}
+    \addReqF{1}{L'\admin deve inserire il cognome dell'\os per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.2}}
+    \addReqF{1}{L'\admin deve inserire un username per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.3}}
+    \addReqF{1}{L'\admin deve generare la password temporanea per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.4}}
+    \addReqF{1}{L'\admin deve ricevere un errore se l'username è già in uso}{\rif{\Eruu}}
+    \addReqF{1}{L'\admin deve poter eliminare un utente \os}{\rif{4}}
+
+    % --- CRUD reparti ---
+    \addReqF{2}{L'\admin deve poter visualizzare tutti i reparti del Sistema}{\rif{\Vr}}
+    \addReqF{2}{L'\admin deve poter visualizzare un reparto del Sistema nel dettaglio}{\rif{\Vr}\\\rif{\Vr.1}}
+    \addReqF{2}{L'\admin visualizzando un reparto del Sistema deve poter visualizzare il nome del reparto}{\rif{\Vr.1}\\\rif{\Vr.1.1}}
+    \addReqF{2}{L'\admin deve poter creare un nuovo reparto nel Sistema}{\rif{\Cr}}
+    \addReqF{2}{L'\admin deve inserire il nome del nuovo reparto per crearlo nel Sistema}{\rif{\Cr}\\\rif{\Cr.1}}
+    \addReqF{2}{L'\admin deve ricevere un errore se il nome del nuovo reparto è già in uso}{\rif{\Ernru}}
+    \addReqF{2}{L'\admin deve poter modificare il nome di un reparto del Sistema}{\rif{\Mr}}
+    \addReqF{2}{L'\admin deve poter eliminare un reparto del Sistema}{\rif{\Er}}
+
+    % --- Assegnazioni ---
+    \addReqF{2}{L'\admin deve poter assegnare un reparto a un utente \os}{\rif{\Aaosr}}
+    \addReqF{2}{L'\admin deve selezionare un utente \os per assegnare a un utente \os un reparto}{\rif{\Aaosr}\\\rif{\Aaosr.1}}
+    \addReqF{2}{L'\admin deve selezionare un reparto per assegnare un reparto a un utente \os}{\rif{\Aaosr}\\\rif{\Aaosr.2}}
+    \addReqF{2}{L'\admin deve poter eliminare l'assegnazione utente \os - reparto}{\rif{\Raosr}}
+
+    \addReqF{2}{L'\admin deve poter assegnare un reparto a un utente \os}{\rif{\Aaapr}}
+    \addReqF{2}{L'\admin deve selezionare un utente \os per assegnare a un appartamento un reparto}{\rif{\Aaapr}\\\rif{\Aaapr.1}}
+    \addReqF{2}{L'\admin deve selezionare un reparto per assegnare un reparto a un appartamento}{\rif{\Aaapr}\\\rif{\Aaapr.2}}
+    \addReqF{2}{L'\admin deve poter eliminare l'assegnazione appartamento - reparto}{\rif{\Raapr}}
+
+    % --- Dashboard UC10 ---
+    \addReqF{2}{L'\user deve poter visualizzare una dashboard che rappresenta lo stato del Sistema}{\rif{\Vd}}
+    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo gestione allarmi}{\rif{\Vd}\\\rif{\Vd.1}}
+    \addReqF{2}{L'\user visualizzando il modulo gestione allarmi deve poter visualizzare 
+    ogni singola allarme}{\rif{\Vd.1}\\\rif{\Vd.1.1}}
+    \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il segnale di pericolo}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.1}}
+    \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il nome}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.2}}
+    \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il tempo trascorso dallo scatto
+    dell'allarme}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.3}}
+    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo statistiche allarmi}{\rif{\Vd}\\\rif{\Vd.2}}
+    \addReqF{2}{L'\user visualizzando il modulo statistiche allarmi deve poter visualizzare il numero
+    di allarmi risolte}{\rif{\Vd.2}\\\rif{\Vd.2.1}}
+    \addReqF{2}{L'\user visualizzando il modulo statistiche allarmi deve poter visualizzare il numero
+    di allarmi attive}{\rif{\Vd.2}\\\rif{\Vd.2.2}}
+    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo informazioni \user}{\rif{\Vd}\\\rif{\Vd.3}}
+    \addReqF{2}{L'\user visualizzando il modulo modulo informazioni \user deve poter visualizzare il 
+    nome \user}{\rif{\Vd.3}\\\rif{\Vd.3.1}}
+    \addReqF{2}{L'\user visualizzando il modulo modulo informazioni \user deve poter visualizzare il 
+    cognome \user}{\rif{\Vd.3}\\\rif{\Vd.3.2}}
+    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi clima}{\rif{\Vd}\\\rif{\Vd.4}}
+    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi consumi}{\rif{\Vd}\\\rif{\Vd.5}}
+    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi presenze}{\rif{\Vd}\\\rif{\Vd.6}}
+
+    % --- Modifiche Dashboard UC11-18 ---
+    \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo statistiche allarmi}{\rif{11}}
+    \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo statistiche allarmi}{\rif{12}}
+    \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo informazioni \user}{\rif{13}}
+    \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo informazioni \user}{\rif{14}}
+    \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo analisi clima}{\rif{15}}
+    \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo analisi clima}{\rif{16}}
+    \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo analisi consumi}{\rif{17}}
+    \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard modulo analisi consumi}{\rif{18}}
+
+    \addReqF{2}{L'\user deve poter risolvere un allarme}{\rif{19}}
+
+    % --- Analytics UC20 --- 
+    \addReqF{2}{L'\user deve poter visualizzare le analytics}{\rif{\Va}}
+    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare l'elenco dei suggerimenti risparmio energetico}{\rif{\Va.1}}
+    \addReqF{2}{L'\user visualizzando l'elenco dei suggerimenti risparmio energetico deve visualizzare un suggerimento
+    risparmio energetico}{\rif{\Va.1.1}}
+    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico dedicato al consumo energetico}{\rif{\Va.2}}
+    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico dedicato alle anomalie dell'impianto}{\rif{\Va.3}}
+    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo al rilevamento di presenza}{\rif{\Va.4}}
+    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla presenza prolungata nello stesso 
+    ambiente}{\rif{\Va.5}}
+    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alle variazioni di temperatura}{\rif{\Va.6}}
+    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo agli allarmi inviati e risolti}{\rif{\Va.7}}
+    \addReqF{0}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla frequenza degli allarmi}{\rif{\Va.8}}
+    \addReqF{0}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla frequenza delle cadute}{\rif{\Va.9}}
+
+    % --- Appartamento --- 
+    \addReqF{2}{L'\user deve poter visualizzare un appartamento del Sistema}{\rif{\Vap}}
+    \addReqF{2}{L'\user visualizzando un appartamento del Sistema deve visualizzare il nome dell'appartamento}{\rif{\Vap}\\\rif{\Vap.1}}
+    \addReqF{0}{L'\user visualizzando un appartamento del Sistema deve visualizzare la mappa degli allarmi dell'appartamento}{\rif{\Vap}\\\rif{\Vap.2}}
+    \addReqF{2}{L'\user visualizzando un appartamento del Sistema deve visualizzare le stanze dell'appartamento}{\rif{\Vap}\\\rif{\Vap.3}}
+    \addReqF{2}{L'\user deve visualizzare una stanza nel dettaglio}{\rif{\Vap.3}\\\rif{\Vap.3.1}}
+    \addReqF{2}{L'\admin visualizzando una stanza deve visualizzare il nome della stanza}{\rif{\Vap.3.1}\\\rif{\Vap.3.1.1}}
+    \addReqF{2}{L'\admin visualizzando una stanza deve visualizzare l'elenco dei dispositivi della stanza}{\rif{\Vap.3.1}\rif{\Vap.3.1.2}}
+    \addReqF{2}{L'\admin visualizzando l'elenco dei dispositivi deve visualizzare un singolo dispositivo di tipo:
+    \begin{itemize}
+        \item termostato;
+        \item sensore di caduta;
+        \item sensore di presenza;
+        \item punto luce;
+        \item pulsante di allarme;
+        \item porta di ingresso;
+        \item tapparella.
+    \end{itemize}
+    }{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.8}}
+    \addReqF{2}{L'\admin visualizzando un dispositivo deve vedere il nome}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.1}}
+    \addReqF{2}{L'\admin visualizzando un dispositivo deve vedere lo stato}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.2}}
+    \addReqF{0}{L'\admin visualizzando un dispositivo deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.3}}
+    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo termostato}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.1}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere il nome}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.1}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere lo stato}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.2}}
+    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.3}}
+    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo sensore di caduta}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.2}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere il nome}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.1}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere lo stato}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.2}}
+    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.3}}
+    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo sensore di presenza}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.3}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere il nome}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.1}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere lo stato}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.2}}
+    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.3}}
+    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo punto luce}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.4}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere il nome}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.1}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere lo stato}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.2}}
+    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.3}}
+    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo pulsante di allarme}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.5}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere il nome}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.1}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere lo stato}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.2}}
+    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.3}}
+    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo porta di ingresso}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.6}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere il nome}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.1}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere lo stato}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.2}}
+    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.3}}
+    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo tapparella}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.7}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere il nome}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.1}}
+    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere lo stato}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.2}}
+    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.3}}
+    \addReqF{2}{L'\admin deve poter abilitare un appartamento nel Sistema}{\rif{\Aapp}}
+    \addReqF{2}{L'\admin deve poter disabilitare un appartamento nel Sistema}{\rif{\Dapp}}
+    % aggiungere tutti i sotto dispositivi
+
+    % --- Modifiche allarme --- 
+    \addReqF{2}{L'\admin deve poter creare un allarme nel Sistema}{\rif{\Aa}}
+    \addReqF{2}{L'\admin deve selezionare il sensore per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.1}}
+    \addReqF{2}{L'\admin deve selezionare il livello di priorità tra:
+    \begin{itemize}
+        \item priorità 1 (bianco);
+        \item priorità 2 (verde);
+        \item priorità 3 (arancione);
+        \item priorità 4 (rosso).
+    \end{itemize}
+    per creare un allarme nel Sistema}{\parbox[t]{\linewidth}{\rif{\Aa}\\\rif{\Aa.2}\\\rif{\Aa.3}\\\rif{\Aa.4}\\\rif{\Aa.5}\\\rif{\Aa.2.4}}}
+    \addReqF{2}{L'\admin deve selezionare una soglia di intervetto per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.6}}
+    \addReqF{2}{L'\admin deve selezionare un orario di attivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.7}}
+    \addReqF{2}{L'\admin deve selezionare un orario di disattivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.8}}
+    \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcun sensore}{\rif{\Erns}}
+    \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcun livello di priorità}{\rif{\Ernlp}}
+    \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcuna soglia di intervento}{\rif{\Ernss}}
+    \addReqF{2}{L'\admin deve poter modificare la priorità di un allarme del Sistema}{\rif{\Mpa}}
+    \addReqF{2}{L'\admin deve poter modificare la soglia d'intervento di un allarme del Sistema}{\rif{\Msia}}
+    \addReqF{2}{L'\admin deve poter modificare l'orario di attivazione di un allarme del Sistema}{\rif{\Moaa}}
+    \addReqF{2}{L'\admin deve poter modificare l'orario di disattivazione di un allarme del Sistema}{\rif{\Moda}}
+    \addReqF{2}{L'\admin deve poter abilitare un allarme del Sistema}{\rif{\Aal}}
+    \addReqF{2}{L'\admin deve poter disabilitare un allarme del Sistema}{\rif{\Dal}}
+    \addReqF{2}{L'\admin deve poter eliminare un allarme nel Sistema}{\rif{\Ea}}
+
+    % --- Notifiche --- 
+    \addReqF{0}{L'\user deve poter visualizzare le notifiche inviate dal Sistema}{\rif{\Vn}}
+    \addReqF{0}{L'\user visualizzando le notifiche deve poter visualizzare una notifica nel dettaglio}{\rif{\Vn}\\\rif{\Vn.1}}
+    \addReqF{0}{L'\user visualizzando una notifica deve poter visualizzare il titolo della notifica}{\rif{\Vn.1}\\\rif{\Vn.1.1}}
+    \addReqF{0}{L'\user visualizzando una notifica deve poter visualizzare il tempo trascorso dall'invio della 
+    notifica}{\rif{\Vn.1}\\\rif{\Vn.1.2}}
+    \makeReqFtable
+
+    \addReqQ{2}{Il Sistema deve essere corredato da test di unità con una copertura di almeno 75\%}{\capitolato\S5.3\\\capitolato\S6.2}
+    \addReqQ{0}{Il Sistema deve essere corredato da test di unità con una copertura di almeno 90\%}{\capitolato\S5.3\\\capitolato\S6.2}
+    \addReqQ{2}{Il Sistema deve essere corredato da test di integrazione con una copertura di almeno 75\%}{\capitolato\S5.3\\\capitolato\S6.2}
+    \addReqQ{0}{Il Sistema deve essere corredato da test di integrazione con una copertura di almeno 90\%}{\capitolato\S5.3\\\capitolato\S6.2}
+    \addReqQ{2}{Il Sistema deve essere corredato da test di Sistema con una copertura di almeno 75\%}{\capitolato\S5.3\\\capitolato\S6.2}
+    \addReqQ{2}{Il Sistema deve essere corredato da test end-to-end con una copertura di almeno 80\%}{\capitolato\S5.3\\\capitolato\S6.2}
+    \addReqQ{2}{Consegnare una documentazione sull’architettura realizzata tramite il modello C4 (diagramma di contesto e di
+    container) e/o altri tipi di schemi}{\capitolato\S6.1}
+    \addReqQ{2}{Consegnare bozzetti grafici relativi alla progettazione di design dell’applicativo web responsive}{\capitolato\S6.1}
+    \addReqQ{2}{Consegnare documentazione sintetica della libreria backend (se implementata)}{\capitolato\S6.1}
+    \addReqQ{2}{Consegnare spese stimate della propria soluzione in Cloud AWS in base ai servizi previsti}{\capitolato\S6.1}
+    \addReqQ{2}{Consegnare la documentazione dei casi d'uso per l’utilizzo dell’applicativo web.}{\capitolato\S6.1}
+    \addReqQ{0}{Consegnare la documentazione delle API backend}{\capitolato\S6.1}
+    \addReqQ{0}{Consegnare la documentazione di tutti i test realizzati e report, con relativo coverage e risultato.}{\capitolato\S6.1}
+    \addReqQ{0}{Consegnare codice sorgente (accessibile al pubblico dominio) con licenza open source e con un file README
+    contenente le istruzioni di installazione e primo utilizzo.}{\capitolato\S6.1}
+    \addReqQ{0}{Consegnare screenshot e video dimostrativo della soluzione in funzione.}{\capitolato\S6.1}
+    \addReqQ{0}{Consegnare manuale di utilizzo dell’applicativo web per gli utenti.}{\capitolato\S6.1}
+    \makeReqQtable
+
+    \addReqV{2}{L’infrastruttura Cloud deve usare Docker con docker-compose al fine di far valere il principio
+    di infrastructure as code.}{\capitolato \S 5.1}
+    \addReqV{0}{Per l’infrastruttura Cloud è concesso utilizzare Terraform, AWS CDK V2 o Ansible}{\capitolato \S 5.1}
+    \addReqV{2}{L’applicativo deve prevedere l’uso della tecnologia KNX IoT 3rd party API.}{\capitolato \S 5.1}
+    \addReqV{2}{L’applicativo deve prevedere l’utilizzo del meccanismo di ricezione delle notifiche di
+    impianto (push) messo a disposizione dallo standard KNX IoT (i.e. Subscription).}{\capitolato \S 5.1}
+    \addReqV{2}{Il repository di lavoro deve essere versionato tramite GIT e deve essere pubblicamente
+    accessibile (es. GitHub, BitBucket, GitLab) e per i sorgenti la licenza dovrà essere open
+    source (es. MIT, Apache 2)}{\capitolato \S 5.1}
+    \addReqV{2}{Le librerie o i framework che verranno utilizzati dovranno avere licenza open source}{\capitolato \S 5.1}
+    \addReqV{0}{Distribuire con AWS LightSail oppure AWS EC2 con Docker installato l’infrastruttura Cloud}{\capitolato\S 5.2.1}
+    \addReqV{1}{La soluzione viene implementata con un componente libreria backend realizzato ad hoc per l’interfacciamento con le 
+    API di KNX IoT, potenzialmente indipendente e riutilizzabile separatamente come “SDK” (Software Development Kit).}{\capitolato\S 6.2}
+    \addReqV{0}{Utilizzare servizi serverless come AWS SimpleNotificationService (SNS) e AWS Lambda per gli allarmi tramite 
+    Web Push Notification}{\capitolato\S 5.2.1}
+    \addReqV{0}{Utilizzare per la raccolta e la rielaborazione dati per le analytics è possibile valutare servizi serverless 
+    di AWS Kinesis, AWS Athena oppure AWS CloudWatch, AWS S3}{\capitolato\S 5.2.1}
+    \makeReqVtable
+
+    % NICE TO HAVE: La gestione impianto dell’applicativo web permette di eseguire azioni con i dispositivi di impianto (es. accendere una luce).
+}
 
 \end{document}
