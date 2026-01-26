@@ -1,10 +1,77 @@
 \documentclass{beamer}
 
-\usepackage{../tema}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[table, x11names]{xcolor}
+\usepackage{xstring}
+\usepackage{etoolbox}
+\usepackage{tabularx}
+
+\newcommand{\Date}{}
+
+\newcommand{\setDate}[1]{\renewcommand{\Date}{#1}}
+
+\useinnertheme{default}
+\useoutertheme{default}
+\usecolortheme{default}
+
+\definecolor{aziendaPrimary}{RGB}{84, 150, 104}
+\setbeamercolor{structure}{fg=aziendaPrimary}
+\setbeamercolor{frametitle}{bg=aziendaPrimary!10,fg=aziendaPrimary}
+
+% rimuovere i simboli di navigazione
+\setbeamertemplate{navigation symbols}{}
+
+% pagina iniziale
+\setbeamertemplate{title page}{
+  \vspace{2em}
+  \begin{center}
+    \begin{minipage}{0.3\textwidth}
+      \centering
+      \includegraphics[height=2.1cm]{./logounipd.png}
+    \end{minipage}
+    \begin{minipage}{0.3\textwidth}
+      \centering
+      \includegraphics[height=2cm]{../logo-crop.pdf}
+    \end{minipage}
+    \begin{minipage}{0.3\textwidth}
+      \centering
+      \includegraphics[height=2cm]{./logoview4life.png}
+    \end{minipage}
+  \end{center}
+  \begin{center}
+      {\usebeamerfont{title}\color{black}\textbf{\inserttitle}\par}
+    \vspace{0.5em}
+    {\usebeamerfont{date}\insertauthor\par}
+    {\usebeamerfont{date}\Date\par}
+  \end{center}
+}
+
+% footer
+\setbeamertemplate{footline}{
+  \vspace{2ex}
+  \hbox{
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hspace*{0.5em}
+      \raggedright\usebeamerfont{footline}\inserttitle
+    \end{minipage}%
+    \begin{minipage}[t]{0.20\paperwidth}
+      \centering\usebeamerfont{footline}Pagina \insertframenumber{} di \inserttotalframenumber
+    \end{minipage}%
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hfill
+      \insertshortauthor
+      \hspace*{0.8em}
+      \raisebox{-0.25\height}{\includegraphics[width=0.7cm]{../logo-crop.pdf}}
+      \hspace*{1.3em}
+    \end{minipage}
+  }
+  \vspace{0.8ex}
+}
+
 \usepackage[absolute,overlay]{textpos}
 
-
-\title{Progetto View4Life}
+\title{Progetto View4Life del corso \\ di Ingegneria del Software}
 \author{Presentazione del \textit{Proof of Concept}}
 \setDate{28/01/2026}
 
@@ -22,13 +89,13 @@
   %   \includegraphics[width=2cm]{immagine}
   % \end{textblock*}
   Sviluppare un applicativo \textit{web} per permettere la gestione delle residenze protette da parte del personale sanitario
-  e dell'amministratore, tramite
-  l'uso dei dispositivi \textit{IoT}.
-  \\In particolare, l'applicativo deve:
+  e dell'amministratore, tramite l'uso dei dispositivi \textit{IoT} della gamma \textit{View Wireless}. \\
+  In particolare, l'applicativo deve:
   \begin{itemize}
-    \item Visualizzare le informazioni dei vari dispositivi \textit{IoT};
-    \item gestire gli \textbf{allarmi}, che verrano presi in carico dal personale sanitario;
-    \item visualizzare le \textbf{\textit{analytics}} relative alla piattaforma e agli impianti, con relativi suggerimenti per il risparmio energetico;
+    \item Visualizzare le informazioni dei vari \textbf{dispositivi};
+    \item gestire gli stati degli \textbf{allarmi}, che verranno presi in carico dal personale sanitario;
+    \item visualizzare le \textbf{\textit{analytics}} relative alla piattaforma e agli impianti, con relativi suggerimenti 
+    per il \textbf{risparmio energetico};
     \item visualizzare una \textbf{\textit{dashboard}} contenente le informazioni principali (stato dispositivi, allarmi attivi, ...).
   \end{itemize}
 \end{frame}
@@ -38,7 +105,7 @@
     \item Abbiamo scelto una metodologia \textbf{agile} con framework \textbf{scrum}, composta da \textbf{sprint} di 2 settimane ciascuno;
     \item Issue Tracking System: \textbf{GitHub Projects}.
           \\Le issue non completate in uno sprint vengono spostate e gestite nello sprint successivo;
-    \item Ad ogni sprint viene effettuata una rotazione dei seguenti ruoli tra i membri del gruppo:
+    \item Ad ogni sprint viene effettuata una rotazione dei seguenti ruoli tra i 7 membri del gruppo:
           \begin{center}
             \begin{tabular}{|l|}
               \hline
@@ -54,6 +121,15 @@
             \end{tabular}
           \end{center}
   \end{itemize}
+\end{frame}
+
+\begin{frame}{Schema riassuntivo dei componenti}
+  \centering
+  \includegraphics[
+    width=\textwidth,
+    height=0.9\textheight,
+    keepaspectratio
+  ]{schema_riassuntivo.png}
 \end{frame}
 
 \begin{frame}{Avanzamento fino ad oggi}
@@ -83,143 +159,64 @@
   ]{container.drawio.png}
 \end{frame}
 
-\begin{frame}{Disegno architetturale - Components}
-  \centering
-  \includegraphics[
-    width=\textwidth,
-    height=0.9\textheight,
-    keepaspectratio
-  ]{components.drawio.png}
-\end{frame}
+% \begin{frame}{Disegno architetturale - Components}
+%   \centering
+%   \includegraphics[
+%     width=\textwidth,
+%     height=0.9\textheight,
+%     keepaspectratio
+%   ]{components.drawio.png}
+% \end{frame}
 
 \begin{frame}{Tecnologie frontend}
-  \centering
-  \scriptsize
-  \renewcommand{\arraystretch}{1.2}
-  \begin{tabularx}{\textwidth}{|
-      p{2cm}|
-      >{\raggedright\arraybackslash}X|
-      >{\raggedright\arraybackslash}X|
-      >{\raggedright\arraybackslash}X|}
-    \hline
-    \textbf{Categoria}
-     & \textbf{Angular}
-     & \textbf{React}
-     & \textbf{Flask}                  \\ \hline
+ \begin{itemize}
+  \item \textbf{Angular} è stato scelto per la sua struttura solida e scalabile, adatta ad applicazioni complesse e manutenibili nel tempo in contesti enterprise.
 
-    Tipologia
-     & Framework frontend completo
-     & Libreria frontend
-     & Micro-framework backend         \\ \hline
+  \item Offre un tooling integrato (Angular CLI, build, testing) che garantisce uno sviluppo coerente, riducendo la necessità di configurazioni aggiuntive rispetto a soluzioni più flessibili come React.
 
-    Struttura
-     & Fortemente strutturato
-     & Flessibile, non prescrittivo
-     & Minima                          \\ \hline
+  \item L’uso obbligatorio di \textbf{TypeScript} migliora l’affidabilità del codice grazie alla tipizzazione statica.
 
-    Tipizzazione
-     & TypeScript obbligatorio
-     & TypeScript opzionale
-     & Dinamica                        \\ \hline
+  \item Presenta una curva di apprendimento più ripida dovuta alla complessità iniziale e ai concetti architetturali da comprendere. (Angular Docs)
 
-    Scalabilità
-     & Elevata (enterprise)
-     & Media-Alta
-     & Limitata al backend             \\ \hline
+  \item La scelta privilegia solidità e standardizzazione dell’architettura rispetto alla rapidità di sviluppo iniziale.
+\end{itemize}
 
-    Velocità di apprendimento
-     & Bassa (curva ripida)
-     & Alta
-     & Alta                            \\ \hline
-
-    Tooling
-     & Completo e integrato
-     & Ecosistema frammentato
-     & Essenziale                      \\ \hline
-
-    Svantaggi
-     & Complessità iniziale, verbosità
-     & Mancanza di standard nativi
-     & Non adatto al frontend          \\ \hline
-  \end{tabularx}
 \end{frame}
 
 \begin{frame}{Tecnologie backend}
-  \centering
-  \scriptsize
-  \renewcommand{\arraystretch}{1.2}
+   \begin{itemize}
+  
+  \item Il modello event-driven e non bloccante di Node.js garantisce ottime prestazioni nelle operazioni di I/O e nella gestione di richieste concorrenti, rendendolo particolarmente adatto per mantenere attive le subscription richieste dallo standard KNX IoT senza ricorrere a polling.
 
-  \begin{tabularx}{\textwidth}{|
-      p{2cm}|
-      >{\raggedright\arraybackslash}X|
-      >{\raggedright\arraybackslash}X|
-      >{\raggedright\arraybackslash}X|}
-    \hline
+  \item Express offre una struttura minima e poco prescrittiva, permettendo di modellare l’architettura secondo le esigenze del progetto senza la complessità di framework più pesanti.
+ 
+  \item Il tooling modulare basato su npm consente di integrare facilmente librerie per OAuth2, sicurezza validazione e logging
 
-    \textbf{Categoria}
-     & \textbf{Node.js + Express}
-     & \textbf{Java + Spring}
-     & \textbf{Python + Flask / FastAPI} \\ \hline
+\item \textbf{Node.js + Express} è stato scelto per la leggerezza e la flessibilità che offre, oltre a essere molto in linea per ciò che il progetto richiede, in particolare per la gestione delle API REST.
 
-    Tipologia
-     & Runtime JS con framework leggero
-     & Framework backend completo
-     & Framework leggero                 \\ \hline
-
-    Struttura
-     & Poco prescrittiva
-     & Fortemente strutturata
-     & Minima e flessibile               \\ \hline
-
-    Tipizzazione
-     & Dinamica (TypeScript opzionale)
-     & Statica (Java)
-     & Dinamica (typing opzionale)       \\ \hline
-
-    Prestazioni
-     & Ottime per API e I/O
-     & Elevate e stabili sotto carico
-     & Buone, FastAPI molto performante  \\ \hline
-
-    Tooling
-     & Modulare (npm, tool esterni)
-     & Completo e integrato
-     & Essenziale, estendibile           \\ \hline
-
-    Sicurezza
-     & Gestita tramite middleware
-     & Forte supporto nativo
-     & Supporto base, estendibile        \\ \hline
-
-    Svantaggi
-     & Poca struttura nativa
-     & Complessità e verbosità
-     & Meno standardizzazione            \\ \hline
-
-    \textbf{Ambito ideale}
-     & \textbf{API REST, microservizi}
-     & \textbf{Applicazioni enterprise}
-     & \textbf{API rapide, prototipi}    \\ \hline
-  \end{tabularx}
+\end{itemize}
 \end{frame}
 
 \begin{frame}{Scelta del Database}
-  Le opzioni sono:
-  \begin{enumerate}
-    \item Database relazionale (per l'applicativo web):
-          \\ \begin{itemize}
-            \item MySQL
-            \item PostgreSQL
-          \end{itemize}
-          Possibile implementazione di un \textit{Object Relational Mapper} come \textbf{Prisma}
-    \item Database non relazionale (per analytics):
-          \\ \begin{itemize}
-            \item TimescaleDB
-            \item InfluxDB
-            \item MongoDB
-          \end{itemize}
-  \end{enumerate}
+ \begin{itemize}
+  \item I dati dell’applicativo web, come utenti, credenziali e configurazioni... saranno gestiti con un database relazionale (PostgreSQL o MySQL) per garantire integrità e coerenza.
+
+  \item Le metriche per le analytics saranno memorizzati in un database come TimescaleDB, InfluxDB o MongoDB, ottimizzato per serie temporali e aggiornamenti frequenti.
+
+\end{itemize}
 \end{frame}
+
+\begin{frame}{Docker}
+\begin{itemize}
+\item \textbf{Docker} sarà utilizzato per rendere l’ambiente completamente replicabile e portabile tra diversi cloud provider, come richiesto dal progetto. 
+
+\item Ogni servizio backend, database e componente dell’applicativo sarà containerizzato, consentendo di avviare l’intero stack con un solo comando.
+
+\item Questo approccio rispetta il principio di Infrastructure as Code e facilita la gestione di dipendenze, aggiornamenti e scalabilità dei vari componenti.
+
+\end{itemize}
+\end{frame}  
+
 
 \begin{frame}{Backend: Architettura esagonale}
   \footnotesize
@@ -228,9 +225,9 @@
     \hline
                  & \textbf{Layered}                                             & \textbf{Esagonale}                                                \\
     \hline
-    Dominio      & Dipende da Persistent Logic                                  & Isolato, guida lo sviluppo                                        \\
+    Dominio      & Dipende da Persistent Logic (mentre per PoC trascuriamo DB)                            & Isolato, guida lo sviluppo. Ci permette di concentriarci sulla modellazione del dominio    \\                              
     \hline
-    Dipendenze   & App→Bus→Pers. Dati guidano sviluppo                          & App→Bus←Pers. Domain guida sviluppo                               \\
+    Dipendenze   & App→Bus→Pers. Dati guidano sviluppo (non sappiamo ancora come rappresentarli)                       & App→Bus←Pers. Domain guida sviluppo (conosciamo le principali entità)                          \\
     \hline
     Testabilità  & Difficile testare senza mocking oneroso o avviare PostGre    & Facile e veloce, in particolare per Domain (Unit Test)            \\
     \hline
@@ -271,45 +268,56 @@
       width=\textwidth,
       height=0.9\textheight,
       keepaspectratio
-    ]{./backend_hex.png}
+    ]{./backend_hex_final.png}
   \end{figure}
 \end{frame}
 
 \begin{frame}{Analytics}
-  Nella sezione Analytics saranno visualizzate le statistiche riportate
-  nel capitolato sotto forma di grafici.\\
-  È stato previsto l'utilizzo di librerie per la visualizzazione dei grafici,
-  le proposte sono:
+  Nella sezione Analytics saranno visualizzate, attraverso dei \textbf{grafici}, le statistiche specificate nel capitolato, tra cui:
   \begin{itemize}
-    \item \textit{ng2-charts}
-          \begin{itemize}
-            \item wrapper di \textit{Chart.js} per Angular
-            \item semplice e leggero
-            \item licenza MIT
-          \end{itemize}
-    \item ngx-charts
-          \begin{itemize}
-            \item framework per Angular
-            \item licenza MIT
-          \end{itemize}
+   \item l'energia consumata dall'illuminazione;
+   \item anomalie d'impianto;
+   \item rilevamento presenza/assenza/caduta;
+   \item rilevamento presenza prolungata;
+   \item variazione e cambio di temperatura;
+   \item allarmi inviati e risolti giornalmente,
+   \item frequenza allarmi e cadute di un periodo a scelta
+  \end{itemize}
+\end{frame}
 
+\begin{frame}{Analytics}
+  Le statistiche risultano utili per:
+  \begin{itemize}
+    \item fornire una visione d'insieme sugli impianti;
+    \item ottenere informazioni sull'efficienza degli impianti;
+    \item sviluppare strategie per ottimizzare i consumi;
+    \item valutare l'efficacia della gestione degli allarmi.
+  \end{itemize}
+  
+  Per la visualizzazione dei grafici è stato previsto l'utilizzo di una tra le seguenti alternative:
+  \begin{itemize}
+    \item \textbf{ng2-charts}, wrapper della libreria \textit{Chart.js}
+    \item \textbf{ngx-charts}, framework per Angular
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Suggerimenti}
   La funzionalità dei suggerimenti per limitare il consumo energetico è basata su:
   \begin{itemize}
-    \item una raccolta fissa di consigli (definita staticamente);
-    \item visualizzazione del suggerimento qualora dei valori istantanei o statistici violino delle soglie (eventualmente parametrizzabili). Ad esempio:
-          \begin{itemize}
-            \item Valore istantaneo: la temperatura supera 19° (simile al meccanismo degli allarmi)
-            \item Valore statistico: il consumo giornaliero di una luce supera un certo valore
-          \end{itemize}
+    \item una raccolta consigli con struttura fissa;
+    \item visualizzazione del suggerimento qualora i dati statistici violino delle soglie (eventualmente parametrizzabili). 
+  \end{itemize}
+
+  Alcune proposte esempi di suggerimenti sono:
+  \begin{itemize}
+    \item Per risparmiare energia, spegni le luci negli impianti esposti a sud dalle 12:00 alle 15:00;
+    \item Mantieni una temperatura inferiore 19° dalle 22:00 alle 6:30, risparmi energia e migliora il sonno;
+    \item La luce del soggiorno dell'impianto 2 rimane accesa anche senza nessuna presenza rilevata, spegnila per evitare consumi ulteriori.
   \end{itemize}
 
 \end{frame}
 
-\begin{frame}{Interfaccia Analytics}
+\begin{frame}{Interfaccia Analytics (bozzetto grafico)}  
   \centering
   \includegraphics[
     width=\textwidth,
@@ -329,10 +337,6 @@
 
   \texttt{Ampliamo a voce}
 
-\end{frame}
-
-\begin{frame}{Interfaccia grafica}
-  screen
 \end{frame}
 
 \begin{frame}{Limiti o blocchi incontrati}
