@@ -94,8 +94,8 @@
   \begin{itemize}
     \item Visualizzare le informazioni dei vari \textbf{dispositivi};
     \item gestire gli stati degli \textbf{allarmi}, che verranno presi in carico dal personale sanitario;
-    \item visualizzare le \textbf{\textit{analytics}} relative alla piattaforma e agli impianti, con relativi suggerimenti 
-    per il \textbf{risparmio energetico};
+    \item visualizzare le \textbf{\textit{analytics}} relative alla piattaforma e agli impianti, con relativi suggerimenti
+          per il \textbf{risparmio energetico};
     \item visualizzare una \textbf{\textit{dashboard}} contenente le informazioni principali (stato dispositivi, allarmi attivi, ...).
   \end{itemize}
 \end{frame}
@@ -169,97 +169,104 @@
 % \end{frame}
 
 \begin{frame}{Tecnologie frontend}
- \begin{itemize}
-  \item \textbf{Angular} è stato scelto per la sua struttura solida e scalabile, adatta ad applicazioni complesse e manutenibili nel tempo in contesti enterprise.
+  \begin{itemize}
+    \item \textbf{Angular} è stato scelto per la sua struttura solida e scalabile, adatta ad applicazioni complesse e manutenibili nel tempo in contesti enterprise.
 
-  \item Offre un tooling integrato (Angular CLI, build, testing) che garantisce uno sviluppo coerente, riducendo la necessità di configurazioni aggiuntive rispetto a soluzioni più flessibili come React.
+    \item Offre un tooling integrato (Angular CLI, build, testing) che garantisce uno sviluppo coerente, riducendo la necessità di configurazioni aggiuntive rispetto a soluzioni più flessibili come React.
 
-  \item L’uso obbligatorio di \textbf{TypeScript} migliora l’affidabilità del codice grazie alla tipizzazione statica.
+    \item L’uso obbligatorio di \textbf{TypeScript} migliora l’affidabilità del codice grazie alla tipizzazione statica.
 
-  \item Presenta una curva di apprendimento più ripida dovuta alla complessità iniziale e ai concetti architetturali da comprendere. (Angular Docs)
+    \item Presenta una curva di apprendimento più ripida dovuta alla complessità iniziale e ai concetti architetturali da comprendere. (Angular Docs)
 
-  \item La scelta privilegia solidità e standardizzazione dell’architettura rispetto alla rapidità di sviluppo iniziale.
-\end{itemize}
+    \item La scelta privilegia solidità e standardizzazione dell’architettura rispetto alla rapidità di sviluppo iniziale.
+  \end{itemize}
 
 \end{frame}
 
 \begin{frame}{Tecnologie backend}
-   \begin{itemize}
-  
-  \item Il modello event-driven e non bloccante di Node.js garantisce ottime prestazioni nelle operazioni di I/O e nella gestione di richieste concorrenti, rendendolo particolarmente adatto per mantenere attive le subscription richieste dallo standard KNX IoT senza ricorrere a polling.
+  \begin{itemize}
 
-  \item Express offre una struttura minima e poco prescrittiva, permettendo di modellare l’architettura secondo le esigenze del progetto senza la complessità di framework più pesanti.
- 
-  \item Il tooling modulare basato su npm consente di integrare facilmente librerie per OAuth2, sicurezza validazione e logging
+    \item Il modello event-driven e non bloccante di Node.js garantisce ottime prestazioni nelle operazioni di I/O e nella gestione di richieste concorrenti, rendendolo particolarmente adatto per mantenere attive le subscription richieste dallo standard KNX IoT senza ricorrere a polling.
 
-\item \textbf{Node.js + Express} è stato scelto per la leggerezza e la flessibilità che offre, oltre a essere molto in linea per ciò che il progetto richiede, in particolare per la gestione delle API REST.
+    \item Express offre una struttura minima e poco prescrittiva, permettendo di modellare l’architettura secondo le esigenze del progetto senza la complessità di framework più pesanti.
 
-\end{itemize}
+    \item Il tooling modulare basato su npm consente di integrare facilmente librerie per OAuth2, sicurezza validazione e logging
+
+    \item \textbf{Node.js + Express} è stato scelto per la leggerezza e la flessibilità che offre, oltre a essere molto in linea per ciò che il progetto richiede, in particolare per la gestione delle API REST.
+
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Scelta del Database}
- \begin{itemize}
-  \item I dati dell’applicativo web, come utenti, credenziali e configurazioni, saranno gestiti con un database relazionale (PostgreSQL) per garantire integrità e coerenza.
+  \begin{itemize}
+    \item I dati dell’applicativo web, come utenti, credenziali e configurazioni, saranno gestiti con un database relazionale (PostgreSQL) per garantire integrità e coerenza.
 
-  \item Le metriche per le analytics saranno memorizzati in un database come TimescaleDB, InfluxDB o MongoDB, ottimizzato per serie temporali e aggiornamenti frequenti.
+    \item Le metriche per le analytics saranno memorizzati in un database come TimescaleDB, InfluxDB o MongoDB, ottimizzato per serie temporali e aggiornamenti frequenti.
 
-\end{itemize}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Docker}
-\begin{itemize}
-\item \textbf{Docker} sarà utilizzato per rendere l’ambiente completamente replicabile e portabile tra diversi cloud provider, come richiesto dal progetto. 
-
-\item Ogni servizio backend, database e componente dell’applicativo sarà containerizzato, consentendo di avviare l’intero stack con un solo comando.
-
-\item Questo approccio rispetta il principio di Infrastructure as Code e facilita la gestione di dipendenze, aggiornamenti e scalabilità dei vari componenti.
-
-\end{itemize}
-\end{frame}  
-
-
-\begin{frame}{Backend: Architettura esagonale}
-  \footnotesize
-  \setlength{\extrarowheight}{2pt}
-  \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
-    \hline
-                 & \textbf{Layered}                                             & \textbf{Esagonale}                                                \\
-    \hline
-    Dominio      & Dipende da Persistent Logic (mentre per PoC trascuriamo DB)                            & Isolato, guida lo sviluppo. Ci permette di concentriarci sulla modellazione del dominio    \\                              
-    \hline
-    Dipendenze   & App→Bus→Pers. Dati guidano sviluppo (non sappiamo ancora come rappresentarli)                       & App→Bus←Pers. Domain guida sviluppo (conosciamo le principali entità)                          \\
-    \hline
-    Testabilità  & Difficile testare senza mocking oneroso o avviare PostGre    & Facile e veloce, in particolare per Domain (Unit Test)            \\
-    \hline
-    Integrazioni & Chiamate API nei Service. Cambio API = cambio Business Logic & API come Secondary Adapters, interscambiabili rispetto al dominio \\
-    \hline
-  \end{tabularx}
-\end{frame}
-
-\begin{frame}{Backend: Architettura esagonale (continua)}
-  \footnotesize
-  \setlength{\extrarowheight}{2pt}
-  \begin{tabularx}{\textwidth}{|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|}
-    \hline
-                               & \textbf{Layered}                                                               & \textbf{Esagonale}                                                                 \\
-    \hline
-    Database                   & Ruolo chiave, fondamenta. Sistema rigido e fragile                             & Dettaglio implementativo, ampia possibilità di cambiamento                         \\
-    \hline
-    Struttura e Manutenibilità & Layer nascondono la complessità. Difficoltà orientarsi con progetto che avanza & Indirizza lo sviluppo, mantiene chiarezza e trasparenza nelle integrazioni esterne \\
-    \hline
-  \end{tabularx}
-\end{frame}
-
-\begin{frame}{Backend: Architettura esagonale}
-  \textit{In ottica delle successive fasi di progettazione e design.}
-  \\Alcuni punti di forza e ragioni della scelta:
   \begin{itemize}
-    \item Il più importante, da cui gli altri seguono, \textbf{inversione delle dipendenze};
-    \item isolamento del dominio;
-    \item ampia possibilità di compatibilità ed estensibilità con sistemi esterni (\textit{adapters});
-    \item focus sull'implementazione di interfacce stabili (\textit{ports}).
+    \item \textbf{Docker} sarà utilizzato per rendere l’ambiente completamente replicabile e portabile tra diversi cloud provider, come richiesto dal progetto.
+
+    \item Ogni servizio backend, database e componente dell’applicativo sarà containerizzato, consentendo di avviare l’intero stack con un solo comando.
+
+    \item Questo approccio rispetta il principio di Infrastructure as Code e facilita la gestione di dipendenze, aggiornamenti e scalabilità dei vari componenti.
+
   \end{itemize}
 \end{frame}
+
+\begin{frame}{Backend: architettura layered VS esagonale}
+
+  \begin{itemize}
+    \item \textbf{Inversione delle Dipendenze}
+          \begin{itemize}
+            \item \textit{Layered:} $Application \to Business \to Persisten$. \textit{Persisten Logic e DB} guidano lo sviluppo, influenzando fortemente il Dominio.
+            \item \textbf{Esagonale:} $Appllication \to Business \leftarrow Persistent$. Il Dominio, isolato, guida lo sviluppo.
+            \item \textbf{Conclusione:} Non ci è ancora chiaro quale DB useremo e come lo implementeremo, mentre sappiamo come modellare le principali entità del Dominio.\\
+                  Di conseguenza, l'isolamento del Dominio offerto dall'architettura esagonale ci avvantaggia nello sviluppo del \textit{PoC}. \\
+          \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Backend: architettura layered VS esagonale (continua)}
+  \begin{itemize}
+    \item \textbf{Testabilità}
+          \begin{itemize}
+            \item \textit{Layered:} Complesso testare esclusivamente il Dominio, test legati a mocking pesanti o database attivi (non ancora presenti).
+            \item \textbf{Esagonale:} Consente \textbf{Unit Test} rapidi e isolati sul Dominio.
+            \item \textbf{Conclusione:} L'architettura esagonale ci garantisce la possibilità di testare immediatamente la correttezza della \textit{Business Logic}.
+                  \\Ciò corrisponde a coprire la maggior parte del codice del \textit{PoC}.
+          \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+\begin{frame}{Backend: confronto architettura layered VS esagonale (continua)}
+  \begin{itemize}
+    \item \textbf{Ruolo del Database}
+          \begin{itemize}
+            \item \textit{Layered:} Assume un ruolo chiave, fondamenta del sistema. Il sistema tende a diventare rigido e fragile rispetto a modifiche strutturali.
+            \item \textbf{Esagonale:} Viene trattato come un dettaglio implementativo, garantendo ampia flessibilità e possibilità di cambiamento.
+            \item \textbf{Conclusione:} Il disaccoppiamento dal database ci permette di evolvere il modello o cambiare tecnologia di persistenza senza rifattorizzazioni del dominio, aspetto centrale del PoC. \\
+                  Ci permette inoltre di valutare a posteriori, con possibilità di cambiamento, l'utilizzo di un DB relazione e/o non relazionale.
+          \end{itemize}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Backend: confronto architettura layered VS esagonale (continua)}
+  \begin{itemize}
+    \item \textbf{Struttura e Manutenibilità}
+          \begin{itemize}
+            \item \textit{Layered:} I layer tendono a mascherare la complessità, rendendo difficile l'orientamento con l'avanzare del progetto.
+            \item \textbf{Esagonale:} Indirizza maggiormente lo sviluppo. Offre chiarezza e trasparenza nelle integrazioni con sistemi esterni \textit{ports-adapters}.
+            \item \textbf{Conclusione:} L'architettura esagonale ci impronta allo sviluppo di una codebase più ordinata e manutenibile, in particolare isolando il dominio e facilitando l'integrazione di servizi esterni. \\
+                  Ci permette inoltre di approcciarci al mondo dello sviluppo software con attenzione fin da subito alle \textit{best-practices} riguardo alla separazione delle responsabilità ("filo rosso" del corso di ingegneria seguito in questo semestre).
+          \end{itemize}
+  \end{itemize}
+\end{frame}
+
 
 \begin{frame}{Backend: Architettura esagonale}
   \begin{figure}
@@ -275,13 +282,13 @@
 \begin{frame}{Analytics}
   Nella sezione Analytics saranno visualizzate, attraverso dei \textbf{grafici}, le statistiche specificate nel capitolato, tra cui:
   \begin{itemize}
-   \item l'energia consumata dall'illuminazione;
-   \item anomalie d'impianto;
-   \item rilevamento presenza/assenza/caduta;
-   \item rilevamento presenza prolungata;
-   \item variazione e cambio di temperatura;
-   \item allarmi inviati e risolti giornalmente,
-   \item frequenza allarmi e cadute di un periodo a scelta
+    \item l'energia consumata dall'illuminazione;
+    \item anomalie d'impianto;
+    \item rilevamento presenza/assenza/caduta;
+    \item rilevamento presenza prolungata;
+    \item variazione e cambio di temperatura;
+    \item allarmi inviati e risolti giornalmente,
+    \item frequenza allarmi e cadute di un periodo a scelta
   \end{itemize}
 \end{frame}
 
@@ -293,7 +300,7 @@
     \item sviluppare strategie per ottimizzare i consumi;
     \item valutare l'efficacia della gestione degli allarmi.
   \end{itemize}
-  
+
   Per la visualizzazione dei grafici è stato previsto l'utilizzo di una tra le seguenti alternative:
   \begin{itemize}
     \item \textbf{ng2-charts}, wrapper della libreria \textit{Chart.js}
@@ -305,7 +312,7 @@
   La funzionalità dei suggerimenti per limitare il consumo energetico è basata su:
   \begin{itemize}
     \item una raccolta consigli con struttura fissa;
-    \item visualizzazione del suggerimento qualora i dati statistici violino delle soglie (eventualmente parametrizzabili). 
+    \item visualizzazione del suggerimento qualora i dati statistici violino delle soglie (eventualmente parametrizzabili).
   \end{itemize}
 
   Alcune proposte esempi di suggerimenti sono:
@@ -317,7 +324,7 @@
 
 \end{frame}
 
-\begin{frame}{Interfaccia Analytics (bozzetto grafico)}  
+\begin{frame}{Interfaccia Analytics (bozzetto grafico)}
   \centering
   \includegraphics[
     width=\textwidth,
@@ -334,7 +341,7 @@
     \item\texttt{Alarm} è l'evento generato alla violazione della soglia;
   \end{itemize}
 
-   \begin{figure}
+  \begin{figure}
     \centering
     \includegraphics[
       width=\textwidth,
@@ -342,7 +349,7 @@
       keepaspectratio
     ]{./AlarmsDiagram.drawio.png}
   \end{figure}
-  
+
 \end{frame}
 
 \begin{frame}{Limiti o blocchi incontrati}
