@@ -220,66 +220,75 @@
 \end{frame}
 
 \begin{frame}{Backend: architettura layered VS esagonale}
+  \begin{figure}
+    \centering
+    \includegraphics[
+      width=\textwidth,
+      height=0.9\textheight,
+      keepaspectratio
+    ]{comparison_scheme.png}
+  \end{figure}
 
+\end{frame}
+
+
+\begin{frame}{Backend: architettura layered VS esagonale}
+  \textbf{Inversione delle Dipendenze}
   \begin{itemize}
-    \item \textbf{Inversione delle Dipendenze}
-          \begin{itemize}
-            \item \textit{Layered:} $Application \to Business \to Persisten$. \textit{Persisten Logic e DB} guidano lo sviluppo, influenzando fortemente il Dominio.
-                  \medskip
-            \item \textit{Esagonale:} $Appllication \to Business \leftarrow Persistent$. Il Dominio, isolato, guida lo sviluppo.
-                  \medskip
-            \item \textbf{Conclusione:} DB inizialmente tralasciato, mentre volevamo concentrarci sull'implementare le principali entità del Dominio e la \textit{Business Logic} \\
-                  Pertanto, l'isolamento del Dominio offerto dall'architettura esagonale ha avvantaggiato e velocizzato lo sviluppo del \textit{PoC}. \\
-          \end{itemize}
+    \item \textit{Layered:} il Dominio dipende dalla Logica di Persistenza.
+          \\E' necessario implementare fin dall'inizio la Logica di Persistenza.
+          \medskip
+    \item \textit{Esagonale:} il Dominio è isolato al centro dell'applicazione, la Logica di Business è completamente indipendente.
+          Le dipendenze esterne si adattano al Dominio tramite porte.
+          \medskip
+    \item \textbf{Conclusione:} l'isolamento del Dominio offerto dal modello esagonale ci ha permesso di concentrarci fin dall'inizio sullo sviluppo delle sue principali entità, rendendo
+          possibile effettuare la scelta del Database in un secondo momento. \\
+          Questa separazione ha eliminato i vincoli infrastrutturali iniziali, facilitando l'inizio delle attività di sviluppo del \textit{PoC} (che non è previsto essere preceduto da una fase di Design). \\
   \end{itemize}
 \end{frame}
 
 \begin{frame}{Backend: architettura layered VS esagonale (continua)}
+  \textbf{Ruolo del Database}
   \begin{itemize}
-    \item \textbf{Testabilità}
-          \begin{itemize}
-            \item \textit{Layered:} Complesso testare esclusivamente il Dominio, test legati a mocking pesanti o database attivi (non ancora presenti).
-                  \medskip
+    \item \textit{Layered:} fondamento del sistema, il quale tende a diventare rigido e fragile rispetto a modifiche infrastrutturali.
+          \medskip
 
-            \item \textit{Esagonale:} Consente \textbf{Unit Test} rapidi e isolati sul Dominio.
-                  \medskip
+    \item \textit{Esagonale:} trattato come dettaglio implementativo, il che garantisce ampia flessibilità e possibilità di cambiamento.
+          \medskip
 
-            \item \textbf{Conclusione:} L'architettura esagonale ci garantisce la possibilità di testare immediatamente la correttezza della \textit{Business Logic}.
-                  \\Ciò corrisponde a coprire la maggior parte del codice del \textit{PoC}.
-          \end{itemize}
+    \item \textbf{Conclusione:} il disaccoppiamento dal Database ci permette di evolvere il modello o cambiare tecnologia di persistenza senza rifattorizzazioni del Dominio, aspetto centrale del PoC. \\
+          Ci permette inoltre di valutare a posteriori, con possibilità di cambiamento, l'utilizzo di DB relazionali e/o non relazionali.
   \end{itemize}
 \end{frame}
 
 
-\begin{frame}{Backend: confronto architettura layered VS esagonale (continua)}
+\begin{frame}{Backend: architettura layered VS esagonale (continua)}
+  \textbf{Testabilità}
   \begin{itemize}
-    \item \textbf{Ruolo del Database}
-          \begin{itemize}
-            \item \textit{Layered:} Fondamenta del sistema, che tende a diventare rigido e fragile rispetto a modifiche strutturali.
-                  \medskip
+    \item \textit{Layered:} complesso testare esclusivamente il Dominio, test legati a mocking complessi o Database attivi (non ancora presenti).
+          \medskip
 
-            \item \textit{Esagonale:} Trattato come dettaglio implementativo, garantendo ampia flessibilità e possibilità di cambiamento.
-                  \medskip
+    \item \textit{Esagonale:} consente \textbf{Unit Test} rapidi e isolati sul Dominio.
+          \medskip
 
-            \item \textbf{Conclusione:} Il disaccoppiamento dal database ci permette di evolvere il modello o cambiare tecnologia di persistenza senza rifattorizzazioni del dominio, aspetto centrale del PoC. \\
-                  Ci permette inoltre di valutare a posteriori, con possibilità di cambiamento, l'utilizzo di DB relazionali e/o non relazionali.
-          \end{itemize}
+    \item \textbf{Conclusione:} l'architettura esagonale ci garantisce la possibilità di testare immediatamente la correttezza della Logica di Business.
+          \\Ciò corrisponde a coprire la maggior parte del codice del \textit{PoC}.
   \end{itemize}
+
 \end{frame}
 
+
 \begin{frame}{Backend: confronto architettura layered VS esagonale (continua)}
+  \textbf{Struttura e Manutenibilità}
   \begin{itemize}
-    \item \textbf{Struttura e Manutenibilità}
-          \begin{itemize}
-            \item \textit{Layered:} I layer tendono a mascherare la complessità, rendendo difficile l'orientamento con l'avanzare del progetto.
-                  \medskip
+    \item \textit{Layered:} i \textit{layer} tendono a mascherare la complessità, rendendo difficile l'orientamento con l'avanzare del progetto.
+          \medskip
 
-            \item \textit{Esagonale:} Indirizza maggiormente lo sviluppo. Offre chiarezza e trasparenza nelle integrazioni con sistemi esterni (\textit{ports-adapters}).
-                  \medskip
+    \item \textit{Esagonale:} indirizza maggiormente lo sviluppo. Offre chiarezza e trasparenza nelle integrazioni con sistemi esterni (\textit{ports-adapters}).
+          \medskip
 
-            \item \textbf{Conclusione:} L'architettura esagonale ci impronta allo sviluppo di una codebase più ordinata e manutenibile, in particolare facilitando l'integrazione di servizi esterni. \\
-                  Ci permette inoltre di approcciarci al mondo dello sviluppo software con attenzione fin da subito alle \textit{best-practices} riguardo alla separazione delle responsabilità.
-          \end{itemize}
+    \item \textbf{Conclusione:} l'architettura esagonale ci impronta allo sviluppo di una \textit{codebase} più ordinata e manutenibile, in particolare facilitando l'integrazione di servizi esterni. \\
+          Ci permette inoltre di approcciarci al mondo dello sviluppo software con attenzione fin da subito alle \textit{best-practices} riguardo alla separazione delle responsabilità.
   \end{itemize}
 \end{frame}
 
