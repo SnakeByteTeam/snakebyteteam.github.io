@@ -326,17 +326,23 @@
   ]{PreviewAnalytics.png}
 \end{frame}
 
+
 \begin{frame}{Gestione degli allarmi}
 
   \begin{itemize}
-    \item E' possibile creare delle \texttt{Threshold}, unità di controllo dei valori rilevati da un \textit{datapoint}.
-    \item Vengono definiti valore di scatto e operatore di confronto;
+    \item \texttt{Threshold}, unità di controllo dei valori rilevati da un \textit{datapoint} (valore di scatto e operatore di confronto).
     \item\texttt{Alarm} è l'evento generato alla violazione della soglia;
-    \item I valori che possono far scattare la soglia provengono dalle \textit{subscription}
   \end{itemize}
 
-  \texttt{Ampliamo a voce}
-
+   \begin{figure}
+    \centering
+    \includegraphics[
+      width=\textwidth,
+      height=0.9\textheight,
+      keepaspectratio
+    ]{./AlarmsDiagram.drawio.png}
+  \end{figure}
+  
 \end{frame}
 
 \begin{frame}{Limiti o blocchi incontrati}
