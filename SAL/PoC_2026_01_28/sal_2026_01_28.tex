@@ -6,6 +6,7 @@
 \usepackage{xstring}
 \usepackage{etoolbox}
 \usepackage{tabularx}
+\usepackage[export]{adjustbox}
 
 \newcommand{\Date}{}
 
@@ -28,15 +29,15 @@
   \begin{center}
     \begin{minipage}{0.3\textwidth}
       \centering
-      \includegraphics[height=2.1cm]{./logounipd.png}
+      \includegraphics[height=2.1cm, left]{./logounipd.png}
     \end{minipage}
     \begin{minipage}{0.3\textwidth}
       \centering
-      \includegraphics[height=2cm]{../logo-crop.pdf}
+      \includegraphics[height=2.5cm, center]{../logo-crop.pdf}
     \end{minipage}
     \begin{minipage}{0.3\textwidth}
       \centering
-      \includegraphics[height=2cm]{./logoview4life.png}
+      \includegraphics[height=2cm, right]{./logoview4life.png}
     \end{minipage}
   \end{center}
   \begin{center}
@@ -53,10 +54,10 @@
   \hbox{
     \begin{minipage}[t]{0.40\paperwidth}
       \hspace*{0.5em}
-      \raggedright\usebeamerfont{footline}\inserttitle
+      \raggedright\usebeamerfont{footline}{Progetto View4Life}
     \end{minipage}%
     \begin{minipage}[t]{0.20\paperwidth}
-      \centering\usebeamerfont{footline}Pagina \insertframenumber{} di \inserttotalframenumber
+      \centering\usebeamerfont{footline}Slide \insertframenumber{} di \inserttotalframenumber
     \end{minipage}%
     \begin{minipage}[t]{0.40\paperwidth}
       \hfill
@@ -203,10 +204,11 @@
 
     \item Le metriche per le analytics saranno memorizzati in un database come TimescaleDB, InfluxDB o MongoDB, ottimizzato per serie temporali e aggiornamenti frequenti.
 
+    \item La scelta definitiva del database non relazionale è ancora in fase di valutazione.
   \end{itemize}
 \end{frame}
 
-\begin{frame}{Docker}
+\begin{frame}{Infrastruttura Docker}
   \begin{itemize}
     \item \textbf{Docker} sarà utilizzato per rendere l’ambiente completamente replicabile e portabile tra diversi cloud provider, come richiesto dal progetto.
 
@@ -297,7 +299,7 @@
   Nella sezione Analytics saranno visualizzate, attraverso dei \textbf{grafici}, le statistiche specificate nel capitolato, tra cui:
   \begin{itemize}
     \item l'energia consumata dall'illuminazione;
-    \item anomalie d'impianto;
+    \item anomalie d'impianto (e.g. valori statistici sospetti come consumi fuori media o variazioni di temperatura irrealistiche);
     \item rilevamento presenza/assenza/caduta;
     \item rilevamento presenza prolungata;
     \item variazione e cambio di temperatura;
