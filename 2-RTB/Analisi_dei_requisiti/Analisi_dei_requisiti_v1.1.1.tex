@@ -6,12 +6,13 @@
     urlcolor=blue,       
     citecolor=black       
 ]{hyperref}
+\usepackage{xltabular}
 \usepackage{template}
 \usepackage{float}
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage[table, x11names]{xcolor}
-\usepackage{lastpage} 
+\usepackage{lastpage}
 \renewcommand{\arraystretch}{1.05} % migliora la leggibilità
 \renewcommand{\contentsname}{Indice}
 \renewcommand{\listfigurename}{Elenco delle figure}
@@ -106,7 +107,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                1.1.0 & 26/01/2026 & Verificato &       
+                1.1.1 & 02/02/2026 & Verificato &       
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
@@ -120,11 +121,13 @@
 \end{titlepage}
 
 \begin{center}
-    \begin{tabularx}{\textwidth}{|c|c|c|c|c|X|}
+    \begin{xltabular}{\textwidth}{|c|c|c|c|c|X|}
         \hline
         \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+        \hline
+        1.1.1 & 26/01/2026 & L. Pellizzon & V. Baleanu & - & Modifica diagramma UML Use Cases UC31 \\
         \hline
         1.1.0 & 26/01/2026 & L. Pellizzon & V. Baleanu & - & Modifica diagrammi UML Use Cases da UC1 a UC7, aggiunta Use Cases da UC8 a UC48 e modifica Attori \\
         \hline
@@ -159,7 +162,7 @@
         \hline
         0.1.0 & 05/11/2025 & L. Granziero & L. Pellizon & - & Prima Stesura \\
         \hline
-    \end{tabularx}
+    \end{xltabular}
 \end{center}
 
 \newpage
@@ -1482,13 +1485,14 @@ monitorati negli ultimi 30 giorni:
 \addPrC{L'\admin sta visualizzando la sezione di configurazione allarmi.}
 \addPoC{Un nuovo allarme è aggiunto alla configurazione del Sistema.}
 %\addTrigger{L'\admin vuole aggiungere un nuovo allarme.}
-\addScenarioPrincipale{L'\admin per caratteristiche un allarme:
+\addScenarioPrincipale{L'\admin seleziona le seguenti opzioni per creare l'allarme:
 \begin{itemize}
-    \item seleziona il sensore (\rif{\Aa.1});
-    \item seleziona il livello di priorità (\rif{\Aa.2});
-    \item seleziona la soglia di intervento (\rif{\Aa.3});
-    \item seleziona l'orario di attivazione (\rif{\Aa.4});
-    \item seleziona l'orario di disattivazione (\rif{\Aa.5});
+    \item seleziona l'appartamento (\rif{\Aa.1});
+    \item seleziona il sensore (\rif{\Aa.2});
+    \item seleziona il livello di priorità (\rif{\Aa.3});
+    \item seleziona la soglia di intervento (\rif{\Aa.8});
+    \item seleziona l'orario di attivazione (\rif{\Aa.9});
+    \item seleziona l'orario di disattivazione (\rif{\Aa.10});
 \end{itemize}
 }
 \addScenarioAlternativo{Nessun sensore selezionato (\rif{\Erns})}
@@ -1500,17 +1504,24 @@ monitorati negli ultimi 30 giorni:
 \addInclusione{\rif{\Aa.1}}
 \addInclusione{\rif{\Aa.2}}
 \addInclusione{\rif{\Aa.3}}
-\addInclusione{\rif{\Aa.4}}
-\addInclusione{\rif{\Aa.5}}
+\addInclusione{\rif{\Aa.8}}
+\addInclusione{\rif{\Aa.9}}
+\addInclusione{\rif{\Aa.10}}
 \makeUC[1]{\Aa}{Creazione allarme}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta aggiungendo un nuovo allarme;}
-\addPrC{Esistono sensori disponibili nel reparto selezionato.}
+\addPoC{L'appartamento è selezionato per l'allarme che si vuole creare.}
+%\addTrigger{L'\admin deve selezionare un sensore per l'allarme.}
+\addScenarioPrincipale{L'\admin seleziona l'appartamento per l'allarme che vuole}
+\makeUC{\Aa.1}{Selezione appartamento}
+
+\addAttore{\admin}
+\addPrC{L'\admin sta aggiungendo un nuovo allarme;}
 \addPoC{Il sensore è selezionato per l'allarme che si vuole creare.}
 %\addTrigger{L'\admin deve selezionare un sensore per l'allarme.}
-\addScenarioPrincipale{L'\admin seleziona il sensore da collegare all'allarme tra la lista dei sensori del reparto selezionato in precedenza}
-\makeUC{\Aa.1}{Selezione sensore}
+\addScenarioPrincipale{L'\admin seleziona il sensore per l'allarme che vuole}
+\makeUC{\Aa.2}{Selezione sensore}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta aggiungendo un nuovo allarme;}
@@ -1518,52 +1529,52 @@ monitorati negli ultimi 30 giorni:
 %\addTrigger{L'\admin deve assegnare una priorità all'allarme.}
 \addScenarioPrincipale{L'\admin seleziona la priorità dell'allarme che si vuole creare.
 }
-\makeUC{\Aa.2}{Selezione livello priorità allarme}
+\makeUC[0.575]{\Aa.3}{Selezione livello priorità allarme}
 
 \addGeneralizzazione{\rif{\Aa.2}}
 \addPrC{L'\admin sta creando un nuovo allarme;}
 \addPoC{La priorità è livello 1 per l'allarme che si vuole creare.}
 \addScenarioPrincipale{L'\admin seleziona la priorità livello 1 per l'allarme che vuole creare}
-\makeUC{\Aa.3}{Selezione livello priorità allarme 1 (bianco)}
+\makeUC{\Aa.4}{Selezione livello priorità allarme 1 (bianco)}
 
 \addGeneralizzazione{\rif{\Aa.2}}
 \addPrC{L'\admin sta creando un nuovo allarme;}
 \addPoC{La priorità è livello 2 per l'allarme che si vuole creare.}
 \addScenarioPrincipale{L'\admin seleziona la priorità livello 2 per l'allarme che vuole creare}
-\makeUC{\Aa.4}{Selezione livello priorità allarme 2 (verde)}
+\makeUC{\Aa.5}{Selezione livello priorità allarme 2 (verde)}
 
 \addGeneralizzazione{\rif{\Aa.2}}
 \addPrC{L'\admin sta creando un nuovo allarme;}
 \addPoC{La priorità è livello 3 per l'allarme che si vuole creare.}
 \addScenarioPrincipale{L'\admin seleziona la priorità livello 3 per l'allarme che vuole creare}
-\makeUC{\Aa.5}{Selezione livello priorità allarme 3 (arancione)}
+\makeUC{\Aa.6}{Selezione livello priorità allarme 3 (arancione)}
 
 \addGeneralizzazione{\rif{\Aa.2}}
 \addPrC{L'\admin sta creando un nuovo allarme;}
 \addPoC{La priorità è livello 4 per l'allarme che si vuole creare.}
 \addScenarioPrincipale{L'\admin seleziona la priorità livello 4 per l'allarme che vuole creare}
-\makeUC{\Aa.6}{Selezione livello priorità allarme 4 (rosso)}
+\makeUC{\Aa.7}{Selezione livello priorità allarme 4 (rosso)}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo allarme;}
 \addPoC{Le l'orario di attivazione è configurato per l'allarme che si vuole creare.}
 %\addTrigger{L'\admin deve configurare le soglie di attivazione dell'allarme.}
 \addScenarioPrincipale{L'\admin seleziona una soglia di intervento dell'allarme che vuole creare}
-\makeUC{\Aa.7}{Selezione soglia intervento allarme}
+\makeUC{\Aa.8}{Selezione soglia intervento allarme}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo allarme;}
 \addPoC{Le l'orario di attivazione è configurato per l'allarme che si vuole creare.}
 %\addTrigger{L'\admin deve configurare le soglie di attivazione dell'allarme.}
 \addScenarioPrincipale{L'\admin seleziona l'orario di attivazione dell'allarme che vuole creare}
-\makeUC{\Aa.8}{Selezione orario attivazione allarme}
+\makeUC{\Aa.9}{Selezione orario attivazione allarme}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo allarme;}
 \addPoC{Le l'orario di disattivazione è configurato per l'allarme che si vuole creare.}
 %\addTrigger{L'\admin deve configurare le soglie di attivazione dell'allarme.}
 \addScenarioPrincipale{L'\admin seleziona l'orario di disattivazione dell'allarme che vuole creare}
-\makeUC{\Aa.9}{Selezione orario disattivazione allarme}
+\makeUC{\Aa.10}{Selezione orario disattivazione allarme}
 
 % --------
 
@@ -1920,7 +1931,8 @@ temporanea errata per l'username inserito;}
 
     % --- Modifiche allarme --- 
     \addReqF{2}{L'\admin deve poter creare un allarme nel Sistema}{\rif{\Aa}}
-    \addReqF{2}{L'\admin deve selezionare il sensore per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.1}}
+    \addReqF{2}{L'\admin deve selezionare l'appartamento per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.1}}
+    \addReqF{2}{L'\admin deve selezionare il sensore per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.2}}
     \addReqF{2}{L'\admin deve selezionare il livello di priorità tra:
     \begin{itemize}
         \item priorità 1 (bianco);
@@ -1928,10 +1940,10 @@ temporanea errata per l'username inserito;}
         \item priorità 3 (arancione);
         \item priorità 4 (rosso).
     \end{itemize}
-    per creare un allarme nel Sistema}{\parbox[t]{\linewidth}{\rif{\Aa}\\\rif{\Aa.2}\\\rif{\Aa.3}\\\rif{\Aa.4}\\\rif{\Aa.5}\\\rif{\Aa.2.4}}}
-    \addReqF{2}{L'\admin deve selezionare una soglia di intervetto per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.6}}
-    \addReqF{2}{L'\admin deve selezionare un orario di attivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.7}}
-    \addReqF{2}{L'\admin deve selezionare un orario di disattivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.8}}
+    per creare un allarme nel Sistema}{\parbox[t]{\linewidth}{\rif{\Aa}\\\rif{\Aa.3}\\\rif{\Aa.4}\\\rif{\Aa.5}\\\rif{\Aa.6}\\\rif{\Aa.7}}}
+    \addReqF{2}{L'\admin deve selezionare una soglia di intervetto per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.8}}
+    \addReqF{2}{L'\admin deve selezionare un orario di attivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.9}}
+    \addReqF{2}{L'\admin deve selezionare un orario di disattivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.10}}
     \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcun sensore}{\rif{\Erns}}
     \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcun livello di priorità}{\rif{\Ernlp}}
     \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcuna soglia di intervento}{\rif{\Ernss}}
