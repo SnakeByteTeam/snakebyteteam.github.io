@@ -1,0 +1,73 @@
+\documentclass{beamer}
+\usepackage[italian]{babel}
+\usepackage{multicol}
+
+\usepackage{../tema}
+
+\title{Revisione RTB}
+\author[]{}
+\setDate{X/02/2026}
+
+\begin{document}
+
+{ 
+  \setbeamertemplate{footline}{}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+
+\begin{frame}{Obiettivo capitolato}
+  \begin{figure}[h]
+  \includegraphics[width=\textwidth]{img/schemacapitolato.png}
+  \caption{Schema riassuntivo dell'interazione del sistema}
+  \end{figure}
+\end{frame}
+
+\begin{frame}{Tecnologie}
+\begin{columns}[c] % [c] = centratura verticale
+  \column{0.33\textwidth}
+  \centering
+  \includegraphics[width=0.475\textwidth]{img/angularlogo.png}\\
+  Angular
+
+  \vspace{0.6cm}
+
+  \includegraphics[width=0.6\textwidth]{img/expressjslogo.png}\\
+  Express.js
+
+  \column{0.33\textwidth}
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/dockerlogo.png}\\
+  Docker
+
+  \column{0.33\textwidth}
+  \centering
+  \includegraphics[width=0.7\textwidth]{img/nodejslogo.png}\\
+  Node.js
+
+  \vspace{0.6cm}
+
+  \includegraphics[width=0.385\textwidth]{img/postgrelogo.png}\\
+  PostgreSQL
+\end{columns}
+\end{frame}
+
+
+\begin{frame}{Funzionalità del PoC}
+All'interno del PoC, per verificare la realizzabilità dal punto di vista tecnologico, sono state implementate le seguenti
+funzionalità previste dalla specifica dei requisiti:
+\begin{itemize}
+  \item visualizzazione dispositivi di un impianto;
+  \item visualizzazione allarmi attivi;
+  \item creazione soglia di un allarme.
+\end{itemize}
+\end{frame}
+
+% A tal fine è stato necessario implementare:
+% una forma base di interazione tra front end, back end, database per visualizzare le informazioni
+% il recupero dei dati dei sensori dal vimar cloud tramite KnX IoT 3rd Party API
+% il processo di autenticazione tramite OAuth2
+% il meccanismo delle Subscription offerto da KnX IoT 3rd Party API
+
+\end{document}
