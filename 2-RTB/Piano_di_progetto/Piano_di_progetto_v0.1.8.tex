@@ -9,9 +9,9 @@
 % Macro sono in relazione all'ultima modifica
 \setDocIndex{Piano di progetto}
 \setDocTitle{Piano di progetto}
-\setDocVersion{0.1.7}
+\setDocVersion{0.1.8}
 \setDocState{1}
-\setDocData{17/01/2026}
+\setDocData{4/02/2026}
 \setDocRecipient{1}
 
 \setcounter{tocdepth}{4}
@@ -261,7 +261,7 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 \begin{document}
 
 \makeTitlePage
-
+\addChangelog{0.1.8}{4/02/2026}{F. Venzo}{V. Baleanu}{\noOne}{Aggiornamento di consuntivo e retrospettiva allo sprint 6}
 \addChangelog{0.1.7}{17/01/2026}{F. Pasqual, C. Libralato}{L. Granziero}{\noOne}{Aggiunti parametri e informazioni complete relativi allo sprint 5}
 \addChangelog{0.1.6}{1/1/2026}{V. Baleanu}{G. De Fina}{\noOne}{Aggiunti parametri completi relativi allo Sprint 4}
 \addChangelog{0.1.5}{29/12/2025}{G. De Fina}{F. Pasqual}{\noOne}{Modifica RO2 e piccole correzioni}
@@ -1161,12 +1161,17 @@ Si prevede l'esecuzione delle seguenti attività:
     \item completamento implementazione del \textit{PoC};
     \item completamento stesura del Piano di Progetto;
     \item completamento stesura del Piano di Qualifica;
+    \item preparazione in vista della presentazione del PoC con la Proponente;
 \end{itemize}
 
 \trisubsection{Attività svolte}
 Nel corso del periodo di avanzamento sono state svolte le seguenti attività:
 \begin{itemize}
-    \item L'Analisi dei Requisiti non è stata completata ma ha subito de
+    \item L'Analisi dei Requisiti si è di molto avvicinata alla conclusione, con la redazione degli ultimi \textit{use case} e la crezione dei relativi diagrammi UML. Inoltre è stata modificata secondo le indicazioni forniteci dal prof. Cardin in un ricevimento avvenuto durante questo sprint. Si prevede che venga verificata, validata e conclusa, per la \textit{milestone} RTB, nel corso del prossimo sprint;
+    \item L'implementazione del \textit{PoC} ha subito un notevole avanzamento. Anche se questa non è stata completata, sono state implementate e integrate tra loro le tecnologie scelte dal gruppo, e sono state aggiunte funzionalità fondamentali per darne prova; 
+    \item Il Piano di Progetto è stato aggiornato alla versione 0.1.7, con l'aggiunta del consuntivo e retrospettiva relativi allo Sprint 5;
+    \item Nel Piano di Qualifica sono state confermate e aggiunte le metriche precedentemente proposte, sono stati aggiunti alcuni grafici relativi a queste e sono stati aggiornati allo sprint 5.
+    \item Le attività di questo sprint sono state concentrate principalemente alla preparazione per l'analisi dello stato di avanzamento del progetto con la Proponente, che avverrà il 28/01/2026, alla presenza non solo del referento interno ma anche dei team di \textit{Marketing$_{G}$}, Sviluppo Software, \textit{Cloud$_{G}$} e \textit{Data Analysis$_{G}$}.
 \end{itemize}
 
 \subsubsection{Rischi}
@@ -1181,14 +1186,16 @@ Nel corso del periodo di avanzamento sono state svolte le seguenti attività:
 \trisubsection{Rischi manifestati}
 Durante lo sprint 6 si sono verificati i seguenti rischi:
 \begin{itemize}
-    \item \rif{RI2} - Impegni universitari: il gruppo ha riscontrato difficoltà nel bilanciare gli impegni accademici, derivanti dalla sessione di esemi, con le attività di progetto.
+    \item \rif{RI2} - Impegni universitari: il gruppo ha riscontrato difficoltà nel bilanciare gli impegni accademici, derivanti dalla sessione di esami, con le attività di progetto.
           \\La mitigazione è avvenuta attraverso una pianificazione più flessibile delle attività e una comunicazione costante tra i membri del gruppo.
     \item \rif{RC3} - Disparità di conoscenze tra componenti: alcuni membri del gruppo hanno mostrato minore conoscenza delle tecnologie scelte rispetto ad altri, creando difficoltà nella collaborazione e nel passaggio di consegne tra programmatori.
           \\La mitigazione è avvenuta attraverso sessioni di tutoring e condivisione delle conoscenze tra i membri del gruppo soprattutto tra programmatori.
     \item \rif{RO1} - Carico di lavoro eccessivo: alcuni membri del gruppo hanno trovato il carico di lavoro eccessivo, soprattutto in relazione al rischio \rif{RI2}, ovvero gli impegni universitari paralleli.
-            \\La mitigazione è avvenuta attraverso una ridistruzione del lavoro tra i membri e una revisione della priorità delle attività, individuando quelle maggiormente posticipabili.
+            \\La mitigazione è avvenuta attraverso una ridistribuzione del lavoro tra i membri e una revisione della priorità delle attività, individuando quelle maggiormente posticipabili.
     \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore per alcuni ruoli dovuta ai rischi \rif{RI2} e \rif{RO1} (Filippo: -7 ore, Christian: -3 ore, Francesco: -1 ora, Luca: -5 ore).
           \\La mitigazione è avvenuta attraverso una ripianificazione più accurata per gli sprint successivi.
+    \item \rif{RC1} (non previsto) - Mancanza di coordinamento tra i componenti del gruppo: la gestione degli impegni universitari \rif{RI2} ha portato a una riduzione significativa delle comunicazioni tra i membri del gruppo, in particolare tra i programmatori, portando a disallineamenti e ritardi nello sviluppo del PoC.
+          \\La mitigazione, per quanto possibile, è avvenuta attraverso riunioni e comunicazioni asincrone più frequenti.
 \end{itemize}
 
 \subsubsection{Costi}
@@ -1212,8 +1219,8 @@ Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riport
 
 \setHRealiFilippo{5}
 \setHRealiChristian{4}
-\setHRealiValeria{}
-\setHRealiGiuseppe{0}
+\setHRealiValeria{8}
+\setHRealiGiuseppe{4}
 \setHRealiFrancesco{6}
 \setHRealiLuca{5}
 \setHRealiLeonardo{12}
@@ -1230,7 +1237,14 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 
 
 \subsubsection{Retrospettiva}
+Lo sprint 6 è forse il primo sprint in cui il gruppo ha riscontrato difficoltà significative nel completamento delle attività pianificate. 
+La causa principale è stata la concomitanza della sessione di esami invernale che ha costretto a rivedere le attività pianificate e gli obiettivi per questo sprint.
+Conseguenza di questo è anche la ripianificazione avvenuta della candidatura per l'RTB che slitta al 6/02/2026.
+Nonostante i limiti incontrati, il lavoro svolto è stato di notevole importanza: nel \textit{PoC} sono state implementate le entità di Allarme e Soglia come definito nello sprint precedente, rimane da integrare la tecnologia scelta per il \textit{database}, l'Analisi dei Requisiti, dal punto di vista funzionale, è terminata, siamo soddisfatti del numero e del grado di dettaglio dei requisiti trovati. Rimane da completare la parte di modellazione UML e di revisione finale del documento.
 
+Complessivamente, in questo sprint non ci si ritiene soddisfatti del lavoro svolto, soprattutto dal punto di vista organizzativo. Le difficoltà incontrate hanno portato a un ritardo significativo rispetto a quanto pianificato, si nota però una capacità sempre crescente di adattamento di fronte a queste. I rischi sono stati per lo più mitigati fin da subito in quanto erano stati quasi tutti previsti.
+
+Si riconosce il fatto che i limiti a cui si è dovuto far fronte servono anche da palestra, per migliorare la gestione del progetto e l'assegnazione delle attività per i prossimi sprint. Dal punto di vista della comunicazione è evidente che questa debba migliorare, non solo tra i programmatori, dove gli effetti sono più palesi, ma tra tutti i membri del gruppo. Inoltre, la pianificazione delle attività e delle ore assegnate ai ruoli deve essere rivista in modo più accurato, tenendo conto delle difficoltà incontrate in questo sprint.
 
 %================================
 \vspace{1em}
