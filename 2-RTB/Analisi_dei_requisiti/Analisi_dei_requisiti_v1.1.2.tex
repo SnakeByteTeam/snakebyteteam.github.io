@@ -6,6 +6,7 @@
     urlcolor=blue,       
     citecolor=black       
 ]{hyperref}
+\usepackage[italian]{babel}
 \usepackage{xltabular}
 \usepackage{template}
 \usepackage{float}
@@ -92,7 +93,7 @@
             \includegraphics[width=0.6\textwidth]{./img/logo.pdf}
         \end{center}
         \vspace{4cm}
-        \huge\textbf{Analisi dei requisiti}\par
+        \huge\textbf{Analisi dei Requisiti}\par
         \vspace{2cm}
         \large \textbf{SnakeByte} (Gruppo 1):\\
         \large Valeria Baleanu, Leonardo Pellizzon, Filippo Venzo, Giuseppe De Fina, \\
@@ -107,7 +108,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                1.1.1 & 02/02/2026 & Verificato &       
+                1.1.2 & 04/02/2026 & Verificato &       
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
@@ -127,7 +128,9 @@
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
         \hline
-        1.1.1 & 26/01/2026 & L. Pellizzon & V. Baleanu & - & Modifica diagramma UML Use Cases UC31 \\
+        1.1.2 & 04/02/2026 & L. Pellizzon & V. Baleanu & - & Rivisitazione delle pre e post condizioni di tutti gli Use Cases \\
+        \hline
+        1.1.1 & 02/02/2026 & L. Pellizzon & V. Baleanu & - & Modifica diagramma UML Use Cases UC31 \\
         \hline
         1.1.0 & 26/01/2026 & L. Pellizzon & V. Baleanu & - & Modifica diagrammi UML Use Cases da UC1 a UC7, aggiunta Use Cases da UC8 a UC48 e modifica Attori \\
         \hline
@@ -352,6 +355,7 @@ Di seguito vengono riportati gli attori individuati:
     \item inserimento password (\rif{\Au.2}).
 \end{itemize}
 }
+\addScenarioPrincipale{L'\user conferma l'operazione.}
 \addInclusione{\rif{\Au.1}}
 \addInclusione{\rif{\Au.2}}
 \addScenarioAlternativo{L'\user non è registrato nel Sistema o la password è errata (\rif{\Erunr});}
@@ -373,6 +377,7 @@ Di seguito vengono riportati gli attori individuati:
 % --------
 
 \addAttore{\user}
+\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\user si trova nella pagina registrazione;}
 \addPoC{L'\user è riconosciuto come \os.}
@@ -383,6 +388,7 @@ Di seguito vengono riportati gli attori individuati:
     \item inserimento nuova password (\rif{\Aucp.3});
 \end{itemize}
 }
+\addScenarioPrincipale{L'\user conferma l'operazione.}
 \addScenarioAlternativo{L'\user non è registrato nel Sistema o la password temporanea errata (\rif{\Erpte});}
 \addScenarioAlternativo{La nuova password è uguale alla password temporanea (\rif{\Ernpupt});}
 \addScenarioAlternativo{La nuova password non è valida (\rif{\Ernpnv});}
@@ -425,16 +431,18 @@ Di seguito vengono riportati gli attori individuati:
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta visualizzando la sezione di gestione account MyVimar.}
 \addPoC{L'\admin visualizza se è presente un account MyVimar collegato.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione dell'account MyVimar.}
 \addScenarioPrincipale{L'\admin visualizza se è presente un account MyVimar collegato.}
 \makeUC[0.6]{\VaMV}{Visualizzazione account MyVimar collegato}
 
 \addAttore{\admin}
+\addAttoreSec{\db}
+\addAttoreSec{\cloud}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta visualizzando la sezione di gestione account MyVimar.}
-\addPoC{Il Sistema aggiunge le credenziali fornite dal portale di Vimar alla propria configurazione}
+\addPoC{Il Sistema aggiunge le credenziali fornite dal portale di Vimar alla propria configurazione.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione dell'account MyVimar.}
 \addScenarioPrincipale{L'\admin viene reinderizzato al portale di Vimar per collegare l'account
 segue la procedura.}
 \makeUC[0.6]{\CaMV}{Collegamento account MyVimar}
@@ -444,9 +452,9 @@ segue la procedura.}
 \addAttoreSec{\cloud}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta visualizzando la sezione di gestione account MyVimar.}
-\addPoC{Il Sistema rimuove le credenziali dell'account MyVimar salvate dalla propria configurazione}
-\addScenarioPrincipale{L'\admin }
+\addPoC{Il Sistema rimuove le credenziali dell'account MyVimar dalla propria configurazione.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione dell'account MyVimar.}
+\addScenarioPrincipale{L'\admin rimuove l'account MyVimar collegato.}
 \makeUC[0.6]{\RaMV}{Rimozione account MyVimar}
 
 % --------
@@ -497,16 +505,18 @@ segue la procedura.}
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta visualizzando la sezione gestione utenti.}
-\addPoC{Un nuovo utente \os è stato creato all'interno del Sistema}
+\addPoC{Un nuovo utente \os è stato creato all'interno del Sistema.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione utenti;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla creazione di un nuovo utente;}
 \addScenarioPrincipale{L'\admin inserisce i seguenti dati per creare l'\user:
 \begin{itemize}
     \item inserimento nome (\rif{\Cu.1});
     \item inserimento cognome (\rif{\Cu.2});
     \item inserimento nuovo username (\rif{\Cu.3});
 \end{itemize}
-successivamente genera la password temporanea (\rif{\Cu.4}).
 }
+\addScenarioPrincipale{L'\admin genera la password temporanea (\rif{\Cu.4});}
+\addScenarioPrincipale{L'\admin conferma l'operazione.}
 \addInclusione{\rif{\Cu.1}}
 \addInclusione{\rif{\Cu.2}}
 \addInclusione{\rif{\Cu.3}}
@@ -541,14 +551,14 @@ successivamente genera la password temporanea (\rif{\Cu.4}).
 \makeUC{\Cu.4}{Generazione password temporanea}
 
 \addAttore{\admin}
-\addPrC{Il Sistema è attivo;}
 \addAttoreSec{\db}
+\addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta visualizzando la sezione gestione utenti.}
-\addPrC{Esiste almeno un \user del \os registrato.}
+\addPrC{L'\os che si vuole eliminare esiste nel Sistema.}
 \addPoC{L'utente del \os è eliminato dal Sistema.}
-%\addTrigger{L'\admin vuole eliminare un \user del \os}
-\addScenarioPrincipale{L'\admin seleziona l'utente \os che vuole eliminare e conferma l'eliminazione}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione utenti;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla eliminazione di un utente;}
+\addScenarioPrincipale{L'\admin elimina l'utente \os.}
 \makeUC[0.6]{\Eu}{Eliminazione utente \os}
 
 % --------
@@ -558,7 +568,7 @@ successivamente genera la password temporanea (\rif{\Cu.4}).
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPoC{Viene visualizzato l'elenco dei reparti.}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
 \addScenarioPrincipale{L'\admin visualizza l'elenco dei reparti (\rif{\Vr.1}).}
 \addInclusione{\rif{\Vr.1}}
 \makeUC[0.6]{\Vr}{Visualizzazione elenco reparti}
@@ -604,19 +614,19 @@ successivamente genera la password temporanea (\rif{\Cu.4}).
 \addScenarioPrincipale{L'\admin visualizza il nome dell'appartamento.}
 \makeUC{\Vr.1.2.1.1}{Visualizzazione nome appartamento}
 
-% --------
-
 \addAttore{\admin}
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin si trova nella sezione gestione reparti.}
 \addPoC{Il reparto viene aggiunto nel Sistema.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'inserimento di un reparto;}
 \addScenarioPrincipale{L'\admin inserisce i seguenti dati per creare un reparto:
 \begin{itemize}
     \item inserimento nome (\rif{\Cr.1});
 \end{itemize}
 }
+\addScenarioPrincipale{L'\admin conferma l'operazione.}
 \addScenarioAlternativo{Il nome inserito è già in uso (\rif{\Ernru})}
 \addEstensione{\rif{\Ernru}}
 \addInclusione{\rif{\Cr.1}}
@@ -632,18 +642,23 @@ successivamente genera la password temporanea (\rif{\Cu.4}).
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin si trova nella sezione gestione reparti.}
+\addPrC{Il reparto che si vuole modificare esiste nel sistema.}
 \addPoC{Il nome del reparto viene aggiornato dal Sistema.}
-\addScenarioPrincipale{L'\admin modifica il nome del reparto il reparto}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla modifica di un reparto;}
+\addScenarioPrincipale{L'\admin modifica il nome del reparto;}
+\addScenarioPrincipale{L'\admin conferma l'operazione.}
 \makeUC[0.6]{\Mr}{Modifica nome reparto}
 
 \addAttore{\admin}
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin si trova nella sezione gestione reparti.}
+\addPrC{Il reparto che si vuole eliminare esiste nel Sistema.}
 \addPoC{Il reparto viene eliminato dal Sistema.}
-\addScenarioPrincipale{L'\admin elimina il reparto}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'eliminazione di un reparto;}
+\addScenarioPrincipale{L'\admin elimina il reparto.}
 \makeUC[0.6]{\Er}{Eliminazione reparto}
 
 % --------
@@ -652,14 +667,16 @@ successivamente genera la password temporanea (\rif{\Cu.4}).
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin si trova nella sezione gestione reparti.}
 \addPoC{L'assegnazione \os - reparto viene registrata nel Sistema.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti.}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'inserimento di un'assegnazione utente \os - reparto;}
 \addScenarioPrincipale{L'\admin seleziona i seguenti elementi per assegnare un utente \os a un reparto:
 \begin{itemize}
     \item selezione reparto (\rif{\Aaosr.1});
     \item selezione utente \os (\rif{\Aaosr.2});
 \end{itemize}
 }
+\addScenarioPrincipale{L'\admin conferma l'operazione.}
 \addInclusione{\rif{\Aaosr.1}}
 \addInclusione{\rif{\Aaosr.2}}
 \makeUC[0.6]{\Aaosr}{Aggiunta assegnazione utente \os - reparto}
@@ -680,9 +697,11 @@ successivamente genera la password temporanea (\rif{\Cu.4}).
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin si trova nella sezione gestione reparti.}
+\addPrC{L'assegnazione utente \os - reparto che si vuole rimuovere esiste nel Sistema;}
 \addPoC{L'assegnazione utente \os - reparto viene rimossa dal Sistema.}
-\addScenarioPrincipale{L'\admin rimuove l'assegnazione utente \os - reparto}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla rimozione di un'assegnazione utente \os - reparto;}
+\addScenarioPrincipale{L'\admin rimuove l'assegnazione utente \os - reparto.}
 \makeUC[0.6]{\Raosr}{Rimozione assegnazione utente \os - reparto}
 
 % --------
@@ -693,12 +712,15 @@ successivamente genera la password temporanea (\rif{\Cu.4}).
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'\admin si trova nella sezione gestione reparti.}
 \addPoC{L'assegnazione appartamento - reparto viene registrata nel Sistema.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'aggiunta di un'assegnazione appartamento - reparto;}
 \addScenarioPrincipale{L'\admin seleziona i seguenti elementi per assegnare un appartamento a un reparto:
 \begin{itemize}
     \item selezione reparto (\rif{\Aaapr.1});
     \item selezione appartamento (\rif{\Aaapr.2});
 \end{itemize}
 }
+\addScenarioPrincipale{L'\admin conferma l'operazione.}
 \addInclusione{\rif{\Aaapr.1}}
 \addInclusione{\rif{\Aaapr.2}}
 \makeUC[0.6]{\Aaapr}{Aggiunta assegnazione appartamento - reparto}
@@ -719,7 +741,9 @@ successivamente genera la password temporanea (\rif{\Cu.4}).
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin si trova nella sezione gestione reparti.}
+\addPrC{L'assegnazione appartamento - reparto che si vuole rimuovere esiste nel Sistema;}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla assegnazione di un'assegnazione appartamento - reparto;}
 \addPoC{L'assegnazione appartamento - reparto viene rimossa dal Sistema.}
 \addScenarioPrincipale{L'\admin rimuove l'assegnazione appartamento - reparto}
 \makeUC[0.6]{\Raapr}{Rimozione assegnazione appartamento - reparto}
@@ -729,7 +753,7 @@ successivamente genera la password temporanea (\rif{\Cu.4}).
 \addAttore{\user}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\user è autenticato nel Sistema.}
-\addScenarioPrincipale{L'\user seleziona dal menù l'opzione relativa alla visualizzazione dashboard}
+\addScenarioPrincipale{L'\user seleziona dal menù l'opzione relativa alla visualizzazione dashboard;}
 \addScenarioPrincipale{L'\user visualizza il seguente modulo non opzionale: visualizzazione gestione allarmi (\rif{\Vd.1}).}
 \addScenarioPrincipale{
 L'\user visualizza i moduli opzionali presenti tra:
@@ -868,6 +892,7 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema aggiunge nella visualizzazione il modulo statistiche allarmi.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo statistiche allarmi.}
 \makeUC[0.6]{18}{Aggiunta modulo statistiche allarmi}
 
@@ -875,6 +900,7 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema rimuove nella visualizzazione il modulo statistiche allarmi.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo statistiche allarmi.}
 \makeUC[0.6]{19}{Rimozione modulo statistiche allarmi}
 
@@ -882,6 +908,7 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema aggiunge nella visualizzazione il modulo informazioni \user}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo informazioni \user}
 \makeUC[0.6]{20}{Aggiunta modulo informazioni \user}
 
@@ -889,6 +916,7 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema rimuove nella visualizzazione il modulo informazioni \user}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo informazioni \user}
 \makeUC[0.6]{21}{Rimozione modulo informazioni \user}
 
@@ -896,6 +924,7 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema aggiunge nella visualizzazione il modulo analisi clima.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo analisi clima.}
 \makeUC[0.6]{22}{Aggiunta modulo analisi clima}
 
@@ -903,6 +932,7 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema rimuove nella visualizzazione il modulo analisi clima.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo analisi clima.}
 \makeUC[0.6]{23}{Rimozione modulo analisi clima}
 
@@ -910,12 +940,14 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema aggiunge nella visualizzazione il modulo analisi consumi.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo analisi consumi.}
 \makeUC[0.6]{24}{Aggiunta modulo analisi consumi}
 
 \addAttore{\admin}
 \addAttoreSec{\db}
 \addPoC{Il Sistema rimuove nella visualizzazione il modulo analisi consumi.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo analisi consumi.}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \makeUC[0.6]{25}{Rimozione modulo analisi consumi}
@@ -932,9 +964,8 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\user è autenticato nel Sistema.}
 \addPoC{L'\user è all'interno della sezione analytics.}
-\addTrigger{L’\user vuole visualizzare la sezione analytics.}
-\addScenarioPrincipale{L'\user seleziona la sezione analytics dal menù principale;}
-%\addScenarioPrincipale{L'\user seleziona il gruppo di impianti che si vuole analizzare (\rif{3.10});}
+\addScenarioPrincipale{L'\user seleziona dal menù l'opzione relativa alla visualizzazione analytics;}
+\addScenarioPrincipale{L'\user seleziona l'appartamento del quale vuole vedere le analytics;}
 \addScenarioPrincipale{L'\user visualizza la sezione analytics, che permette di visualizzare i seguenti moduli relativi agli impianti 
 monitorati negli ultimi 30 giorni:
 \begin{itemize}
@@ -1034,7 +1065,8 @@ monitorati negli ultimi 30 giorni:
 \addAttore{\user}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\user è autenticato nel Sistema.}
-\addPrC{L'\user si trova nella sezione appartamento.}
+\addPoC{Viene visualizzato un appartamento con le proprie informazioni.}
+\addScenarioPrincipale{L'\user seleziona dal menù l'opzione visualizza appartamento relativa all'appartamento che vuole visualizzare;}
 \addScenarioPrincipale{L'\user visualizza:
 \begin{itemize}
     \item il nome dell'appartamento (\rif{\Vap.1});
@@ -1096,18 +1128,25 @@ monitorati negli ultimi 30 giorni:
 
 \addAttore{\user}
 \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
-\addPoC{Viene visualizzato un dispositivo con le proprie informazioni}
+\addPoC{Viene visualizzato un dispositivo con le proprie informazioni.}
 %\addTrigger{L'\os vuole visualizzare il termostato dell'impianto.}
 \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al singolo dispositivo:
 \begin{itemize}
-    \item il nome del dispositivo (\rif{\Vap.3.1.2.1.1});
-    \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.1.2});
+    \item il nome (\rif{\Vap.3.1.2.1.1});
+    \item lo stato corrente (\rif{\Vap.3.1.2.1.2});
     \item le azioni eseguibili (\rif{\Vap.3.1.2.1.3}).
 \end{itemize}
 }
 \addInclusione{\rif{\Vap.3.1.2.1.1}}
 \addInclusione{\rif{\Vap.3.1.2.1.2}}
 \addInclusione{\rif{\Vap.3.1.2.1.3}}
+\addGeneralizzazione{\rif{\Vap.3.1.2.2}}
+\addGeneralizzazione{\rif{\Vap.3.1.2.3}}
+\addGeneralizzazione{\rif{\Vap.3.1.2.4}}
+\addGeneralizzazione{\rif{\Vap.3.1.2.5}}
+\addGeneralizzazione{\rif{\Vap.3.1.2.6}}
+\addGeneralizzazione{\rif{\Vap.3.1.2.7}}
+\addGeneralizzazione{\rif{\Vap.3.1.2.8}}
 \makeUC[0.725]{\Vap.3.1.2.1}{Visualizzazione elemento elenco dispositivi}
 
 \addAttore{\user}
@@ -1207,258 +1246,6 @@ monitorati negli ultimi 30 giorni:
 \end{itemize}}
 \makeUC{\Vap.3.1.2.8}{Visualizzazione tapparella}
 
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando una stanza di un appartamento}
-% %\addTrigger{L'\os vuole visualizzare i dispositivi di una stanza.}
-% \addPoC{L'\user visualizza l'elenco dei dispositivi di una stanza.}
-% \addScenarioPrincipale{L'\user visualizza l'elenco dei dispositivi presenti in una stanza tra:
-% \begin{itemize}
-%     \item termostato (\rif{\Vap.3.1.2.1});
-%     \item sensori di caduta (\rif{\Vap.3.1.2.2});
-%     \item sensori di presenza (\rif{\Vap.3.1.2.3});
-%     \item punti luci (\rif{\Vap.3.1.2.4});
-%     \item pulsante di allarme (\rif{\Vap.3.1.2.5});
-%     \item porta di ingresso (\rif{\Vap.3.1.2.6});
-%     \item tapparella (\rif{\Vap.3.1.2.7}).
-% \end{itemize}}
-% \addInclusione{\rif{\Vap.3.1.2.1}}
-% \addInclusione{\rif{\Vap.3.1.2.2}}
-% \addInclusione{\rif{\Vap.3.1.2.3}}
-% \addInclusione{\rif{\Vap.3.1.2.4}}
-% \addInclusione{\rif{\Vap.3.1.2.5}}
-% \addInclusione{\rif{\Vap.3.1.2.6}}
-% \addInclusione{\rif{\Vap.3.1.2.7}}
-% \makeUC{\Vap.3.1.2}{Visualizzazione elenco dispositivi}
-
-% \addAttore{\user}
-% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
-% %\addTrigger{L'\os vuole visualizzare il termostato dell'impianto.}
-% \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo termostato:
-% \begin{itemize}
-%     \item il nome del dispositivo (\rif{\Vap.3.1.2.1.1});
-%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.1.2});
-%     \item le azioni eseguibili (\rif{\Vap.3.1.2.1.3}).
-% \end{itemize}
-% }
-% \addInclusione{\rif{\Vap.3.1.2.1.1}}
-% \addInclusione{\rif{\Vap.3.1.2.1.2}}
-% \addInclusione{\rif{\Vap.3.1.2.1.3}}
-% \makeUC{\Vap.3.1.2.1}{Visualizzazione termostato}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un termostato}
-% \addPoC{l'\user visualizza il nome del termostato}
-% \addScenarioPrincipale{l'\user visualizza il nome del termostato}
-% \makeUC{\Vap.3.1.2.1.1}{Visualizzazione nome}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un termostato}
-% \addPoC{l'\user visualizza lo stato del termostato}
-% \addScenarioPrincipale{l'\user visualizza lo stato del termostato}
-% \makeUC{\Vap.3.1.2.1.2}{Visualizzazione stato}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un termostato}
-% \addPoC{l'\user visualizza le azioni eseguibili per il termostato}
-% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per il termostato}
-% \makeUC{\Vap.3.1.2.1.3}{Visualizzazione azioni eseguibili}
-
-% \addAttore{\user}
-% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
-% \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo sensore caduta:
-% \begin{itemize}
-%     \item il nome del dispositivo (\rif{\Vap.3.1.2.2.1});
-%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.2.2});
-%     \item le azioni eseguibili (\rif{\Vap.3.1.2.2.3}).
-% \end{itemize}}
-% \addInclusione{\rif{\Vap.3.1.2.2.1}}
-% \addInclusione{\rif{\Vap.3.1.2.2.2}}
-% \addInclusione{\rif{\Vap.3.1.2.2.3}}
-% \makeUC{\Vap.3.1.2.2}{Visualizzazione sensore di caduta}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un sensore di caduta}
-% \addPoC{l'\user visualizza il nome del sensore di caduta}
-% \addScenarioPrincipale{l'\user visualizza il nome del sensore di caduta}
-% \makeUC{\Vap.3.1.2.2.1}{Visualizzazione nome}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un sensore di caduta}
-% \addPoC{l'\user visualizza lo stato del sensore di caduta}
-% \addScenarioPrincipale{l'\user visualizza lo stato del sensore di caduta}
-% \makeUC{\Vap.3.1.2.2.2}{Visualizzazione stato}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un sensore di caduta}
-% \addPoC{l'\user visualizza le azioni eseguibili per il sensore di caduta}
-% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per il sensore di caduta}
-% \makeUC{\Vap.3.1.2.2.3}{Visualizzazione azioni eseguibili}
-
-% \addAttore{\user}
-% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
-% \addPoC{Il Sistema mostra per un sensore di presenza le sue informazioni.}
-% %\addTrigger{L'\os vuole visualizzare il sensore \textit{UWB} presenza dell'impianto.}
-% \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo sensore di presenza:
-% \begin{itemize}
-%     \item il nome del dispositivo (\rif{\Vap.3.1.2.3.1});
-%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.3.2});
-%     \item le azioni eseguibili (\rif{\Vap.3.1.2.3.3}).
-% \end{itemize}}
-% \addInclusione{\rif{\Vap.3.1.2.3.1}}
-% \addInclusione{\rif{\Vap.3.1.2.3.2}}
-% \addInclusione{\rif{\Vap.3.1.2.3.3}}
-% \makeUC{\Vap.3.1.2.3}{Visualizzazione sensore di presenza}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un sensore di presenza}
-% \addPoC{l'\user visualizza il nome del sensore di presenza}
-% \addScenarioPrincipale{l'\user visualizza il nome del sensore di presenza}
-% \makeUC{\Vap.3.1.2.3.1}{Visualizzazione nome}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un sensore di presenza}
-% \addPoC{l'\user visualizza lo stato del sensore di presenza}
-% \addScenarioPrincipale{l'\user visualizza lo stato del sensore di presenza}
-% \makeUC{\Vap.3.1.2.3.2}{Visualizzazione stato}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un sensore di presenza}
-% \addPoC{l'\user visualizza le azioni eseguibili per il sensore di presenza}
-% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per il sensore di presenza}
-% \makeUC{\Vap.3.1.2.3.3}{Visualizzazione azioni eseguibili}
-
-% \addAttore{\user}
-% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
-% \addPoC{L'\user visualizza il dispositivo luce di un impianto specifico.}
-% %\addTrigger{L'\os vuole visualizzare la luce dell'impianto.}
-% \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo luce:
-% \begin{itemize}
-%     \item il nome del dispositivo (\rif{\Vap.3.1.2.4.1});
-%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.4.2});
-%     \item le azioni eseguibili (\rif{\Vap.3.1.2.4.3}).
-% \end{itemize}}
-% \addInclusione{\rif{\Vap.3.1.2.4.1}}
-% \addInclusione{\rif{\Vap.3.1.2.4.2}}
-% \addInclusione{\rif{\Vap.3.1.2.4.3}}
-% \makeUC{\Vap.3.1.2.4}{Visualizzazione punto luce}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un punto luce}
-% \addPoC{l'\user visualizza il nome del punto luce}
-% \addScenarioPrincipale{l'\user visualizza il nome del punto luce}
-% \makeUC{\Vap.3.1.2.4.1}{Visualizzazione nome}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un punto luce}
-% \addPoC{l'\user visualizza lo stato del punto luce}
-% \addScenarioPrincipale{l'\user visualizza lo stato del punto luce}
-% \makeUC{\Vap.3.1.2.4.2}{Visualizzazione stato}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un punto luce}
-% \addPoC{l'\user visualizza le azioni eseguibili per il punto luce}
-% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per il punto luce}
-% \makeUC{\Vap.3.1.2.4.3}{Visualizzazione azioni eseguibili}
-
-% \addAttore{\user}
-% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
-% \addPoC{L'\user visualizza il dispositivo pulsante di allarme di un impianto specifico.}
-% %\addTrigger{L'\os vuole visualizzare il pulsante di allarme dell'impianto.}
-% \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo pulsante di allarme:
-% \begin{itemize}
-%     \item il nome del dispositivo (\rif{\Vap.3.1.2.5.1});
-%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.5.2});
-%     \item le azioni eseguibili (\rif{\Vap.3.1.2.5.3}).
-% \end{itemize}}
-% \addInclusione{\rif{\Vap.3.1.2.5.1}}
-% \addInclusione{\rif{\Vap.3.1.2.5.2}}
-% \addInclusione{\rif{\Vap.3.1.2.5.3}}
-% \makeUC{\Vap.3.1.2.5}{Visualizzazione pulsante di allarme}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un pulsante di allarme}
-% \addPoC{l'\user visualizza il nome del pulsante di allarme}
-% \addScenarioPrincipale{l'\user visualizza il nome del pulsante di allarme}
-% \makeUC{\Vap.3.1.2.5.1}{Visualizzazione nome}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un pulsante di allarme}
-% \addPoC{l'\user visualizza lo stato del pulsante di allarme}
-% \addScenarioPrincipale{l'\user visualizza lo stato del pulsante di allarme}
-% \makeUC{\Vap.3.1.2.5.2}{Visualizzazione stato}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando un pulsante di allarme}
-% \addPoC{l'\user visualizza le azioni eseguibili per il pulsante di allarme}
-% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per il pulsante di allarme}
-% \makeUC{\Vap.3.1.2.5.3}{Visualizzazione azioni eseguibili}
-
-% \addAttore{\user}
-% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
-% \addPoC{L'\user visualizza il dispositivo porta di ingresso di un impianto specifico.}
-% %\addTrigger{L'\os vuole visualizzare la porta di ingresso dell'impianto.}
-% \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo porta di ingresso:
-% \begin{itemize}
-%     \item il nome del dispositivo (\rif{\Vap.3.1.2.6.1});
-%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.6.2});
-%     \item le azioni eseguibili (\rif{\Vap.3.1.2.6.3}).
-% \end{itemize}}
-% \addInclusione{\rif{\Vap.3.1.2.6.1}}
-% \addInclusione{\rif{\Vap.3.1.2.6.2}}
-% \addInclusione{\rif{\Vap.3.1.2.6.3}}
-% \makeUC{\Vap.3.1.2.6}{Visualizzazione porta di ingresso}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando una porta di ingresso}
-% \addPoC{l'\user visualizza il nome della porta di ingresso}
-% \addScenarioPrincipale{l'\user visualizza il nome della porta di ingresso}
-% \makeUC{\Vap.3.1.2.6.1}{Visualizzazione nome}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando una porta di ingresso}
-% \addPoC{l'\user visualizza lo stato della porta di ingresso}
-% \addScenarioPrincipale{l'\user visualizza lo stato della porta di ingresso}
-% \makeUC{\Vap.3.1.2.6.2}{Visualizzazione stato}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando una porta di ingresso}
-% \addPoC{l'\user visualizza le azioni eseguibili per la porta di ingresso}
-% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per la porta di ingresso}
-% \makeUC{\Vap.3.1.2.6.3}{Visualizzazione azioni eseguibili}
-
-% \addAttore{\user}
-% \addPrC{L'\user visualizza la lista dei dispositivi di una stanza.}
-% \addPoC{L'\user visualizza il dispositivo tapparella di un impianto specifico.}
-% %\addTrigger{L'\os vuole visualizzare la tapparella dell'impianto.}
-% \addScenarioPrincipale{L'\os visualizza le caratteristiche relative al dispositivo tapparella:
-% \begin{itemize}
-%     \item il nome del dispositivo (\rif{\Vap.3.1.2.7.1});
-%     \item lo stato corrente del dispositivo (\rif{\Vap.3.1.2.7.2});
-%     \item le azioni eseguibili (\rif{\Vap.3.1.2.7.3}).
-% \end{itemize}}
-% \addInclusione{\rif{\Vap.3.1.2.7.1}}
-% \addInclusione{\rif{\Vap.3.1.2.7.2}}
-% \addInclusione{\rif{\Vap.3.1.2.7.3}}
-% \makeUC{\Vap.3.1.2.7}{Visualizzazione tapparella}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando una tapparella}
-% \addPoC{l'\user visualizza il nome della tapparella}
-% \addScenarioPrincipale{l'\user visualizza il nome della tapparella}
-% \makeUC{\Vap.3.1.2.7.1}{Visualizzazione nome}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando una tapparella}
-% \addPoC{l'\user visualizza lo stato della tapparella}
-% \addScenarioPrincipale{l'\user visualizza lo stato della tapparella}
-% \makeUC{\Vap.3.1.2.7.2}{Visualizzazione stato}
-
-% \addAttore{\user}
-% \addPrC{l'\user sta visualizzando una tapparella}
-% \addPoC{l'\user visualizza le azioni eseguibili per la tapparella}
-% \addScenarioPrincipale{l'\user visualizza le azioni eseguibili per la tapparella}
-% \makeUC{\Vap.3.1.2.7.3}{Visualizzazione azioni eseguibili}
-
 \addAttore{\admin}
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
@@ -1481,10 +1268,11 @@ monitorati negli ultimi 30 giorni:
 
 \addAttore{\admin}
 \addPrC{Il Sistema è attivo;}
-\addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta visualizzando la sezione di configurazione allarmi.}
+\addPrC{L'\admin è autenticato nel Sistema.}
 \addPoC{Un nuovo allarme è aggiunto alla configurazione del Sistema.}
 %\addTrigger{L'\admin vuole aggiungere un nuovo allarme.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'inserimento di un nuovo allarme;}
 \addScenarioPrincipale{L'\admin seleziona le seguenti opzioni per creare l'allarme:
 \begin{itemize}
     \item seleziona l'appartamento (\rif{\Aa.1});
@@ -1495,6 +1283,7 @@ monitorati negli ultimi 30 giorni:
     \item seleziona l'orario di disattivazione (\rif{\Aa.10});
 \end{itemize}
 }
+\addScenarioPrincipale{L'\admin conferma l'operazione.}
 \addScenarioAlternativo{Nessun sensore selezionato (\rif{\Erns})}
 \addScenarioAlternativo{Nessun livello di priorità selezionato (\rif{\Ernlp})}
 \addScenarioAlternativo{Nessuna soglia di intervento selezionata (\rif{\Ernss})}
@@ -1529,6 +1318,10 @@ monitorati negli ultimi 30 giorni:
 %\addTrigger{L'\admin deve assegnare una priorità all'allarme.}
 \addScenarioPrincipale{L'\admin seleziona la priorità dell'allarme che si vuole creare.
 }
+\addGeneralizzazione{\rif{\Aa.4}}
+\addGeneralizzazione{\rif{\Aa.5}}
+\addGeneralizzazione{\rif{\Aa.6}}
+\addGeneralizzazione{\rif{\Aa.7}}
 \makeUC[0.575]{\Aa.3}{Selezione livello priorità allarme}
 
 \addGeneralizzazione{\rif{\Aa.2}}
@@ -1582,48 +1375,61 @@ monitorati negli ultimi 30 giorni:
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta modificando un allarme esistente.}
-\addPoC{La priorità dell'allarme è aggiornata.}
+\addPrC{L'allarme che si vuole modificare esiste nel sistema.}
+\addPoC{La priorità dell'allarme viene aggiornata dal sistema.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla modifica di un allarme;}
 %\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
 \addScenarioPrincipale{L'\admin seleziona la nuova priorità;}
+\addScenarioPrincipale{L'\admin conferma l'operazione.}
 \makeUC[0.6]{\Mpa}{Modifica priorità allarme}
 
 \addAttore{\admin}
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta modificando un allarme esistente.}
-\addPoC{La soglia d'intervento dell'allarme è aggiornata.}
+\addPrC{L'allarme che si vuole modificare esiste nel sistema.}
+\addPoC{La soglia d'intervento dell'allarme viene aggiornata dal sistema.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla modifica di un allarme;}
 %\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
 \addScenarioPrincipale{L'\admin seleziona la nuova soglia d'intervento;}
+\addScenarioPrincipale{L'\admin conferma l'operazione.}
 \makeUC[0.6]{\Msia}{Modifica soglia intervento allarme}
 
 \addAttore{\admin}
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta modificando un allarme esistente.}
-\addPoC{La soglia d'intervento dell'allarme è aggiornata.}
+\addPrC{L'allarme che si vuole modificare esiste nel sistema.}
+\addPoC{L'orario di attivazione dell'allarme viene aggiornato dal sistema.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla modifica di un allarme;}
 %\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
-\addScenarioPrincipale{L'\admin seleziona la nuova soglia d'intervento;}
+\addScenarioPrincipale{L'\admin seleziona il nuovo orario di attivazione.}
+\addScenarioPrincipale{L'\admin conferma l'operazione.}
 \makeUC[0.6]{\Moaa}{Modifica orario attivazione allarme}
 
 \addAttore{\admin}
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta modificando un allarme esistente.}
-\addPoC{La soglia d'intervento dell'allarme è aggiornata.}
+\addPrC{L'allarme che si vuole modificare esiste nel sistema.}
+\addPoC{L'orario di disattivazione dell'allarme viene aggiornato dal sistema.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla modifica di un allarme;}
 %\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
-\addScenarioPrincipale{L'\admin seleziona la nuova soglia d'intervento;}
+\addScenarioPrincipale{L'\admin seleziona il nuovo orario di disattivazione.}
 \makeUC[0.6]{\Moda}{Modifica orario disattivazione allarme}
 
 \addAttore{\admin}
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta visualizzando la sezione di configurazione allarmi.}
+\addPrC{L'allarme che si vuole abilitare esiste nel sistema.}
 \addPoC{L'allarme viene abilitato dal Sistema.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla abilitazione di un allarme;}
 \addScenarioPrincipale{L'\admin abilita un allarme dal Sistema.}
 \makeUC[0.6]{\Aal}{Abilita allarme}
 
@@ -1631,8 +1437,10 @@ monitorati negli ultimi 30 giorni:
 \addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta visualizzando la sezione di configurazione allarmi.}
+\addPrC{L'allarme che si vuole disabilitare esiste nel sistema.}
 \addPoC{L'allarme viene disabilitato dal Sistema.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla disabilitazione di un allarme;}
 \addScenarioPrincipale{L'\admin disabilita un allarme dal Sistema.}
 \makeUC[0.6]{\Dal}{Disabilita allarme}
 
@@ -1641,9 +1449,10 @@ monitorati negli ultimi 30 giorni:
 \addAttore{\admin}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
-\addPrC{L'\admin sta visualizzando la sezione di configurazione allarmi.}
+\addPrC{L'allarme che si vuole eliminare esiste nel sistema.}
 \addPoC{L'allarme viene eliminato dal Sistema.}
-%\addTrigger{L'\admin vuole eliminare un allarme esistente.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
+\addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'eliminazione di un allarme;}
 \addScenarioPrincipale{L'\admin elimina un allarme dal Sistema.}
 \makeUC[0.6]{\Ea}{Elimina allarme}
 
@@ -2001,6 +1810,8 @@ temporanea errata per l'username inserito;}
     \addReqV{0}{Utilizzare per la raccolta e la rielaborazione dati per le analytics è possibile valutare servizi serverless 
     di AWS Kinesis, AWS Athena oppure AWS CloudWatch, AWS S3}{\capitolato\S 5.2.1}
     \makeReqVtable
+
+    \makeSummaryTable
 
     % NICE TO HAVE: La gestione impianto dell’applicativo web permette di eseguire azioni con i dispositivi di impianto (es. accendere una luce).
 }

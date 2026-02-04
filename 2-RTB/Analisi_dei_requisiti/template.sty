@@ -332,21 +332,34 @@
 
 \newcommand{\reqFEntries}{}
 \newcounter{refctr}
+\newcounter{refobctr}
+\newcounter{refdectr}
+\newcounter{refopctr}
 \newcommand{\addReqF}[3]{%
   \begingroup
     \stepcounter{refctr}
     \edef\RF@id{\therefctr}
-    \edef\@tempa{
-        \noexpand\gappto\noexpand{\noexpand\reqFEntries}{
-        RF\RF@id-%
-        \ifnum#1=2 OB%
-        \else\ifnum#1=1 DE%
-        \else\ifnum#1=0 OP%
-        \else ??%
-        \fi\fi\fi & \unexpanded{#2} & \unexpanded{\parbox[t]{\linewidth}{#3}} \\ \noexpand\hline
-      }
-    }
-  \@tempa
+
+    % determinazione del tipo
+    \def\RF@type{??}%
+    \ifnum#1=2
+      \stepcounter{refobctr}\def\RF@type{OB}%
+    \else\ifnum#1=1
+      \stepcounter{refdectr}\def\RF@type{DE}%
+    \else\ifnum#1=0
+      \stepcounter{refopctr}\def\RF@type{OP}%
+    \fi\fi\fi
+
+    % costruzione sicura della riga
+    \edef\@tempa{%
+      \noexpand\gappto\noexpand{\noexpand\reqFEntries}{%
+        RF\RF@id-\RF@type
+        & \unexpanded{#2}
+        & \noexpand\parbox[t]{\noexpand\linewidth}{\unexpanded{#3}}
+        \\ \noexpand\hline
+      }%
+    }%
+    \@tempa
   \endgroup
 }
 
@@ -368,23 +381,37 @@
 
 \newcommand{\reqQEntries}{}
 \newcounter{reqctr}
+\newcounter{reqobctr}
+\newcounter{reqdectr}
+\newcounter{reqopctr}
 \newcommand{\addReqQ}[3]{%
   \begingroup
     \stepcounter{reqctr}
     \edef\RQ@id{\thereqctr}
-    \edef\@tempa{
-        \noexpand\gappto\noexpand{\noexpand\reqQEntries}{
-        RQ\RQ@id-%
-        \ifnum#1=2 OB%
-        \else\ifnum#1=1 DE%
-        \else\ifnum#1=0 OP%
-        \else ??%
-        \fi\fi\fi & \unexpanded{#2} & \unexpanded{\parbox[t]{\linewidth}{#3}} \\ \noexpand\hline
-      }
-    }
-  \@tempa
+
+    % determinazione del tipo (solo logica)
+    \def\RQ@type{??}%
+    \ifnum#1=2
+      \stepcounter{reqobctr}\def\RQ@type{OB}%
+    \else\ifnum#1=1
+      \stepcounter{reqdectr}\def\RQ@type{DE}%
+    \else\ifnum#1=0
+      \stepcounter{reqopctr}\def\RQ@type{OP}%
+    \fi\fi\fi
+
+    % solo testo nell'edef
+    \edef\@tempa{%
+      \noexpand\gappto\noexpand{\noexpand\reqQEntries}{%
+        RQ\RQ@id-\RQ@type
+        & \unexpanded{#2}
+        & \noexpand\parbox[t]{\noexpand\linewidth}{\unexpanded{#3}}
+        \\ \noexpand\hline
+      }%
+    }%
+    \@tempa
   \endgroup
 }
+
 
 \newcommand{\makeReqQtable}{
     \subsection{Di qualità}{
@@ -404,23 +431,37 @@
 
 \newcommand{\reqVEntries}{}
 \newcounter{revctr}
+\newcounter{revobctr}
+\newcounter{revdectr}
+\newcounter{revopctr}
 \newcommand{\addReqV}[3]{%
   \begingroup
     \stepcounter{revctr}
     \edef\RV@id{\therevctr}
-    \edef\@tempa{
-        \noexpand\gappto\noexpand{\noexpand\reqVEntries}{
-        RV\RV@id-%
-        \ifnum#1=2 OB%
-        \else\ifnum#1=1 DE%
-        \else\ifnum#1=0 OP%
-        \else ??%
-        \fi\fi\fi & \unexpanded{#2} & \unexpanded{#3} \\ \noexpand\hline
-      }
-    }
-  \@tempa
+
+    % gestione contatori
+    \def\RV@type{??}%
+    \ifnum#1=2
+      \stepcounter{revobctr}\def\RV@type{OB}%
+    \else\ifnum#1=1
+      \stepcounter{revdectr}\def\RV@type{DE}%
+    \else\ifnum#1=0
+      \stepcounter{revopctr}\def\RV@type{OP}%
+    \fi\fi\fi
+
+    % solo testo nell'edef
+    \edef\@tempa{%
+      \noexpand\gappto\noexpand{\noexpand\reqVEntries}{%
+        RV\RV@id-\RV@type
+        & \unexpanded{#2}
+        & \unexpanded{#3}
+        \\ \noexpand\hline
+      }%
+    }%
+    \@tempa
   \endgroup
 }
+
 
 \newcommand{\makeReqVtable}{
     \subsection{Di vincolo}{
@@ -431,6 +472,25 @@
             \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Fonti} \\
             \hline
             \reqVEntries
+            \end{xltabular}
+        \end{center}
+    }
+}
+
+\newcommand{\makeSummaryTable}{
+    \subsection{Riepilogo}{
+        \renewcommand{\arraystretch}{1.25}
+        \begin{center}
+            \begin{xltabular}{\textwidth}{|c|c|c|c|c|}
+            \hline
+            \rowcolor{lightgray} \textbf{Tipi di requisito} & \textbf{obbligatori} & \textbf{desiderabili} & \textbf{opzionali} & \textbf{totali} \\
+            \hline
+            funzionali & \therefobctr & \therefdectr & \therefopctr & \therefctr \\
+            \hline
+            di qualità & \thereqobctr & \thereqdectr & \thereqopctr & \thereqctr \\
+            \hline
+            di vincolo & \therevobctr & \therevdectr & \therevopctr & \therevctr \\
+            \hline
             \end{xltabular}
         \end{center}
     }
