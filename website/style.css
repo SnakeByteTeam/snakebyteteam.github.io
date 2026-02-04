@@ -771,6 +771,6 @@ main {
     font-weight: bold;
 }
 
-a:visited{
+a.ref:visited{
     color: aqua;
 }
