@@ -47,7 +47,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                0.4.0 & 11/1/2026 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
+                0.5.0 & 5/2/2026 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
                 \hline
             \end{tabular}
         \end{center}
@@ -61,6 +61,8 @@
     \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
     \hline
     \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
+    \hline
+    0.5.0 & 5/2/2026 & G. De Fina & V. Baleanu & - & Completati Processi Organizzativi con sezioni su Controllo e monitoraggio, Gestione sprint, Tracciamento attività e Gestione rischi. \\ 
     \hline
     0.4.0 & 11/1/2026 & V. Baleanu & F. Venzo & - & Aggiunta processo di Verifica e Validazione. \\ 
     \hline
@@ -785,7 +787,78 @@ Per le comunicazioni interne, il gruppo \textit{SnakeByte} ha individuato come m
 \trisubsection{Comunicazioni esterne}
 Per le comunicazioni esterne, il gruppo \textit{SnakeByte} ha individuato come mezzo per la trasmissione di informazioni in formato asincrono i messaggi email, esclusivamente tramite l'indirizzo ufficiale del gruppo (\textit{snakebyteteam@gmail.com}). Mentre per le comunicazioni sincrone l'applicazione di videoconferenze \textit{Google Meet}.
 
-%Scrivere di , google sheets, validazione dei documenti.
+\subsubsection{Controllo e monitoraggio}
+Il processo di controllo e monitoraggio ha lo scopo di garantire che le attività di progetto procedano secondo la pianificazione stabilita e che le risorse vengano utilizzate in modo efficiente ed efficace. Il gruppo \textit{SnakeByte} adotta strumenti e pratiche per tracciare l'avanzamento del lavoro, gestire le attività e monitorare le ore impiegate da ciascun membro del gruppo.
+
+\trisubsection{Gestione degli \textit{sprint}}
+Il gruppo \textit{SnakeByte} adotta il modello di sviluppo iterativo basato su \textit{sprint$_{G}$} di durata fissa pari a due settimane. Ogni \textit{sprint} si articola nelle seguenti fasi:
+
+\begin{itemize}
+    \item \textbf{\textit{Sprint Planning}}: all'inizio di ogni \textit{sprint}, il gruppo si riunisce per definire gli obiettivi da raggiungere, selezionare le attività da svolgere e stimare l'impegno orario necessario. Durante questa fase vengono assegnati i ruoli ai membri del gruppo secondo il principio di rotazione e viene aggiornato il documento di pianificazione condiviso;
+    
+    \item \textbf{Sviluppo}: durante lo \textit{sprint}, ciascun membro svolge le attività assegnate secondo il ruolo ricoperto. L'avanzamento viene monitorato attraverso gli strumenti di tracciamento descritti nelle sezioni successive;
+    
+    \item \textbf{\textit{Sprint Review}}: al termine dello \textit{sprint}, il gruppo verifica il lavoro completato, valuta il raggiungimento degli obiettivi prefissati e raccoglie \textit{feedback} dalla Proponente quando previsto;
+    
+    \item \textbf{\textit{Sprint Retrospective}}: conclusa la \textit{review}, il gruppo analizza criticamente il processo seguito, identifica problematiche emerse e propone azioni di miglioramento per gli \textit{sprint} successivi. Gli esiti della retrospettiva vengono documentati nel \textit{Piano di Progetto}.
+\end{itemize}
+
+\trisubsection{Tracciamento delle attività}
+Il gruppo \textit{SnakeByte} utilizza \textit{GitHub Projects$_{G}$} come strumento principale per la gestione e il tracciamento delle attività di progetto. Ogni attività viene rappresentata come una \textit{Issue$_{G}$} all'interno del repository di progetto e viene associata a:
+
+\begin{itemize}
+    \item Titolo descrittivo dell'attività;
+    \item Assegnatario o assegnatari responsabili del completamento;
+    \item Etichette (\textit{label$_{G}$}) che classificano la tipologia di attività (documentazione, sviluppo, verifica, etc.);
+    \item \textit{Milestone$_{G}$} di riferimento che identifica lo \textit{sprint} o la fase di progetto;
+    \item Scadenza prevista per il completamento.
+\end{itemize}
+
+Le \textit{Issue} vengono organizzate all'interno di una \textit{board$_{G}$} di progetto che visualizza lo stato di avanzamento attraverso le seguenti colonne:
+
+\begin{itemize}
+    \item \textbf{Backlog}: attività identificate ma non ancora pianificate;
+    \item \textbf{Ready}: attività pianificate per lo \textit{sprint} corrente;
+    \item \textbf{In Progress}: attività in corso di svolgimento;
+    \item \textbf{In Review}: attività completate in attesa di verifica;
+    \item \textbf{Done}: attività verificate e concluse.
+\end{itemize}
+
+Ogni membro del gruppo è tenuto ad aggiornare lo stato delle proprie \textit{Issue} con regolarità, spostando le carte tra le colonne in base all'avanzamento del lavoro e commentando eventuali difficoltà o variazioni rispetto alla pianificazione.
+
+\trisubsection{Pianificazione e monitoraggio delle ore}
+Per la pianificazione dei ruoli e il monitoraggio delle ore lavorate, il gruppo \textit{SnakeByte} utilizza un documento condiviso \textit{Google Sheets$_{G}$} strutturato come segue:
+
+\begin{itemize}
+    \item \textbf{Foglio di pianificazione degli \textit{sprint}}: contiene, per ogni \textit{sprint}, l'assegnazione dei ruoli a ciascun membro del gruppo e il numero di ore preventivate per ogni ruolo;
+    
+    \item \textbf{Fogli di consuntivo}: per ogni \textit{sprint} viene creato un foglio dedicato in cui ciascun membro registra le ore effettivamente lavorate, specificando il ruolo ricoperto e le attività svolte. I dati raccolti vengono utilizzati per calcolare le metriche di progetto definite nel \textit{Piano di Qualifica} e per confrontare l'impegno preventivato con quello reale;
+    
+\end{itemize}
+
+I dati contenuti nel documento condiviso vengono periodicamente sincronizzati con il \textit{Piano di Progetto} per garantire la coerenza tra pianificazione, esecuzione e reportistica.
+
+\trisubsection{Strumenti}
+Gli strumenti adottati per il controllo e il monitoraggio delle attività di progetto sono:
+
+\begin{itemize}
+    \item \textbf{GitHub Projects}: piattaforma integrata con \textit{GitHub$_{G}$} per la gestione delle \textit{Issue} e la visualizzazione dell'avanzamento del progetto attraverso \textit{board} personalizzabili;
+    \item \textbf{Google Sheets}: strumento di fogli di calcolo condivisi per la pianificazione dei ruoli e il tracciamento delle ore lavorate da ciascun membro del gruppo.
+\end{itemize}
+
+\subsubsection{Gestione dei rischi}
+Il processo di gestione dei rischi ha lo scopo di identificare, analizzare e mitigare i potenziali eventi che potrebbero compromettere il successo del progetto. Il gruppo \textit{SnakeByte} adotta un approccio proattivo alla gestione dei rischi, svolgendo attività di identificazione continua durante l'intero ciclo di vita del progetto.
+
+La gestione operativa dei rischi, comprensiva della classificazione, dell'analisi probabilistica e delle strategie di mitigazione, è documentata in modo esaustivo nel \textit{Piano di Progetto}, dove vengono dettagliati:
+
+\begin{itemize}
+    \item Le categorie di rischio considerate (tecnologici, di comunicazione, organizzativi, interpersonali);
+    \item La valutazione di probabilità e impatto per ciascun rischio identificato;
+    \item Le strategie di prevenzione e mitigazione adottate;
+    \item Il monitoraggio dello stato dei rischi durante gli \textit{sprint}.
+\end{itemize}
+
+Durante le riunioni di \textit{Sprint Retrospective}, il gruppo analizza i rischi manifestatisi durante lo \textit{sprint} concluso e valuta l'efficacia delle strategie di mitigazione applicate, proponendo eventuali azioni correttive per gli \textit{sprint} successivi.
 
 
 
