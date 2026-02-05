@@ -47,7 +47,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                0.4.0 & 11/1/2026 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
+                0.4.1 & 5/02/2026 & Da verificare & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
                 \hline
             \end{tabular}
         \end{center}
@@ -61,6 +61,8 @@
     \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
     \hline
     \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
+    \hline
+    0.4.1 & 5/02/2026 & F. Venzo & V. Baleanu & - & Aggiunta specifica test di sistema \\ 
     \hline
     0.4.0 & 11/1/2026 & V. Baleanu & F. Venzo & - & Aggiunta processo di Verifica e Validazione. \\ 
     \hline
@@ -604,6 +606,7 @@ Il gruppo \textit{SnakeByte} implementerà le seguenti tipologie di test:
     \item Test di regressione.
 \end{itemize}
 
+
 \trisubsection{Test di unità}
 I test di unità verificano il corretto funzionamento delle singole unità di codice (funzioni, metodi o classi). 
 Ogni unità viene testata indipendentemente dalle altre componenti per garantire 
@@ -642,9 +645,9 @@ Ogni test da svolgere è identificato da un codice univoco nella forma:
 \end{center}
 dove: 
 \begin{itemize}
-    \item \textbf{Tipo-test} rappresenta la tipologia del test (\textbf{U} = Unità, 
+    \item \textbf{[Tipo-test]} rappresenta la tipologia del test (\textbf{U} = Unità, 
     \textbf{I} = Integrazione, \textbf{S} = Sistema o \textbf{R} = Regressione);
-    \item \textbf{X} rappresenta un numero intero progressivo.
+    \item \textbf{[X]} rappresenta un numero intero progressivo.
 \end{itemize}
 
 \subsubsection{Stato dei test}
