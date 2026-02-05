@@ -47,7 +47,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                0.5.0 & 5/2/2026 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
+                0.6.0 & 5/2/2026 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
                 \hline
             \end{tabular}
         \end{center}
@@ -61,6 +61,8 @@
     \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
     \hline
     \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
+    \hline
+    0.6.0 & 5/2/2026 & G. De Fina & V. Baleanu & - & Completati Processi di Supporto con Garanzia della qualità, Revisioni congiunte, Audit e Risoluzione dei problemi. \\ 
     \hline
     0.5.0 & 5/2/2026 & G. De Fina & V. Baleanu & - & Completati Processi Organizzativi con sezioni su Controllo e monitoraggio, Gestione sprint, Tracciamento attività e Gestione rischi. \\ 
     \hline
@@ -681,6 +683,124 @@ funzionali definite.
     \item raccogliere \textit{feedback} per eventuali 
     miglioramenti o correzioni.
 \end{itemize}
+
+\subsection{Garanzia della qualità}
+Il processo di garanzia della qualità assicura che i prodotti e i processi del progetto 
+siano conformi agli standard e ai requisiti definiti. Tale processo prevede attività 
+sistematiche di controllo volte a garantire che i criteri di qualità stabiliti nel 
+\textit{Piano di Qualifica} vengano rispettati durante l'intero progetto.
+
+\subsubsection{Obiettivi}
+Le attività di garanzia della qualità hanno lo scopo di:
+\begin{itemize}
+    \item Verificare la conformità dei prodotti agli standard di qualità adottati;
+    \item Monitorare l'applicazione dei processi definiti nelle \textit{Norme di Progetto};
+    \item Identificare non conformità e proporre azioni correttive;
+    \item Garantire la tracciabilità delle verifiche effettuate.
+\end{itemize}
+
+\subsubsection{Responsabilità}
+Il verificatore è responsabile di:
+\begin{itemize}
+    \item Controllare la conformità dei prodotti rispetto ai criteri di qualità definiti;
+    \item Garantire completezza e sistematicità delle verifiche;
+    \item Registrare gli esiti delle attività di Quality Assurance;
+    \item Segnalare anomalie e richiedere interventi correttivi quando necessario.
+\end{itemize}
+
+\subsubsection{Metriche di qualità}
+Le metriche utilizzate per valutare la qualità di processi e prodotti sono definite 
+dettagliatamente nelle sezioni \textit{§5 Metriche di processo} e \textit{§6 Metriche di prodotto}.
+Il monitoraggio costante di tali metriche consente di identificare tempestivamente 
+eventuali criticità e di intraprendere azioni correttive.
+
+\subsection{Revisioni congiunte}
+Il processo di revisioni congiunte prevede incontri periodici con la proponente 
+per presentare lo stato di avanzamento del progetto, raccogliere \textit{feedback} 
+e validare le scelte implementative adottate.
+
+\subsubsection{SAL - Stato Avanzamento Lavori}
+I SAL (\textit{Stato Avanzamento Lavori}) rappresentano momenti formali di revisione 
+congiunta con la proponente, durante i quali vengono presentati:
+\begin{itemize}
+    \item Progressi realizzati rispetto alla pianificazione;
+    \item Piccole dimostrazioni delle funzionalità implementate;
+    \item Problematiche emerse e soluzioni proposte;
+    \item Pianificazione delle attività successive.
+\end{itemize}
+Ogni SAL viene documentato attraverso un verbale esterno che traccia discussioni, 
+decisioni e \textit{feedback} ricevuti. I SAL sono organizzati con cadenza concordata 
+con la proponente e rappresentano un'opportunità per validare incrementalmente 
+il lavoro svolto e allinearlo alle aspettative.
+
+\subsubsection{Strumenti}
+Gli strumenti utilizzati per le revisioni congiunte sono:
+\begin{itemize}
+    \item \textbf{Microsoft Teams}: piattaforma per incontri online con la proponente;
+    \item \textbf{Verbali esterni}: documenti che tracciano contenuti e decisioni emerse durante i SAL;
+    \item \textbf{\textit{Demo}}: presentazioni del prodotto in sviluppo per raccogliere \textit{feedback} operativo.
+\end{itemize}
+
+\subsection{Audit}
+Il processo di audit consiste in verifiche formali e sistematiche condotte per 
+accertare che i prodotti e i processi siano conformi ai requisiti definiti e agli 
+standard adottati. Gli audit vengono svolti in corrispondenza delle milestone 
+di progetto per garantire la completezza e la qualità degli artefatti prima 
+delle consegne ufficiali.
+
+\subsubsection{Audit di baseline}
+Prima del raggiungimento di ogni baseline (\textit{Requirements and Technology Baseline}, 
+\textit{Product Baseline}), il responsabile conduce un audit formale per verificare:
+\begin{itemize}
+    \item Completezza della documentazione richiesta;
+    \item Conformità dei documenti rispetto ai requisiti del capitolato e alle aspettative della proponente;
+    \item Tracciabilità tra requisiti, casi d'uso, test e implementazione;
+    \item Rispetto degli standard di qualità definiti nel \textit{Piano di Qualifica}.
+\end{itemize}
+
+\subsubsection{Responsabilità}
+Il responsabile è incaricato di:
+\begin{itemize}
+    \item Pianificare e condurre gli audit in corrispondenza delle milestone;
+    \item Verificare la conformità degli artefatti rispetto ai criteri stabiliti;
+    \item Documentare gli esiti degli audit e le eventuali non conformità rilevate;
+    \item Richiedere azioni correttive in caso di difetti o mancanze.
+\end{itemize}
+Gli audit garantiscono che ogni consegna sia conforme agli standard di progetto 
+e rappresentino un controllo di qualità finale prima del rilascio ufficiale.
+
+\subsection{Risoluzione dei problemi}
+Il processo di risoluzione dei problemi definisce le modalità con cui il gruppo 
+\textit{SnakeByte} identifica, traccia e risolve anomalie, difetti e richieste 
+di miglioramento emerse durante le attività progettuali.
+
+\subsubsection{Tracciamento tramite GitHub Issues}
+Il gruppo utilizza il sistema di \textit{Issue} di \textit{GitHub}$_{G}$ per la gestione 
+centralizzata dei problemi. Ogni segnalazione viene tracciata attraverso una 
+\textit{Issue} che contiene:
+\begin{itemize}
+    \item Titolo e descrizione del problema;
+    \item Classificazione tramite \textit{label};
+    \item Assegnatario responsabile della risoluzione;
+    \item Milestone di riferimento e priorità;
+    \item Stato di avanzamento e commenti di aggiornamento.
+\end{itemize}
+
+\subsubsection{Workflow di risoluzione}
+Il processo di risoluzione segue i seguenti passi:
+\begin{enumerate}
+    \item \textbf{Segnalazione}: un membro del gruppo identifica un problema e crea 
+    una \textit{Issue} su \textit{GitHub}, fornendo una descrizione chiara e dettagliata;
+    \item \textbf{Analisi}: il responsabile o l'assegnatario analizza il problema, 
+    valuta priorità e impatto;
+    \item \textbf{Assegnazione}: il problema viene assegnato a un membro del gruppo 
+    con le competenze appropriate;
+    \item \textbf{Risoluzione}: l'assegnatario implementa la soluzione seguendo il 
+    processo di verifica tramite \textit{pull request} descritto nella \hyperref[sec:Verifica]{Sezione \textit{§3.3}};
+    \item \textbf{Verifica}: il verificatore controlla la correttezza della soluzione;
+    \item \textbf{Chiusura}: una volta verificata la risoluzione, la \textit{Issue} 
+    viene chiusa e collegata al \textit{commit} o alla \textit{pull request} risolutiva.
+\end{enumerate}
 
 
 \section{Processi organizzativi}
