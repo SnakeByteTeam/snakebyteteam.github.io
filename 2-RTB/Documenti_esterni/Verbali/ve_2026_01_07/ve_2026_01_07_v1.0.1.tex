@@ -10,17 +10,19 @@
 % ------------------------
 
 \setDocTitle{Verbale esterno 07/01/2026}
-\setDocVersion{0.1.1}
-\setDocData{13/01/2026}
+\setDocVersion{1.0.1}
+\setDocData{4/02/2026}
 \setDocIndex{ve\_2026\_01\_07}
-\setDocState{1} % 0=Da verificare
+\setDocState{2} % 0=Da verificare
 \setDocRecipient{2} % solo interni
 \begin{document}
 
 \makeTitlePage
 
 \newpage 
-\addChangelog{\docVersion}{\docData}{L. Granziero}{F. Venzo}{\noOne}{Correzione errori}
+\addChangelog{1.0.1}{4/02/2026}{F. Venzo}{\noOne}{F. Venzo, M. Sciacco}{Ri-approvazione interna ed esterna, modifiche non al contenuto}
+\addChangelog{1.0.0}{26/01/2026}{\noOne}{\noOne}{V. Baleanu, M. Sciacco}{Approvazione interna ed esterna del documento}
+\addChangelog{0.1.1}{13/01/2026}{L. Granziero}{F. Venzo}{\noOne}{Correzione errori}
 \addChangelog{0.1.0}{11/01/2026}{L. Granziero}{F. Venzo}{\noOne}{\firstDraft}
 \makeChangelog
 
@@ -67,10 +69,10 @@
 Il responsabile ha presentato lo stato di avanzamento dello Sprint 5, illustrando la suddivisione dei ruoli, le attività completate e quelle in corso. È stato evidenziato l’avvio dell’implementazione del PoC, con particolare attenzione alla necessità di adattare soluzioni esistenti e di concentrarsi sulle funzionalità chiave.
 
 \subsection{Implementazione e requisiti minimi del PoC}
-Viene illustrata l’architettura del server del PoC, basata su un approccio ispirato all’architettura esagonale, ricevendo suggerimenti per migliorare la separazione tra porte e adapter e per mantenere distinta la logica di business.
+Viene illustrata l’architettura del server del PoC, basata su un approccio ispirato all'architettura esagonale, ricevendo suggerimenti per migliorare la separazione tra porte e adapter e per mantenere distinta la logica di business.
 
 \subsection{Q\&A tecnico e architetturale}
-Sono stati infine chiariti diversi dubbi tecnici riguardanti metriche di qualità, utilizzo di Prisma ORM$_G$, requisiti minimi del PoC e uso del logo Vimar.
+Sono stati infine chiariti diversi dubbi tecnici riguardanti metriche di qualità, utilizzo di Prisma ORM$_G$, requisiti minimi del PoC e uso del logo del progetto View4Life.
 
 
 
@@ -81,7 +83,7 @@ Sono stati infine chiariti diversi dubbi tecnici riguardanti metriche di qualit�
 
 \addDecision{Il PoC dovrà includere almeno la gestione dell’impianto e un’utenza base; la gestione degli allarmi e i grafici analitici saranno implementati a livello di prototipo.}
 \addDecision{È consentito l’utilizzo dell’ORM Prisma, a condizione che la scelta sia motivata e coerente con i requisiti accademici e infrastrutturali.}
-\addDecision{È consentito esclusivamente l’utilizzo del logo Vimar fornito nel capitolato, con esclusione del logo ufficiale aziendale.}
+\addDecision{È consentito esclusivamente l’utilizzo del logo del progetto View4Life fornito nel capitolato, con esclusione del logo ufficiale aziendale.}
 \makeDecisionTable
 
 \addTodo{\noOne}{Definire la data dell’incontro di revisione tecnica interna (settimana 19--23 gennaio).}{\teamName}{12/01/2026}
