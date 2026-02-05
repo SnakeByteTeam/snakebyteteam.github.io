@@ -254,6 +254,27 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
 }
 
 \section{Strategie di Testing}
+\subsection{Test di sistema}
+
+\addTestS{Verificare che un Utente non autenticato possa effettuare l'autenticazione con il Sistema}{RF1-OB}{NI}
+\addTestS{Verificare che l'Utente non autenticato, durante il processo di autenticazione, possa inserire il proprio username}{RF2-OB}{NI}
+\addTestS{Verificare che l'Utente non autenticato, durante il processo di autenticazione, possa inserire la propria password}{RF3-OB}{NI}
+\addTestS{Verificare che l'Utente non autenticato riceva un messaggio errore a seguito di un tentativo di autenticazione fallito}{RF4-OB}{NI}
+\addTestS{Verificare che l'Utente autenticato possa impostare una nuova password}{RF5-OB}{NI}
+\addTestS{Verificare che l'Utente non registrato possa essere autenticato con la password temporanea fornita dall'amministratore e impostare una nuova password}{RF6-OB}{NI}
+\addTestS{Verificare che l'Utente autenticato con la password temporanea possa impostare una nuova password}{RF7-OB}{NI}
+\addTestS{Verificare che l'Utente non registrato riceva un errore a seguito di un tentativo di autenticazione con password temporanea fallito}{RF8-OB RF9-OB}{NI}
+\addTestS{Verificare che l'Utente autenticato con la password temporanea riceva un errore nel caso la nuova password sia uguale alla password temporanea}{RF10-OB}{NI}
+\addTestS{Verificare che l'Utente autenticato con la password temporanea riceva un errore nel caso la nuova password non rispetta i criteri richiesti}{RF11-OB}{NI}
+\addTestS{Verificare che l'amministratore possa visualizzare se un account MyVimar è configuarato nel Sistema}{RF12-OB}{NI}
+\addTestS{Verificare che l'amministratore possa collegare un account MyVimar al Sistema}{RF13-OB}{NI}
+\addTestS{Verificare che l'amministratore possa rimuovere un account MyVimar dal Sistema}{RF14-OB}{NI}
+\addTestS{Verificare che l'amministratore possa visualizzare l'elenco degli utenti del Sistema}{RF15-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando l'elenco degli utenti del Sistema, possa visualizzare un utente del Sistema nel dettaglio}{RF16-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando un utente del Sistema nel dettaglio, ne visualizzi il nome}{RF17-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando un utente del Sistema nel dettaglio, ne visualizzi il cognome}{RF18-OB}{NI}
+
+\makeTSTable
 
 \section{Cruscotto di qualità}
 

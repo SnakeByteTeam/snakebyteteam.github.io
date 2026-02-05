@@ -27,13 +27,37 @@
 }
 
 %==========================
-\newcommand{\testEntries}{}
-\newcounter{numEntries}
-\newcommand{\addCodice}[3]{
+\newcommand{\testSEntries}{}
+\newcounter{testSctr}
+\newcommand{\addTestS}[3]{%
     \begingroup
-      \stepcounter{numEntries}
-      asd
+      \stepcounter{testSctr}
+      \edef\TS@id{\thetestSctr}
+
+      \edef\@tempa{%
+        \noexpand\gappto\noexpand{\noexpand\testSEntries}{%
+          TS-\TS@id-S
+          & \unexpanded{#1} %requisito collegato
+          & \unexpanded{#2} %descrizione
+          & \unexpanded{#3}
+          \\ \noexpand\hline
+        }%
+      }%
+      \@tempa
+    \endgroup
 }
 %==========================
+
+\newcommand{\makeTSTable}{
+        \begin{center}
+          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{2.25cm}|>{\centering\arraybackslash}p{1.5cm}|}
+            \hline
+            \rowcolor{lightgray}
+            \textbf{Codice} & \textbf{Descrizione} & \textbf{Requisito di riferimento} & \textbf{Stato del test} \\ 
+            \hline
+            \testSEntries
+          \end{xltabular}
+        \end{center}
+}
 
 \endinput
