@@ -312,8 +312,8 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
 \addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi clima}{RF55-OB}{NI}
 \addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi consumi}{RF56-OB}{NI}
 \addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi presenze}{RF57-OB}{NI}
-\addTestS{Verificare che l'amministratore possa aggiungere alla visualizzazione della dashboard il modulo di statische allarmi}{RF58-DE}{NI}
-\addTestS{Verificare che l'amministratore possa rimuovere alla visualizzazione della dashboard il modulo di statische allarmi}{RF59-DE}{NI}
+\addTestS{Verificare che l'amministratore possa aggiungere alla visualizzazione della dashboard il modulo di statistiche allarmi}{RF58-DE}{NI}
+\addTestS{Verificare che l'amministratore possa rimuovere alla visualizzazione della dashboard il modulo di statistiche allarmi}{RF59-DE}{NI}
 \addTestS{Verificare che l'amministratore possa aggiungere alla visualizzazione della dashboard il modulo di informazioni Utente}{RF60-DE}{NI}
 \addTestS{Verificare che l'amministratore possa rimuovere alla visualizzazione della dashboard il modulo di informazioni Utente}{RF61-DE}{NI}
 \addTestS{Verificare che l'amministratore possa aggiungere alla visualizzazione della dashboard il modulo di analisi clima}{RF62-DE}{NI}
@@ -384,19 +384,62 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
 \addTestS{Verificare che l'amministratore, visualizzando una notifica nel dettaglio possa visualizzarne il titolo}{RF110-OP}{NI}
 \addTestS{Verificare che l'amministratore, visualizzando una notifica nel dettaglio possa visualizzarne il tempo trascorso dall'invio}{RF111-OP}{NI}
 
-
-
-
-
-
-
-
-
-
-
-
-
 \makeTSTable
+
+\subsection{Test di accettazione}
+
+\addTestA{Verificare che il prodotto dia la possibilità all'utente non autenticato di essere riconosciuto tramite username e password}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente non registrato di autenticarsi tramite username e password temporanea, forniti dall'amministratore}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità, all'utente autenticato tramite password temporanea, di cambiare password}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di gestire l'account MyVimar collegato all'impianto}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di visualizzare l'elenco degli utenti}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di creare utenti Operatore Sanitario}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore eliminare utenti Operatore Sanitario}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di generare una password temporanea per gli utenti Operatore Sanitario}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la lista dei reparti}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di creare un reparto}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di eliminare un reparto}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di assegnare un reparto ad un utente Operatore Sanitario}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere l'assegnazione di un reparto ad un utente Operatore Sanitario}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di assegnare un reparto ad un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere l'assegnazione di un reparto ad un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo gestione allarmi nella dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo statistiche allarmi nella dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di aggiungere il modulo informazioni utente alla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di aggiungere il modulo analisi clima alla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di aggiungere il modulo analisi consumi alla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere il modulo informazioni utente dalla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere il modulo analisi clima dalla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere il modulo analisi consumi dalla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo informazioni utente nella dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo analisi clima nella dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo analisi consumi nella dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di risolvere un allarme}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare le analytics}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare i consigli di risparmio energetico}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato al consumo energetico}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alle anomalie dell'impianto}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato al rilevamento presenze}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla presenza prolungata nello stesso ambiente}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alle variazioni di temperatura}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato agli allarmi inviati e risolti}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla frequenza degli allarmi}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla frequenza delle cadute}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la mappa degli allarmi di un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare l'elenco di stanze di un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare l'elenco dei dispositivi di una stanza}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di abilitare un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di disabilitare un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di creare un allarme}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di modificare un allarme}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di abilitare un allarme}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di disabilitare un allarme}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di ricevere notifiche dal Sistema}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare le notifiche ricevute dal Sistema}{NI}
+
+\makeTATable
 
 \section{Cruscotto di qualità}
 
@@ -408,6 +451,9 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
     \label{fig:mpc1-mpc2}
 \end{figure}
 
+L'andamento del grafico denota un progressivo aumento del lavoro completato. Fino allo Sprint 3 rimane al di sotto della percentuale prevista. Grazie ad una successiva ripianificazione la percentuale di lavoro svolto è di poco al di sopra del pianificato.
+Dal trend attuale si prevede per lo Sprint 7 che le due percentuali, reale e pianificato, combacino.
+
 \subsection{MPC3 e MPC7 - Actual Cost e Estimate To Complete}
 \begin{figure}[H]
     \centering
@@ -415,6 +461,8 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
     \caption{Andamento AC e ETC in base al periodo}
     \label{fig:mpc1-mpc2}
 \end{figure}
+
+Il grafico evidenzia che il budget speso rispecchia la percentuale di lavoro svolto, senza particolari anomalie di andamento. 
 
 \subsection{MPC4 e MPC5 - Cost Performance Index e Schedule Performance Index}
 \begin{figure}[H]
@@ -424,6 +472,11 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
     \label{fig:mpc1-mpc2}
 \end{figure}
 
+Dal grafico si desume che inizialmente il gruppo ha gestito correttamente il budget ma le attività erano fortemente in ritardo. La situazione si è invece stabilizzata sopra il valore minimo accettabile fino a circa il quarto sprint dove il trend si è invertito.
+Le attività sono state svolte in anticipo rispetto al completamento pianificato mentre il budget speso per ogni sprint dopo il 4 è superiore al previsto. 
+Dopo una ripianificazione avvenuta al termine dello Sprint 6, si prevede che il periodo successivo diminuirà il budget speso, mantenendo una buona puntualità del lavoro svolto.
+
+
 \subsection{MPC6 - Estimate At Completion}
 \begin{figure}[H]
     \centering
@@ -431,6 +484,10 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
     \caption{Andamento EAC in base al periodo}
     \label{fig:mpc1-mpc2}
 \end{figure}
+
+Il grafico testimonia quando riportato nel grafici MPC4 e MPC5, ovvero una buona gestione del budget iniziale con previsione di costo al completamento simile al preventivo iniziale. 
+Allo Sprint 5, dove lo sforamento di budget ha raggiunto il suo picco, la previsione si è discostata maggiormente ma già dal periodo successivo è tornata a diminuire. 
+Si prevede che per lo Sprint 7 la previsione al completamento diminuisca al di sotto del preventivo iniziale.
 
 \subsection{MPC8 - Requirements Stability Index}
 \begin{figure}[H]
@@ -440,6 +497,9 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
     \label{fig:mpc1-mpc2}
 \end{figure}
 
+Il grafico misura l'andamento della stabilità dei requisiti nei vari sprint. Il crollo della stabilità del terzo periodo è dovuto da un iniziale errore nella raccolta dei requisiti che ha portato inevitabilemente a rivedere quasi tutti quelli trovati fino a quel momento.
+Dallo Sprint 4 in poi i requisiti hanno avuto una stabilità pressoché ottima
+
 \subsection{MPC9 - Indice di Gulpease}
 \begin{figure}[H]
     \centering
@@ -447,6 +507,8 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
     \caption{Andamento IG dei documenti principali, in base al periodo}
     \label{fig:mpc1-mpc2}
 \end{figure}
+
+Lo calcoliamo all'approvazione dei documenti
 
 \subsection{MPC10 - Indice di Frammentazione}
 \begin{figure}[H]
@@ -457,6 +519,8 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
 \end{figure}
 
 Spiegare che il Glossario non è incluso perché per come è strutturato è ovviamente frammentato (un termine equivale ad una section).
+
+Lo calcoliamo all'approvazione dei documenti
 
 
 \subsection{MPC12 - Percentuale Metriche Soddisfatte}
@@ -475,6 +539,10 @@ Spiegare che il Glossario non è incluso perché per come è strutturato è ovvi
     \label{fig:mpc1-mpc2}
 \end{figure}
 
+La percentuale rispetto al totale dei rischi inattesi è superiore al valore massimo accettabile nella maggior parte dei periodi.
+Testimonia una capacità ancora non matura di previsione dei rischi da parte del gruppo. 
+Si può notare però che allo Sprint 6 è diminuita e si prevede che per lo Sprint 7, grazie all'esperienza maturata fino ad ora, scenda al di sotto del valore massimo accettabile.
+
 \subsection{MPC14 - Labor Efficiency}
 \begin{figure}[H]
     \centering
@@ -483,5 +551,7 @@ Spiegare che il Glossario non è incluso perché per come è strutturato è ovvi
     \label{fig:mpc1-mpc2}
 \end{figure}
 
+Il grafico riporta il rapporto tra ore effettive ed ore pianificate per ogni sprint.
+E' importante notare come questo non rappresenti un eccesso di efficienza da parte del gruppo, ma al contrario, il fatto che le ore preventivate sono state molto maggiori rispetto a quelle concretamente effettuate.
 
 \end{document}

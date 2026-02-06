@@ -60,4 +60,37 @@
         \end{center}
 }
 
+%==========================
+\newcommand{\testAEntries}{}
+\newcounter{testActr}
+\newcommand{\addTestA}[2]{%
+    \begingroup
+      \stepcounter{testActr}
+      \edef\TA@id{\thetestActr}
+
+      \edef\@tempa{%
+        \noexpand\gappto\noexpand{\noexpand\testAEntries}{%
+          TA-\TA@id
+          & \unexpanded{#1} %Descrizione
+          & \unexpanded{#2} %Stato del test
+          \\ \noexpand\hline
+        }%
+      }%
+      \@tempa
+    \endgroup
+}
+%==========================
+
+\newcommand{\makeTATable}{
+        \begin{center}
+          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{1.5cm}|}
+            \hline
+            \rowcolor{lightgray}
+            \textbf{Codice} & \textbf{Descrizione} & \textbf{Stato del test} \\ 
+            \hline
+            \testAEntries
+          \end{xltabular}
+        \end{center}
+}
+
 \endinput
