@@ -1,0 +1,153 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 29/12/2025}
+\setDocVersion{0.1.3}
+\setDocData{05/01/2026}
+\setDocIndex{vi\_2025\_12\_29}
+\setDocState{1}
+\setDocRecipient{0}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+\addChangelog{\docVersion}{05/01/2026}{L. Granziero}{F. Venzo}{\noOne}{Aggiunte le ultime mancanze e correzione errori}
+\addChangelog{0.1.2}{03/01/2026}{L. Granziero}{F. Venzo}{\noOne}{Correzione errori}
+\addChangelog{0.1.1}{02/01/2026}{L. Granziero}{F. Venzo}{\noOne}{Correzione errori}
+\addChangelog{0.1.0}{29/12/2025}{L. Granziero}{F. Venzo}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{29/12/2025}{13:20}{14:00}{via Discord}
+
+\addParticipant{Valeria}{Baleanu}{Amministratore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Responsabile}{P}
+\addParticipant{Francesco}{Pasqual}{Programmatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Verificatore}{P}
+\addParticipant{Christian}{Libralato}{Programmatore}{P}
+\addParticipant{Filippo}{Venzo}{Verificatore}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{vi\_2025\_12\_15.a2}{\#34}{G. de Fina}{27/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_15.a4}{\#36}{F. Venzo, L. Granziero}{29/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_15.a6}{\#38}{C. Libralato}{23/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_15.a7}{\#39}{C. Libralato}{23/12/2025}
+\makePrecedentTodoTable
+
+
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+    \item definizione e selezione delle metriche di qualità di processo;
+    \item definizione e selezione delle metriche di qualità di prodotto;
+    \item automazione del calcolo delle metriche;
+    \item gestione Gantt e monitoraggio attività;
+    \item requisiti e use case$_G$;
+    \item comunicazioni esterne e scadenze.
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Metriche di fornitura}
+Vengono presentate le metriche di processo per la fornitura: \textit{PV (Planned Value)}, \textit{EV (Earned Value)},
+\textit{AC (Actual Cost)}, \textit{CPI (Cost Performance Index)}, \textit{SPI (Schedule Performance Index)}, \textit{EAC (Estimated At Completion)}, \textit{ETC (Estimated To Complete)}.
+Viene confermata l’importanza di tali metriche per il monitoraggio di tempi e costi; alcune metriche ridondanti, come le variance, vengono escluse.
+
+\subsection*{Metriche per lo sviluppo}
+Vengono illustrate le metriche \textit{RSI (Requirements Stability Index)} e
+\textit{RCV (Requirements Completion Velocity)}, ritenute utili per valutare la
+stabilità dei requisiti e l’avanzamento delle attività.
+La metrica \textit{PAR (Percentuale Attività in Ritardo)} viene invece esclusa.
+
+\subsection*{Metriche per la documentazione}
+Vengono illustrate le metriche \textit{IG (indice di Gulpease)} e
+\textit{IF (indice di frammentazione)}, ritenute utili per valutare la qualità e la leggibilità della documentazione.
+La metrica \textit{DEO (Densità Errori Ortografici)} viene invece esclusa.
+
+\subsection*{Metriche per la verifica}
+Viene presentata la metrica \textit{TSR (Test Success Rate)} per la verifica. Viene pattuita la sua permanenza.
+
+\subsection*{Metriche per gestione della qualità}
+Viene mostrata la metrica \textit{PMS (Percentuale Metriche Soddisfatte)} per quanto riguarda la gestione della qualità. Viene confermata la sua adozione da parte del gruppo.
+
+
+\subsection*{Metriche per la gestione dei processi}
+Vengono illustrate le metriche \textit{PRI (Percentuale Rischi Inattesi)}, \textit{LE (Labor Efficiency)} per la gestione dei processi. Anche queste vengono approvate.
+
+\subsection*{Metriche di funzionalità}
+Vengono analizzate le seguenti metriche: \textit{PROS (Percentuale Requisiti Obbligatori Soddisfatti)}, \textit{PRPS (Percentuale Requisiti Opzionali Soddisfatti)}, \textit{PRDS (Percentuale Requisiti Desiderabili Soddisfatti)}.
+Il gruppo concorda sulla loro coerenza e ne conferma l'utilizzo.
+
+
+\subsection*{Metriche per affidabilità}
+Vengono prese in esame le metriche \textit{LC (Line Coverage)}, \textit{BC (Branch Coverage)}, \textit{SC (Statement Coverage)} in merito all'affidabilità. Vengono giudicate come adeguate dal gruppo e quindi accettate.
+
+\subsection*{Metriche per usabilità}
+Viene valutata la metrica \textit{PMN (Profondità Massima di Navigazione)} in merito all'usabilità. Non emergono criticità sull'utilizzo della metrica.
+
+\subsection*{Metriche per l'efficienza}
+Viene esaminata la metrica \textit{TMR (Tempo Medio di Risposta)} con riferimento all'efficienza. Il gruppo concorda sul mantenerla.
+
+\subsection*{Metriche per manutenibilità}
+Viene discussa la metrica \textit{CC (Complessità Ciclomatica)} per quanto riguarda la manutenibilità. Viene giudicata come idonea dal gruppo. 
+La metrica \textit{DC (Densità dei Commenti)} viene invece esclusa.
+
+\subsection*{Metriche per portabilità}
+Viene presentata la metrica \textit{CCB (Compatibilità Cross-Browser)} in relazione alla portabilità. Viene approvata dal gruppo.
+
+
+\subsection*{Automazione e strumenti}
+Il gruppo concorda sulla necessità di automatizzare il più possibile il calcolo delle metriche.
+Viene confermato l’utilizzo di Excel per la creazione dei grafici e di strumenti online per alcune metriche di documentazione.
+
+\subsection*{Gestione Gantt}
+Vengono illustrate diverse opzioni per la gestione del Gantt: screenshot da GitHub$_G$, pacchetti \LaTeX{}$_G$ o Excel.
+Il gruppo decide all'unanimità di adoperare la sezione roadmap di GitHub projects per realizzare il Gantt.
+
+\subsection*{Requisiti e use case}
+Stabilita granularità della specifica dei requisiti, risoluzione di alcuni dubbi su requisiti non funzionali.
+
+\subsection*{Comunicazioni esterne}
+Viene fatta presente la creazione del diario di bordo entro la data stabilita dal prof. Vardanega con i vari progressi e dubbi emersi.
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+
+\addDecision{Mantenere le metriche principali di qualità di processo e prodotto}
+\addDecision{Escluse le metriche \textit{PAR}, \textit{DEO} e \textit{DC}}
+\addDecision{Utilizzare Excel per i grafici delle metriche}
+\addDecision{Assegnare tre programmatori e due verificatori per il prossimo sprint}
+\addDecision{Utilizzare la roadmap di GitHub projects per il Gantt}
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+
+\addTodo{\#33}{Terminazione AdR}{L. Pellizzon}{30/12/2025}
+\addTodo{\#35}{Prima stesura PqQ}{G. de Fina}{30/12/2025}
+\addTodo{\#37}{Definizione Gantt}{C. Libralato}{ND}
+\addTodo{\#55}{Aggiungere "deliverable" al Glossario}{L. Granziero}{3/01/2026}
+\addTodo{\#56}{Scrittura verbale interno}{L. Granziero}{3/01/2026}
+\makeTodoTable
+
+\end{document}

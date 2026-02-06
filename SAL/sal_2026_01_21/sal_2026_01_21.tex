@@ -1,0 +1,62 @@
+\documentclass{beamer}
+
+\usepackage{../tema}
+
+
+\title{SAL}
+\author[V. Baleanu, F. Pasqual, C. Libralato]{V. Baleanu, F. Pasqual, C. Libralato}
+\setDate{21/01/2026}
+
+\begin{document}
+
+{
+  \setbeamertemplate{footline}{}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+
+\addMember{Valeria}{Baleanu}{Responsabile}
+\addMember{Christian}{Libralato}{Amministratore}
+\addMember{Francesco}{Pasqual}{Amministratore}
+\addMember{Leonardo}{Pellizzon}{Analista}
+\addMember{Giuseppe}{De Fina}{Programmatore}
+\addMember{Filippo}{Venzo}{Programmatore}
+\addMember{Luca}{Granziero}{Verificatore}
+\makeMembersFrame
+
+\begin{frame}{Avanzamenti settimanali}
+    \begin{itemize}
+        \item Effettuata riunione interna in data 13/01 e redatto il verbale interno ad essa relativo;
+        \item Aggiornato il documento di Piano di Qualifica con il cruscotto di qualità;
+        \item Incontro con prof. Cardin per finalizzare l'Analisi dei Requisiti in data 20/01;
+        \item Allineamento riguardo al PoC tra programmatori dopo il passaggio di ruolo.
+\end{itemize}
+\end{frame}
+
+% PRIMO FRAME: Attività terminate dal verbale esterno 
+
+% Reset delle entries per il secondo frame 
+\renewcommand{\precedentTodoEntries}{}
+
+%  SECONDO FRAME: Attività terminate dal verbale interno
+\addPrecedentTodo{vi\_2026\_01\_13.a1}{\noOne}{Richiedere incontro con prof. Cardin}{L. Pellizzon}{15/01/2026}
+\addPrecedentTodo{vi\_2026\_01\_13.a3}{\#73}{Scrittura verbale interno del 13/01/2026}{V. Baleanu}{15/01/2026}
+\addPrecedentTodo{vi\_2026\_01\_13.a5}{\#75}{Dubbi sul PoC nel SAL del 21/01/2026}{C. Libralato, F. Pasqual, V. Baleanu}{20/01/2026}
+\makePrecedentTodoFrame
+
+\addManualTodo{vi\_2026\_01\_13.a2}{\#72}{Iniziare presentazione delle tecnologie per RTB}{C. Libralato, F. Pasqual, V. Baleanu}{27/01/2026}
+\addManualTodo{vi\_2026\_01\_13.a4}{\#74}{Aggiornamento cruscotto di qualità nel PdQ}{C. Libralato, F. Pasqual}{25/01/2026}
+
+\makeTodoFrame
+
+\begin{frame}{Limiti o blocchi incontrati}
+Durante l'ultimo periodo di avanzamento sono emersi alcuni dubbi:
+  \begin{itemize}
+      \item Per il \textit{PoC} è necessario esporre un \textit{endpoint} pubblico per ricevere eventi push (webhook / notifiche di subscription) oppure è sufficiente una simulazione locale?
+      \item La soglia è un oggetto riutilizzabile e indipendente oppure fa parte della configurazione dell'allarme?
+  \end{itemize}
+\end{frame}
+
+
+\end{document}

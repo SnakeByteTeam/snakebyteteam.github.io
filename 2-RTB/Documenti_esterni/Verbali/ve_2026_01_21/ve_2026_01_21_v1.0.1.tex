@@ -1,0 +1,110 @@
+
+%============================
+% Verbale riunione – Pianificazione RTB
+%============================
+\documentclass[10pt, letterpaper]{article}
+\usepackage{../../../../template/template}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Verbale esterno 21/01/2026}
+\setDocVersion{1.0.1}
+\setDocData{4/02/2026}
+\setDocIndex{ve\_2026\_01\_21}
+\setDocState{2} % 0=Da verificare
+\setDocRecipient{2} % solo interni
+\begin{document}
+
+\makeTitlePage
+
+\newpage 
+\addChangelog{1.0.1}{4/02/2026}{F. Venzo}{V. Baleanu}{F. Venzo, M. Sciacco}{Ri-Approvazione interna ed esterna del documento in seguito a modifiche richieste}
+\addChangelog{1.0.0}{26/01/2026}{\noOne}{\noOne}{V. Baleanu, M. Sciacco}{Approvazione interna ed esterna del documento}
+\addChangelog{0.1.0}{22/01/2026}{V. Baleanu}{L. Granziero}{\noOne}{Prima stesura}
+\makeChangelog
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{21/01/2026}{16:00}{17:00}{via \textit{Microsoft Teams$_G$}}
+% ------------------------
+% Partecipanti
+% ------------------------
+\addParticipant{Valeria}{Baleanu}{Responsabile}{P}
+\addParticipant{Francesco}{Pasqual}{Amministratore}{P}
+\addParticipant{Christian}{Libralato}{Amministratore}{P}
+\addParticipant{Luca}{Granziero}{Verificatore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Analista}{P}
+\addParticipant{Filippo}{Venzo}{Programmatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Programmatore}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{ve\_2025\_12\_23.a1}{-}{SnakeByte}{8/01/2026}
+\addPrecedentTodo{vi\_2026\_01\_13.a1}{-}{L. Pellizzon}{20/01/2026}
+\addPrecedentTodo{vi\_2026\_01\_13.a5}{\#75}{C. Libralato, F. Pasqual, V. Baleanu}{21/01/2026}
+
+\makePrecedentTodoTable
+
+
+\section{Ordine del giorno}
+\begin{itemize}
+  \item Stato avanzamento Sprint$_G$ 6 e della documentazione;
+  \item Stato del \textit{PoC}$_G$: difficoltà e possibili soluzioni;
+  \item Preparazione della presentazione relativa al \textit{PoC} del 28 gennaio.
+\end{itemize}
+
+\section{Approfondimento}
+\subsection{Stato avanzamento Sprint 6 e documentazione}
+Il responsabile ha presentato lo stato di avanzamento dello Sprint 6, illustrando la suddivisione dei ruoli, le attività completate e quelle in corso. 
+Durante lo sprint sono stati aggiornati il Piano di Qualifica, redatto il verbale della riunione interna del 13 gennaio, continuato lo sviluppo del \textit{Proof of Concept} ed effettuato un incontro con il professor Cardin per chiarimenti sull'Analisi dei Requisiti.
+Il responsabile ha sottolineato che, durante l'ultimo periodo, l'avanzamento delle attività ha subito alcuni rallentamenti a causa dell'inizio della sessione di esami universitari.
+
+\subsection{Stato del PoC: difficoltà e possibili soluzioni}
+I programmatori hanno illustrato le difficoltà incontrate nella continuazione dello sviluppo del \textit{PoC}, in 
+particolare sull'esposizione degli \textit{endpoint} pubblici e sulla simulazione delle \textit{subscription}. 
+La Proponente ha suggerito l'uso di servizi \textit{cloud} (per esempio \textit{Digital Ocean}) e \textit{tool} (per esempio \textit{Ngrok}) per poter 
+esporre un \textit{endpoint} locale su un dominio pubblico.
+\\È stato poi approfondito il tema della modellazione delle soglie e degli allarmi e del recupero dell'identificatore del dispositivo \textit{IoT} a partire dall'identificatore del \textit{datapoint}. 
+La Proponente ha dunque suggerito due strategie implementabili:
+\begin{itemize}
+  \item \textit{Caching} dell'intera struttura dell'impianto;
+  \item utilizzo di API dedicate.
+\end{itemize}
+Per quanto riguarda invece i grafici delle \textit{analytics}, la Proponente ha affermato che, al fine della presentazione del \textit{PoC}, è 
+possibile produrre dei dati \textit{mock} per la loro visualizzazione
+
+\subsection{Preparazione della presentazione relativa al PoC}
+La Proponente ha suggerito a tutti i membri del gruppo, in vista della presentazione del 28 gennaio, 
+di prepararsi sulle seguenti tematiche:
+\begin{itemize}
+  \item Motivazione delle tecnologie adottate (per esempio giustificare la separazione tra \textit{backend} e \textit{frontend} oppure la scelta di utilizzare \textit{Angular}$_G$ invece di altri linguaggi come PHP);
+  \item Motivazione della scelta dell'architettura esagonale rispetto ad altre tipologie di architetture alternative;
+  \item Disegno architetturale del progetto presentato tramite il modello C4$_{G}$, il quale scompone il sistema \textit{software} in livelli gerarchici (\textit{System, Container}$_G$\textit{, Component} e \textit{Code}), permettendo una rappresentazione progressiva e strutturata;
+  \item Scelta sulle statistiche (\textit{analytics}) da visualizzare, sulla gestione degli allarmi e sui suggerimenti relativi al risparmio energetico.
+\end{itemize}
+È stato dunque richiesto l'invio anticipato di una bozza della presentazione e di suddividere 
+l'esposizione tra tutti i membri del gruppo.
+
+
+% ------------------------
+% Decisioni
+% ------------------------
+\addDecision{Per il \textit{PoC} sono ammessi dati fittizi per la produzione di grafici}
+\addDecision{Suddivisione della presentazione relativa al \textit{PoC} tra tutti i membri del gruppo}
+\makeDecisionTable
+
+\addTodo{\noOne}{Valutare la strategia migliore per esporre l'\textit{endpoint} pubblico}{\teamName}{27/01/2026}
+\addTodo{\noOne}{Valutare la strategia migliore per il recupero dell'identificatore dei dispositivi \textit{IoT} a partire dall'identificatore del \textit{datapoint}}{\teamName}{27/01/2026}
+\addTodo{\#81}{Inviare una bozza della presentazione del 28/01 con i suggerimenti forniti}{C. Libralato, F. Pasqual, V. Baleanu}{25/01/2026}
+\makeTodoTable
+
+
+\end{document}
+
