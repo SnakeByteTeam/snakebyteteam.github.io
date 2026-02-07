@@ -51,7 +51,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                0.2.1 & 4/02/2026 & Da verificare &       
+                0.2.1 & 4/02/2026 & Verificato &       
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
@@ -70,7 +70,7 @@
         \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
-        0.2.1 & 4/02/2026 & F. Venzo & - & - & Aggiunta descrizione ai grafici, campagna di test di unità e campagna di test di integrazione\\
+        0.2.1 & 4/02/2026 & F. Venzo & V. Baleanu & - & Aggiunta descrizione ai grafici, campagna di test di unità e campagna di test di integrazione\\
         \hline
         0.2.0 & 28/12/2025 & V. Baleanu & F. Pasqual & - & Aggiunta tabelle delle soglie per le metriche di processo e di prodotto \\
         \hline
@@ -452,7 +452,7 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
 \end{figure}
 
 L'andamento del grafico denota un progressivo aumento del lavoro completato. Fino allo Sprint 3 rimane al di sotto della percentuale prevista. Grazie ad una successiva ripianificazione la percentuale di lavoro svolto è di poco al di sopra del pianificato.
-Dal trend attuale si prevede per lo Sprint 7 che le due percentuali, reale e pianificato, combacino.
+Dal trend attuale si prevede per lo Sprint 7 che le due percentuali, reale e pianificata, combacino.
 
 \subsection{MPC3 e MPC7 - Actual Cost e Estimate To Complete}
 \begin{figure}[H]
@@ -473,7 +473,7 @@ Il grafico evidenzia che il budget speso rispecchia la percentuale di lavoro svo
 \end{figure}
 
 Dal grafico si desume che inizialmente il gruppo ha gestito correttamente il budget ma le attività erano fortemente in ritardo. La situazione si è invece stabilizzata sopra il valore minimo accettabile fino a circa il quarto sprint dove il trend si è invertito.
-Le attività sono state svolte in anticipo rispetto al completamento pianificato mentre il budget speso per ogni sprint dopo il 4 è superiore al previsto. 
+Le attività sono state svolte in anticipo rispetto al completamento pianificato, mentre il budget speso per ogni sprint dopo il 4 è superiore al previsto. 
 Dopo una ripianificazione avvenuta al termine dello Sprint 6, si prevede che il periodo successivo diminuirà il budget speso, mantenendo una buona puntualità del lavoro svolto.
 
 
@@ -485,7 +485,7 @@ Dopo una ripianificazione avvenuta al termine dello Sprint 6, si prevede che il 
     \label{fig:mpc1-mpc2}
 \end{figure}
 
-Il grafico testimonia quando riportato nel grafici MPC4 e MPC5, ovvero una buona gestione del budget iniziale con previsione di costo al completamento simile al preventivo iniziale. 
+Il grafico testimonia quanto riportato nel grafici MPC4 e MPC5, ovvero una buona gestione del budget iniziale con previsione di costo al completamento simile al preventivo iniziale. 
 Allo Sprint 5, dove lo sforamento di budget ha raggiunto il suo picco, la previsione si è discostata maggiormente ma già dal periodo successivo è tornata a diminuire. 
 Si prevede che per lo Sprint 7 la previsione al completamento diminuisca al di sotto del preventivo iniziale.
 
@@ -497,8 +497,8 @@ Si prevede che per lo Sprint 7 la previsione al completamento diminuisca al di s
     \label{fig:mpc1-mpc2}
 \end{figure}
 
-Il grafico misura l'andamento della stabilità dei requisiti nei vari sprint. Il crollo della stabilità del terzo periodo è dovuto ad un iniziale errore nella raccolta dei requisiti che ha portato inevitabilmente a rivedere quasi tutti quelli trovati fino a quel momento.
-Dallo Sprint 4 in poi i requisiti hanno avuto una stabilità pressoché ottima
+Il grafico misura l'andamento della stabilità dei requisiti nei vari sprint. Il crollo della stabilità nel terzo periodo è dovuto ad un iniziale errore nella raccolta dei requisiti che ha portato inevitabilmente a rivedere quasi tutti quelli trovati fino a quel momento.
+Dallo Sprint 4 in poi i requisiti hanno avuto una stabilità pressoché ottima.
 
 \subsection{MPC9 - Indice di Gulpease}
 \begin{figure}[H]
@@ -508,7 +508,7 @@ Dallo Sprint 4 in poi i requisiti hanno avuto una stabilità pressoché ottima
     \label{fig:mpc1-mpc2}
 \end{figure}
 
-Lo calcoliamo all'approvazione dei documenti
+Durante tutti gli sprint la leggibilità dei documenti è rimasta buona e al di sopra della soglia di accettabilità. Si prevede, per i prossimi sprint, un andamento simile.
 
 \subsection{MPC10 - Indice di Frammentazione}
 \begin{figure}[H]
@@ -518,9 +518,8 @@ Lo calcoliamo all'approvazione dei documenti
     \label{fig:mpc1-mpc2}
 \end{figure}
 
-Spiegare che il Glossario non è incluso perché per come è strutturato è ovviamente frammentato (un termine equivale ad una section).
-
-Lo calcoliamo all'approvazione dei documenti
+Durante tutti gli sprint la struttura dei documenti è rimasta buona, al di sopra della soglia di accettabilità. Si prevede, per i prossimi sprint, un andamento simile.
+Si rende evidente il fatto che il documento "Glossario" non è stato incluso nel controllo della metrica MPC10: è stata fatta questa scelta poiché quest'ultimo, essendo un documento per definizione molto frammentato (ad ogni termine viene associata una breve spiegazione), avrebbe ottenuto un valore superiore al 20\%. La verifica avrebbe dunque evidenziato un problema nel Glossario quando, in realtà, non è presente
 
 
 \subsection{MPC12 - Percentuale Metriche Soddisfatte}
@@ -530,6 +529,9 @@ Lo calcoliamo all'approvazione dei documenti
     \caption{Andamento PMS in base al periodo}
     \label{fig:mpc1-mpc2}
 \end{figure}
+
+Dal grafico è evidente l'impegno del gruppo nei confronti delle metriche e del loro soddisfacimento, soprattutto dallo Sprint 5 in poi.
+Un lieve peggioramento è stato notato durante lo Sprint 4 ma, dopo averne preso consapevolezza, il gruppo ha adottato opportune azioni correttive, riuscendo a migliorare progressivamente le performance negli sprint successivi.  
 
 \subsection{MPC13 - Percentuale Rischi Inattesi}
 \begin{figure}[H]
@@ -553,10 +555,7 @@ I rischi inattesi non hanno influenzato molto l'andamento del progetto (come si 
     \label{fig:mpc1-mpc2}
 \end{figure}
 
-Il grafico riporta il rapporto tra ore effettive ed ore pianificate per ogni sprint.
-E' importante notare come questo non rappresenti un eccesso di efficienza da parte del gruppo, ma al contrario, il fatto che le ore preventivate sono state molto maggiori rispetto a quelle concretamente effettuate. 
-
-Pianificare le ore in questo modo permette di superare eventuali rischi inattesi, ma valori del Labor Efficency troppo alti sono indice di una pianificazione eccessivamente prudente.
+Dal grafico è possibile notare, fin dal primo Sprint, un'eccellente efficienza nel lavoro svolto, con un picco importante durante lo Sprint 6. È importante notare come questo non rappresenti un eccesso di efficienza da parte del gruppo, ma al contrario, il fatto che le ore preventivate sono state molto maggiori rispetto a quelle concretamente effettuate. 
 
 
 \end{document}
