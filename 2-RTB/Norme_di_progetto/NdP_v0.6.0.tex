@@ -371,7 +371,7 @@ Per il tracciamento delle attività svolte, deve essere presente una tabella che
 La stesura e l'aggiornamento dei documenti è affidata alla persona che ricopre, in quel periodo, il ruolo di \textit{amministratore$_{G}$}. Le informazioni che verranno usate per redigere i documenti saranno ricavate dalle riunioni e comunicazioni con gli altri componenti del gruppo.
 
 \trisubsection{Redazione dei verbali}
-Differentemente dagli altri documenti, ogni verbale viene redatto da una persona decisa durante la rispettiva riunione. 
+La stesura dei vari verbali (sia esterni che interni) è affidata alla persona che ricopre in quel periodo il ruolo di \textit{responsabile$_{G}$}. Le informazioni che verranno usate per comporre i documenti saranno ricavate dalle riunioni interne al gruppo, per i verbali interni, e dalle riunioni esterne con l'azienda Proponente, per i verbali esterni.
 
 \trisubsection{Redazione dell'analisi dei requisiti}
 Differentemente dagli altri documenti, l'analisi dei requisiti viene redatta dalla persona incaricata in quel momento del ruolo di 
@@ -614,6 +614,18 @@ I test di unità verificano il corretto funzionamento delle singole unità di co
 Ogni unità viene testata indipendentemente dalle altre componenti per garantire 
 che produca i risultati attesi per diversi input, inclusi casi limite ed 
 eccezionali.
+I test di unità possono essere suddivisi in due categorie principali:
+\begin{itemize}
+    \item \textbf{Test Funzionali (Black-box)}: verificano che l'unità produca i risultati attesi per diversi input senza analizzare la logica interna. Per ciascuna unità vengono considerati:
+    \begin{itemize}
+        \item valori non ammissibili inferiori;
+        \item valori estremi inferiori ammissibili;
+        \item valori ammissibili;
+        \item valori estremi superiori ammissibili;
+        \item valori non ammissibili superiori.
+    \end{itemize}
+    \item \textbf{Test Strutturali (White-box)}: valutano la corretta esecuzione della logica interna dell'unità, assicurandosi che tutti gli statement rilevanti del codice siano eseguiti almeno una volta.
+\end{itemize}
 
 \trisubsection{Test di integrazione}
 I test di integrazione verificano la corretta interazione tra 
@@ -659,6 +671,14 @@ Ogni test, in base all'esito ottenuto, può avere uno dei seguenti stati:
     \item \textbf{S}: il test ha avuto successo;
     \item \textbf{F}: il test ha fallito.
 \end{itemize}
+
+\subsection{Gestione e tracciamento dei test}
+I test sono una fase obbligatoria dello sviluppo del software: servono a controllare, con procedura sistematica, che il sistema rispetti i requisiti funzionali e non funzionali stabiliti in sede di analisi.\\ 
+Ogni test è collegato a uno o più requisiti e verifica che il codice li implementi correttamente. Un requisito si intende soddisfatto solo quando tutti i test collegati terminano con esito positivo.\\ 
+Durante l’intero ciclo di sviluppo, i test vengono lanciati: mentre si scrivono le funzionalità, dopo ogni modifica o correzione tramite test di regressione, infine nella fase di validazione e collaudo.\\ 
+Ripetere i test permette di scoprire subito i difetti introdotti mentre il software evolve e di mantenere il prodotto stabile. \\
+Il verificatore definisce, esegue e valuta i test, esamina i risultati e segnala le anomalie. I programmatori aiutano creando i test di unità e correggendo i difetti trovati.\\ 
+Ogni test è identificato in modo univoco e ne viene registrato lo stato di avanzamento (non implementato, superato o fallito). L’esito dei test viene documentato e tracciato per supportare le attività di validazione e consentire una valutazione oggettiva della conformità del sistema ai requisiti concordati.
 
 \subsection{Validazione}
 Il processo di validazione ha lo scopo di confermare che il prodotto finale 
@@ -906,7 +926,7 @@ Altre eventuali riunioni possono essere fissate tramite confronto e accordo tra 
 Per le comunicazioni interne, il gruppo \textit{SnakeByte} ha individuato come mezzo per la trasmissione di informazioni in formato sincrono e asincrono la piattaforma \textit{\textit{Discord$_{G}$}}.
 
 \trisubsection{Comunicazioni esterne}
-Per le comunicazioni esterne, il gruppo \textit{SnakeByte} ha individuato come mezzo per la trasmissione di informazioni in formato asincrono i messaggi email, esclusivamente tramite l'indirizzo ufficiale del gruppo (\textit{snakebyteteam@gmail.com}). Mentre per le comunicazioni sincrone l'applicazione di videoconferenze \textit{Google Meet}.
+Per le comunicazioni esterne, il gruppo \textit{SnakeByte} ha individuato come mezzo per la trasmissione di informazioni in formato asincrono i messaggi email, esclusivamente tramite l'indirizzo ufficiale del gruppo (\textit{snakebyteteam@gmail.com}). Mentre per le comunicazioni sincrone l'applicazione di videoconferenze \textit{Microsoft Teams}.
 
 \subsubsection{Controllo e monitoraggio}
 Il processo di controllo e monitoraggio ha lo scopo di garantire che le attività di progetto procedano secondo la pianificazione stabilita e che le risorse vengano utilizzate in modo efficiente ed efficace. Il gruppo \textit{SnakeByte} adotta strumenti e pratiche per tracciare l'avanzamento del lavoro, gestire le attività e monitorare le ore impiegate da ciascun membro del gruppo.
