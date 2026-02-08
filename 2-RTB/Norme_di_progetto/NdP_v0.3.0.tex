@@ -635,7 +635,7 @@ In questa sezione vengono definite le metriche di qualità adottate per monitora
 e valutare in modo quantitativo l'efficacia e l'efficienza dei processi utilizzati 
 durante lo sviluppo del progetto. 
 \\ Ogni metrica di qualità di processo è identificata 
-da un codice univoco nella forma \textit{MPCX}, dove \textit{X} rappresenta 
+da un codice univoco nella forma \textit{MPCX}, dove \textit{MPC} è l'acronimo di \textit{Metrica di ProCesso} e \textit{X} rappresenta 
 un numero intero progressivo.
 
 \subsection{Processi primari}
@@ -792,10 +792,10 @@ di vita, quantificando la percentuale di requisiti che non hanno subito modifich
 aggiunte o cancellazioni rispetto al totale.
 Interpretazione dei valori:
 \begin{itemize}
-    \item RSI $\geq 85\%$: requisiti molto stabili, eccellente analisi iniziale;
-    \item $60\% \leq $ RSI $ < 85\%$: stabilità accettabile, alcune modifiche sono normali;
-    \item $40\% \leq $ RSI $ < 60\%$: elevata volatilità, problemi nella definizione dei requisiti;
-    \item RSI $< 40\%$: instabilità critica.
+    \item RSI $= 100\%$: requisiti stabili, eccellente analisi iniziale;
+    \item $80\% \leq $ RSI $ < 100\%$: stabilità accettabile, alcune modifiche sono normali;
+    \item $50\% \leq $ RSI $ < 80\%$: elevata volatilità, problemi nella definizione dei requisiti;
+    \item RSI $< 50\%$: instabilità critica.
 \end{itemize}}
 {\[RSI = \frac{R_{iniziali} - (R_{modificati} + R_{cancellati})}{R_{iniziali} + R_{aggiunti}} \cdot 100\]
 Dove:
@@ -809,21 +809,21 @@ Dove:
 {Valuta la qualità dell'analisi iniziale dei requisiti e identifica problemi 
 nella loro definizione.}
 
-\trisubsection{MPC9 - Requirements Completion Velocity (RCV)}
-\label{sec:MPC9}
-\Metrica{MPC9}
-{Rappresenta il numero medio di requisiti completati per \textit{sprint}, 
-calcolato su un periodo di riferimento.}
-{\[ RCV = \frac{\sum_{i=1}^{k} RC_i}{k} \]
-Dove:
-\begin{itemize}
-    \item $RC_i$ = Numero di requisiti completati nello \textit{sprint} i;
-    \item $k$ = Numero dello \textit{sprint} di riferimento.
-\end{itemize}
-}
-{Questa metrica è utile per la pianificazione futura: permette di stimare 
-realisticamente quanti requisiti possono essere completati negli sprint 
-rimanenti e di prevedere la data di completamento del progetto.}
+% \trisubsection{MPC9 - Requirements Completion Velocity (RCV)}
+% \label{sec:MPC9}
+% \Metrica{MPC9}
+% {Rappresenta il numero medio di requisiti completati per \textit{sprint}, 
+% calcolato su un periodo di riferimento.}
+% {\[ RCV = \frac{\sum_{i=1}^{k} RC_i}{k} \]
+% Dove:
+% \begin{itemize}
+%     \item $RC_i$ = Numero di requisiti completati nello \textit{sprint} i;
+%     \item $k$ = Numero dello \textit{sprint} di riferimento.
+% \end{itemize}
+% }
+% {Questa metrica è utile per la pianificazione futura: permette di stimare 
+% realisticamente quanti requisiti possono essere completati negli sprint 
+% rimanenti e di prevedere la data di completamento del progetto.}
 
 % \trisubsection{MPC10 - Percentuale Attività in Ritardo (PAR)}
 % \label{sec:MPC10}
@@ -854,8 +854,8 @@ rimanenti e di prevedere la data di completamento del progetto.}
 
 \subsection{Processi di supporto}
 \subsubsection{Documentazione}
-\trisubsection{MPC10 - Indice di Gulpease (IG)}
-\Metrica{MPC10}
+\trisubsection{MPC9 - Indice di Gulpease (IG)}
+\Metrica{MPC9}
 {Indice che misura la leggibilità di un testo in lingua italiana, basato sulla 
 lunghezza delle parole e delle frasi.
 Interpretazione dei valori:
@@ -898,8 +898,8 @@ riducendo ambiguità e incomprensioni.}
 % }
 % {Garantisce la professionalità della documentazione.}
 
-\trisubsection{MPC11 - Indice di Frammentazione (IF)}
-\Metrica{MPC11}
+\trisubsection{MPC10 - Indice di Frammentazione (IF)}
+\Metrica{MPC10}
 {Misura il grado di suddivisione del testo in unità logiche (sezioni e paragrafi). 
 Un valore bilanciato indica che il documento non presenta "muri di testo" 
 eccessivi, facilitando la lettura veloce e la 
@@ -928,8 +928,8 @@ a testo eccessivamente denso o frammentato.}
 
 \subsubsection{Verifica}
 
-\trisubsection{MPC12 - Test Success Rate (TSR)}
-\Metrica{MPC12}
+\trisubsection{MPC11 - Test Success Rate (TSR)}
+\Metrica{MPC11}
 {Percentuale di casi di test che sono stati eseguiti con esito positivo rispetto al
 numero totale di casi di test eseguiti.
 Interpretazione dei valori:
@@ -950,8 +950,8 @@ Dove:
 dell'attività di \textit{testing}.}
 
 \subsubsection{Gestione della qualità}
-\trisubsection{MPC13 - Percentuale Metriche Soddisfatte (PMS)}
-\Metrica{MPC13}
+\trisubsection{MPC12 - Percentuale Metriche Soddisfatte (PMS)}
+\Metrica{MPC12}
 {Percentuale di metriche di qualità soddisfatte rispetto al numero di metriche totali.
 Interpretazione dei valori:
 \begin{itemize}
@@ -973,8 +973,8 @@ l'identificazione tempestiva di criticità che richiedono azioni correttive.}
 
 \subsection{Processi organizzativi}
 \subsubsection{Gestione dei processi}
-\trisubsection{MPC14 - Percentuale Rischi Inattesi (PRI)}
-\Metrica{MPC14}
+\trisubsection{MPC13 - Percentuale Rischi Inattesi (PRI)}
+\Metrica{MPC13}
 {Percentuale di rischi non previsti che si sono manifestati nel corso dello \textit{sprint} k.
 Interpretazione dei valori:
 \begin{itemize}
@@ -995,8 +995,8 @@ Dove:
 {Fornisce una misura del livello di accuratezza dell'attività di analisi 
 e gestione dei rischi.}
 
-\trisubsection{MPC15 - Labor Efficiency (LE)}
-\Metrica{MPC15}
+\trisubsection{MPC14 - Labor Efficiency (LE)}
+\Metrica{MPC14}
 {Rappresenta il rapporto tra le ore di lavoro pianificate per lo 
 svolgimento di determinate attività e le ore effettivamente impiegate 
 per il loro completamento nello \textit{sprint} di riferimento. 
@@ -1025,7 +1025,7 @@ stime temporali effettuate dal team durante la pianificazione.}
 In questa sezione vengono definite le metriche di qualità adottate per 
 garantire che i prodotti di progetto (documentazione e \textit{software}) 
 soddisfino i requisiti qualitativi stabiliti.
-\\Ogni metrica è identificata da un codice univoco nella forma \textit{MPDX}, dove \textit{X} rappresenta 
+\\Ogni metrica è identificata da un codice univoco nella forma \textit{MPDX}, dove \textit{MPD} è l'acronimo di \textit{Metrica di ProDotto} e \textit{X} rappresenta 
 un numero intero progressivo.
 
 \subsection{Funzionalità}
