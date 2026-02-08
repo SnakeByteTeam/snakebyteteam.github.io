@@ -7,6 +7,8 @@
 \RequirePackage{xstring}
 \RequirePackage{xparse}
 \RequirePackage{xspace}
+\RequirePackage{needspace}
+
 
 % \newcount\UC@depth
 % \newcommand{\UCcountdepth}[1]{%
@@ -110,6 +112,7 @@
         \captionof{figure}{UC#4 #5}
         \end{center}
     }{}%
+    \Needspace{8\baselineskip}
     \begin{xltabular}{\textwidth}{|>{\columncolor{lightgray}}c|X|}
     \hline
         % Attori
@@ -370,8 +373,10 @@
             \begin{xltabular}{\textwidth}{|c|X|p{3.40cm}|}
             \hline
             \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Fonti} \\
+            \endhead
             \hline
             \reqFEntries
+            \caption{Requisiti funzionali}
             \end{xltabular}
         \end{center}
     }
@@ -420,8 +425,10 @@
             \begin{xltabular}{\textwidth}{|c|X|p{3.85cm}|}
             \hline
             \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Fonti} \\
+            \endhead
             \hline
             \reqQEntries
+            \caption{Requisiti di qualità}
             \end{xltabular}
         \end{center}
     }
@@ -470,8 +477,10 @@
             \begin{xltabular}{\textwidth}{|c|X|c|}
             \hline
             \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Fonti} \\
+            \endhead
             \hline
             \reqVEntries
+            \caption{Requisiti di vincolo}
             \end{xltabular}
         \end{center}
     }
@@ -491,6 +500,7 @@
             \hline
             di vincolo & \therevobctr & \therevdectr & \therevopctr & \therevctr \\
             \hline
+            \caption{Riepilogo dei requisiti}
             \end{xltabular}
         \end{center}
     }
