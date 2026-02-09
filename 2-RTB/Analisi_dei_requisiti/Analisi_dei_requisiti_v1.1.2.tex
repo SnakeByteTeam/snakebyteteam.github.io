@@ -95,22 +95,22 @@
         \vspace{2cm}
         \large \textbf{SnakeByte} (Gruppo 1):\\
         \large Valeria Baleanu, Leonardo Pellizzon, Filippo Venzo, Giuseppe De Fina, \\
-         Francesco Pasqual, Christian Libralato, Luca Granziero \\
+        Francesco Pasqual, Christian Libralato, Luca Granziero \\
         (2109911, 2111006, 2113705, 2113187, 2103119, 2101047, 2075512)
         \vfill
         \small
         \begin{center}
             \begin{tabular}{|c|c|c|c|}
                 \hline
-                \multicolumn{4}{|c|}{\textbf{Informazioni documento}} \\
+                \multicolumn{4}{|c|}{\textbf{Informazioni documento}}                                          \\
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                1.1.3 & 08/02/2026 & Verificato &       
+                1.1.2                                  & 09/02/2026    & Verificato     &
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
-                \end{tabular} \\
+                \end{tabular}                          \\
                 \hline
             \end{tabular}
         \end{center}
@@ -126,9 +126,7 @@
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
         \hline
-        1.1.3 & 08/02/2026 & L. Pellizzon & V. Baleanu & - & Correzione errori di sintassi \\
-        \hline
-        1.1.2 & 04/02/2026 & L. Pellizzon & V. Baleanu & - & Rivisitazione delle pre e post condizioni di tutti gli Use Cases \\
+        1.1.2 & 09/02/2026 & L. Pellizzon & F. Pasqual & - & Rivisitazione delle pre e post condizioni di tutti gli Use Cases, correzione errori di sintassi \\
         \hline
         1.1.1 & 02/02/2026 & L. Pellizzon & V. Baleanu & - & Modifica diagramma UML Use Cases UC31 \\
         \hline
@@ -161,7 +159,7 @@
         0.1.2 & 24/11/2025 & F. Venzo & V. Baleanu & - & Aggiunta Use Cases UC3, UC3.1, UC3.2, UC3.3, UC3.4, UC3.4, UC3.5, UC3.6, UC3.7 \\
         \hline
         0.1.1 & 20/11/2025 & F. Venzo & V. Baleanu & - & Aggiunta Use Cases UC1, UC1.1, UC1.2, UC1.3, UC1.4, UC1.5,
-         UC2, UC2.1, UC2.2, UC2.3, UC2.4 \\
+        UC2, UC2.1, UC2.2, UC2.3, UC2.4 \\
         \hline
         0.1.0 & 05/11/2025 & L. Granziero & L. Pellizon & - & Prima Stesura \\
         \hline
@@ -184,71 +182,71 @@
 
 \section{Introduzione}
 \subsection{Finalità del documento}{
-Il documento Analisi dei Requisiti, in un contesto di ingegneria del software, ha lo scopo fondamentale di tradurre l'esigenza dell'utenza e degli stakeholder, in questo caso la Proponente Vimar S.p.A., in una specifica completa, coerente e verificabile di requisiti, destinata a guidare le fasi di progettazione e sviluppo, verifica e infine validazione del Sistema.
+    Il documento Analisi dei Requisiti, in un contesto di ingegneria del software, ha lo scopo fondamentale di tradurre l'esigenza dell'utenza e degli stakeholder, in questo caso la Proponente Vimar S.p.A., in una specifica completa, coerente e verificabile di requisiti, destinata a guidare le fasi di progettazione e sviluppo, verifica e infine validazione del Sistema.
 
-\noindent
-\\
-\textbf{Definire chiaramente “cosa” il Sistema deve fare e “in quali condizioni”:}
-\begin{itemize}
-    \item L’analisi dei requisiti serve a identificare le funzioni (requisiti funzionali) e le qualità (requisiti non funzionali: prestazioni, usabilità, affidabilità, portabilità...) del software.
-    \item Definisce i limiti del Sistema e i vincoli (tecnici, di interfaccia...)
-    \item Permette di evitare ambiguità o fraintendimenti sulle funzionalità richieste. 
-\end{itemize}
+    \noindent
+    \\
+    \textbf{Definire chiaramente “cosa” il Sistema deve fare e “in quali condizioni”:}
+    \begin{itemize}
+        \item L’analisi dei requisiti serve a identificare le funzioni (requisiti funzionali) e le qualità (requisiti non funzionali: prestazioni, usabilità, affidabilità, portabilità...) del software.
+        \item Definisce i limiti del Sistema e i vincoli (tecnici, di interfaccia...)
+        \item Permette di evitare ambiguità o fraintendimenti sulle funzionalità richieste.
+    \end{itemize}
 
-\noindent
-\textbf{Allineare tutti gli stakeholder su un linguaggio comune e condividere le aspettative:}
-\begin{itemize}
-    \item Questo documento funge da contratto tra cliente/committente e il team di sviluppo: specifica ciò che sarà consegnato.
-    \item Aiuta a garantire che utenti, committenti, analisti, progettisti e tester abbiano la stessa comprensione del Sistema.
-\end{itemize}
+    \noindent
+    \textbf{Allineare tutti gli stakeholder su un linguaggio comune e condividere le aspettative:}
+    \begin{itemize}
+        \item Questo documento funge da contratto tra cliente/committente e il team di sviluppo: specifica ciò che sarà consegnato.
+        \item Aiuta a garantire che utenti, committenti, analisti, progettisti e tester abbiano la stessa comprensione del Sistema.
+    \end{itemize}
 
-\noindent
-\textbf{Fornire una base stabile per le fasi successive del ciclo di vita del software:}
-\begin{itemize}
-    \item Il documento Analisi dei Requisiti serve come input per la progettazione del Sistema, per la pianificazione dello sviluppo e per la pianificazione dei test.
-    \item Serve anche come base per la verifica e la convalida: si può usare come riferimento per capire se il prodotto finale soddisfa i requisiti richiesti. 
-\end{itemize}
-\noindent
-\textbf{Gestire i rischi e controllare le modifiche:}
-\begin{itemize}
-    \item Durante l’analisi dei requisiti si identificano requisiti non realizzabili, conflitti tra requisiti, omissioni e incoerenze. Ciò consente di ridurre i rischi fin dalle prime fasi.
-    \item Aiuta a limitare il fenomeno dello “scope creep” (ovvero l’aggiunta non controllata di funzionalità) e a mantenere il controllo sul cambiamento dei requisiti. 
-\end{itemize}
+    \noindent
+    \textbf{Fornire una base stabile per le fasi successive del ciclo di vita del software:}
+    \begin{itemize}
+        \item Il documento Analisi dei Requisiti serve come input per la progettazione del Sistema, per la pianificazione dello sviluppo e per la pianificazione dei test.
+        \item Serve anche come base per la verifica e la convalida: si può usare come riferimento per capire se il prodotto finale soddisfa i requisiti richiesti.
+    \end{itemize}
+    \noindent
+    \textbf{Gestire i rischi e controllare le modifiche:}
+    \begin{itemize}
+        \item Durante l’analisi dei requisiti si identificano requisiti non realizzabili, conflitti tra requisiti, omissioni e incoerenze. Ciò consente di ridurre i rischi fin dalle prime fasi.
+        \item Aiuta a limitare il fenomeno dello “scope creep” (ovvero l’aggiunta non controllata di funzionalità) e a mantenere il controllo sul cambiamento dei requisiti.
+    \end{itemize}
 }
 
 \subsection{Sviluppo del documento}{
-Il presente documento è stato sviluppato in modo graduale e incrementale, con lo scopo di facilitare modifiche future in base alle esigenze che verranno concordate tra il gruppo e l'azienda committente. Il documento è quindi soggetto a un processo di miglioramento continuo nel tempo.
+    Il presente documento è stato sviluppato in modo graduale e incrementale, con lo scopo di facilitare modifiche future in base alle esigenze che verranno concordate tra il gruppo e l'azienda committente. Il documento è quindi soggetto a un processo di miglioramento continuo nel tempo.
 }
 
 \subsection{Riferimenti}
 
 \subsubsection{Riferimenti Normativi}
 \begin{itemize}
-    \item \textbf{Norme di Progetto}: 
-    
-    \url{https://github.com/SnakeByteTeam/snakebyteteam.github.io/blob/develop/2-RTB/Norme_di_progetto/NdP_v0.2.0.pdf}  (link temporaneo, da cambiare una volta pubblicato nel sito)
-    
-    (consultato il 30/10/2025);
+    \item \textbf{Norme di Progetto}:
+
+          \url{https://github.com/SnakeByteTeam/snakebyteteam.github.io/blob/develop/2-RTB/Norme_di_progetto/NdP_v0.2.0.pdf}  (link temporaneo, da cambiare una volta pubblicato nel sito)
+
+          (consultato il 30/10/2025);
     \item \textbf{Vimar View4Life Capitolato di Ingegneria del Software Università di Padova 2025 - 2026:}
-    
-    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C9.pdf} 
-    
-    (consultato il 20/10/2025).
+
+          \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C9.pdf}
+
+          (consultato il 20/10/2025).
 \end{itemize}
 
 \subsubsection{Riferimenti Informativi}
 \begin{itemize}
     \item \textbf{830-1998 - IEEE Recommended Practice for Software Requirements Specifications}
-    
-    \url{https://ieeexplore.ieee.org/document/720574} 
-    
-    (consultato il 20/10/2025).
+
+          \url{https://ieeexplore.ieee.org/document/720574}
+
+          (consultato il 20/10/2025).
 
     \item \textbf{Diagrammi Use Case - Riccardo Cardin}
-    
-    \url{https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf} 
-    
-    (consultato il 18/10/2025).
+
+          \url{https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf} 
+
+          (consultato il 18/10/2025).
 \end{itemize}
 
 \section{Descrizione del prodotto}
@@ -258,7 +256,7 @@ Gli obiettivi principali sono la sicurezza e il comfort delle persone occupanti,
 Tali risultati vengono raggiunti attraverso la centralizzazione del controllo di illuminazione, temperatura, televisione e dispositivi di sicurezza mediante l'app View e i relativi servizi \textit{cloud}, con la possibilità di controllo da remoto da parte del personale medico.
 
 \subsection{Obiettivi del prodotto}{
-Il progetto consiste nella realizzazione di una piattaforma unica \textit{View4Life} per la gestione intelligente degli impianti \textit{Smart} nelle residenze protette, sfruttando i dispositivi domotici Vimar connessi in rete \textit{mesh Bluetooth} che vengono poi esposti tramite l'interfaccia \textit{API KNX IoT 3rd-party$_{G}$}. Questa soluzione mira a supportare il lavoro del \os fornendo uno strumento che integri un Sistema di gestione degli allarmi (come il rilevamento di cadute o presenze prolungate in determinate stanze) per garantire un intervento rapido e tempestivo. Inoltre, la piattaforma è progettata per permettere il monitoraggio del consumo energetico e la rilevazione di anomalie nell’impianto (ad esempio le disconnessioni).
+    Il progetto consiste nella realizzazione di una piattaforma unica \textit{View4Life} per la gestione intelligente degli impianti \textit{Smart} nelle residenze protette, sfruttando i dispositivi domotici Vimar connessi in rete \textit{mesh Bluetooth} che vengono poi esposti tramite l'interfaccia \textit{API KNX IoT 3rd-party$_{G}$}. Questa soluzione mira a supportare il lavoro del \os fornendo uno strumento che integri un Sistema di gestione degli allarmi (come il rilevamento di cadute o presenze prolungate in determinate stanze) per garantire un intervento rapido e tempestivo. Inoltre, la piattaforma è progettata per permettere il monitoraggio del consumo energetico e la rilevazione di anomalie nell’impianto (ad esempio le disconnessioni).
 }
 
 \subsection{Funzionalità del prodotto}
@@ -272,14 +270,14 @@ Dal punto di vista degli utenti del \os l'applicativo svolge le seguenti funzion
 \end{itemize}
 
 \subsection{Utenza di riferimento}{
-Il prodotto si rivolge principalmente a quattro categorie principali di utenti, descritte di seguito:
+    Il prodotto si rivolge principalmente a quattro categorie principali di utenti, descritte di seguito:
 
-\begin{itemize}
-    \item \textbf{Personale medico e operatori sanitari} che utilizzano l'applicazione per monitorare lo stato di ambienti e dispositivi, oltre a ricevere notifiche di allarme e gestire da remoto funzioni come temperatura, illuminazione e sicurezza delle stanze degli ospiti presenti. 
-    \item \textbf{Personale amministrativo} che si fa carico della configurazione e manutenzione del Sistema e del monitoraggio delle statistiche prodotte (ad esempio sui consumi elettrici o sulla variazione delle temperatura), e quindi a una conseguente ottimizzazione dell'efficienza dell'impianto elettrico.
-\end{itemize}
-Questa sezione evidenzia come il Sistema domotico proposto miri a centralizzare il controllo e la gestione degli impianti all’interno della residenza, semplificando le operazioni quotidiane del personale e migliorando la qualità della vita degli ospiti.
-Attraverso l’app View e i servizi \textit{cloud} Vimar, l’applicazione permette di gestire in modo integrato illuminazione, temperatura e sicurezza, contribuendo a maggior efficienza energetica, sicurezza e comfort abitativo per tutti gli utenti coinvolti.
+    \begin{itemize}
+        \item \textbf{Personale medico e operatori sanitari} che utilizzano l'applicazione per monitorare lo stato di ambienti e dispositivi, oltre a ricevere notifiche di allarme e gestire da remoto funzioni come temperatura, illuminazione e sicurezza delle stanze degli ospiti presenti.
+        \item \textbf{Personale amministrativo} che si fa carico della configurazione e manutenzione del Sistema e del monitoraggio delle statistiche prodotte (ad esempio sui consumi elettrici o sulla variazione delle temperatura), e quindi a una conseguente ottimizzazione dell'efficienza dell'impianto elettrico.
+    \end{itemize}
+    Questa sezione evidenzia come il Sistema domotico proposto miri a centralizzare il controllo e la gestione degli impianti all’interno della residenza, semplificando le operazioni quotidiane del personale e migliorando la qualità della vita degli ospiti.
+    Attraverso l’app View e i servizi \textit{cloud} Vimar, l’applicazione permette di gestire in modo integrato illuminazione, temperatura e sicurezza, contribuendo a maggior efficienza energetica, sicurezza e comfort abitativo per tutti gli utenti coinvolti.
 }
 
 \section{Casi d'uso}
@@ -334,7 +332,7 @@ Di seguito vengono riportati gli attori principali individuati:
         \user & Rappresenta l'utente generico (sia \admin che \os) registrato nel Sistema. \\
         \hline
         \os & Rappresenta l'\user \os. \\
-        \hline 
+        \hline
         \admin & Rappresenta un \user che ha particolari privilegi all'interno del Sistema. \\
         \hline
         \caption{Attori principali}
@@ -354,9 +352,9 @@ Di seguito vengono riportati gli attori secondari individuati:
     \begin{xltabular}{\textwidth}{|c| >{\centering\arraybackslash}X|}
         \hline
         \rowcolor{lightgray} \textbf{Attore} & \textbf{Descrizione} \\
-        \hline  
+        \hline
         \db & Rappresenta il \db responsabile della persistenza dei dati. \\
-        \hline 
+        \hline
         \cloud & Rappresenta il \cloud che mette a disposizione un'interfaccia per accedere ai dati riguardanti gli appartamenti, le stanze e i dispositivi. \\
         \hline
         \caption{Attori secondari}
@@ -375,10 +373,10 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addPoC{L'\user è riconosciuto dal Sistema come \os o \admin.}
 \addTrigger{L'\user vuole autenticarsi nel Sistema}
 \addScenarioPrincipale{L'\user si autentica con le proprie credenziali:
-\begin{itemize}
-    \item inserimento username (\rif{\Au.1});
-    \item inserimento password (\rif{\Au.2}).
-\end{itemize}
+    \begin{itemize}
+        \item inserimento username (\rif{\Au.1});
+        \item inserimento password (\rif{\Au.2}).
+    \end{itemize}
 }
 \addScenarioPrincipale{L'\user conferma l'operazione.}
 \addInclusione{\rif{\Au.1}}
@@ -408,11 +406,11 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addPoC{L'\user è autenticato nel Sistema;}
 \addPoC{L'\user è riconosciuto dal Sistema come \os.}
 \addScenarioPrincipale{L'\user si registra con le credenziali fornite dall'\admin:
-\begin{itemize}
-    \item inserimento username (\rif{\Aucp.1});
-    \item inserimento password temporanea (\rif{\Aucp.2});
-    \item inserimento nuova password (\rif{\Aucp.3});
-\end{itemize}
+    \begin{itemize}
+        \item inserimento username (\rif{\Aucp.1});
+        \item inserimento password temporanea (\rif{\Aucp.2});
+        \item inserimento nuova password (\rif{\Aucp.3});
+    \end{itemize}
 }
 \addScenarioPrincipale{L'\user conferma l'operazione.}
 \addScenarioAlternativo{L'\user non è registrato nel Sistema o la password temporanea errata (\rif{\Erpte});}
@@ -464,7 +462,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addPoC{Il Sistema aggiunge le credenziali fornite dal portale di Vimar alla propria configurazione.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione dell'account MyVimar;}
 \addScenarioPrincipale{L'\admin viene reinderizzato al portale di Vimar per collegare l'account
-segue la procedura.}
+    segue la procedura.}
 \makeUC[0.6]{\CaMV}{Collegamento account MyVimar}
 
 \addAttore{\admin}
@@ -492,11 +490,11 @@ segue la procedura.}
 \addPrC{L'\admin sta visualizzando l'elenco di tutti gli utenti.}
 \addPoC{L'\admin visualizza un singolo utente con le proprie informazioni.}
 \addScenarioPrincipale{L'\admin visualizza un singolo utente con le proprie informazioni:
-\begin{itemize}
-    \item nome dell'utente (\rif{\Vu.1.1});
-    \item cognome dell'utente (\rif{\Vu.1.2});
-    \item l'username dell'utente (\rif{\Vu.1.3}).
-\end{itemize}
+    \begin{itemize}
+        \item nome dell'utente (\rif{\Vu.1.1});
+        \item cognome dell'utente (\rif{\Vu.1.2});
+        \item l'username dell'utente (\rif{\Vu.1.3}).
+    \end{itemize}
 }
 \addInclusione{\rif{\Vu.1.1}}
 \addInclusione{\rif{\Vu.1.2}}
@@ -529,11 +527,11 @@ segue la procedura.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione utenti;}
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla creazione di un nuovo utente;}
 \addScenarioPrincipale{L'\admin inserisce i seguenti dati per creare l'\user:
-\begin{itemize}
-    \item inserimento nome (\rif{\Cu.1});
-    \item inserimento cognome (\rif{\Cu.2});
-    \item inserimento nuovo username (\rif{\Cu.3});
-\end{itemize}
+    \begin{itemize}
+        \item inserimento nome (\rif{\Cu.1});
+        \item inserimento cognome (\rif{\Cu.2});
+        \item inserimento nuovo username (\rif{\Cu.3});
+    \end{itemize}
 }
 \addScenarioPrincipale{L'\admin genera la password temporanea (\rif{\Cu.4});}
 \addScenarioPrincipale{L'\admin conferma l'operazione.}
@@ -597,10 +595,10 @@ segue la procedura.}
 \addPrC{L'\admin sta visualizzando l'elenco dei reparti.}
 \addPoC{L'\admin visualizza un singolo reparto con le proprie informazioni.}
 \addScenarioPrincipale{L'\admin visualizza un reparto con le proprie informazioni:
-\begin{itemize}
-    \item nome del reparto (\rif{\Vr.1.1})
-    \item elenco degli appartamenti (\rif{\Vr.1.2})
-\end{itemize}
+    \begin{itemize}
+        \item nome del reparto (\rif{\Vr.1.1})
+        \item elenco degli appartamenti (\rif{\Vr.1.2})
+    \end{itemize}
 }
 \makeUC{\Vr.1}{Visualizzazione elemento elenco reparti}
 
@@ -621,9 +619,9 @@ segue la procedura.}
 \addPrC{L'\admin sta visualizzando tutti gli appartamenti.}
 \addPoC{L'\admin visualizza un singolo appartamento con le proprie informazioni.}
 \addScenarioPrincipale{L'\admin visualizza un appartamento con le proprie informazioni:
-\begin{itemize}
-    \item nome dell'appartamento (\rif{\Vr.1.2.1.1}).
-\end{itemize}
+    \begin{itemize}
+        \item nome dell'appartamento (\rif{\Vr.1.2.1.1}).
+    \end{itemize}
 }
 \addInclusione{\rif{\Vr.1.2.1.1}}
 \makeUC{\Vr.1.2.1}{Visualizzazione elemento elenco appartamenti}
@@ -642,9 +640,9 @@ segue la procedura.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'inserimento di un reparto;}
 \addScenarioPrincipale{L'\admin inserisce i seguenti dati per creare un reparto:
-\begin{itemize}
-    \item inserimento nome (\rif{\Cr.1});
-\end{itemize}
+    \begin{itemize}
+        \item inserimento nome (\rif{\Cr.1});
+    \end{itemize}
 }
 \addScenarioPrincipale{L'\admin conferma l'operazione.}
 \addScenarioAlternativo{Il nome inserito è già in uso (\rif{\Ernru}).}
@@ -691,10 +689,10 @@ segue la procedura.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti.}
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'inserimento di un'assegnazione utente \os - reparto;}
 \addScenarioPrincipale{L'\admin seleziona i seguenti elementi per assegnare un utente \os a un reparto:
-\begin{itemize}
-    \item selezione reparto (\rif{\Aaosr.1});
-    \item selezione utente \os (\rif{\Aaosr.2});
-\end{itemize}
+    \begin{itemize}
+        \item selezione reparto (\rif{\Aaosr.1});
+        \item selezione utente \os (\rif{\Aaosr.2});
+    \end{itemize}
 }
 \addScenarioPrincipale{L'\admin conferma l'operazione.}
 \addInclusione{\rif{\Aaosr.1}}
@@ -735,10 +733,10 @@ segue la procedura.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'aggiunta di un'assegnazione appartamento - reparto;}
 \addScenarioPrincipale{L'\admin seleziona i seguenti elementi per assegnare un appartamento a un reparto:
-\begin{itemize}
-    \item selezione reparto (\rif{\Aaapr.1});
-    \item selezione appartamento (\rif{\Aaapr.2});
-\end{itemize}
+    \begin{itemize}
+        \item selezione reparto (\rif{\Aaapr.1});
+        \item selezione appartamento (\rif{\Aaapr.2});
+    \end{itemize}
 }
 \addScenarioPrincipale{L'\admin conferma l'operazione.}
 \addInclusione{\rif{\Aaapr.1}}
@@ -776,14 +774,14 @@ segue la procedura.}
 \addScenarioPrincipale{L'\user seleziona dal menù l'opzione relativa alla visualizzazione dashboard;}
 \addScenarioPrincipale{L'\user visualizza il seguente modulo non opzionale: visualizzazione gestione allarmi (\rif{\Vd.1}).}
 \addScenarioPrincipale{
-L'\user visualizza i moduli opzionali presenti tra:
-\begin{itemize}
-    \item statistiche allarmi (\rif{\Vd.2});
-    \item informazioni \user (\rif{\Vd.3});
-    \item analisi clima (\rif{\Vd.4});
-    \item analisi consumi (\rif{\Vd.5});
-    \item analisi presenze (\rif{\Vd.6}).
-\end{itemize}
+    L'\user visualizza i moduli opzionali presenti tra:
+    \begin{itemize}
+        \item statistiche allarmi (\rif{\Vd.2});
+        \item informazioni \user (\rif{\Vd.3});
+        \item analisi clima (\rif{\Vd.4});
+        \item analisi consumi (\rif{\Vd.5});
+        \item analisi presenze (\rif{\Vd.6}).
+    \end{itemize}
 }
 %\addTrigger{L'\user vuole visualizzare la sezione Dashboard.}
 \addInclusione{\rif{\Vd.1}}
@@ -806,11 +804,11 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addPrC{L'\user sta visualizzando il modulo gestione allarmi.}
 \addPoC{L'\user visualizza le informazioni relative ad un allarme.}
 \addScenarioPrincipale{Il Sistema mostra le informazioni relative ad un allarme:
-\begin{itemize}
-    \item il segnale di pericolo (\rif{\Vd.1.1.1});
-    \item il nome dell'allarme (\rif{\Vd.1.1.2});
-    \item il tempo trascorso dallo scatto dell'allarme (\rif{\Vd.1.1.3}).
-\end{itemize}
+    \begin{itemize}
+        \item il segnale di pericolo (\rif{\Vd.1.1.1});
+        \item il nome dell'allarme (\rif{\Vd.1.1.2});
+        \item il tempo trascorso dallo scatto dell'allarme (\rif{\Vd.1.1.3}).
+    \end{itemize}
 }
 \addInclusione{\rif{\Vd.1.1.1}}
 \addInclusione{\rif{\Vd.1.1.2}}
@@ -839,10 +837,10 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addPrC{L'\user sta visualizzando la dashboard.}
 \addPoC{L'\user visualizza il modulo statistiche allarmi.}
 \addScenarioPrincipale{L'\user visualizza il modulo statistiche allarmi, caratterizzate da:
-\begin{itemize}
-    \item numero di allarmi risolti (\rif{\Vd.2.1});
-    \item numero di allarmi attivi (\rif{\Vd.2.2}).
-\end{itemize}
+    \begin{itemize}
+        \item numero di allarmi risolti (\rif{\Vd.2.1});
+        \item numero di allarmi attivi (\rif{\Vd.2.2}).
+    \end{itemize}
 }
 \addInclusione{\rif{\Vd.2.1}}
 \addInclusione{\rif{\Vd.2.2}}
@@ -865,10 +863,10 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addPrC{L'\user sta visualizzando la dashboard.}
 \addPoC{L'\user visualizza il modulo informazioni \user.}
 \addScenarioPrincipale{L'\user visualizza il modulo informazioni \user, caratterizzate da:
-\begin{itemize}
-    \item nome dell'\user (\rif{\Vd.3.1});
-    \item cognome dell'\user (\rif{\Vd.3.2}).
-\end{itemize}
+    \begin{itemize}
+        \item nome dell'\user (\rif{\Vd.3.1});
+        \item cognome dell'\user (\rif{\Vd.3.2}).
+    \end{itemize}
 }
 %\addTrigger{L'\user vuole visualizzare il modulo opzionale relativo alle informazioni \user}
 \addInclusione{\rif{\Vd.3.1}}
@@ -986,19 +984,19 @@ L'\user visualizza i moduli opzionali presenti tra:
 \addPoC{L'\user è all'interno della sezione analytics.}
 \addScenarioPrincipale{L'\user seleziona dal menù l'opzione relativa alla visualizzazione analytics;}
 \addScenarioPrincipale{L'\user seleziona l'appartamento del quale vuole vedere le analytics;}
-\addScenarioPrincipale{L'\user visualizza la sezione analytics, che permette di visualizzare i seguenti moduli relativi agli impianti 
-monitorati negli ultimi 30 giorni:
-\begin{itemize}
-    \item suggerimenti per il risparmio energetico (\rif{\Va.1});
-    \item grafico sul calcolo dell’energia consumata dall’illuminazione (\rif{\Va.2});
-    \item grafico sulle anomalie dell'impianto (\rif{\Va.3});
-    \item grafico sul rilevamento di presenza, assenza e caduta (\rif{\Va.4});
-    \item grafico sul rilevamento di presenza prolungata nello stesso ambiente (\rif{\Va.5});
-    \item grafico di variazione e cambio di temperatura (\rif{\Va.6});
-    \item grafico relativo agli allarmi inviati e risolti per giorno dagli operatori sanitari (\rif{\Va.7});
-    \item grafico relativo alla frequenza degli allarmi rilevati (\rif{\Va.8});
-    \item grafico relativo alla frequenza delle cadute rilevate (\rif{\Va.9}).
-\end{itemize}
+\addScenarioPrincipale{L'\user visualizza la sezione analytics, che permette di visualizzare i seguenti moduli relativi agli impianti
+    monitorati negli ultimi 30 giorni:
+    \begin{itemize}
+        \item suggerimenti per il risparmio energetico (\rif{\Va.1});
+        \item grafico sul calcolo dell’energia consumata dall’illuminazione (\rif{\Va.2});
+        \item grafico sulle anomalie dell'impianto (\rif{\Va.3});
+        \item grafico sul rilevamento di presenza, assenza e caduta (\rif{\Va.4});
+        \item grafico sul rilevamento di presenza prolungata nello stesso ambiente (\rif{\Va.5});
+        \item grafico di variazione e cambio di temperatura (\rif{\Va.6});
+        \item grafico relativo agli allarmi inviati e risolti per giorno dagli operatori sanitari (\rif{\Va.7});
+        \item grafico relativo alla frequenza degli allarmi rilevati (\rif{\Va.8});
+        \item grafico relativo alla frequenza delle cadute rilevate (\rif{\Va.9}).
+    \end{itemize}
 }
 \addInclusione{\rif{\Va.1}}
 \addInclusione{\rif{\Va.2}}
@@ -1088,11 +1086,11 @@ monitorati negli ultimi 30 giorni:
 \addPoC{L'\user visualizza un appartamento con le proprie informazioni.}
 \addScenarioPrincipale{L'\user seleziona dal menù l'opzione visualizza appartamento relativa all'appartamento che vuole visualizzare;}
 \addScenarioPrincipale{L'\user visualizza:
-\begin{itemize}
-    \item il nome dell'appartamento (\rif{\Vap.1});
-    \item la mappa degli allarmi (\rif{\Vap.2})
-    \item le stanze dell'appartamento (\rif{\Vap.3})
-\end{itemize}
+    \begin{itemize}
+        \item il nome dell'appartamento (\rif{\Vap.1});
+        \item la mappa degli allarmi (\rif{\Vap.2})
+        \item le stanze dell'appartamento (\rif{\Vap.3})
+    \end{itemize}
 }
 \addInclusione{\rif{\Vap.1}}
 \addInclusione{\rif{\Vap.2}}
@@ -1122,10 +1120,10 @@ monitorati negli ultimi 30 giorni:
 \addPrC{L'\user sta visualizzando le stanze di un appartamento.}
 \addPoC{Il Sistema mostra una stanza con le proprie informazioni.}
 \addScenarioPrincipale{L'\user visualizza una stanza con le proprie informazioni:
-\begin{itemize}
-    \item nome della stanza (\rif{\Vap.3.1.1});
-    \item tutti di dispositivi presenti nella stanza (\rif{\Vap.3.1.2}).
-\end{itemize}}
+    \begin{itemize}
+        \item nome della stanza (\rif{\Vap.3.1.1});
+        \item tutti di dispositivi presenti nella stanza (\rif{\Vap.3.1.2}).
+    \end{itemize}}
 \addInclusione{\rif{\Vap.3.1.1}}
 \addInclusione{\rif{\Vap.3.1.2}}
 \makeUC{\Vap.3.1}{Visualizzazione elemento elenco stanze}
@@ -1151,11 +1149,11 @@ monitorati negli ultimi 30 giorni:
 \addPoC{L'\user visualizza un dispositivo con le proprie informazioni.}
 %\addTrigger{L'\os vuole visualizzare il termostato dell'impianto.}
 \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al singolo dispositivo:
-\begin{itemize}
-    \item il nome (\rif{\Vap.3.1.2.1.1});
-    \item lo stato corrente (\rif{\Vap.3.1.2.1.2});
-    \item le azioni eseguibili (\rif{\Vap.3.1.2.1.3}).
-\end{itemize}
+    \begin{itemize}
+        \item il nome (\rif{\Vap.3.1.2.1.1});
+        \item lo stato corrente (\rif{\Vap.3.1.2.1.2});
+        \item le azioni eseguibili (\rif{\Vap.3.1.2.1.3}).
+    \end{itemize}
 }
 \addInclusione{\rif{\Vap.3.1.2.1.1}}
 \addInclusione{\rif{\Vap.3.1.2.1.2}}
@@ -1192,11 +1190,11 @@ monitorati negli ultimi 30 giorni:
 \addPoC{L'\user visualizza un termostato con le proprie informazioni.}
 %\addTrigger{L'\os vuole visualizzare il termostato dell'impianto.}
 \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo termostato:
-\begin{itemize}
-    \item il nome del dispositivo;
-    \item lo stato corrente del dispositivo;
-    \item le azioni eseguibili.
-\end{itemize}
+    \begin{itemize}
+        \item il nome del dispositivo;
+        \item lo stato corrente del dispositivo;
+        \item le azioni eseguibili.
+    \end{itemize}
 }
 \makeUC{\Vap.3.1.2.2}{Visualizzazione termostato}
 
@@ -1204,66 +1202,66 @@ monitorati negli ultimi 30 giorni:
 \addPrC{L'\user sta visualizzando la lista dei dispositivi di una stanza.}
 \addPoC{L'\user visualizza un sensore di caduta con le proprie informazioni.}
 \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo sensore caduta:
-\begin{itemize}
-    \item il nome del dispositivo;
-    \item lo stato corrente del dispositivo;
-    \item le azioni eseguibili.
-\end{itemize}}
+    \begin{itemize}
+        \item il nome del dispositivo;
+        \item lo stato corrente del dispositivo;
+        \item le azioni eseguibili.
+    \end{itemize}}
 \makeUC{\Vap.3.1.2.3}{Visualizzazione sensore di caduta}
 
 \addAttore{\user}
 \addPrC{L'\user sta visualizzando la lista dei dispositivi di una stanza.}
 \addPoC{Il Sistema mostra per un sensore di presenza le sue informazioni.}
 \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo sensore di presenza:
-\begin{itemize}
-    \item il nome del dispositivo;
-    \item lo stato corrente del dispositivo;
-    \item le azioni eseguibili.
-\end{itemize}}
+    \begin{itemize}
+        \item il nome del dispositivo;
+        \item lo stato corrente del dispositivo;
+        \item le azioni eseguibili.
+    \end{itemize}}
 \makeUC{\Vap.3.1.2.4}{Visualizzazione sensore di presenza}
 
 \addAttore{\user}
 \addPrC{L'\user sta visualizzando la lista dei dispositivi di una stanza.}
 \addPoC{L'\user visualizza il dispositivo luce di un impianto specifico.}
 \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo luce:
-\begin{itemize}
-    \item il nome del dispositivo;
-    \item lo stato corrente del dispositivo;
-    \item le azioni eseguibili.
-\end{itemize}}
+    \begin{itemize}
+        \item il nome del dispositivo;
+        \item lo stato corrente del dispositivo;
+        \item le azioni eseguibili.
+    \end{itemize}}
 \makeUC{\Vap.3.1.2.5}{Visualizzazione punto luce}
 
 \addAttore{\user}
 \addPrC{L'\user sta visualizzando la lista dei dispositivi di una stanza.}
 \addPoC{L'\user visualizza il dispositivo pulsante di allarme di un impianto specifico.}
 \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo pulsante di allarme:
-\begin{itemize}
-    \item il nome del dispositivo;
-    \item lo stato corrente del dispositivo;
-    \item le azioni eseguibili.
-\end{itemize}}
+    \begin{itemize}
+        \item il nome del dispositivo;
+        \item lo stato corrente del dispositivo;
+        \item le azioni eseguibili.
+    \end{itemize}}
 \makeUC{\Vap.3.1.2.6}{Visualizzazione pulsante di allarme}
 
 \addAttore{\user}
 \addPrC{L'\user sta visualizzando la lista dei dispositivi di una stanza.}
 \addPoC{L'\user visualizza il dispositivo porta di ingresso di un impianto specifico.}
 \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo porta di ingresso:
-\begin{itemize}
-    \item il nome del dispositivo;
-    \item lo stato corrente del dispositivo;
-    \item le azioni eseguibili.
-\end{itemize}}
+    \begin{itemize}
+        \item il nome del dispositivo;
+        \item lo stato corrente del dispositivo;
+        \item le azioni eseguibili.
+    \end{itemize}}
 \makeUC{\Vap.3.1.2.7}{Visualizzazione porta di ingresso}
 
 \addAttore{\user}
 \addPrC{L'\user sta visualizzando la lista dei dispositivi di una stanza.}
 \addPoC{L'\user visualizza il dispositivo tapparella di un impianto specifico.}
 \addScenarioPrincipale{L'\user visualizza le caratteristiche relative al dispositivo tapparella:
-\begin{itemize}
-    \item il nome del dispositivo;
-    \item lo stato corrente del dispositivo;
-    \item le azioni eseguibili.
-\end{itemize}}
+    \begin{itemize}
+        \item il nome del dispositivo;
+        \item lo stato corrente del dispositivo;
+        \item le azioni eseguibili.
+    \end{itemize}}
 \makeUC{\Vap.3.1.2.8}{Visualizzazione tapparella}
 
 \addAttore{\admin}
@@ -1296,14 +1294,14 @@ monitorati negli ultimi 30 giorni:
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'inserimento di un nuovo allarme;}
 \addScenarioPrincipale{L'\admin seleziona le seguenti opzioni per creare l'allarme:
-\begin{itemize}
-    \item seleziona l'appartamento (\rif{\Aa.1});
-    \item seleziona il sensore (\rif{\Aa.2});
-    \item seleziona il livello di priorità (\rif{\Aa.3});
-    \item seleziona la soglia di intervento (\rif{\Aa.8});
-    \item seleziona l'orario di attivazione (\rif{\Aa.9});
-    \item seleziona l'orario di disattivazione (\rif{\Aa.10});
-\end{itemize}
+    \begin{itemize}
+        \item seleziona l'appartamento (\rif{\Aa.1});
+        \item seleziona il sensore (\rif{\Aa.2});
+        \item seleziona il livello di priorità (\rif{\Aa.3});
+        \item seleziona la soglia di intervento (\rif{\Aa.8});
+        \item seleziona l'orario di attivazione (\rif{\Aa.9});
+        \item seleziona l'orario di disattivazione (\rif{\Aa.10});
+    \end{itemize}
 }
 \addScenarioPrincipale{L'\admin conferma l'operazione.}
 \addScenarioAlternativo{Nessun sensore selezionato (\rif{\Erns});}
@@ -1492,10 +1490,10 @@ monitorati negli ultimi 30 giorni:
 \addPrC{L'\user sta visualizzando l'elenco delle notifiche.}
 \addPoC{L'\user visualizza una singola notifica con le proprie informazioni.}
 \addScenarioPrincipale{L'\user visualizza una notifica con le proprie informazioni:
-\begin{itemize}
-    \item titolo della notifica (\rif{\Vn.1.1});
-    \item tempo trascorso dall'invio della notifica (\rif{\Vn.1.2});
-\end{itemize}
+    \begin{itemize}
+        \item titolo della notifica (\rif{\Vn.1.1});
+        \item tempo trascorso dall'invio della notifica (\rif{\Vn.1.2});
+    \end{itemize}
 }
 \addInclusione{\rif{\Vn.1.1}}
 \addInclusione{\rif{\Vn.1.2}}
@@ -1517,15 +1515,15 @@ monitorati negli ultimi 30 giorni:
 
 \addAttore{\user}
 \addPrC{L'\user ha inserito un username che non corrisponde ad un \user nel Sistema o una password
-errata per l'username inserito.}
+    errata per l'username inserito.}
 \addPoC{Il Sistema non autentica l'\user}
 \addScenarioPrincipale{Il Sistema segnala l'errore di username non registrato o password errata.}
 %\addTrigger{L'\admin sceglie uno username non registrato nel Sistema.}
 \makeUC{\Erunr}{Errore username non registrato o password errata}
 
 \addAttore{\user}
-\addPrC{L'\user ha inserito un username che non corrisponde ad un \user nel Sistema o una password 
-temporanea errata per l'username inserito.}
+\addPrC{L'\user ha inserito un username che non corrisponde ad un \user nel Sistema o una password
+    temporanea errata per l'username inserito.}
 \addPoC{Il Sistema non autentica l'\user}
 \addScenarioPrincipale{Il Sistema segnala l'errore di username non registrato o password temporanea errata.}
 %\addTrigger{L'\os inserisce una nuova password non valida.}
@@ -1589,255 +1587,255 @@ temporanea errata per l'username inserito.}
 \newpage
 
 \section{Requisiti}{
-    In questa sezione viene presentata la specifica dei requisiti. In particolare i requisiti di dividono in:
-    \begin{itemize}
-        \item Funzionali: descrivono le funzionalità che un Sistema deve avere per soddisfare i bisogni;
-        \item Di qualità: requisiti che devono essere rispettati per accertare qualità
-        nella progettazione/sviluppo del Sistema.
-        \item Di vincolo: restrizioni che devono essere rispettate durante la progettazione/sviluppo del Sistema.
-    \end{itemize}
+  In questa sezione viene presentata la specifica dei requisiti. In particolare i requisiti di dividono in:
+  \begin{itemize}
+      \item Funzionali: descrivono le funzionalità che un Sistema deve avere per soddisfare i bisogni;
+      \item Di qualità: requisiti che devono essere rispettati per accertare qualità
+            nella progettazione/sviluppo del Sistema.
+      \item Di vincolo: restrizioni che devono essere rispettate durante la progettazione/sviluppo del Sistema.
+  \end{itemize}
 
-    % --- Autenticazione ---
-    \addReqF{2}{L'\user deve potersi autenticare presso il Sistema}{\rif{\Au}}
-    \addReqF{2}{L'\user deve inserire il proprio username per autenticarsi presso il Sistema}{\rif{\Au}\\\rif{\Au.1}}
-    \addReqF{2}{L'\user deve inserire la propria password per autenticarsi presso il Sistema}{\rif{\Au}\\\rif{\Au.2}}
-    \addReqF{2}{L'\user deve ricevere un errore se l'username non è registrato nel Sistema o 
-    la password non è corretta per l'\user inserito}{\rif{\Erunr}}
+  % --- Autenticazione ---
+  \addReqF{2}{L'\user deve potersi autenticare presso il Sistema}{\rif{\Au}}
+  \addReqF{2}{L'\user deve inserire il proprio username per autenticarsi presso il Sistema}{\rif{\Au}\\\rif{\Au.1}}
+  \addReqF{2}{L'\user deve inserire la propria password per autenticarsi presso il Sistema}{\rif{\Au}\\\rif{\Au.2}}
+  \addReqF{2}{L'\user deve ricevere un errore se l'username non è registrato nel Sistema o
+      la password non è corretta per l'\user inserito}{\rif{\Erunr}}
 
-    % --- Autenticazione con cambio psw ---
-    \addReqF{2}{L'\user deve potersi autenticare presso il Sistema e impostare una nuova password}{\rif{\Aucp}}
-    % \addReqF{2}{L'\user deve inserire il proprio \user per registrarsi presso il Sistema}{}
-    \addReqF{2}{L'\user deve inserire la password temporanea che gli è stata fornita dall'amministratore per
-    autenticarsi presso il Sistema e impostare una nuova password}{\rif{\Aucp}\\\rif{\Aucp.1}}
-    \addReqF{2}{L'\user deve inserire la nuova password per registrarsi presso il Sistema}{\rif{\Aucp}\\\rif{\Aucp.2}}
-    \addReqF{2}{L'\user deve ricevere un errore se l'username non è registrato nel Sistema}{\rif{\Erunr}}
-    \addReqF{2}{L'\user deve ricevere un errore se l'username non è registrato nel Sistema o 
-    la password temporanea non è corretta per l'\user inserito}{\rif{\Erpte}}
-    \addReqF{2}{L'\user deve ricevere un errore se la nuova password è uguale alla password temporanea}{\rif{\Ernpupt}}
-    \addReqF{2}{L'\user deve ricevere un errore se la nuova password non rispetta i criteri richiesti}{\rif{\Ernpnv}}
+  % --- Autenticazione con cambio psw ---
+  \addReqF{2}{L'\user deve potersi autenticare presso il Sistema e impostare una nuova password}{\rif{\Aucp}}
+  % \addReqF{2}{L'\user deve inserire il proprio \user per registrarsi presso il Sistema}{}
+  \addReqF{2}{L'\user deve inserire la password temporanea che gli è stata fornita dall'amministratore per
+      autenticarsi presso il Sistema e impostare una nuova password}{\rif{\Aucp}\\\rif{\Aucp.1}}
+  \addReqF{2}{L'\user deve inserire la nuova password per registrarsi presso il Sistema}{\rif{\Aucp}\\\rif{\Aucp.2}}
+  \addReqF{2}{L'\user deve ricevere un errore se l'username non è registrato nel Sistema}{\rif{\Erunr}}
+  \addReqF{2}{L'\user deve ricevere un errore se l'username non è registrato nel Sistema o
+      la password temporanea non è corretta per l'\user inserito}{\rif{\Erpte}}
+  \addReqF{2}{L'\user deve ricevere un errore se la nuova password è uguale alla password temporanea}{\rif{\Ernpupt}}
+  \addReqF{2}{L'\user deve ricevere un errore se la nuova password non rispetta i criteri richiesti}{\rif{\Ernpnv}}
 
-    % --- MYVimar e ab. dis. appartamenti ---
-    \addReqF{2}{L'\admin deve poter visualizzare se un account MyVimar è configurato nel Sistema}{\rif{\VaMV}}
-    \addReqF{2}{L'\admin deve poter collegare un account MyVimar nel Sistema}{\rif{\CaMV}}
-    \addReqF{2}{L'\admin deve poter rimuovere un account MyVimar dal Sistema}{\rif{\RaMV}}
+  % --- MYVimar e ab. dis. appartamenti ---
+  \addReqF{2}{L'\admin deve poter visualizzare se un account MyVimar è configurato nel Sistema}{\rif{\VaMV}}
+  \addReqF{2}{L'\admin deve poter collegare un account MyVimar nel Sistema}{\rif{\CaMV}}
+  \addReqF{2}{L'\admin deve poter rimuovere un account MyVimar dal Sistema}{\rif{\RaMV}}
 
-    % --- CRUD utente ---
-    \addReqF{1}{L'\admin deve poter visualizzare l'elenco degli utenti del Sistema}{\rif{\Vu}}
-    \addReqF{2}{L'\admin visualizzando l'elenco degli utenti del sistema deve visualizzare un utente del Sistema nel dettaglio}{\rif{\Vu}\\\rif{\Vu.1}}
-    \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare il nome}{\rif{\Vu.1}\\\rif{\Vu.1.1}}
-    \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare il cognome}{\rif{\Vu.1}\\\rif{\Vu.1.2}}
-    \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare l'username}{\rif{\Vu.1}\\\rif{\Vu.1.3}}
-    \addReqF{1}{L'\admin deve poter creare un utente \os}{\rif{\Cu}}
-    \addReqF{1}{L'\admin deve inserire il nome dell'\os per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.1}}
-    \addReqF{1}{L'\admin deve inserire il cognome dell'\os per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.2}}
-    \addReqF{1}{L'\admin deve inserire un username per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.3}}
-    \addReqF{1}{L'\admin deve generare la password temporanea per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.4}}
-    \addReqF{1}{L'\admin deve ricevere un errore se l'username è già in uso}{\rif{\Eruu}}
-    \addReqF{1}{L'\admin deve poter eliminare un utente \os}{\rif{4}}
+  % --- CRUD utente ---
+  \addReqF{1}{L'\admin deve poter visualizzare l'elenco degli utenti del Sistema}{\rif{\Vu}}
+  \addReqF{2}{L'\admin visualizzando l'elenco degli utenti del sistema deve visualizzare un utente del Sistema nel dettaglio}{\rif{\Vu}\\\rif{\Vu.1}}
+  \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare il nome}{\rif{\Vu.1}\\\rif{\Vu.1.1}}
+  \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare il cognome}{\rif{\Vu.1}\\\rif{\Vu.1.2}}
+  \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare l'username}{\rif{\Vu.1}\\\rif{\Vu.1.3}}
+  \addReqF{1}{L'\admin deve poter creare un utente \os}{\rif{\Cu}}
+  \addReqF{1}{L'\admin deve inserire il nome dell'\os per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.1}}
+  \addReqF{1}{L'\admin deve inserire il cognome dell'\os per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.2}}
+  \addReqF{1}{L'\admin deve inserire un username per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.3}}
+  \addReqF{1}{L'\admin deve generare la password temporanea per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.4}}
+  \addReqF{1}{L'\admin deve ricevere un errore se l'username è già in uso}{\rif{\Eruu}}
+  \addReqF{1}{L'\admin deve poter eliminare un utente \os}{\rif{4}}
 
-    % --- CRUD reparti ---
-    \addReqF{2}{L'\admin deve poter visualizzare tutti i reparti del Sistema}{\rif{\Vr}}
-    \addReqF{2}{L'\admin deve poter visualizzare un reparto del Sistema nel dettaglio}{\rif{\Vr}\\\rif{\Vr.1}}
-    \addReqF{2}{L'\admin visualizzando un reparto del Sistema deve poter visualizzare il nome del reparto}{\rif{\Vr.1}\\\rif{\Vr.1.1}}
-    \addReqF{2}{L'\admin deve poter creare un nuovo reparto nel Sistema}{\rif{\Cr}}
-    \addReqF{2}{L'\admin deve inserire il nome del nuovo reparto per crearlo nel Sistema}{\rif{\Cr}\\\rif{\Cr.1}}
-    \addReqF{2}{L'\admin deve ricevere un errore se il nome del nuovo reparto è già in uso}{\rif{\Ernru}}
-    \addReqF{2}{L'\admin deve poter modificare il nome di un reparto del Sistema}{\rif{\Mr}}
-    \addReqF{2}{L'\admin deve poter eliminare un reparto del Sistema}{\rif{\Er}}
+  % --- CRUD reparti ---
+  \addReqF{2}{L'\admin deve poter visualizzare tutti i reparti del Sistema}{\rif{\Vr}}
+  \addReqF{2}{L'\admin deve poter visualizzare un reparto del Sistema nel dettaglio}{\rif{\Vr}\\\rif{\Vr.1}}
+  \addReqF{2}{L'\admin visualizzando un reparto del Sistema deve poter visualizzare il nome del reparto}{\rif{\Vr.1}\\\rif{\Vr.1.1}}
+  \addReqF{2}{L'\admin deve poter creare un nuovo reparto nel Sistema}{\rif{\Cr}}
+  \addReqF{2}{L'\admin deve inserire il nome del nuovo reparto per crearlo nel Sistema}{\rif{\Cr}\\\rif{\Cr.1}}
+  \addReqF{2}{L'\admin deve ricevere un errore se il nome del nuovo reparto è già in uso}{\rif{\Ernru}}
+  \addReqF{2}{L'\admin deve poter modificare il nome di un reparto del Sistema}{\rif{\Mr}}
+  \addReqF{2}{L'\admin deve poter eliminare un reparto del Sistema}{\rif{\Er}}
 
-    % --- Assegnazioni ---
-    \addReqF{2}{L'\admin deve poter assegnare un reparto a un utente \os}{\rif{\Aaosr}}
-    \addReqF{2}{L'\admin deve selezionare un utente \os per assegnare a un utente \os un reparto}{\rif{\Aaosr}\\\rif{\Aaosr.1}}
-    \addReqF{2}{L'\admin deve selezionare un reparto per assegnare un reparto a un utente \os}{\rif{\Aaosr}\\\rif{\Aaosr.2}}
-    \addReqF{2}{L'\admin deve poter eliminare l'assegnazione utente \os - reparto}{\rif{\Raosr}}
+  % --- Assegnazioni ---
+  \addReqF{2}{L'\admin deve poter assegnare un reparto a un utente \os}{\rif{\Aaosr}}
+  \addReqF{2}{L'\admin deve selezionare un utente \os per assegnare a un utente \os un reparto}{\rif{\Aaosr}\\\rif{\Aaosr.1}}
+  \addReqF{2}{L'\admin deve selezionare un reparto per assegnare un reparto a un utente \os}{\rif{\Aaosr}\\\rif{\Aaosr.2}}
+  \addReqF{2}{L'\admin deve poter eliminare l'assegnazione utente \os - reparto}{\rif{\Raosr}}
 
-    \addReqF{2}{L'\admin deve poter assegnare un reparto a un appartamento}{\rif{\Aaapr}}
-    \addReqF{2}{L'\admin deve selezionare un appartamento per assegnare a un appartamento un reparto}{\rif{\Aaapr}\\\rif{\Aaapr.1}}
-    \addReqF{2}{L'\admin deve selezionare un reparto per assegnare un reparto a un appartamento}{\rif{\Aaapr}\\\rif{\Aaapr.2}}
-    \addReqF{2}{L'\admin deve poter eliminare l'assegnazione appartamento - reparto}{\rif{\Raapr}}
+  \addReqF{2}{L'\admin deve poter assegnare un reparto a un appartamento}{\rif{\Aaapr}}
+  \addReqF{2}{L'\admin deve selezionare un appartamento per assegnare a un appartamento un reparto}{\rif{\Aaapr}\\\rif{\Aaapr.1}}
+  \addReqF{2}{L'\admin deve selezionare un reparto per assegnare un reparto a un appartamento}{\rif{\Aaapr}\\\rif{\Aaapr.2}}
+  \addReqF{2}{L'\admin deve poter eliminare l'assegnazione appartamento - reparto}{\rif{\Raapr}}
 
-    % --- Dashboard UC10 ---
-    \addReqF{2}{L'\user deve poter visualizzare una dashboard che rappresenta lo stato del Sistema}{\rif{\Vd}}
-    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo gestione allarmi}{\rif{\Vd}\\\rif{\Vd.1}}
-    \addReqF{2}{L'\user visualizzando il modulo gestione allarmi deve poter visualizzare 
-    ogni singola allarme}{\rif{\Vd.1}\\\rif{\Vd.1.1}}
-    \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il segnale di pericolo}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.1}}
-    \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il nome}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.2}}
-    \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il tempo trascorso dallo scatto
-    dell'allarme}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.3}}
-    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo statistiche allarmi}{\rif{\Vd}\\\rif{\Vd.2}}
-    \addReqF{2}{L'\user visualizzando il modulo statistiche allarmi deve poter visualizzare il numero
-    di allarmi risolti}{\rif{\Vd.2}\\\rif{\Vd.2.1}}
-    \addReqF{2}{L'\user visualizzando il modulo statistiche allarmi deve poter visualizzare il numero
-    di allarmi attivi}{\rif{\Vd.2}\\\rif{\Vd.2.2}}
-    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo informazioni \user}{\rif{\Vd}\\\rif{\Vd.3}}
-    \addReqF{2}{L'\user visualizzando il modulo modulo informazioni \user deve poter visualizzare il 
-    nome \user}{\rif{\Vd.3}\\\rif{\Vd.3.1}}
-    \addReqF{2}{L'\user visualizzando il modulo modulo informazioni \user deve poter visualizzare il 
-    cognome \user}{\rif{\Vd.3}\\\rif{\Vd.3.2}}
-    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi clima}{\rif{\Vd}\\\rif{\Vd.4}}
-    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi consumi}{\rif{\Vd}\\\rif{\Vd.5}}
-    \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi presenze}{\rif{\Vd}\\\rif{\Vd.6}}
+  % --- Dashboard UC10 ---
+  \addReqF{2}{L'\user deve poter visualizzare una dashboard che rappresenta lo stato del Sistema}{\rif{\Vd}}
+  \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo gestione allarmi}{\rif{\Vd}\\\rif{\Vd.1}}
+  \addReqF{2}{L'\user visualizzando il modulo gestione allarmi deve poter visualizzare
+      ogni singola allarme}{\rif{\Vd.1}\\\rif{\Vd.1.1}}
+  \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il segnale di pericolo}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.1}}
+  \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il nome}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.2}}
+  \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il tempo trascorso dallo scatto
+      dell'allarme}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.3}}
+  \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo statistiche allarmi}{\rif{\Vd}\\\rif{\Vd.2}}
+  \addReqF{2}{L'\user visualizzando il modulo statistiche allarmi deve poter visualizzare il numero
+      di allarmi risolti}{\rif{\Vd.2}\\\rif{\Vd.2.1}}
+  \addReqF{2}{L'\user visualizzando il modulo statistiche allarmi deve poter visualizzare il numero
+      di allarmi attivi}{\rif{\Vd.2}\\\rif{\Vd.2.2}}
+  \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo informazioni \user}{\rif{\Vd}\\\rif{\Vd.3}}
+  \addReqF{2}{L'\user visualizzando il modulo modulo informazioni \user deve poter visualizzare il
+      nome \user}{\rif{\Vd.3}\\\rif{\Vd.3.1}}
+  \addReqF{2}{L'\user visualizzando il modulo modulo informazioni \user deve poter visualizzare il
+      cognome \user}{\rif{\Vd.3}\\\rif{\Vd.3.2}}
+  \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi clima}{\rif{\Vd}\\\rif{\Vd.4}}
+  \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi consumi}{\rif{\Vd}\\\rif{\Vd.5}}
+  \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi presenze}{\rif{\Vd}\\\rif{\Vd.6}}
 
-    % --- Modifiche Dashboard UC11-18 ---
-    \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo statistiche allarmi}{\rif{11}}
-    \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo statistiche allarmi}{\rif{12}}
-    \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo informazioni \user}{\rif{13}}
-    \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo informazioni \user}{\rif{14}}
-    \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo analisi clima}{\rif{15}}
-    \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo analisi clima}{\rif{16}}
-    \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo analisi consumi}{\rif{17}}
-    \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard modulo analisi consumi}{\rif{18}}
+  % --- Modifiche Dashboard UC11-18 ---
+  \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo statistiche allarmi}{\rif{11}}
+  \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo statistiche allarmi}{\rif{12}}
+  \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo informazioni \user}{\rif{13}}
+  \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo informazioni \user}{\rif{14}}
+  \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo analisi clima}{\rif{15}}
+  \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo analisi clima}{\rif{16}}
+  \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo analisi consumi}{\rif{17}}
+  \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard modulo analisi consumi}{\rif{18}}
 
-    \addReqF{2}{L'\user deve poter risolvere un allarme}{\rif{19}}
+  \addReqF{2}{L'\user deve poter risolvere un allarme}{\rif{19}}
 
-    % --- Analytics UC20 --- 
-    \addReqF{2}{L'\user deve poter visualizzare le analytics}{\rif{\Va}}
-    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare l'elenco dei suggerimenti risparmio energetico}{\rif{\Va.1}}
-    \addReqF{2}{L'\user visualizzando l'elenco dei suggerimenti risparmio energetico deve visualizzare un suggerimento
-    risparmio energetico}{\rif{\Va.1.1}}
-    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico dedicato al consumo energetico}{\rif{\Va.2}}
-    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico dedicato alle anomalie dell'impianto}{\rif{\Va.3}}
-    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo al rilevamento di presenza}{\rif{\Va.4}}
-    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla presenza prolungata nello stesso 
-    ambiente}{\rif{\Va.5}}
-    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alle variazioni di temperatura}{\rif{\Va.6}}
-    \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo agli allarmi inviati e risolti}{\rif{\Va.7}}
-    \addReqF{0}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla frequenza degli allarmi}{\rif{\Va.8}}
-    \addReqF{0}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla frequenza delle cadute}{\rif{\Va.9}}
+  % --- Analytics UC20 --- 
+  \addReqF{2}{L'\user deve poter visualizzare le analytics}{\rif{\Va}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare l'elenco dei suggerimenti risparmio energetico}{\rif{\Va.1}}
+  \addReqF{2}{L'\user visualizzando l'elenco dei suggerimenti risparmio energetico deve visualizzare un suggerimento
+      risparmio energetico}{\rif{\Va.1.1}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico dedicato al consumo energetico}{\rif{\Va.2}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico dedicato alle anomalie dell'impianto}{\rif{\Va.3}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo al rilevamento di presenza}{\rif{\Va.4}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla presenza prolungata nello stesso
+      ambiente}{\rif{\Va.5}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alle variazioni di temperatura}{\rif{\Va.6}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo agli allarmi inviati e risolti}{\rif{\Va.7}}
+  \addReqF{0}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla frequenza degli allarmi}{\rif{\Va.8}}
+  \addReqF{0}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla frequenza delle cadute}{\rif{\Va.9}}
 
-    % --- Appartamento --- 
-    \addReqF{2}{L'\user deve poter visualizzare un appartamento del Sistema}{\rif{\Vap}}
-    \addReqF{2}{L'\user visualizzando un appartamento del Sistema deve visualizzare il nome dell'appartamento}{\rif{\Vap}\\\rif{\Vap.1}}
-    \addReqF{0}{L'\user visualizzando un appartamento del Sistema deve visualizzare la mappa degli allarmi dell'appartamento}{\rif{\Vap}\\\rif{\Vap.2}}
-    \addReqF{2}{L'\user visualizzando un appartamento del Sistema deve visualizzare le stanze dell'appartamento}{\rif{\Vap}\\\rif{\Vap.3}}
-    \addReqF{2}{L'\user deve visualizzare una stanza nel dettaglio}{\rif{\Vap.3}\\\rif{\Vap.3.1}}
-    \addReqF{2}{L'\user visualizzando una stanza deve visualizzare il nome della stanza}{\rif{\Vap.3.1}\\\rif{\Vap.3.1.1}}
-    \addReqF{2}{L'\user visualizzando una stanza deve visualizzare l'elenco dei dispositivi della stanza}{\rif{\Vap.3.1}\rif{\Vap.3.1.2}}
-    \addReqF{2}{L'\user visualizzando l'elenco dei dispositivi deve visualizzare un singolo dispositivo di tipo:
-    \begin{itemize}
-        \item termostato;
-        \item sensore di caduta;
-        \item sensore di presenza;
-        \item punto luce;
-        \item pulsante di allarme;
-        \item porta di ingresso;
-        \item tapparella.
-    \end{itemize}
-    }{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.8}}
-    \addReqF{2}{L'\user visualizzando un dispositivo deve vedere il nome}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.1}}
-    \addReqF{2}{L'\user visualizzando un dispositivo deve vedere lo stato}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.2}}
-    \addReqF{0}{L'\user visualizzando un dispositivo deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.3}}
-    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo termostato}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.1}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere il nome}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.1}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere lo stato}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.2}}
-    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.3}}
-    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo sensore di caduta}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.2}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere il nome}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.1}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere lo stato}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.2}}
-    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.3}}
-    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo sensore di presenza}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.3}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere il nome}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.1}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere lo stato}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.2}}
-    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.3}}
-    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo punto luce}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.4}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere il nome}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.1}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere lo stato}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.2}}
-    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.3}}
-    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo pulsante di allarme}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.5}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere il nome}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.1}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere lo stato}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.2}}
-    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.3}}
-    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo porta di ingresso}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.6}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere il nome}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.1}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere lo stato}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.2}}
-    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.3}}
-    % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo tapparella}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.7}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere il nome}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.1}}
-    % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere lo stato}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.2}}
-    % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.3}}
-    \addReqF{2}{L'\admin deve poter abilitare un appartamento nel Sistema}{\rif{\Aapp}}
-    \addReqF{2}{L'\admin deve poter disabilitare un appartamento nel Sistema}{\rif{\Dapp}}
-    % aggiungere tutti i sotto dispositivi
+  % --- Appartamento --- 
+  \addReqF{2}{L'\user deve poter visualizzare un appartamento del Sistema}{\rif{\Vap}}
+  \addReqF{2}{L'\user visualizzando un appartamento del Sistema deve visualizzare il nome dell'appartamento}{\rif{\Vap}\\\rif{\Vap.1}}
+  \addReqF{0}{L'\user visualizzando un appartamento del Sistema deve visualizzare la mappa degli allarmi dell'appartamento}{\rif{\Vap}\\\rif{\Vap.2}}
+  \addReqF{2}{L'\user visualizzando un appartamento del Sistema deve visualizzare le stanze dell'appartamento}{\rif{\Vap}\\\rif{\Vap.3}}
+  \addReqF{2}{L'\user deve visualizzare una stanza nel dettaglio}{\rif{\Vap.3}\\\rif{\Vap.3.1}}
+  \addReqF{2}{L'\user visualizzando una stanza deve visualizzare il nome della stanza}{\rif{\Vap.3.1}\\\rif{\Vap.3.1.1}}
+  \addReqF{2}{L'\user visualizzando una stanza deve visualizzare l'elenco dei dispositivi della stanza}{\rif{\Vap.3.1}\rif{\Vap.3.1.2}}
+  \addReqF{2}{L'\user visualizzando l'elenco dei dispositivi deve visualizzare un singolo dispositivo di tipo:
+      \begin{itemize}
+          \item termostato;
+          \item sensore di caduta;
+          \item sensore di presenza;
+          \item punto luce;
+          \item pulsante di allarme;
+          \item porta di ingresso;
+          \item tapparella.
+      \end{itemize}
+  }{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.8}}
+  \addReqF{2}{L'\user visualizzando un dispositivo deve vedere il nome}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.1}}
+  \addReqF{2}{L'\user visualizzando un dispositivo deve vedere lo stato}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.2}}
+  \addReqF{0}{L'\user visualizzando un dispositivo deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.3}}
+  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo termostato}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.1}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere il nome}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.1}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere lo stato}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.2}}
+  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.3}}
+  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo sensore di caduta}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.2}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere il nome}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.1}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere lo stato}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.2}}
+  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.3}}
+  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo sensore di presenza}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.3}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere il nome}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.1}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere lo stato}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.2}}
+  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.3}}
+  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo punto luce}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.4}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere il nome}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.1}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere lo stato}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.2}}
+  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.3}}
+  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo pulsante di allarme}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.5}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere il nome}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.1}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere lo stato}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.2}}
+  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.3}}
+  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo porta di ingresso}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.6}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere il nome}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.1}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere lo stato}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.2}}
+  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.3}}
+  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo tapparella}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.7}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere il nome}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.1}}
+  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere lo stato}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.2}}
+  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.3}}
+  \addReqF{2}{L'\admin deve poter abilitare un appartamento nel Sistema}{\rif{\Aapp}}
+  \addReqF{2}{L'\admin deve poter disabilitare un appartamento nel Sistema}{\rif{\Dapp}}
+  % aggiungere tutti i sotto dispositivi
 
-    % --- Modifiche allarme --- 
-    \addReqF{2}{L'\admin deve poter creare un allarme nel Sistema}{\rif{\Aa}}
-    \addReqF{2}{L'\admin deve selezionare l'appartamento per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.1}}
-    \addReqF{2}{L'\admin deve selezionare il sensore per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.2}}
-    \addReqF{2}{L'\admin deve selezionare il livello di priorità tra:
-    \begin{itemize}
-        \item priorità 1 (bianco);
-        \item priorità 2 (verde);
-        \item priorità 3 (arancione);
-        \item priorità 4 (rosso).
-    \end{itemize}
-    per creare un allarme nel Sistema}{\parbox[t]{\linewidth}{\rif{\Aa}\\\rif{\Aa.3}\\\rif{\Aa.4}\\\rif{\Aa.5}\\\rif{\Aa.6}\\\rif{\Aa.7}}}
-    \addReqF{2}{L'\admin deve selezionare una soglia di intervetto per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.8}}
-    \addReqF{2}{L'\admin deve selezionare un orario di attivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.9}}
-    \addReqF{2}{L'\admin deve selezionare un orario di disattivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.10}}
-    \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcun sensore}{\rif{\Erns}}
-    \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcun livello di priorità}{\rif{\Ernlp}}
-    \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcuna soglia di intervento}{\rif{\Ernss}}
-    \addReqF{2}{L'\admin deve poter modificare la priorità di un allarme del Sistema}{\rif{\Mpa}}
-    \addReqF{2}{L'\admin deve poter modificare la soglia d'intervento di un allarme del Sistema}{\rif{\Msia}}
-    \addReqF{2}{L'\admin deve poter modificare l'orario di attivazione di un allarme del Sistema}{\rif{\Moaa}}
-    \addReqF{2}{L'\admin deve poter modificare l'orario di disattivazione di un allarme del Sistema}{\rif{\Moda}}
-    \addReqF{2}{L'\admin deve poter abilitare un allarme del Sistema}{\rif{\Aal}}
-    \addReqF{2}{L'\admin deve poter disabilitare un allarme del Sistema}{\rif{\Dal}}
-    \addReqF{2}{L'\admin deve poter eliminare un allarme nel Sistema}{\rif{\Ea}}
+  % --- Modifiche allarme --- 
+  \addReqF{2}{L'\admin deve poter creare un allarme nel Sistema}{\rif{\Aa}}
+  \addReqF{2}{L'\admin deve selezionare l'appartamento per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.1}}
+  \addReqF{2}{L'\admin deve selezionare il sensore per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.2}}
+  \addReqF{2}{L'\admin deve selezionare il livello di priorità tra:
+      \begin{itemize}
+          \item priorità 1 (bianco);
+          \item priorità 2 (verde);
+          \item priorità 3 (arancione);
+          \item priorità 4 (rosso).
+      \end{itemize}
+      per creare un allarme nel Sistema}{\parbox[t]{\linewidth}{\rif{\Aa}\\\rif{\Aa.3}\\\rif{\Aa.4}\\\rif{\Aa.5}\\\rif{\Aa.6}\\\rif{\Aa.7}}}
+  \addReqF{2}{L'\admin deve selezionare una soglia di intervetto per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.8}}
+  \addReqF{2}{L'\admin deve selezionare un orario di attivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.9}}
+  \addReqF{2}{L'\admin deve selezionare un orario di disattivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.10}}
+  \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcun sensore}{\rif{\Erns}}
+  \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcun livello di priorità}{\rif{\Ernlp}}
+  \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcuna soglia di intervento}{\rif{\Ernss}}
+  \addReqF{2}{L'\admin deve poter modificare la priorità di un allarme del Sistema}{\rif{\Mpa}}
+  \addReqF{2}{L'\admin deve poter modificare la soglia d'intervento di un allarme del Sistema}{\rif{\Msia}}
+  \addReqF{2}{L'\admin deve poter modificare l'orario di attivazione di un allarme del Sistema}{\rif{\Moaa}}
+  \addReqF{2}{L'\admin deve poter modificare l'orario di disattivazione di un allarme del Sistema}{\rif{\Moda}}
+  \addReqF{2}{L'\admin deve poter abilitare un allarme del Sistema}{\rif{\Aal}}
+  \addReqF{2}{L'\admin deve poter disabilitare un allarme del Sistema}{\rif{\Dal}}
+  \addReqF{2}{L'\admin deve poter eliminare un allarme nel Sistema}{\rif{\Ea}}
 
-    % --- Notifiche --- 
-    \addReqF{0}{L'\user deve poter visualizzare le notifiche inviate dal Sistema}{\rif{\Vn}}
-    \addReqF{0}{L'\user visualizzando le notifiche deve poter visualizzare una notifica nel dettaglio}{\rif{\Vn}\\\rif{\Vn.1}}
-    \addReqF{0}{L'\user visualizzando una notifica deve poter visualizzare il titolo della notifica}{\rif{\Vn.1}\\\rif{\Vn.1.1}}
-    \addReqF{0}{L'\user visualizzando una notifica deve poter visualizzare il tempo trascorso dall'invio della 
-    notifica}{\rif{\Vn.1}\\\rif{\Vn.1.2}}
-    \makeReqFtable
+  % --- Notifiche --- 
+  \addReqF{0}{L'\user deve poter visualizzare le notifiche inviate dal Sistema}{\rif{\Vn}}
+  \addReqF{0}{L'\user visualizzando le notifiche deve poter visualizzare una notifica nel dettaglio}{\rif{\Vn}\\\rif{\Vn.1}}
+  \addReqF{0}{L'\user visualizzando una notifica deve poter visualizzare il titolo della notifica}{\rif{\Vn.1}\\\rif{\Vn.1.1}}
+  \addReqF{0}{L'\user visualizzando una notifica deve poter visualizzare il tempo trascorso dall'invio della
+      notifica}{\rif{\Vn.1}\\\rif{\Vn.1.2}}
+  \makeReqFtable
 
-    \addReqQ{2}{Il Sistema deve essere corredato da test di unità con una copertura di almeno 75\%}{\capitolato\S5.3\\\capitolato\S6.2}
-    \addReqQ{0}{Il Sistema deve essere corredato da test di unità con una copertura di almeno 90\%}{\capitolato\S5.3\\\capitolato\S6.2}
-    \addReqQ{2}{Il Sistema deve essere corredato da test di integrazione con una copertura di almeno 75\%}{\capitolato\S5.3\\\capitolato\S6.2}
-    \addReqQ{0}{Il Sistema deve essere corredato da test di integrazione con una copertura di almeno 90\%}{\capitolato\S5.3\\\capitolato\S6.2}
-    \addReqQ{2}{Il Sistema deve essere corredato da test di Sistema con una copertura di almeno 75\%}{\capitolato\S5.3\\\capitolato\S6.2}
-    \addReqQ{2}{Il Sistema deve essere corredato da test end-to-end con una copertura di almeno 80\%}{\capitolato\S5.3\\\capitolato\S6.2}
-    \makeReqQtable
+  \addReqQ{2}{Il Sistema deve essere corredato da test di unità con una copertura di almeno 75\%}{\capitolato\S5.3\\\capitolato\S6.2}
+  \addReqQ{0}{Il Sistema deve essere corredato da test di unità con una copertura di almeno 90\%}{\capitolato\S5.3\\\capitolato\S6.2}
+  \addReqQ{2}{Il Sistema deve essere corredato da test di integrazione con una copertura di almeno 75\%}{\capitolato\S5.3\\\capitolato\S6.2}
+  \addReqQ{0}{Il Sistema deve essere corredato da test di integrazione con una copertura di almeno 90\%}{\capitolato\S5.3\\\capitolato\S6.2}
+  \addReqQ{2}{Il Sistema deve essere corredato da test di Sistema con una copertura di almeno 75\%}{\capitolato\S5.3\\\capitolato\S6.2}
+  \addReqQ{2}{Il Sistema deve essere corredato da test end-to-end con una copertura di almeno 80\%}{\capitolato\S5.3\\\capitolato\S6.2}
+  \makeReqQtable
 
-    \newpage
+  \newpage
 
-    \addReqV{2}{L’infrastruttura Cloud deve usare Docker con docker-compose al fine di far valere il principio
-    di infrastructure as code.}{\capitolato \S 5.1}
-    \addReqV{0}{Per l’infrastruttura Cloud è concesso utilizzare Terraform, AWS CDK V2 o Ansible}{\capitolato \S 5.1}
-    \addReqV{2}{L’applicativo deve prevedere l’uso della tecnologia KNX IoT 3rd party API.}{\capitolato \S 5.1}
-    \addReqV{2}{L’applicativo deve prevedere l’utilizzo del meccanismo di ricezione delle notifiche di
-    impianto (push) messo a disposizione dallo standard KNX IoT (i.e. Subscription).}{\capitolato \S 5.1}
-    \addReqV{2}{Il repository di lavoro deve essere versionato tramite GIT e deve essere pubblicamente
-    accessibile (es. GitHub, BitBucket, GitLab) e per i sorgenti la licenza dovrà essere open
-    source (es. MIT, Apache 2)}{\capitolato \S 5.1}
-    \addReqV{2}{Le librerie o i framework che verranno utilizzati dovranno avere licenza open source}{\capitolato \S 5.1}
-    \addReqV{0}{Distribuire con AWS LightSail oppure AWS EC2 con Docker installato l’infrastruttura Cloud}{\capitolato\S 5.2.1}
-    \addReqV{1}{La soluzione viene implementata con un componente libreria backend realizzato ad hoc per l’interfacciamento con le 
-    API di KNX IoT, potenzialmente indipendente e riutilizzabile separatamente come “SDK” (Software Development Kit).}{\capitolato\S 6.2}
-    \addReqV{0}{Utilizzare servizi serverless come AWS SimpleNotificationService (SNS) e AWS Lambda per gli allarmi tramite 
-    Web Push Notification}{\capitolato\S 5.2.1}
-    \addReqV{0}{Utilizzare per la raccolta e la rielaborazione dati per le analytics è possibile valutare servizi serverless 
-    di AWS Kinesis, AWS Athena oppure AWS CloudWatch, AWS S3}{\capitolato\S 5.2.1}
-    \addReqV{2}{Consegnare una documentazione sull’architettura realizzata tramite il modello C4 (diagramma di contesto e di
-    container) e/o altri tipi di schemi}{\capitolato\S6.1}
-    \addReqV{2}{Consegnare bozzetti grafici relativi alla progettazione di design dell’applicativo web responsive}{\capitolato\S6.1}
-    \addReqV{2}{Consegnare documentazione sintetica della libreria backend (se implementata)}{\capitolato\S6.1}
-    \addReqV{2}{Consegnare spese stimate della propria soluzione in Cloud AWS in base ai servizi previsti}{\capitolato\S6.1}
-    \addReqV{2}{Consegnare la documentazione dei casi d'uso per l’utilizzo dell’applicativo web.}{\capitolato\S6.1}
-    \addReqV{0}{Consegnare la documentazione delle API backend}{\capitolato\S6.1}
-    \addReqV{0}{Consegnare la documentazione di tutti i test realizzati e report, con relativo coverage e risultato.}{\capitolato\S6.1}
-    \addReqV{0}{Consegnare codice sorgente (accessibile al pubblico dominio) con licenza open source e con un file README
-    contenente le istruzioni di installazione e primo utilizzo.}{\capitolato\S6.1}
-    \addReqV{0}{Consegnare screenshot e video dimostrativo della soluzione in funzione.}{\capitolato\S6.1}
-    \addReqV{0}{Consegnare manuale di utilizzo dell’applicativo web per gli utenti.}{\capitolato\S6.1}
-    \makeReqVtable
+  \addReqV{2}{L’infrastruttura Cloud deve usare Docker con docker-compose al fine di far valere il principio
+      di infrastructure as code.}{\capitolato \S 5.1}
+  \addReqV{0}{Per l’infrastruttura Cloud è concesso utilizzare Terraform, AWS CDK V2 o Ansible}{\capitolato \S 5.1}
+  \addReqV{2}{L’applicativo deve prevedere l’uso della tecnologia KNX IoT 3rd party API.}{\capitolato \S 5.1}
+  \addReqV{2}{L’applicativo deve prevedere l’utilizzo del meccanismo di ricezione delle notifiche di
+      impianto (push) messo a disposizione dallo standard KNX IoT (i.e. Subscription).}{\capitolato \S 5.1}
+  \addReqV{2}{Il repository di lavoro deve essere versionato tramite GIT e deve essere pubblicamente
+      accessibile (es. GitHub, BitBucket, GitLab) e per i sorgenti la licenza dovrà essere open
+      source (es. MIT, Apache 2)}{\capitolato \S 5.1}
+  \addReqV{2}{Le librerie o i framework che verranno utilizzati dovranno avere licenza open source}{\capitolato \S 5.1}
+  \addReqV{0}{Distribuire con AWS LightSail oppure AWS EC2 con Docker installato l’infrastruttura Cloud}{\capitolato\S 5.2.1}
+  \addReqV{1}{La soluzione viene implementata con un componente libreria backend realizzato ad hoc per l’interfacciamento con le
+      API di KNX IoT, potenzialmente indipendente e riutilizzabile separatamente come “SDK” (Software Development Kit).}{\capitolato\S 6.2}
+  \addReqV{0}{Utilizzare servizi serverless come AWS SimpleNotificationService (SNS) e AWS Lambda per gli allarmi tramite
+      Web Push Notification}{\capitolato\S 5.2.1}
+  \addReqV{0}{Utilizzare per la raccolta e la rielaborazione dati per le analytics è possibile valutare servizi serverless
+      di AWS Kinesis, AWS Athena oppure AWS CloudWatch, AWS S3}{\capitolato\S 5.2.1}
+  \addReqV{2}{Consegnare una documentazione sull’architettura realizzata tramite il modello C4 (diagramma di contesto e di
+      container) e/o altri tipi di schemi}{\capitolato\S6.1}
+  \addReqV{2}{Consegnare bozzetti grafici relativi alla progettazione di design dell’applicativo web responsive}{\capitolato\S6.1}
+  \addReqV{2}{Consegnare documentazione sintetica della libreria backend (se implementata)}{\capitolato\S6.1}
+  \addReqV{2}{Consegnare spese stimate della propria soluzione in Cloud AWS in base ai servizi previsti}{\capitolato\S6.1}
+  \addReqV{2}{Consegnare la documentazione dei casi d'uso per l’utilizzo dell’applicativo web.}{\capitolato\S6.1}
+  \addReqV{0}{Consegnare la documentazione delle API backend}{\capitolato\S6.1}
+  \addReqV{0}{Consegnare la documentazione di tutti i test realizzati e report, con relativo coverage e risultato.}{\capitolato\S6.1}
+  \addReqV{0}{Consegnare codice sorgente (accessibile al pubblico dominio) con licenza open source e con un file README
+      contenente le istruzioni di installazione e primo utilizzo.}{\capitolato\S6.1}
+  \addReqV{0}{Consegnare screenshot e video dimostrativo della soluzione in funzione.}{\capitolato\S6.1}
+  \addReqV{0}{Consegnare manuale di utilizzo dell’applicativo web per gli utenti.}{\capitolato\S6.1}
+  \makeReqVtable
 
-    \makeSummaryTable
+  \makeSummaryTable
 
-    % NICE TO HAVE: La gestione impianto dell’applicativo web permette di eseguire azioni con i dispositivi di impianto (es. accendere una luce).
-}
+  % NICE TO HAVE: La gestione impianto dell’applicativo web permette di eseguire azioni con i dispositivi di impianto (es. accendere una luce).
+ }
 
 \end{document}
