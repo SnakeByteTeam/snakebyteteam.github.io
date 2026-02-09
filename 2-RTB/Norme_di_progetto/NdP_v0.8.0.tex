@@ -11,6 +11,7 @@
 \renewcommand{\contentsname}{Indice}
 \usepackage{fancyhdr}
 \usepackage{tabularx}
+\usepackage{makecell}
 \usepackage{template}
 
 %Comandi per livello di sottosezioni = 3
@@ -47,7 +48,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                0.7.0 & 8/2/2026 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
+                0.8.0 & 9/2/2026 & Verificato & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
                 \hline
             \end{tabular}
         \end{center}
@@ -61,6 +62,8 @@
     \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
     \hline
     \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
+    \hline
+    0.8.0 & 9/2/2026 & G. De Fina & \makecell[t]{L. Granziero \\ F. Pasqual} & - & Aggiunte "generalizzazioni" nella tabella per l'Analisi dei Requisiti, aggiunto comando \textit{needspace}. \\
     \hline
     0.7.0 & 8/2/2026 & G. De Fina & V. Baleanu & - & Modificata redazione verbali (responsabile), aggiunta sezione Gestione e tracciamento dei test, distinzione test funzionali/strutturali, aggiornamento strumento comunicazioni esterne a Microsoft Teams. \\ 
     \hline
@@ -226,6 +229,7 @@ La struttura è la seguente:
 
 %==============================
 %Da cambiare con template che però non è ancora confermato
+\Needspace{15\baselineskip}
 \begin{center}
     \begin{tabularx}{\textwidth}{|c| >{\centering\arraybackslash}X|}
         \hline
@@ -236,8 +240,8 @@ La struttura è la seguente:
         Pre-condizioni & Condizioni che devono essere soddisfatte prima dello scenario descritto dal caso d'uso\\
         \hline
         Post-condizioni & Condizioni che risultano soddisfatte dopo il completamento dello scenario principale del caso d'uso. Se viene completato uno scenario alternativo, saranno soddisfatte le Post-condizioni di quest'ultimo \\
-        \hline
-        Trigger & La motivazione che porta l'utente a svolgere i passi del caso d'uso \\
+        %\hline
+        %Trigger & La motivazione che porta l'utente a svolgere i passi del caso d'uso \\
         \hline
         Scenario principale & Sequenza di passi che l'utente deve seguire per completare il caso d'uso \\
         \hline
@@ -247,12 +251,14 @@ La struttura è la seguente:
         \hline
         Inclusioni & Casi d'uso ulteriori eseguiti al fine di completare il caso d'uso principale. Vengono eseguiti tutti incondizionatamente. \\
         \hline
+        Generalizzazioni & Casi d'uso più specifici che ereditano comportamento e caratteristiche da un caso d'uso più generale, potendo aggiungere o specializzare ulteriori funzionalità. \\
+        \hline
         
     \end{tabularx}
 \end{center}
 %==========================
 La creazione della tabella è facilitata dall'utilizzo del template \texttt{templateAdR.sty}.\\
-Non tutti i \textit{casi d'uso} necessitano della tabella nella sua interezza, la presenza dei campi: Trigger, Scenari alternativi, Estensioni e Inclusioni
+Non tutti i \textit{casi d'uso} necessitano della tabella nella sua interezza, la presenza dei campi: Trigger, Scenari alternativi, Estensioni, Inclusioni e Generalizzazioni
 dipende dalla situazione.
 
 
@@ -472,6 +478,7 @@ L'approvazione di un singolo documento consiste nei seguenti passi:
 \trisubsection{Acronimi}
 Nella nomenclatura e all'interno dei documenti sono utilizzati i seguenti acronimi
 
+\Needspace{10\baselineskip}
 \begin{center}
     \begin{tabular}{|c|c|}
         \hline
@@ -638,6 +645,18 @@ L'integrazione può avvenire seguendo una strategia \textit{top-down}, che preve
 l'integrazione progressiva a partire dai moduli con maggiori dipendenze d'uso, oppure una
 strategia \textit{bottom-up}, che parte dai moduli con minori dipendenze d'uso per poi
 risalire verso quelli superiori.
+\\Per facilitare i test di integrazione e di unità, il gruppo \textit{SnakeByte} utilizza 
+tecniche di \textit{test doubling} quali:
+\begin{itemize}
+    \item \textbf{\textit{Stub}}: componenti semplificati che forniscono risposte predefinite 
+    alle chiamate effettuate durante i test, simulando il comportamento di dipendenze 
+    non ancora implementate o esterne;
+    \item \textbf{\textit{Mock}}: oggetti che simulano il comportamento di componenti reali 
+    e permettono di verificare che le interazioni tra moduli avvengano correttamente, 
+    registrando le chiamate ricevute e validando il loro utilizzo.
+\end{itemize}
+L'uso di \textit{stub} e \textit{mock} consente di isolare le unità sotto test e di 
+verificare il comportamento del codice indipendentemente dalle dipendenze esterne.
 
 \trisubsection{Test di sistema}
 I test di sistema verificano il comportamento dell'intero sistema integrato,
