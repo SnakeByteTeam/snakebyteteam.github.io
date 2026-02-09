@@ -72,8 +72,8 @@
 \newcommand\Vn{39} % Visualizzazione notifiche
 
 \newcommand\Erunr{40} % Errore username non registrato o password errata
-\newcommand\Erpte{41} % Errore username non registrato o password temporeanea errata
-\newcommand\Ernpupt{42} % Errore nuova password è uguale alla password temporeanea
+\newcommand\Erpte{41} % Errore username non registrato o password temporanea errata
+\newcommand\Ernpupt{42} % Errore nuova password è uguale alla password temporanea
 \newcommand\Ernpnv{43} % Errore nuova password non valida
 \newcommand\Eruu{44} % Errore username già in uso
 \newcommand\Ernru{45} % Errore nome reparto già in uso
@@ -461,7 +461,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addPrC{L'\admin è autenticato nel Sistema.}
 \addPoC{Il Sistema aggiunge le credenziali fornite dal portale di Vimar alla propria configurazione.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione dell'account MyVimar;}
-\addScenarioPrincipale{L'\admin viene reinderizzato al portale di Vimar per collegare l'account
+\addScenarioPrincipale{L'\admin viene reindirizzato al portale di Vimar per collegare l'account
     segue la procedura.}
 \makeUC[0.6]{\CaMV}{Collegamento account MyVimar}
 
@@ -972,8 +972,8 @@ Di seguito vengono riportati gli attori secondari individuati:
 
 \addAttore{\user}
 \addPrC{L'\user si trova nella sezione Dashboard.}
-\addPoC{Il Sistema contrassegna l'allarme come risolta.}
-\addScenarioPrincipale{L'\user contrassegna l'allarme come risolta.}
+\addPoC{Il Sistema contrassegna l'allarme come risolto.}
+\addScenarioPrincipale{L'\user contrassegna l'allarme come risolto.}
 \makeUC[0.6]{26}{Risoluzione allarme}
 
 % --------
@@ -1659,9 +1659,9 @@ Di seguito vengono riportati gli attori secondari individuati:
   \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo gestione allarmi}{\rif{\Vd}\\\rif{\Vd.1}}
   \addReqF{2}{L'\user visualizzando il modulo gestione allarmi deve poter visualizzare
       ogni singola allarme}{\rif{\Vd.1}\\\rif{\Vd.1.1}}
-  \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il segnale di pericolo}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.1}}
-  \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il nome}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.2}}
-  \addReqF{2}{L'\user visualizzando un sigolo allarme deve poter visualizzare il tempo trascorso dallo scatto
+  \addReqF{2}{L'\user visualizzando un singolo allarme deve poter visualizzare il segnale di pericolo}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.1}}
+  \addReqF{2}{L'\user visualizzando un singolo allarme deve poter visualizzare il nome}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.2}}
+  \addReqF{2}{L'\user visualizzando un singolo allarme deve poter visualizzare il tempo trascorso dallo scatto
       dell'allarme}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.3}}
   \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo statistiche allarmi}{\rif{\Vd}\\\rif{\Vd.2}}
   \addReqF{2}{L'\user visualizzando il modulo statistiche allarmi deve poter visualizzare il numero
@@ -1770,7 +1770,7 @@ Di seguito vengono riportati gli attori secondari individuati:
           \item priorità 4 (rosso).
       \end{itemize}
       per creare un allarme nel Sistema}{\parbox[t]{\linewidth}{\rif{\Aa}\\\rif{\Aa.3}\\\rif{\Aa.4}\\\rif{\Aa.5}\\\rif{\Aa.6}\\\rif{\Aa.7}}}
-  \addReqF{2}{L'\admin deve selezionare una soglia di intervetto per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.8}}
+  \addReqF{2}{L'\admin deve selezionare una soglia di intervento per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.8}}
   \addReqF{2}{L'\admin deve selezionare un orario di attivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.9}}
   \addReqF{2}{L'\admin deve selezionare un orario di disattivazione per creare un allarme nel Sistema}{\rif{\Aa}\\\rif{\Aa.10}}
   \addReqF{2}{L'\admin deve ricevere un errore se non ha selezionato alcun sensore}{\rif{\Erns}}
