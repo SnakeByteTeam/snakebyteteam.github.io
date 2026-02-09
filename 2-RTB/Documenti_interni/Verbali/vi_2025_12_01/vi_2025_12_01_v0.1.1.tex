@@ -1,0 +1,158 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 01/12/2025}
+\setDocVersion{0.1.1}
+\setDocData{01/12/2025}
+\setDocIndex{vi\_2025\_12\_01}
+\setDocState{1}
+\setDocRecipient{0}
+
+% comandi extra (rimuovere questi commenti una volta approvato il documento)
+%
+% -- costanti --
+% \noOne [-]
+% \noRole [ND]
+% \firstDraft [Prima stesura]
+% \approval [Approvazione]
+% \teamName [SnakeByte]
+% \teamEmail [snakebyteteam@gmail.com]
+% \teamRepo [https://github.com/SnakeByteTeam/snakebyteteam.github.io]
+% \teamSite [https://snakebyteteam.github.io/]
+% \recipientTeachers [prof. Vardanega Tullio, prof. Cardin Riccardo]
+% \vimar [Vimar]
+% \vimarspa [Vimar S.p.A.]
+%
+% -- variabili --
+% \docIndex | \setDocIndex{nome documento senza versione}
+% \docTitle | \setDocTitle{titolo documento} 
+% \docData | \setDocData{data documento} [GG/MM/AAAA]
+% \docVersion | \setDocVersion{versione documento}
+% \docState | \setDocState{0|1|2} [Da verificare][Verificato][Approvato]
+% \docRecipient [table] | \setDocRecipient{0|1|2} [SnakeByte][SnakeByte, prof][SnakeByte, prof, vimar]
+% 
+% -- tabelle -- [gli id sono automatici dove serve]
+% \makeMeetingInfoTable{data}{ora inizio}{ora fine}{modalità}
+% \addParticipant{nome}{cognome}{ruolo}{presenza} | \makeMeetingParticipantsTable
+% \addTodo{id github issue}{descrizione}{assegnatario}{scadenza} | \makeTodoTable
+% \addPrecedentTodo{id todo}{id github issue todo}{assegnatario todo}{data} | \makePrecedentTodoTable
+% \addDecision{descrizione decisione} | \makeDecisionTable
+%
+% -- pagine intere --
+% \makeTitlePage
+% \addChangelog{versione}{data}{autore}{verificatore}{approvatore}{descrizione} | \makeTodoTable
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\addChangelog{\docVersion}{10/12/2025}{F. Pasqual}{L. Pellizzon}{\noOne}{Modifiche todo}
+\addChangelog{0.1.0}{03/12/2025}{F. Pasqual}{L. Pellizzon}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{\docData}{12:30}{13:30}{via presenza}
+
+\addParticipant{Francesco}{Pasqual}{Responsabile}{P}
+\addParticipant{Christian}{Libralato}{Amministratore}{P}
+\addParticipant{Luca}{Granziero}{Progettista}{P}
+\addParticipant{Leonardo}{Pellizzon}{Verificatore}{P}
+\addParticipant{Valeria}{Baleanu}{Analista}{P}
+\addParticipant{Filippo}{Venzo}{Analista}{P}
+\addParticipant{Giuseppe}{De Fina}{Analista}{P}
+\makeMeetingParticipantsTable
+
+\addPrecedentTodo{vi\_2025\_11\_25.a1}{\#1}{F. Pasqual, V. Baleanu}{27/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_25.a2}{\noOne}{F. Venzo, C. Libralato, L. Granziero}{27/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_25.a3}{\#5}{F. Venzo, C. Libralato, L. Granziero}{30/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_25.a4}{\#6}{F. Venzo, C. Libralato, L. Granziero}{30/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_25.a5}{\noOne}{F. Pasqual}{27/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_25.a6}{\noOne}{C. Libralato}{29/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_25.a7}{\noOne}{G. De Fina}{27/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_25.a8}{\noOne}{L. Pellizzon}{30/11/2025}
+\makePrecedentTodoTable
+
+\section{Ordine del giorno}
+\begin{itemize}
+    \item \textit{Sprint Retrospective$_G$};
+    \item creazione e assegnazione delle attività da svolgere nel nuovo (corrente) sprint;
+    \item revisione della struttura e forma degli \textit{use case$_G$};
+    \item \textit{use case} autenticazione e registrazione utenti;
+    \item redazione e responsabilità dei documenti di progetto: Norme di Progetto, Piano di Progetto, verbali;
+    \item redazione e consegna della bozza di Analisi dei Requisiti a \vimarspa.
+\end{itemize}
+
+\section{Approfondimento}
+
+\subsection*{\textit{Sprint Retrospective}}
+Come prima cosa, il gruppo ha svolto l'attività di retrospettiva su quanto fatto nelle ultime due settimane (ultimo sprint).
+La retrospettiva ha evidenziato una situazione che il gruppo ritiene abbastanza positiva, dove quasi tutte le attività programmate
+sono state svolte con puntualità. \\
+Sono state individuate due \textit{issue$_G$} non completate. Per gestirle, si è deciso 
+di non allungare lo sprint ma di spostarle e proseguirle nello sprint successivo, contrassegnandole con dei campi 
+custom e commenti interni alla \textit{issue} stessa. \\
+I risultati ricavati dalla retrospettiva andranno riportati nel consuntivo di periodo all'interno del documento di Piano di Progetto,
+con particolare attenzione alle conseguenze dettate dalle attività non completate. 
+
+\subsection*{Revisione della struttura e forma degli \textit{use case}}
+Gli Analisti dello sprint appena concluso hanno presentato il lavoro svolto riguardo
+all'attività di Analisi dei Requisiti. 
+Sono stati esposti i dubbi e le difficoltà incontrati nel definire la struttura e la forma degli \textit{use case} e 
+nella definizione e gestione delle precondizioni, trigger, inclusioni ed estensioni.
+A tal riguardo, verranno poste delle domande ai docenti.
+
+\subsection*{\textit{Use case} autenticazione e registrazione utenti}
+Il gruppo ha valutato le modalità di autenticazione e registrazione da mettere a disposizione dell'utente nell'applicativo web \textit{View4Life$_G$}.
+E' stato discusso, in particolare per la registrazione, l'utilizzo di un codice di registrazione o una password temporanea, con preferenza per quest'ultima.
+Rimane comunque aperta la possibilità di modifica futura.
+
+\subsection*{Redazione e responsabilità dei documenti di progetto}
+Il gruppo ha discusso brevemente riguardo alla produzione della documentazione.
+E' stata individuata la necessità di cominciare a redarre il documento di Piano di Progetto
+dove tracciare preventivi e consuntivi dei primi periodi di lavoro.
+Inoltre, è emersa la necessità di aggiornare il documento di Norme di Progetto 
+con una sezione dedicata all'attività di Analisi dei Requisiti. \\
+Riguardo questi due documenti, il gruppo ha deciso che saranno presi in carico dell'Amministratore, in quanto
+il Responsabile, figura il cui lavoro è molto costoso, dovrà redarre il verbale interno della presente riunione e
+il verbale esterno relativo all'incontro \textit{SAL$_G$} tenuto recentemente con \vimarspa. \\
+Così facendo, il gruppo crede di poter rispettare ore e costo del lavoro preventivato.
+
+\subsection*{Redazione e consegna della bozza di Analisi dei Requisiti a \vimarspa}
+La proponente \vimarspa \ ha richiesto una consegna anticipata della bozza del documento di Analisi dei Requisiti
+per monitorare la comprensione del dominio e delle richieste del progetto da parte del team.
+Il gruppo ha pertanto deciso che gli Analisti si riuniranno, preferibilmente in maniera sincrona, per redarre il documento richiesto.
+Sarà poi il Responsabile a inviare il documento di bozza a \vimarspa.
+
+
+\addDecision{Non si allunga lo sprint: le attività non completate vengono trasferite e gestite nel prossimo sprint}
+\addDecision{Le issue non concluse saranno tracciate nel nuovo sprint tramite campi custom e commenti interni alla issue}
+\addDecision{Rivedere la struttura degli \textit{use case} e chiedere chiarimenti ai docenti}
+\addDecision{Password temporanea per la registrazione degli utenti}
+\addDecision{Piano di Progetto e Norme di Progetto a carico dell'Amministratore}
+\addDecision{Incontro tra Analisti per redarre la bozza dell'Analisi dei Requisiti}
+\makeDecisionTable
+
+
+\addTodo{\#17}{Stesura e verifica del verbale dell'incontro del 01/12/2025}{F. Pasqual, L. Pellizzon}{05/12/2025}
+\addTodo{\#19}{Stesura, verifica e consegna del verbale esterno dell'incontro \textit{SAL}}{F. Pasqual, L. Pellizzon}{05/12/2025}
+\addTodo{\#22}{Aggiornare il consuntivo di periodo nel Piano di Progetto}{C. Libralato}{08/12/2025}
+\addTodo{\noOne}{Assegnare ai membri le nuove \textit{issue} per il nuovo (corrente) sprint}{F. Pasqual}{02/12/2025}
+\addTodo{\noOne}{Spostare le issue non concluse nel backlog del nuovo (corrente) sprint}{F. Pasqual}{02/12/2025}
+\addTodo{\#5}{Stesura \textit{use case} cruscotto}{F. Venzo}{07/12/2025}
+\addTodo{\noOne}{Aggiornare struttura e forma \textit{use case}}{G. De Fina, V. Baleanu, F. Venzo}{07/12/2025}
+\addTodo{\#6}{Stesura \textit{use case} autenticazione}{F. Venzo}{07/12/2025}
+\addTodo{\#18}{Bozza dell'Analisi dei Requisiti}{G. De Fina, V. Baleanu, F. Venzo}{08/12/2025}
+\addTodo{\#16}{Modifiche NdP: aggiungere sezione Analisi dei Requisiti}{C. Libralato}{08/12/2025}
+\makeTodoTable
+
+
+
+\end{document}

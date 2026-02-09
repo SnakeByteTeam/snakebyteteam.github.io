@@ -1,0 +1,127 @@
+
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale esterno 10/12/2025}
+\setDocVersion{1.0.1}
+\setDocData{26/01/2026}
+\setDocIndex{ve\_2025\_12\_10}
+\setDocState{2}
+\setDocRecipient{2}
+
+% comandi extra (rimuovere questi commenti una volta approvato il documento)
+%
+% -- costanti --
+% \noOne [-]
+% \noRole [ND]
+% \firstDraft [Prima stesura]
+% \approval [Approvazione]
+% \teamName [SnakeByte]
+% \teamEmail [snakebyteteam@gmail.com]
+% \teamRepo [https://github.com/SnakeByteTeam/snakebyteteam.github.io]
+% \teamSite [https://snakebyteteam.github.io/]
+% \recipientTeachers [prof. Vardanega Tullio, prof. Cardin Riccardo]
+% \vimar [Vimar]
+% \vimarspa [Vimar S.p.A.]
+%
+% -- variabili --
+% \docIndex | \setDocIndex{nome documento senza versione}
+% \docTitle | \setDocTitle{titolo documento} 
+% \docData | \setDocData{data documento} [GG/MM/AAAA]
+% \docVersion | \setDocVersion{versione documento}
+% \docState | \setDocState{0|1|2} [Da verificare][Verificato][Approvato]
+% \docRecipient [table] | \setDocRecipient{0|1|2} [SnakeByte][SnakeByte, prof][SnakeByte, prof, vimar]
+% 
+% -- tabelle -- [gli id sono automatici dove serve]
+% \makeMeetingInfoTable{data}{ora inizio}{ora fine}{modalità}
+% \addParticipant{nome}{cognome}{ruolo}{presenza} | \makeMeetingParticipantsTable
+% \addTodo{id github issue}{descrizione}{assegnatario}{scadenza} | \makeTodoTable
+% \addPrecedentTodo{id todo}{id github issue todo}{assegnatario todo}{data} | \makePrecedentTodoTable
+% \addDecision{descrizione decisione} | \makeDecisionTable
+%
+% -- pagine intere --
+% \makeTitlePage
+% \addChangelog{versione}{data}{autore}{verificatore}{approvatore}{descrizione} | \makeTodoTable
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\addChangelog{1.0.1}{26/01/2026}{V. Baleanu}{\noOne}{V. Baleanu, M. Sciacco}{Ri-approvazione del documento a seguito di aggiornamento dello stato del documento. Nessuna modifica al contenuto.}
+\addChangelog{1.0.0}{16/01/2026}{\noOne}{\noOne}{V. Baleanu, M. Sciacco}{Approvazione interna ed esterna del documento}
+\addChangelog{0.1.0}{19/12/2025}{C. Libralato}{F. Pasqual}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{10/12/2025}{16:00}{17:00}{via \textit{Microsoft Teams$_G$}}
+
+\addParticipant{Francesco}{Pasqual}{Responsabile}{P}
+\addParticipant{Christian}{Libralato}{Amministratore}{P}
+\addParticipant{Luca}{Granziero}{Progettista}{P}
+\addParticipant{Leonardo}{Pellizzon}{Verificatore}{P}
+\addParticipant{Valeria}{Baleanu}{Analista}{P}
+\addParticipant{Filippo}{Venzo}{Analista}{P}
+\addParticipant{Giuseppe}{De Fina}{Analista}{P}
+\makeMeetingParticipantsTable
+
+\addPrecedentTodo{ve\_2025\_11\_27.a1}{\#18}{C. Libralato, V. Baleanu, G. De Fina, F. Pasqual}{10/12/2025}
+\addPrecedentTodo{ve\_2025\_11\_27.a2}{\noOne}{\teamName}{10/12/2025}
+\addPrecedentTodo{ve\_2025\_11\_27.a3}{\noOne}{L. Pellizzon}{10/12/2025}
+\addPrecedentTodo{ve\_2025\_11\_27.a4}{\noOne}{F. Pasqual}{09/12/2025}
+
+\makePrecedentTodoTable
+
+
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Stato avanzamento lavori;
+    \item Q\&A riguardo l'AdR;
+    \item consigli;
+    \item chiarimenti sul \textit{PoC$_G$}.
+\end{itemize}
+
+\section{Approfondimento}
+\subsection*{Stato avanzamento lavori}
+Il team ha elencato le attività portate a termine nell'ultimo periodo e quelle in corso d'opera, in riferimento alla
+documentazione, in particolare all'Analisi dei Requisiti e al Piano di Progetto, e a questioni più tecniche come 
+la configurazione del kit fornito e l'autenticazione con \textit{KNX 3rd Party API$_G$}.
+
+\subsection*{Q\&A riguardo l'AdR}
+Dalla risoluzione dei dubbi riguardo l'Analisi dei Requisiti è emerso che:
+\begin{itemize}
+\item il database interno, atto alla permanenza dei dati, non può essere considerato attore secondario in quanto interno al sistema, è utile invece identificare
+come attori esterni al sistema le entità che inviano notifiche o segnali, che in base all'interpretazione di alto livello possono
+coincidere con un paziente, con il \textit{Vimar Cloud}, o con l'\textit{API KNK IoT}.
+\item la scelta tra il mantenimento di \textit{casi d'uso$_G$} aventi solo estensioni o la loro disgregazione nelle singole parti
+può dipendere dal contesto, a tal fine è importante porre l'attenzione sull'obiettivo dell'attore e le pre e post condizioni del \textit{caso d'uso} aggregato. L'approccio è utile
+per raggruppare concettualmente più operazioni, tuttavia in merito a ciò è consigliato di attendere anche il feedback del prof. Cardin.
+\item la distinzione tra i \textit{casi d'uso} legati alla visualizzazione delle Analytics e dei Dispositivi è corretta in quanto le due sezioni soddisfano obiettivi diversi.
+\end{itemize}
+
+\subsection*{Consigli}
+Per quanto concerne i diagrammi dei \textit{casi d'uso} è stato consigliata la realizzazione di diagrammi
+unici e completi, senza avere diagrammi separati per ogni sotto-caso che non provochi flussi alternativi rilevanti.\\\\
+Riguardo la visualizzazione delle Analytics è stato caldamente suggerito di non sviluppare le grafiche dal principio ma di usare 
+template e temi gratuiti pre-esistenti al fine di ottenere soluzioni robuste e verificate senza aumentare notevolmente il carico di lavoro.\\\\
+È infine emerso il concetto di reparto (o gruppo logico), a cui associare utenti e impianti. Questo metodo di gestione offre maggior flessibilità
+e facilita la gestione di notifiche, allarmi e Analytics.
+
+\subsection*{Chiarimenti sul \textit{PoC}}
+Il team ha espresso alcuni dubbi riguardanti l'essenza, dal punto di vista pratico, del Proof of Concept che sono stati risolti con una breve digressione.
+
+\addDecision{Utilizzo di template e temi esistenti per la grafica delle Analytics.}
+\makeDecisionTable
+
+\addTodo{\noOne}{Sostenere il colloquio con il prof. Cardin}{\teamName}{17/10/2025}
+\addTodo{\noOne}{Ottenere approvazione del verbale esterno del 27/11/2025 su RoundReview}{F. Pasqual}{20/10/2025}
+\makeTodoTable
+
+\end{document}

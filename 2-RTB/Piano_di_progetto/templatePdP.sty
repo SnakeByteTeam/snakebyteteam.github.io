@@ -1,0 +1,506 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{templatePdP}[14/12/2025 Dedicato a tabelle costi in PdP]
+
+\usepackage{tabularx}
+\usepackage{eurosym}
+\usepackage{multirow}
+\usepackage{xfp}
+\usepackage{ifthen}
+\usepackage{etoolbox}
+
+\iffalse
+COMANDI PER I NUMERI
+\fpeval{3.5 + 2.1}
+\fpeval{10 / 3}
+\fpeval{sqrt(2)}
+\fpeval{round(10/3,2)}
+
+\newcommand{\ris}{\fpeval{5*7}}
+Il risultato è \ris.
+\fi
+
+\iffalse
+Per la costruzione delle tabelle servono:
+COSTANTI:
+Costo orario per ruolo
+Ore totali per ogni ruolo
+
+VARIABILI:
+Assegnazioni ruoli
+Ore previste
+Ore effettive
+\fi
+
+%COSTANTI
+%Abbreviazioni
+\newcommand{\Resp}{Responsabile}
+\newcommand{\Anal}{Analista}
+\newcommand{\Amm}{Amministratore}
+\newcommand{\Proge}{Progettista}
+\newcommand{\Progr}{Programmatore}
+\newcommand{\Verif}{Verificatore}
+%Costo orario
+\newcommand{\costoHResp}{30}
+\newcommand{\costoHAmm}{20}
+\newcommand{\costoHAnal}{25}
+\newcommand{\costoHProge}{25}
+\newcommand{\costoHProgr}{15}
+\newcommand{\costoHVerif}{15}
+%Ore totali progetto
+\newcommand{\oreTotResp}{78}
+\newcommand{\oreTotAmm}{76}
+\newcommand{\oreTotAnal}{86}
+\newcommand{\oreTotProge}{111}
+\newcommand{\oreTotProgr}{142}
+\newcommand{\oreTotVerif}{142}
+\newcommand{\oreTotVacante}{0}
+%Costo totale progetto
+\newcommand{\costoTotResp}{\fpeval{\costoHResp * \oreTotResp}}
+\newcommand{\costoTotAmm}{\fpeval{\costoHAmm * \oreTotAmm}}
+\newcommand{\costoTotAnal}{\fpeval{\costoHAnal * \oreTotAnal}}
+\newcommand{\costoTotProge}{\fpeval{\costoHProge * \oreTotProge}}
+\newcommand{\costoTotProgr}{\fpeval{\costoHProgr * \oreTotProgr}}
+\newcommand{\costoTotVerif}{\fpeval{\costoHVerif * \oreTotVerif}}
+\newcommand{\costoTotVacante}{\fpeval{\costoHProge * \oreTotVacante}}
+
+%VARIABILI
+% Ore e budget rimasti non vengono mai resettati ma ad ogni sprint di sottraggono le risorse consumate
+%Ore rimaste per i prox sprint
+\newcommand{\oreTotRespRimaste}{\oreTotResp}
+\newcommand{\oreTotAmmRimaste}{\oreTotAmm}
+\newcommand{\oreTotAnalRimaste}{\oreTotAnal}
+\newcommand{\oreTotProgeRimaste}{\oreTotProge}
+\newcommand{\oreTotProgrRimaste}{\oreTotProgr}
+\newcommand{\oreTotVerifRimaste}{\oreTotVerif}
+\newcommand{\oreTotVacanteRimaste}{\oreTotVacante}
+\newcommand{\oreTotVacanteRimasteTMP}{}
+%Budget rimasto per i prox sprint
+\newcommand{\budgetRespRimasto}{\costoTotResp}
+\newcommand{\budgetAmmRimasto}{\costoTotAmm}
+\newcommand{\budgetAnalRimasto}{\costoTotAnal}
+\newcommand{\budgetProgeRimasto}{\costoTotProge}
+\newcommand{\budgetProgrRimasto}{\costoTotProgr}
+\newcommand{\budgetVerifRimasto}{\costoTotVerif}
+\newcommand{\budgetVacanteRimasto}{\costoTotVacante}
+\newcommand{\budgetVacanteRimastoTMP}{}
+%% Ruoli, ore previste e reali vanno resettate ad ogni sprint
+%ore previste
+\newcommand{\HPrevisteFilippo}{}
+\newcommand{\HPrevisteValeria}{}
+\newcommand{\HPrevisteGiuseppe}{}
+\newcommand{\HPrevisteLuca}{}
+\newcommand{\HPrevisteChristian}{}
+\newcommand{\HPrevisteLeonardo}{}
+\newcommand{\HPrevisteFrancesco}{}
+\newcommand{\HPrevisteVacante}{}
+%ore reali
+\newcommand{\HRealiFilippo}{}
+\newcommand{\HRealiValeria}{}
+\newcommand{\HRealiGiuseppe}{}
+\newcommand{\HRealiLuca}{}
+\newcommand{\HRealiChristian}{}
+\newcommand{\HRealiLeonardo}{}
+\newcommand{\HRealiFrancesco}{}
+\newcommand{\HRealiVacante}{}
+%ruoli
+\newcommand{\ruoloFilippo}{}
+\newcommand{\ruoloValeria}{}
+\newcommand{\ruoloGiuseppe}{}
+\newcommand{\ruoloLuca}{}
+\newcommand{\ruoloChristian}{}
+\newcommand{\ruoloLeonardo}{}
+\newcommand{\ruoloFrancesco}{}
+\newcommand{\ruoloVacante}{}
+%SETTER
+%ore previste
+\newcommand{\setHPrevisteFilippo}[1]{\xappto{\HPrevisteFilippo}{#1}}
+\newcommand{\setHPrevisteValeria}[1]{\xappto{\HPrevisteValeria}{#1}}
+\newcommand{\setHPrevisteGiuseppe}[1]{\xappto{\HPrevisteGiuseppe}{#1}}
+\newcommand{\setHPrevisteLuca}[1]{\xappto{\HPrevisteLuca}{#1}}
+\newcommand{\setHPrevisteChristian}[1]{\xappto{\HPrevisteChristian}{#1}}
+\newcommand{\setHPrevisteLeonardo}[1]{\xappto{\HPrevisteLeonardo}{#1}}
+\newcommand{\setHPrevisteFrancesco}[1]{\xappto{\HPrevisteFrancesco}{#1}}
+\newcommand{\setHPrevisteVacante}[1]{\xappto{\HPrevisteVacante}{#1}}
+%ore reali
+\newcommand{\setHRealiFilippo}[1]{\xappto{\HRealiFilippo}{#1}}
+\newcommand{\setHRealiValeria}[1]{\xappto{\HRealiValeria}{#1}}
+\newcommand{\setHRealiGiuseppe}[1]{\xappto{\HRealiGiuseppe}{#1}}
+\newcommand{\setHRealiLuca}[1]{\xappto{\HRealiLuca}{#1}}
+\newcommand{\setHRealiChristian}[1]{\xappto{\HRealiChristian}{#1}}
+\newcommand{\setHRealiLeonardo}[1]{\xappto{\HRealiLeonardo}{#1}}
+\newcommand{\setHRealiFrancesco}[1]{\xappto{\HRealiFrancesco}{#1}}
+\newcommand{\setHRealiVacante}[1]{\xappto{\HRealiVacante}{#1}}
+%ruoli
+\newcommand{\setRuoloFilippo}[1]{\xappto{\ruoloFilippo}{#1}}
+\newcommand{\setRuoloValeria}[1]{\xappto{\ruoloValeria}{#1}}
+\newcommand{\setRuoloGiuseppe}[1]{\xappto{\ruoloGiuseppe}{#1}}
+\newcommand{\setRuoloLuca}[1]{\xappto{\ruoloLuca}{#1}}
+\newcommand{\setRuoloChristian}[1]{\xappto{\ruoloChristian}{#1}}
+\newcommand{\setRuoloLeonardo}[1]{\xappto{\ruoloLeonardo}{#1}}
+\newcommand{\setRuoloFrancesco}[1]{\xappto{\ruoloFrancesco}{#1}}
+\newcommand{\setRuoloVacante}[1]{\xappto{\ruoloVacante}{#1}}
+%ore previste per ruolo
+\newcommand{\HPrevisteResp}{0}
+\newcommand{\HPrevisteAmm}{0}
+\newcommand{\HPrevisteAnal}{0}
+\newcommand{\HPrevisteProge}{0}
+\newcommand{\HPrevisteProgr}{0}
+\newcommand{\HPrevisteVerif}{0}
+%ore effettive per ruolo
+\newcommand{\HRealiResp}{0}
+\newcommand{\HRealiAmm}{0}
+\newcommand{\HRealiAnal}{0}
+\newcommand{\HRealiProge}{0}
+\newcommand{\HRealiProgr}{0}
+\newcommand{\HRealiVerif}{0}
+
+%temporanee
+\newcommand{\oreTotRespRimasteTMP}{}
+\newcommand{\oreTotAmmRimasteTMP}{}
+\newcommand{\oreTotAnalRimasteTMP}{}
+\newcommand{\oreTotProgeRimasteTMP}{}
+\newcommand{\oreTotProgrRimasteTMP}{}
+\newcommand{\oreTotVerifRimasteTMP}{}
+
+\newcommand{\budgetRespRimastoTMP}{}
+\newcommand{\budgetAmmRimastoTMP}{}
+\newcommand{\budgetAnalRimastoTMP}{}
+\newcommand{\budgetProgeRimastoTMP}{}
+\newcommand{\budgetProgrRimastoTMP}{}
+\newcommand{\budgetVerifRimastoTMP}{}
+
+%comandi per calcolare le ore previste e reali a partire dalle ore dei componenti del gruppo
+%Se il componente ha quel ruolo allora somma le sue ore al contatore (fa append)
+%REGOLA: \ifthenelse{condizione}{stringa se vero}{stringa se falso}
+\newcommand{\CalcolaHPrevisteResp}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Resp}}{\gappto{\HPrevisteResp}{+ \HPrevisteFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Resp}}{\gappto{\HPrevisteResp}{+ \HPrevisteValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Resp}}{\gappto{\HPrevisteResp}{+ \HPrevisteGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Resp}}{\gappto{\HPrevisteResp}{+ \HPrevisteLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Resp}}{\gappto{\HPrevisteResp}{+ \HPrevisteChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Resp}}{\gappto{\HPrevisteResp}{+ \HPrevisteLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Resp}}{\gappto{\HPrevisteResp}{+ \HPrevisteFrancesco}}{}
+}
+
+\newcommand{\CalcolaHPrevisteAmm}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Amm}}{\gappto{\HPrevisteAmm}{+ \HPrevisteFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Amm}}{\gappto{\HPrevisteAmm}{+ \HPrevisteValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Amm}}{\gappto{\HPrevisteAmm}{+ \HPrevisteGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Amm}}{\gappto{\HPrevisteAmm}{+ \HPrevisteLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Amm}}{\gappto{\HPrevisteAmm}{+ \HPrevisteChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Amm}}{\gappto{\HPrevisteAmm}{+ \HPrevisteLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Amm}}{\gappto{\HPrevisteAmm}{+ \HPrevisteFrancesco}}{}
+}
+
+\newcommand{\CalcolaHPrevisteAnal}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Anal}}{\gappto{\HPrevisteAnal}{+ \HPrevisteFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Anal}}{\gappto{\HPrevisteAnal}{+ \HPrevisteValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Anal}}{\gappto{\HPrevisteAnal}{+ \HPrevisteGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Anal}}{\gappto{\HPrevisteAnal}{+ \HPrevisteLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Anal}}{\gappto{\HPrevisteAnal}{+ \HPrevisteChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Anal}}{\gappto{\HPrevisteAnal}{+ \HPrevisteLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Anal}}{\gappto{\HPrevisteAnal}{+ \HPrevisteFrancesco}}{}
+}
+
+\newcommand{\CalcolaHPrevisteProge}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteFrancesco}}{}
+    \ifthenelse{\equal{\ruoloVacante}{\Proge}}{\gappto{\HPrevisteProge}{+ \HPrevisteVacante}}{}
+}
+
+\newcommand{\CalcolaHPrevisteProgr}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Progr}}{\gappto{\HPrevisteProgr}{+ \HPrevisteFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Progr}}{\gappto{\HPrevisteProgr}{+ \HPrevisteValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Progr}}{\gappto{\HPrevisteProgr}{+ \HPrevisteGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Progr}}{\gappto{\HPrevisteProgr}{+ \HPrevisteLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Progr}}{\gappto{\HPrevisteProgr}{+ \HPrevisteChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Progr}}{\gappto{\HPrevisteProgr}{+ \HPrevisteLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Progr}}{\gappto{\HPrevisteProgr}{+ \HPrevisteFrancesco}}{}
+}
+
+\newcommand{\CalcolaHPrevisteVerif}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Verif}}{\gappto{\HPrevisteVerif}{+ \HPrevisteFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Verif}}{\gappto{\HPrevisteVerif}{+ \HPrevisteValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Verif}}{\gappto{\HPrevisteVerif}{+ \HPrevisteGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Verif}}{\gappto{\HPrevisteVerif}{+ \HPrevisteLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Verif}}{\gappto{\HPrevisteVerif}{+ \HPrevisteChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Verif}}{\gappto{\HPrevisteVerif}{+ \HPrevisteLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Verif}}{\gappto{\HPrevisteVerif}{+ \HPrevisteFrancesco}}{}
+}
+
+%========== REALI ==========
+
+\newcommand{\CalcolaHRealiResp}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Resp}}{\gappto{\HRealiResp}{+ \HRealiFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Resp}}{\gappto{\HRealiResp}{+ \HRealiValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Resp}}{\gappto{\HRealiResp}{+ \HRealiGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Resp}}{\gappto{\HRealiResp}{+ \HRealiLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Resp}}{\gappto{\HRealiResp}{+ \HRealiChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Resp}}{\gappto{\HRealiResp}{+ \HRealiLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Resp}}{\gappto{\HRealiResp}{+ \HRealiFrancesco}}{}
+}
+
+\newcommand{\CalcolaHRealiAmm}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Amm}}{\gappto{\HRealiAmm}{+ \HRealiFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Amm}}{\gappto{\HRealiAmm}{+ \HRealiValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Amm}}{\gappto{\HRealiAmm}{+ \HRealiGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Amm}}{\gappto{\HRealiAmm}{+ \HRealiLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Amm}}{\gappto{\HRealiAmm}{+ \HRealiChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Amm}}{\gappto{\HRealiAmm}{+ \HRealiLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Amm}}{\gappto{\HRealiAmm}{+ \HRealiFrancesco}}{}
+}
+
+\newcommand{\CalcolaHRealiAnal}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Anal}}{\gappto{\HRealiAnal}{+ \HRealiFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Anal}}{\gappto{\HRealiAnal}{+ \HRealiValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Anal}}{\gappto{\HRealiAnal}{+ \HRealiGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Anal}}{\gappto{\HRealiAnal}{+ \HRealiLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Anal}}{\gappto{\HRealiAnal}{+ \HRealiChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Anal}}{\gappto{\HRealiAnal}{+ \HRealiLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Anal}}{\gappto{\HRealiAnal}{+ \HRealiFrancesco}}{}
+}
+
+\newcommand{\CalcolaHRealiProge}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiFrancesco}}{}
+    \ifthenelse{\equal{\ruoloVacante}{\Proge}}{\gappto{\HRealiProge}{+ \HRealiVacante}}{}
+}
+
+\newcommand{\CalcolaHRealiProgr}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Progr}}{\gappto{\HRealiProgr}{+ \HRealiFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Progr}}{\gappto{\HRealiProgr}{+ \HRealiValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Progr}}{\gappto{\HRealiProgr}{+ \HRealiGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Progr}}{\gappto{\HRealiProgr}{+ \HRealiLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Progr}}{\gappto{\HRealiProgr}{+ \HRealiChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Progr}}{\gappto{\HRealiProgr}{+ \HRealiLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Progr}}{\gappto{\HRealiProgr}{+ \HRealiFrancesco}}{}
+}
+
+\newcommand{\CalcolaHRealiVerif}{
+    \ifthenelse{\equal{\ruoloFilippo}{\Verif}}{\gappto{\HRealiVerif}{+ \HRealiFilippo}}{}
+    \ifthenelse{\equal{\ruoloValeria}{\Verif}}{\gappto{\HRealiVerif}{+ \HRealiValeria}}{}
+    \ifthenelse{\equal{\ruoloGiuseppe}{\Verif}}{\gappto{\HRealiVerif}{+ \HRealiGiuseppe}}{}
+    \ifthenelse{\equal{\ruoloLuca}{\Verif}}{\gappto{\HRealiVerif}{+ \HRealiLuca}}{}
+    \ifthenelse{\equal{\ruoloChristian}{\Verif}}{\gappto{\HRealiVerif}{+ \HRealiChristian}}{}
+    \ifthenelse{\equal{\ruoloLeonardo}{\Verif}}{\gappto{\HRealiVerif}{+ \HRealiLeonardo}}{}
+    \ifthenelse{\equal{\ruoloFrancesco}{\Verif}}{\gappto{\HRealiVerif}{+ \HRealiFrancesco}}{}
+}
+
+
+\newcommand{\makeTableRuoli}{
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            \rowcolor{lightgray} \textbf{Ruolo} & \textbf{Membro} & \textbf{Ore previste} & \textbf{Ore reali}\\
+            \hline
+            \ruoloValeria & V. Baleanu & \HPrevisteValeria & \HRealiValeria\\ \hline
+            \ruoloGiuseppe & G. De Fina & \HPrevisteGiuseppe & \HRealiGiuseppe\\ \hline
+            \ruoloLuca & L. Granziero & \HPrevisteLuca & \HRealiLuca\\ \hline
+            \ruoloChristian & C. Libralato & \HPrevisteChristian & \HRealiChristian\\ \hline
+            \ruoloFrancesco & F. Pasqual & \HPrevisteFrancesco & \HRealiFrancesco\\ \hline
+            \ruoloLeonardo & L. Pellizzon & \HPrevisteLeonardo & \HRealiLeonardo\\ \hline
+            \ruoloFilippo & F. Venzo & \HPrevisteFilippo & \HRealiFilippo\\ \hline
+            \ifthenelse{\equal{\ruoloVacante}{\Resp} \OR \equal{\ruoloVacante}{\Amm} \OR \equal{\ruoloVacante}{\Anal} \OR \equal{\ruoloVacante}{\Proge} \OR \equal{\ruoloVacante}{\Progr} \OR \equal{\ruoloVacante}{\Verif}}{
+                \ruoloVacante & - & \HPrevisteVacante & \HRealiVacante\\ \hline
+            }{}
+
+            \cellcolor{lightgray} \textbf{Totale} & - 
+            &\ifthenelse{\equal{\HPrevisteVacante}{}}%
+                {\fpeval{\HPrevisteFilippo+\HPrevisteChristian+\HPrevisteValeria+\HPrevisteGiuseppe+\HPrevisteFrancesco+\HPrevisteLuca+\HPrevisteLeonardo}}%
+                {\fpeval{\HPrevisteFilippo+\HPrevisteChristian+\HPrevisteValeria+\HPrevisteGiuseppe+\HPrevisteFrancesco+\HPrevisteLuca+\HPrevisteLeonardo+\HPrevisteVacante}}
+            &\ifthenelse{\equal{\HRealiVacante}{}}%
+                {\fpeval{\HRealiFilippo+\HRealiChristian+\HRealiValeria+\HRealiGiuseppe+\HRealiFrancesco+\HRealiLuca+\HRealiLeonardo}}%
+                {\fpeval{\HRealiFilippo+\HRealiChristian+\HRealiValeria+\HRealiGiuseppe+\HRealiFrancesco+\HRealiLuca+\HRealiLeonardo+\HRealiVacante}}\\
+            \hline
+
+        \end{tabular}
+    \end{center}
+}
+
+% Creazione tabella in tutta autonomia!!!
+% basta solo aver definito le ore previste e reali di ogni persona !!!!
+\newcommand{\makeTableDeviazioni}{
+\CalcolaHPrevisteResp
+\CalcolaHRealiResp
+
+\CalcolaHPrevisteAmm
+\CalcolaHRealiAmm
+
+\CalcolaHPrevisteAnal
+\CalcolaHRealiAnal
+
+\CalcolaHPrevisteProge
+\CalcolaHRealiProge
+
+\CalcolaHPrevisteProgr
+\CalcolaHRealiProgr
+
+\CalcolaHPrevisteVerif
+\CalcolaHRealiVerif
+
+\begin{center}
+    \begin{tabularx}{\textwidth}{|X|c|c|c|c|c|c|c|}
+        \hline
+        \rowcolor{lightgray} \multirow[t]{2}{*}{\rotatebox[origin=c]{\rotaz}{\textbf{Ruolo}}}
+        &\multirow[t]{2}{*}{\textbf{Costo orario}}
+        &\multicolumn{2}{c|}{\textbf{Ore}}
+        &\multicolumn{2}{c|}{\textbf{Costo}}
+        &\multicolumn{2}{c|}{\textbf{Deviazione}}\\
+        \arrayrulecolor{lightgray} %sta roba serve perché altrimenti si vede una linea bianca tra le celle unite in Ruolo e Costo orario
+        \cline{1-2}
+        \arrayrulecolor{black}
+        \cline{3-8}
+        \rowcolor{lightgray} & &\rotatebox[origin=c]{\rotaz}{\textbf{previste}} 
+        &\rotatebox[origin=c]{\rotaz}{\textbf{reali}} 
+        &\rotatebox[origin=c]{\rotaz}{\textbf{previsto}} 
+        &\rotatebox[origin=c]{\rotaz}{\textbf{reale}} 
+        &\rotatebox[origin=c]{\rotaz}{\textbf{ore}} 
+        &\rotatebox[origin=c]{\rotaz}{\textbf{costo}}\\
+        \hline
+        \Resp & \costoHResp \euro/h & \fpeval{\HPrevisteResp} & \fpeval{\HRealiResp} & \fpeval{(\HPrevisteResp) * \costoHResp} \euro & \fpeval{(\HRealiResp) * \costoHResp} \euro &  \fpeval{\HRealiResp - (\HPrevisteResp)} & \fpeval{((\HRealiResp) * \costoHResp) - ((\HPrevisteResp) * \costoHResp)} \euro\\
+        \hline
+        \Amm & \costoHAmm \euro/h & \fpeval{\HPrevisteAmm} & \fpeval{\HRealiAmm} & \fpeval{(\HPrevisteAmm) * \costoHAmm} \euro & \fpeval{(\HRealiAmm) * \costoHAmm} \euro &  \fpeval{\HRealiAmm - (\HPrevisteAmm)} & \fpeval{((\HRealiAmm) * \costoHAmm) - ((\HPrevisteAmm) * \costoHAmm)} \euro\\
+        \hline
+        \Anal & \costoHAnal \euro/h & \fpeval{\HPrevisteAnal} & \fpeval{\HRealiAnal} & \fpeval{(\HPrevisteAnal) * \costoHAnal} \euro & \fpeval{(\HRealiAnal) * \costoHAnal} \euro &  \fpeval{\HRealiAnal - (\HPrevisteAnal)} & \fpeval{((\HRealiAnal) * \costoHAnal) - ((\HPrevisteAnal) * \costoHAnal)} \euro\\
+        \hline
+        \Proge & \costoHProge \euro/h & \fpeval{\HPrevisteProge} & \fpeval{\HRealiProge} & \fpeval{(\HPrevisteProge) * \costoHProge} \euro & \fpeval{(\HRealiProge) * \costoHProge} \euro &  \fpeval{\HRealiProge - (\HPrevisteProge)} & \fpeval{((\HRealiProge) * \costoHProge) - ((\HPrevisteProge) * \costoHProge)} \euro\\
+        \hline
+        \Progr & \costoHProgr \euro/h & \fpeval{\HPrevisteProgr} & \fpeval{\HRealiProgr} & \fpeval{(\HPrevisteProgr) * \costoHProgr} \euro & \fpeval{(\HRealiProgr) * \costoHProgr} \euro &  \fpeval{\HRealiProgr - (\HPrevisteProgr)} & \fpeval{((\HRealiProgr) * \costoHProgr) - ((\HPrevisteProgr) * \costoHProgr)} \euro\\
+        \hline
+        \Verif & \costoHVerif \euro/h & \fpeval{\HPrevisteVerif} & \fpeval{\HRealiVerif} & \fpeval{(\HPrevisteVerif) * \costoHVerif} \euro & \fpeval{(\HRealiVerif) * \costoHVerif} \euro &  \fpeval{\HRealiVerif - (\HPrevisteVerif)} & \fpeval{((\HRealiVerif) * \costoHVerif) - ((\HPrevisteVerif) * \costoHVerif)} \euro\\
+        \hline
+        \cellcolor{lightgray}{\textbf{Totale}} 
+        & - 
+        & \fpeval{(\HPrevisteResp) + (\HPrevisteAmm) + (\HPrevisteAnal) + (\HPrevisteProge) + (\HPrevisteProgr) + (\HPrevisteVerif)} 
+        & \fpeval{(\HRealiResp) + (\HRealiAmm) + (\HRealiAnal) + (\HRealiProge) + (\HRealiProgr) + (\HRealiVerif)} 
+        & \fpeval{\fpeval{(\HPrevisteResp) * \costoHResp} + \fpeval{(\HPrevisteAmm) * \costoHAmm} + \fpeval{(\HPrevisteAnal) * \costoHAnal} + \fpeval{(\HPrevisteProge) * \costoHProge} + \fpeval{(\HPrevisteProgr) * \costoHProgr} + \fpeval{(\HPrevisteVerif) * \costoHVerif}} \euro 
+        & \fpeval{\fpeval{(\HRealiResp) * \costoHResp} + \fpeval{(\HRealiAmm) * \costoHAmm} + \fpeval{(\HRealiAnal) * \costoHAnal} + \fpeval{(\HRealiProge) * \costoHProge} + \fpeval{(\HRealiProgr) * \costoHProgr} + \fpeval{(\HRealiVerif) * \costoHVerif}} \euro         
+        & \fpeval{\fpeval{(\HRealiResp) - (\HPrevisteResp)} + \fpeval{(\HRealiAmm) - (\HPrevisteAmm)} + \fpeval{(\HRealiAnal) - (\HPrevisteAnal)} + \fpeval{(\HRealiProge) - (\HPrevisteProge)} + \fpeval{(\HRealiProgr) - (\HPrevisteProgr)} + \fpeval{(\HRealiVerif) - (\HPrevisteVerif)}} 
+        & \fpeval{\fpeval{((\HRealiResp) * \costoHResp) - ((\HPrevisteResp) * \costoHResp)} + \fpeval{((\HRealiAmm) * \costoHAmm) - ((\HPrevisteAmm) * \costoHAmm)} + \fpeval{((\HRealiAnal) * \costoHAnal) - ((\HPrevisteAnal) * \costoHAnal)}
+        + \fpeval{((\HRealiProge) * \costoHProge) - ((\HPrevisteProge) * \costoHProge)} + \fpeval{((\HRealiProgr) * \costoHProgr) - ((\HPrevisteProgr) * \costoHProgr)} + \fpeval{((\HRealiVerif) * \costoHVerif) - ((\HPrevisteVerif) * \costoHVerif)}} \euro \\
+        \hline
+    \end{tabularx}
+\end{center}
+
+}
+
+
+\newcommand{\resetVariables}{
+    \renewcommand{\HPrevisteFilippo}{}
+    \renewcommand{\HPrevisteValeria}{}
+    \renewcommand{\HPrevisteGiuseppe}{}
+    \renewcommand{\HPrevisteLuca}{}
+    \renewcommand{\HPrevisteChristian}{}
+    \renewcommand{\HPrevisteLeonardo}{}
+    \renewcommand{\HPrevisteFrancesco}{}
+    \renewcommand{\HPrevisteVacante}{}
+
+    \renewcommand{\HRealiFilippo}{}
+    \renewcommand{\HRealiValeria}{}
+    \renewcommand{\HRealiGiuseppe}{}
+    \renewcommand{\HRealiLuca}{}
+    \renewcommand{\HRealiChristian}{}
+    \renewcommand{\HRealiLeonardo}{}
+    \renewcommand{\HRealiFrancesco}{}
+    \renewcommand{\HRealiVacante}{}
+
+    \renewcommand{\ruoloFilippo}{}
+    \renewcommand{\ruoloValeria}{}
+    \renewcommand{\ruoloGiuseppe}{}
+    \renewcommand{\ruoloLuca}{}
+    \renewcommand{\ruoloChristian}{}
+    \renewcommand{\ruoloLeonardo}{}
+    \renewcommand{\ruoloFrancesco}{}
+    \renewcommand{\ruoloVacante}{}
+
+    \renewcommand{\HPrevisteResp}{0}
+    \renewcommand{\HPrevisteAmm}{0}
+    \renewcommand{\HPrevisteAnal}{0}
+    \renewcommand{\HPrevisteProge}{0}
+    \renewcommand{\HPrevisteProgr}{0}
+    \renewcommand{\HPrevisteVerif}{0}
+
+    \renewcommand{\HRealiResp}{0}
+    \renewcommand{\HRealiAmm}{0}
+    \renewcommand{\HRealiAnal}{0}
+    \renewcommand{\HRealiProge}{0}
+    \renewcommand{\HRealiProgr}{0}
+    \renewcommand{\HRealiVerif}{0}
+}
+
+
+
+\newcommand{\makeTablePreventivo}{
+    % Variabili temporanee per salvare il valore, servono altrimenti si fa una ridefinizione ricorsiva dei valori rimasti
+    % sono i valori nuovi calcolati, al prossimo spint diventano i valori di partenza iniziali
+    \renewcommand{\oreTotRespRimasteTMP}{\fpeval{\oreTotRespRimaste - (\HRealiResp)}}
+    \renewcommand{\oreTotAmmRimasteTMP}{\fpeval{\oreTotAmmRimaste - (\HRealiAmm)}}
+    \renewcommand{\oreTotAnalRimasteTMP}{\fpeval{\oreTotAnalRimaste - (\HRealiAnal)}}
+    \renewcommand{\oreTotProgeRimasteTMP}{\fpeval{\oreTotProgeRimaste - (\HRealiProge)}}
+    \renewcommand{\oreTotProgrRimasteTMP}{\fpeval{\oreTotProgrRimaste - (\HRealiProgr)}}
+    \renewcommand{\oreTotVerifRimasteTMP}{\fpeval{\oreTotVerifRimaste - (\HRealiVerif)}}
+
+    \renewcommand{\budgetRespRimastoTMP}{\fpeval{\budgetRespRimasto - \fpeval{(\HRealiResp) * \costoHResp}}}
+    \renewcommand{\budgetAmmRimastoTMP}{\fpeval{\budgetAmmRimasto - \fpeval{(\HRealiAmm) * \costoHAmm}}}
+    \renewcommand{\budgetAnalRimastoTMP}{\fpeval{\budgetAnalRimasto - \fpeval{(\HRealiAnal) * \costoHAnal}}}
+    \renewcommand{\budgetProgeRimastoTMP}{\fpeval{\budgetProgeRimasto - \fpeval{(\HRealiProge) * \costoHProge}}}
+    \renewcommand{\budgetProgrRimastoTMP}{\fpeval{\budgetProgrRimasto - \fpeval{(\HRealiProgr) * \costoHProgr}}}
+    \renewcommand{\budgetVerifRimastoTMP}{\fpeval{\budgetVerifRimasto - \fpeval{(\HRealiVerif) * \costoHVerif}}}
+
+
+    \begin{center}
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        \rowcolor{lightgray}{\textbf{Ruolo}} & \textbf{Ore iniziali} & \textbf{Ore rimanenti} & \textbf{Budget iniziale} & \textbf{Budget rimanente} \\
+        \hline
+        \Resp & \oreTotRespRimaste & \oreTotRespRimasteTMP & \budgetRespRimasto \euro & \budgetRespRimastoTMP \euro\\
+        \hline
+        \Amm & \oreTotAmmRimaste & \oreTotAmmRimasteTMP & \budgetAmmRimasto \euro & \budgetAmmRimastoTMP \euro\\
+        \hline
+        \Anal & \oreTotAnalRimaste & \oreTotAnalRimasteTMP & \budgetAnalRimasto \euro & \budgetAnalRimastoTMP \euro\\
+        \hline
+        \Proge & \oreTotProgeRimaste & \oreTotProgeRimasteTMP & \budgetProgeRimasto \euro & \budgetProgeRimastoTMP \euro\\
+        \hline
+        \Progr & \oreTotProgrRimaste & \oreTotProgrRimasteTMP & \budgetProgrRimasto \euro & \budgetProgrRimastoTMP \euro\\
+        \hline
+        \Verif & \oreTotVerifRimaste & \oreTotVerifRimasteTMP & \budgetVerifRimasto \euro & \budgetVerifRimastoTMP \euro\\
+        \hline
+        \cellcolor{lightgray}{\textbf{Totale}} 
+        & \fpeval{\oreTotRespRimaste + \oreTotAmmRimaste + \oreTotAnalRimaste + \oreTotProgeRimaste + \oreTotProgrRimaste + \oreTotVerifRimaste}
+        & \fpeval{\oreTotRespRimasteTMP + \oreTotAmmRimasteTMP + \oreTotAnalRimasteTMP + \oreTotProgeRimasteTMP + \oreTotProgrRimasteTMP + \oreTotVerifRimasteTMP}
+        & \fpeval{\budgetRespRimasto + \budgetAmmRimasto + \budgetAnalRimasto + \budgetProgeRimasto + \budgetProgrRimasto + \budgetVerifRimasto} \euro
+        & \fpeval{\budgetRespRimastoTMP + \budgetAmmRimastoTMP + \budgetAnalRimastoTMP  + \budgetProgeRimastoTMP + \budgetProgrRimastoTMP + \budgetVerifRimastoTMP} \euro \\
+        \hline
+    \end{tabular}
+\end{center}
+
+% Aggiornamento risorse rimanenti
+% edef ridefinisce, similmente a \renewcommand, le macro con i valori espanti dell'argomento
+% altrimenti si crea una ridefinizione ricorsiva del tipo \renewcommand{\a}{\a} e dà errore
+\edef\oreTotRespRimaste{\oreTotRespRimasteTMP}
+\edef\oreTotAmmRimaste{\oreTotAmmRimasteTMP}
+\edef\oreTotAnalRimaste{\oreTotAnalRimasteTMP}
+\edef\oreTotProgeRimaste{\oreTotProgeRimasteTMP}
+\edef\oreTotProgrRimaste{\oreTotProgrRimasteTMP}
+\edef\oreTotVerifRimaste{\oreTotVerifRimasteTMP}
+
+\edef\budgetRespRimasto{\budgetRespRimastoTMP}
+\edef\budgetAmmRimasto{\budgetAmmRimastoTMP}
+\edef\budgetAnalRimasto{\budgetAnalRimastoTMP}
+\edef\budgetProgeRimasto{\budgetProgeRimastoTMP}
+\edef\budgetProgrRimasto{\budgetProgrRimastoTMP}
+\edef\budgetVerifRimasto{\budgetVerifRimastoTMP}
+
+% Resettate per il prossimo sprint
+\resetVariables
+}
