@@ -9,8 +9,9 @@
 \RequirePackage{colortbl}
 \RequirePackage{float}
 \RequirePackage{needspace}
+\RequirePackage{caption}
 
-\newcommand{\Metrica}[4]{
+\newcommand{\Metrica}[5]{
 \Needspace{8\baselineskip}
 \vspace{-\baselineskip}
 \begin{center}
@@ -21,5 +22,6 @@
 \textbf{Descrizione} & #2 \\ \hline
 \textbf{Utilità} & #4 \\ \hline
 \end{xltabular}
+\captionof{table}{#5}
 \end{center}
 }
