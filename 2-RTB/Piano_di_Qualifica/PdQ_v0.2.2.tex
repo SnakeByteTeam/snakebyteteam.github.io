@@ -14,6 +14,7 @@
 \renewcommand{\arraystretch}{1.05} % migliora la leggibilità
 \renewcommand{\contentsname}{Indice}
 \renewcommand{\listfigurename}{Elenco dei grafici}
+\renewcommand{\listtablename}{Elenco delle tabelle}
 \usepackage{fancyhdr}
 %Comandi per livello di sottosezioni = 3
 \setcounter{tocdepth}{4}
@@ -51,7 +52,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                0.2.1 & 4/02/2026 & Verificato &       
+                0.2.2 & 10/02/2026 & Verificato &       
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
@@ -70,6 +71,9 @@
         \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+        \hline
+        0.2.2 & 10/02/2026 & F. Venzo & F. Pasqual, L. Granziero & - & Aggiunto elenco delle tabelle\\
+        \hline
         0.2.1 & 4/02/2026 & F. Venzo & V. Baleanu & - & Aggiunta descrizione ai grafici, campagna di test di unità e campagna di test di integrazione\\
         \hline
         0.2.0 & 28/12/2025 & V. Baleanu & F. Pasqual & - & Aggiunta tabelle delle soglie per le metriche di processo e di prodotto \\
@@ -87,7 +91,8 @@
 
 \newpage
 \listoffigures
-
+\newpage
+\listoftables
 \newpage
 
 \section{Introduzione}
@@ -160,6 +165,7 @@ del ciclo di vita del software e li suddivide nelle seguenti categorie:
 Nella tabella che segue il termine $BAC$ (\textit{Budget At Completion}) 
 rappresenta il budget totale previsto inizialmente per il completamento 
 del progetto.
+\begin{table}[H]
 \sogliatabella{
     \sogliariga{MPC1}{Planned Value}{$\geq 0$}{$\leq BAC$}
     \sogliariga{MPC2}{Earned Value}{$\geq 0$}{$\leq EAC$}
@@ -169,35 +175,53 @@ del progetto.
     \sogliariga{MPC6}{Estimate At Completion (EAC)}{$\leq 120\% \cdot BAC$}{$\leq BAC$}
     \sogliariga{MPC7}{Estimate To Complete}{$\geq 0$}{$\leq BAC$}
 }
+\caption{Tabella dei valori soglia per metriche di fornitura}
+\end{table}
 
+\begin{table}[H]
 \subsubsection{Sviluppo}
 \sogliatabella{
     \sogliariga{MPC8}{Requirements Stability Index}{$\geq 80\%$}{$100\%$}
 }
+\caption{Tabella dei valori soglia per metriche di sviluppo}
+\end{table}
 
+
+\begin{table}[H]
 \subsection{Processi di supporto}
 \subsubsection{Documentazione}
 \sogliatabella{
     \sogliariga{MPC9}{Indice di Gulpease}{$\geq 60$}{$\geq 80$}
     \sogliariga{MPC10}{Indice di Frammentazione (IF)}{$5\% \leq IF \leq 20\%$}{$10\% \leq IF \leq 15\%$}
 }
+\caption{Tabella dei valori soglia per metriche di documentazione}
+\end{table}
 
+\begin{table}[H]
 \subsubsection{Verifica}
 \sogliatabella{
     \sogliariga{MPC11}{Test Success Rate}{$\geq 80\%$}{$100\%$}
 }
+\caption{Tabella dei valori soglia per metriche di verifica}
+\end{table}
 
+\begin{table}[H]
 \subsubsection{Gestione della qualità}
 \sogliatabella{
     \sogliariga{MPC12}{Percentuale Metriche Soddisfatte}{$\geq 80\%$}{$100\%$}
 }
+\caption{Tabella dei valori soglia per metriche di gestione della qualità}
+\end{table}
 
+\begin{table}[H]
 \subsection{Processi organizzativi}
 \subsubsection{Gestione dei processi}
 \sogliatabella{
     \sogliariga{MPC13}{Percentuale Rischi Inattesi}{$\leq 20\%$}{$0\%$}
     \sogliariga{MPC14}{Labor Efficiency}{$\geq 70\%$}{$\geq 100\%$}
 }
+\caption{Tabella dei valori soglia per metriche di gestione dei processi}
+\end{table}
 
 \section{Qualità di prodotto}
 La qualità di prodotto$_G$ è definita secondo un modello basato sullo standard 
@@ -219,39 +243,58 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
     \item \textbf{Portabilità}: capacità di essere trasferito e adattato a 
     diversi ambienti operativi, piattaforme o configurazioni hardware e software.
 \end{itemize}
+
 \subsection{Funzionalità}
+\begin{table}[H]
 \sogliatabella{
     \sogliariga{MPD1}{Percentuale Requisiti Obbligatori Soddisfatti}{$100\%$}{$100\%$}
     \sogliariga{MPD2}{Percentuale Requisiti Opzionali Soddisfatti}{$0\%$}{$100\%$}
     \sogliariga{MPD3}{Percentuale Requisiti Desiderabili Soddisfatti}{$0\%$}{$100\%$}
 }
+\caption{Tabella dei valori soglia per metriche di funzionalità}
+\end{table}
 
+\begin{table}[H]
 \subsection{Affidabilità}
 \sogliatabella{
     \sogliariga{MPD4}{Line Coverage}{$\geq 75\%$}{$100\%$}
     \sogliariga{MPD5}{Branch Coverage}{$\geq 75\%$}{$100\%$}
     \sogliariga{MPD6}{Statement Coverage}{$\geq 75\%$}{$100\%$}
 }
+\caption{Tabella dei valori soglia per metriche di affidabilità}
+\end{table}
 
+\begin{table}[H]
 \subsection{Usabilità}
 \sogliatabella{
     \sogliariga{MPD7}{Profondità Massima di Navigazione }{$\leq 7$ click}{$\leq 3$ click}
 }
+\caption{Tabella dei valori soglia per metriche di usabilità}
+\end{table}
 
+\begin{table}[H]
 \subsection{Efficienza}
 \sogliatabella{
     \sogliariga{MPD8}{Tempo Medio di Risposta}{$\leq 5$ secondi}{$\leq 1$ secondo}
 }
+\caption{Tabella dei valori soglia per metriche di efficienza}
+\end{table}
 
+\begin{table}[H]
 \subsection{Manutenibilità}
 \sogliatabella{
     \sogliariga{MPD9}{Complessità Ciclomatica}{$\leq 20$}{$\leq 10$}
 }
+\caption{Tabella dei valori soglia per metriche di manutenibilità}
+\end{table}
 
+\begin{table}[H]
 \subsection{Portabilità}
 \sogliatabella{
     \sogliariga{MPD10}{Compatibilità Cross-Browser}{$\geq 80\%$}{100\%}
 }
+\caption{Tabella dei valori soglia per metriche di portabilità}
+\end{table}
 
 \section{Strategie di Testing}
 \subsection{Test di sistema}
@@ -385,6 +428,7 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
 \addTestS{Verificare che l'amministratore, visualizzando una notifica nel dettaglio possa visualizzarne il tempo trascorso dall'invio}{RF111-OP}{NI}
 
 \makeTSTable
+
 
 \subsection{Test di accettazione}
 
