@@ -1,0 +1,61 @@
+\documentclass{beamer}
+
+\usepackage{../tema}
+
+
+\title{SAL}
+\author[F. Pasqual, L. Granziero, V. Baleanu]{F. Pasqual, L. Granziero, V. Baleanu}
+\setDate{11/02/2026}
+
+\begin{document}
+
+{
+  \setbeamertemplate{footline}{}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+
+\addMember{Filippo}{Venzo}{Responsabile}
+\addMember{Giuseppe}{De Fina}{Amministratore}
+\addMember{Valeria}{Baleanu}{Programmatore}
+\addMember{Christian}{Libralato}{Programmatore}
+\addMember{Leonardo}{Pellizzon}{Programmatore}
+\addMember{Francesco}{Pasqual}{Verificatore}
+\addMember{Luca}{Granziero}{Verificatore}
+\makeMembersFrame
+
+\begin{frame}{Avanzamenti settimanali}
+    \begin{itemize}
+        \item Approvazione verbali interni ed esterni;
+        \item Controllo conclusivo dell'Analisi dei Requisiti;
+        \item Continuazione Norme di Progetto, Piano di Progetto e Piano di Qualifica.
+\end{itemize}
+\end{frame}
+
+% PRIMO FRAME: Attività terminate dal verbale esterno 
+
+% Reset delle entries per il secondo frame 
+\renewcommand{\precedentTodoEntries}{}
+
+%  SECONDO FRAME: Attività terminate dal verbale interno
+\addPrecedentTodo{vi\_2026\_01\_13.a2}{\#72}{Iniziare presentazione delle tecnologie per RTB}{SnakeByte Team}{27/01/2026}
+\addPrecedentTodo{vi\_2026\_01\_13.a4}{\#74}{Aggiornamento cruscotto di qualità nel PdQ}{C. Libralato, F. Pasqual}{25/01/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a1}{-}{Sistemare le ore individuali dello \textit{sprint 7}}{SnakeByte Team}{09/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a2}{\#106}{Aggiungere alle tabelle del PdQ la ripetizione dell'intestazione}{G. De Fina}{10/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a3}{PR \#109}{Verifica Analisi dei Requisiti}{F. Pasqual, L. Granziero}{10/02/2026}
+\makePrecedentTodoFrame
+
+\addManualTodo{vi\_2026\_02\_09.a4}{\#105}{Scrittura verbale interno}{F. Venzo}{11/02/2026}
+\addManualTodo{vi\_2026\_02\_09.a5}{\#104}{Aggiungere campo "generalizzazioni" nella tabella Use Case in NdP}{G. De Fina}{11/02/2026}
+\addManualTodo{vi\_2026\_02\_09.a6}{\#104}{Aggiungere alla sezione test specifiche sugli stub}{G. De Fina}{11/02/2026}
+\makeTodoFrame
+
+\begin{frame}{Limiti o blocchi incontrati}
+Durante l'ultimo periodo di avanzamento ci sono stati forti rallentamenti a causa 
+degli esami universitari.\\
+\vspace{1cm}
+Nonostante i rallentamenti siamo a buon punto e prevediamo di inviare la richiesta di revisione RTB entro il 13/02/2026.
+\end{frame}
+
+\end{document}
