@@ -11,15 +11,15 @@
 \RequirePackage{float}
 
 \newcommand{\sogliatabella}[1]{%
-  \begin{center}
-  \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{3.5cm}|>{\centering\arraybackslash}p{3cm}|}
-    \hline
-    \rowcolor{lightgray}
-    \textbf{Codice} & \textbf{Nome} & \textbf{Valore accettabile} & \textbf{Valore ottimo} \\ 
-    \hline
-    #1
-  \end{tabularx}
-  \end{center}
+    \begin{center}
+    \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{3.5cm}|>{\centering\arraybackslash}p{3cm}|}
+      \hline
+      \rowcolor{lightgray}
+      \textbf{Codice} & \textbf{Nome} & \textbf{Valore accettabile} & \textbf{Valore ottimo} \\ 
+      \hline
+      #1
+    \end{tabularx}
+    \end{center}
 }
 
 \newcommand{\sogliariga}[4]{%
@@ -55,7 +55,14 @@
             \rowcolor{lightgray}
             \textbf{Codice} & \textbf{Descrizione} & \textbf{Requisito di riferimento} & \textbf{Stato del test} \\ 
             \hline
+            \endfirsthead
+            \hline
+            \rowcolor{lightgray}
+            \textbf{Codice} & \textbf{Descrizione} & \textbf{Requisito di riferimento} & \textbf{Stato del test} \\ 
+            \hline
+            \endhead
             \testSEntries
+            \caption{Tabella dei test di sistema}
           \end{xltabular}
         \end{center}
 }
@@ -88,7 +95,14 @@
             \rowcolor{lightgray}
             \textbf{Codice} & \textbf{Descrizione} & \textbf{Stato del test} \\ 
             \hline
+            \endfirsthead
+            \hline
+            \rowcolor{lightgray}
+            \textbf{Codice} & \textbf{Descrizione} & \textbf{Stato del test} \\ 
+            \hline
+            \endhead
             \testAEntries
+            \caption{Tabella dei test di accettazione}
           \end{xltabular}
         \end{center}
 }
