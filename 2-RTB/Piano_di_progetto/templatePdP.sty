@@ -1,6 +1,8 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{templatePdP}[14/12/2025 Dedicato a tabelle costi in PdP]
-
+\usepackage{template}
+\usepackage{float}
+\usepackage{caption}
 \usepackage{tabularx}
 \usepackage{eurosym}
 \usepackage{multirow}
@@ -297,8 +299,9 @@ Ore effettive
 }
 
 
-\newcommand{\makeTableRuoli}{
-    \begin{center}
+\newcommand{\makeTableRuoli}[1]{
+    \begin{table}[H]
+        \centering
         \begin{tabular}{|c|c|c|c|}
             \hline
             \rowcolor{lightgray} \textbf{Ruolo} & \textbf{Membro} & \textbf{Ore previste} & \textbf{Ore reali}\\
@@ -324,12 +327,13 @@ Ore effettive
             \hline
 
         \end{tabular}
-    \end{center}
+        \caption{Sprint #1 - Distribuzione dei ruoli e rendicontazione delle ore}
+\end{table}
 }
 
 % Creazione tabella in tutta autonomia!!!
 % basta solo aver definito le ore previste e reali di ogni persona !!!!
-\newcommand{\makeTableDeviazioni}{
+\newcommand{\makeTableDeviazioni}[1]{
 \CalcolaHPrevisteResp
 \CalcolaHRealiResp
 
@@ -348,7 +352,8 @@ Ore effettive
 \CalcolaHPrevisteVerif
 \CalcolaHRealiVerif
 
-\begin{center}
+\begin{table}[H]
+    \centering
     \begin{tabularx}{\textwidth}{|X|c|c|c|c|c|c|c|}
         \hline
         \rowcolor{lightgray} \multirow[t]{2}{*}{\rotatebox[origin=c]{\rotaz}{\textbf{Ruolo}}}
@@ -390,7 +395,8 @@ Ore effettive
         + \fpeval{((\HRealiProge) * \costoHProge) - ((\HPrevisteProge) * \costoHProge)} + \fpeval{((\HRealiProgr) * \costoHProgr) - ((\HPrevisteProgr) * \costoHProgr)} + \fpeval{((\HRealiVerif) * \costoHVerif) - ((\HPrevisteVerif) * \costoHVerif)}} \euro \\
         \hline
     \end{tabularx}
-\end{center}
+    \caption{Sprint #1 - Analisi delle deviazioni di ore e costi per ruolo}
+\end{table}
 
 }
 
@@ -440,7 +446,7 @@ Ore effettive
 
 
 
-\newcommand{\makeTablePreventivo}{
+\newcommand{\makeTablePreventivo}[1]{
     % Variabili temporanee per salvare il valore, servono altrimenti si fa una ridefinizione ricorsiva dei valori rimasti
     % sono i valori nuovi calcolati, al prossimo spint diventano i valori di partenza iniziali
     \renewcommand{\oreTotRespRimasteTMP}{\fpeval{\oreTotRespRimaste - (\HRealiResp)}}
@@ -458,7 +464,8 @@ Ore effettive
     \renewcommand{\budgetVerifRimastoTMP}{\fpeval{\budgetVerifRimasto - \fpeval{(\HRealiVerif) * \costoHVerif}}}
 
 
-    \begin{center}
+    \begin{table}[H]
+        \centering
     \begin{tabular}{|c|c|c|c|c|}
         \hline
         \rowcolor{lightgray}{\textbf{Ruolo}} & \textbf{Ore iniziali} & \textbf{Ore rimanenti} & \textbf{Budget iniziale} & \textbf{Budget rimanente} \\
@@ -482,7 +489,8 @@ Ore effettive
         & \fpeval{\budgetRespRimastoTMP + \budgetAmmRimastoTMP + \budgetAnalRimastoTMP  + \budgetProgeRimastoTMP + \budgetProgrRimastoTMP + \budgetVerifRimastoTMP} \euro \\
         \hline
     \end{tabular}
-\end{center}
+    \caption{Sprint #1 - Stato delle risorse e budget residuo}
+\end{table}
 
 % Aggiornamento risorse rimanenti
 % edef ridefinisce, similmente a \renewcommand, le macro con i valori espanti dell'argomento
