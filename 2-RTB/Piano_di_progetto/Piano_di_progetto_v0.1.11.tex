@@ -13,7 +13,7 @@
 % Macro sono in relazione all'ultima modifica
 \setDocIndex{Piano di progetto}
 \setDocTitle{Piano di progetto}
-\setDocVersion{0.1.10}
+\setDocVersion{0.1.11}
 \setDocState{1}
 \setDocData{11/02/2026}
 \setDocRecipient{1}
@@ -265,6 +265,7 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 \begin{document}
 
 \makeTitlePage
+\addChangelog{0.1.11}{11/02/2026}{G. De Fina}{F. Pasqual}{\noOne}{Correzione retrospettiva Sprint 6 e miglioramenti terminologici}
 \addChangelog{0.1.10}{11/02/2026}{G. De Fina}{F. Pasqual}{\noOne}{Aggiunti parametri e informazioni complete relativi allo sprint 7}
 \addChangelog{0.1.9}{10/02/2026}{V. Baleanu}{L. Granziero}{\noOne}{Aggiunta caption per le tabelle}
 \addChangelog{0.1.8}{4/02/2026}{F. Venzo}{V. Baleanu}{\noOne}{Aggiornamento di consuntivo e retrospettiva allo sprint 6}
@@ -575,7 +576,7 @@ per ridurne l'impatto (mitigazione). Sono state individuate quattro tipologie pr
 {Analizzare sistematicamente i consuntivi degli sprint precedenti per identificare pattern di
     sovrastima. Raffinare progressivamente le stime basandosi sui dati storici raccolti. Considerare
     la crescente esperienza del team nelle tecnologie e nei processi quando si pianificano attività
-    simili a quelle già svolte. Evitare di sovrastimare sistematicamente per "sicurezza", puntando
+    simili a quelle già svolte. Evitare di sovrastimare sistematicamente per eccesso di prudenza, puntando
     invece a stime realistiche.}
 {2}{2}
 \caption{Dettagli sul rischio RO7}
@@ -598,7 +599,7 @@ per ridurne l'impatto (mitigazione). Sono state individuate quattro tipologie pr
 
 
 \section{Previsioni a lungo termine}
-Durante la fase di pianificazione di progetto, in vista della candidatura, sono state effettuate delle stime riguardo la distribuzione
+Durante la fase di pianificazione di progetto, in vista della candidatura, sono state effettuate delle stime riguardo alla distribuzione
 oraria per ogni ruolo e il costo associato, da cui si è poi ricavato il costo complessivo del progetto.
 
 All'interno di questo documento è possibile confrontare queste stime con il consumo effettivo delle risorse nei
@@ -687,7 +688,7 @@ Durante il periodo precedente alla candidatura il gruppo ha portato a termine le
     \item prima stesura delle Norme di Progetto;
     \item prima definizione dei template per i documenti;
     \item contatto con le aziende per chiarire dubbi sui capitolati;
-    \item stesura della documento di valutazione dei capitolati;
+    \item stesura del documento di valutazione dei capitolati;
     \item stesura della Dichiarazione degli Impegni;
     \item stesura della Lettera di Candidatura.
 \end{itemize}
@@ -836,7 +837,7 @@ Durante lo Sprint 2 si sono verificati i seguenti rischi:
 \begin{itemize}
     \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: il gruppo ha affrontato una curva di apprendimento significativa nell'adozione del nuovo \textit{workflow} \textit{Git} con gestione dei conflitti e delle \textit{pull request}.
           \\La mitigazione è avvenuta attraverso sessioni di studio condiviso e documentazione nelle Norme di Progetto.
-    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una lieve sovrastima per il ruolo di Analista (Christian: -3 ore).
+    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una lieve sovrastima per il ruolo di Analista (-3 ore).
           \\La pianificazione sta gradualmente migliorando grazie all'esperienza acquisita.
 \end{itemize}
 
@@ -928,9 +929,9 @@ Durante lo Sprint 3 si sono verificati i seguenti rischi:
 \begin{itemize}
     \item \rif{RC3} - Disparità di conoscenze tra componenti: la redazione asincrona della bozza dell'Analisi dei Requisiti ha evidenziato differenze terminologiche e di approccio tra gli analisti.
           \\La mitigazione è avvenuta attraverso riunioni di allineamento tra gli analisti e revisione condivisa della struttura degli \textit{use case}.
-    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore per alcuni ruoli (Filippo: -2.5 ore, Valeria: -2 ore, Leonardo: -1 ora).
+    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore per i ruoli di Analista (-4.5 ore), Progettista (-6 ore) e Verificatore (-1 ora).
           \\La mitigazione è avvenuta attraverso una ripianificazione per gli sprint successivi.
-    \item \rif{RO8} (non previsto) - Sottostima costi e ore: si registra una lieve sottostima nelle ore per un ruolo (Luca: +2 ore come Progettista).
+    \item \rif{RO8} (non previsto) - Sottostima costi e ore: è stata riscontrata una sottostima nell'assegnazione delle ore per il ruolo di Amministratore (+1 ora).
           \\La mitigazione è avvenuta attraverso una ripianificazione per gli sprint successivi.
 \end{itemize}
 
@@ -1023,13 +1024,13 @@ All'inizio dello Sprint erano previsti i seguenti rischi:
 \trisubsection{Rischi manifestati}
 Durante lo Sprint 4 si sono verificati i seguenti rischi:
 \begin{itemize}
-    \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: durante la prima implementazione del \textit{PoC}, i programmatori hanno affrontato una significativa curva di apprendimento nell'utilizzo di \textit{Angular} e nell'adozione del modello di architettura esagonale.
+    \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: durante la prima implementazione del \textit{PoC}, i programmatori hanno affrontato una significativa curva di apprendimento nell'utilizzo di \textit{Angular}.
           \\La mitigazione è avvenuta attraverso sessioni di studio collaborative.
     \item \rif{RI1} - Impegni personali: per la prima settimana dello sprint un membro del gruppo non ha potuto svolgere alcuna attività per motivi personali.
           \\Il gruppo ha dunque aggiornato le attività e le ore previste per gli sprint successivi.
-    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore per alcuni ruoli (Francesco: -1 ora, Valeria: -7 ore).
+    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore per i ruoli di Verificatore (-1 ora) e Amministratore (-3 ore).
           \\La mitigazione è avvenuta attraverso una ripianificazione più accurata per gli sprint successivi.
-    \item \rif{RO8} (non previsto) - Sottostima costi e ore: è stata riscontrata una sottostima nell'assegnazione delle ore per alcuni ruoli (Christian: +1 ora, Giuseppe: +4 ore, Leonardo: +4 ore, Filippo: +1 ora).
+    \item \rif{RO8} (non previsto) - Sottostima costi e ore: è stata riscontrata una sottostima nell'assegnazione delle ore per i ruoli di Responsabile (+1 ora), Analista (+4 ore) e Programmatore (+1 ora).
           \\La mitigazione è avvenuta attraverso una ripianificazione più accurata per gli sprint successivi.
 \end{itemize}
 
@@ -1122,10 +1123,10 @@ Nel corso del periodo di avanzamento sono state svolte le seguenti attività:
     \item \textbf{Piano di Progetto}: aggiornamento alla versione 0.1.6 con redazione completa delle sezioni;
     \item \textbf{Norme di Progetto}: aggiunte le sezioni di Verifica e Validazione nei processi di supporto;
     \item \textbf{Piano di Qualifica}: parziale implementazione del Cruscotto di Qualità e aggiunta dei grafici per le metriche;
-    \item \textbf{Proof of Concept}: continuazione del lavoro, comprensiva di aggiunta delle entità e delle logiche Allarme e Soglia e della loro visualizzazione;
-    \item \textbf{Verbali}: scrittura del verbale interno relativo alla riunione del 29/12/2025 e del verbale esterno relativo al \textit{sal} del 07/01/2026. Correzione e successivo caricamento per ulteriore revisione
+    \item \textbf{Proof of Concept}: continuazione del lavoro, comprensiva di aggiunta delle entità di dominio e delle relative logiche Allarme e Soglia e della loro visualizzazione;
+    \item \textbf{Verbali}: scrittura del verbale interno relativo alla riunione del 29/12/2025 e del verbale esterno relativo al SAL del 07/01/2026. Correzione e successivo caricamento per ulteriore revisione
           dei documenti revisionati precedentemente su \textit{Round Review}.
-    \item \textbf{Presentazioni}: preparazione della presentazione per il Diario di Bordo del 08/01/2026 e per il \textit{SAL} del 07/01/2026.
+    \item \textbf{Presentazioni}: preparazione della presentazione per il Diario di Bordo del 08/01/2026 e per il SAL del 07/01/2026.
 
 \end{itemize}
 
@@ -1147,9 +1148,9 @@ All'inizio dello sprint erano previsti i seguenti rischi:
           \\La mitigazione è avvenuta, durante la prima parte dello sprint, facendo ulteriore attività di palestra al fine di produrre lavoro effettivo ed utile;
     \item \rif{RC3} - Disparità di conoscenza tra componenti: la differenza tra vecchi e nuovi programmatori riguardo la conoscenza dello stato di avanzamento dei lavori sul \textit{PoC} è stata considerevole.
           \\La mitigazione è avvenuta svolgendo riunioni interne tra programmatori per allineare le conoscenze e programmare le attività di sviluppo future.
-    \item \rif{R07} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore per alcuni ruoli (Filippo: -4 ore, Christian: -2 ore).
+    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore per i ruoli di Verificatore (-4 ore) e Programmatore (-1 ora).
           \\La mitigazione è avvenuta attraverso una ripianificazione più accurata per gli sprint successivi.
-    \item \rif{RO8} (non previsto) - Sottostima costi e ore: è stata riscontrata una sottostima nell'assegnazione delle ore per alcuni ruoli (Francesco: +1 ora, Luca: +1 ora).
+    \item \rif{RO8} (non previsto) - Sottostima costi e ore: è stata riscontrata una sottostima nell'assegnazione delle ore per i ruoli di Responsabile (+1 ora) e Programmatore (+1 ora).
           \\La mitigazione è avvenuta attraverso una ripianificazione più accurata per gli sprint successivi.
 \end{itemize}
 
@@ -1223,8 +1224,8 @@ Si prevede l'esecuzione delle seguenti attività:
 \begin{itemize}
     \item Conclusione dell'Analisi dei Requisiti;
     \item completamento implementazione del \textit{PoC};
-    \item completamento stesura del Piano di Progetto;
-    \item completamento stesura del Piano di Qualifica;
+    \item aggiornamento del Piano di Progetto in vista della candidatura RTB;
+    \item aggiornamento del Piano di Qualifica in vista della candidatura RTB;
     \item preparazione in vista della presentazione del PoC con la Proponente;
 \end{itemize}
 
@@ -1237,7 +1238,7 @@ Nel corso del periodo di avanzamento sono state svolte le seguenti attività:
 
     \item Il Piano di Progetto è stato aggiornato alla versione 0.1.7, con l'aggiunta del consuntivo e retrospettiva relativi allo Sprint 5;
     \item Nel Piano di Qualifica sono state confermate e aggiunte le metriche precedentemente proposte, sono stati aggiunti alcuni grafici relativi a queste e sono stati aggiornati allo sprint 5.
-    \item Le attività di questo sprint si sono concentrate principalmente sulla preparazione dell'analisi dello stato di avanzamento del progetto con la Proponente, che avverrà il 28/01/2026, in presenza non solo del referente interno ma anche dei \textit{team} di \textit{Marketing$_{G}$}, Sviluppo \textit{Software}, \textit{Cloud$_{G}$} e \textit{Data Analysis$_{G}$}.
+    \item Le attività di questo sprint si sono concentrate principalmente sulla preparazione dell'analisi dello stato di avanzamento del progetto con la Proponente, che avverrà il 28/01/2026, in presenza non solo del referente interno ma anche dei \textit{team} di Sviluppo \textit{Software}, \textit{Cloud$_{G}$} e \textit{Data Analysis$_{G}$}.
 \end{itemize}
 
 \subsubsection{Rischi}
@@ -1253,12 +1254,12 @@ Nel corso del periodo di avanzamento sono state svolte le seguenti attività:
 Durante lo sprint 6 si sono verificati i seguenti rischi:
 \begin{itemize}
     \item \rif{RI2} - Impegni universitari: il gruppo ha riscontrato difficoltà nel bilanciare gli impegni accademici, derivanti dalla sessione di esami, con le attività di progetto.
-          \\La mitigazione è avvenuta attraverso una pianificazione più flessibile delle attività e una comunicazione costante tra i membri del gruppo.
+          \\La mitigazione è avvenuta attraverso una pianificazione più flessibile delle attività.
     \item \rif{RC3} - Disparità di conoscenze tra componenti: alcuni membri del gruppo hanno mostrato minore conoscenza delle tecnologie scelte rispetto ad altri, creando difficoltà nella collaborazione e nel passaggio di consegne tra programmatori.
           \\La mitigazione è avvenuta attraverso sessioni di \textit{tutoring} e condivisione delle conoscenze tra i membri del gruppo, soprattutto tra programmatori.
     \item \rif{RO1} - Carico di lavoro eccessivo: alcuni membri del gruppo hanno trovato il carico di lavoro eccessivo, soprattutto in relazione al rischio \rif{RI2}, ovvero gli impegni universitari paralleli.
             \\La mitigazione è avvenuta attraverso una ridistribuzione del lavoro tra i membri e una revisione della priorità delle attività, individuando quelle maggiormente posticipabili.
-    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore per alcuni ruoli dovuta ai rischi \rif{RI2} e \rif{RO1} (Filippo: -7 ore, Christian: -3 ore, Francesco: -1 ora, Luca: -5 ore).
+    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore per i ruoli di Programmatore (-15 ore), Verificatore (-5 ore) e Amministratore (-4 ore), dovuta ai rischi \rif{RI2} e \rif{RO1}.
           \\La mitigazione è avvenuta attraverso una ripianificazione più accurata per gli sprint successivi.
     \item \rif{RC1} (non previsto) - Mancanza di coordinamento tra i componenti del gruppo: la gestione degli impegni universitari \rif{RI2} ha portato a una riduzione significativa delle comunicazioni tra i membri del gruppo, in particolare tra i programmatori, portando a disallineamenti e ritardi nello sviluppo del PoC.
           \\La mitigazione, per quanto possibile, è avvenuta attraverso riunioni e comunicazioni asincrone più frequenti.
@@ -1307,11 +1308,9 @@ Lo sprint 6 è forse il primo sprint in cui il gruppo ha riscontrato difficoltà
 La causa principale è stata la concomitanza della sessione di esami invernale che ha costretto a rivedere le attività pianificate e gli obiettivi per questo sprint.
 Conseguenza di questo è anche la ripianificazione avvenuta della candidatura per l'RTB che slitta al 6/02/2026.
 Nonostante i limiti incontrati, il lavoro svolto è stato di notevole importanza: nel \textit{PoC} sono state implementate le entità di Allarme e Soglia come definito nello sprint precedente. Rimane da integrare la tecnologia scelta per il \textit{database}.
-Siamo soddisfatti dal numero e dal grado di dettaglio dei requisiti trovati nella relativa Analisi. Rimangono da modellare i diagrammi UML e approvare il documento.  
+Si riconosce inoltre la qualità del lavoro svolto nell'Analisi dei Requisiti, con un numero consistente e un grado di dettaglio significativo dei requisiti individuati.
 
-Complessivamente, in questo sprint non ci si ritiene soddisfatti del lavoro svolto, soprattutto dal punto di vista organizzativo. Le difficoltà incontrate hanno portato a un ritardo significativo rispetto a quanto pianificato, si nota però una capacità sempre crescente di adattamento di fronte a queste. I rischi sono stati per lo più mitigati fin da subito in quanto erano stati quasi tutti previsti.
-
-Si riconosce il fatto che i limiti a cui si è dovuto far fronte servono anche da palestra, per migliorare la gestione del progetto e l'assegnazione delle attività per i prossimi sprint. Dal punto di vista della comunicazione è evidente che questa debba migliorare, non solo tra i programmatori, ma tra tutti i membri del gruppo. Inoltre, la pianificazione delle attività e delle ore assegnate ai ruoli deve essere rivista in modo più accurato, tenendo conto delle difficoltà incontrate in questo sprint.
+Dal punto di vista organizzativo, in questo sprint non ci si ritiene soddisfatti del lavoro svolto. Le difficoltà incontrate, principalmente legate alla sessione di esami, hanno portato a un ritardo significativo rispetto a quanto pianificato. I rischi sono stati per lo più mitigati fin da subito in quanto erano stati quasi tutti previsti. Tuttavia, si riconoscono diverse aree di miglioramento: la comunicazione deve essere più efficace, non solo tra i programmatori ma tra tutti i membri del gruppo, e la pianificazione delle attività e delle ore assegnate ai ruoli deve essere rivista in modo più accurato. Le difficoltà affrontate in questo sprint rappresentano un'opportunità di apprendimento per ottimizzare la gestione del progetto nei prossimi sprint.
 
 %================================
 \vspace{1em}
@@ -1323,7 +1322,7 @@ Si riconosce il fatto che i limiti a cui si è dovuto far fronte servono anche d
 \trisubsection{Attività programmate}
 Si prevede l'esecuzione delle seguenti attività:
 \begin{itemize}
-    \item Terminazione del Piano di Qualifica e del Piano di Progetto;
+    \item Finalizzazione del Piano di Qualifica e del Piano di Progetto per la candidatura RTB;
     \item terminazione del \textit{PoC};
     \item approvazione dei documenti;
     \item presentazione del \textit{PoC} con la Proponente;
@@ -1334,9 +1333,9 @@ Si prevede l'esecuzione delle seguenti attività:
 Nel corso del periodo di avanzamento sono state svolte le seguenti attività:
 \begin{itemize}
     \item \textbf{Analisi dei Requisiti}: il documento è giunto al termine della sua stesura. È stata aperta una \textit{pull request} per permettere ai verificatori di analizzare il documento. Successivamente il documento è stato approvato dal Responsabile, dopo aver verificato definitivamente la completezza e la correttezza dei contenuti;
-    \item \textbf{Piano di Qualifica}: aggiornamento del cruscotto di qualità e aggiunta alle tabelle della ripetizione dell'intestazione per migliorare la leggibilità. Il documento è in attesa di approvazione finale;
-    \item \textbf{Norme di Progetto}: continuazione della stesura del documento con l'aggiunta di nuove sezioni relative ai processi di supporto. Il documento è in attesa di approvazione finale;
-    \item \textbf{Piano di Progetto}: continuazione della stesura con aggiornamento dello stato di avanzamento e sistemazione delle ore individuali dello sprint 7. Il documento è in attesa di approvazione finale;
+    \item \textbf{Piano di Qualifica}: aggiornamento del cruscotto di qualità e aggiunta alle tabelle della ripetizione dell'intestazione per migliorare la leggibilità. Il documento è in attesa di approvazione in vista della candidatura RTB;
+    \item \textbf{Norme di Progetto}: continuazione della stesura del documento con l'aggiunta di nuove sezioni relative ai processi di supporto. Il documento è in attesa di approvazione in vista della candidatura RTB;
+    \item \textbf{Piano di Progetto}: continuazione della stesura con aggiornamento dello stato di avanzamento e sistemazione delle ore individuali dello sprint 7. Il documento è in attesa di approvazione in vista della candidatura RTB;
     \item \textbf{Proof of Concept}: completamento dell'implementazione del \textit{PoC}, ormai concluso. Integrazione finale con \textit{database} usando il modulo \texttt{pg} di \textit{Node.js} per mantenere il controllo completo sugli oggetti, con utilizzo di un \textit{connection pool} per migliorare la scalabilità delle richieste. È stata confermata la decisione di non utilizzare alcun tipo di \textit{ORM};
     \item \textbf{Verbali}: approvazione dei verbali interni e esterni;
     \item \textbf{Presentazioni}: preparazione della presentazione delle tecnologie per RTB.
@@ -1354,9 +1353,9 @@ All'inizio dello sprint erano previsti i seguenti rischi:
 \trisubsection{Rischi manifestati}
 Durante lo sprint 7 si sono verificati i seguenti rischi:
 \begin{itemize}
-    \item \rif{RI2} - Impegni universitari: durante l'ultimo periodo di avanzamento ci sono stati forti rallentamenti a causa degli esami universitari, che hanno impattato non solo sulla velocità di svolgimento delle attività, ma anche sul processo di approvazione finale dei documenti.
+    \item \rif{RI2} - Impegni universitari: durante l'ultimo periodo di avanzamento ci sono stati forti rallentamenti a causa degli esami universitari, che hanno impattato non solo sulla velocità di svolgimento delle attività, ma anche sul processo di approvazione dei documenti in vista della candidatura RTB.
     \\La mitigazione è avvenuta attraverso una ripianificazione più flessibile e il prolungamento del progetto di un ulteriore sprint (2 settimane), posticipando la data di completamento dal 18/03/2026 al 05/04/2026. È stato inoltre deciso di posticipare la candidatura RTB al 13/02/2026 per permettere a tutti i membri del gruppo di completare le verifiche finali.
-    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una sovrastima significativa nell'assegnazione delle ore. Rispetto alle 73 ore previste, ne sono state effettivamente svolte 51.5 (-21.5 ore), con particolare eccesso per i ruoli di Verificatore (-11 ore totali: Valeria -4, Francesco -7) e Programmatore (-10 ore totali: Christian -4, Luca -6), mentre si è registrata una sottostima per il ruolo di Amministratore (Filippo +4.5 ore).
+    \item \rif{RO7} - Sovrastima costi e ore: è stata riscontrata una sovrastima nell'assegnazione delle ore. Rispetto alle 63 ore previste, ne sono state effettivamente svolte 51.5 (-11.5 ore), con particolare eccesso per i ruoli di Programmatore (-10 ore) e Verificatore (-7 ore), mentre il ruolo di Amministratore ha richiesto più ore del previsto (+5.5 ore).
     \\La mitigazione è avvenuta attraverso un'analisi più accurata dei consuntivi degli sprint precedenti per migliorare la precisione nella pianificazione futura.
 \end{itemize}
 
@@ -1374,8 +1373,8 @@ Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riport
 \setHPrevisteFilippo{7}
 \setHPrevisteChristian{8}
 \setHPrevisteValeria{12}
-\setHPrevisteGiuseppe{14}
-\setHPrevisteFrancesco{14}
+\setHPrevisteGiuseppe{8}
+\setHPrevisteFrancesco{10}
 \setHPrevisteLuca{10}
 \setHPrevisteLeonardo{8}
 
@@ -1402,9 +1401,9 @@ Lo sprint 7 segna un importante punto di svolta per il gruppo, evidenziando una 
 
 Il lavoro svolto in questo sprint è stato di notevole rilevanza: l'Analisi dei Requisiti è stata completata e approvata, raggiungendo un livello di dettaglio e completezza soddisfacente. Il \textit{PoC} è stato portato a termine con successo, dimostrando la fattibilità del prodotto e l'efficacia delle tecnologie scelte. La decisione tecnica di utilizzare il modulo \texttt{pg} con \textit{connection pool} invece di un \textit{ORM} si è rivelata corretta, garantendo maggiore controllo e scalabilità.
 
-Nonostante i forti rallentamenti causati dalla sessione di esami invernale, il gruppo ha dimostrato una buona capacità di adattamento, mantenendo il focus sugli obiettivi prioritari. Tuttavia, gli impegni universitari hanno impattato significativamente sul processo di approvazione finale dei documenti: Piano di Progetto, Piano di Qualifica e Norme di Progetto hanno completato la stesura ma sono ancora in attesa della verifica e approvazione finale. Questa difficoltà nel finalizzare le approvazioni ha portato alla decisione di posticipare la candidatura RTB al 13/02/2026, permettendo a tutti i membri del gruppo di dedicare il tempo necessario alle verifiche finali senza compromettere la qualità dei documenti.
+Nonostante i forti rallentamenti causati dalla sessione di esami invernale, il gruppo ha dimostrato una buona capacità di adattamento, mantenendo il focus sugli obiettivi prioritari. Tuttavia, gli impegni universitari hanno impattato significativamente sul processo di approvazione dei documenti: Piano di Progetto, Piano di Qualifica e Norme di Progetto hanno raggiunto uno stato di stesura adeguato per la candidatura RTB ma sono ancora in attesa della verifica e approvazione in vista della candidatura. Questa difficoltà nel finalizzare le approvazioni ha portato alla decisione di posticipare la candidatura RTB al 13/02/2026, permettendo a tutti i membri del gruppo di dedicare il tempo necessario alle verifiche finali senza compromettere la qualità dei documenti.
 
-Tutti i membri del team si sono espressi soddisfatti del lavoro svolto fin'ora e sono fiduciosi nella qualità dei documenti prodotti, nonostante il ritardo nell'approvazione finale.
+Tutti i membri del team si sono espressi soddisfatti del lavoro svolto fin'ora e sono fiduciosi nella qualità dei documenti prodotti, nonostante il ritardo nell'approvazione.
 
 Gli aspetti da migliorare per i prossimi sprint riguardano principalmente:
 \begin{itemize}
