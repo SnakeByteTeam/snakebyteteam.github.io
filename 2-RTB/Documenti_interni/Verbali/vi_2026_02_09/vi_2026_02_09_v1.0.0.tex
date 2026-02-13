@@ -1,0 +1,119 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 09/02/2026}
+\setDocVersion{1.0.0}
+\setDocData{13/02/2026}
+\setDocIndex{vi\_2026\_02\_09}
+\setDocState{2}
+\setDocRecipient{1}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+\addChangelog{\docVersion}{13/02/2026}{\noOne}{\noOne}{F. Venzo}{Approvazione}
+\addChangelog{0.1.0}{10/02/2026}{F. Venzo}{F. Pasqual}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{09/02/2026}{14:30}{15:30}{via \textit{Discord$_{G}$}}
+
+\addParticipant{Valeria}{Baleanu}{Progettista}{P}
+\addParticipant{Leonardo}{Pellizzon}{Progettista}{P}
+\addParticipant{Luca}{Granziero}{Verificatore}{P}
+\addParticipant{Francesco}{Pasqual}{Verificatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Amministratore}{P}
+\addParticipant{Christian}{Libralato}{Progettista}{P}
+\addParticipant{Filippo}{Venzo}{Responsabile}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{vi\_2026\_02\_02.a1}{\#86 }{L. Pellizzon, L. Granziero}{12/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_02.a2}{\#72}{\teamName}{11/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_02.a3}{ - }{F. Venzo, G. De Fina}{04/02/2026}
+\makePrecedentTodoTable
+
+
+
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Stato di avanzamento dei documenti e procedure di approvazione;
+    \item stato di avanzamento tecnico del \textit{PoC}$_G$ chiarimento sull'integrazione del \textit{database};
+    \item retrospettiva sulla pianificazione e sui risultati dello \textit{sprint$_{G}$} 7
+    \item pianificazione delle ore e dei ruoli per lo \textit{sprint} 8.
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Avanzamento documenti}
+Il documento di Analisi dei Requisiti è giunto al termine della sua stesura. Come stabilito dalle Norme di Progetto, è stata aperta una \textit{pull request$_{G}$} per permettere ai verificatori di analizzare il documento.\\
+Si è deciso inoltre di procedere con l'approvazione, da parte del Responsabile, dei documenti già verificati in previsione della \textit{milestone$_{G}$} RTB.
+E' stato individuato, attraverso la consultazione del Way of Working, il giusto \textit{workflow} da seguire.
+
+\subsection*{Avanzamento \textit{PoC}}
+I programmatori hanno presentato lo stato di avanzamento del \textit{Proof Of Concept}, ormai concluso, e le integrazioni finali da completare con il \textit{database}.
+E' stata confermata la scelta proposta dagli sviluppatori, ovvero di non utilizzare alcun tipo di \textit{ORM$_{G}$} ma di usare il modulo \texttt{pg}$_{G}$ di \textit{node} per mantenere il controllo completo sugli oggetti creati a partire da informazioni sul database, e di fare uso di un \textit{connection pool$_{G}$} per migliorare la scalabilità delle richieste al \textit{database}.
+
+
+\subsection*{Retrospettiva}
+E' stato discusso l'andamento dello \textit{sprint} 7, appena concluso, con particolare attenzione a quali sono stati i rischi pianificati, e non, rispetto a quelli manifestati.
+I membri del gruppo concordano sul fatto che, nel periodo appena concluso, risulta evidente la maturazione nell'individuazione dei rischi, già al momento della pianificazione. Questo grazie all'esperienza degli sprint precedenti in cui i rischi manifestati erano molti rispetto a quelli pianificati.
+
+Tutti si sono espressi soddisfatti del lavoro svolto fin'ora e concordano sul fatto che gli aspetti da migliorare, per i prossimi sprint, sono la precisione nella pianificazione delle ore, attualmente troppo prudente, e la comunicazione tra i membri del gruppo che in passato ha creato problemi di disallineamento di conoscenze.
+
+
+
+\subsection*{Pianificazione}
+Il team ha concordato che la scadenza di consegna, prevista per il 18 Marzo 2026, individuata in fase di candidatura, è troppo stringente.
+Per questo è stato deciso di prolungare il progetto di un ulteriore \textit{sprint} (2 settimane). Questo non intacca il preventivo di costo totale in quanto l'aggiunta verrà fatta sulla base delle ore avanzante dai periodi di avanzamento precedenti.
+
+Anche i ruoli individuati per lo \textit{sprint} 8 hanno subito cambiamenti. Il ruolo di programmatore, pianificato in precedenza, verrà sostituito dal ruolo di progettista, in quanto si prevede che l'avvicinarsi all'RTB coincida con l'inizio della progettazione.
+
+E' stato discusso l'invio della lettera di candidatura ai professori Cardin e Vardanega per la revisione RTB e si è deciso che l'inoltro avverrà una volta che tutti i documenti saranno approvati. E' stata stabilita come scadenza per l'approvazione l'13/02/2026.
+
+Infine, dopo aver analizzato lo stato del progetto, le risorse rimanenti e gli obiettivi finali previsti, il gruppo ha deciso di aggiungere uno \textit{sprint}, l'undicesimo, portando quindi la data pianificata di termine al 5/04/2026.
+
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+
+\addDecision{Non utilizzare ORM}
+\addDecision{Utilizzare modulo \texttt{pg} per integrazione con \textit{database}}
+\addDecision{Nuova previsione di completamento progetto: 5/04/2026}
+\addDecision{Conversione ruolo programmatore in progettista per lo \textit{sprint} 8}
+\addDecision{Approvazione PdP, PdQ, NdP, AdR e VI (Verbali Interni) entro 13/02/2026}
+\addDecision{Aggiunto \textit{Sprint 11}}
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+
+\addTodo{ - }{Sistemare le ore individuali dello \textit{sprint} 7}{SnakeByte team}{10/02/2026}
+\addTodo{\#106}{Aggiungere alle tabelle del PdQ la ripetizione dell'intestazione}{G. De Fina}{11/02/2026}
+\addTodo{PR \#103}{Verifica Analisi dei Requisiti}{F. Pasqual, L. Granziero}{10/02/2026}
+\addTodo{\#105}{Scrittura verbale interno}{F. Venzo}{10/02/2026}
+\addTodo{\#104}{Aggiungere campo "generalizzazioni" tabella Use Case in NdP}{G. De Fina}{10/02/2026}
+\addTodo{\#105}{Aggiungere alla sezione test specifiche sugli \textit{stub$_{G}$}}{G. De Fina}{10/02/2026}
+
+\makeTodoTable
+
+\end{document}
