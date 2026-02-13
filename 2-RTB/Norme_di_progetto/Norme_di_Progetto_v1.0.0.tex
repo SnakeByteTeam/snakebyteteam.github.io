@@ -16,6 +16,7 @@
 \usepackage{makecell}
 \usepackage{caption}
 \usepackage{template}
+\usepackage{lastpage}
 
 %Comandi per livello di sottosezioni = 3
 \setcounter{tocdepth}{4}
@@ -25,7 +26,7 @@
 \fancyhf{}
 \fancyhead[L]{SnakeByte} 
 \fancyhead[R]{Norme di Progetto}
-\fancyfoot[C]{\thepage}
+\fancyfoot[C]{\thepage\ di \pageref{LastPage}}
 
 
 \begin{document}
@@ -51,7 +52,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari}                                     \\
                 \hline
-                0.9.0                                  & 10/2/2026     & Verificato     & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
+                1.0.0                                  & 13/2/2026     & Approvato     & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
                 \hline
             \end{tabular}
         \end{center}
@@ -70,6 +71,8 @@
     \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
     \hline
     \endhead
+    1.0.0 & 13/2/2026 & - & \makecell[t] - & F. Venzo & Approvazione \\
+    \hline
     0.9.0 & 10/2/2026 & G. De Fina & \makecell[t]{L. Granziero \\ F. Pasqual} & - & Aggiunto elenco delle tabelle. \\
     \hline
     0.8.0 & 9/2/2026 & G. De Fina & \makecell[t]{L. Granziero \\ F. Pasqual} & - & Aggiunte "generalizzazioni" nella tabella per l'Analisi dei Requisiti, aggiunto comando \textit{needspace}. \\
@@ -115,12 +118,9 @@
 \section{Introduzione}
 \subsection{Finalità del documento}
 Il presente documento intende fissare le linee guida che il gruppo \textit{SnakeByte} si impegna a rispettare ed attuare per perseguire la migliore efficienza ed efficacia nel processo di realizzazione del progetto didattico.
-
 Il documento è strutturato secondo le norme dello Standard ISO/IEC 12207:1995 e segue quanto descritto nel \textit{Regolamento del progetto didattico (A.a. 2025/2026)}. Presenta una descrizione dei \textit{processi} del ciclo di vita del \textit{software} e delle \textit{attività} di cui sono composti.
-A sua volta, ogni attività, è composta da una serie di procedure metodiche dotate di obiettivi e strumenti ben definiti.
-
+A sua volta, ogni attività è composta da una serie di procedure metodiche dotate di obiettivi e strumenti ben definiti.
 \'E importante notare che il documento in questione è in continua evoluzione fino al suo ritiro, poiché le norme contenute al suo interno vengono costantemente revisionate, ottimizzate ed aggiornate, seguendo un approccio incrementale.
-
 Ogni attività svolta nell'interesse del progetto didattico e nei suoi materiali è regolamentata precedentemente all'esecuzione della stessa.
 
 \subsection{Glossario}
@@ -130,29 +130,24 @@ Il documento cita alcuni termini la cui definizione può risultare ambigua. Per 
 \begin{itemize}
     \item \textbf{Standard ISO/IEC 12207:1995}:
 
-          \url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}
-
-          (consultato il 30/10/2025);
+        \url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}
+        \\ (consultato il 13/02/2026);
     \item \textbf{Regolamento del progetto didattico}:
-
-          \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf}
-
-          (consultato il 23/10/2025).
+        \\ \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf}
+        \\ (consultato il 13/02/2026).
 \end{itemize}
 
 \subsection{Riferimenti Informativi}
 \begin{itemize}
     \item \textbf{Sito dedicato alla documentazione}
 
-          \url{https://snakebyteteam.github.io}
-
-          (consultato il 23/10/2025)
+        \url{https://snakebyteteam.github.io}
+        \\ (consultato il 13/02/2026)
 
     \item \textbf{Glossario}:
 
-          \url{https://snakebyteteam.github.io/glossary.html}
-
-          (consultato il 30/10/2025)
+        \url{https://snakebyteteam.github.io/glossary.html}
+        \\(consultato il 13/02/2026)
 
 \end{itemize}
 
@@ -194,7 +189,7 @@ La documentazione prodotta durante le attività di fornitura, la quale verrà co
 \end{itemize}
 
 \subsection{Sviluppo}
-Il processo di Sviluppo consiste in un'insieme di attività necessarie per la realizzazione del prodotto \textit{software}, queste sono particolarmente
+Il processo di Sviluppo consiste in un insieme di attività necessarie per la realizzazione del prodotto \textit{software}, queste sono particolarmente
 orientate verso analisi dei requisiti, design, codifica, integrazione e testing; si tratta infatti del processo primario principale che
 guida la realizzazione del prodotto \textit{software} per la quasi totalità del ciclo di vita.
 
@@ -233,8 +228,8 @@ Una breve introduzione descrive le finalità del documento, i Riferimenti Inform
 In questa sezione viene descritto lo scopo e l'obiettivo principale del prodotto, oltre che  le principali funzionalità
 che deve possedere e l'insieme di utenti a cui è destinato.
 
-\trisubsection{Elenco \textit{casi d'uso}}
-I \textit{casi d'uso} vengono elencati seguendo la numerazione associata, sono presentati attraverso un diagramma \textit{UML} e una descrizione testuale in forma tabellare contenente sia le informazioni
+\trisubsection{Elenco \textit{casi d'uso$_{G}$}}
+I {casi d'uso} vengono elencati seguendo la numerazione associata, sono presentati attraverso un diagramma \textit{UML} e una descrizione testuale in forma tabellare contenente sia le informazioni
 all'interno del diagramma sia quelle non rappresentabili da esso, tra cui Pre-condizioni e le Post-condizioni.\\
 La struttura è la seguente:
 
@@ -274,7 +269,7 @@ dipende dalla situazione.
 
 
 
-\trisubsection{\textbf{Elenco requisiti}}
+\trisubsection{{Elenco requisiti}}
 I requisiti sono identificati da un codice univoco e sono associati ai casi d'uso da cui sono stati generati.
 
 \section{Processi di supporto}
@@ -320,7 +315,7 @@ Tutti i documenti, interni ed esterni, devono riportare a partire dalla seconda 
     \item Descrizione riassuntiva delle modifiche alla versione precedente.
 \end{itemize}
 
-
+\noindent
 Ogni modifica ad un documento scatena la creazione di una nuova versione di esso e quindi la compilazione di una nuova riga, verso il basso, della tabella.
 
 \trisubsection{Indice}
@@ -397,8 +392,7 @@ Differentemente dagli altri documenti, l'analisi dei requisiti viene redatta dal
 \textit{analista} (\hyperref[sec:Analista]{Sezione \textit{§4.1.1.5}}).
 
 \subsubsection{Verifica dei documenti}
-Ogni documento dopo essere stato redatto, deve essere verificato, ovvero la correttezza delle informazioni in esso contenute deve essere confermata.
-
+Ogni documento, dopo essere stato redatto, deve essere verificato, ovvero la correttezza delle informazioni in esso contenute deve essere confermata.
 L'azione di verifica dei documenti viene effettuata dalla persona che ricopre, in quel periodo, il ruolo di Verificatore.
 
 \label{sec:Verifica}
@@ -515,7 +509,6 @@ La convenzione in uso per la nomenclatura dei file è la seguente (dove X, Y e Z
 \end{itemize}
 \subsection{Gestione della configurazione}
 La gestione della configurazione è l'insieme delle attività volte a identificare, tracciare e controllare le modifiche apportate a qualsiasi elemento nel progetto.
-
 Secondo lo Standard ISO/IEC 12207:1995, le azioni di gestione della configurazione devono controllare le modifiche e i rilasci degli elementi, registrare e segnalare lo stato degli elementi e
 le richieste di modifica, garantire la completezza, la coerenza e la correttezza degli elementi, e controllare
 l'immagazzinamento, la movimentazione e la consegna degli elementi.
@@ -532,7 +525,7 @@ Ogni avanzamento delle cifre X e Y riportano le cifre alla loro destra a 0.\\ \\
 %Al termine del processo di verifica, se questo termina con esito positivo, le modifiche apportate vengono confermate. In caso negativo la versione non viene confermata e si deve procedere con ulteriori modifiche per soddisfare il processo di verifica
 %draft del verificatore
 \subsubsection{Repository}
-I repository creati per la gestione della configurazione sono
+I repository creati per la gestione della configurazione sono i seguenti;
 \begin{itemize}
     %\item \textbf{Documents}: repository che contiene tutti la documentazione creata, in formato PDF;
     %\item \textbf{Sorgenti}: repository che contiene tutta la documentazione create, in formato \LaTeX;
@@ -678,7 +671,7 @@ scenari d'uso previsti e soddisfi le aspettative definite in fase di analisi.
 
 \trisubsection{Test di regressione}
 I test di regressione hanno lo scopo di garantire che modifiche o correzioni
-apportati al sistema non introducano nuovi difetti o compromettano
+apportate al sistema non introducano nuovi difetti o compromettano
 funzionalità precedentemente verificate.
 Essi consistono nella riesecuzione di test già validati, al fine di garantire
 la stabilità e l'affidabilità complessiva del sistema nel tempo.
@@ -936,7 +929,7 @@ Più membri possono essere occupati in questo ruolo contemporaneamente.
 Il programmatore è la figura responsabile della realizzazione e manutenzione del prodotto \textit{software}. Ha competenze tecniche ampie ma deleghe limitate.
 
 I principali compiti del programmatore sono
-\begin{itemize}riunione in prese
+\begin{itemize}
     \item Scrivere codice secondo le specifiche del \textit{progettista} e che persegue gli obiettivi e requisiti definiti dall'\textit{analista};
     \item Redigere la documentazione tecnica (\textit{Manuale}) del prodotto.
 \end{itemize}
