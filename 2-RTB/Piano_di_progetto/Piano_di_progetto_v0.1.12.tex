@@ -13,9 +13,9 @@
 % Macro sono in relazione all'ultima modifica
 \setDocIndex{Piano di progetto}
 \setDocTitle{Piano di progetto}
-\setDocVersion{0.1.11}
+\setDocVersion{0.1.12}
 \setDocState{1}
-\setDocData{11/02/2026}
+\setDocData{13/02/2026}
 \setDocRecipient{1}
 
 \setcounter{tocdepth}{4}
@@ -265,6 +265,7 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 \begin{document}
 
 \makeTitlePage
+\addChangelog{0.1.12}{13/02/2026}{G. De Fina}{F. Pasqual}{\noOne}{Aggiunta stato delle risorse al momento della candidatura}
 \addChangelog{0.1.11}{11/02/2026}{G. De Fina}{F. Pasqual}{\noOne}{Correzione retrospettiva Sprint 6 e miglioramenti terminologici}
 \addChangelog{0.1.10}{11/02/2026}{G. De Fina}{F. Pasqual}{\noOne}{Aggiunti parametri e informazioni complete relativi allo sprint 7}
 \addChangelog{0.1.9}{10/02/2026}{V. Baleanu}{L. Granziero}{\noOne}{Aggiunta caption per le tabelle}
@@ -649,17 +650,17 @@ distribuzione oraria dei ruoli, si stima uno stato delle risorse corrispondente 
         \rowcolor{lightgray} \textbf{Ruolo}    & \textbf{Ore rimanenti} & \textbf{Risorse rimanenti}
         \\
         \hline
-        Responsabile                           & 22                      & 660\euro                     \\
+        Responsabile                           & 22                      & 660 \euro                     \\
         \hline
-        Amministratore                         & 1                      & 20\euro                     \\
+        Amministratore                         & 1                      & 20 \euro                     \\
         \hline
-        Analista                               & -3                   & -75\euro                     \\
+        Analista                               & -3                   & -75 \euro                     \\
         \hline
-        Progettista                            & 91                      & 2.275\euro                     \\
+        Progettista                            & 91                      & 2.275 \euro                     \\
         \hline
-        Programmatore                          & 83                      & 1.245\euro                     \\
+        Programmatore                          & 83                      & 1.245 \euro                     \\
         \hline
-        Verificatore                           & 71                    & 1.065\euro                     \\
+        Verificatore                           & 71                    & 1.065 \euro                     \\
         \hline
         \cellcolor{lightgray}{\textbf{Totale}} & 265                      & 5.190 \euro                    \\
         \hline
@@ -1091,6 +1092,15 @@ a questa esigenza si è resa necessaria una riassegnazione dei ruoli:
 in particolare, Valeria è stata assegnata al ruolo di Amministratore anziché a
 quello di Progettista, per permettere una distribuzione equa delle attività tra
 i due Amministratori.
+
+Un elemento importante emerso durante questo sprint riguarda l'utilizzo del ruolo di Progettista: 
+il gruppo ha preso consapevolezza del fatto che, nel periodo che precede la candidatura RTB, 
+le attività di progettazione dovrebbero essere considerate di formazione e palestra, 
+piuttosto che ore produttive rendicontabili. Per questo motivo, lo Sprint 4 rappresenta 
+l'ultimo in cui sono state assegnate ore al ruolo di Progettista. Negli sprint successivi 
+(5, 6 e 7), fino alla candidatura RTB, questo ruolo non è stato più utilizzato nelle ore 
+rendicontate, concentrando le risorse sui ruoli effettivamente produttivi per questa fase 
+del progetto.
 
 La sottostima e la sovrastima delle ore assegnate ad alcuni ruoli hanno confermato la necessità di affinare
 ulteriormente il processo di pianificazione.
