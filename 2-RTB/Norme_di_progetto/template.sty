@@ -8,16 +8,20 @@
 \RequirePackage{xcolor}
 \RequirePackage{colortbl}
 \RequirePackage{float}
+\RequirePackage{needspace}
+\RequirePackage{caption}
 
-\newcommand{\Metrica}[4]{
+\newcommand{\Metrica}[5]{
+\Needspace{8\baselineskip}
 \vspace{-\baselineskip}
 \begin{center}
-\begin{xltabular}{\textwidth}{|>{\columncolor{lightgray}}c|X|}
+\begin{tabularx}{\textwidth}{|>{\columncolor{lightgray}}c|X|}
 \hline
 \textbf{Codice} & #1 \\ \hline
 \textbf{Formula} & #3 \\ \hline
 \textbf{Descrizione} & #2 \\ \hline
 \textbf{Utilità} & #4 \\ \hline
-\end{xltabular}
+\end{tabularx}
+\captionof{table}{#5}
 \end{center}
 }
