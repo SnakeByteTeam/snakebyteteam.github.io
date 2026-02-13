@@ -253,12 +253,19 @@
 
 \section{Descrizione del prodotto}
 \subsection{Prospettiva del prodotto}
-La prospettiva del prodotto è un Sistema domotico integrato per persone autosufficienti (ad esempio anziani) che si basa su dispositivi Vimar con connessione \textit{mesh Bluetooth}.
-Gli obiettivi principali sono la sicurezza e il comfort delle persone occupanti, l'aumento dell'efficienza energetica della struttura e la semplificazione della gestione operativa dell'impianto elettrico.
-Tali risultati vengono raggiunti attraverso la centralizzazione del controllo di illuminazione, temperatura, televisione e dispositivi di sicurezza mediante l'app View e i relativi servizi \textit{cloud}, con la possibilità di controllo da remoto da parte del personale medico.
+La prospettiva del prodotto è un Sistema domotico integrato per persone autosufficienti (ad esempio anziani) che si basa su dispositivi 
+Vimar con connessione \textit{mesh Bluetooth}. Gli obiettivi principali sono la sicurezza e il comfort delle persone occupanti, l'aumento 
+dell'efficienza energetica della struttura e la semplificazione della gestione operativa dell'impianto elettrico. Tali risultati vengono 
+raggiunti attraverso la centralizzazione del controllo di illuminazione, temperatura, televisione e dispositivi di sicurezza mediante l'app 
+View e i relativi servizi \textit{cloud}, con la possibilità di controllo da remoto da parte degli operatori sanitari.
 
 \subsection{Obiettivi del prodotto}{
-    Il progetto consiste nella realizzazione di una piattaforma unica \textit{View4Life} per la gestione intelligente degli impianti \textit{Smart} nelle residenze protette, sfruttando i dispositivi domotici Vimar connessi in rete \textit{mesh Bluetooth} che vengono poi esposti tramite l'interfaccia \textit{API KNX IoT 3rd-party$_{G}$}. Questa soluzione mira a supportare il lavoro del \os fornendo uno strumento che integri un Sistema di gestione degli allarmi (come il rilevamento di cadute o presenze prolungate in determinate stanze) per garantire un intervento rapido e tempestivo. Inoltre, la piattaforma è progettata per permettere il monitoraggio del consumo energetico e la rilevazione di anomalie nell’impianto (ad esempio le disconnessioni).
+    Il progetto consiste nella realizzazione di una piattaforma unica \textit{View4Life} per la gestione intelligente degli impianti 
+    \textit{Smart} nelle residenze protette, sfruttando i dispositivi domotici Vimar connessi in rete \textit{mesh Bluetooth} che 
+    vengono poi esposti tramite l'interfaccia \textit{API KNX IoT 3rd-party$_{G}$}. Questa soluzione mira a supportare il lavoro del 
+    \os fornendo uno strumento che integri un Sistema di gestione degli allarmi (come il rilevamento di cadute o presenze prolungate 
+    in determinate stanze) per garantire un intervento rapido e tempestivo. Inoltre, la piattaforma è progettata per permettere il 
+    monitoraggio del consumo energetico e la rilevazione di anomalie nell’impianto (ad esempio le disconnessioni).
 }
 
 \subsection{Funzionalità del prodotto}
@@ -267,15 +274,15 @@ Dal punto di vista degli utenti del \os l'applicativo svolge le seguenti funzion
     \item Visualizzazione delle informazioni generali di allarmi, statistiche ed analitiche tramite cruscotto riassuntivo (Dashboard);
     \item Possibilità di essere notificati, visualizzare e gestire gli allarmi attivi;
     \item Possibilità di visualizzare e gestire i dispositivi dei vari impianti collocati in diverse residenze;
-    \item Possibilità di visualizzare statistiche, tramite grafici, sui consumi dell'impianto, sulla variazione di temperatura e sugli allarmi passati;
+    \item Possibilità di visualizzare statistiche, tramite grafici, sui consumi dell'impianto, sulla variazione di temperatura e sugli 
+    allarmi passati;
     \item Possibilità di ricevere consigli, basati sulle statistiche, per ridurre i consumi energetici.
 \end{itemize}
 
 \subsection{Utenza di riferimento}{
-    Il prodotto si rivolge principalmente a quattro categorie principali di utenti, descritte di seguito:
-
+    Il prodotto si rivolge a due categorie di utenti:
     \begin{itemize}
-        \item \textbf{Personale medico e operatori sanitari} che utilizzano l'applicazione per monitorare lo stato di ambienti e dispositivi, oltre a ricevere notifiche di allarme e gestire da remoto funzioni come temperatura, illuminazione e sicurezza delle stanze degli ospiti presenti.
+        \item \textbf{Operatori sanitari} che utilizzano l'applicazione per monitorare lo stato di ambienti e dispositivi, oltre a ricevere notifiche di allarme e gestire da remoto funzioni come temperatura, illuminazione e sicurezza delle stanze degli ospiti presenti.
         \item \textbf{Personale amministrativo} che si fa carico della configurazione e manutenzione del Sistema e del monitoraggio delle statistiche prodotte (ad esempio sui consumi elettrici o sulla variazione delle temperatura), e quindi a una conseguente ottimizzazione dell'efficienza dell'impianto elettrico.
     \end{itemize}
     Questa sezione evidenzia come il Sistema domotico proposto miri a centralizzare il controllo e la gestione degli impianti all’interno della residenza, semplificando le operazioni quotidiane del personale e migliorando la qualità della vita degli ospiti.
@@ -912,7 +919,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema aggiunge nella visualizzazione il modulo statistiche allarmi.}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo statistiche allarmi.}
 \makeUC[0.6]{18}{Aggiunta modulo statistiche allarmi}
 
@@ -920,7 +927,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema rimuove nella visualizzazione il modulo statistiche allarmi.}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo statistiche allarmi.}
 \makeUC[0.6]{19}{Rimozione modulo statistiche allarmi}
 
@@ -928,7 +935,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema aggiunge nella visualizzazione il modulo informazioni \user}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo informazioni \user}
 \makeUC[0.6]{20}{Aggiunta modulo informazioni \user}
 
@@ -936,7 +943,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema rimuove nella visualizzazione il modulo informazioni \user}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo informazioni \user}
 \makeUC[0.6]{21}{Rimozione modulo informazioni \user}
 
@@ -944,7 +951,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema aggiunge nella visualizzazione il modulo analisi clima.}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo analisi clima.}
 \makeUC[0.6]{22}{Aggiunta modulo analisi clima}
 
@@ -952,7 +959,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema rimuove nella visualizzazione il modulo analisi clima.}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo analisi clima.}
 \makeUC[0.6]{23}{Rimozione modulo analisi clima}
 
@@ -960,14 +967,14 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addAttoreSec{\db}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \addPoC{Il Sistema aggiunge nella visualizzazione il modulo analisi consumi.}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo analisi consumi.}
 \makeUC[0.6]{24}{Aggiunta modulo analisi consumi}
 
 \addAttore{\admin}
 \addAttoreSec{\db}
 \addPoC{Il Sistema rimuove nella visualizzazione il modulo analisi consumi.}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestioni delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo analisi consumi.}
 \addPrC{L'\admin si trova nella sezione Dashboard.}
 \makeUC[0.6]{25}{Rimozione modulo analisi consumi}
@@ -1368,21 +1375,21 @@ Di seguito vengono riportati gli attori secondari individuati:
 
 \addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo allarme.}
-\addPoC{Le la soglia di intervento è configurato per l'allarme che si vuole creare.}
+\addPoC{La soglia di intervento è configurato per l'allarme che si vuole creare.}
 %\addTrigger{L'\admin deve configurare le soglie di attivazione dell'allarme.}
 \addScenarioPrincipale{L'\admin seleziona una soglia di intervento dell'allarme che vuole creare}
 \makeUC{\Aa.8}{Selezione soglia intervento allarme}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo allarme.}
-\addPoC{Le l'orario di attivazione è configurato per l'allarme che si vuole creare.}
+\addPoC{L'orario di attivazione è configurato per l'allarme che si vuole creare.}
 %\addTrigger{L'\admin deve configurare le soglie di attivazione dell'allarme.}
 \addScenarioPrincipale{L'\admin seleziona l'orario di attivazione dell'allarme che vuole creare}
 \makeUC{\Aa.9}{Selezione orario attivazione allarme}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo allarme.}
-\addPoC{Le l'orario di disattivazione è configurato per l'allarme che si vuole creare.}
+\addPoC{L'orario di disattivazione è configurato per l'allarme che si vuole creare.}
 %\addTrigger{L'\admin deve configurare le soglie di attivazione dell'allarme.}
 \addScenarioPrincipale{L'\admin seleziona l'orario di disattivazione dell'allarme che vuole creare}
 \makeUC{\Aa.10}{Selezione orario disattivazione allarme}
@@ -1589,7 +1596,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \newpage
 
 \section{Requisiti}{
-  In questa sezione viene presentata la specifica dei requisiti. In particolare i requisiti di dividono in:
+  In questa sezione viene presentata la specifica dei requisiti. In particolare i requisiti si dividono in:
   \begin{itemize}
       \item Funzionali: descrivono le funzionalità che un Sistema deve avere per soddisfare i bisogni;
       \item Di qualità: requisiti che devono essere rispettati per accertare qualità
@@ -1660,7 +1667,7 @@ Di seguito vengono riportati gli attori secondari individuati:
   \addReqF{2}{L'\user deve poter visualizzare una dashboard che rappresenta lo stato del Sistema}{\rif{\Vd}}
   \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo gestione allarmi}{\rif{\Vd}\\\rif{\Vd.1}}
   \addReqF{2}{L'\user visualizzando il modulo gestione allarmi deve poter visualizzare
-      ogni singola allarme}{\rif{\Vd.1}\\\rif{\Vd.1.1}}
+      ogni singolo allarme}{\rif{\Vd.1}\\\rif{\Vd.1.1}}
   \addReqF{2}{L'\user visualizzando un singolo allarme deve poter visualizzare il segnale di pericolo}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.1}}
   \addReqF{2}{L'\user visualizzando un singolo allarme deve poter visualizzare il nome}{\rif{\Vd.1.1}\\\rif{\Vd.1.1.2}}
   \addReqF{2}{L'\user visualizzando un singolo allarme deve poter visualizzare il tempo trascorso dallo scatto
@@ -1671,9 +1678,9 @@ Di seguito vengono riportati gli attori secondari individuati:
   \addReqF{2}{L'\user visualizzando il modulo statistiche allarmi deve poter visualizzare il numero
       di allarmi attivi}{\rif{\Vd.2}\\\rif{\Vd.2.2}}
   \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo informazioni \user}{\rif{\Vd}\\\rif{\Vd.3}}
-  \addReqF{2}{L'\user visualizzando il modulo modulo informazioni \user deve poter visualizzare il
+  \addReqF{2}{L'\user visualizzando il modulo informazioni \user deve poter visualizzare il
       nome \user}{\rif{\Vd.3}\\\rif{\Vd.3.1}}
-  \addReqF{2}{L'\user visualizzando il modulo modulo informazioni \user deve poter visualizzare il
+  \addReqF{2}{L'\user visualizzando il modulo informazioni \user deve poter visualizzare il
       cognome \user}{\rif{\Vd.3}\\\rif{\Vd.3.2}}
   \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi clima}{\rif{\Vd}\\\rif{\Vd.4}}
   \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi consumi}{\rif{\Vd}\\\rif{\Vd.5}}
@@ -1687,7 +1694,7 @@ Di seguito vengono riportati gli attori secondari individuati:
   \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo analisi clima}{\rif{15}}
   \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo analisi clima}{\rif{16}}
   \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo analisi consumi}{\rif{17}}
-  \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard modulo analisi consumi}{\rif{18}}
+  \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo analisi consumi}{\rif{18}}
 
   \addReqF{2}{L'\user deve poter risolvere un allarme}{\rif{19}}
 
