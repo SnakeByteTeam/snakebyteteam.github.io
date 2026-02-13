@@ -1,0 +1,126 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage{../../../../template/template}
+
+\setDocIndex{vi\_2025\_11\_12}
+\setDocTitle{Verbale esterno 12/11/2025}
+\setDocData{26/01/2026}
+\setDocVersion{1.0.1}
+\setDocState{2}
+\setDocRecipient{2}
+
+\begin{document}
+
+\makeTitlePage
+
+\addChangelog{1.0.1}{26/01/2026}{V. Baleanu}{-}{V. Baleanu, M. Sciacco}{Ri-approvazione del documento a seguito di aggiornamento dello stato del documento. Nessuna modifica al contenuto.}
+\addChangelog{1.0.0}{10/12/2025}{-}{-}{F. Pasqual, M. Sciacco}{Approvazione interna ed esterna del documento}
+\addChangelog{0.1.0}{12/11/2025}{C. Libralato}{L. Pellizzon}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{\docData}{15:30}{17:30}{in Presenza}
+
+\addParticipant{Filippo}{Venzo}{Responsabile}{P}
+\addParticipant{Christian}{Libralato}{Amministratore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Verificatore}{P}
+\addParticipant{Valeria}{Baleanu}{Analista}{P}
+\addParticipant{Giuseppe}{De Fina}{Analista}{P}
+\addParticipant{Luca}{Granziero}{Analista}{P}
+\addParticipant{Francesco}{Pasqual}{Analista}{P}
+
+\makeMeetingParticipantsTable
+
+\section{Ordine del giorno}
+    \begin{itemize}
+        \item Definizione riunioni periodiche;
+        \item proposte e supporto aziendale;
+        \item consegna materiale;
+        \item Q\&A;
+        \item To Do.
+    \end{itemize}
+
+
+\section{Approfondimento}
+Segue una sintesi dei temi trattati: 
+    \subsection*{Definizione riunioni periodiche}
+    L'azienda ha proposto dei \textit{SAL$_G$} con cadenza ogni 14 giorni, con ora e giorno da definire, che avranno luogo sulla piattaforma \textit{Microsoft
+    Teams$_G$}. Le riunioni, aventi una durata di 60 minuti, potranno essere svolte anche in presenza, qualora richiesto dal gruppo con sufficiente anticipo.\\
+    A seguito del Proof of Concept la frequenza degli incontri verrà ridotta.\\
+    Per i \textit{SAL} è stato proposto il seguente ordine del giorno:
+    \begin{enumerate}
+    \item esposizione dei ruoli;
+    \item panoramica degli avanzamenti settimanali;
+    \item attività terminate;
+    \item attività programmate;
+    \item limiti o blocchi incontrati.
+    \end{enumerate}
+    Al fine di rendere più efficiente la scrittura dei verbali esterni verranno utilizzate, come materiale di supporto, le trascrizioni
+    delle riunioni generate da \textit{Microsoft Copilot$_G$}.
+
+    \subsection*{Proposte e supporto aziendale}
+    Per ogni \textit{SAL} è atteso un verbale esterno che dovrà essere firmato dalla Proponente, al tal fine
+    è proposto l'impiego di \textit{Round Review$_G$}, che prevede un processo iterativo di caricamento documenti e inserimento di commenti da parte dell'azienda
+    fino a raggiungere l'approvazione. \textit{Round View} potrà essere eventualmente applicata anche
+    per documenti diversi dai verbali.\\ \\
+    Al fine di facilitare il processo di supporto da parte dell'azienda è stata richiesta la possibilità di condividere il codice sorgente
+    con un utente aziendale avente accesso in sola lettura al repository \textit{GitHub$_G$}. (Username: \texttt{sciaccom-vimar})\\ \\
+    Sono stati successivamente individuati come mezzi di comunicazione asincrona le chat di \textit{Microsoft Teams} e le Email per questioni di maggiore entità,
+    si raccomanda di rispettare gli orari aziendali. \\
+    Riferimenti:\\
+    A: \href{mailto:mariano.sciacco@vimar.com}{mariano.sciacco@vimar.com}\\
+    CC: \href{mailto:francesca.stival@vimar.com}{francesca.stival@vimar.com}\\ \\
+    Per facilitare il primo approccio con le tecnologie che verranno utlizzate, l'azienda si è resa disponibile a tenere degli incontri di
+    approfondimento. In prima istanza sono state proposte le seguenti tematiche: 
+    \begin{itemize}
+        \item \textit{KNX IoT$_G$};
+        \item \textit{Container$_G$}, \textit{Docker$_G$};
+        \item altre tecnologie o prodotti Vimar.
+    \end{itemize}
+    Gli incontri avranno durata massima di un'ora e richiederanno una partecipazione attiva dei componenti
+    del gruppo tramite domande e criticità emerse da un precedente studio autonomo degli argomenti.
+    
+    \subsection*{Consegna materiale}
+    \textit{Leonardo Pellizzon} è il responsabile del materiale fornito dall'azienda, che consiste in:
+    \begin{itemize}
+        \item 2x Kit di impianto portatile Smart (fisico, nero);
+        \item credenziali per accesso all'API \textit{REST$_G$} di \textit{KNX IoT} (cartacea);
+        \item documentazione per integrazioni di terze parti per \textit{KNX IoT} (cartacea).
+    \end{itemize}
+    Si raccomanda attenzione a non diffondere materiali e credenziali private.
+
+    \subsection*{Q\&A}
+    Nella sezione \textit{questions-and-answers} sono stati trattati i seguenti temi:
+    \begin{itemize}
+        \item riguardo agli strumenti e i frameworks proposti all'interno del capitolato sono state confermate come preferibili, dalla Proponente, le seguenti: \textit{Angular$_G$} per la parte front-end, \textit{Express$_G$} per la parte back-end, \textit{PostgreSQL$_G$} e \textit{TimescaleDB$_G$} rispettivamente a livello di database e analytics;
+        \item per quanto concerne il livello di specificità del glossario è emerso che esso è riservato ad un utilizzo interno al gruppo, eventuali definizioni utili agli 
+            utenti finali dovrebbero essere inserite nel Manuale Utente;
+        \item dalla ricerca dei temi iniziali sui quali è utile rafforzare le conoscenze sono emersi i \textit{Container}, \textit{Git$_G$}, \textit{GitHub} e relative funzionalità, API e tecnologie per storicizzazione dei dati.
+    \end{itemize}
+
+    \subsection*{To Do}
+    L'azienda, oltre a richiedere l'invio da parte del gruppo dei nomi e delle email istituzionali dei componenti, ha comunicato che a breve invierà:
+    \begin{itemize}
+        \item l'invito ai \textit{SAL};
+        \item i documenti di integrazione e di informativa sulla privacy, che dovrà ritornare firmata;
+        \item link per un sondaggio iniziale.
+    \end{itemize}
+    
+
+
+\addDecision{Conferma dell'ordine del giorno proposto per i \textit{SAL}}
+\addDecision{Accolta la proposta di utilizzo di \textit{Round Review}}
+\addDecision{Approvata la condivisione del codice sorgente}
+\addDecision{Confermato incontro di approfondimento sulle tecnologie}
+\makeDecisionTable
+
+\addTodo{\noOne}{Comunicare alla Proponente ora e giorno di preferenza per la cadenza dei \textit{SAL}}{F. Venzo}{17/11/2025}
+\addTodo{\noOne}{Inviare all'azienda i nominativi e le email istituzionali dei membri del gruppo}{F. Venzo}{17/11/2025}
+\addTodo{\noOne}{Fornire all'utente aziendale accesso al repository dei sorgenti}{C. Libralato}{17/11/2025}
+
+\makeTodoTable
+
+\end{document}

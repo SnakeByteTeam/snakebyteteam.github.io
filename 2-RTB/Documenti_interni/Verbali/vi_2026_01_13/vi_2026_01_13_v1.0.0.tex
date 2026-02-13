@@ -1,0 +1,121 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 13/01/2026}
+\setDocVersion{1.0.0}
+\setDocData{10/02/2026}
+\setDocIndex{vi\_2026\_01\_13}
+\setDocState{2}
+\setDocRecipient{1}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+\addChangelog{\docVersion}{\docData}{\noOne}{\noOne}{F. Venzo}{Approvazione}
+\addChangelog{0.1.1}{24/01/2026}{V. Baleanu}{L. Granziero}{\noOne}{Aggiunta attività precedente svolta mancante}
+\addChangelog{0.1.0}{13/01/2026}{V. Baleanu}{L. Granziero}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{13/01/2026}{11:00}{12:20}{via Discord}
+
+\addParticipant{Valeria}{Baleanu}{Responsabile}{P}
+\addParticipant{Leonardo}{Pellizzon}{Analista}{P}
+\addParticipant{Luca}{Granziero}{Verificatore}{P}
+\addParticipant{Francesco}{Pasqual}{Amministratore}{P}
+\addParticipant{Giuseppe}{De Fina}{Programmatore}{P}
+\addParticipant{Christian}{Libralato}{Amministratore}{P}
+\addParticipant{Filippo}{Venzo}{Programmatore}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{ve\_2025\_12\_23.a1}{-}{SnakeByte}{8/01/2026}
+\addPrecedentTodo{vi\_2025\_12\_29.a2}{\#35}{V. Baleanu}{30/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_29.a4}{\#55}{L. Granziero}{2/01/2026}
+\addPrecedentTodo{vi\_2025\_12\_15.a5}{\#56}{L. Granziero}{5/01/2026}
+\makePrecedentTodoTable
+
+
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Definizione dei ruoli per lo sprint$_G$ e assegnazione finale delle responsabilità;
+    \item aggiornamenti su piano di qualifica e metriche di qualità;
+    \item stato di avanzamento del \textit{PoC}$_G$ e chiarimento concettuale sulla modellazione degli allarmi e delle soglie;
+    \item pianificazione delle prossime attività e degli incontri con la Proponente.
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Ridefinizione ruoli}
+Si è avviata una discussione sulla necessità di ridefinire i ruoli dello sprint
+corrente, alla luce delle informazioni emerse dal cruscotto di qualità e delle
+ore risultate sottostimate nello sprint precedente.
+In particolare si è deciso di definire due amministratori (Francesco e Christian)
+e due programmatori (Filippo e Giuseppe) per permettere un avanzamento importante nella
+redazione dei documenti e nello sviluppo del \textit{Proof of Concept}.
+
+\subsection*{Aggiornamenti sul cruscotto di qualità}
+L'amministratore dello sprint precedente ha mostrato le modifiche apportate al
+documento del Piano di Qualifica, inclusi i grafici e gli indicatori di qualità, con
+la necessità di aggiornare i dati per gli sprint futuri.
+
+\subsection*{Stato e sviluppo del Proof of Concept}
+I programmatori dello sprint precedente hanno presentato lo stato di avanzamento
+del \textit{Proof of Concept}, con particolare attenzione alla gestione di allarmi
+e soglie e allo sviluppo dell'interfaccia \textit{frontend}.
+Inoltre, i programmatori hanno illustrato la ristrutturazione della struttura
+delle cartelle del progetto per aderire meglio all'architettura esagonale.
+È stata infine approfondita la distinzione concettuale tra
+“allarme” e “soglia”, evidenziando le criticità
+emerse nella fase di modellazione; si è concordato che l'allarme rappresenta
+un evento generato dal superamento di una soglia. Poiché tale conclusione
+deriva da una riflessione interna al gruppo, si è ritenuto opportuno sottoporla
+a un confronto con la Proponente per una validazione definitiva durante il prossimo SAL$_G$.
+
+\subsection*{Avvicinamento al \textit{Requirements and Technology Baseline}}
+Durante la riunione è stato ufficializzato l'avvicinamento alla candidatura per
+il \textit{Requirements and Technology Baseline}.
+È stato pertanto deciso di pianificare un incontro con il prof.\ Cardin per
+essere sicuri delle ultime modifiche apportate all'Analisi dei Requisiti e di
+avviare la preparazione della presentazione relativa alle tecnologie adottate,
+da utilizzare in sede di candidatura all'RTB.
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+
+\addDecision{Ridefinizione ruoli: doppio amministratore e doppio programmatore per lo sprint 6}
+\addDecision{Richiedere un incontro straordinario con il prof. Cardin prima dell'RTB}
+\addDecision{Esporre dubbi riguardanti la modellazione delle soglie e degli allarmi alla Proponente nel prossimo SAL,
+    previsto in data 21/01/2026}
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+
+\addTodo{-}{Richiedere incontro con prof. Cardin}{L. Pellizzon}{15/01/2026}
+\addTodo{\#72}{Iniziare presentazione delle tecnologie per RTB}{C. Libralato, F. Pasqual, V. Baleanu}{27/01/2026}
+\addTodo{\#73}{Scrittura verbale interno}{V.Baleanu}{20/01/2026}
+\addTodo{\#74}{Aggiornamento cruscotto di qualità nel PdQ}{C. Libralato, F. Pasqual}{25/01/2026}
+\addTodo{\#75}{Dubbi sul PoC nel SAL del 21/01/2026}{C. Libralato, F. Pasqual, V. Baleanu}{21/01/2026}
+\makeTodoTable
+
+\end{document}

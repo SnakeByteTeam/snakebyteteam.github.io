@@ -1,0 +1,609 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[nomarginpar, margin=2.75cm, tmargin=3cm, bmargin=1.75cm]{geometry}
+\usepackage[
+    colorlinks=true,      
+    linkcolor=black,      
+    urlcolor=blue,       
+    citecolor=black       
+]{hyperref}
+\usepackage[italian]{babel}
+\usepackage{template}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{lastpage} 
+\renewcommand{\arraystretch}{1.05} % migliora la leggibilità
+\renewcommand{\contentsname}{Indice}
+\renewcommand{\listfigurename}{Elenco dei grafici}
+\renewcommand{\listtablename}{Elenco delle tabelle}
+\usepackage{fancyhdr}
+%Comandi per livello di sottosezioni = 3
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\newcommand{\trisubsection}[1]{\paragraph{#1}\mbox{}\\}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{SnakeByte}
+\fancyhead[R]{Piano di qualifica}
+\fancyfoot[C]{Pagina \thepage\ di \pageref{LastPage}}
+
+\begin{document}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+\begin{titlepage}
+    \begin{center}
+        \begin{center}
+            \includegraphics[width=0.6\textwidth]{../../template/img/logo.pdf}
+        \end{center}
+        \vspace{4cm}
+        \huge\textbf{Piano di qualifica}\par
+        \vspace{2cm}
+        \large \textbf{SnakeByte} (Gruppo 1):\\
+        \large Valeria Baleanu, Leonardo Pellizzon, Filippo Venzo, Giuseppe De Fina, \\
+        Francesco Pasqual, Christian Libralato, Luca Granziero \\
+        (2109911, 2111006, 2113705, 2113187, 2103119, 2101047, 2075512)
+        \vfill
+        \small
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \multicolumn{4}{|c|}{\textbf{Informazioni documento}}                                          \\
+                \hline
+                \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
+                \hline
+                1.0.0                                  & 13/02/2026    & Approvato      &
+                \begin{tabular}[c]{@{}l@{}}
+                    \textbf{Interni:} SnakeByte \\
+                    \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
+                \end{tabular}                          \\
+                \hline
+            \end{tabular}
+        \end{center}
+        \vfill
+        \large Contatti: snakebyteteam@gmail.com
+    \end{center}
+\end{titlepage}
+
+\begin{center}
+    \begin{tabularx}{\textwidth}{|c|c|c|c|c|X|}
+        \hline
+        \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}}                                                                                                                                                                    \\
+        \hline
+        \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore}    & \textbf{Approvatore} & \textbf{Descrizione}                                                                          \\
+        \hline
+        1.0.0                                  & 13/02/2026    & -               & -                        & F. Venzo             & Approvazione                                                                                  \\
+        \hline
+        0.2.2                                  & 10/02/2026    & F. Venzo        & F. Pasqual, L. Granziero & -                    & Aggiunto elenco delle tabelle                                                                 \\
+        \hline
+        0.2.1                                  & 4/02/2026     & F. Venzo        & V. Baleanu               & -                    & Aggiunta descrizione ai grafici, campagna di test di unità e campagna di test di integrazione \\
+        \hline
+        0.2.0                                  & 28/12/2025    & V. Baleanu      & F. Pasqual               & -                    & Aggiunta tabelle delle soglie per le metriche di processo e di prodotto                       \\
+        \hline
+        0.1.1                                  & 27/12/2025    & V. Baleanu      & F. Pasqual               & -                    & Aggiunta Introduzione                                                                         \\
+        \hline
+        0.1.0                                  & 22/12/2025    & V. Baleanu      & F. Pasqual               & -                    & Prima Stesura                                                                                 \\
+        \hline
+    \end{tabularx}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+\section{Introduzione}
+\subsection{Finalità del documento}
+Il presente documento ha lo scopo di definire e documentare gli obiettivi di qualità
+che il gruppo \textit{SnakeByte} si impegna a perseguire durante l'intero ciclo di vita del
+progetto. In particolare, il Piano di qualifica${_G}$ comprende i seguenti elementi:
+\begin{itemize}
+    \item \textbf{Piano della Qualità}: tutte le attività volte a definire gli obiettivi
+          qualitativi e a stabilire i processi e le risorse necessarie per il loro conseguimento;
+    \item \textbf{Controllo di Qualità}: le attività finalizzate ad accertare la conformità dei processi
+          e dei prodotti agli standard, ai requisiti e alle metriche definite;
+    \item \textbf{Miglioramento continuo}: le azioni intraprese per analizzare i risultati
+          del controllo della qualità e per introdurre interventi correttivi e migliorativi
+          sui processi e sul prodotto.
+\end{itemize}
+Il documento si rivolge sia ai membri del gruppo, come guida per il mantenimento
+degli standard qualitativi, sia ai committenti e al proponente, come dimostrazione
+dell'impegno del gruppo verso la qualità del prodotto finale.
+\subsection{Glossario}
+Il documento cita alcuni termini la cui definizione può risultare ambigua. Per questo è possibile consultare
+il glossario${_G}$ il quale contiene le definizioni di tali espressioni, che saranno marcate da una lettera G a
+pedice.
+\subsection{Riferimenti}
+\subsubsection{Riferimenti Normativi}
+\begin{itemize}
+    \item \textbf{Norme di Progetto}:
+          \\ \url{https://snakebyteteam.github.io/2-RTB/Documenti_interni/Norme_di_progetto/Norme_di_Progetto_v1.0.0.pdf}
+          \\ (consultato il 13/02/2026).
+    \item \textbf{Vimar View4Life Capitolato di Ingegneria del Software Università di Padova 2025-2026}:
+          \\ \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C9.pdf}
+          \\ (consultato il 13/02/2026).
+\end{itemize}
+\subsubsection{Riferimenti Informativi}
+\begin{itemize}
+    \item \textbf{Glossario}:
+          \\ \url{https://snakebyteteam.github.io/glossary.html}
+          \\ (consultato il 13/02/2026).
+    \item \textbf{Standard ISO 9000:2015 - Quality management systems. Fundamentals and vocabulary}:
+          \\ \url{https://www.iso.org/standard/45481.html}
+          \\ (consultato il 13/02/2026).
+    \item \textbf{Standard ISO/IEC 12207:1995}:
+          \\ \url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}
+          \\ (consultato il 13/02/2026).
+    \item \textbf{Standard ISO/IEC 9126:2001}:
+          \\ \url{https://it.wikipedia.org/wiki/ISO/IEC_9126}
+          \\ (consultato il 13/02/2026).
+\end{itemize}
+
+\section{Qualità di processo}
+La qualità di processo${_G}$ ha lo scopo di garantire che le attività di sviluppo
+del software siano pianificate, eseguite, monitorate e migliorate in modo
+sistematico, al fine di ridurre il rischio di errori o incongruenze
+durante l'intero ciclo di vita del progetto.
+
+Per la definizione e la classificazione dei processi di qualità, il progetto
+fa riferimento allo standard ISO/IEC 12207:1995, che descrive i processi
+del ciclo di vita del software e li suddivide nelle seguenti categorie:
+\begin{itemize}
+    \item \textbf{Processi primari}: sono direttamente coinvolti nella
+          realizzazione, fornitura e mantenimento del prodotto \textit{software};
+    \item \textbf{Processi di supporto}: affiancano i processi primari fornendo
+          attività di supporto come la documentazione e la verifica;
+    \item \textbf{Processi organizzativi}: forniscono le risorse necessarie
+          all'esecuzione dei processi primari e di supporto, favorendo il
+          miglioramento continuo dell'organizzazione.
+\end{itemize}
+\subsection{Processi primari}
+\subsubsection{Fornitura}
+Nella tabella che segue il termine $BAC$ (\textit{Budget At Completion})
+rappresenta il budget totale previsto inizialmente per il completamento
+del progetto.
+\begin{table}[H]
+    \sogliatabella{
+        \sogliariga{MPC1}{Planned Value}{$\geq 0$}{$\leq BAC$}
+        \sogliariga{MPC2}{Earned Value}{$\geq 0$}{$\leq EAC$}
+        \sogliariga{MPC3}{Actual Cost}{$\geq 0$}{$\leq EAC$}
+        \sogliariga{MPC4}{Cost Performance Index}{$\geq 0.80$}{$1.00$}
+        \sogliariga{MPC5}{Schedule Performance Index}{$\geq 0.80$}{$1.00$}
+        \sogliariga{MPC6}{Estimate At Completion (EAC)}{$\leq 120\% \cdot BAC$}{$\leq BAC$}
+        \sogliariga{MPC7}{Estimate To Complete}{$\geq 0$}{$\leq BAC$}
+    }
+    \caption{Tabella dei valori soglia per metriche di fornitura}
+\end{table}
+
+\begin{table}[H]
+    \subsubsection{Sviluppo}
+    \sogliatabella{
+        \sogliariga{MPC8}{Requirements Stability Index}{$\geq 80\%$}{$100\%$}
+    }
+    \caption{Tabella dei valori soglia per metriche di sviluppo}
+\end{table}
+
+
+\begin{table}[H]
+    \subsection{Processi di supporto}
+    \subsubsection{Documentazione}
+    \sogliatabella{
+        \sogliariga{MPC9}{Indice di Gulpease}{$\geq 60$}{$\geq 80$}
+        \sogliariga{MPC10}{Indice di Frammentazione (IF)}{$5\% \leq IF \leq 20\%$}{$10\% \leq IF \leq 15\%$}
+    }
+    \caption{Tabella dei valori soglia per metriche di documentazione}
+\end{table}
+
+\begin{table}[H]
+    \subsubsection{Verifica}
+    \sogliatabella{
+        \sogliariga{MPC11}{Test Success Rate}{$\geq 80\%$}{$100\%$}
+    }
+    \caption{Tabella dei valori soglia per metriche di verifica}
+\end{table}
+
+\begin{table}[H]
+    \subsubsection{Gestione della qualità}
+    \sogliatabella{
+        \sogliariga{MPC12}{Percentuale Metriche Soddisfatte}{$\geq 80\%$}{$100\%$}
+    }
+    \caption{Tabella dei valori soglia per metriche di gestione della qualità}
+\end{table}
+
+\begin{table}[H]
+    \subsection{Processi organizzativi}
+    \subsubsection{Gestione dei processi}
+    \sogliatabella{
+        \sogliariga{MPC13}{Percentuale Rischi Inattesi}{$\leq 20\%$}{$0\%$}
+        \sogliariga{MPC14}{Labor Efficiency}{$\geq 70\%$}{$\geq 100\%$}
+    }
+    \caption{Tabella dei valori soglia per metriche di gestione dei processi}
+\end{table}
+
+\section{Qualità di prodotto}
+La qualità di prodotto$_G$ è definita secondo un modello basato sullo standard
+ISO/IEC 9126, che struttura la qualità in caratteristiche e sottocaratteristiche
+misurabili attraverso metriche specifiche.
+\\Per il prodotto \textit{software} sviluppato, il gruppo \textit{SnakeByte}
+ha individuato le seguenti caratteristiche qualitative da monitorare e garantire:
+\begin{itemize}
+    \item \textbf{Funzionalità}: capacità di fornire funzioni che soddisfino
+          i requisiti definiti;
+    \item \textbf{Affidabilità}: capacità di mantenere il livello di prestazione
+          richiesto quando utilizzato in condizioni specifiche;
+    \item \textbf{Usabilità}: facilità con cui gli utenti possono apprendere,
+          comprendere e utilizzare il prodotto;
+    \item \textbf{Efficienza}: capacità di fornire prestazioni adeguate in
+          relazione alle risorse utilizzate;
+    \item \textbf{Manutenibilità}: facilità con cui il prodotto può essere
+          modificato, corretto o esteso, favorendo interventi di manutenzione;
+    \item \textbf{Portabilità}: capacità di essere trasferito e adattato a
+          diversi ambienti operativi, piattaforme o configurazioni hardware e software.
+\end{itemize}
+
+\subsection{Funzionalità}
+\begin{table}[H]
+    \sogliatabella{
+        \sogliariga{MPD1}{Percentuale Requisiti Obbligatori Soddisfatti}{$100\%$}{$100\%$}
+        \sogliariga{MPD2}{Percentuale Requisiti Opzionali Soddisfatti}{$0\%$}{$100\%$}
+        \sogliariga{MPD3}{Percentuale Requisiti Desiderabili Soddisfatti}{$0\%$}{$100\%$}
+    }
+    \caption{Tabella dei valori soglia per metriche di funzionalità}
+\end{table}
+
+\begin{table}[H]
+    \subsection{Affidabilità}
+    \sogliatabella{
+        \sogliariga{MPD4}{Line Coverage}{$\geq 75\%$}{$100\%$}
+        \sogliariga{MPD5}{Branch Coverage}{$\geq 75\%$}{$100\%$}
+        \sogliariga{MPD6}{Statement Coverage}{$\geq 75\%$}{$100\%$}
+    }
+    \caption{Tabella dei valori soglia per metriche di affidabilità}
+\end{table}
+
+\begin{table}[H]
+    \subsection{Usabilità}
+    \sogliatabella{
+        \sogliariga{MPD7}{Profondità Massima di Navigazione }{$\leq 7$ click}{$\leq 3$ click}
+    }
+    \caption{Tabella dei valori soglia per metriche di usabilità}
+\end{table}
+
+\begin{table}[H]
+    \subsection{Efficienza}
+    \sogliatabella{
+        \sogliariga{MPD8}{Tempo Medio di Risposta}{$\leq 5$ secondi}{$\leq 1$ secondo}
+    }
+    \caption{Tabella dei valori soglia per metriche di efficienza}
+\end{table}
+
+\begin{table}[H]
+    \subsection{Manutenibilità}
+    \sogliatabella{
+        \sogliariga{MPD9}{Complessità Ciclomatica}{$\leq 20$}{$\leq 10$}
+    }
+    \caption{Tabella dei valori soglia per metriche di manutenibilità}
+\end{table}
+
+\begin{table}[H]
+    \subsection{Portabilità}
+    \sogliatabella{
+        \sogliariga{MPD10}{Compatibilità Cross-Browser}{$\geq 80\%$}{100\%}
+    }
+    \caption{Tabella dei valori soglia per metriche di portabilità}
+\end{table}
+
+\section{Strategie di Testing}
+\subsection{Test di sistema}
+
+\addTestS{Verificare che un Utente non autenticato possa effettuare l'autenticazione con il Sistema}{RF1-OB}{NI}
+\addTestS{Verificare che l'Utente non autenticato, durante il processo di autenticazione, possa inserire il proprio username}{RF2-OB}{NI}
+\addTestS{Verificare che l'Utente non autenticato, durante il processo di autenticazione, possa inserire la propria password}{RF3-OB}{NI}
+\addTestS{Verificare che l'Utente non autenticato riceva un messaggio errore a seguito di un tentativo di autenticazione fallito}{RF4-OB}{NI}
+\addTestS{Verificare che l'Utente autenticato possa impostare una nuova password}{RF5-OB}{NI}
+\addTestS{Verificare che l'Utente non registrato possa essere autenticato con la password temporanea fornita dall'amministratore e impostare una nuova password}{RF6-OB}{NI}
+\addTestS{Verificare che l'Utente autenticato con la password temporanea possa impostare una nuova password}{RF7-OB}{NI}
+\addTestS{Verificare che l'Utente non registrato riceva un errore a seguito di un tentativo di autenticazione con password temporanea fallito}{RF8-OB RF9-OB}{NI}
+\addTestS{Verificare che l'Utente autenticato con la password temporanea riceva un errore nel caso la nuova password sia uguale alla password temporanea}{RF10-OB}{NI}
+\addTestS{Verificare che l'Utente autenticato con la password temporanea riceva un errore nel caso la nuova password non rispetti i criteri richiesti}{RF11-OB}{NI}
+\addTestS{Verificare che l'amministratore possa visualizzare se un account MyVimar è configurato nel Sistema}{RF12-OB}{NI}
+\addTestS{Verificare che l'amministratore possa collegare un account MyVimar al Sistema}{RF13-OB}{NI}
+\addTestS{Verificare che l'amministratore possa rimuovere un account MyVimar dal Sistema}{RF14-OB}{NI}
+\addTestS{Verificare che l'amministratore possa visualizzare l'elenco degli utenti del Sistema}{RF15-DE}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando l'elenco degli utenti del Sistema, possa visualizzare un utente del Sistema nel dettaglio}{RF16-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando un utente del Sistema nel dettaglio, ne visualizzi il nome}{RF17-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando un utente del Sistema nel dettaglio, ne visualizzi il cognome}{RF18-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando un utente del Sistema nel dettaglio, ne visualizzi l'username}{RF19-OB}{NI}
+\addTestS{Verificare che l'amministratore possa creare un utente Operatore Sanitario}{RF20-DE}{NI}
+\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa inserirne il nome}{RF21-DE}{NI}
+\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa inserirne il cognome}{RF22-DE}{NI}
+\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa inserire un username}{RF23-DE}{NI}
+\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa generare una password temporanea}{RF24-DE}{NI}
+\addTestS{Verificare che l'amministratore riceva un errore se l'username utilizzato per la creazione di un utente Operatore Sanitario è già in uso}{RF25-DE}{NI}
+\addTestS{Verificare che l'amministratore possa eliminare un utente Operatore Sanitario}{RF26-DE}{NI}
+\addTestS{Verificare che l'amministratore possa visualizzare tutti i reparti del Sistema}{RF27-OB}{NI}
+\addTestS{Verificare che l'amministratore possa visualizzare un reparto del Sistema nel dettaglio}{RF28-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando un reparto del Sistema nel dettaglio, possa visualizzarne il nome}{RF29-OB}{NI}
+\addTestS{Verificare che l'amministratore possa creare un nuovo reparto}{RF30-OB}{NI}
+\addTestS{Verificare che l'amministratore, creando un nuovo reparto, possa inserirne il nome}{RF31-OB}{NI}
+\addTestS{Verificare che l'amministratore riceva un errore se il nome inserito per creare il nuovo reparto è già in uso}{RF32-OB}{NI}
+\addTestS{Verificare che l'amministratore possa modificare il nome di un reparto del Sistema}{RF33-OB}{NI}
+\addTestS{Verificare che l'amministratore possa eliminare un reparto del Sistema}{RF34-OB}{NI}
+\addTestS{Verificare che l'amministratore possa assegnare un reparto ad un utente Operatore Sanitario}{RF35-OB}{NI}
+\addTestS{Verificare che l'amministratore, assegnando un reparto ad un utente Operatore Sanitario, selezioni un utente Operatore Sanitario}{RF36-OB}{NI}
+\addTestS{Verificare che l'amministratore, assegnando un reparto ad un utente Operatore Sanitario, selezioni un reparto del Sistema}{RF37-OB}{NI}
+\addTestS{Verificare che l'amministratore possa rimuovere un utente Operatore Sanitario dall'assegnazione ad un reparto}{RF38-OB}{NI}
+\addTestS{Verificare che l'amministratore possa assegnare un reparto del Sistema ad un appartamento}{RF39-OB}{NI}
+\addTestS{Verificare che l'amministratore, assegnando un reparto del Sistema ad un appartamento, selezioni un appartamento}{RF40-OB}{NI}
+\addTestS{Verificare che l'amministratore, assegnando un reparto del Sistema ad un appartamento, selezioni un reparto del Sistema}{RF41-OB}{NI}
+\addTestS{Verificare che l'amministratore possa rimuovere un appartamento dall'assegnazione ad un reparto}{RF42-OB}{NI}
+\addTestS{Verificare che l'utente possa visualizzare una dashboard che rappresenta lo stato del sistema}{RF43-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di gestione allarmi}{RF44-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando il modulo di gestione allarmi, possa visualizzare ogni singolo allarme}{RF45-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando un singolo allarme, possa visualizzare il segnale di pericolo}{RF46-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando un singolo allarme, possa visualizzarne il nome}{RF47-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando un singolo allarme, possa visualizzarne il tempo trascorso dallo scatto}{RF48-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di statistiche allarmi}{RF49-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando il modulo di statistiche allarmi, possa visualizzare il numero di allarmi risolti}{RF50-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando il modulo di statistiche allarmi, possa visualizzare il numero di allarmi attivi}{RF51-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di informazioni Utente}{RF52-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando il modulo di informazioni utente, possa visualizzare il nome Utente}{RF53-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando il modulo di informazioni utente, possa visualizzare il cognome Utente}{RF54-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi clima}{RF55-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi consumi}{RF56-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi presenze}{RF57-OB}{NI}
+\addTestS{Verificare che l'amministratore possa aggiungere alla visualizzazione della dashboard il modulo di statistiche allarmi}{RF58-DE}{NI}
+\addTestS{Verificare che l'amministratore possa rimuovere alla visualizzazione della dashboard il modulo di statistiche allarmi}{RF59-DE}{NI}
+\addTestS{Verificare che l'amministratore possa aggiungere alla visualizzazione della dashboard il modulo di informazioni Utente}{RF60-DE}{NI}
+\addTestS{Verificare che l'amministratore possa rimuovere alla visualizzazione della dashboard il modulo di informazioni Utente}{RF61-DE}{NI}
+\addTestS{Verificare che l'amministratore possa aggiungere alla visualizzazione della dashboard il modulo di analisi clima}{RF62-DE}{NI}
+\addTestS{Verificare che l'amministratore possa rimuovere alla visualizzazione della dashboard il modulo di analisi clima}{RF63-DE}{NI}
+\addTestS{Verificare che l'amministratore possa aggiungere alla visualizzazione della dashboard il modulo di analisi consumi}{RF64-DE}{NI}
+\addTestS{Verificare che l'amministratore possa rimuovere alla visualizzazione della dashboard il modulo di analisi consumi}{RF65-DE}{NI}
+\addTestS{Verificare che l'utente possa risolvere un allarme}{RF66-OB}{NI}
+\addTestS{Verificare che l'utente possa visualizzare le analytics}{RF67-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare l'elenco dei suggerimenti risparmio energetico}{RF68-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando l'elenco dei suggerimenti risparmio energetico, possa visualizzare un suggerimento risparmio energetico}{RF69-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato al consumo energetico}{RF70-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alle anomalie dell'impianto}{RF71-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato al rilevamento presenze}{RF72-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alla presenza prolungata nello stesso ambiente}{RF73-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alle variazioni di temperatura}{RF74-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato agli allarmi inviati e risolti}{RF75-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alla frequenza degli allarmi}{RF76-OP}{NI}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alla frequenza delle cadute}{RF77-OP}{NI}
+\addTestS{Verificare che l'utente possa visualizzare un appartamento del Sistema}{RF78-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando un appartamento del Sistema, possa visualizzarne il nome}{RF79-OB}{NI}
+\addTestS{Verificare che l'utente, visualizzando un appartamento del Sistema, possa visualizzarne la mappa degli allarmi}{RF80-OP}{NI}
+\addTestS{Verificare che l'utente, visualizzando un appartamento del Sistema, possa visualizzarne le stanze}{RF81-OB}{NI}
+\addTestS{Verificare che l'utente possa visualizzare una stanza di un appartamento nel dettaglio}{RF82-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando una stanza nel dettaglio, possa visualizzarne il nome}{RF83-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando una stanza nel dettaglio, possa visualizzarne l'elenco dei dispositivi}{RF84-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando l'elenco dei dispositivi di una stanza, possa visualizzare un singolo dispositivo di tipo:
+    \begin{itemize}
+        \item termostato;
+        \item sensore di caduta;
+        \item sensore di presenza;
+        \item punto luce;
+        \item pulsante di allarme;
+        \item porta di ingresso;
+        \item tapparella.
+    \end{itemize}
+}{RF85-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando un dispositivo, possa visualizzarne il nome}{RF86-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando un dispositivo, possa visualizzarne lo stato}{RF87-OB}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando un dispositivo, possa visualizzarne le azioni eseguibili}{RF88-OP}{NI}
+\addTestS{Verificare che l'amministratore possa abilitare un appartamento nel Sistema}{RF89-OB}{NI}
+\addTestS{Verificare che l'amministratore possa disabilitare un appartamento nel Sistema}{RF90-OB}{NI}
+\addTestS{Verificare che l'amministratore possa creare un allarme nel Sistema}{RF91-OB}{NI}
+\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un appartamento}{RF92-OB}{NI}
+\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un sensore}{RF93-OB}{NI}
+\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un livello di priorità tra:
+    \begin{itemize}
+        \item priorità 1 (bianco);
+        \item priorità 2 (verde);
+        \item priorità 3 (arancione);
+        \item priorità 4 (rossa)
+    \end{itemize}
+}{RF94-OB}{NI}
+\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare una soglia di scatto}{RF95-OB}{NI}
+\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un orario di attivazione}{RF96-OB}{NI}
+\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un orario di disattivazione}{RF97-OB}{NI}
+\addTestS{Verificare che l'amministratore riceva un errore se durante la creazione di un allarme non ha selezionato alcun sensore}{RF98-OB}{NI}
+\addTestS{Verificare che l'amministratore riceva un errore se durante la creazione di un allarme non ha selezionato alcun livello di priorità}{RF99-OB}{NI}
+\addTestS{Verificare che l'amministratore riceva un errore se durante la creazione di un allarme non ha selezionato alcuna soglia di scatto}{RF100-OB}{NI}
+\addTestS{Verificare che l'amministratore possa modificare la priorità di un allarme del Sistema}{RF101-OB}{NI}
+\addTestS{Verificare che l'amministratore possa modificare la soglia di scatto di un allarme del Sistema}{RF102-OB}{NI}
+\addTestS{Verificare che l'amministratore possa modificare l'orario di attivazione di un allarme del Sistema}{RF103-OB}{NI}
+\addTestS{Verificare che l'amministratore possa modificare l'orario di disattivazione di un allarme del Sistema}{RF104-OB}{NI}
+\addTestS{Verificare che l'amministratore possa abilitare un allarme nel Sistema}{RF105-OB}{NI}
+\addTestS{Verificare che l'amministratore possa disabilitare un allarme nel Sistema}{RF106-OB}{NI}
+\addTestS{Verificare che l'amministratore possa eliminare un allarme dal Sistema}{RF107-OB}{NI}
+\addTestS{Verificare che l'amministratore possa visualizzare le notifiche inviate dal Sistema}{RF108-OP}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando le notifiche inviate dal Sistema, possa visualizzare una notifica nel dettaglio}{RF109-OP}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando una notifica nel dettaglio possa visualizzarne il titolo}{RF110-OP}{NI}
+\addTestS{Verificare che l'amministratore, visualizzando una notifica nel dettaglio possa visualizzarne il tempo trascorso dall'invio}{RF111-OP}{NI}
+
+\makeTSTable
+
+
+\subsection{Test di accettazione}
+
+\addTestA{Verificare che il prodotto dia la possibilità all'utente non autenticato di essere riconosciuto tramite username e password}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente non registrato di autenticarsi tramite username e password temporanea, forniti dall'amministratore}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità, all'utente autenticato tramite password temporanea, di cambiare password}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di gestire l'account MyVimar collegato all'impianto}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di visualizzare l'elenco degli utenti}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di creare utenti Operatore Sanitario}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore eliminare utenti Operatore Sanitario}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di generare una password temporanea per gli utenti Operatore Sanitario}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la lista dei reparti}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di creare un reparto}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di eliminare un reparto}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di assegnare un reparto ad un utente Operatore Sanitario}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere l'assegnazione di un reparto ad un utente Operatore Sanitario}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di assegnare un reparto ad un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere l'assegnazione di un reparto ad un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo gestione allarmi nella dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo statistiche allarmi nella dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di aggiungere il modulo informazioni utente alla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di aggiungere il modulo analisi clima alla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di aggiungere il modulo analisi consumi alla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere il modulo informazioni utente dalla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere il modulo analisi clima dalla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere il modulo analisi consumi dalla dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo informazioni utente nella dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo analisi clima nella dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo analisi consumi nella dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di risolvere un allarme}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare le analytics}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare i consigli di risparmio energetico}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato al consumo energetico}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alle anomalie dell'impianto}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato al rilevamento presenze}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla presenza prolungata nello stesso ambiente}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alle variazioni di temperatura}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato agli allarmi inviati e risolti}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla frequenza degli allarmi}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla frequenza delle cadute}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la mappa degli allarmi di un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare l'elenco di stanze di un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare l'elenco dei dispositivi di una stanza}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di abilitare un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di disabilitare un appartamento}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di creare un allarme}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di modificare un allarme}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di abilitare un allarme}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di disabilitare un allarme}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di ricevere notifiche dal Sistema}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare le notifiche ricevute dal Sistema}{NI}
+
+\makeTATable
+
+\section{Cruscotto di qualità}
+
+\subsection{MPC1 e MPC2 - Planned Value e Earned Value}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC1_2.pdf}
+    \caption{Andamento PV e EV in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+L'andamento del grafico denota un progressivo aumento del lavoro completato. Fino allo Sprint 3 rimane al di sotto della percentuale prevista. Grazie ad una successiva ripianificazione la percentuale di lavoro svolto è di poco al di sopra del pianificato.
+Dal trend attuale si prevede per lo Sprint 7 che le due percentuali, reale e pianificata, combacino.
+
+\subsection{MPC3 e MPC7 - Actual Cost e Estimate To Complete}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC3_7.pdf}
+    \caption{Andamento AC e ETC in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+Il grafico evidenzia che il budget speso rispecchia la percentuale di lavoro svolto, senza particolari anomalie di andamento.
+
+\subsection{MPC4 e MPC5 - Cost Performance Index e Schedule Performance Index}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC4_5.pdf}
+    \caption{Andamento CPI e SPI in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+Dal grafico si desume che inizialmente il gruppo ha gestito correttamente il budget ma le attività erano fortemente in ritardo. La situazione si è invece stabilizzata sopra il valore minimo accettabile fino a circa il quarto sprint dove il trend si è invertito.
+Le attività sono state svolte in anticipo rispetto al completamento pianificato, mentre il budget speso per ogni sprint dopo il 4 è superiore al previsto.
+Dopo una ripianificazione avvenuta al termine dello Sprint 6, si prevede che il periodo successivo diminuirà il budget speso, mantenendo una buona puntualità del lavoro svolto.
+
+
+\subsection{MPC6 - Estimate At Completion}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC6_7.pdf}
+    \caption{Andamento EAC in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+Il grafico testimonia quanto riportato nel grafici MPC4 e MPC5, ovvero una buona gestione del budget iniziale con previsione di costo al completamento simile al preventivo iniziale.
+Allo Sprint 5, dove lo sforamento di budget ha raggiunto il suo picco, la previsione si è discostata maggiormente ma già dal periodo successivo è tornata a diminuire.
+Si prevede che per lo Sprint 7 la previsione al completamento diminuisca al di sotto del preventivo iniziale.
+
+\subsection{MPC8 - Requirements Stability Index}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC8.pdf}
+    \caption{Andamento RSI in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+Il grafico misura l'andamento della stabilità dei requisiti nei vari sprint. Il crollo della stabilità nel terzo periodo è dovuto ad un iniziale errore nella raccolta dei requisiti che ha portato inevitabilmente a rivedere quasi tutti quelli trovati fino a quel momento.
+Dallo Sprint 4 in poi i requisiti hanno avuto una stabilità pressoché ottima.
+
+\subsection{MPC9 - Indice di Gulpease}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC9.pdf}
+    \caption{Andamento IG dei documenti principali, in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+Durante tutti gli sprint la leggibilità dei documenti è rimasta buona e al di sopra della soglia di accettabilità. Si prevede, per i prossimi sprint, un andamento simile.
+
+\subsection{MPC10 - Indice di Frammentazione}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC10.pdf}
+    \caption{Andamento IF dei documenti principali, in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+Durante tutti gli sprint la struttura dei documenti è rimasta buona, al di sopra della soglia di accettabilità. Si prevede, per i prossimi sprint, un andamento simile.
+Si rende evidente il fatto che il documento "Glossario" non è stato incluso nel controllo della metrica MPC10: è stata fatta questa scelta poiché quest'ultimo, essendo un documento per definizione molto frammentato (ad ogni termine viene associata una breve spiegazione), avrebbe ottenuto un valore superiore al 20\%. La verifica avrebbe dunque evidenziato un problema nel Glossario quando, in realtà, non è presente.
+
+
+\subsection{MPC12 - Percentuale Metriche Soddisfatte}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC12.pdf}
+    \caption{Andamento PMS in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+Dal grafico è evidente l'impegno del gruppo nei confronti delle metriche e del loro soddisfacimento, soprattutto dallo Sprint 5 in poi.
+Un lieve peggioramento è stato notato durante lo Sprint 4 ma, dopo averne preso consapevolezza, il gruppo ha adottato opportune azioni correttive, riuscendo a migliorare progressivamente le performance negli sprint successivi.
+
+\subsection{MPC13 - Percentuale Rischi Inattesi}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC13.pdf}
+    \caption{Andamento PRI in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+La percentuale rispetto al totale dei rischi inattesi è superiore al valore massimo accettabile nella maggior parte dei periodi.
+Testimonia una capacità ancora non matura di previsione dei rischi da parte del gruppo.
+Si può notare però che allo Sprint 6 è diminuita e si prevede che per lo Sprint 7, grazie all'esperienza maturata fino ad ora, scenda al di sotto del valore massimo accettabile.
+
+I rischi inattesi non hanno influenzato molto l'andamento del progetto (come si può notare dal grafico dell'SPI) in quanto erano state preventivate delle ore in eccesso proprio per far fronte a questi.
+
+\subsection{MPC14 - Labor Efficiency}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPC14.pdf}
+    \caption{Andamento LE in base al periodo}
+    \label{fig:mpc1-mpc2}
+\end{figure}
+
+Dal grafico è possibile notare, fin dal primo Sprint, un'eccellente efficienza nel lavoro svolto, con un picco importante durante lo Sprint 6. È importante notare come questo non rappresenti un eccesso di efficienza da parte del gruppo, ma al contrario, il fatto che le ore preventivate sono state molto maggiori rispetto a quelle concretamente effettuate.
+Si prevede che l'andamento tenderà a stabilizzarsi negli sprint successivi, grazie a una maggiore accuratezza nelle stime e a una migliore calibrazione del carico di lavoro.
+
+
+\end{document}

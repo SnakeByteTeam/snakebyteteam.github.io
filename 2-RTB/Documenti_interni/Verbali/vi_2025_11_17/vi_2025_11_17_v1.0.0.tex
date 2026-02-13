@@ -1,0 +1,153 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocIndex{vi\_2025\_11\_17}
+\setDocTitle{Verbale interno 17/11/2025}
+\setDocData{10/02/2026}
+\setDocVersion{1.0.0}
+\setDocState{2}
+\setDocRecipient{0}
+
+% comandi extra (rimuovere questi commenti una volta approvato il documento)
+%
+% -- costanti --
+% \noOne [-]
+% \noRole [ND]
+% \firstDraft [Prima stesura]
+% \approval [Approvazione]
+% \teamName [SnakeByte]
+% \teamEmail [snakebyteteam@gmail.com]
+% \teamRepo [https://github.com/SnakeByteTeam/snakebyteteam.github.io]
+% \teamSite [https://snakebyteteam.github.io/]
+% \recipientTeachers [prof. Vardanega Tullio, prof. Cardin Riccardo]
+% \vimar [Vimar]
+% \vimarspa [Vimar S.p.A.]
+%
+% -- variabili --
+% \docIndex | \setDocIndex{nome documento senza versione}
+% \docTitle | \setDocTitle{titolo documento} 
+% \docData | \setDocData{data documento} [GG/MM/AAAA]
+% \docVersion | \setDocVersion{versione documento}
+% \docState | \setDocState{0|1|2} [Da verificare][Verificato][Approvato]
+% \docRecipient [table] | \setDocRecipient{0|1|2} [SnakeByte][SnakeByte, prof][SnakeByte, prof, vimar]
+% 
+% -- tabelle -- [gli id sono automatici dove serve]
+% \makeMeetingInfoTable{data}{ora inizio}{ora fine}{modalità}
+% \addParticipant{nome}{cognome}{ruolo}{presenza} | \makeMeetingParticipantsTable
+% \addTodo{id github issue}{descrizione}{assegnatario}{scadenza} | \makeTodoTable
+% \addPrecedentTodo{id todo}{id github issue todo}{assegnatario todo}{data} | \makePrecedentTodoTable
+% \addDecision{descrizione decisione} | \makeDecisionTable
+%
+% -- pagine intere --
+% \makeTitlePage
+% \addChangelog{versione}{data}{autore}{verificatore}{approvatore}{descrizione} | \makeTodoTable
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\addChangelog{\docVersion}{\docData}{ - }{ - }{F. Venzo}{Approvazione}
+\addChangelog{0.1.0}{19/11/2025}{G. De Fina}{V. Baleanu}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{17/11/2025}{12:15}{13:45}{in presenza}
+
+\addParticipant{Giuseppe}{De Fina}{Responsabile}{P}
+\addParticipant{Francesco}{Pasqual}{Amministratore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Progettista}{P}
+\addParticipant{Valeria}{Baleanu}{Verificatore}{P}
+\addParticipant{Filippo}{Venzo}{Analista}{P}
+\addParticipant{Christian}{Libralato}{Analista}{P}
+\addParticipant{Luca}{Granziero}{Analista}{P}
+\makeMeetingParticipantsTable
+
+\addPrecedentTodo{vi\_2025\_11\_07.a1}{\noOne}{F.Venzo}{10/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_07.a2}{\noOne}{L. Pellizzon, C. Libralato}{09/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_07.a3}{\noOne}{L. Pellizzon}{11/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_07.a4}{\noOne}{V. Baleanu}{14/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_07.a5}{\noOne}{V. Baleanu, G. De Fina, L. Graziero, F. Pasqual}{12/11/2025}
+\makePrecedentTodoTable
+
+\section{Ordine del giorno}
+    \begin{itemize}
+        \item Definizione \textit{merge$_G$} di approvazione documenti e versionamento;
+        \item miglioramento processo di revisione tramite \textit{pull request$_G$};
+        \item definizione ruoli e responsabilità operative;
+        \item struttura dei requisiti funzionali e non funzionali;
+        \item introduzione \textit{dashboard$_G$} per tracciamento attività e \textit{issue$_G$}.
+    \end{itemize}
+
+\section{Approfondimento}
+
+\subsection*{Miglioramento del processo di revisione tramite \textit{pull request}}
+Il gruppo ha evidenziato una leggera criticità nel processo di revisione e approvazione, in particolare nella gestione dei conflitti e nella tracciabilità dei commenti.
+Per affrontare il problema si è deciso di:
+\begin{itemize}
+    \item effettuare la risoluzione dei conflitti direttamente su \textit{GitHub$_G$} per garantire trasparenza;
+    \item utilizzare in modo sistematico i commenti in linea su file di grandi dimensioni;
+    \item mantenere la documentazione allineata a ogni modifica del codice;
+    \item utilizzare lo specifico \textit{workflow$_G$} descritto nella prossima sezione.
+\end{itemize}
+
+\subsection*{\textit{Workflow} di approvazione documenti e versionamento}
+È stato discusso come strutturare un \textit{workflow} chiaro per l'approvazione e la modifica dei documenti tramite \textit{Git$_G$}. 
+L’obiettivo è garantire che ogni aggiornamento sia verificato, che le versioni siano pubblicate in modo controllato e che la cronologia delle modifiche rimanga tracciabile.
+Si è concordato che:
+\begin{itemize}
+    \item ogni modifica ai documenti deve avvenire tramite la creazione di un \textit{branch} di \textit{feature$_G$}, generato a partire dal \textit{develop$_G$};
+    \item tali \textit{branch} devono essere denominati \texttt{modifica-<nome documento>};
+    \item ogni \textit{pull request} da \textit{feature} verso \textit{develop} deve essere chiusa dal verificatore;
+    \item la pubblicazione di una versione \textit{major} (es.\ 1.0.0) avviene tramite \textit{pull request} da \textit{develop} verso il \textit{branch} \textit{release$_G$}, e viene chiusa unicamente dall’approvatore;
+    \item i \textit{push$_G$} diretti sui branch principali non sono consentiti e tutte le modifiche devono passare dal processo di verifica.
+\end{itemize}
+
+
+\subsection*{Ruoli e responsabilità operative}
+È emersa la necessità di migliorare l’organizzazione interna, chiarendo meglio chi gestisce quali aspetti del repository e della documentazione.
+Sono stati identificati i seguenti punti:
+\begin{itemize}
+    \item definizione chiara delle responsabilità per revisione documenti;
+    \item assegnazione dei compiti per il controllo qualità delle \textit{pull request};
+\end{itemize}
+
+
+\subsection*{Strutturazione dei requisiti funzionali e non funzionali}
+Il team ha confermato la necessità di predisporre una documentazione completa relativa ai requisiti di progetto.
+In particolare:
+\begin{itemize}
+    \item i requisiti funzionali comprenderanno \textit{use case$_G$} e scenari d'uso espliciti;
+    \item i requisiti non funzionali verranno identificati progressivamente durante l’evoluzione del progetto;
+\end{itemize}
+
+
+\subsection*{\textit{Dashboard} per tracciamento attività e \textit{issue}}
+È stata rilevata la necessità di migliorare il monitoraggio delle attività del gruppo.
+Sono state discusse le seguenti decisioni operative:
+\begin{itemize}
+    \item utilizzo di una \textit{dashboard} condivisa per il tracciamento delle attività;
+    \item valutazione degli strumenti di gestione progetto disponibili (\textit{Jira} o \textit{GitHub Projects});
+    \item registrazione e tracciamento di bug, \textit{issue} e attività attraverso un unico strumento centralizzato (ancora da decidere)
+\end{itemize}
+
+
+\addDecision{Utilizzo sistematico di \textit{branch} di \textit{feature} per la modifica dei documenti, denominati \texttt{modifica-<nome documento>}}
+\addDecision{Chiusura delle \textit{pull request} da \textit{feature} a \textit{develop} a carico del verificatore}
+\addDecision{Pubblicazione delle versioni \textit{major} tramite \textit{pull request} da \textit{develop} a \textit{release}, chiusa dall’approvatore}
+\addDecision{Adozione di una \textit{dashboard} condivisa per il tracciamento delle attività}
+\makeDecisionTable
+
+\addTodo{\noOne}{Individuare quale \textit{dashboard} utilizzare per il tracciamento delle attività}{F. Pasqual}{23/11/2025}
+\addTodo{\#2}{Redazione diapositive per diario di bordo}{G. De Fina, V. Baleanu}{23/11/2025}
+\addTodo{\noOne}{Creazione dei branch \textit{develop} e \textit{release}}{G. De Fina}{19/11/2025}
+\makeTodoTable
+
+\end{document}
