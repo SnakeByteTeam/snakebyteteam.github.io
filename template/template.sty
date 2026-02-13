@@ -17,6 +17,7 @@
 \RequirePackage{graphicx}
 \RequirePackage[table, x11names]{xcolor}
 \RequirePackage{tabularx}
+\RequirePackage{xltabular}
 \RequirePackage{fancyhdr}
 \RequirePackage{lastpage}
 \RequirePackage{etoolbox}
@@ -190,15 +191,23 @@
 % impostare la tabella modifiche
 \newcommand{\makeChangelog}{
   \begin{center}
-    \begin{tabularx}{\textwidth}{|c|c|c|c|c|X|}
+    \begin{xltabular}{\textwidth}{|c|c|c|c|c|X|}
       \hline
       \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
       \hline
       \rowcolor{lightgray}
       \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
       \hline
+      \endfirsthead
+      \hline
+      \rowcolor{lightgray}
+      \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+      \hline
+      \endhead
+      \hline
+      \endfoot
       \changelogEntries
-    \end{tabularx}
+    \end{xltabular}
   \end{center}
 }
 
