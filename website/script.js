@@ -24,7 +24,7 @@ function updateEmptyState() {
 
 // stato iniziale: apri la tab 'candidatura' di default (mostra contenuti corrispondenti)
 // se la tab non esiste, ricadi nel comportamento di placeholder
-const defaultButton = document.querySelector('.tab-button[data-tab="candidatura"]');
+const defaultButton = document.querySelector('.tab-button[data-tab="rtb"]');
 const defaultPanel = document.getElementById('candidatura');
 if (defaultButton) defaultButton.classList.add('active');
 if (defaultPanel) defaultPanel.classList.add('active');
