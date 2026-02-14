@@ -1,0 +1,286 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{template}[2025/11/04 Stile personalizzato per documenti SnakeByte]
+
+% ------------------------
+% Pacchetti
+% ------------------------
+
+\RequirePackage[nomarginpar, margin=2.75cm, tmargin=3cm, bmargin=1.75cm]{geometry}
+\RequirePackage[hyphens]{url}
+\urlstyle{rm} %rimuove il grassetto nel link \url
+\RequirePackage[
+    colorlinks=true,
+    linkcolor=black,
+    urlcolor=blue,
+    citecolor=black
+]{hyperref}
+\RequirePackage{graphicx}
+\RequirePackage[table, x11names]{xcolor}
+\RequirePackage{tabularx}
+\RequirePackage{xltabular}
+\RequirePackage{fancyhdr}
+\RequirePackage{lastpage}
+\RequirePackage{etoolbox}
+
+% ------------------------
+% Impostazioni personalizzate
+% ------------------------
+
+\renewcommand{\arraystretch}{1.2} % migliora la leggibilità delle tabelle
+\renewcommand{\contentsname}{Indice}
+
+% ------------------------
+% Costanti
+% ------------------------
+
+\newcommand{\noOne}{-}
+\newcommand{\noRole}{ND}
+\newcommand{\firstDraft}{Prima stesura}
+\newcommand{\approval}{Approvazione}
+\newcommand{\teamName}{SnakeByte}
+\newcommand{\teamEmail}{snakebyteteam@gmail.com}
+\newcommand{\teamRepo}{\url{https://github.com/SnakeByteTeam/snakebyteteam.github.io}}
+\newcommand{\teamSite}{\href{https://snakebyteteam.github.io/}{https://snakebyteteam.github.io/}}
+\newcommand{\recipientTeachers}{prof. Vardanega Tullio, prof. Cardin Riccardo}
+\newcommand{\vimar}{Vimar}
+\newcommand{\vimarspa}{Vimar S.p.A.}
+
+% ------------------------
+% Variabili
+% ------------------------
+
+% definizione
+\newcommand{\docIndex}{nomedocumentosenzaversione} 
+\newcommand{\docTitle}{Documento X}
+\newcommand{\docData}{GG/MM/AAAA}
+\newcommand{\docVersion}{0.1.0}
+\newcommand{\docState}{Stato}
+\newcommand{\docRecipient}{}
+\newcommand{\changelogEntries}{} 
+\newcommand{\participantEntries}{}
+\newcommand{\decisionEntries}{}
+\newcommand{\precedentTodoEntries}{}
+\newcommand{\todoEntries}{}
+
+% impostazione
+\newcommand{\setDocIndex}[1]{\renewcommand{\docIndex}{#1}}
+\newcommand{\setDocTitle}[1]{\renewcommand{\docTitle}{#1}}
+\newcommand{\setDocData}[1]{\renewcommand{\docData}{#1}}
+\newcommand{\setDocVersion}[1]{\renewcommand{\docVersion}{#1}}
+\newcommand{\setDocState}[1]{
+  \renewcommand{\docState}{
+    \ifcase#1
+      Da verificare
+    \or
+      Verificato
+    \or
+      Approvato
+    \else
+      \PackageError{docState}{la variabile docState ha un valore non valido (#1). Usa solo 0, 1 o 2.}{}
+    \fi
+  }
+}
+\newcommand{\setDocRecipient}[1]{
+  \renewcommand{\docRecipient}{
+    \ifcase#1
+      \begin{tabular}[c]{@{}l@{}}
+        \textbf{Interni:} \teamName \\
+        \textbf{Esterni:} \noOne
+      \end{tabular} \\
+    \or
+      \begin{tabular}[c]{@{}l@{}}
+        \textbf{Interni:} \teamName \\
+        \textbf{Esterni:} \recipientTeachers
+      \end{tabular} \\
+    \or
+      \begin{tabular}[c]{@{}l@{}}
+        \textbf{Interni:} \teamName \\
+        \textbf{Esterni:} \recipientTeachers, \vimar
+      \end{tabular} \\
+    \else
+      \PackageError{docRecipient}{la variabile docRecipient ha un valore non valido (#1). Usa solo 0, 1 o 2.}{}
+    \fi
+  }
+}
+\newcommand{\setDocInternalRecipient}[1]{\renewcommand{\docInternalRecipient}{#1}}
+\newcommand{\setDocExternalRecipient}[1]{\renewcommand{\docExternalRecipient}{#1}}
+\newcommand{\addChangelog}[6]{%
+  \gappto{\changelogEntries}{#1 & #2 & #3 & #4 & #5 & #6 \\ \hline}
+}
+\newcommand{\addParticipant}[4]{%
+  \gappto{\participantEntries}{#1 & #2 & #3 & #4 \\ \hline}
+}
+\newcounter{decisionctr}
+\newcommand{\addDecision}[1]{%
+  \stepcounter{decisionctr}
+  \begingroup
+    \edef\@tempa{
+      \noexpand\gappto\noexpand{\noexpand\decisionEntries}{
+        \unexpanded{\docIndex}.d\thedecisionctr & \unexpanded{#1} \\ \noexpand\hline
+      }
+    }
+  \@tempa
+  \endgroup
+}
+\newcommand{\addPrecedentTodo}[4]{
+  \gappto{\precedentTodoEntries}{#1 & #2 & #3 & #4 \\ \hline}
+}
+
+\newcounter{todoctr}
+\newcommand{\addTodo}[4]{
+  \stepcounter{todoctr}
+  \begingroup
+    \edef\@tempa{
+      \noexpand\gappto\noexpand{\noexpand\todoEntries}{
+        \unexpanded{\docIndex}.a\thetodoctr & \unexpanded{#1} & \unexpanded{#2} & \unexpanded{#3} & \unexpanded{#4} \\ \noexpand\hline
+      }
+    }
+  \@tempa
+  \endgroup
+}
+
+% ------------------------
+% Impostazioni post variabili
+% ------------------------
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\teamName}
+\fancyhead[R]{\docTitle}
+\fancyfoot[C]{\thepage \; di \pageref{LastPage}}
+
+% ------------------------
+% Comandi personalizzati
+% ------------------------
+
+% impostare pagina titolo
+\newcommand{\makeTitlePage}{
+\begin{titlepage}
+    \begin{center}
+        \includegraphics[width=0.6\textwidth]{./img/logo.pdf}
+        \vspace{4cm}
+
+        {\huge\textbf{\docTitle}\par}
+        \vspace{2cm}
+        {\large \textbf{\teamName} (Gruppo 1):\\
+        Valeria Baleanu, Leonardo Pellizzon, Filippo Venzo, Giuseppe De Fina,\\
+        Francesco Pasqual, Christian Libralato, Luca Granziero\\
+        (2109911, 2111006, 2113705, 2113187, 2103119, 2101047, 2075512)}
+
+        \vfill
+
+        {\small
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \multicolumn{4}{|c|}{\textbf{Informazioni documento}} \\
+                \hline
+                \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
+                \hline
+                \docVersion & \docData & \docState & \docRecipient
+                \hline
+            \end{tabular}
+        \end{center}
+        }
+
+        \vfill
+        {\large Contatti: \teamEmail}
+    \end{center}
+\end{titlepage}
+}
+
+% impostare la tabella modifiche
+\newcommand{\makeChangelog}{
+  \begin{center}
+    \begin{xltabular}{\textwidth}{|c|c|c|c|c|X|}
+      \hline
+      \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
+      \hline
+      \rowcolor{lightgray}
+      \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+      \hline
+      \endfirsthead
+      \hline
+      \rowcolor{lightgray}
+      \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+      \hline
+      \endhead
+      \hline
+      \endfoot
+      \changelogEntries
+    \end{xltabular}
+  \end{center}
+}
+
+% imposta tabella delle informazioni riunione
+\newcommand{\makeMeetingInfoTable}[4]{
+  \section{Informazioni}{
+  \begin{center}
+    \begin{tabular}{|c|c|c|c|}
+      \hline
+      \rowcolor{lightgray}
+      \textbf{Data} & \textbf{Ora inizio} & \textbf{Ora fine} & \textbf{Modalità} \\
+      \hline
+      #1 & #2 & #3 & #4 \\
+      \hline
+    \end{tabular}
+  \end{center}
+  }
+}
+
+% imposta tabella delle presenze riunione
+\newcommand{\makeMeetingParticipantsTable}{
+    \section{Presenze}{
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \rowcolor{lightgray} \textbf{Nome} & \textbf{Cognome} & \textbf{Ruolo} & \textbf{Presenza} \\
+                \hline
+                \participantEntries
+            \end{tabular}
+        \end{center}
+    }
+}
+
+% imposta tabella delle decisioni
+\newcommand{\makeDecisionTable}{
+    \section{Decisioni}{
+        \begin{center}
+            \begin{tabularx}{\textwidth}{|c|X|}
+            \hline
+            \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} \\
+            \hline
+            \decisionEntries
+            \end{tabularx}
+        \end{center}
+    }
+}
+
+% imposta tabella delle attività svolte
+\newcommand{\makePrecedentTodoTable}{
+    \section{Attività svolte}{
+        \begin{center}
+            \begin{tabularx}{\textwidth}{|c|c|X|c|}
+                \hline
+                \rowcolor{lightgray} \textbf{Id} & \textbf{Id GitHub Issue} & \textbf{Assegnatario} & \textbf{Data} \\
+                \hline
+                \precedentTodoEntries
+            \end{tabularx}
+        \end{center}
+    }
+}
+
+% imposta tabella delle attività da svolgere
+\newcommand{\makeTodoTable}{
+    \section{Attività da completare}{
+        \begin{center}
+            \begin{tabularx}{\textwidth}{|c|c|X|X|c|}
+                \hline
+                \rowcolor{lightgray} \textbf{Id} & \textbf{Id GitHub Issue} & \textbf{Descrizione} & \textbf{Assegnatario} & \textbf{Scadenza} \\
+                \hline
+                \todoEntries
+            \end{tabularx}
+        \end{center}
+    }
+}
+
+\endinput

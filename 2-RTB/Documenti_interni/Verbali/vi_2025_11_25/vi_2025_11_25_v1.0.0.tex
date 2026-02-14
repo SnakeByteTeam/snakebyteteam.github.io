@@ -1,0 +1,155 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 25/11/2025}
+\setDocVersion{1.0.0}
+\setDocIndex{vi\_2025\_11\_25}
+\setDocData{10/02/2026}
+\setDocState{2}
+\setDocRecipient{0}
+
+% comandi extra (rimuovere questi commenti una volta approvato il documento)
+%
+% -- costanti --
+% \noOne [-]
+% \noRole [ND]
+% \firstDraft [Prima stesura]
+% \approval [Approvazione]
+% \teamName [SnakeByte]
+% \teamEmail [snakebyteteam@gmail.com]
+% \teamRepo [https://github.com/SnakeByteTeam/snakebyteteam.github.io]
+% \teamSite [https://snakebyteteam.github.io/]
+% \recipientTeachers [prof. Vardanega Tullio, prof. Cardin Riccardo]
+% \vimar [Vimar]
+% \vimarspa [Vimar S.p.A.]
+%
+% -- variabili --
+% \docIndex | \setDocIndex{nome documento senza versione}
+% \docTitle | \setDocTitle{titolo documento} 
+% \docData | \setDocData{data documento} [GG/MM/AAAA]
+% \docVersion | \setDocVersion{versione documento}
+% \docState | \setDocState{0|1|2} [Da verificare][Verificato][Approvato]
+% \docRecipient [table] | \setDocRecipient{0|1|2} [SnakeByte][SnakeByte, prof][SnakeByte, prof, vimar]
+% 
+% -- tabelle -- [gli id sono automatici dove serve]
+% \makeMeetingInfoTable{data}{ora inizio}{ora fine}{modalità}
+% \addParticipant{nome}{cognome}{ruolo}{presenza} | \makeMeetingParticipantsTable
+% \addTodo{id github issue}{descrizione}{assegnatario}{scadenza} | \makeTodoTable
+% \addPrecedentTodo{id todo}{id github issue todo}{assegnatario todo}{data} | \makePrecedentTodoTable
+% \addDecision{descrizione decisione} | \makeDecisionTable
+%
+% -- pagine intere --
+% \makeTitlePage
+% \addChangelog{versione}{data}{autore}{verificatore}{approvatore}{descrizione} | \makeTodoTable
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\addChangelog{\docVersion}{\docData}{\noOne}{\noOne}{F. Venzo}{Approvazione}
+\addChangelog{0.1.0}{25/11/2025}{F. Pasqual}{V. Baleanu}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{25/11/2025}{17:30}{19:00}{via \textit{Discord$_G$}}
+
+\addParticipant{Giuseppe}{De Fina}{Responsabile}{P}
+\addParticipant{Francesco}{Pasqual}{Amministratore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Progettista}{P}
+\addParticipant{Valeria}{Baleanu}{Verificatore}{P}
+\addParticipant{Filippo}{Venzo}{Analista}{P}
+\addParticipant{Christian}{Libralato}{Analista}{P}
+\addParticipant{Luca}{Granziero}{Analista}{P}
+\makeMeetingParticipantsTable
+
+\addPrecedentTodo{vi\_2025\_11\_17.a1}{\noOne}{F. Pasqual}{23/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_17.a2}{\#2}{G. De Fina, V. Baleanu}{23/11/2025}
+\addPrecedentTodo{vi\_2025\_11\_17.a3}{\noOne}{G. De Fina}{19/11/2025}
+\makePrecedentTodoTable
+
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Analisi dei requisiti: relazione \textit{use case$_G$} - requisiti;
+    \item gestione dei requisiti opzionali;
+    \item migrazione documentazione e \textit{repository} principale;
+    \item sistema di \textit{project e task management};
+    \item suddivisione dei compiti e preparazione presentazione per il \textit{SAL$_G$} del 27/11/2025;
+    \item assegnazione del \textit{kit$_G$ hardware} bianco.
+\end{itemize}
+
+\section{Approfondimento}
+
+\subsection*{Analisi dei requisiti: relazione \textit{use case} - requisiti}
+Gli analisti hanno presentato la situazione attuale relativa all'individuazione degli \textit{use case}, sollevando questioni
+riguardo alla granularità, a eventuali duplicazioni e al livello di astrazione degli stessi.
+Il gruppo ha concordato che gli \textit{use case} devono essere astrazioni di alto livello e non includere dettagli implementativi o di \textit{UI},
+mentre i dubbi sulla granularità permangono. \\
+Prima di proseguire, per allinearsi nell'analisi, ogni analista dovrà produrre un \textit{draft$_G$}, anche grafico,
+della possibile \textit{user experience} nell'applicazione, indicando gli \textit{use case} che ne fanno parte e dove si presentano.
+
+\subsection*{Gestione dei requisiti opzionali}
+Il gruppo ha discusso riguardo alla considerazione dei requisiti opzionali nell'analisi dei requisiti
+e nella generazione degli \textit{use case}. Tale decisione verrà presa dopo un confronto con il prof. Cardin e il responsabile di \vimarspa. \\
+Inoltre, il gruppo concorda che verrà implementato il requisito opzionale riguardante l'aggiunta di un amministratore,
+in modo da poter implementare un sistema di autenticazione amministrativa che sfrutti a pieno l'\textit{API KNX IoT 3rd-party$_G$} e una modalità di gestione dei permessi.
+
+\subsection*{Migrazione documentazione e \textit{repository} principale}
+Il gruppo ha deciso che la documentazione prodotta finora e contenuta nel \textit{repository} privato \textit{Sorgenti}
+verrà spostata nel repository ufficiale del sito \teamRepo.
+D'ora in avanti si lavorerà esclusivamente su quest'ultimo. \\
+La migrazione dovrà tener conto del fatto che:
+\begin{itemize}
+    \item nel \textit{branch$_G$} \textit{main} dovrà comparire tutto ciò che riguarda la \textit{milestone$_G$} \textit{Candidatura};
+    \item nel \textit{branch develop} dovrà comparire tutto ciò che riguarda la \textit{milestone} corrente.
+\end{itemize}
+
+\subsection*{Sistema di \textit{project e task management}}
+Il gruppo ha discusso riguardo la possibile adozione di \textit{Jira$_G$} per integrare il processo di creazione di \textit{task} e \textit{issue$_G$} finora realizzato
+interamente su \textit{GitHub Projects$_G$}.
+Si sono valutati pro e contro, tenendo in particolar modo conto della complessità del \textit{setup} di \textit{Jira}, della necessità di integrarlo con \textit{GitHub} e
+della compatibilità con il sistema adottato per la verifica tramite \textit{pull request$_G$}.\\
+A tal riguardo, il gruppo ha ancora pareri divisi e aspetta un confronto con il responsabile di progetto di \vimarspa. \\
+La decisione è stata dunque posticipata.
+
+\subsubsection*{Suddivisione dei compiti e preparazione presentazione per il \textit{SAL}}
+In vista del \textit{SAL} del 27/11/2025, l'attuale responsabile G. De Fina è incaricato di creare una presentazione che mostri
+gli avanzamenti del gruppo, difficoltà e dubbi incontrati nelle ultime due settimane.
+La struttura della presentazione dovrà rispettare quella concordata con \vimarspa nel primo incontro conoscitivo e predefinita
+nell'apposito \textit{template}.
+
+\subsection*{Assegnazione del \textit{kit} bianco}
+Dopo la notifica di \vimarspa della disponibilità di un secondo \textit{kit} di sensori di colore bianco,
+il gruppo ha deciso che il responsabile della conservazione del \textit{kit} sarà F. Pasqual.
+
+
+
+\addDecision{\textit{Use case} ad alto livello e indicazione chiara di requisiti obbligatori e opzionali}
+\addDecision{Scelta del requisito opzionale sull'amministratore}
+\addDecision{Migrazione dei documenti su \teamRepo, dismesso il \textit{repository} privato \textit{Sorgenti}}
+\addDecision{Creazione di \textit{draft} di \textit{user experience} tramite \textit{use case}}
+\addDecision{Il responsabile preparerà la presentazione per il \textit{SAL} del 27/11/2025}
+\addDecision{F. Pasqual responsabile del secondo \textit{kit} di sensori}
+\makeDecisionTable
+
+
+\addTodo{\#1}{Stesura e verifica del verbale dell'incontro del 25/11/2025}{F. Pasqual, V. Baleanu}{27/11/2025}
+\addTodo{\noOne}{Creazione \textit{draft} e diagrammi \textit{user experience} e \textit{use case}}{F. Venzo, C. Libralato, L. Granziero}{27/11/2025}
+\addTodo{\#5}{\textit{Use case} per amministratore e relativa autenticazione}{F. Venzo, C. Libralato, L. Granziero}{30/11/2025}
+\addTodo{\#6}{\textit{Use case} per gestione dei permessi}{F. Venzo, C. Libralato, L. Granziero}{30/11/2025}
+\addTodo{\noOne}{Migrazione documentazione e \textit{repository}}{F. Pasqual}{27/11/2025}
+\addTodo{\noOne}{Correzione dei percorsi dei file nel codice sorgente del sito}{C. Libralato}{29/11/2025}
+\addTodo{\noOne}{Preparazione presentazione \textit{SAL}}{G. De Fina}{27/11/2025}
+\addTodo{\noOne}{Test \textit{API KNX IoT 3rd-party $_G$}}{L. Pellizzon}{30/11/2025}
+
+\makeTodoTable
+
+
+\end{document}

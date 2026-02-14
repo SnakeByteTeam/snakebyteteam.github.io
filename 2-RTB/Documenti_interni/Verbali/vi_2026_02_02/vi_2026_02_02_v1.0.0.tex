@@ -1,0 +1,125 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 02/02/2026}
+\setDocVersion{1.0.0}
+\setDocIndex{vi\_2026\_02\_02}
+\setDocData{13/02/2026}
+\setDocState{2}
+\setDocRecipient{1}
+
+% comandi extra (rimuovere questi commenti una volta approvato il documento)
+%
+% -- costanti --
+% \noOne [-]
+% \noRole [ND]
+% \firstDraft [Prima stesura]
+% \approval [Approvazione]
+% \teamName [SnakeByte]
+% \teamEmail [snakebyteteam@gmail.com]
+% \teamRepo [https://github.com/SnakeByteTeam/snakebyteteam.github.io]
+% \teamSite [https://snakebyteteam.github.io/]
+% \recipientTeachers [prof. Vardanega Tullio, prof. Cardin Riccardo]
+% \vimar [Vimar]
+% \vimarspa [Vimar S.p.A.]
+%
+% -- variabili --
+% \docIndex | \setDocIndex{nome documento senza versione}
+% \docTitle | \setDocTitle{titolo documento} 
+% \docData | \setDocData{data documento} [GG/MM/AAAA]
+% \docVersion | \setDocVersion{versione documento}
+% \docState | \setDocState{0|1|2} [Da verificare][Verificato][Approvato]
+% \docRecipient [table] | \setDocRecipient{0|1|2} [SnakeByte][SnakeByte, prof][SnakeByte, prof, vimar]
+% 
+% -- tabelle -- [gli id sono automatici dove serve]
+% \makeMeetingInfoTable{data}{ora inizio}{ora fine}{modalità}
+% \addParticipant{nome}{cognome}{ruolo}{presenza} | \makeMeetingParticipantsTable
+% \addTodo{id github issue}{descrizione}{assegnatario}{scadenza} | \makeTodoTable
+% \addPrecedentTodo{id todo}{id github issue todo}{assegnatario todo}{data} | \makePrecedentTodoTable
+% \addDecision{descrizione decisione} | \makeDecisionTable
+%
+% -- pagine intere --
+% \makeTitlePage
+% \addChangelog{versione}{data}{autore}{verificatore}{approvatore}{descrizione} | \makeTodoTable
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+\addChangelog{\docVersion}{13/02/2026}{\noOne}{\noOne}{F.Venzo}{Approvazione}
+\addChangelog{0.1.0}{03/02/2026}{L. Pellizzon}{F. Pasqual}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{02/02/2026}{14:00}{15:00}{via \textit{Discord$_G$}}
+
+\addParticipant{Giuseppe}{De Fina}{Amministratore}{P}
+\addParticipant{Francesco}{Pasqual}{Progettista}{P}
+\addParticipant{Leonardo}{Pellizzon}{Responsabile}{P}
+\addParticipant{Valeria}{Baleanu}{Verificatore}{P}
+\addParticipant{Filippo}{Venzo}{Amministratore}{P}
+\addParticipant{Christian}{Libralato}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Programmatore}{P}
+\makeMeetingParticipantsTable
+
+\addPrecedentTodo{vi\_2026\_01\_13.a1}{\noOne}{L. Pellizzon}{15/01/2026}
+\addPrecedentTodo{vi\_2026\_01\_13.a2}{\#72}{C. Libralato, F. Pasqual, V. Baleanu}{27/01/2026}
+\addPrecedentTodo{vi\_2026\_01\_13.a3}{\#73}{V.Baleanu}{20/01/2026}
+\addPrecedentTodo{vi\_2026\_01\_13.a4}{\#74}{C. Libralato, F. Pasqual}{25/01/2026}
+\addPrecedentTodo{vi\_2026\_01\_13.a5}{\#75}{C. Libralato, F. Pasqual, V. Baleanu}{21/01/2026}
+\makePrecedentTodoTable
+
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Ispezione ad ampio spettro del documento Analisi dei Requisiti;
+    \item ripianificazione dei ruoli dello sprint 7;
+    \item stesura della presentazione per la candidatura alla revisione RTB;
+    \item organizzazione del \textit{repository} dei documenti;
+    \item aggiornamento sullo stato del \textit{PoC$_{G}$}.
+\end{itemize}
+
+\section{Approfondimento}
+
+\subsection*{Ispezione ad ampio spettro del documento Analisi dei Requisiti}
+Il gruppo ha eseguito un'ispezione di \textit{walkthrough} del documento di Analisi dei Requisiti. In particolare sono state
+evidenziate alcune parti in cui la modellazione non era stata svolta correttamente e che necessitano di correzione da parte degli analisti.
+
+\subsection*{Rivisitazione dei ruoli dello \textit{sprint} 7}
+A fronte di un evidente sovraccarico lavorativo subito dall'amministratore si è deciso di assegnare un altro membro, G. De Fina, a questo ruolo.
+
+\subsection*{Stesura della presentazione delle tecnologie per revisione RTB}
+Il gruppo ha effettuato una prima stesura della presentazione delle tecnologie in vista della revisione RTB, in particolare la parte svolta dal Prof. Cardin. La presentazione dovrà contenere una slide per ogni argomento:
+\begin{itemize}
+    \item una panoramica sull'obiettivo del capitolato;
+    \item un resoconto delle tecnologie scelte;
+    \item la lista dei casi d'uso che il \textit{PoC} ha implementato.
+\end{itemize}
+
+\subsection*{Organizzazione del \textit{repository} dei documenti}
+Sono emerse diverse criticità nell'attuale gestione del \textit{repository} dei documenti, in particolare risulta problematica la presenza di molti \textit{branch$_{G}$} già chiusi da \textit{pull request$_{G}$}.
+
+È stato deciso che gli amministratori si occuperanno di riportare il \textit{repository} ad uno stato consono e facilmente utilizzabile, tramite l'eliminazione manuale dei \textit{branch}.
+
+\subsection*{Aggiornamento sullo stato del \textit{PoC}}
+I programmatori hanno aggiornato il gruppo sullo stato di avanzamento del \textit{Proof Of Concept} ed è stato deciso che quest'ultimo dovrà includere una minima interazione con il \textit{database} come prova di integrazione e fattibilità delle tecnologia scelta.
+
+\addDecision{Modifica del ruolo di G. De Fina in amministratore}
+\addDecision{Struttura presentazione tecnologie per RTB}
+
+\makeDecisionTable
+
+\addTodo{\#86}{Stesura e verifica del verbale dell'incontro del 02/02/2026}{L. Pellizzon, L. Granziero}{12/02/2026}
+\addTodo{\#72}{Terminare la presentazione per la candidatura RTB}{Gruppo \teamName}{11/02/2026}
+\addTodo{ - }{Pulizia del \textit{repository} e \textit{merge} dei \textit{branch} pendenti nel \texttt{develop}}{F. Venzo, G. De Fina}{04/02/2026}
+
+\makeTodoTable
+
+
+\end{document}

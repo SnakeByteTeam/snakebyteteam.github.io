@@ -1,0 +1,91 @@
+
+%============================
+% Verbale riunione – Pianificazione RTB
+%============================
+\documentclass[10pt, letterpaper]{article}
+\usepackage{../../../../template/template}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Verbale esterno 11/02/2026}
+\setDocVersion{1.0.0}
+\setDocData{13/02/2026}
+\setDocIndex{ve\_2026\_01\_11}
+\setDocState{2} % 0=Da verificare
+\setDocRecipient{2} % solo interni
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+\addChangelog{1.0.0}{13/02/2026}{ - }{ - }{F. Venzo}{\approval}
+\addChangelog{0.1.0}{12/02/2026}{F. Venzo}{F. Pasqual}{ - }{Prima stesura}
+\makeChangelog
+
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{11/02/2026}{16:00}{16:40}{via \textit{Microsoft Teams$_G$}}
+% ------------------------
+% Partecipanti
+% ------------------------
+\addParticipant{Valeria}{Baleanu}{Programmatore}{P}
+\addParticipant{Francesco}{Pasqual}{Verificatore}{P}
+\addParticipant{Christian}{Libralato}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Verificatore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Filippo}{Venzo}{Responsabile}{P}
+\addParticipant{Giuseppe}{De Fina}{Amministratore}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{ve\_2026\_01\_21.a3}{\#81}{C. Libralato, F. Pasqual, V. Baleanu}{2/02/2026}
+
+\makePrecedentTodoTable
+
+
+\section{Ordine del giorno}
+\begin{itemize}
+  \item Cadenza dei SAL$_{G}$;
+  \item stato del progetto e pianificazione;
+  \item nuovi strumenti di gestione;
+  \item limiti riscontrati dal gruppo.
+\end{itemize}
+
+\section{Approfondimento}
+
+\subsection*{Organizzazione dei SAL}
+È stata decisa, in accordo con la Proponente, una cadenza settimanale, piuttosto che bisettimanale, per i prossimi SAL (Stato Avanzamento Lavori). Tali incontri avranno durata di 30-40 minuti con la possibilità di estenderli su richiesta preventiva nel caso in cui sia necessario approfondire temi specifici.
+
+\subsection*{Stato del progetto e pianificazione}
+È stato discusso lo stato del progetto, in particolare il \textit{PoC$_{G}$}, che con la presentazione del 28/01/2025, è stato ritenuto concluso e ha ricevuto \textit{feedback} positivi da parte dei referenti di \textit{Vimar S.p.A.}. È stata comunicata alla Proponente la decisione del gruppo di posticipare la data di consegna del progetto al 5/04/2026.
+
+Inoltre, il Responsabile ha presentato le attività previste per lo \textit{sprint} corrente, l'ottavo, comunicando l'intenzione del gruppo di candidarsi alla revisione RTB entro il giorno 13/02/2026. La Proponente ha espresso l'interesse a conoscere l'esito di quest'ultima.
+
+\subsection*{Nuovi strumenti organizzativi}
+La Proponente ha reso disponibile, al fine di migliorare l'organizzazione dei prossimi SAL e le comunicazioni tra il gruppo e l'azienda, una \textit{Github Project Board$_{G}$}. Tramite quest'ultima è possibile monitorare lo stato di avanzamento delle macro-attività e i criteri espressi nel capitolato raggruppati per categoria (obbligatori, \textit{nice-to-have} e opzionali).  
+
+È stato inoltre deciso che la \textit{board} verrà compilata dalle figure gestionali del gruppo, quali Responsabile e Amministratore. 
+
+\subsection*{Limiti riscontrati dal gruppo}
+Sono stati comunicati alla Proponente i limiti che \textit{SnakeByte} ha riscontrato durante gli ultimi periodi come i rallentamenti dovuti alla sessione di esami appena terminata.
+
+% ------------------------
+% Decisioni
+% ------------------------
+\addDecision{Cadenza settimanale per i SAL}
+\addDecision{Compilazione, da parte di Responsabile e Amministratore, della \textit{Github Project Board} per organizzare i temi dei prossimi SAL}
+\makeDecisionTable
+
+\addTodo{\noOne}{Comunicare l'esito della revisione RTB alla Proponente}{Gruppo \teamName}{23/02/2026}
+\makeTodoTable
+
+
+\end{document}
+

@@ -1,0 +1,110 @@
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{template}[2025/12/28 SnakeByte Template Package]
+
+\RequirePackage[table, x11names]{xcolor}
+\RequirePackage{colortbl}
+\RequirePackage{tabularx}
+\RequirePackage{enumitem}
+\RequirePackage{xltabular}
+\RequirePackage{etoolbox}
+\RequirePackage{xstring}
+\RequirePackage{float}
+
+\newcommand{\sogliatabella}[1]{%
+    \begin{center}
+    \begin{tabularx}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{3.5cm}|>{\centering\arraybackslash}p{3cm}|}
+      \hline
+      \rowcolor{lightgray}
+      \textbf{Codice} & \textbf{Nome} & \textbf{Valore accettabile} & \textbf{Valore ottimo} \\ 
+      \hline
+      #1
+    \end{tabularx}
+    \end{center}
+}
+
+\newcommand{\sogliariga}[4]{%
+  #1 & #2 & #3 & #4 \\ \hline
+}
+
+%==========================
+\newcommand{\testSEntries}{}
+\newcounter{testSctr}
+\newcommand{\addTestS}[3]{%
+    \begingroup
+      \stepcounter{testSctr}
+      \edef\TS@id{\thetestSctr}
+
+      \edef\@tempa{%
+        \noexpand\gappto\noexpand{\noexpand\testSEntries}{%
+          TS-\TS@id
+          & \unexpanded{#1} %requisito collegato
+          & \unexpanded{#2} %descrizione
+          & \unexpanded{#3}
+          \\ \noexpand\hline
+        }%
+      }%
+      \@tempa
+    \endgroup
+}
+%==========================
+
+\newcommand{\makeTSTable}{
+        \begin{center}
+          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{2.25cm}|>{\centering\arraybackslash}p{1.5cm}|}
+            \hline
+            \rowcolor{lightgray}
+            \textbf{Codice} & \textbf{Descrizione} & \textbf{Requisito di riferimento} & \textbf{Stato del test} \\ 
+            \hline
+            \endfirsthead
+            \hline
+            \rowcolor{lightgray}
+            \textbf{Codice} & \textbf{Descrizione} & \textbf{Requisito di riferimento} & \textbf{Stato del test} \\ 
+            \hline
+            \endhead
+            \testSEntries
+            \caption{Tabella dei test di sistema}
+          \end{xltabular}
+        \end{center}
+}
+
+%==========================
+\newcommand{\testAEntries}{}
+\newcounter{testActr}
+\newcommand{\addTestA}[2]{%
+    \begingroup
+      \stepcounter{testActr}
+      \edef\TA@id{\thetestActr}
+
+      \edef\@tempa{%
+        \noexpand\gappto\noexpand{\noexpand\testAEntries}{%
+          TA-\TA@id
+          & \unexpanded{#1} %Descrizione
+          & \unexpanded{#2} %Stato del test
+          \\ \noexpand\hline
+        }%
+      }%
+      \@tempa
+    \endgroup
+}
+%==========================
+
+\newcommand{\makeTATable}{
+        \begin{center}
+          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{1.5cm}|}
+            \hline
+            \rowcolor{lightgray}
+            \textbf{Codice} & \textbf{Descrizione} & \textbf{Stato del test} \\ 
+            \hline
+            \endfirsthead
+            \hline
+            \rowcolor{lightgray}
+            \textbf{Codice} & \textbf{Descrizione} & \textbf{Stato del test} \\ 
+            \hline
+            \endhead
+            \testAEntries
+            \caption{Tabella dei test di accettazione}
+          \end{xltabular}
+        \end{center}
+}
+
+\endinput

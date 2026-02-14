@@ -1,0 +1,71 @@
+\documentclass{beamer}
+
+\usepackage{../tema}
+
+
+\title{SAL}
+\author[C. Libralato, V. Baleanu]{C. Libralato, V. Baleanu}
+\setDate{23/12/2025}
+
+\begin{document}
+
+{
+  \setbeamertemplate{footline}{}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+
+\addMember{Christian}{Libralato}{Responsabile}
+\addMember{Giuseppe}{De Fina}{Amministratore}
+\addMember{Leonardo}{Pellizzon}{Analista}
+\addMember{Valeria}{Baleanu}{Progettista}
+\addMember{Luca}{Granziero}{Programmatore}
+\addMember{Filippo}{Venzo}{Programmatore}
+\addMember{Francesco}{Pasqual}{Verificatore}
+\makeMembersFrame
+
+\begin{frame}{Avanzamenti settimanali}
+    \begin{itemize}
+        \item Effettuata riunione interna in data 15/12 e redatto il verbale interno ad essa relativo;
+        \item svolta la riunione con il prof. Cardin in data 17/12;
+        \item aggiornato il documento dell'Analisi dei Requisiti alla versione 1.0.7;
+        \item prima stesura del Piano di Progetto;
+\end{itemize}
+\end{frame}
+
+% PRIMO FRAME: Attività terminate dal verbale esterno 
+\addPrecedentTodo{ve\_2025\_12\_10.a1}{\noOne}{Sostenere il colloquio il prof. Cardin}{SnakeByte}{17/12/2025}
+\makePrecedentTodoFrame
+
+% Reset delle entries per il secondo frame 
+\renewcommand{\precedentTodoEntries}{}
+
+%  SECONDO FRAME: Attività terminate dal verbale interno
+\addPrecedentTodo{vi\_2025\_12\_15.a6}{\#38}{Scrittura verbale esterno 10/12/2025}{C. Libralato, F.Pasqual}{19/12/2025}
+\addPrecedentTodo{vi\_2025\_12\_15.a7}{\#39}{Scrittura verbale interno 15/12/2025}{C. Libralato, F.Pasqual}{19/12/2025}
+% \addPrecedentTodo{vi\_2025\_12\_01.a3}{\#22}{Aggiornare il consuntivo di periodo nel Piano di Progetto}{C. Libralato}{08/12/2025}
+
+\makePrecedentTodoFrame
+
+\addManualTodo{vi\_2025\_12\_15.a1}{\#33}{Terminazione AdR}{L. Pellizzon}{30/12/2025}
+\addManualTodo{vi\_2025\_12\_15.a2}{\#34}{Compilazione PdP}{G. De Fina}{30/12/2025}
+\addManualTodo{vi\_2025\_12\_15.a3}{\#35}{Prima Stesura PdQ}{G. De Fina}{30/12/2025}
+\addManualTodo{vi\_2025\_12\_15.a4}{\#36}{Inizio implementazione PoC}{F. Venzo, L. Granziero}{30/12/2025}
+\addManualTodo{vi\_2025\_12\_15.a5}{\#37}{Definizione diagramma Gantt}{G. De Fina}{30/12/2025}
+
+\makeTodoFrame
+
+\begin{frame}{Limiti o blocchi incontrati}
+Durante l'ultimo periodo di avanzamento sono emerse alcuni dubbi e problematiche riguardo:
+  \begin{itemize}
+      \item l'individuazione di metriche adatte alla misura dell'avanzamento per il Piano di Qualifica;
+      \item come gestire le ore in più derivate da una sovrastima delle ore richieste da un certo ruolo in uno sprint;
+      \item la suddivisione dei ruoli e delle ore prestabilite;
+      \item l'Analisi dei Requisiti;
+      \item l'interazione tra le varie componenti del PoC.
+  \end{itemize}
+
+\end{frame}
+
+\end{document}

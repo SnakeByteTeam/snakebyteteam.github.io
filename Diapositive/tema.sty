@@ -84,8 +84,8 @@
 \newcommand{\precedentTodoEntries}{}
 \newcommand{\todoEntries}{}
 
-\newcommand{\addPrecedentTodo}[4]{
-  \gappto{\precedentTodoEntries}{#1 & #2 & #3 & #4 \\ \hline}
+\newcommand{\addPrecedentTodo}[5]{
+  \gappto{\precedentTodoEntries}{#1 & #2 & #3 & #4 & #5 \\ \hline}
 }
 
 \newcounter{todoctr}
@@ -104,12 +104,13 @@
 % imposta tabella delle attività svolte
 \newcommand{\makePrecedentTodoFrame}{
   \begin{frame}{Attività terminate}
-    \small
+    \tiny
     \begin{center}
-        \begin{tabularx}{\textwidth}{|c|c|X|c|}
+        \begin{tabularx}{\textwidth}{|c|c|X|p{2cm}|c|}
             \hline
-            \rowcolor{aziendaPrimary!10} \textcolor{aziendaPrimary}{\textbf{Id}} & \textcolor{aziendaPrimary}{\textbf{Id GitHub Issue}} 
-            & \textcolor{aziendaPrimary}{\textbf{Assegnatario}} & \textcolor{aziendaPrimary}{\textbf{Data}} \\
+            \rowcolor{aziendaPrimary!10} \textcolor{aziendaPrimary}{\textbf{Id}} & \textcolor{aziendaPrimary}{\textbf{Issue}} 
+            & \textcolor{aziendaPrimary}{\textbf{Descrizione}} & \textcolor{aziendaPrimary}{\textbf{Assegnatario}} 
+            & \textcolor{aziendaPrimary}{\textbf{Data}} \\
             \hline
             \precedentTodoEntries
         \end{tabularx}
@@ -119,7 +120,7 @@
 
 % imposta tabella delle attività da svolgere
 \newcommand{\makeTodoFrame}{
-    \begin{frame}{Attività terminate}
+    \begin{frame}{Attività da completare}
       \small
       \begin{center}
           \begin{tabularx}{\textwidth}{|c|c|X|X|c|}

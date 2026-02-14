@@ -1,0 +1,146 @@
+
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale esterno 23/12/2025}
+\setDocVersion{1.0.0}
+\setDocData{26/01/2026}
+\setDocIndex{ve\_2025\_12\_23}
+\setDocState{2}
+\setDocRecipient{2}
+
+% comandi extra (rimuovere questi commenti una volta approvato il documento)
+%
+% -- costanti --
+% \noOne [-]
+% \noRole [ND]
+% \firstDraft [Prima stesura]
+% \approval [Approvazione]
+% \teamName [SnakeByte]
+% \teamEmail [snakebyteteam@gmail.com]
+% \teamRepo [https://github.com/SnakeByteTeam/snakebyteteam.github.io]
+% \teamSite [https://snakebyteteam.github.io/]
+% \recipientTeachers [prof. Vardanega Tullio, prof. Cardin Riccardo]
+% \vimar [Vimar]
+% \vimarspa [Vimar S.p.A.]
+%
+% -- variabili --
+% \docIndex | \setDocIndex{nome documento senza versione}
+% \docTitle | \setDocTitle{titolo documento} 
+% \docData | \setDocData{data documento} [GG/MM/AAAA]
+% \docVersion | \setDocVersion{versione documento}
+% \docState | \setDocState{0|1|2} [Da verificare][Verificato][Approvato]
+% \docRecipient [table] | \setDocRecipient{0|1|2} [SnakeByte][SnakeByte, prof][SnakeByte, prof, vimar]
+% 
+% -- tabelle -- [gli id sono automatici dove serve]
+% \makeMeetingInfoTable{data}{ora inizio}{ora fine}{modalità}
+% \addParticipant{nome}{cognome}{ruolo}{presenza} | \makeMeetingParticipantsTable
+% \addTodo{id github issue}{descrizione}{assegnatario}{scadenza} | \makeTodoTable
+% \addPrecedentTodo{id todo}{id github issue todo}{assegnatario todo}{data} | \makePrecedentTodoTable
+% \addDecision{descrizione decisione} | \makeDecisionTable
+%
+% -- pagine intere --
+% \makeTitlePage
+% \addChangelog{versione}{data}{autore}{verificatore}{approvatore}{descrizione} | \makeTodoTable
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\addChangelog{1.0.0}{26/01/2026}{\noOne}{\noOne}{V. Baleanu}{\approval}
+\addChangelog{0.1.0}{28/12/2025}{C. Libralato}{F. Pasqual}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{23/12/2025}{9:30}{10:30}{via \textit{Microsoft Teams$_G$}}
+
+\addParticipant{Christian}{Libralato}{Responsabile}{P}
+\addParticipant{Leonardo}{Pellizzon}{Analista}{P}
+\addParticipant{Giuseppe}{De Fina}{Amministratore}{P}
+\addParticipant{Valeria}{Baleanu}{Progettista}{P}
+\addParticipant{Luca}{Granziero}{Programmatore}{P}
+\addParticipant{Filippo}{Venzo}{Programmatore}{P}
+\addParticipant{Francesco}{Pasqual}{Verificatore}{P}
+\makeMeetingParticipantsTable
+
+\addPrecedentTodo{ve\_2025\_12\_10.a1}{\noOne}{\teamName}{17/12/2025}
+
+\makePrecedentTodoTable
+
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Stato avanzamento lavori;
+    \item Q\&A;
+    \item stato del \textit{PoC$_G$};
+    \item stato dell'Analisi dei Requisiti.
+\end{itemize}
+
+\section{Approfondimento}
+\subsection*{Stato avanzamento lavori}
+Sono state presentate le attività terminate nell'ultimo periodo di avanzamento e le attività da terminare, la quasi totalità
+di esse concerneva la documentazione.
+
+\subsection*{Q\&A}
+I dubbi e le domande si sono concentrate sui seguenti argomenti:
+\begin{itemize}
+    \item \textbf{Metriche di avanzamento}: nel contesto del Piano di Qualifica il team ha esposto alcuni dubbi legati alla specificità
+          delle metriche per misurare l'avanzamento ed ha espresso la preferenza di ricercare un numero contenuto di metriche, circa 5, significative e di alto livello
+          che si dimostrino utili e comprensibili.
+    \item \textbf{Gestione ore}: dal consuntivo dei primi \textit{sprint$_G$} è emersa una differenza tra le ore programmate e quelle reali svolte da ogni ruolo. È dunque sorto il dubbio
+          relativo alla gestione delle ore non consumate, il gruppo ha proposto di mantenere un contatore d'accumulo, da cui attingere in caso
+          di sottostime orarie future. In aggiunta a ciò, il team ha comunicato che spesso è stato necessario effettuare variazioni dei ruoli previsti nello sprint successivo.
+          La Proponente ha espresso un'opinione positiva riguardo al metodo proposto per la gestione delle ore in eccesso, e, in relazione al secondo problema, qualora le previsioni siano molto diverse dalla realtà,
+          ha suggerito di effettuare una revisione completa della distribuzione dei ruoli considerando eventualmente anche le ore in eccesso. In ogni caso è stato suggerito un confronto
+          con il prof. Vardanega per trattare queste tematiche.
+    \item \textbf{Duplicazione Amministratore}: dato che nel periodo corrente l'Amministratore ha il compito di redigere i Piani di Progetto e di Qualifica, il team ha proposto una duplicazione del ruolo Amministratore
+          per il periodo rimanente dello \textit{sprint} ed eventualmente anche per il periodo successivo. Questa variazione porterebbe alla temporanea assenza della figura del
+          Progettista. Anche in questo caso è stato suggerito un confronto con il prof. Vardanega in quanto, sebbene la presenza di più amministratori non sia comune, potrebbe rivelarsi utile per il caso in esame.
+\end{itemize}
+
+\subsection*{Stato del \textit{PoC}}
+Riguardo al \textit{PoC} sono emerse alcune difficoltà riguardanti la traduzione dalla teoria alla pratica nel contesto delle architetture e alcuni dubbi sul grado di riutilizzabilità dello stesso.\\\\
+In riferimento all'implementazione è stato consigliato di sperimentare con le API reali senza ricorrere a \textit{Mocking$_G$} per esse, se non in casi bloccanti,  per i quali la Proponente si è resa
+disponibile ad offrire supporto in caso di necessità.\\\\
+È inoltre stata ricordata l'importanza dello sviluppo di una micro-libreria, come requisito \textit{nice-to-have}, per disaccoppiare la logica applicativa dalle API e fornire una semantica di alto livello, al fine di
+favorire la riutilizzabilità, una maggior separazione e un potenziale rilascio open-source.\\\\
+A livello di prospettive future è stata definita una possibile presentazione del \textit{PoC} a fine gennaio, che coinvolgerebbe varie componenti aziendali tra cui Responsabile sviluppo software, Tutor, Team cloud, ed eventualmente il reparto marketing,
+al fine di avere un feedback tecnico, architetturale e di valore di business.
+
+\subsection*{Stato dell'Analisi dei Requisiti}
+Il ciclo di vita degli allarmi è stato definito come segue:
+\begin{itemize}
+    \item Creazione: effettuata dall'amministratore, prevede salvataggio della configurazione e la creazione della subscription;
+    \item Attivazione: l'evento è inviato dal sensore all'endpoint registrato, il contesto viene ricostruito e vengono identificati i destinatari;
+    \item Notifica: è distinta dall'allarme e viene inviata ai destinatari definiti dall'area;
+    \item Risoluzione: l'operatore prende in carico l'allarme e lo stato viene aggiornato per tutti gli altri;
+    \item Riattivazione: l'allarme si riattiva in automatico e può nuovamente scattare.
+\end{itemize}
+È poi stata discussa la gestione temporale degli allarmi, tramite semplice controllo manuale o con la possibilità di definire fasce orarie di attivazione per aumentare l'automazione,
+quest'ultima opzione è preferibile.\\\\
+Da una successiva analisi dei permessi tra ruoli per le sezioni Analytics e Dashboard sono emerse le seguenti considerazioni:
+\begin{itemize}
+    \item le Analytics sono visibili a tutti ma la configurazione è riservata all'amministratore;
+    \item la gestione del layout della Dashboard è analoga, l'amministratore determina widget e disposizione mentre gli operatori attingono passivamente alle informazioni.
+\end{itemize}
+Infine è stata trattata la gestione dei requisiti non funzionali, la cui inclusione è stata consigliata per completezza documentale.
+
+\addDecision{Struttura del ciclo di vita degli allarmi confermata.}
+\addDecision{La visualizzazione delle Analytics e della Dashboard è aperta a tutti i ruoli ma la configurazione è riservata all'amministratore.}
+\addDecision{Inclusione requisiti non funzionali nell'Analisi dei Requisiti.}
+
+\makeDecisionTable
+
+\addTodo{\noOne}{Chidere conferma al prof. Vardanega riguardo la duplicazione Amministratore.}{\teamName}{11/01/2026}
+\addTodo{\noOne}{Effettuare revisione della distribuzione ruoli e ore.}{\teamName}{11/01/2026}
+
+\makeTodoTable
+
+\end{document}

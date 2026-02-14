@@ -1,0 +1,1681 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[nomarginpar, margin=2.75cm, tmargin=3cm, bmargin=1.75cm]{geometry}
+\usepackage{graphicx}
+\usepackage[
+    colorlinks=true,      
+    linkcolor=black,      
+    urlcolor=blue,       
+    citecolor=black       
+]{hyperref}
+\usepackage[table, x11names]{xcolor}
+\renewcommand{\contentsname}{Indice}
+\renewcommand{\listtablename}{Elenco delle tabelle}
+\renewcommand{\tablename}{Tabella}
+\usepackage{fancyhdr}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage{caption}
+\usepackage{template}
+\usepackage{lastpage}
+
+%Comandi per livello di sottosezioni = 3
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\newcommand{\trisubsection}[1]{\paragraph{#1}\mbox{}\\}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{SnakeByte} 
+\fancyhead[R]{Norme di Progetto}
+\fancyfoot[C]{\thepage\ di \pageref{LastPage}}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \begin{center}
+            \includegraphics[width=0.6\textwidth]{./img/logo.pdf}
+        \end{center}
+        \vspace{4cm}
+        \huge\textbf{Norme di Progetto}\par
+        \vspace{2cm}
+        \large \textbf{SnakeByte} (Gruppo 1):\\
+        \large Valeria Baleanu, Leonardo Pellizzon, Filippo Venzo, Giuseppe De Fina, \\
+        Francesco Pasqual, Christian Libralato, Luca Granziero \\
+        (2109911, 2111006, 2113705, 2113187, 2103119, 2101047, 2075512)
+        \vfill
+        \small
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \multicolumn{4}{|c|}{\textbf{Informazioni documento}}                                                                              \\
+                \hline
+                \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari}                                     \\
+                \hline
+                1.0.0                                  & 13/2/2026     & Approvato     & SnakeByte, prof. Vardanega Tullio, prof. Cardin Riccardo \\
+                \hline
+            \end{tabular}
+        \end{center}
+        \vfill
+        \large Contatti: snakebyteteam@gmail.com
+    \end{center}
+\end{titlepage}
+\begin{xltabular}{\textwidth}{|c|c|c|c|c|X|}
+    \hline
+    \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
+    \hline
+    \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
+    \hline
+    \endfirsthead
+    \hline
+    \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
+    \hline
+    \endhead
+    1.0.0 & 13/2/2026 & - & \makecell[t] - & F. Venzo & Approvazione \\
+    \hline
+    0.9.0 & 10/2/2026 & G. De Fina & \makecell[t]{L. Granziero \\ F. Pasqual} & - & Aggiunto elenco delle tabelle. \\
+    \hline
+    0.8.0 & 9/2/2026 & G. De Fina & \makecell[t]{L. Granziero \\ F. Pasqual} & - & Aggiunte "generalizzazioni" nella tabella per l'Analisi dei Requisiti, aggiunto comando \textit{needspace}. \\
+    \hline
+    0.7.0 & 8/2/2026 & G. De Fina & V. Baleanu & - & Modificata redazione verbali (responsabile), aggiunta sezione Gestione e tracciamento dei test, distinzione test funzionali/strutturali, aggiornamento strumento comunicazioni esterne a Microsoft Teams. \\
+    \hline
+    0.6.0 & 5/2/2026 & G. De Fina & V. Baleanu & - & Completati Processi di Supporto con Garanzia della qualità, Revisioni congiunte, Audit e Risoluzione dei problemi. \\
+    \hline
+    0.5.0 & 5/2/2026 & G. De Fina & V. Baleanu & - & Completati Processi Organizzativi con sezioni su Controllo e monitoraggio, Gestione sprint, Tracciamento attività e Gestione rischi. \\
+    \hline
+    0.4.0 & 11/1/2026 & V. Baleanu & F. Venzo & - & Aggiunta processo di Verifica e Validazione. \\
+    \hline
+    0.3.0 & 1/1/2026 & V. Baleanu & F. Venzo & - & Aggiunta metriche di qualità di processo e di prodotto. \\
+    \hline
+    0.2.0 & 08/12/2025 & C. Libralato & L. Pellizzon & - & Aggiunte a processo di verifica e approvazione dei documenti (sez. 3.1.4, 3.1.5). Aggiunta Sviluppo con Analisi Requisiti ai processi primari (sez. 2.2 )\\
+    \hline
+    0.1.6 & 29/11/2025 & F. Pasqual & V. Baleanu & - & Aggiunto processo di verifica dei documenti tramite \textit{pull request} \\
+    \hline
+    0.1.5 & 8/11/2025 & F. Venzo & L. Granziero & - & Aggiunta tabella attività completate nella struttura dei verbali\\
+    \hline
+    0.1.4 & 30/10/2025 & F. Venzo & L. Granziero & - & Modifica struttura tabella attività, modifiche tipografiche\\
+    \hline
+    0.1.3 & 26/10/2025 & F. Venzo & L. Granziero & - & Aggiunta sezioni e termini glossario, modifica convenzione date nei nomi dei file \\
+    \hline
+    0.1.2 & 23/10/2025 & F. Venzo & L. Granziero & - & Correzione errori ortografici e aggiunta link \\
+    \hline
+    0.1.1 & 22/10/2025 & F. Venzo & L. Granziero & - & Aggiunta sezioni e sotto sezioni \\
+    \hline
+    0.1.0 & 17/10/2025 & F. Venzo & L. Granziero & - & Prima stesura \\
+    \hline
+\end{xltabular}
+\setcounter{table}{0}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+\listoftables
+
+\newpage
+
+\section{Introduzione}
+\subsection{Finalità del documento}
+Il presente documento intende fissare le linee guida che il gruppo \textit{SnakeByte} si impegna a rispettare ed attuare per perseguire la migliore efficienza ed efficacia nel processo di realizzazione del progetto didattico.
+Il documento è strutturato secondo le norme dello Standard ISO/IEC 12207:1995 e segue quanto descritto nel \textit{Regolamento del progetto didattico (A.a. 2025/2026)}. Presenta una descrizione dei \textit{processi} del ciclo di vita del \textit{software} e delle \textit{attività} di cui sono composti.
+A sua volta, ogni attività è composta da una serie di procedure metodiche dotate di obiettivi e strumenti ben definiti.
+\'E importante notare che il documento in questione è in continua evoluzione fino al suo ritiro, poiché le norme contenute al suo interno vengono costantemente revisionate, ottimizzate ed aggiornate, seguendo un approccio incrementale.
+Ogni attività svolta nell'interesse del progetto didattico e nei suoi materiali è regolamentata precedentemente all'esecuzione della stessa.
+
+\subsection{Glossario}
+Il documento cita alcuni termini la cui definizione può risultare ambigua. Per questo, è possibile consultare il \textit{glossario$_{G}$} il quale contiene le definizioni di tali espressioni, che saranno marcate da una lettera \textit{G} a pedice.
+
+\subsection{Riferimenti Normativi}
+\begin{itemize}
+    \item \textbf{Standard ISO/IEC 12207:1995}:
+
+        \url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf}
+        \\ (consultato il 13/02/2026);
+    \item \textbf{Regolamento del progetto didattico}:
+        \\ \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf}
+        \\ (consultato il 13/02/2026).
+\end{itemize}
+
+\subsection{Riferimenti Informativi}
+\begin{itemize}
+    \item \textbf{Sito dedicato alla documentazione}
+
+        \url{https://snakebyteteam.github.io}
+        \\ (consultato il 13/02/2026)
+
+    \item \textbf{Glossario}:
+
+        \url{https://snakebyteteam.github.io/glossary.html}
+        \\(consultato il 13/02/2026)
+
+\end{itemize}
+
+\section{Processi primari}
+Le attività  che compongono i processi primari considerate in questa sede sono un sottoinsieme proprio delle attività previste dallo Standard ISO/IEC 12207:1995.
+\subsection{Fornitura}
+Il processo di fornitura, come specificato nello Standard ISO/IEC 12207:1995, definisce le attività dell'organizzazione che fornisce il prodotto \textit{software} all'acquirente, dalla concezione fino alla consegna del prodotto. Viene istanziato conseguentemente alla redazione della \textit{Valutazione dei \textit{capitolati$_{G}$}}.
+
+\subsubsection{Attività}
+Il processo di fornitura si compone delle seguenti attività
+\begin{itemize}
+    \item \textbf{Avviamento}: revisione delle proposte dei richiedenti. Per i capitolati di maggiore interesse vengono mandate delle comunicazioni via mail per eventuali approfondimenti;
+
+    \item \textbf{Preparazione della risposta}: viene scelto il capitolato per cui ci vuole candidare sulla base delle considerazioni fatte nella fase precedente e viene preparato il documento di \textbf{candidatura}.
+\end{itemize}
+
+\subsubsection{Documentazione risultante}
+La documentazione prodotta durante le attività di fornitura, la quale verrà consegnata ai committenti$_{G}$ quali prof. Tullio Vardanega, prof. Riccardo Cardin e all'azienda proponente è la seguente
+
+\begin{itemize}
+    \item \textbf{Valutazioni dei capitolati} contenente
+          \begin{itemize}
+              \item Titolo del capitolato e nome dell'azienda proponente;
+              \item Una breve descrizione del capitolato e dei suoi obiettivi;
+              \item Considerazioni del gruppo;
+          \end{itemize}
+    \item \textbf{Dichiarazione degli impegni} contenente
+          \begin{itemize}
+              \item Impegni orari e suddivisione dei ruoli;
+              \item Preventivo dei costi totali del progetto (calcolato secondo il \textit{Regolamento del progetto didattico});
+              \item Data prevista di consegna.
+          \end{itemize}
+    \item \textbf{Lettera di presentazione} contenente
+          \begin{itemize}
+              \item Scelta del capitolato;
+              \item Motivazione della scelta;
+              \item Riassunto costi complessivi e data prevista di consegna.
+          \end{itemize}
+\end{itemize}
+
+\subsection{Sviluppo}
+Il processo di Sviluppo consiste in un insieme di attività necessarie per la realizzazione del prodotto \textit{software}, queste sono particolarmente
+orientate verso analisi dei requisiti, design, codifica, integrazione e testing; si tratta infatti del processo primario principale che
+guida la realizzazione del prodotto \textit{software} per la quasi totalità del ciclo di vita.
+
+\subsubsection{Attività}
+Il processo di sviluppo si compone delle seguenti attività:
+\begin{itemize}
+    \item \textbf{System requirements analysis};
+    \item \textbf{Software requirements analysis};
+    \item \textbf{Software architectural design};
+    \item \textbf{Software detailed design};
+    \item \textbf{Software coding and testing};
+    \item \textbf{Software qualification testing};
+    \item \textbf{Software installation};
+\end{itemize}
+
+\subsubsection{Documentazione risultante}
+La documentazione prodotta durante il processo di Sviluppo consiste in:
+\begin{itemize}
+    \item \textbf{\textit{Diagrammi UML$_{G}$}}: diagrammi realizzati secondo lo standard \textit{UML2.5$_{G}$} utili alla definizione dei \textit{casi d'uso$_{G}$} all'interno dell'Analisi dei Requisiti.
+    \item \textbf{Analisi dei Requisiti}: documento che racchiude i risultati della \textit{System requirements analysis} (requisiti funzionali) e \textit{Software requirements analysis} (requisiti non funzionali).
+\end{itemize}
+
+\subsubsection{Analisi dei Requisiti}
+Il suddetto documento, la cui redazione è affidata al ruolo dell'Analista, è necessario al fine di determinare e tracciare l'insieme di
+requisiti che l'applicativo deve soddisfare.
+
+L'analisi è strutturata in maniera tale da ricavare i requisiti a partire dai \textit{casi d'uso}, che
+consistono in una serie di scenari che condividono uno scopo per un utente che interagisce con il sistema. La ricerca dei casi d'uso avviene tramite \textit{brainstorming$_{G}$} interno al gruppo e si
+avvale di \textit{feedback$_{G}$} da parte della Proponente.\\
+Il documento è strutturato nel seguente modo:
+
+\trisubsection{Introduzione}
+Una breve introduzione descrive le finalità del documento, i Riferimenti Informativi e Normativi.
+
+\trisubsection{Descrizione del prodotto}
+In questa sezione viene descritto lo scopo e l'obiettivo principale del prodotto, oltre che  le principali funzionalità
+che deve possedere e l'insieme di utenti a cui è destinato.
+
+\trisubsection{Elenco \textit{casi d'uso$_{G}$}}
+I {casi d'uso} vengono elencati seguendo la numerazione associata, sono presentati attraverso un diagramma \textit{UML} e una descrizione testuale in forma tabellare contenente sia le informazioni
+all'interno del diagramma sia quelle non rappresentabili da esso, tra cui Pre-condizioni e le Post-condizioni.\\
+La struttura è la seguente:
+
+%==============================
+%Da cambiare con template che però non è ancora confermato
+\Needspace{15\baselineskip}
+\begin{center}
+    \begin{tabularx}{\textwidth}{|c| >{\centering\arraybackslash}X|}
+        \hline
+        \rowcolor{lightgray} \textbf{Campo} & \textbf{Descrizione}                                                                                                                                                                                      \\
+        \hline
+        Attori                              & Coloro che partecipano attivamente al caso d'uso per raggiungere un preciso obiettivo                                                                                                                     \\
+        \hline
+        Pre-condizioni                      & Condizioni che devono essere soddisfatte prima dello scenario descritto dal caso d'uso                                                                                                                    \\
+        \hline
+        Post-condizioni                     & Condizioni che risultano soddisfatte dopo il completamento dello scenario principale del caso d'uso. Se viene completato uno scenario alternativo, saranno soddisfatte le Post-condizioni di quest'ultimo \\
+        %\hline
+        %Trigger & La motivazione che porta l'utente a svolgere i passi del caso d'uso \\
+        \hline
+        Scenario principale                 & Sequenza di passi che l'utente deve seguire per completare il caso d'uso                                                                                                                                  \\
+        \hline
+        Scenari alternativi                 & Scenario divergente dal principale per il verificarsi di una particolare condizione                                                                                                                       \\
+        \hline
+        Estensioni                          & Casi d'uso ulteriori eseguiti al verificarsi di una particolare condizione nel caso d'uso primario. Modificano Scenario e Post-condizioni                                                                 \\
+        \hline
+        Inclusioni                          & Casi d'uso ulteriori eseguiti al fine di completare il caso d'uso principale. Vengono eseguiti tutti incondizionatamente.                                                                                 \\
+        \hline
+        Generalizzazioni                    & Casi d'uso più specifici che ereditano comportamento e caratteristiche da un caso d'uso più generale, potendo aggiungere o specializzare ulteriori funzionalità.                                          \\
+        \hline
+    \end{tabularx}
+    \captionof{table}{Struttura dei casi d'uso}
+\end{center}
+%==========================
+La creazione della tabella è facilitata dall'utilizzo del template \texttt{templateAdR.sty}.\\
+Non tutti i \textit{casi d'uso} necessitano della tabella nella sua interezza, la presenza dei campi: Trigger, Scenari alternativi, Estensioni, Inclusioni e Generalizzazioni
+dipende dalla situazione.
+
+
+
+\trisubsection{{Elenco requisiti}}
+I requisiti sono identificati da un codice univoco e sono associati ai casi d'uso da cui sono stati generati.
+
+\section{Processi di supporto}
+\subsection{Documentazione}
+\subsubsection{Struttura generale dei documenti}
+\label{sec:Struttura}
+Le seguenti sezioni illustrano le componenti che ogni documento creato deve avere. Ogni documento deve essere redatto utilizzato il linguaggio \LaTeX$_{G}$, in particolare il file \texttt{template.sty} e template forniti nel repository interno.
+
+\trisubsection{Prima pagina}
+La prima pagina di ogni documento deve riportare, in ordine di posizionamento dall'alto verso il basso
+
+\begin{itemize}
+    \item Logo del gruppo \textit{SnakeByte};
+    \item Titolo del documento;
+    \item Il nome e il numero del gruppo \textit{SnakeByte};
+    \item Nome e cognome di ogni componente e relativo numero di matricola UniPD;
+    \item Informazioni generali del documento quali
+          \begin{itemize}
+              \item Versione attuale;
+              \item Data di creazione della versione;
+              \item Lo stato attuale;
+              \item I destinatari del documento.
+          \end{itemize}
+    \item Contatto email del gruppo \textit{SnakeByte}.
+\end{itemize}
+
+\trisubsection{Intestazione}
+Ogni pagina di qualsiasi documento deve riportare come intestazione
+\begin{itemize}
+    \item Nome del gruppo \textit{SnakeByte};
+    \item Titolo del relativo documento.
+\end{itemize}
+
+\trisubsection{Registro delle modifiche}
+Tutti i documenti, interni ed esterni, devono riportare a partire dalla seconda pagina il \textit{registro delle modifiche} sotto forma di tabella, la quale deve riassumere
+
+\begin{itemize}
+    \item Versione del documento;
+    \item Data di creazione della versione;
+    \item Autore della versione;
+    \item Verificatore della versione;
+    \item Approvatore della versione;
+    \item Descrizione riassuntiva delle modifiche alla versione precedente.
+\end{itemize}
+
+\noindent
+Ogni modifica ad un documento scatena la creazione di una nuova versione di esso e quindi la compilazione di una nuova riga, verso il basso, della tabella.
+
+\trisubsection{Indice}
+Ogni documento deve riportare l'indice dove saranno elencati i titoli di tutte le sezioni e sottosezioni. \\
+Ogni titolo deve essere provvisto di link che porta alla sezione associata all'interno dello stesso documento.\\
+
+\textbf{Metodologie}
+\begin{itemize}
+    \item Questo deve essere fatto tramite il pacchetto \texttt{hyperref} fornito dal linguaggio \LaTeX$_{G}$
+\end{itemize}
+
+\subsubsection{Struttura dei verbali}
+I verbali sia interni che esterni, oltre alla struttura descritta nel capitolo \hyperref[sec:Struttura]{\textit{§3.1.1}}, devono essere composti dalle seguenti sezioni
+
+\begin{itemize}
+    \item \textbf{Informazioni}, contenente
+          \begin{itemize}
+              \item Data di svolgimento;
+              \item Ora inizio;
+              \item Ora fine;
+              \item Modalità di svolgimento (Presenza, Online o tramite canali asincroni).
+          \end{itemize}
+    \item \textbf{Presenze}, contenente, in forma tabellare, le seguenti informazioni
+          \begin{itemize}
+              \item Nome e cognome di tutti i membri;
+              \item Ruolo (ND se non definito);
+              \item Presenza alla riunione.
+          \end{itemize}
+    \item \textbf{Ordine del giorno}, con all'interno una lista degli argomenti che vengono trattati all'interno dell'incontro;
+    \item \textbf{Approfondimento} degli argomenti ordine del giorno;
+    \item \textbf{Decisioni} (\hyperref[sec:TabellaDecisioni]{Sezione \textit{§3.1.2.1}});
+    \item \textbf{Attività da svolgere} (\hyperref[sec:TabellaToDo]{Sezione \textit{§3.1.2.2}});
+    \item \textbf{Attività svolte} (\hyperref[sec:TabellaDone]{Sezione \textit{§3.1.2.3}})
+\end{itemize}
+
+\label{sec:TabellaDecisioni}
+\trisubsection{Tabella delle decisioni}
+Per il tracciamento e l'organizzazione di ogni decisione presa collettivamente dal gruppo \textit{SnakeByte}, al termine di ogni verbale, deve essere presente una tabella che riporta le decisioni prese in seguito alla riunione in questione. Per ogni decisione deve essere riportato
+\begin{itemize}
+    \item Identificativo alfanumerico della decisione, così composto\\ \texttt{v\{i, e\}}\_AAAA\_MM\_GG.d\texttt{<numero\_decisione>};
+    \item Descrizione testuale della decisione presa.
+\end{itemize}
+
+\label{sec:TabellaToDo}
+\trisubsection{Tabella delle attività da svolgere}
+Per il tracciamento delle attività da eseguire, emerse durante l'incontro trattato dal verbale, deve essere presente una tabella che riporta una lista di queste, riassumendo le seguenti informazioni
+\begin{itemize}
+    \item Identificativo alfanumerico dell'attività, così composto\\ \texttt{v\{i, e\}}\_AAAA\_MM\_GG.a\texttt{<numero\_attività>};
+    \item Descrizione testuale dell'attività;
+    \item Id GitHub Issue associata all'attività (carattere \textit{"-"} se non presente);
+    \item Assegnatario dell'attività;
+    \item Scadenza di completamento.
+\end{itemize}
+
+\label{sec:TabellaDone}
+\trisubsection{Tabella delle attività svolte}
+Per il tracciamento delle attività svolte, deve essere presente una tabella che riporta una lista di queste, riassumendo le seguenti informazioni
+\begin{itemize}
+    \item Identificativo alfanumerico dell'attività, come definito nella \hyperref[sec:TabellaToDo]{Sezione \textit{§3.1.2.2}};
+    \item Id GitHub Issue associata all'attività (carattere \textit{"-"} se non presente);
+    \item Data di completamento.
+\end{itemize}
+
+
+
+\subsubsection{Redazione dei documenti}
+La stesura e l'aggiornamento dei documenti è affidata alla persona che ricopre, in quel periodo, il ruolo di \textit{amministratore$_{G}$}. Le informazioni che verranno usate per redigere i documenti saranno ricavate dalle riunioni e comunicazioni con gli altri componenti del gruppo.
+
+\trisubsection{Redazione dei verbali}
+La stesura dei vari verbali (sia esterni che interni) è affidata alla persona che ricopre in quel periodo il ruolo di \textit{responsabile$_{G}$}. Le informazioni che verranno usate per comporre i documenti saranno ricavate dalle riunioni interne al gruppo, per i verbali interni, e dalle riunioni esterne con l'azienda Proponente, per i verbali esterni.
+
+\trisubsection{Redazione dell'analisi dei requisiti}
+Differentemente dagli altri documenti, l'analisi dei requisiti viene redatta dalla persona incaricata in quel momento del ruolo di
+\textit{analista} (\hyperref[sec:Analista]{Sezione \textit{§4.1.1.5}}).
+
+\subsubsection{Verifica dei documenti}
+Ogni documento, dopo essere stato redatto, deve essere verificato, ovvero la correttezza delle informazioni in esso contenute deve essere confermata.
+L'azione di verifica dei documenti viene effettuata dalla persona che ricopre, in quel periodo, il ruolo di Verificatore.
+
+\label{sec:Verifica}
+\trisubsection{Processo di verifica tramite \textit{pull request$_G$}}
+\label{sec:Verifica_doc}
+Il processo di verifica dei documenti adotta il meccanismo delle \textit{pull request} offerto dalla piattaforma \textit{GitHub}${_G}$.
+Tale strumento garantisce che nessuna modifica venga integrata nel \textit{branch} principale (\texttt{main}) o nel \textit{branch} di sviluppo principale (\texttt{develop}) senza un controllo esplicito del verificatore,
+il quale può approvare il documento o richiedere ulteriori modifiche direttamente all'interno della sezione \textit{pull request} di \textit{GitHub} tramite i commenti. \\
+L'intero ciclo di verifica, incluse eventuali correzioni successive, avviene all'interno di un'unica \textit{pull request},
+garantendo la tracciabilità delle discussioni e dei \textit{commit} di modifica. \\
+
+Di seguito viene definito il \textit{workflow} operativo:
+
+\begin{enumerate}
+    \item \textbf{Esecuzione modifiche} \\
+          Il redattore crea un nuovo \textit{branch} denominato \texttt{modifica-<nome\_documento>} nel suo repository locale (la versione del documento non va inclusa all'interno del nome del \textit{branch} di modifica).\\
+          Per definizione, le modifiche su documenti diversi dovranno essere presentate attraverso \textit{branch} di modifica e pull request diverse.
+
+    \item \textbf{Apertura della Richiesta} \\
+          Il redattore, completato il lavoro in locale sul \textit{branch} dedicato, effettua il \textit{push} in remoto del \textit{branch} di modifica e apre una nuova \textit{pull request}
+          verso il \textit{branch} \texttt{develop}. In questa fase deve:
+          \begin{itemize}
+              \item definire come assegnatario e reviewer il verificatore e impostare i \textit{tag};
+              \item collegare la richiesta alla relativa \textit{Issue} di progetto.
+          \end{itemize}
+
+    \item \textbf{Verifica} \\
+          Il verificatore riceve la notifica ed esamina le modifiche. A questo punto si presentano due scenari:
+          \begin{enumerate}
+              \item \textbf{Esito Positivo:} Se il lavoro è corretto e completo, il verificatore approva la \textit{pull request}
+                    e procede al \textit{merge} automatico del \textit{branch} di modifica nel \textit{branch} di \texttt{develop}. L'operazione porta all'eliminazione
+                    automatica del \textit{branch} di modifica previa attivazione dell'impostazione dedicata di GitHub (Settings$>$General$>$Automatically delete head branches).\\
+                    Spetta all'autore eliminare manualmente il \textit{branch} di modifica nel suo repository locale.
+              \item \textbf{Esito Negativo:} Se sono necessari cambiamenti, il verificatore inserisce commenti \textit{inline}
+                    sui punti critici e imposta lo stato della revisione su \textit{Request changes}.\\
+          \end{enumerate}
+
+    \item \textbf{Risoluzione e Nuova Verifica}\\
+          Nel caso siano state richieste modifiche, il redattore:
+          \begin{enumerate}
+              \item viene notificato;
+              \item applica le correzioni in locale ed effettua un nuovo \textit{push} sullo stesso \textit{branch}
+                    (aggiornando automaticamente la \textit{pull request} esistente);
+              \item risponde ai commenti o li risolve e richiede una nuova revisione (\textit{Re-request review});
+              \item in caso di esito di verifica negativo itera il punto 4.
+          \end{enumerate}
+\end{enumerate}
+
+\subsubsection{Approvazione dei documenti}
+Ogni documento, dopo essere stato verificato, deve essere approvato per poter essere rilasciato come documentazione ufficiale del progetto
+nel \textit{branch} \texttt{main}. L'approvazione avviene in maniera simile alla verifica da chi, in quel periodo, ricopre la figura di \textit{responsabile$_{G}$}.
+
+\trisubsection{Processo di approvazione tramite \textit{pull request}}
+I documenti vengono approvati in maniera progressiva al fine di evitare l'accumulo di un carico di lavoro insostenibile per il responsabile
+quando si raggiunge una baseline. Una volta che tutti i documenti contenuti nel \textit{branch} \texttt{develop} sono stati approvati si può procedere
+con il \textit{merge} del \textit{branch} \texttt{develop} verso il \textit{branch} \texttt{main}.
+
+Il momento opportuno per sottoporre un documento ad approvazione non è a seguito della verifica ma è definito in base alle tempistiche imposte dalle \textit{baseline}.\\
+L'approvazione di un singolo documento consiste nei seguenti passi:
+\begin{enumerate}
+    \item \textbf{Aggiornamento versione}\\
+          Il redattore crea un \textit{branch} locale denominato \texttt{approvazione-<nome\_documento>} (la versione del documento non va inclusa nel nome)
+          in cui modifica \textbf{esclusivamente} la versione aumentando l'indice \textit{Major} e azzerando gli altri (X.0.0).
+    \item \textbf{Apertura Richiesta}\\
+          Viene effettuata la \textit{push} e aperta una \textit{pull request} verso il \textit{branch} \texttt{develop}. Devono essere impostati i \textit{tag}, l'assegnatario e il \textit{reviewer} devono coincidere con il responsabile.
+    \item \textbf{Approvazione}\\
+          Il responsabile viene notificato e controlla il documento:
+          \begin{enumerate}
+              \item \textbf{Esito Positivo:} il documento è approvato con successo, il responsabile approva la \textit{pull request} e il
+                    \textit{merge} sul \textit{branch} \texttt{develop}.\\
+                    Spetta al redattore eliminare manualmente il \textit{branch} di approvazione in locale.
+              \item \textbf{Esito Negativo:} il documento contiene errori o ambiguità e richiede variazioni che vengono comunicate come commenti dunque lo stato della revisione viene impostato a ``\textit{Request Changes}''.
+          \end{enumerate}
+    \item \textbf{Risoluzione e Nuova Approvazione}\\
+          In caso di esito di approvazione negativo, il redattore:
+          \begin{enumerate}
+              \item viene notificato;
+              \item applica le modifiche e ripete il processo di verifica (\hyperref[sec:Verifica]{Sezione \textit{§3.1.4.1}});
+              \item rinnova la \textit{pull request} esistente per l'approvazione;
+              \item in caso di esito negativo itera il punto 4.
+          \end{enumerate}
+
+\end{enumerate}
+
+\subsubsection{Nomenclatura dei documenti}
+\trisubsection{Acronimi}
+Nella nomenclatura e all'interno dei documenti sono utilizzati i seguenti acronimi:
+
+\Needspace{10\baselineskip}
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        \rowcolor{lightgray} \textbf{Abbreviazione} & \textbf{Significato}                 \\
+        \hline
+        VI                                          & Verbale interno                      \\
+        \hline
+        VE                                          & Verbale esterno                      \\
+        \hline
+        NdP                                         & Norme di Progetto                    \\
+        \hline
+        PB                                          & Product Baseline                     \\
+        \hline
+        RTB                                         & Requirements and Technology Baseline \\
+        \hline
+    \end{tabular}
+    \captionof{table}{Acronimi dei documenti}
+\end{center}
+
+\trisubsection{Convenzione}
+La convenzione in uso per la nomenclatura dei file è la seguente (dove X, Y e Z sono le versioni descritte nella sezione \hyperref[sec:Versionamento]{\textit{§3.2.1}})
+\begin{itemize}
+    \item \textbf{Verbali}: vi\_AAAA\_MM\_GG\_vX.Y.Z
+    \item \textbf{Generale}: \texttt{<ACR.DOC.>}\_vX.Y.Z (dove \texttt{<ACR.DOC.>} è l'acronimo del documento)
+\end{itemize}
+\subsection{Gestione della configurazione}
+La gestione della configurazione è l'insieme delle attività volte a identificare, tracciare e controllare le modifiche apportate a qualsiasi elemento nel progetto.
+Secondo lo Standard ISO/IEC 12207:1995, le azioni di gestione della configurazione devono controllare le modifiche e i rilasci degli elementi, registrare e segnalare lo stato degli elementi e
+le richieste di modifica, garantire la completezza, la coerenza e la correttezza degli elementi, e controllare
+l'immagazzinamento, la movimentazione e la consegna degli elementi.
+
+\label{sec:Versionamento}
+\subsubsection{Numeri di versione documenti}
+La convenzione per il numero di versione dei documenti è il formato X.Y.Z (\textit{MAJOR}.\textit{MINOR}.\textit{PATCH}) ogni documento parte dalla prima versione 0.1.0
+\begin{itemize}
+    \item Ogni modifica minore (\textit{patch version}), come correzione di errori grammaticali o aggiunta d'informazioni meno significative, fa avanzare Z di una unità;
+    \item Ogni modifica maggiore (\textit{minor version}), come aggiunta di sezioni o modifiche sostanziali fa avanzare Y di una unità;
+    \item La cifra X avanza solamente quando l'approvazione da parte del responsabile termina con successo (\textit{major version}).
+\end{itemize}
+Ogni avanzamento delle cifre X e Y riportano le cifre alla loro destra a 0.\\ \\
+%Al termine del processo di verifica, se questo termina con esito positivo, le modifiche apportate vengono confermate. In caso negativo la versione non viene confermata e si deve procedere con ulteriori modifiche per soddisfare il processo di verifica
+%draft del verificatore
+\subsubsection{Repository}
+I repository creati per la gestione della configurazione sono i seguenti;
+\begin{itemize}
+    %\item \textbf{Documents}: repository che contiene tutti la documentazione creata, in formato PDF;
+    %\item \textbf{Sorgenti}: repository che contiene tutta la documentazione create, in formato \LaTeX;
+    \item \textbf{MVP}: repository contenente il Minimum Viable Product del progetto;
+    \item \textbf{snakebyte.github.io}: repository contenente il codice sorgente del sito web dedicato alla\\ documentazione del progetto e la documentazione stessa.
+\end{itemize}
+
+\trisubsection{Strumenti}
+Gli strumenti adottati per la gestione della configurazione e del versionamento dei file di progetto sono:
+\begin{itemize}
+    \item \textbf{Git}$_{G}$: Version Control System distribuito e OpenSource
+    \item \textbf{Github}: servizio di \textit{hosting} per progetti \textit{software} e implementazione di Git.
+\end{itemize}
+
+\subsection{Verifica}
+Il processo di verifica garantisce che i prodotti realizzati siano conformi ai
+requisiti e agli standard di qualità definiti nel \textit{Piano di Qualifica}
+(sezione 4), assicurando la correttezza e la completezza di ciascun prodotto.
+Le attività di verifica sono assegnate al membro del gruppo che, nel periodo di
+riferimento, ricopre il ruolo di verificatore. Tale figura è responsabile della
+registrazione degli esiti delle verifiche e, qualora vengano riscontrate non
+conformità rispetto ai vincoli stabiliti, della richiesta di opportune modifiche
+e correzioni.
+\\Il gruppo \textit{SnakeByte} applica il processo di verifica ai seguenti prodotti:
+\begin{itemize}
+    \item \textbf{Documenti}: ogni documento prodotto è sottoposto a verifica
+          seguendo il procedimento descritto nella sezione \ref{sec:Verifica} e
+          prevede controlli di conformità formale, correttezza ortografica e contenutistica;
+    \item \textbf{Codice}: il processo di verifica del codice sarà definito e
+          implementato nella fase successiva al raggiungimento della
+          \textit{Requirements and Technology Baseline}, quando saranno disponibili
+          i componenti \textit{software} da verificare. Tale processo includerà sia tecniche
+          di analisi statica che dinamica, come descritto nelle sezioni successive.
+\end{itemize}
+
+\subsubsection{Strumenti}
+Lo strumento adottato per la verifica dei prodotti è \textit{pull request} della piattaforma \textit{GitHub}: come viene dettagliatamente spiegato nella sezione §\ref{sec:Verifica_doc}, questo servizio
+consente di effettuare attività di controllo e di richiedere eventuali correzioni o miglioramenti degli artefatti di progetto, velocizzando il processo di verifica.
+
+\subsubsection{Analisi statica}
+L'analisi statica è una tipologia di verifica che non richiede l'esecuzione del prodotto.
+L'attività di verifica consiste nel controllo degli artefatti di progetto mediante
+tecniche di ispezione e analisi, quali il controllo sintattico, il controllo semantico
+e la verifica della conformità agli standard adottati. Attraverso tali attività è
+possibile individuare errori formali, incongruenze, violazioni delle convenzioni e
+potenziali difetti, sia nel codice che nella documentazione.
+\\Le principali tecniche di analisi statica sono:
+\begin{itemize}
+    \item \textbf{Walkthrough}: l'autore del documento o del codice spiega la logica e le
+          scelte implementative al verificatore, il quale fornisce un \textit{feedback}.
+          Questa tecnica richiede una discussione attiva e sincrona tra autore e verificatore;
+    \item \textbf{Inspection}: il verificatore esamina il materiale utilizzando una lista di controllo (\textit{checklist}),
+          identificando anomalie e difetti in modo sistematico. Successivamente, durante una riunione, vengono discussi i
+          difetti rilevati.
+\end{itemize}
+Tra le due possibili strategie, il gruppo \textit{SnakeByte} ha preferito implementare \textit{Inspection} poiché
+garantisce un approccio più strutturato e ripetibile, riducendo la dipendenza
+dalla presenza simultanea di autore e verificatore. L'utilizzo di \textit{checklist}
+predefinite consente inoltre di standardizzare il processo di verifica, assicurando
+che tutti gli aspetti critici vengano sistematicamente esaminati.
+
+
+\subsubsection{Analisi dinamica}
+L'analisi dinamica è una tipologia di verifica che richiede l'esecuzione del
+prodotto software in un ambiente controllato. L'attività di verifica consiste
+nell'esecuzione di test specifici per valutare la conformità ai requisiti funzionali
+e non funzionali e individuare eventuali difetti che si manifestano durante l'esecuzione.
+L'analisi dinamica permette di rilevare problematiche legate al comportamento
+a \textit{runtime}, impossibili dunque da individuare con l'analisi statica.
+\\Per garantire l'efficacia del processo di verifica, i test devono
+possedere le seguenti caratteristiche:
+\begin{itemize}
+    \item \textbf{Ripetibilità}: i test devono produrre risultati consistenti
+          quando eseguiti più volte nelle medesime condizioni;
+
+    \item \textbf{Automatizzazione}: l'esecuzione automatica dei test consente di ridurre
+          i tempi di verifica, minimizzare gli errori umani e facilitare l'integrazione
+          nel processo di sviluppo continuo;
+
+    \item \textbf{Determinismo}: ogni test deve avere un risultato atteso
+          chiaramente definito, permettendo una valutazione oggettiva del successo
+          o del fallimento dell'esecuzione;
+
+    \item \textbf{Indipendenza}: ciascun test deve essere autonomo e non
+          dipendere da altri test o dall'ambiente di esecuzione.
+\end{itemize}
+Il gruppo \textit{SnakeByte} implementerà le seguenti tipologie di test:
+\begin{itemize}
+    \item Test di unità;
+    \item Test di integrazione;
+    \item Test di sistema;
+    \item Test di regressione.
+\end{itemize}
+
+
+\trisubsection{Test di unità}
+I test di unità verificano il corretto funzionamento delle singole unità di codice (funzioni, metodi o classi).
+Ogni unità viene testata indipendentemente dalle altre componenti per garantire
+che produca i risultati attesi per diversi input, inclusi casi limite ed
+eccezionali.
+I test di unità possono essere suddivisi in due categorie principali:
+\begin{itemize}
+    \item \textbf{Test Funzionali (Black-box)}: verificano che l'unità produca i risultati attesi per diversi input senza analizzare la logica interna. Per ciascuna unità vengono considerati:
+          \begin{itemize}
+              \item valori non ammissibili inferiori;
+              \item valori estremi inferiori ammissibili;
+              \item valori ammissibili;
+              \item valori estremi superiori ammissibili;
+              \item valori non ammissibili superiori.
+          \end{itemize}
+    \item \textbf{Test Strutturali (White-box)}: valutano la corretta esecuzione della logica interna dell'unità, assicurandosi che tutti gli statement rilevanti del codice siano eseguiti almeno una volta.
+\end{itemize}
+
+\trisubsection{Test di integrazione}
+I test di integrazione verificano la corretta interazione tra
+le diverse componenti del sistema. L'obiettivo è
+individuare difetti nelle comunicazioni tra moduli,
+garantendo che le componenti collaborino correttamente.
+L'integrazione può avvenire seguendo una strategia \textit{top-down}, che prevede
+l'integrazione progressiva a partire dai moduli con maggiori dipendenze d'uso, oppure una
+strategia \textit{bottom-up}, che parte dai moduli con minori dipendenze d'uso per poi
+risalire verso quelli superiori.
+\\Per facilitare i test di integrazione e di unità, il gruppo \textit{SnakeByte} utilizza
+tecniche di \textit{test doubling} quali:
+\begin{itemize}
+    \item \textbf{\textit{Stub}}: componenti semplificati che forniscono risposte predefinite
+          alle chiamate effettuate durante i test, simulando il comportamento di dipendenze
+          non ancora implementate o esterne;
+    \item \textbf{\textit{Mock}}: oggetti che simulano il comportamento di componenti reali
+          e permettono di verificare che le interazioni tra moduli avvengano correttamente,
+          registrando le chiamate ricevute e validando il loro utilizzo.
+\end{itemize}
+L'uso di \textit{stub} e \textit{mock} consente di isolare le unità sotto test e di
+verificare il comportamento del codice indipendentemente dalle dipendenze esterne.
+
+\trisubsection{Test di sistema}
+I test di sistema verificano il comportamento dell'intero sistema integrato,
+valutandone la conformità ai requisiti funzionali e non funzionali.
+Analizzano dunque il sistema dal punto di vista dell'utente finale,
+senza considerare la struttura interna del codice.
+Attraverso tali test si verifica che il sistema risponda correttamente agli
+scenari d'uso previsti e soddisfi le aspettative definite in fase di analisi.
+
+\trisubsection{Test di regressione}
+I test di regressione hanno lo scopo di garantire che modifiche o correzioni
+apportate al sistema non introducano nuovi difetti o compromettano
+funzionalità precedentemente verificate.
+Essi consistono nella riesecuzione di test già validati, al fine di garantire
+la stabilità e l'affidabilità complessiva del sistema nel tempo.
+
+\subsubsection{Nomenclatura dei test}
+Ogni test da svolgere è identificato da un codice univoco nella forma:
+\begin{center}
+    \textbf{T[Tipo-test][X]}
+\end{center}
+dove:
+\begin{itemize}
+    \item \textbf{[Tipo-test]} rappresenta la tipologia del test (\textbf{U} = Unità,
+          \textbf{I} = Integrazione, \textbf{S} = Sistema o \textbf{R} = Regressione);
+    \item \textbf{[X]} rappresenta un numero intero progressivo.
+\end{itemize}
+
+\subsubsection{Stato dei test}
+Ogni test, in base all'esito ottenuto, può avere uno dei seguenti stati:
+\begin{itemize}
+    \item \textbf{NI}: il test non è ancora stato implementato;
+    \item \textbf{S}: il test ha avuto successo;
+    \item \textbf{F}: il test ha fallito.
+\end{itemize}
+
+\subsection{Gestione e tracciamento dei test}
+I test sono una fase obbligatoria dello sviluppo del software: servono a controllare, con procedura sistematica, che il sistema rispetti i requisiti funzionali e non funzionali stabiliti in sede di analisi.\\
+Ogni test è collegato a uno o più requisiti e verifica che il codice li implementi correttamente. Un requisito si intende soddisfatto solo quando tutti i test a lui relativi terminano con esito positivo.\\
+Durante l'intero ciclo di sviluppo, i test vengono eseguiti: mentre si scrivono le funzionalità, dopo ogni modifica o correzione tramite test di regressione e infine nella fase di validazione e collaudo.\\
+Ripetere i test permette di rilevare subito i difetti introdotti mentre il software evolve e di mantenere il prodotto stabile. \\
+Il verificatore definisce, esegue e valuta i test, esamina i risultati e segnala le anomalie. I programmatori aiutano creando i test di unità e correggendo i difetti trovati.
+
+\subsection{Validazione}
+Il processo di validazione ha lo scopo di confermare che il prodotto finale
+soddisfi le aspettative e i bisogni della Proponente, verificando che il sistema
+realizzato sia quello effettivamente richiesto.
+\\La validazione viene effettuata attraverso test di accettazione condotti in
+presenza della Proponente, utilizzando \textit{casi d'uso} e scenari
+rappresentativi delle esigenze reali. L'esito positivo della validazione
+costituisce il presupposto per il rilascio del prodotto.
+
+\subsubsection{Collaudo}
+Il collaudo rappresenta l'attività conclusiva del processo di validazione e
+consiste nella verifica formale del soddisfacimento dei requisiti concordati.
+Durante il collaudo vengono eseguiti test di accettazione
+che dimostrano la conformità del sistema alle specifiche funzionali e non
+funzionali definite.
+\\Il gruppo \textit{SnakeByte} pianificherà le attività di collaudo in modo da:
+\begin{itemize}
+    \item Predisporre un ambiente di test rappresentativo dello scenario d'uso
+          reale del sistema;
+    \item documentare in modo completo e tracciabile l'esito di ogni test di
+          accettazione svolto;
+    \item raccogliere \textit{feedback} per eventuali
+          miglioramenti o correzioni.
+\end{itemize}
+
+\subsection{Garanzia della qualità}
+Il processo di garanzia della qualità assicura che i prodotti e i processi del progetto
+siano conformi agli standard e ai requisiti definiti. Tale processo prevede attività
+sistematiche di controllo volte a garantire che i criteri di qualità stabiliti nel
+\textit{Piano di Qualifica} vengano rispettati durante l'intero progetto.
+
+\subsubsection{Obiettivi}
+Le attività di garanzia della qualità hanno lo scopo di:
+\begin{itemize}
+    \item verificare la conformità dei prodotti agli standard di qualità adottati;
+    \item monitorare l'applicazione dei processi definiti nelle \textit{Norme di Progetto};
+    \item identificare non conformità e proporre azioni correttive;
+    \item garantire la tracciabilità delle verifiche effettuate.
+\end{itemize}
+
+\subsubsection{Obiettivi del verificatore}
+Il verificatore è responsabile di:
+\begin{itemize}
+    \item controllare la conformità dei prodotti rispetto ai criteri di qualità definiti;
+    \item garantire completezza e sistematicità delle verifiche;
+    \item registrare gli esiti delle attività di \textit{Quality Assurance};
+    \item segnalare anomalie e richiedere interventi correttivi quando necessario.
+\end{itemize}
+
+\subsubsection{Metriche di qualità}
+\label{sec:MetricheQualita}
+Le metriche utilizzate per valutare la qualità di processi e prodotti sono definite
+dettagliatamente nelle sezioni §\ref{sec:MetricheProcesso} e §\ref{sec:MetricheProdotto}.
+Il monitoraggio costante di tali metriche consente di identificare tempestivamente
+eventuali criticità e di intraprendere azioni correttive.
+
+\subsection{Revisioni congiunte}
+Il processo di revisioni congiunte prevede incontri periodici con la Proponente
+per presentare lo stato di avanzamento del progetto, raccogliere \textit{feedback}
+e validare le scelte implementative adottate.
+
+\subsubsection{SAL - Stato Avanzamento Lavori}
+I SAL (\textit{Stato Avanzamento Lavori}) rappresentano momenti formali di revisione
+congiunta con la Proponente, durante i quali vengono presentati:
+\begin{itemize}
+    \item progressi realizzati rispetto alla pianificazione;
+    \item piccole dimostrazioni delle funzionalità implementate;
+    \item problematiche emerse e soluzioni proposte;
+    \item pianificazione delle attività successive.
+\end{itemize}
+Ogni SAL viene documentato attraverso un verbale esterno che traccia discussioni,
+decisioni e \textit{feedback} ricevuti. I SAL sono organizzati con cadenza concordata
+con la Proponente e rappresentano un'opportunità per validare incrementalmente
+il lavoro svolto e allinearlo alle aspettative.
+
+\subsubsection{Strumenti}
+Gli strumenti utilizzati per le revisioni congiunte sono:
+\begin{itemize}
+    \item \textbf{Microsoft Teams}: piattaforma per incontri \textit{online} con la Proponente;
+    \item \textbf{Verbali esterni}: documenti che tracciano contenuti e decisioni emerse durante i SAL;
+    \item \textbf{\textit{Demo}}: eventualmente, presentazioni del prodotto in sviluppo per raccogliere \textit{feedback} operativo.
+\end{itemize}
+
+\subsection{\textit{Audit}}
+Il processo di \textit{audit} consiste in verifiche formali e sistematiche condotte per
+accertare che i prodotti e i processi siano conformi ai requisiti definiti e agli
+standard adottati. Gli \textit{audit} vengono svolti in corrispondenza delle \textit{milestone}
+di progetto per garantire la completezza e la qualità degli artefatti prima
+delle consegne ufficiali.
+
+\subsubsection{\textit{Audit} di \textit{baseline}}
+Prima del raggiungimento di ogni \textit{baseline} (\textit{Requirements and Technology Baseline} e
+\textit{Product Baseline}), il responsabile conduce un \textit{audit} formale per verificare:
+\begin{itemize}
+    \item completezza della documentazione richiesta;
+    \item conformità dei documenti rispetto ai requisiti del capitolato e alle aspettative della Proponente;
+    \item tracciabilità tra requisiti, \textit{casi d'uso}, test e implementazione;
+    \item rispetto degli standard di qualità definiti nel \textit{Piano di Qualifica}.
+\end{itemize}
+
+\subsubsection{Responsabilità}
+Il responsabile è incaricato di:
+\begin{itemize}
+    \item pianificare e condurre gli \textit{audit} in corrispondenza delle \textit{milestone};
+    \item verificare la conformità degli artefatti rispetto ai criteri stabiliti;
+    \item documentare gli esiti degli \textit{audit} e le eventuali non conformità rilevate;
+    \item richiedere azioni correttive in caso di difetti o mancanze.
+\end{itemize}
+Gli \textit{audit} garantiscono che ogni consegna sia conforme agli standard di progetto
+e rappresentino un controllo di qualità finale prima del rilascio ufficiale.
+
+\subsection{Risoluzione dei problemi}
+Il processo di risoluzione dei problemi definisce le modalità con cui il gruppo
+\textit{SnakeByte} identifica, traccia e risolve anomalie, difetti e richieste
+di miglioramento emerse durante le attività progettuali.
+
+\subsubsection{Tracciamento tramite GitHub Issues}
+Il gruppo utilizza il sistema di \textit{Issue} di \textit{GitHub}$_{G}$ per la gestione
+centralizzata dei problemi. Ogni segnalazione viene tracciata attraverso una
+\textit{Issue} che contiene:
+\begin{itemize}
+    \item titolo e descrizione del problema;
+    \item classificazione tramite \textit{label};
+    \item assegnatario responsabile della risoluzione;
+    \item \textit{milestone} di riferimento e priorità;
+    \item stato di avanzamento e commenti di aggiornamento.
+\end{itemize}
+
+\subsubsection{Workflow di risoluzione}
+Il processo di risoluzione segue i seguenti passi:
+\begin{enumerate}
+    \item \textbf{Segnalazione}: un membro del gruppo identifica un problema e crea
+          una \textit{Issue} su \textit{GitHub}, fornendo una descrizione chiara e dettagliata;
+    \item \textbf{Analisi}: il responsabile o l'assegnatario analizza il problema,
+          valuta priorità e impatto;
+    \item \textbf{Assegnazione}: il problema viene assegnato a un membro del gruppo
+          con le competenze appropriate;
+    \item \textbf{Risoluzione}: l'assegnatario implementa la soluzione seguendo il
+          processo di verifica tramite \textit{pull request} descritto nella \hyperref[sec:Verifica]{Sezione \textit{§3.3}};
+    \item \textbf{Verifica}: il verificatore controlla la correttezza della soluzione;
+    \item \textbf{Chiusura}: una volta verificata la risoluzione, la \textit{Issue}
+          viene chiusa e collegata al \textit{commit} o alla \textit{pull request} risolutiva.
+\end{enumerate}
+
+
+\section{Processi organizzativi}
+\subsection{Processo di gestione}
+Il processo di gestione contiene le attività e i compiti generici che possono essere impiegati da qualsiasi
+ruolo che debba gestire i rispettivi processi.
+
+\subsubsection{Pianificazione}
+
+\trisubsection{Assegnazione delle responsabilità}
+Per tutta la durata del progetto, per ragioni formative, i membri del gruppo ricopriranno a rotazione 6 ruoli fondamentali nel campo dell'ingegneria del \textit{software}. Ogni componente del gruppo \textit{SnakeByte} dovrà ricoprire almeno una volta tutti i seguenti ruoli:
+\begin{itemize}
+    \item Responsabile (\hyperref[sec:Responsabile]{Sezione \textit{§4.1.1.2}})
+    \item Amministratore (\hyperref[sec:Amministratore]{Sezione \textit{§4.1.1.3}})
+    \item Progettista (\hyperref[sec:Progettista]{Sezione \textit{§4.1.1.4}})
+    \item Analista (\hyperref[sec:Analista]{Sezione \textit{§4.1.1.5}})
+    \item Verificatore (\hyperref[sec:Verificatore]{Sezione \textit{§4.1.1.6}})
+    \item Programmatore (\hyperref[sec:Programmatore]{Sezione \textit{§4.1.1.7}})
+\end{itemize}
+La rotazione dei ruoli avviene all'inizio di ogni \textit{sprint$_{G}$}.
+
+\label{sec:Responsabile}
+\trisubsection{Responsabile}
+Il responsabile (\textit{Project Manager}) governa il \textit{team} e rappresenta il progetto verso l'esterno. Deve avere conoscenze e capacità tecniche per valutare rischi, scelte e alternative.
+
+I compiti principali del responsabile sono:
+\begin{itemize}
+    \item prendere scelte nell'interesse del gruppo;
+    \item approvare il lavoro realizzato dagli altri ruoli;
+    \item pianificare le attività e gestire le risorse necessarie;
+    \item coordinare e relazionarsi con l'esterno.
+\end{itemize}
+Le persone incaricate come responsabile devono essere una per periodo.
+
+\label{sec:Amministratore}
+\trisubsection{Amministratore}
+L'amministratore di sistema (\textit{Sysadmin}) definisce, controlla e manutiene l'ambiente informatico di lavoro.
+\begin{itemize}
+    \item Definisce, seleziona e mette in opera le risorse informatiche a supporto delle \textit{Norme di Progetto};
+    \item Gestisce le segnalazioni (\textit{ticket}) sul non funzionamento dell'infrastruttura.
+\end{itemize}
+Le persone incaricate come amministratore devono essere una per periodo.
+
+\label{sec:Progettista}
+\trisubsection{Progettista}
+Il progettista ha competenze tecniche e tecnologiche aggiornate e per questo ha il ruolo di determinare le scelte realizzative del prodotto. Segue il progetto durante la fase di sviluppo \textit{software} ma non durante la sua manutenzione. \\
+
+I principali compiti del progettista sono:
+\begin{itemize}
+    \item ideare l'architettura del prodotto in modo da ottenere la migliore efficienza ed efficacia possibile;
+    \item supervisionare la fase di codifica supportando i programmatori.
+\end{itemize}
+La realizzazione del progetto a regola d'arte richiede la presenza di più progettisti, i quali devono aver la possibilità di confrontarsi tra di loro in modo da prendere le scelte attuative in maniera critica.
+
+\label{sec:Analista}
+\trisubsection{Analista}
+L'analista conosce il dominio del problema ed ha competenze avanzate sull'analisi dei requisiti. Ha molta influenza sul successo del prodotto. Non segue il progetto fino alla consegna, ma il suo intervento è richiesto solo nei momenti di bisogno.
+
+I suoi compiti principali sono
+\begin{itemize}
+    \item Analizzare i requisiti e il dominio applicativo;
+    \item Definire fattibilità e obiettivi delle attività;
+    \item Redigere il documento \textit{Analisi dei requisiti}.
+\end{itemize}
+Più membri possono essere occupati in questo ruolo contemporaneamente.
+
+\label{sec:Verificatore}
+\trisubsection{Verificatore}
+Il compito principale del verificatore è analizzare la conformità agli obiettivi del lavoro svolto dagli altri ruoli presenti nel progetto. Ha competenze tecniche e profonda conoscenza delle \textit{Norme di Progetto}.
+
+I principali compiti del verificatore sono
+\begin{itemize}
+    \item Verificare che gli artefatti \textit{software} e di documentazione siano aderenti alle \textit{Norme di Progetto} e agli obiettivi;
+    \item Segnalare eventuali errori da correggere;
+    \item Redigere test di verifica e di aderenza ai requisiti per i prodotti \textit{software}.
+\end{itemize}
+Più membri possono essere occupati in questo ruolo contemporaneamente.
+
+\label{sec:Programmatore}
+\trisubsection{Programmatore}
+Il programmatore è la figura responsabile della realizzazione e manutenzione del prodotto \textit{software}. Ha competenze tecniche ampie ma deleghe limitate.
+
+I principali compiti del programmatore sono
+\begin{itemize}
+    \item Scrivere codice secondo le specifiche del \textit{progettista} e che persegue gli obiettivi e requisiti definiti dall'\textit{analista};
+    \item Redigere la documentazione tecnica (\textit{Manuale}) del prodotto.
+\end{itemize}
+
+\'E il ruolo in cui vengono occupati più membri contemporaneamente.
+
+
+\subsubsection{Coordinamento}
+
+\trisubsection{Riunione interna fissata}
+Il gruppo \textit{SnakeByte} ha scelto di fissare un giorno all'interno della settimana lavorativa in cui si svolge una riunione in presenza o asincrona a cui prendono parte i componenti del gruppo. La partecipazione di tutti i membri è desiderabile ma non tassativa. Inoltre nel caso di impossibilità della maggior parte del gruppo la riunione verrà annullata.
+Il giorno attuale in cui si tiene la riunione è il Lunedì alle ore 12-15 circa in poi.
+Altre eventuali riunioni possono essere fissate tramite confronto e accordo tra i componenti del gruppo su giorno e ora.
+
+\trisubsection{Comunicazioni interne}
+Per le comunicazioni interne, il gruppo \textit{SnakeByte} ha individuato come mezzo per la trasmissione di informazioni in formato sincrono e asincrono la piattaforma \textit{Discord$_{G}$}.
+
+\trisubsection{Comunicazioni esterne}
+Per le comunicazioni esterne, il gruppo \textit{SnakeByte} ha individuato come mezzo per la trasmissione di informazioni in formato asincrono i messaggi email, esclusivamente tramite l'indirizzo ufficiale del gruppo (\textit{snakebyteteam@gmail.com}). Invece, per le comunicazioni sincrone, si è optato per l'applicazione di videoconferenze \textit{Microsoft Teams}.
+
+\subsubsection{Controllo e monitoraggio}
+Il processo di controllo e monitoraggio ha lo scopo di garantire che le attività di progetto procedano secondo la pianificazione stabilita e che le risorse vengano utilizzate in modo efficiente ed efficace. Il gruppo \textit{SnakeByte} adotta strumenti e pratiche per tracciare l'avanzamento del lavoro, gestire le attività e monitorare le ore impiegate da ciascun membro del gruppo.
+
+\trisubsection{Gestione degli \textit{sprint}}
+Il gruppo \textit{SnakeByte} adotta il modello di sviluppo \textit{agile$_G$} basato su \textit{sprint$_{G}$} di durata fissa pari a due settimane. Ogni \textit{sprint} si articola nelle seguenti fasi:
+
+\begin{itemize}
+    \item \textbf{\textit{Sprint Planning}}: all'inizio di ogni \textit{sprint}, il gruppo si riunisce per definire gli obiettivi da raggiungere, selezionare le attività da svolgere e stimare l'impegno orario necessario. Durante questa fase vengono assegnati i ruoli ai membri del gruppo secondo il principio di rotazione e viene aggiornato il documento di pianificazione condiviso;
+
+    \item \textbf{Sviluppo}: durante lo \textit{sprint}, ciascun membro svolge le attività assegnate secondo il ruolo ricoperto. L'avanzamento viene monitorato attraverso gli strumenti di tracciamento descritti nelle sezioni successive;
+
+    \item \textbf{\textit{Sprint Review}}: al termine dello \textit{sprint}, il gruppo verifica il lavoro completato, valuta il raggiungimento degli obiettivi prefissati e raccoglie \textit{feedback} dalla Proponente quando previsto;
+
+    \item \textbf{\textit{Sprint Retrospective}}: conclusa la \textit{review}, il gruppo analizza criticamente il processo seguito, identifica problematiche emerse e propone azioni di miglioramento per gli \textit{sprint} successivi. Gli esiti della retrospettiva vengono documentati nel \textit{Piano di Progetto}.
+\end{itemize}
+
+\trisubsection{Tracciamento delle attività}
+Il gruppo \textit{SnakeByte} utilizza \textit{GitHub Projects$_{G}$} come strumento principale per la gestione e il tracciamento delle attività di progetto. Ogni attività viene rappresentata come una \textit{Issue$_{G}$} all'interno del repository di progetto e viene associata a:
+
+\begin{itemize}
+    \item Titolo descrittivo dell'attività;
+    \item Assegnatario o assegnatari responsabili del completamento;
+    \item Etichette (\textit{label$_{G}$}) che classificano la tipologia di attività (documentazione, sviluppo, verifica, etc.);
+    \item \textit{Milestone$_{G}$} di riferimento che identifica lo \textit{sprint} o la fase di progetto;
+    \item Scadenza prevista per il completamento.
+\end{itemize}
+
+Le \textit{Issue} vengono organizzate all'interno di una \textit{dashboard$_{G}$} di progetto che visualizza lo stato di avanzamento attraverso le seguenti colonne:
+
+\begin{itemize}
+    \item \textbf{Backlog}: attività identificate ma non ancora pianificate;
+    \item \textbf{Ready}: attività pianificate per lo \textit{sprint} corrente;
+    \item \textbf{In Progress}: attività in corso di svolgimento;
+    \item \textbf{In Review}: attività completate in attesa di verifica;
+    \item \textbf{Done}: attività verificate e concluse.
+\end{itemize}
+
+Ogni membro del gruppo è tenuto ad aggiornare lo stato delle proprie \textit{Issue} con regolarità, spostando le \textit{Issue} tra le colonne in base all'avanzamento del lavoro e commentando eventuali difficoltà o variazioni rispetto alla pianificazione.
+
+\trisubsection{Pianificazione e monitoraggio delle ore}
+Per la pianificazione dei ruoli e il monitoraggio delle ore lavorate, il gruppo \textit{SnakeByte} utilizza un documento condiviso \textit{Google Sheets$_{G}$} strutturato come segue:
+
+\begin{itemize}
+    \item \textbf{Foglio di pianificazione degli \textit{sprint}}: contiene, per ogni \textit{sprint}, l'assegnazione dei ruoli a ciascun membro del gruppo e il numero di ore preventivate per ogni ruolo;
+
+    \item \textbf{Fogli di consuntivo}: per ogni \textit{sprint} viene creato un foglio dedicato in cui ciascun membro registra le ore effettivamente lavorate, specificando il ruolo ricoperto e le attività svolte. I dati raccolti vengono utilizzati per calcolare le metriche di progetto definite nel \textit{Piano di Qualifica} e per confrontare l'impegno preventivato con quello reale;
+
+\end{itemize}
+
+I dati contenuti nel documento condiviso vengono periodicamente sincronizzati con il \textit{Piano di Progetto} per garantire la coerenza tra pianificazione, esecuzione e reportistica.
+
+\trisubsection{Strumenti}
+Gli strumenti adottati per il controllo e il monitoraggio delle attività di progetto sono:
+
+\begin{itemize}
+    \item \textbf{GitHub Projects}: piattaforma integrata con \textit{GitHub$_{G}$} per la gestione delle \textit{Issue} e la visualizzazione dell'avanzamento del progetto attraverso \textit{board} personalizzabili;
+    \item \textbf{Google Sheets}: strumento di fogli di calcolo condivisi per la pianificazione dei ruoli e il tracciamento delle ore lavorate da ciascun membro del gruppo.
+\end{itemize}
+
+\subsubsection{Gestione dei rischi}
+Il processo di gestione dei rischi ha lo scopo di identificare, analizzare e mitigare i potenziali eventi che potrebbero compromettere il successo del progetto. Il gruppo \textit{SnakeByte} adotta un approccio proattivo alla gestione dei rischi, svolgendo attività di identificazione continua durante l'intero ciclo di vita del progetto.
+
+La gestione operativa dei rischi, comprensiva della classificazione, dell'analisi probabilistica e delle strategie di mitigazione, è documentata in modo esaustivo nel \textit{Piano di Progetto}, dove vengono dettagliati:
+
+\begin{itemize}
+    \item Le categorie di rischio considerate (tecnologici, di comunicazione, organizzativi, interpersonali);
+    \item La valutazione di probabilità e impatto per ciascun rischio identificato;
+    \item Le strategie di prevenzione e mitigazione adottate;
+    \item Il monitoraggio dello stato dei rischi durante gli \textit{sprint}.
+\end{itemize}
+
+Durante le riunioni di \textit{Sprint Retrospective}, il gruppo analizza i rischi manifestatisi durante lo \textit{sprint} concluso e valuta l'efficacia delle strategie di mitigazione applicate, proponendo eventuali azioni correttive per gli \textit{sprint} successivi.
+
+
+
+\section{Metriche di qualità di processo}
+\label{sec:MetricheProcesso}
+In questa sezione vengono definite le metriche di qualità adottate per monitorare
+e valutare in modo quantitativo l'efficacia e l'efficienza dei processi utilizzati
+durante lo sviluppo del progetto.
+\\ Ogni metrica di qualità di processo è identificata
+da un codice univoco nella forma \textit{MPCX}, dove \textit{MPC} è l'acronimo di \textit{Metrica di Processo} e \textit{X} rappresenta
+un numero intero progressivo.
+
+\subsection{Processi primari}
+
+\subsubsection{Fornitura}
+
+\trisubsection{MPC1 - Planned Value (PV)}
+\label{sec:MPC1}
+\Metrica{MPC1}
+{Valore pianificato del lavoro che, secondo il piano,
+    dovrebbe essere raggiunto al termine dello \textit{sprint} k.
+    Il \textit{Planned Value} viene calcolato al termine di ciascuno \textit{sprint} per monitorare
+    l'avanzamento del progetto rispetto alla pianificazione.}
+{\[ PV_k = BAC \cdot \mbox{Percentuale completamento pianificato allo sprint k} \] Dove:
+    \begin{itemize}
+        \item $BAC$ = Budget totale previsto (\textit{Budget At Completion});
+        \item $k$ = Numero dello sprint di riferimento.
+    \end{itemize}
+}
+{Fornisce un punto di riferimento temporale per
+    valutare se il progetto sta procedendo secondo la schedulazione prevista,
+    permettendo di identificare tempestivamente eventuali ritardi o anticipi
+    rispetto al piano originale.}
+{MPC1 - Planned Value (PV)}
+
+\trisubsection{MPC2 - Earned Value (EV)}
+\label{sec:MPC2}
+\Metrica{MPC2}
+{Valore effettivo del lavoro che è stato raggiunto al termine dello \textit{sprint} k.
+    L'\textit{Earned Value} viene calcolato al termine di ciascuno sprint per monitorare il progresso
+    reale del progetto rispetto al piano.}
+{\[ EV_k = BAC \cdot \mbox{Percentuale completamento effettivo allo sprint k} \] Dove:
+    \begin{itemize}
+        \item $BAC$ = Budget totale previsto (\textit{Budget At Completion});
+        \item $k$ = Numero dello sprint di riferimento.
+    \end{itemize}
+}
+{Confronta il lavoro completato sia con i costi
+    sostenuti (tramite CPI) che con la pianificazione temporale
+    (tramite SPI), costituendo quindi la base per tutte le analisi di performance.}
+{MPC2 - Earned Value (EV)}
+
+\trisubsection{MPC3 - Actual Cost (AC)}
+\label{sec:MPC3}
+\Metrica
+{MPC3}
+{Rappresenta il costo effettivo, cioè il costo reale sostenuto per il lavoro svolto
+    fino ad un determinato \textit{sprint}. Viene calcolato alla fine di ogni \textit{sprint}.}
+{\[ AC_k = \sum_{i=1}^{k} \mbox{Costo sostenuto nello sprint i} \]
+    Dove:
+    \begin{itemize}
+        \item $k$ = Numero dello sprint di riferimento.
+    \end{itemize}
+}
+{Permette di confrontare le spese effettive
+    con il budget pianificato e con il valore prodotto, consentendo di rilevare
+    tempestivamente sforamenti di budget o inefficienze nell'utilizzo
+    delle risorse.}
+{MPC3 - Actual Cost (AC)}
+
+\trisubsection{MPC4 - Cost Performance Index (CPI)}
+\label{sec:MPC4}
+\Metrica{MPC4}
+{Rappresenta l'efficienza con cui il budget viene utilizzato e corrisponde al
+    rapporto tra il valore del lavoro raggiunto e il costo reale sostenuto, al termine dello \textit{sprint} k.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item CPI $> 1$: il progetto è sotto il budget;
+        \item CPI $< 1$: il progetto è sopra il budget;
+        \item CPI $= 1$: il progetto è in linea con il budget pianificato.
+    \end{itemize}}
+{\[ CPI_k = \frac{EV_k}{AC_k} \]
+    Dove:
+    \begin{itemize}
+        \item $EV_k$ = \textit{Earned Value} allo \textit{sprint} k (si veda §\ref{sec:MPC2});
+        \item $AC_k$ = \textit{Actual Cost} allo \textit{sprint} k (si veda §\ref{sec:MPC3});
+        \item $k$ = Numero dello sprint di riferimento.
+    \end{itemize}
+}
+{Quantifica l'efficienza nell'uso delle risorse e
+    prevede se il progetto terminerà entro il budget previsto. Un monitoraggio
+    costante del CPI permette di identificare tempestivamente inefficienze e di
+    adottare misure correttive per evitare sforamenti significativi.}
+{MPC4 - Cost Performance Index (CPI)}
+
+\trisubsection{MPC5 - Schedule Performance Index (SPI)}
+\label{sec:MPC5}
+\Metrica{MPC5}
+{Rappresenta l'efficienza con cui il lavoro viene completato rispetto alla
+    pianificazione e corrisponde al rapporto tra il valore del lavoro completato
+    e il valore pianificato del lavoro fino ad un determinato \textit{sprint}.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item SPI $> 1$: il progetto è in anticipo rispetto alla pianificazione;
+        \item SPI $< 1$: il progetto è in ritardo rispetto alla pianificazione;
+        \item SPI $= 1$: il progetto procede secondo i tempi previsti.
+    \end{itemize}
+    Un SPI costantemente inferiore a 1 segnala la necessità di rivedere
+    la pianificazione o di allocare risorse aggiuntive per recuperare i
+    ritardi accumulati.}
+{ \[ SPI_k = \frac{EV_k}{PV_k} \]
+    Dove:
+    \begin{itemize}
+        \item $EV_k$ = \textit{Earned Value} allo \textit{sprint} k (si veda §\ref{sec:MPC2});
+        \item $PV_k$ = \textit{Planned Value} allo \textit{sprint} k (si veda §\ref{sec:MPC1});
+        \item $k$ = Numero dello sprint di riferimento.
+    \end{itemize} }
+{Permette di valutare se il gruppo ha rispettato le
+    scadenze previste e permette di stimare se il progetto terminerà
+    nei tempi pianificati.}
+{MPC5 - Schedule Performance Index (SPI)}
+
+\trisubsection{MPC6 - Estimate At Completion (EAC)}
+\label{sec:MPC6}
+\Metrica{MPC6}
+{Stima del costo totale finale del progetto al completamento, calcolata come la somma
+    tra i costi sostenuti fino al momento della misurazione e il budget rimanente.}
+{\[EAC_k = AC_k + (BAC - EV_k) \]
+    Dove:
+    \begin{itemize}
+        \item $AC_k$ = \textit{Actual Cost} allo \textit{sprint} k (si veda §\ref{sec:MPC3});
+        \item $BAC$ = Budget totale previsto (\textit{Budget At Completion});
+        \item $EV_k$ = \textit{Earned Value} allo \textit{sprint} k (si veda §\ref{sec:MPC2});
+        \item $k$ = Numero dello sprint di riferimento.
+    \end{itemize}
+}
+{La metrica \textit{EAC} fornisce una previsione realistica del budget necessario
+    considerando il lavoro effettivo già eseguito.
+    Consente inoltre di identificare tempestivamente potenziali sforamenti di budget,
+    permettendo di applicare azioni correttive prima che gli scostamenti
+    diventino critici.}
+{MPC6 - Estimate At Completion (EAC)}
+
+\trisubsection{MPC7 - Estimate To Complete (ETC)}
+\label{sec:MPC7}
+\Metrica{MPC7}
+{Stima del costo necessario per completare il lavoro rimanente del progetto,
+    calcolata al termine di un determinato \textit{sprint}.
+    Rappresenta la proiezione delle risorse economiche ancora necessarie per portare
+    a termine tutte le attività non ancora completate e viene calcolata come la
+    differenza tra il costo finale stimato e il costo sostenuto.}
+{\[ ETC_k = EAC_k - AC_k \]
+    Dove:
+    \begin{itemize}
+        \item $EAC_k$ = \textit{Estimate At Completion} allo \textit{sprint} k (si veda §\ref{sec:MPC6});
+        \item $AC_k$ = \textit{Actual Cost} allo \textit{sprint} k (si veda §\ref{sec:MPC3});
+        \item $k$ = Numero dello sprint di riferimento.
+    \end{itemize}
+}
+{Permette di valutare se le risorse economiche
+    residue sono sufficienti per completare il progetto.}
+{MPC7 - Estimate To Complete (ETC)}
+
+\subsubsection{Sviluppo}
+
+\trisubsection{MPC8 - Requirements Stability Index (RSI)}
+\label{sec:MPC8}
+\Metrica{MPC8}
+{Indice che misura la stabilità dei requisiti del progetto durante il suo ciclo
+    di vita, quantificando la percentuale di requisiti che non hanno subito modifiche,
+    aggiunte o cancellazioni rispetto al totale.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item RSI $= 100\%$: requisiti stabili, eccellente analisi iniziale;
+        \item $80\% \leq $ RSI $ < 100\%$: stabilità accettabile, alcune modifiche sono normali;
+        \item $50\% \leq $ RSI $ < 80\%$: elevata volatilità, problemi nella definizione dei requisiti;
+        \item RSI $< 50\%$: instabilità critica.
+    \end{itemize}}
+{\[RSI = \frac{R_{iniziali} - (R_{modificati} + R_{cancellati})}{R_{iniziali} + R_{aggiunti}} \cdot 100\]
+    Dove:
+    \begin{itemize}
+        \item $R_{iniziali}$ = Numero di requisiti definiti all'inizio del progetto;
+        \item $R_{modificati}$ = Numero di requisiti iniziali che hanno subito modifiche;
+        \item $R_{cancellati}$ = Numero di requisiti iniziali che sono stati rimossi;
+        \item $R_{aggiunti}$ = Numero di nuovi requisiti aggiunti durante il progetto.
+    \end{itemize}
+}
+{Valuta la qualità dell'analisi iniziale dei requisiti e identifica problemi
+    nella loro definizione.}
+{MPC8 - Requirements Stability Index (RSI)}
+
+% \trisubsection{MPC9 - Requirements Completion Velocity (RCV)}
+% \label{sec:MPC9}
+% \Metrica{MPC9}
+% {Rappresenta il numero medio di requisiti completati per \textit{sprint}, 
+% calcolato su un periodo di riferimento.}
+% {\[ RCV = \frac{\sum_{i=1}^{k} RC_i}{k} \]
+% Dove:
+% \begin{itemize}
+%     \item $RC_i$ = Numero di requisiti completati nello \textit{sprint} i;
+%     \item $k$ = Numero dello \textit{sprint} di riferimento.
+% \end{itemize}
+% }
+% {Questa metrica è utile per la pianificazione futura: permette di stimare 
+% realisticamente quanti requisiti possono essere completati negli sprint 
+% rimanenti e di prevedere la data di completamento del progetto.}
+
+% \trisubsection{MPC10 - Percentuale Attività in Ritardo (PAR)}
+% \label{sec:MPC10}
+% \Metrica{MPC10}
+% {Rappresenta la percentuale di attività completate in ritardo rispetto alla 
+% scadenza prevista durante un determinato \textit{sprint}.
+% Interpretazione dei valori:
+% \begin{itemize}
+%     \item PAR $= 0\%$: tutte le attività sono state completate nei tempi previsti;
+%     \item PAR $\leq 15\%$: buona pianificazione, anche se con alcuni ritardi;
+%     \item $15\% < $ PAR $ \leq 30\%$: problemi moderati di stima o esecuzione;
+%     \item PAR $> 30\%$: problemi significativi, necessario rivedere il processo di pianificazione.
+% \end{itemize}}
+% {\[ PAR_k = \frac{ACR_k}{ACT_k} \cdot 100 \]
+% Dove:
+% \begin{itemize}
+%     \item $ACR_k$ = Numero di attività completate in ritardo nello \textit{sprint} k;
+%     \item $ACT_k$ = Numero di attività completate in totale nello \textit{sprint} k;
+%     \item $k$ = Numero dello \textit{sprint} di riferimento.
+% \end{itemize}
+% }
+% {Valuta l'efficacia della pianificazione e l'aderenza alle tempistiche: 
+% un valore elevato indica problemi sistematici nella stima dei tempi, 
+% nella gestione delle priorità o nella disponibilità 
+% delle risorse. Permette di identificare problematiche nel processo di 
+% sviluppo e di adottare azioni correttive per migliorare la prevedibilità 
+% delle consegne e il rispetto delle \textit{milestone} di progetto.}
+
+\subsection{Processi di supporto}
+\subsubsection{Documentazione}
+\trisubsection{MPC9 - Indice di Gulpease (IG)}
+\Metrica{MPC9}
+{Indice che misura la leggibilità di un testo in lingua italiana, basato sulla
+    lunghezza delle parole e delle frasi.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item IG $\geq 80$: testo molto facile, comprensibile da studenti di scuola elementare;
+        \item $60 \leq$ IG $< 80$: testo facile, comprensibile da studenti di scuola media;
+        \item $40 \leq$ IG $< 60$: testo abbastanza difficile, comprensibile da studenti di scuola superiore;
+        \item IG $< 40$: testo difficile, richiede istruzione universitaria.
+    \end{itemize}}
+{\[ IG = 89 + \frac{300 \cdot N_{frasi} - 10 \cdot N_{lettere}}{N_{parole}} \]
+    Dove:
+    \begin{itemize}
+        \item $N_{frasi}$ = Numero di frasi nel testo;
+        \item $N_{lettere}$ = Numero di lettere nel testo;
+        \item $N_{parole}$ = Numero totale di parole nel testo.
+    \end{itemize}
+}
+{Garantisce la qualità della documentazione: assicura che i documenti siano comprensibili,
+    riducendo ambiguità e incomprensioni.}
+{MPC9 - Indice di Gulpease (IG)}
+
+% \trisubsection{MPC12 - Densità Errori Ortografici (DEO)}
+% \Metrica{MPC12}
+% {Rappresenta il numero di errori ortografici presenti ogni 1000 parole di 
+% documentazione prodotta.
+% Interpretazione dei valori:
+% \begin{itemize}
+%     \item DEO = 0: il testo non presenta alcun errore;
+%     \item $0 < $ DEO $ \leq 5$: il testo presenta pochi errori;
+%     \item $5 < $ DEO $ \leq 10$: il testo presenta alcuni errori, è necessario 
+%     revisionare il documento;
+%     \item DEO $> 10$: il testo presenta troppi errori, è necessario correggere 
+%     il documento.
+% \end{itemize}}
+% {\[ DEO = \frac{N_{errori}}{N_{parole}} \cdot 1000 \] 
+% Dove:
+% \begin{itemize}
+%     \item $N_{errori}$ = Numero totale di errori ortografici rilevati nel documento;
+%     \item $N_{parole}$ = Numero totale di parole nel documento.
+% \end{itemize}
+% }
+% {Garantisce la professionalità della documentazione.}
+
+\trisubsection{MPC10 - Indice di Frammentazione (IF)}
+\Metrica{MPC10}
+{Misura il grado di suddivisione del testo in unità logiche (sezioni e paragrafi).
+    Un valore bilanciato indica che il documento non presenta "muri di testo"
+    eccessivi, facilitando la lettura veloce e la
+    memorizzazione dei concetti.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item IF $< 5\%$: il testo è molto denso e difficile da leggere;
+        \item $5\% \le$ IF $\le 20\%$: bilanciamento ottimale tra contenuto
+              e suddivisione spaziale;
+        \item IF $> 20\%$: il testo è eccessivamente frammentato,
+              rischiando di perdere coesione.
+    \end{itemize}
+}
+{\[ IF = \frac{N_{sezioni} + N_{paragrafi}}{N_{linee}} \cdot 100 \]
+    Dove:
+    \begin{itemize}
+        \item $N_{sezioni}$ = Numero di sezioni e sottosezioni del documento;
+        \item $N_{paragrafi}$ = Numero di paragrafi del documento;
+        \item $N_{linee}$ = Numero totale di linee di testo del documento.
+    \end{itemize}
+}
+{Assicura che la documentazione sia strutturata in modo da facilitare la consultazione
+    e il reperimento rapido delle informazioni. Previene inoltre problemi di leggibilità dovuti
+    a testo eccessivamente denso o frammentato.}
+{MPC10 - Indice di Frammentazione (IF)}
+
+\subsubsection{Verifica}
+
+\trisubsection{MPC11 - Test Success Rate (TSR)}
+\Metrica{MPC11}
+{Percentuale di casi di test che sono stati eseguiti con esito positivo rispetto al
+    numero totale di casi di test eseguiti.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item TSR $= 100\%$: qualità eccellente, tutti i test sono stati superati;
+        \item $80\% \leq $ TSR $ < 100\%$: qualità accettabile;
+        \item $70\% \leq $ TSR $ < 80\%$: qualità discreta, sono necessarie correzioni;
+        \item TSR $< 70\%$: qualità inaccettabile, necessaria revisione approfondita del codice.
+    \end{itemize}}
+{\[ TSR = \frac{T_{successo}}{T_{totali}} \cdot 100 \]
+    Dove:
+    \begin{itemize}
+        \item $T_{successo}$ = Numero di test eseguiti con esito positivo;
+        \item $T_{totali}$ = Numero di test eseguiti.
+    \end{itemize}
+}
+{Fornisce una misura della correttezza del \textit{software} e dell'efficacia
+    dell'attività di \textit{testing}.}
+{MPC11 - Test Success Rate (TSR)}
+
+\subsubsection{Gestione della qualità}
+\trisubsection{MPC12 - Percentuale Metriche Soddisfatte (PMS)}
+\Metrica{MPC12}
+{Percentuale di metriche di qualità soddisfatte rispetto al numero di metriche totali.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item PMS $\geq 90\%$: eccellente, il progetto rispetta gli standard di qualità;
+        \item $80\% \leq $ PMS $ < 90\%$: buono, ma alcune aree richiedono miglioramento;
+        \item $70\% \leq $ PMS $ < 80\%$: sufficiente, necessarie azioni correttive;
+        \item PMS $< 70\%$: insoddisfacente, il progetto presenta problemi significativi di qualità.
+    \end{itemize}}
+{\[ PMS = \frac{M_{soddisfatte}}{M_{totali}} \cdot 100 \]
+    Dove:
+    \begin{itemize}
+        \item $M_{soddisfatte}$ = Numero di metriche soddisfatte;
+        \item $M_{totali}$ = Numero di metriche definite.
+    \end{itemize}
+}
+{Offre una valutazione della qualità complessiva del progetto.
+    Facilita il controllo dell'aderenza agli standard di qualità definiti e
+    l'identificazione tempestiva di criticità che richiedono azioni correttive.}
+{MPC12 - Percentuale Metriche Soddisfatte (PMS)}
+
+\subsection{Processi organizzativi}
+\subsubsection{Gestione dei processi}
+\trisubsection{MPC13 - Percentuale Rischi Inattesi (PRI)}
+\Metrica{MPC13}
+{Percentuale di rischi non previsti che si sono manifestati nel corso dello \textit{sprint} k.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item PRI = 0: eccellente;
+        \item PRI $\leq 5\%$: buono, alcuni rischi non previsti sono normali;
+        \item $5\% < $ PRI $ \leq 20\%$: accettabile ma migliorabile;
+        \item $20\% < $ PRI $ \leq 40\%$: insufficiente, è necessario migliorare l'analisi dei rischi;
+        \item PRI $> 40\%$: gestione inadeguata, l'attività di gestione dei rischi è inefficace.
+    \end{itemize}}
+{\[ PRI_k = \frac{R_{inattesi,k}}{R_{totali,k}} \cdot 100 \]
+    Dove:
+    \begin{itemize}
+        \item $R_{inattesi,k}$ = Numero di rischi non previsti che si sono verificati nello \textit{sprint} k;
+        \item $R_{totali,k}$ = Numero di rischi totali che si sono verificati nello \textit{sprint} k;
+        \item $k$ = Numero dello \textit{sprint} di riferimento.
+    \end{itemize}
+}
+{Fornisce una misura del livello di accuratezza dell'attività di analisi
+    e gestione dei rischi.}
+{MPC13 - Percentuale Rischi Inattesi (PRI)}
+
+\trisubsection{MPC14 - Labor Efficiency (LE)}
+\Metrica{MPC14}
+{Rappresenta il rapporto tra le ore di lavoro pianificate per lo
+    svolgimento di determinate attività e le ore effettivamente impiegate
+    per il loro completamento nello \textit{sprint} di riferimento.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item LE $> 100\%$: il gruppo è stato più veloce del previsto;
+        \item LE $< 100\%$: il team ha impiegato più tempo del previsto;
+        \item LE $= 100\%$: le stime sono perfettamente in linea con la capacità produttiva.
+    \end{itemize}
+}
+{\[ LE_k = \frac{H_{pianificate}}{H_{effettive}} \cdot 100 \]
+    Dove:
+    \begin{itemize}
+        \item $H_{pianificate}$ = Somma delle ore stimate per le attività
+              completate nello \textit{sprint} k;
+        \item $H_{effettive}$ = Somma delle ore rendicontate dai membri
+              del gruppo per lo \textit{sprint} k;
+        \item $k$ = Numero dello sprint di riferimento.
+    \end{itemize}
+}
+{Mentre lo SPI (si veda §\ref{sec:MPC5}) valuta l'avanzamento in termini di valore economico,
+    questa metrica permette di monitorare direttamente la precisione delle
+    stime temporali effettuate dal team durante la pianificazione.}
+{MPC14 - Labor Efficiency (LE)}
+
+\section{Metriche di qualità di prodotto}
+\label{sec:MetricheProdotto}
+In questa sezione vengono definite le metriche di qualità adottate per
+garantire che i prodotti di progetto (documentazione e \textit{software})
+soddisfino i requisiti qualitativi stabiliti.
+\\Ogni metrica è identificata da un codice univoco nella forma \textit{MPDX}, dove \textit{MPD} è l'acronimo di \textit{Metrica di Prodotto} e \textit{X} rappresenta
+un numero intero progressivo.
+
+\subsection{Funzionalità}
+\trisubsection{MPD1 -  Percentuale Requisiti Obbligatori Soddisfatti (PROS)}
+\Metrica{MPD1}
+{Percentuale di requisiti obbligatori soddisfatti rispetto al numero totale
+    di requisiti obbligatori definiti.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item PROS $= 100\%$: tutti i requisiti obbligatori sono stati
+              implementati, il prodotto è completo;
+        \item $90\% \leq $ PROS $ < 100\%$: il prodotto è quasi completo,
+              mancano poche funzionalità;
+        \item $70\% \leq $ PROS $ < 90\%$: il prodotto è parzialmente funzionante;
+        \item PROS $< 70\%$: il prodotto è incompleto, non rilasciabile.
+    \end{itemize}}
+{\[ PROS =  \frac{RO_{soddisfatti}}{RO_{totali}} \cdot 100\]
+    Dove:
+    \begin{itemize}
+        \item $RO_{soddisfatti}$ = Requisiti obbligatori soddisfatti;
+        \item $RO_{totali}$ = Requisiti obbligatori totali.
+    \end{itemize}
+}
+{Determina se il prodotto ha raggiunto il livello minimo di funzionalità
+    necessario per il rilascio. Permette inoltre di
+    identificare tempestivamente ritardi che potrebbero compromettere la
+    consegna del prodotto nei tempi concordati.}
+{MPD1 - Percentuale Requisiti Obbligatori Soddisfatti (PROS)}
+
+\trisubsection{MPD2 -  Percentuale Requisiti Opzionali Soddisfatti (PRPS)}
+\Metrica{MPD2}
+{Percentuale di requisiti opzionali soddisfatti rispetto al numero totale
+    di requisiti opzionali definiti.
+    L'implementazione di requisiti opzionali
+    aumenta il valore del prodotto ma non è essenziale per il suo funzionamento base.}
+{\[ PRPS =  \frac{RP_{soddisfatti}}{RP_{totali}} \cdot 100\]
+    Dove:
+    \begin{itemize}
+        \item $RP_{soddisfatti}$ = Requisiti opzionali soddisfatti;
+        \item $RP_{totali}$ = Requisiti opzionali totali.
+    \end{itemize}
+}
+{Misura il valore aggiunto fornito dal prodotto oltre le funzionalità minime
+    richieste e permette di comunicare al proponente il livello
+    di arricchimento del prodotto rispetto alle aspettative base.}
+{MPD2 - Percentuale Requisiti Opzionali Soddisfatti (PRPS)}
+
+\trisubsection{MPD3 -  Percentuale Requisiti Desiderabili Soddisfatti (PRDS)}
+\Metrica{MPD3}
+{Percentuale di requisiti desiderabili soddisfatti rispetto al numero totale
+    di requisiti desiderabili definiti.
+    I requisiti desiderabili migliorano
+    significativamente l'esperienza utente e la competitività del prodotto.}
+{\[ PRDS =  \frac{RD_{soddisfatti}}{RD_{totali}} \cdot 100\]
+    Dove:
+    \begin{itemize}
+        \item $RD_{soddisfatti}$ = Requisiti desiderabili soddisfatti;
+        \item $RD_{totali}$ = Requisiti desiderabili totali.
+    \end{itemize}
+}
+{Valuta il valore aggiunto fornito dal prodotto oltre le funzionalità minime e opzionali.}
+{MPD3 - Percentuale Requisiti Desiderabili Soddisfatti (PRDS)}
+
+\subsection{Affidabilità}
+\trisubsection{MPD4 - Line Coverage (LC)}
+\Metrica{MPD4}
+{Indica la percentuale di linee di codice eseguite dai test automatici
+    rispetto alle linee di codice totali.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item LC $\geq 80\%$: copertura eccellente, codice ben testato;
+        \item $60\% \leq $ LC $ < 80\%$: copertura buona, ma migliorabile;
+        \item $40\% \leq $ LC $ < 60\%$: copertura insufficiente, è necessario aumentare i test;
+        \item LC $< 40\%$: copertura critica, il codice è poco testato.
+    \end{itemize}}
+{\[ LC = \frac{L_{eseguite}}{L_{totali}} \cdot 100 \]
+    Dove:
+    \begin{itemize}
+        \item $L_{eseguite}$ = Numero di linee di codice eseguite dai test;
+        \item $L_{totali}$ = Numero di linee di codice totali.
+    \end{itemize}}
+{Quantifica l'efficacia dei test automatici nell'individuare difetti e garantire
+    la correttezza del codice. Permette inoltre di identificare porzioni di
+    codice non testate che potrebbero contenere errori.}
+{MPD4 - Line Coverage (LC)}
+
+\trisubsection{MPD5 - Branch Coverage (BC)}
+\Metrica{MPD5}
+{Indica la percentuale di rami decisionali del codice eseguiti dai test.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item BC $\geq 75\%$: copertura eccellente dei percorsi decisionali;
+        \item $60\% \leq $ BC $ < 75\%$: copertura buona;
+        \item $40\% \leq $ BC $ < 60\%$: copertura insufficiente;
+        \item BC $< 40\%$: molti percorsi decisionali non testati, rischio elevato di errori.
+    \end{itemize}}
+{\[ BC = \frac{B_{eseguite}}{B_{totali}} \cdot 100 \]
+    Dove:
+    \begin{itemize}
+        \item $B_{eseguite}$ = Numero di rami (\textit{branch}) decisionali eseguiti dai test;
+        \item $B_{totali}$ = Numero di rami decisionali totali.
+    \end{itemize}}
+{Fornisce una misura più rigorosa della qualità dei test rispetto alla
+    semplice copertura delle linee, garantendo che la logica condizionale sia
+    correttamente testata.}
+{MPD5 - Branch Coverage (BC)}
+
+\trisubsection{MPD6 - Statement Coverage (SC)}
+\Metrica{MPD6}
+{Indica la percentuale di istruzioni nel codice eseguite dai test.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item SC $\geq 80\%$: copertura eccellente delle istruzioni;
+        \item $60\% \leq $ SC $ < 80\%$: copertura buona;
+        \item $40\% \leq $ SC $ < 60\%$: copertura insufficiente;
+        \item SC $< 40\%$: molte istruzioni non testate.
+    \end{itemize}}
+{\[ SC = \frac{S_{eseguite}}{S_{totali}} \cdot 100 \]
+    Dove:
+    \begin{itemize}
+        \item $S_{eseguite}$ = Numero di istruzioni (\textit{statement}) eseguite dai test;
+        \item $S_{totali}$ = Numero di istruzioni totali.
+    \end{itemize}}
+{Garantisce che ogni singola istruzione del codice sia stata eseguita almeno
+    una volta durante i test, identificando codice inutilizzato o non raggiungibile.}
+{MPD6 - Statement Coverage (SC)}
+
+\subsection{Usabilità}
+\trisubsection{MPD7 - Profondità Massima di Navigazione (PMN)}
+\Metrica{MPD7}
+{Misura il massimo numero di click necessari per completare qualsiasi operazione, date $k$ operazioni analizzate.
+    Valuta il caso peggiore di navigazione, garantendo che anche le operazioni
+    più profonde rimangano accessibili.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item PMN $\leq 3$: tutte le operazioni sono immediate;
+        \item $3 < $ PMN $ \leq 5$: la navigazione è buona anche nel caso peggiore;
+        \item $5 < $ PMN $ \leq 7$: accettabile, nonostante alcune operazioni richiedano troppi passaggi;
+        \item PMN $> 7$: inefficiente, sono presenti percorsi eccessivamente profondi.
+    \end{itemize}}
+{\[ PMN = \max_{i=1,\dots,k} \{C_i\} \]
+    Dove:
+    \begin{itemize}
+        \item $C_{i}$ = Numero di click necessari per completare l'operazione $i$-esima;
+        \item $k$ = Numero totale di operazioni analizzate.
+    \end{itemize}}
+{Garantisce che nessuna funzionalità del sistema sia eccessivamente nascosta
+    o difficile da raggiungere, rischiando di compromettere l'usabilità del prodotto.}
+{MPD7 - Profondità Massima di Navigazione (PMN)}
+
+\subsection{Efficienza}
+\trisubsection{MPD8 - Tempo Medio di Risposta (TMR)}
+\Metrica{MPD8}
+{Tempo medio che intercorre tra l'invio di una richiesta al sistema
+    e la ricezione della risposta completa.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item TMR $\leq 1$ secondo: eccellente, risposta immediata;
+        \item $1 < $ TMR $ \leq 3$ secondi: buono, risposta rapida;
+        \item $3 < $ TMR $ \leq 5$ secondi: accettabile, ma migliorabile;
+        \item TMR $> 5$ secondi: inaccettabile, l'utente percepisce lentezza.
+    \end{itemize}}
+{\[ TMR = \frac{\sum_{i=1}^{k} T_i}{k} \]
+    Dove:
+    \begin{itemize}
+        \item $T_{i}$ = Tempo di risposta per la richiesta $i$-esima;
+        \item $k$ = Numero di richieste testate;
+    \end{itemize}
+}
+{Garantisce che il sistema soddisfi le aspettative degli utenti in termini di
+    reattività e fluidità d'uso.}
+{MPD8 - Tempo Medio di Risposta (TMR)}
+
+\subsection{Manutenibilità}
+% \trisubsection{MPD9 - Densità dei Commenti (DC)}
+% \Metrica{MPD9}
+% {Rapporto tra le righe dedicate ai commenti e le righe di codice totali. 
+% Una densità adeguata favorisce maggior manutenibilità.
+% Interpretazione dei valori:
+% \begin{itemize}
+% \item DC $< 10\%$: il codice è scarsamente documentato, rendendo difficile l'analisi e la manutenzione futura;
+% \item $10\% \le$ DC $\le 30\%$: densità ottimale per un codice ben scritto e auto-esplicativo;
+% \item DC $> 30\%$: il codice potrebbe essere eccessivamente commentato. Valori molto alti possono indicare la 
+% presenza di una logica eccessivamente complessa che richiede troppe spiegazioni.
+% \end{itemize}
+% }
+% {\[ DC = \frac{L_{commenti}}{L_{totali}} \cdot 100 \] 
+% Dove:
+% \begin{itemize}
+%     \item $L_{commenti}$ = Linee dedicate ai commenti;
+%     \item $L_{totali}$ = Linee totali nel codice.
+% \end{itemize}
+% }
+% {Assicura che il codice sia adeguatamente documentato per facilitarne la 
+% comprensione e ridurre i tempi di manutenzione.}
+
+\trisubsection{MPD9 - Complessità Ciclomatica (CC)}
+\Metrica{MPD9}
+{Misura la complessità strutturale del codice calcolando il numero di percorsi
+    linearmente indipendenti attraverso il codice sorgente. Viene calcolata per
+    ciascuna funzione o metodo del sistema. Una bassa complessità indica codice
+    più leggibile, testabile e manutenibile.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item CC $\leq 10$: complessità bassa, codice semplice e manutenibile;
+        \item $10 < $ CC $ \leq 20$: complessità moderata, ancora accettabile;
+        \item $20 < $ CC $ \leq 30$: complessità elevata;
+        \item CC $> 30$: complessità critica, il codice è difficile da testare e mantenere.
+    \end{itemize}}
+{\[ CC = E - N + 2P \]
+    Dove:
+    \begin{itemize}
+        \item $E$ = Numero di archi del grafo di controllo di flusso;
+        \item $N$ = Numero di nodi del grafo di controllo di flusso;
+        \item $P$ = Numero di componenti connesse.
+    \end{itemize}
+}
+{Permette di misurare la complessità delle funzioni per evitare difficoltà nel
+    \textit{testing} del codice e nella sua comprensione.}
+{MPD9 - Complessità Ciclomatica (CC)}
+
+\subsection{Portabilità}
+\trisubsection{MPD10 - Compatibilità Cross-Browser (CCB)}
+\Metrica{MPD10}
+{Percentuale di browser testati su cui il prodotto funziona correttamente
+    rispetto al totale dei browser target definiti nel progetto.
+    Interpretazione dei valori:
+    \begin{itemize}
+        \item CCB $= 100\%$: piena compatibilità, il prodotto funziona su tutti i browser target;
+        \item $80\% \leq $ CCB $ < 100\%$: compatibilità buona, problemi solo su browser marginali;
+        \item $60\% \leq $ CCB $ < 80\%$: compatibilità parziale, alcuni browser principali presentano problemi;
+        \item CCB $< 60\%$: compatibilità insufficiente, il prodotto non è utilizzabile su molti browser.
+    \end{itemize}}
+{\[ CCB = \frac{B_{supportati}}{B_{target}} \cdot 100 \]
+    Dove:
+    \begin{itemize}
+        \item $B_{supportati}$ = Numero di browser su cui il prodotto funziona correttamente;
+        \item $B_{target}$ = Numero totale di browser target definiti per il progetto.
+    \end{itemize}}
+{Garantisce che il prodotto sia utilizzabile dalla maggior parte dei browser.}
+{MPD10 - Compatibilità Cross-Browser (CCB)}
+
+\end{document}

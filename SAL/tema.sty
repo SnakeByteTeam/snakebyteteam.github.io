@@ -1,0 +1,146 @@
+\ProvidesPackage{beamerthemeAzienda}
+
+% temi standard
+\useinnertheme{default}
+\useoutertheme{default}
+\usecolortheme{default}
+
+% pacchetti 
+\RequirePackage{tikz}
+\RequirePackage{graphicx}
+\RequirePackage[table, x11names]{xcolor}
+\RequirePackage{xstring}
+\RequirePackage{etoolbox}
+\RequirePackage{tabularx}
+
+% definizione variabili
+\newcommand{\Date}{}
+
+\newcommand{\setDate}[1]{\renewcommand{\Date}{#1}}
+
+% rimuovere i simboli di navigazione
+\setbeamertemplate{navigation symbols}{}
+
+% pagina iniziale
+\setbeamertemplate{title page}{
+  \vspace{2em}
+  \begin{center}
+      \includegraphics[height=3cm]{../logo-crop.pdf}
+  \end{center}
+  \begin{center}
+      {\usebeamerfont{title}\color{black}\textbf{\inserttitle}\par}
+    \vspace{0.5em}
+    {\usebeamerfont{date}\insertauthor\par}
+    {\usebeamerfont{date}\Date\par}
+  \end{center}
+}
+
+% footer
+\setbeamertemplate{footline}{
+  \vspace{2ex}
+  \hbox{
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hspace*{0.5em}
+      \raggedright\usebeamerfont{footline}\inserttitle
+    \end{minipage}%
+    \begin{minipage}[t]{0.20\paperwidth}
+      \centering\usebeamerfont{footline}Pagina \insertframenumber{} di \inserttotalframenumber
+    \end{minipage}%
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hfill
+      \insertshortauthor
+      \hspace*{0.8em}
+      \raisebox{-0.25\height}{\includegraphics[width=0.7cm]{../logo-crop.pdf}}
+      \hspace*{1.3em}
+    \end{minipage}
+  }
+  \vspace{0.8ex}
+}
+
+\newcommand{\noRole}{ND}
+\newcommand{\noOne}{-}
+
+% aggiungere un partecipante alla riunione
+\newcommand{\memberEntries}{}
+\newcommand{\addMember}[3]{%
+  \gappto{\memberEntries}{#1 & #2 & #3 \\ \hline}
+}
+
+% imposta tabella per ruoli da presentare al SAL
+\newcommand{\makeMembersFrame}{
+  \begin{frame}{Ruoli}
+    \small
+    \begin{center}
+        \begin{tabular}{|c|c|c|}
+            \hline
+            \rowcolor{aziendaPrimary!10} \textcolor{aziendaPrimary}{\textbf{Nome}} 
+            & \textcolor{aziendaPrimary}{\textbf{Cognome}} & \textcolor{aziendaPrimary}{\textbf{Ruolo}} \\
+            \hline
+            \memberEntries
+        \end{tabular}
+    \end{center}
+  \end{frame}
+}
+
+\newcommand{\precedentTodoEntries}{}
+\newcommand{\todoEntries}{}
+
+\newcommand{\addPrecedentTodo}[5]{
+  \gappto{\precedentTodoEntries}{#1 & #2 & #3 & #4 & #5 \\ \hline}
+}
+
+\newcommand{\addManualTodo}[5]{
+  \gappto{\todoEntries}{#1 & #2 & #3 & #4 & #5 \\ \hline}
+}
+
+\newcounter{todoctr}
+\newcommand{\addTodo}[4]{
+  \stepcounter{todoctr}
+  \begingroup
+    \edef\@tempa{
+      \noexpand\gappto\noexpand{\noexpand\todoEntries}{
+        \unexpanded{\docIndex}.a\thetodoctr & \unexpanded{#1} & \unexpanded{#2} & \unexpanded{#3} & \unexpanded{#4} \\ \noexpand\hline
+      }
+    }
+  \@tempa
+  \endgroup
+}
+
+% imposta tabella delle attività svolte
+\newcommand{\makePrecedentTodoFrame}{
+  \begin{frame}{Attività terminate}
+    \tiny
+    \begin{center}
+        \begin{tabularx}{\textwidth}{|c|c|X|p{2cm}|c|}
+            \hline
+            \rowcolor{aziendaPrimary!10} \textcolor{aziendaPrimary}{\textbf{Id}} & \textcolor{aziendaPrimary}{\textbf{Issue}} 
+            & \textcolor{aziendaPrimary}{\textbf{Descrizione}} & \textcolor{aziendaPrimary}{\textbf{Assegnatario}} 
+            & \textcolor{aziendaPrimary}{\textbf{Data}} \\
+            \hline
+            \precedentTodoEntries
+        \end{tabularx}
+    \end{center}
+  \end{frame}
+}
+
+% imposta tabella delle attività da svolgere
+\newcommand{\makeTodoFrame}{
+    \begin{frame}{Attività da completare}
+      \tiny
+      \begin{center}
+          \begin{tabularx}{\textwidth}{|c|c|X|p{2cm}|c|}
+              \hline
+              \rowcolor{aziendaPrimary!10} \textcolor{aziendaPrimary}{\textbf{Id}} & \textcolor{aziendaPrimary}{\textbf{Issue}} 
+              & \textcolor{aziendaPrimary}{\textbf{Descrizione}} & \textcolor{aziendaPrimary}{\textbf{Assegnatario}} 
+              & \textcolor{aziendaPrimary}{\textbf{Scadenza}} \\
+              \hline
+              \todoEntries
+          \end{tabularx}
+      \end{center}
+    \end{frame}
+}
+
+% colori vari
+\definecolor{aziendaPrimary}{RGB}{84, 150, 104}
+\setbeamercolor{structure}{fg=aziendaPrimary}
+\setbeamercolor{frametitle}{bg=aziendaPrimary!10,fg=aziendaPrimary}
