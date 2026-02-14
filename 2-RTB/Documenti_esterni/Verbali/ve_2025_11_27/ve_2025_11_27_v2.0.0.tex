@@ -3,7 +3,7 @@
 \usepackage{../../../../template/template}
 
 \setDocTitle{Verbale esterno 27/11/2025}
-\setDocVersion{1.0.1}
+\setDocVersion{2.0.0}
 \setDocData{26/01/2026}
 \setDocIndex{ve\_2025\_11\_27}
 \setDocState{2}
@@ -48,8 +48,9 @@
 \makeTitlePage
 
 \newpage
-\addChangelog{1.0.1}{26/01/2026}{V. Baleanu}{\noOne}{V. Baleanu, M. Sciacco}{Ri-approvazione del documento a seguito di aggiornamento dello stato del documento. Nessuna modifica al contenuto.}
-\addChangelog{1.0.0}{16/01/2026}{\noOne}{\noOne}{V. Baleanu, M. Sciacco}{Approvazione interna ed esterna del documento}
+\addChangelog{2.0.0}{26/01/2026}{\noOne}{\noOne}{L. Pellizzon}{\approval}
+\addChangelog{1.0.1}{26/01/2026}{L. Pellizzon}{F. Pasqual}{\noOne}{Modifica e correzione dello stato del documento}
+\addChangelog{1.0.0}{16/01/2026}{\noOne}{\noOne}{V. Baleanu}{\approval}
 \addChangelog{0.1.2}{26/12/2025}{C. Libralato}{F. Pasqual}{\noOne}{Correzione errori ruoli}
 \addChangelog{0.1.1}{12/12/2025}{F. Pasqual}{L. Pellizzon}{\noOne}{Modifiche Q\&A dashboard}
 \addChangelog{0.1.0}{27/12/2025}{G. de Fina}{V. Baleanu}{\noOne}{\firstDraft}
@@ -85,36 +86,36 @@
     \item Q\&A tecnico-funzionale: autenticazione, permessi, allarmi, gestione impianti, dashboard e interfaccia.
     \item valutazioni su \textit{analytics} e intelligenza artificiale;
     \item debugging autenticazione \textit{KNX IoT 3rd party API$_G$};
-    \item logistica hardware: consegna del secondo \textit{kit di impianto portatile Smart$_G$}. 
+    \item logistica hardware: consegna del secondo \textit{kit di impianto portatile Smart$_G$}.
 \end{itemize}
 
 \section{Approfondimento}
 
 \subsection*{Stato avanzamento lavori e discussione del \textit{Gitflow}}
-Il team ha illustrato i progressi svolti, che includono l'aggiornamento dell'Analisi dei Requisiti (ancora in corso), 
-la definizione delle responsabilità operative e l'aggiornamento delle Norme di Progetto. È stato inoltre creato un template \textit{LaTeX$_G$} per uniformare 
+Il team ha illustrato i progressi svolti, che includono l'aggiornamento dell'Analisi dei Requisiti (ancora in corso),
+la definizione delle responsabilità operative e l'aggiornamento delle Norme di Progetto. È stato inoltre creato un template \textit{LaTeX$_G$} per uniformare
 e velocizzare la redazione dei documenti. \\
 Riguardo al \textit{workflow} di versionamento:
 \begin{itemize}
-    \item il gruppo sta attualmente utilizzando per i documenti un flusso ispirato a \textit{Gitflow} che prevede branch di modifica, develop, release 
-    (per l'accumulo dei documenti approvati) e main (per la pubblicazione finale);
-    \item per la gestione del codice sorgente futuro, la proponente ha consigliato di valutare alternative più semplici rispetto al classico \textit{Gitflow}, 
-    che può risultare complesso e incline a conflitti di merge se non gestito con esperienza. 
-    È stato suggerito di considerare il \textit{Feature Branch Flow} (solo main e feature branches, gestendo i rilasci tramite tag sul main), 
-    mantenendo il processo il più lineare possibile.
+    \item il gruppo sta attualmente utilizzando per i documenti un flusso ispirato a \textit{Gitflow} che prevede branch di modifica, develop, release
+          (per l'accumulo dei documenti approvati) e main (per la pubblicazione finale);
+    \item per la gestione del codice sorgente futuro, la proponente ha consigliato di valutare alternative più semplici rispetto al classico \textit{Gitflow},
+          che può risultare complesso e incline a conflitti di merge se non gestito con esperienza.
+          È stato suggerito di considerare il \textit{Feature Branch Flow} (solo main e feature branches, gestendo i rilasci tramite tag sul main),
+          mantenendo il processo il più lineare possibile.
 \end{itemize}
 
 
 \subsection*{Valutazione strumenti \textit{project management}}
-Il team è in fase di valutazione tra l'utilizzo di \textit{Jira$_G$} e \textit{GitHub Projects$_G$}, con il dubbio principale legato al rapporto tra i benefici offerti 
+Il team è in fase di valutazione tra l'utilizzo di \textit{Jira$_G$} e \textit{GitHub Projects$_G$}, con il dubbio principale legato al rapporto tra i benefici offerti
 e il tempo necessario per il setup e la creazione di automazioni.
 E' stato suggerito di assegnare a due membri del team un'analisi comparativa dei due strumenti,
 al fine di evidenziare pro e contro di ciascuna soluzione e convergere a una decisione finale che eviti troppi oneri nella gestione delle attività.\\
-Per il processo di revisione, si è discusso l'uso dei commenti nelle \textit{Pull Request$_G$} come strumento di tracciamento 
+Per il processo di revisione, si è discusso l'uso dei commenti nelle \textit{Pull Request$_G$} come strumento di tracciamento
 delle correzioni; l'approccio è stato validato positivamente, a patto di trovare un metodo efficace per riferire e storicizzare tali commenti.
 
 \subsection*{Analisi dei Requisiti e proposta di revisione anticipata}
-Il documento di Analisi dei Requisiti risulta aggiornato ma ancora in fase di lavorazione. Per garantire la qualità dell'elaborato e prevenire criticità riscontrate in progetti degli anni passati, 
+Il documento di Analisi dei Requisiti risulta aggiornato ma ancora in fase di lavorazione. Per garantire la qualità dell'elaborato e prevenire criticità riscontrate in progetti degli anni passati,
 è stata concordata una revisione anticipata. \\
 Il team si impegnerà per inviare una bozza del documento entro il 05/12/2025.
 
@@ -123,9 +124,9 @@ Il team si impegnerà per inviare una bozza del documento entro il 05/12/2025.
 Per quanto riguarda \textbf{l'autenticazione e i permessi}:
 \begin{itemize}
     \item è stata stabilita la necessità di disaccoppiare i permessi. Gli utenti finali (OSS) non devono dipendere
-    dall'account \textit{MyVimar} dell'amministratore di impianto;
-    \item la piattaforma dovrà gestire un proprio layer di permessi interno, 
-    dove l'amministratore può creare, gestire e assegnare reparti/strutture agli Operatori Socio-Sanitari (OSS).
+          dall'account \textit{MyVimar} dell'amministratore di impianto;
+    \item la piattaforma dovrà gestire un proprio layer di permessi interno,
+          dove l'amministratore può creare, gestire e assegnare reparti/strutture agli Operatori Socio-Sanitari (OSS).
 \end{itemize}
 Per quanto riguarda \textbf{gli allarmi e le loro priorità} :
 \begin{itemize}
@@ -143,8 +144,8 @@ Per quanto riguarda \textbf{la dashboard e l'interfaccia} :
     \item la dashboard deve permettere all'OSS di disattivare un allarme qualsiasi sia il caso che l'ha generato in prima istanza;
     \item è auspicabile che la dashboard permetta all'OSS di prendere in carico (come sua propria responsabilità [di utente registrato]) un allarme e di disattivarlo non appena ha gestito il caso critico (azione \textit{nice to have});
     \item si è concordato di definire chiaramente i requisiti della dashboard prima di valutare la mole di lavoro necessaria per una eventuale personalizzazione dei widget;
-    \item per la visualizzazione dei dispositivi, l'obiettivo è una mappa topologica (a box annidati) per una migliore esperienza utente, 
-    anche se una semplice tabella con filtri è accettata come alternativa se i tempi non lo permetteranno.
+    \item per la visualizzazione dei dispositivi, l'obiettivo è una mappa topologica (a box annidati) per una migliore esperienza utente,
+          anche se una semplice tabella con filtri è accettata come alternativa se i tempi non lo permetteranno.
 \end{itemize}
 
 \subsection*{Valutazioni su \textit{analytics} e intelligenza artificiale}
@@ -152,7 +153,7 @@ E' stato fortemente sconsigliato l'uso di \textit{Large Language Models} (LLM) i
 La parte di suggerimenti e \textit{analytics} dovrà essere gestita tramite logiche statiche, soglie predefinite ed eventuali algoritmi di \textit{AI} semplici.
 
 \subsection*{Logistica hardware: consegna del secondo \textit{kit di impianto portatile Smart}}
-La proponente è stata informata del fatto che F. Pasqual sarà il responsabile del secondo kit di sensori. 
+La proponente è stata informata del fatto che F. Pasqual sarà il responsabile del secondo kit di sensori.
 Privatamente, seguiranno contatti per l'organizzazione della consegna.
 
 

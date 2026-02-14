@@ -4,7 +4,7 @@
 \usepackage{../../../../template/template}
 
 \setDocTitle{Verbale esterno 10/12/2025}
-\setDocVersion{1.0.1}
+\setDocVersion{2.0.0}
 \setDocData{26/01/2026}
 \setDocIndex{ve\_2025\_12\_10}
 \setDocState{2}
@@ -50,8 +50,9 @@
 
 \newpage
 
-\addChangelog{1.0.1}{26/01/2026}{V. Baleanu}{\noOne}{V. Baleanu, M. Sciacco}{Ri-approvazione del documento a seguito di aggiornamento dello stato del documento. Nessuna modifica al contenuto.}
-\addChangelog{1.0.0}{16/01/2026}{\noOne}{\noOne}{V. Baleanu, M. Sciacco}{Approvazione interna ed esterna del documento}
+\addChangelog{2.0.0}{26/01/2026}{\noOne}{\noOne}{L. Pellizzon}{\approval}
+\addChangelog{1.0.1}{26/01/2026}{L. Pellizzon}{F. Pasqual}{\noOne}{Modifica e correzione dello stato del documento}
+\addChangelog{1.0.0}{16/01/2026}{\noOne}{\noOne}{V. Baleanu}{\approval}
 \addChangelog{0.1.0}{19/12/2025}{C. Libralato}{F. Pasqual}{\noOne}{\firstDraft}
 \makeChangelog
 
@@ -91,25 +92,25 @@
 \section{Approfondimento}
 \subsection*{Stato avanzamento lavori}
 Il team ha elencato le attività portate a termine nell'ultimo periodo e quelle in corso d'opera, in riferimento alla
-documentazione, in particolare all'Analisi dei Requisiti e al Piano di Progetto, e a questioni più tecniche come 
+documentazione, in particolare all'Analisi dei Requisiti e al Piano di Progetto, e a questioni più tecniche come
 la configurazione del kit fornito e l'autenticazione con \textit{KNX 3rd Party API$_G$}.
 
 \subsection*{Q\&A riguardo l'AdR}
 Dalla risoluzione dei dubbi riguardo l'Analisi dei Requisiti è emerso che:
 \begin{itemize}
-\item il database interno, atto alla permanenza dei dati, non può essere considerato attore secondario in quanto interno al sistema, è utile invece identificare
-come attori esterni al sistema le entità che inviano notifiche o segnali, che in base all'interpretazione di alto livello possono
-coincidere con un paziente, con il \textit{Vimar Cloud}, o con l'\textit{API KNK IoT}.
-\item la scelta tra il mantenimento di \textit{casi d'uso$_G$} aventi solo estensioni o la loro disgregazione nelle singole parti
-può dipendere dal contesto, a tal fine è importante porre l'attenzione sull'obiettivo dell'attore e le pre e post condizioni del \textit{caso d'uso} aggregato. L'approccio è utile
-per raggruppare concettualmente più operazioni, tuttavia in merito a ciò è consigliato di attendere anche il feedback del prof. Cardin.
-\item la distinzione tra i \textit{casi d'uso} legati alla visualizzazione delle Analytics e dei Dispositivi è corretta in quanto le due sezioni soddisfano obiettivi diversi.
+    \item il database interno, atto alla permanenza dei dati, non può essere considerato attore secondario in quanto interno al sistema, è utile invece identificare
+          come attori esterni al sistema le entità che inviano notifiche o segnali, che in base all'interpretazione di alto livello possono
+          coincidere con un paziente, con il \textit{Vimar Cloud}, o con l'\textit{API KNK IoT}.
+    \item la scelta tra il mantenimento di \textit{casi d'uso$_G$} aventi solo estensioni o la loro disgregazione nelle singole parti
+          può dipendere dal contesto, a tal fine è importante porre l'attenzione sull'obiettivo dell'attore e le pre e post condizioni del \textit{caso d'uso} aggregato. L'approccio è utile
+          per raggruppare concettualmente più operazioni, tuttavia in merito a ciò è consigliato di attendere anche il feedback del prof. Cardin.
+    \item la distinzione tra i \textit{casi d'uso} legati alla visualizzazione delle Analytics e dei Dispositivi è corretta in quanto le due sezioni soddisfano obiettivi diversi.
 \end{itemize}
 
 \subsection*{Consigli}
 Per quanto concerne i diagrammi dei \textit{casi d'uso} è stato consigliata la realizzazione di diagrammi
 unici e completi, senza avere diagrammi separati per ogni sotto-caso che non provochi flussi alternativi rilevanti.\\\\
-Riguardo la visualizzazione delle Analytics è stato caldamente suggerito di non sviluppare le grafiche dal principio ma di usare 
+Riguardo la visualizzazione delle Analytics è stato caldamente suggerito di non sviluppare le grafiche dal principio ma di usare
 template e temi gratuiti pre-esistenti al fine di ottenere soluzioni robuste e verificate senza aumentare notevolmente il carico di lavoro.\\\\
 È infine emerso il concetto di reparto (o gruppo logico), a cui associare utenti e impianti. Questo metodo di gestione offre maggior flessibilità
 e facilita la gestione di notifiche, allarmi e Analytics.
