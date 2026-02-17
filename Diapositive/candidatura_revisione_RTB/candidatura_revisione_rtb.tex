@@ -35,17 +35,12 @@
       \centering
       \includegraphics[height=2.5cm, right]{../logo-crop.pdf}
     \end{minipage}
-    \begin{minipage}{0.3\textwidth}
-      \centering
-      \includegraphics[height=2.5cm, left]{./img/logounipd.png}
-    \end{minipage}
   \end{center}
   \begin{center}
     \vspace{0.5em}
       {\usebeamerfont{title}\color{black}\textbf{\inserttitle}\par}
     \vspace{0.7em}
     {\usebeamerfont{date}\insertauthor\par}
-    {\usebeamerfont{subtitle}\textbf{SnakeByte}\par}
     \vspace{0.5cm}
     {\usebeamerfont{date}\Date\par}
   \end{center}
@@ -57,7 +52,7 @@
   \hbox{
     \begin{minipage}[t]{0.40\paperwidth}
       \hspace*{0.5em}
-      \raggedright\usebeamerfont{footline}{Gruppo 1}
+      \raggedright\usebeamerfont{footline}{Presentazione tecnologie}
     \end{minipage}%
     \begin{minipage}[t]{0.20\paperwidth}
       \centering\usebeamerfont{footline}Slide \insertframenumber{} di \inserttotalframenumber
@@ -103,17 +98,68 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Tecnologie}
+% \begin{frame}{Tecnologie}
+% \begin{columns}[c] % [c] = centratura verticale
+%   \column{0.33\textwidth}
+%   \centering
+%   \includegraphics[width=0.385\textwidth]{img/tslogo.png}\\
+%   TypeScript
+
+%   \vspace{0.6cm}
+%   \centering
+%   \includegraphics[width=0.475\textwidth]{img/angularlogo.png}\\
+%   Angular
+
+%   \column{0.33\textwidth}
+%   \centering
+%   \includegraphics[width=0.7\textwidth]{img/nodejslogo.png}\\
+%   Node.js 
+
+%   \vspace{0.6cm}
+
+%   \includegraphics[width=0.6\textwidth]{img/expressjslogo.png}\\
+%   Express %come lo giustifichiamo?
+
+%   \column{0.33\textwidth}
+%   \centering
+%   \includegraphics[width=0.385\textwidth]{img/postgrelogo.png}\\
+%   PostgreSQL %Scritture molto più lente delle letture (come lo giustifichiamo?)
+
+%   \vspace{0.6cm}
+
+%   \centering
+%   \includegraphics[width=0.75\textwidth]{img/dockerlogo.png}\\
+%   Docker %alternative Podman (è daemonless e rootless di default ma anche docker lo si può far girare rootless) docker è più diffuso 
+%           %e meglio supportato (Dockerhub con tutte le versioni ecc.)
+% \end{columns}
+% \end{frame}
+
+\begin{frame}{Tecnologie front-end}
 \begin{columns}[c] % [c] = centratura verticale
   \column{0.33\textwidth}
   \centering
-  \includegraphics[width=0.475\textwidth]{img/tslogo.png}\\
+  \includegraphics[width=0.385\textwidth]{img/tslogo.png}\\
   TypeScript
 
-  \vspace{0.6cm}
-
+  \column{0.33\textwidth}
+  \centering
   \includegraphics[width=0.475\textwidth]{img/angularlogo.png}\\
   Angular
+
+  \column{0.33\textwidth}
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/dockerlogo.png}\\
+  Docker %alternative Podman (è daemonless e rootless di default ma anche docker lo si può far girare rootless) docker è più diffuso 
+          %e meglio supportato (Dockerhub con tutte le versioni ecc.)
+\end{columns}
+\end{frame}
+
+\begin{frame}{Tecnologie back-end}
+\begin{columns}[c] % [c] = centratura verticale
+  \column{0.33\textwidth}
+  \centering
+  \includegraphics[width=0.385\textwidth]{img/tslogo.png}\\
+  TypeScript
 
   \column{0.33\textwidth}
   \centering
@@ -125,18 +171,17 @@
   \includegraphics[width=0.6\textwidth]{img/expressjslogo.png}\\
   Express %come lo giustifichiamo?
 
-  \vspace{0.6cm}
-
+  \column{0.33\textwidth}
+  \centering
   \includegraphics[width=0.385\textwidth]{img/postgrelogo.png}\\
   PostgreSQL %Scritture molto più lente delle letture (come lo giustifichiamo?)
 
-  \column{0.33\textwidth}
+  \vspace{0.6cm}
+
   \centering
   \includegraphics[width=0.75\textwidth]{img/dockerlogo.png}\\
-  Docker. %alternative Podman (è daemonless e rootless di default ma anche docker lo si può far girare rootless) docker è più diffuso 
+  Docker %alternative Podman (è daemonless e rootless di default ma anche docker lo si può far girare rootless) docker è più diffuso 
           %e meglio supportato (Dockerhub con tutte le versioni ecc.)
-
-  
 \end{columns}
 \end{frame}
 
