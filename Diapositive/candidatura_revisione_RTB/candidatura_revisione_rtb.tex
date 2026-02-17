@@ -30,9 +30,14 @@
 \setbeamertemplate{title page}{
   \vspace{4em}
   \begin{center}
+    \hspace{1.5cm}
     \begin{minipage}{0.3\textwidth}
       \centering
-      \includegraphics[height=2.5cm, center]{../logo-crop.pdf}
+      \includegraphics[height=2.5cm, right]{../logo-crop.pdf}
+    \end{minipage}
+    \begin{minipage}{0.3\textwidth}
+      \centering
+      \includegraphics[height=2.5cm, left]{img/logounipd.png}
     \end{minipage}
   \end{center}
   \begin{center}
@@ -185,8 +190,9 @@
   \centering
   \includegraphics[width=0.385\textwidth]{img/postgrelogo.png}\\
   PostgreSQL\\
-  \scriptsize (\textit{Velocità in lettura}) 
-  %Scritture molto più lente delle letture (come lo giustifichiamo?)
+  \scriptsize (\textit{Velocità in lettura, \\versatile}) 
+  %Scritture molto più lente delle letture 
+  % Versatile nel senso che tramite le tabelle UNLOGGED (se saltano il WA Log), JSONB + GIN Index può essere usato come database per caching (tipo redis o mongodb)
 
   \vspace{0.6cm}
 
@@ -198,7 +204,7 @@
 \end{frame}
 
 
-\begin{frame}{Casi d'uso implementati dal PoC}
+\begin{frame}{Funzionalità implementate nel PoC}
 \begin{itemize}
   \item Collegamento account \textit{MyVimar};
   \item Visualizzazione elenco dispositivi (termostati, luci, tapparelle);
