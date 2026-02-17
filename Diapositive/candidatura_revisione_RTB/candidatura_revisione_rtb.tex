@@ -81,20 +81,15 @@
 \end{frame}
 }
 
-\begin{frame}{Obiettivo capitolato}
-  \begin{figure}[h]
-  \includegraphics[width=\textwidth]{img/schemacapitolato.png}
-  \caption{Schema riassuntivo dell'interazione del sistema}
-  \end{figure}
-\end{frame}
-
-\begin{frame}{Obiettivo capitolato Vimar View4Life}
+\begin{frame}{Obiettivo capitolato }
 \begin{itemize}
-  \item Capitolato C9: Piattaforma per la gestione degli impianti Smart nelle residenza protette;
+  \item Capitolato C9 (Vimar View4Life): Piattaforma per la gestione degli impianti Smart nelle residenze protette;
   \item Sistema di gestione allarmi e utenti (OSS e Amministrazione) che possono interagire con gli allarmi (gestione e risoluzione)
   \item Visualizzazione di statistiche sui consumi, con relativi consigli per ridurli, e sugli allarmi.
- 
 \end{itemize}
+\begin{center}
+    \includegraphics[width=0.75\textwidth]{img/schemacapitolato.jpeg}\\
+\end{center}
 \end{frame}
 
 % \begin{frame}{Tecnologie}
@@ -177,12 +172,14 @@
   \centering
   \includegraphics[width=0.7\textwidth]{img/nodejslogo.png}\\
   Node.js \\
-  \scriptsize (\textit{Gestione delle configurazioni/versioni})
+  {\scriptsize(\textit{Gestione delle configurazioni/versioni})\par}
 
   \vspace{0.6cm}
 
   \includegraphics[width=0.6\textwidth]{img/expressjslogo.png}\\
-  Express %come lo giustifichiamo?
+  Express \\ 
+
+  \scriptsize (\textit{Flessibilità, documentazione estesa})
 
   \column{0.33\textwidth}
   \centering
@@ -203,8 +200,10 @@
 
 \begin{frame}{Casi d'uso implementati dal PoC}
 \begin{itemize}
-  \item UC28.3.1.2 Visualizzazione elenco dispositivi;
-  \item UC31 Creazione allarme
+  \item Collegamento account \textit{MyVimar};
+  \item Visualizzazione elenco dispositivi (termostati, luci, tapparelle);
+  \item Aggiunta allarme (sensore, priorità e soglia di scatto);
+  \item Visualizzazione allarmi attivi.
 \end{itemize}
 \end{frame}
 
