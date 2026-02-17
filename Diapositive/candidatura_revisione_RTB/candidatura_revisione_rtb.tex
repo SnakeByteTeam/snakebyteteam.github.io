@@ -30,10 +30,9 @@
 \setbeamertemplate{title page}{
   \vspace{4em}
   \begin{center}
-    \hspace{1.5cm}
     \begin{minipage}{0.3\textwidth}
       \centering
-      \includegraphics[height=2.5cm, right]{../logo-crop.pdf}
+      \includegraphics[height=2.5cm, center]{../logo-crop.pdf}
     \end{minipage}
   \end{center}
   \begin{center}
@@ -52,7 +51,7 @@
   \hbox{
     \begin{minipage}[t]{0.40\paperwidth}
       \hspace*{0.5em}
-      \raggedright\usebeamerfont{footline}{Presentazione tecnologie}
+      \raggedright\usebeamerfont{footline}{Presentazione tecnologie 18/02/2026}
     \end{minipage}%
     \begin{minipage}[t]{0.20\paperwidth}
       \centering\usebeamerfont{footline}Slide \insertframenumber{} di \inserttotalframenumber
@@ -137,20 +136,33 @@
 \begin{frame}{Tecnologie front-end}
 \begin{columns}[c] % [c] = centratura verticale
   \column{0.33\textwidth}
-  \centering
-  \includegraphics[width=0.385\textwidth]{img/tslogo.png}\\
-  TypeScript
+
+  \begin{center}
+    \includegraphics[width=0.385\textwidth]{img/tslogo.png}\\
+    TypeScript\\
+    \scriptsize (\textit{Type safety})
+    
+  \end{center}
+  
 
   \column{0.33\textwidth}
-  \centering
-  \includegraphics[width=0.475\textwidth]{img/angularlogo.png}\\
-  Angular
 
+  \begin{center}
+    \includegraphics[width=0.385\textwidth]{img/angularlogo.png}\\
+    Angular\\
+    \scriptsize (\textit{Componibilità, completezza})
+    
+  \end{center}
+  
   \column{0.33\textwidth}
-  \centering
-  \includegraphics[width=0.75\textwidth]{img/dockerlogo.png}\\
-  Docker %alternative Podman (è daemonless e rootless di default ma anche docker lo si può far girare rootless) docker è più diffuso 
-          %e meglio supportato (Dockerhub con tutte le versioni ecc.)
+  \begin{center}
+    \includegraphics[width=0.75\textwidth]{img/dockerlogo.png}\\
+    Docker\\ %alternative Podman (è daemonless e rootless di default ma anche docker lo si può far girare rootless) docker è più diffuso 
+            %e meglio supportato (Dockerhub con tutte le versioni ecc.)
+    \scriptsize (\textit{Portabilità, riproducibilità})
+    
+  \end{center}
+  
 \end{columns}
 \end{frame}
 
