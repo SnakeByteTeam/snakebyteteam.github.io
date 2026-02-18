@@ -1,0 +1,70 @@
+\documentclass{beamer}
+
+\usepackage{../tema}
+
+
+\title{SAL}
+\author[F. Venzo]{F.Venzo}
+\setDate{18/02/2026}
+
+\begin{document}
+
+{
+  \setbeamertemplate{footline}{}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+
+\addMember{Filippo}{Venzo}{Responsabile}
+\addMember{Giuseppe}{De Fina}{Amministratore}
+\addMember{Valeria}{Baleanu}{Progettista}
+\addMember{Christian}{Libralato}{Progettista}
+\addMember{Leonardo}{Pellizzon}{Progettista}
+\addMember{Francesco}{Pasqual}{Verificatore}
+\addMember{Luca}{Granziero}{Verificatore}
+\makeMembersFrame
+
+\begin{frame}{Avanzamenti settimanali}
+    \begin{itemize}
+        \item Approvazione di Analisi dei Requisiti, Piano di Qualifica, Piano di Progetto, Norme di Progetto e verbali interni ed esterni;
+        \item Presentazione RTB;
+        \item Chiusura \textit{milestone$_{G}$} RTB, PdP, AdR, NdP e PoC.
+\end{itemize}
+\end{frame}
+
+% PRIMO FRAME: Attività terminate dal verbale esterno 
+
+% Reset delle entries per il secondo frame 
+\renewcommand{\precedentTodoEntries}{}
+
+%  SECONDO FRAME: Attività terminate dal verbale interno
+\addPrecedentTodo{vi\_2026\_02\_09.a4}{\#105}{Scrittura verbale interno}{F. Venzo}{11/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a5}{\#104}{Aggiungere campo "generalizzazioni" nella tabella Use Case in NdP}{G. De Fina}{11/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a6}{\#104}{Aggiungere alla sezione test specifiche sugli stub}{G. De Fina}{11/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a3}{PR \#103}{Verifica Analisi dei Requisiti}{F. Pasqual, L. Granziero}{12/02/2026}
+\addPrecedentTodo{ - }{PR \#102}{Approvazione Norme di Progetto}{F. Venzo}{13/02/2026}
+\addPrecedentTodo{ - }{PR \#116}{Approvazione Piano di Progetto}{F. Venzo}{13/02/2026}
+\addPrecedentTodo{ - }{PR \#123}{Approvazione Analisi dei Requisiti}{F. Venzo}{13/02/2026}
+\addPrecedentTodo{ - }{PR \#135}{Approvazione Piano di Qualifica}{F. Venzo}{15/02/2026}
+\addPrecedentTodo{vi\_2026\_01\_13.a2}{\#72}{Presentazione delle tecnologie per RTB}{SnakeByte Team}{18/02/2026}
+\makePrecedentTodoFrame
+
+
+\begin{frame}{Attività da completare}
+  Le attività volte al completamento della \textit{baseline$_{G}$} dell'RTB sono state terminate.\\
+  \vspace{1cm}
+  Nei prossimi giorni, dopo aver ottenuto una valutazione dal Prof. Cardin, comincierà la progettazione.
+\end{frame}
+
+\begin{frame}{Limiti o blocchi incontrati}
+  \begin{itemize}
+    \item Errore nell'approvazione dei verbali esterni.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Dubbi incontrati}
+  Durante l'ultimo periodo non ci sono stati particolari dubbi.
+\end{frame}
+
+\end{document}
