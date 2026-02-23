@@ -1,0 +1,62 @@
+name: Spell Check LaTeX with Hunspell
+
+on:
+  pull_request:
+    branches:
+      - develop
+    paths:
+      - '**.tex'
+      - '**.bib'
+
+jobs:
+  spellcheck:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
+      - name: Install Hunspell
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y hunspell hunspell-it hunspell-en-us
+      
+      - name: Get changed LaTeX files
+        id: changed-files
+        run: |
+          # Trova i file .tex modificati nella PR
+          git diff --name-only origin/${{ github.base_ref }}...HEAD | grep '\.tex$' > changed_files.txt || true
+          echo "Files to check:"
+          cat changed_files.txt
+      
+      - name: Run spell check
+        run: |
+          # Esegue lo script di controllo ortografico
+          chmod +x .github/scripts/check_spelling.sh
+          .github/scripts/check_spelling.sh
+      
+      - name: Upload spelling errors
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: spelling-errors
+          path: spelling_errors.txt
+      
+      - name: Comment PR with results
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            if (fs.existsSync('spelling_errors.txt')) {
+              const errors = fs.readFileSync('spelling_errors.txt', 'utf8');
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `## Analisi ortografica\n\n\`\`\`\n${errors}\n\`\`\``
+              });
+            }
