@@ -1,0 +1,198 @@
+\documentclass{beamer}
+\usepackage[italian]{babel}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[table, x11names]{xcolor}
+\usepackage{xstring}
+\usepackage{etoolbox}
+\usepackage{tabularx}
+\usepackage[export]{adjustbox}
+
+\newcommand{\Date}{}
+
+\newcommand{\setDate}[1]{\renewcommand{\Date}{#1}}
+
+\useinnertheme{default}
+\useoutertheme{default}
+\usecolortheme{default}
+
+\definecolor{aziendaPrimary}{RGB}{84, 150, 104}
+\setbeamercolor{structure}{fg=aziendaPrimary}
+\setbeamercolor{frametitle}{bg=aziendaPrimary!10,fg=aziendaPrimary}
+
+% rimuovere i simboli di navigazione
+\setbeamertemplate{navigation symbols}{}
+
+
+% pagina iniziale
+\setbeamertemplate{title page}{
+  \vspace{4em}
+  \begin{center}
+    \hspace{1.5cm}
+    \begin{minipage}{0.3\textwidth}
+      \centering
+      \includegraphics[height=2.5cm, right]{../logo-crop.pdf}
+    \end{minipage}
+    \begin{minipage}{0.3\textwidth}
+      \centering
+      \includegraphics[height=2.5cm, left]{img/logounipd.png}
+    \end{minipage}
+  \end{center}
+  \begin{center}
+    \vspace{0.5em}
+      {\usebeamerfont{title}\color{black}\textbf{\inserttitle}\par}
+    \vspace{0.7em}
+    {\usebeamerfont{date}\insertauthor\par}
+    \vspace{0.5cm}
+    {\usebeamerfont{date}\Date\par}
+  \end{center}
+}
+
+% footer
+\setbeamertemplate{footline}{
+  \vspace{2ex}
+  \hbox{
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hspace*{0.5em}
+      \raggedright\usebeamerfont{footline}{Presentazione RTB XX/02/2026}
+    \end{minipage}%
+    \begin{minipage}[t]{0.20\paperwidth}
+      \centering\usebeamerfont{footline}Slide \insertframenumber{} di \inserttotalframenumber
+    \end{minipage}%
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hfill
+      \insertshortauthor
+      \hspace*{0.8em}
+      \raisebox{-0.25\height}{\includegraphics[width=0.7cm]{../logo-crop.pdf}}
+      \hspace*{1.3em}
+    \end{minipage}
+  }
+  \vspace{0.8ex}
+}
+
+\usepackage[absolute,overlay]{textpos}
+
+\title{Presentazione RTB}
+\author[]{Gruppo 1 - A.A 2025/2026}
+\setDate{XX/02/2026}
+
+\begin{document}
+{
+\setbeamertemplate{footline}{}
+\begin{frame}
+  \titlepage
+\end{frame}
+}
+
+\begin{frame}{Obiettivo capitolato}
+\begin{itemize}
+  \item Capitolato C9 (Vimar View4Life): Piattaforma per la gestione degli impianti Smart nelle residenze protette;
+  \item Sistema di gestione allarmi e utenti (OSS e Amministrazione) che possono interagire con gli allarmi (gestione e risoluzione)
+  \item Visualizzazione di statistiche sui consumi, con relativi consigli per ridurli, e sugli allarmi.
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Risultati dell'Analisi dei Requisiti (1/2)} 
+    \begin{center}
+        \begin{tabular}{|c|c|c|c|c|}
+            \hline
+            \textbf{Tipologia} & \textbf{Obbligatori} & \textbf{Desiderabili} & \textbf{Opzionali} & \textbf{Totali} \\
+            \hline
+            Funzionali & 87 & 16 & 8 & 111 \\
+            \hline
+            Di qualità & X & X & X & X \\
+            \hline
+            Di vincolo & X & X & X & X \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Risultati dell'Analisi dei Requisiti (2/2)} 
+    
+\end{frame}
+
+\begin{frame}{Modifiche migliorative attuate} 
+    \begin{itemize}
+      \item Definizione tramite \textit{template} della struttura dei documenti;
+      \item Processo di verifica e approvazione mediato da \textit{pull request};
+      \item Ripianificazione della distribuzione oraria;
+      \item Aggiunta nuova \text{Github Action} per controllo automatico di errori ortografici nei documenti;
+      \item Slittamento della data di consegna prevista al 5/04/2026;
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Modifiche migliorative in corso} 
+  In seguito alla revisione della TB:
+  \begin{itemize}
+    \item modifica dell'Analisi dei Requisiti;
+    \item rivalutazione della tecnologia scelta per la codifica della componente \textit{backend}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Autovalutazione}
+  \begin{itemize}
+    \item Il gruppo \textit{SnakeByte} si ritiene perlopiù soddisfatto del lavoro svolto;
+    \item Le criticità maggiori derivano dalla poca esperienza dei membri di fare delle stime orarie corrette;
+    \item Numerose ripianificazioni dei ruoli ricoperti durante gli sprint;
+    \item Valutiamo molto positivamente la quantità di riunione avvenute con la proponente.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[shrink=10]{Consuntivo di periodo attuale}
+  \vspace{1cm}
+  \begin{center}
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+              & \textbf{Resp.} & \textbf{Amm.} & \textbf{Ana.} & \textbf{Proge.} & \textbf{Progr.} & \textbf{Ver.} & \textbf{Totale} \\
+            \hline
+            V. Baleanu & X & X & X & X & X & X & X\\
+            \hline
+            G. De Fina & X & X & X & X & X & X & X \\
+            \hline
+            L. Granziero & X & X & X & X & X & X & X \\
+            \hline 
+            C. Libralato & X & X & X & X & X & X & X\\
+            \hline
+            F. Pasqual  & X & X & X & X & X & X & X\\
+            \hline
+            L. Pellizzon & X & X & X & X & X & X & X\\
+            \hline
+            F. Venzo & X & X & X & X & X & X & X \\
+            \hline
+            \textbf{Totale}  & X & X & X & X & X & X & X \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\begin{frame}[shrink=10]{Preventivo a finire} 
+  \vspace{1cm}
+  \begin{center}
+        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+            \hline
+              & \textbf{Resp.} & \textbf{Amm.} & \textbf{Ana.} & \textbf{Proge.} & \textbf{Progr.} & \textbf{Ver.} & \textbf{Totale} \\
+            \hline
+            V. Baleanu & X & X & X & X & X & X & X\\
+            \hline
+            G. De Fina & X & X & X & X & X & X & X \\
+            \hline
+            L. Granziero & X & X & X & X & X & X & X \\
+            \hline 
+            C. Libralato & X & X & X & X & X & X & X\\
+            \hline
+            F. Pasqual  & X & X & X & X & X & X & X\\
+            \hline
+            L. Pellizzon & X & X & X & X & X & X & X\\
+            \hline
+            F. Venzo & X & X & X & X & X & X & X \\
+            \hline
+            \textbf{Totale}  & X & X & X & X & X & X & X \\
+            \hline
+        \end{tabular}
+    \end{center}
+\end{frame}
+
+\end{document}
