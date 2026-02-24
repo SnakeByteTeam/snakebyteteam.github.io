@@ -1,0 +1,94 @@
+\documentclass[10pt, letterpaper]{article}
+
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 23/02/2026}
+\setDocVersion{0.1.0}
+\setDocData{24/02/2026}
+\setDocIndex{vi\_2026\_02\_23}
+\setDocState{1}
+\setDocRecipient{1}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\addChangelog{0.1.0}{24/02/2026}{L. Granziero}{C. Libralato}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+
+\makeMeetingInfoTable{23/02/2026}{14:30}{16:30}{via \textit{Discord$_G$}}
+
+\addParticipant{Valeria}{Baleanu}{Progettista}{P}
+\addParticipant{Leonardo}{Pellizzon}{Amministratore}{P}
+\addParticipant{Luca}{Granziero}{Responsabile}{P}
+\addParticipant{Francesco}{Pasqual}{Progettista}{P}
+\addParticipant{Giuseppe}{De Fina}{Progettista}{P}
+\addParticipant{Christian}{Libralato}{Verificatore}{P}
+\addParticipant{Filippo}{Venzo}{Progettista}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{vi\_2026\_02\_09.a1}{\noOne}{SnakeByte team}{10/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a2}{\#106}{G. de Fina}{12/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a3}{PR \#103}{F. Pasqual, L. Granziero}{09/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a4}{\#105}{F. Venzo}{14/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a5}{\#104}{G. de Fina}{12/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a6}{\#105}{G. de Fina}{12/02/2026}
+
+\makePrecedentTodoTable
+
+
+\section{Ordine del giorno}
+\begin{itemize}
+    \item organizzazione degli \textit{Sprint$_G$} di sviluppo e revisione dei ruoli;
+    \item scelta tecnologica del backend;
+    \item pianificazione tecnica del database;
+    \item organizzazione del lavoro e pianificazione collaborativa.
+\end{itemize}
+
+\section{Approfondimento}
+
+\subsection*{Ruoli e organizzazione degli sprint}
+Si discute sull’assegnazione dei ruoli nei vari sprint. Viene evidenziato che la progettazione deve precedere la programmazione.
+Il gruppo concorda di assegnare quattro progettisti al fine di accelerare il più possibile la fase iniziale di progettazione.
+I ruoli verranno aggiornati sia per lo sprint attuale che per quelli futuri.
+Viene inoltre discusso il mantenimento del budget, spostandolo tra sprint senza incrementi.
+
+\subsection*{Scelta tecnologica backend}
+Viene discusso il confronto tra \textit{Express$_G$} e \textit{NestJS$_G$}.
+NestJS viene ritenuto vantaggioso grazie alla dependency injection automatica, al supporto ai test integrati e all’organizzazione modulare.
+Il gruppo decide all’unanimità di adottare NestJS per il backend e di informare il docente tramite mail.
+
+\subsection*{Database e aspetti tecnici}
+Viene confermato l’utilizzo di \textit{PostgreSQL$_G$} come database principale.
+Viene valutato positivamente l’utilizzo di \textit{TimescaleDB$_G$} per la gestione di dati temporali.
+Si discutono inoltre aspetti tecnici relativi alla gestione delle tabelle e delle prestazioni.
+
+\subsection*{Organizzazione del lavoro}
+Il gruppo concorda di iniziare con una fase collaborativa tra i progettisti per facilitare la progettazione iniziale.
+Successivamente, i compiti verranno suddivisi tra i membri del gruppo.
+
+
+
+\addDecision{Modifica dei ruoli negli sprint con assegnazione di quattro progettisti}
+\addDecision{Adozione di NestJS come framework backend}
+\addDecision{Utilizzo di PostgreSQL come database principale}
+\makeDecisionTable
+
+\addTodo{}{Aggiornare il piano sprint con i ruoli corretti}{ }{}
+\addTodo{}{Preparare e inviare mail al docente per comunicare il cambio tecnologico}{ }{}
+\addTodo{\noOne}{Organizzare un incontro tra i progettisti per avviare la progettazione}{SnakeByte team}{24/02/2026}
+\addTodo{}{Approfondire la configurazione del backend e del database}{ }{}
+\makeTodoTable
+
+\end{document}
