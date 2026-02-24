@@ -9,6 +9,7 @@
 \usepackage{etoolbox}
 \usepackage{tabularx}
 \usepackage[export]{adjustbox}
+\usepackage{eurosym}
 
 \newcommand{\Date}{}
 
@@ -173,25 +174,23 @@
 \begin{frame}[shrink=10]{Preventivo a finire} 
   \vspace{1cm}
   \begin{center}
-        \begin{tabular}{|c|c|c|c|c|c|c|c|}
+        \begin{tabular}{|c|c|c|}
             \hline
-              & \textbf{Resp.} & \textbf{Amm.} & \textbf{Ana.} & \textbf{Proge.} & \textbf{Progr.} & \textbf{Ver.} & \textbf{Totale} \\
+            \rowcolor{lightgray} \textbf{Ruolo} & \textbf{Ore rimanenti} & \textbf{Budget rimanente} \\
             \hline
-            V. Baleanu & X & X & X & X & X & X & X\\
+            Responsabile & 22 & 660 \euro\\
             \hline
-            G. De Fina & X & X & X & X & X & X & X \\
+            Amministratore & 1 & 20 \euro \\
             \hline
-            L. Granziero & X & X & X & X & X & X & X \\
+            Analista & -3 & -75 \euro\\
             \hline 
-            C. Libralato & X & X & X & X & X & X & X\\
+            Progettista & 91 & 2275 \euro\\
             \hline
-            F. Pasqual  & X & X & X & X & X & X & X\\
+            Programmatore  & 83 & 1245 \euro\\
             \hline
-            L. Pellizzon & X & X & X & X & X & X & X\\
+            Verificatore & 71 & 1065 \euro\\
             \hline
-            F. Venzo & X & X & X & X & X & X & X \\
-            \hline
-            \textbf{Totale}  & X & X & X & X & X & X & X \\
+            \cellcolor{lightgray} \textbf{Totale}  & 265  & 5190 \euro\\
             \hline
         \end{tabular}
     \end{center}
