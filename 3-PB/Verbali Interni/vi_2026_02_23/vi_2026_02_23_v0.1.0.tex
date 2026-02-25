@@ -1,6 +1,5 @@
 \documentclass[10pt, letterpaper]{article}
 
-
 \usepackage{../../../../template/template}
 
 \setDocTitle{Verbale interno 23/02/2026}
@@ -25,7 +24,9 @@
 
 \newpage
 
-
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
 \makeMeetingInfoTable{23/02/2026}{14:30}{16:30}{via \textit{Discord$_G$}}
 
 \addParticipant{Valeria}{Baleanu}{Progettista}{P}
@@ -43,11 +44,13 @@
 \addPrecedentTodo{vi\_2026\_02\_09.a3}{PR \#103}{F. Pasqual, L. Granziero}{09/02/2026}
 \addPrecedentTodo{vi\_2026\_02\_09.a4}{\#105}{F. Venzo}{14/02/2026}
 \addPrecedentTodo{vi\_2026\_02\_09.a5}{\#104}{G. de Fina}{12/02/2026}
-\addPrecedentTodo{vi\_2026\_02\_09.a6}{\#105}{G. de Fina}{12/02/2026}
 
 \makePrecedentTodoTable
 
 
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
 \section{Ordine del giorno}
 \begin{itemize}
     \item organizzazione degli \textit{Sprint$_G$} di sviluppo e revisione dei ruoli;
@@ -55,7 +58,9 @@
     \item pianificazione tecnica del database;
     \item organizzazione del lavoro e pianificazione collaborativa.
 \end{itemize}
-
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
 \section{Approfondimento}
 
 \subsection*{Ruoli e organizzazione degli sprint}
@@ -78,17 +83,22 @@ Si discutono inoltre aspetti tecnici relativi alla gestione delle tabelle e dell
 Il gruppo concorda di iniziare con una fase collaborativa tra i progettisti per facilitare la progettazione iniziale.
 Successivamente, i compiti verranno suddivisi tra i membri del gruppo.
 
-
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
 
 \addDecision{Modifica dei ruoli negli sprint con assegnazione di quattro progettisti}
 \addDecision{Adozione di NestJS come framework backend}
 \addDecision{Utilizzo di PostgreSQL come database principale}
 \makeDecisionTable
 
-\addTodo{}{Aggiornare il piano sprint con i ruoli corretti}{ }{}
-\addTodo{}{Preparare e inviare mail al docente per comunicare il cambio tecnologico}{ }{}
-\addTodo{\noOne}{Organizzare un incontro tra i progettisti per avviare la progettazione}{SnakeByte team}{24/02/2026}
-\addTodo{}{Approfondire la configurazione del backend e del database}{ }{}
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+\addTodo{\#141}{Scrittura verbale interno}{L. Granziero}{25/02/2026}
+\addTodo{\#143}{Aggiornare il Piano di Progetto allo sprint 8}{L. Pellizzon}{28/02/2026}
+
+
 \makeTodoTable
 
 \end{document}
