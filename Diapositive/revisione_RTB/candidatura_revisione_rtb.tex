@@ -77,7 +77,7 @@
 
 \title{Presentazione RTB}
 \author[]{Gruppo 1 - A.A 2025/2026}
-\setDate{XX/02/2026}
+\setDate{27/02/2026}
 
 \begin{document}
 {
@@ -95,11 +95,12 @@
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Risultati dell'Analisi dei Requisiti (1/2)} 
+\begin{frame}{Comprensione degli obiettivi del capitolato} 
     \begin{center}
         \begin{tabular}{|c|c|c|c|c|}
+          \rowcolor{lightgray}
             \hline
-            \textbf{Tipologia} & \textbf{Obbligatori} & \textbf{Desiderabili} & \textbf{Opzionali} & \textbf{Totali} \\
+            \cellcolor{lightgray}\textbf{Tipologia} & \cellcolor{lightgray}\textbf{Obbligatori} & \cellcolor{lightgray}\textbf{Desiderabili} & \cellcolor{lightgray}\textbf{Opzionali} & \cellcolor{lightgray}\textbf{Totali} \\
             \hline
             Funzionali & 87 & 16 & 8 & 111 \\
             \hline
@@ -111,16 +112,65 @@
     \end{center}
 \end{frame}
 
-\begin{frame}{Risultati dell'Analisi dei Requisiti (2/2)} 
-    
+\begin{frame}{Tecnologie scelte}
+  \begin{columns}[c] % [c] = centratura verticale
+  \column{0.33\textwidth}
+
+  \centering
+  \includegraphics[width=0.70\textwidth]{img/angularlogo.png}\\
+
+  \includegraphics[width=0.70\textwidth]{img/nest-js.png}\\
+
+  \column{0.33\textwidth}
+
+  \centering
+  \includegraphics[width=0.66\textwidth]{img/postgrelogo.png}\\
+
+  \vspace{0.6cm}
+  
+  \centering
+  \includegraphics[width=1\textwidth]{img/dockerlogo.png}\\
+  \vspace{0.6cm}
+\end{columns}
+\end{frame}
+
+\begin{frame}[shrink=5]{Analisi e gestione dei rischi tecnologici (1/2)} 
+\vspace{0.5cm}
+\begin{center}
+  \textbf{Conoscenza insufficiente di una tecnologia}
+  \begin{itemize}
+    \item Probabilità di occorrenza: Alta;
+    \item Livello di impatto: Alto.
+    \item Mitigazione: Dedicare ore di calendario allo studio individuale di una tecnologia e organizzare dei momenti di allineamento collaborativo.
+  \end{itemize}
+  \vspace{0.2cm}
+  \textbf{Test non esaustivi}
+  \begin{itemize}
+    \item Probabilità di occorrenza: Media;
+    \item Livello di impatto: Medio;
+    \item Mitigazione: Effettuare un controllo dell'esaustività, della correttezza e del livello di copertura del codice dei test automatici.
+  \end{itemize}
+\end{center}
+\end{frame}
+
+\begin{frame}[shrink=5]{Analisi e gestione dei rischi tecnologici (2/2)} 
+\begin{center}
+  \vspace{1.7cm}
+  \textbf{\textit{Bug$_{G}$} nel codice}
+  \begin{itemize}
+    \item Probabilità di occorrenza: Alta;
+    \item Livello di impatto: Medio.
+    \item Mitigazione: Individuare la parte di codice che genera il \textit{bug} attraverso analisi del codice e strumenti come \textit{debugger$_{G}$}. Verificare occorrenza del rischio \textit{Test non esaustivi}.
+  \end{itemize}
+\end{center}
 \end{frame}
 
 \begin{frame}{Modifiche migliorative attuate} 
     \begin{itemize}
-      \item Definizione tramite \textit{template} della struttura dei documenti;
-      \item Processo di verifica e approvazione mediato da \textit{pull request};
+      \item Definizione tramite \LaTeX\ \textit{templates} della struttura dei documenti;
+      \item Processo di verifica e approvazione mediato da \textit{pull request$_{G}$} di \textit{GitHub$_{G}$};
       \item Ripianificazione della distribuzione oraria;
-      \item Aggiunta nuova \text{Github Action} per controllo automatico di errori ortografici nei documenti;
+      \item Aggiunta nuova \textit{Github Action$_{G}$} per controllo automatico, tramite \textit{Hunspell$_{G}$} di errori ortografici nei documenti;
       \item Slittamento della data di consegna prevista al 5/04/2026;
     \end{itemize}
 \end{frame}
@@ -130,6 +180,12 @@
   \begin{itemize}
     \item modifica dell'Analisi dei Requisiti;
     \item rivalutazione della tecnologia scelta per la codifica della componente \textit{backend}
+  \end{itemize}
+  \vspace{0.3cm}
+  Attività periodiche: 
+  \begin{itemize}
+    \item Aggiornamento Piano di Progetto;
+    \item Aggiornamento Piano di Qualifica e Cruscotto di controllo qualità;
   \end{itemize}
 \end{frame}
 
@@ -142,7 +198,7 @@
   \end{itemize}
 \end{frame}
 
-\begin{frame}[shrink=15]{Consuntivo di periodo attuale}
+\begin{frame}[shrink=20]{Consuntivo di periodo attuale}
   \vspace{1cm}
   \begin{center}
         \begin{tabular}{|c|c|c|c|c|c|c|c|}
@@ -168,7 +224,7 @@
             \textbf{Totale}  & \textbf{56} & \textbf{75} & \textbf{89} & \textbf{20} & \textbf{59} & \textbf{71} & \textbf{367} \\
             \hline
             \cellcolor{lightgray}
-            \textbf{Risorse} & \textbf{\euro 1680} & \textbf{\euro 1500} & \textbf{\euro 2225} & \textbf{\euro 500} & \textbf{\euro 885} & \textbf{\euro 1065} & \textbf{\euro 7855} \\
+            \textbf{Risorse} & \textbf{1680 \euro} & \textbf{1500 \euro} & \textbf{2225 \euro} & \textbf{500 \euro} & \textbf{885 \euro} & \textbf{1065 \euro} & \textbf{7855 \euro} \\
             \hline
         \end{tabular}
     \end{center}
@@ -197,7 +253,7 @@
             \hline
             Verificatore & 71 & 1065 \euro\\
             \hline
-            \cellcolor{lightgray} \textbf{Totale}  & 265  & 5190 \euro\\
+            \cellcolor{lightgray} \textbf{Totale}  & \textbf{265}  & \textbf{5190 \euro}\\
             \hline
         \end{tabular}
     \end{center}
