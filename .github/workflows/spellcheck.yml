@@ -1,4 +1,4 @@
-name: Spell Check LaTeX with Hunspell
+name: Spell Check with Hunspell
 
 on:
   pull_request:
@@ -11,6 +11,10 @@ on:
 jobs:
   spellcheck:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
     
     steps:
       - name: Checkout code
@@ -57,6 +61,6 @@ jobs:
                 issue_number: context.issue.number,
                 owner: context.repo.owner,
                 repo: context.repo.repo,
-                body: `## Analisi ortografica\n\n\`\`\`\n${errors}\n\`\`\``
+                body: `## Errori ortografici rilevati\n\n\`\`\`\n${errors}\n\`\`\``
               });
             }
