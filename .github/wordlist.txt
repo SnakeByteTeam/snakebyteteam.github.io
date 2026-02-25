@@ -47,6 +47,7 @@ Docker
 Express
 Node
 NodeJS
+NestJS
 TypeScript
 JavaScript
 PostgreSQL
