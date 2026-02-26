@@ -1,84 +1,78 @@
-<mxfile host="Electron" agent="Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/28.2.5 Chrome/138.0.7204.251 Electron/37.6.1 Safari/537.36" version="28.2.5">
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.5.2">
   <diagram name="Pagina-1" id="5XD0e86YSCvo368NrwOw">
-    <mxGraphModel dx="1119" dy="647" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="580" pageHeight="400" math="0" shadow="0">
+    <mxGraphModel dx="534" dy="666" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="510" pageHeight="400" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
-        <mxCell id="0eDCtJMA-s8kn3nRDo3o-2" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;Utente&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-          <mxGeometry x="20" y="160" width="30" height="60" as="geometry" />
+        <mxCell id="0eDCtJMA-s8kn3nRDo3o-2" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;Utente&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="30" x="20" y="160" as="geometry" />
         </mxCell>
-        <mxCell id="0eDCtJMA-s8kn3nRDo3o-9" value="" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" parent="1" vertex="1">
-          <mxGeometry x="80" y="10" width="420" height="380" as="geometry" />
+        <mxCell id="0eDCtJMA-s8kn3nRDo3o-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="" vertex="1">
+          <mxGeometry height="380" width="420" x="80" y="10" as="geometry" />
         </mxCell>
-        <mxCell id="0eDCtJMA-s8kn3nRDo3o-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;" parent="1" source="0eDCtJMA-s8kn3nRDo3o-10" target="0eDCtJMA-s8kn3nRDo3o-2" edge="1">
+        <mxCell id="0eDCtJMA-s8kn3nRDo3o-11" edge="1" parent="1" source="0eDCtJMA-s8kn3nRDo3o-10" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;" target="0eDCtJMA-s8kn3nRDo3o-2">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="0eDCtJMA-s8kn3nRDo3o-10" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;UC2-Autenticazione con&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;cambio password&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="120" y="166.25" width="130" height="47.5" as="geometry" />
+        <mxCell id="0eDCtJMA-s8kn3nRDo3o-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;UC2-Autenticazione con&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;cambio password&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="47.5" width="130" x="120" y="166.25" as="geometry" />
         </mxCell>
-        <mxCell id="0eDCtJMA-s8kn3nRDo3o-12" value="&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;Sistema&lt;/font&gt;" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="80" y="10" width="50" height="20" as="geometry" />
+        <mxCell id="0eDCtJMA-s8kn3nRDo3o-12" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;Sistema&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="50" x="80" y="10" as="geometry" />
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-2" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;UC41-Errore&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;username non registrato o&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;font-size: 10px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); line-height: 100%;&quot;&gt;password temporanea errata&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="330" y="67.5" width="130" height="60" as="geometry" />
+        <mxCell id="zbkRqO5kN80hotkNS7m3-2" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;UC41-Errore&amp;nbsp;&lt;/font&gt;&lt;/div&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;username non registrato o&amp;nbsp;&lt;/font&gt;&lt;span style=&quot;font-size: 10px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255)); line-height: 100%;&quot;&gt;password temporanea errata&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="330" y="67.5" as="geometry" />
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-3" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;UC42-&lt;/span&gt;&lt;span style=&quot;font-size: 10px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Errore nuova password uguale alla password temporanea&lt;/span&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="360" y="204" width="130" height="60" as="geometry" />
+        <mxCell id="zbkRqO5kN80hotkNS7m3-3" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;UC42-&lt;/span&gt;&lt;span style=&quot;font-size: 10px; background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;Errore nuova password uguale alla password temporanea&lt;/span&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="130" x="360" y="153.75" as="geometry" />
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-4" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;UC43-&lt;/span&gt;&lt;span style=&quot;background-color: transparent; font-size: 10px;&quot;&gt;La nuova&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;background-color: transparent; font-size: 10px;&quot;&gt;password non è&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;background-color: transparent; font-size: 10px;&quot;&gt;valida&lt;/span&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" style="ellipse;whiteSpace=wrap;html=1;" parent="1" vertex="1">
-          <mxGeometry x="235" y="280" width="110" height="50" as="geometry" />
+        <mxCell id="zbkRqO5kN80hotkNS7m3-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;UC43-&lt;/span&gt;&lt;span style=&quot;background-color: transparent; font-size: 10px;&quot;&gt;La nuova&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;background-color: transparent; font-size: 10px;&quot;&gt;password non è&amp;nbsp;&lt;/span&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;background-color: transparent; font-size: 10px;&quot;&gt;valida&lt;/span&gt;&lt;br&gt;&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="50" width="110" x="232" y="280" as="geometry" />
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-6" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" parent="1" source="zbkRqO5kN80hotkNS7m3-2" target="0eDCtJMA-s8kn3nRDo3o-10" edge="1">
-          <mxGeometry width="160" relative="1" as="geometry">
+        <mxCell id="zbkRqO5kN80hotkNS7m3-6" edge="1" parent="1" source="zbkRqO5kN80hotkNS7m3-2" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0;exitY=1;exitDx=0;exitDy=0;entryX=1;entryY=0;entryDx=0;entryDy=0;" target="0eDCtJMA-s8kn3nRDo3o-10" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" width="160" as="geometry">
             <mxPoint x="170" y="250" as="sourcePoint" />
             <mxPoint x="330" y="250" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-7" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=1;entryDx=0;entryDy=0;" parent="1" source="zbkRqO5kN80hotkNS7m3-3" target="0eDCtJMA-s8kn3nRDo3o-10" edge="1">
-          <mxGeometry width="160" relative="1" as="geometry">
+        <mxCell id="zbkRqO5kN80hotkNS7m3-7" edge="1" parent="1" source="zbkRqO5kN80hotkNS7m3-3" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0;exitY=0.5;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="0eDCtJMA-s8kn3nRDo3o-10" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" width="160" as="geometry">
             <mxPoint x="210" y="180" as="sourcePoint" />
             <mxPoint x="335" y="180" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-8" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" parent="1" source="zbkRqO5kN80hotkNS7m3-4" target="0eDCtJMA-s8kn3nRDo3o-10" edge="1">
-          <mxGeometry x="0.0188" y="-4" width="160" relative="1" as="geometry">
+        <mxCell id="zbkRqO5kN80hotkNS7m3-8" edge="1" parent="1" source="zbkRqO5kN80hotkNS7m3-4" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="0eDCtJMA-s8kn3nRDo3o-10" value="&amp;lt;&amp;lt;extend&amp;gt;&amp;gt;">
+          <mxGeometry relative="1" width="160" x="0.0188" y="-4" as="geometry">
+            <mxPoint as="offset" />
             <mxPoint x="200" y="220" as="sourcePoint" />
             <mxPoint x="325" y="220" as="targetPoint" />
-            <mxPoint as="offset" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-13" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=170;exitDy=61.25;exitPerimeter=0;endArrow=none;endFill=0;" parent="1" source="zbkRqO5kN80hotkNS7m3-10" edge="1">
+        <mxCell id="zbkRqO5kN80hotkNS7m3-13" edge="1" parent="1" source="zbkRqO5kN80hotkNS7m3-10" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=170;exitDy=61.25;exitPerimeter=0;endArrow=none;endFill=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="290" y="140" as="targetPoint" />
             <mxPoint x="271" y="99.5" as="sourcePoint" />
+            <mxPoint x="290" y="140" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-10" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;Condizione&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;L&#39;Utente ha inserito un username che non è registrato all&#39;interno del sistema o la password temporanea è errata per l&#39;username inserito&lt;/font&gt;&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="1" vertex="1">
-          <mxGeometry x="90" y="40" width="170" height="97.5" as="geometry" />
+        <mxCell id="zbkRqO5kN80hotkNS7m3-10" parent="1" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;Condizione&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;L&#39;Utente ha inserito un username che non è registrato all&#39;interno del sistema o la password temporanea è errata per l&#39;username inserito&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="97.5" width="170" x="90" y="40" as="geometry" />
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-14" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" edge="1">
+        <mxCell id="zbkRqO5kN80hotkNS7m3-14" edge="1" parent="1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="208" y="254" as="targetPoint" />
             <mxPoint x="144" y="290" as="sourcePoint" />
+            <mxPoint x="208" y="254" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-11" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;Condizione&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;L&#39;Utente ha inserito una nuova password che non rispetta i criteri richiesti&lt;/font&gt;&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="1" vertex="1">
-          <mxGeometry x="90" y="290" width="130" height="90" as="geometry" />
+        <mxCell id="zbkRqO5kN80hotkNS7m3-11" parent="1" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;Condizione&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;L&#39;Utente ha inserito una nuova password che non rispetta i criteri richiesti&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="130" x="90" y="290" as="geometry" />
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-15" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=none;endFill=0;" parent="1" edge="1">
+        <mxCell id="zbkRqO5kN80hotkNS7m3-15" edge="1" parent="1" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0;exitDx=0;exitDy=0;exitPerimeter=0;endArrow=none;endFill=0;">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="300" y="230" as="targetPoint" />
-            <mxPoint x="360" y="280" as="sourcePoint" />
+            <mxPoint x="356.9999999999999" y="282" as="sourcePoint" />
+            <mxPoint x="302" y="202" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="zbkRqO5kN80hotkNS7m3-12" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 10px;&quot;&gt;Condizione&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 10px; line-height: 10px;&quot;&gt;L&#39;Utente ha inserito una nuova password uguale alla password temporanea&lt;/font&gt;&lt;/div&gt;" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" parent="1" vertex="1">
-          <mxGeometry x="355" y="280" width="140" height="90" as="geometry" />
-        </mxCell>
-        <mxCell id="wklGDqIoGBTZ1PMm788I-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;endArrow=none;endFill=0;" parent="1" source="wklGDqIoGBTZ1PMm788I-1" target="0eDCtJMA-s8kn3nRDo3o-10" edge="1">
-          <mxGeometry relative="1" as="geometry" />
-        </mxCell>
-        <mxCell id="wklGDqIoGBTZ1PMm788I-1" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 100%;&quot;&gt;Database&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" parent="1" vertex="1">
-          <mxGeometry x="530" y="160" width="30" height="60" as="geometry" />
+        <mxCell id="zbkRqO5kN80hotkNS7m3-12" parent="1" style="shape=note2;boundedLbl=1;whiteSpace=wrap;html=1;size=25;verticalAlign=top;align=center;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px; line-height: 10px;&quot;&gt;Condizione&lt;/font&gt;&lt;/div&gt;&lt;font style=&quot;font-size: 10px; line-height: 10px;&quot;&gt;L&#39;Utente ha inserito una nuova password uguale alla password temporanea&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="90" width="140" x="351" y="280" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>

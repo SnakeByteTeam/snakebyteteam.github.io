@@ -1,0 +1,28 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:147.0) Gecko/20100101 Firefox/147.0" version="29.5.2">
+  <diagram name="Pagina-1" id="5XD0e86YSCvo368NrwOw">
+    <mxGraphModel dx="319" dy="341" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="300" pageHeight="200" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="0eDCtJMA-s8kn3nRDo3o-2" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;div&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;Amministratore&lt;/font&gt;&lt;/div&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="30" x="30" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="0eDCtJMA-s8kn3nRDo3o-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;" value="" vertex="1">
+          <mxGeometry height="180" width="200" x="90" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="0eDCtJMA-s8kn3nRDo3o-11" edge="1" parent="1" source="0eDCtJMA-s8kn3nRDo3o-10" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.5;exitDx=0;exitDy=0;endArrow=none;endFill=0;" target="0eDCtJMA-s8kn3nRDo3o-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="0eDCtJMA-s8kn3nRDo3o-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font style=&quot;line-height: 100%; font-size: 10px;&quot;&gt;UC3.1-Visualizzazione&lt;br&gt;&lt;/font&gt;&lt;/div&gt;&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;span style=&quot;font-size: 10px;&quot;&gt;email&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="38.12" width="131.8" x="124.1" y="70.94" as="geometry" />
+        </mxCell>
+        <mxCell id="0eDCtJMA-s8kn3nRDo3o-12" parent="1" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;rounded=0;" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Sistema&lt;/font&gt;" vertex="1">
+          <mxGeometry height="20" width="50" x="90" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="S24aCxYAiczYcImcThVR-3" parent="1" style="text;html=1;whiteSpace=wrap;align=center;verticalAlign=middle;rounded=0;strokeColor=default;" value="&lt;div align=&quot;center&quot;&gt;&lt;font style=&quot;font-size: 10px;&quot;&gt;UC3-Visualizzazione account MyVimar collegato&lt;/font&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="30" width="140" x="90" y="160" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

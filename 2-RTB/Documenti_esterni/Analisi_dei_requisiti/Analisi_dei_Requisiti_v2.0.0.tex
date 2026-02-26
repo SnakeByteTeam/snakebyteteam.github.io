@@ -51,35 +51,49 @@
 \newcommand\Aaapr{15} % Aggiunta assegnazione appartamento - reparto
 \newcommand\Raapr{16} % Rimozion assegnazione appartamento - reparto
 
-\newcommand\Vd{17} % Visualizzazione Dashboard
+\newcommand\Vd{17} % Visualizzazione dashboard
 
-\newcommand\Va{27} % Visualizzazione analytics
+\newcommand\Am{18} % Aggiunta modulo alla dashboard
+\newcommand\Amsa{19} % Aggiunta modulo statistiche allarmi
+\newcommand\Amiu{20} % Aggiunta modulo informazioni Utente
+\newcommand\Amacl{21} % Aggiunta modulo analisi clima
+\newcommand\Amaco{22} % Aggiunta modulo analisi consumi
 
-\newcommand\Vap{28} % Visualizzazione Appartamento
+\newcommand\Rm{23} % Rimozione modulo alla dashboard
+\newcommand\Rmsa{24} % Rimozione modulo statistiche allarmi
+\newcommand\Rmiu{25} % Rimozione modulo informazioni Utente
+\newcommand\Rmacl{26} % Rimozione modulo analisi clima
+\newcommand\Rmaco{27} % Rimozione modulo analisi consumi
 
-\newcommand\Aapp{29} % Abilita appartamento
-\newcommand\Dapp{30} % Disabilita appartamento
+\newcommand\Ra{28} % Risoluzione allarme
 
-\newcommand\Aa{31} % Aggiunta allarme
-\newcommand\Mpa{32} % Modifica priorità allarme
-\newcommand\Msia{33} % Modifica soglia intervento allarme
-\newcommand\Moaa{34} % Modifica orario attivazione allarme
-\newcommand\Moda{35} % Modifica orario disattivazione allarme
-\newcommand\Aal{36} % Abilita allarme
-\newcommand\Dal{37} % Disabilita allarme
-\newcommand\Ea{38} % Elimina allarme
+\newcommand\Va{29} % Visualizzazione analytics
 
-\newcommand\Vn{39} % Visualizzazione notifiche
+\newcommand\Vap{30} % Visualizzazione Appartamento
 
-\newcommand\Erunr{40} % Errore username non registrato o password errata
-\newcommand\Erpte{41} % Errore username non registrato o password temporanea errata
-\newcommand\Ernpupt{42} % Errore nuova password è uguale alla password temporanea
-\newcommand\Ernpnv{43} % Errore nuova password non valida
-\newcommand\Eruu{44} % Errore username già in uso
-\newcommand\Ernru{45} % Errore nome reparto già in uso
-\newcommand\Erns{46} % Errore nessun sensore selezionato
-\newcommand\Ernlp{47} % Errore nessun livello di priorità selezionato
-\newcommand\Ernss{48} % Errore nessun soglia di intervento selezionata
+\newcommand\Aapp{31} % Abilita appartamento
+\newcommand\Dapp{32} % Disabilita appartamento
+
+\newcommand\Aa{33} % Aggiunta allarme
+\newcommand\Mpa{34} % Modifica priorità allarme
+\newcommand\Msia{35} % Modifica soglia intervento allarme
+\newcommand\Moaa{36} % Modifica orario attivazione allarme
+\newcommand\Moda{37} % Modifica orario disattivazione allarme
+\newcommand\Aal{38} % Abilita allarme
+\newcommand\Dal{39} % Disabilita allarme
+\newcommand\Ea{40} % Elimina allarme
+
+\newcommand\Vn{41} % Visualizzazione notifiche
+
+\newcommand\Erunr{42} % Errore username non registrato o password errata
+\newcommand\Erpte{43} % Errore username non registrato o password temporanea errata
+\newcommand\Ernpupt{44} % Errore nuova password è uguale alla password temporanea
+\newcommand\Ernpnv{45} % Errore nuova password non valida
+\newcommand\Eruu{46} % Errore username già in uso
+\newcommand\Ernru{47} % Errore nome reparto già in uso
+\newcommand\Erns{48} % Errore nessun sensore selezionato
+\newcommand\Ernlp{49} % Errore nessun livello di priorità selezionato
+\newcommand\Ernss{50} % Errore nessun soglia di intervento selezionata
 
 \begin{document}
 \setcounter{tocdepth}{5}
@@ -106,7 +120,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                2.0.0                                  & 10/02/2026    & Approvato      &
+                2.1.0                                  & 26/02/2026    & Verificato      &
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
@@ -125,6 +139,8 @@
         \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+        \hline
+        2.1.0 & 26/02/2026 & L. Pellizon & C. Libralato & - & Sistemazioni degli erori emersi durante alla candidatura alla revisione RTB \\
         \hline
         2.0.0 & 10/02/2026 & - & - & F. Venzo & Approvazione \\
         \hline
@@ -242,6 +258,9 @@
     \item \textbf{Diagrammi Use Case - Riccardo Cardin}
           \\ \url{https://www.math.unipd.it/~rcardin/swea/2022/Diagrammi%20Use%20Case.pdf} 
           \\ (consultato il 10/02/2026).
+    \item \textbf{Glossario}
+          \\ \url{https://snakebyteteam.github.io/2-RTB/Documenti_interni/Glossario/glossario_v1.0.0.pdf}
+          \\ (consultato il 10/02/2026).
 \end{itemize}
 
 \section{Descrizione del prodotto}
@@ -264,7 +283,7 @@ View e i relativi servizi \textit{cloud}, con la possibilità di controllo da re
 \subsection{Funzionalità del prodotto}
 Dal punto di vista degli utenti del \os l'applicativo svolge le seguenti funzioni:
 \begin{itemize}
-    \item Visualizzazione delle informazioni generali di allarmi, statistiche ed analitiche tramite cruscotto riassuntivo (Dashboard);
+    \item Visualizzazione delle informazioni generali di allarmi, statistiche ed analitiche tramite cruscotto riassuntivo (dashboard);
     \item Possibilità di essere notificati, visualizzare e gestire gli allarmi attivi;
     \item Possibilità di visualizzare e gestire i dispositivi dei vari impianti collocati in diverse residenze;
     \item Possibilità di visualizzare statistiche, tramite grafici, sui consumi dell'impianto, sulla variazione di temperatura e sugli
@@ -355,8 +374,6 @@ Di seguito vengono riportati gli attori secondari individuati:
         \hline
         \rowcolor{lightgray} \textbf{Attore} & \textbf{Descrizione} \\
         \hline
-        \db & Rappresenta il \db responsabile della persistenza dei dati. \\
-        \hline
         \cloud & Rappresenta il \cloud che mette a disposizione un'interfaccia per accedere ai dati riguardanti gli appartamenti, le stanze e i dispositivi. \\
         \hline
         \caption{Attori secondari}
@@ -368,7 +385,6 @@ Di seguito vengono riportati gli attori secondari individuati:
 % --------
 
 \addAttore{\user}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\user si trova nella pagina di autenticazione.}
 \addPoC{L'\user è autenticato nel Sistema;}
@@ -385,7 +401,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addInclusione{\rif{\Au.2}}
 \addScenarioAlternativo{L'\user non è registrato nel Sistema o la password è errata (\rif{\Erunr});}
 \addEstensione{\rif{\Erunr}}
-\makeUC[0.9]{\Au}{Autenticazione}
+\makeUC[0.825]{\Au}{Autenticazione}
 
 \addAttore{\user}
 \addPrC{L'\user sta eseguendo l'autenticazione.}
@@ -402,7 +418,6 @@ Di seguito vengono riportati gli attori secondari individuati:
 % --------
 
 \addAttore{\user}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\user si trova nella pagina di autenticazione con cambio password.}
 \addPoC{L'\user è autenticato nel Sistema;}
@@ -425,7 +440,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addEstensione{\rif{\Ernpupt}}
 \addEstensione{\rif{\Ernpnv}}
 \addTrigger{L'\os si è autenticato per la prima volta.}
-\makeUC[1]{\Aucp}{Autenticazione con cambio password}
+\makeUC[0.825]{\Aucp}{Autenticazione con cambio password}
 
 \addAttore{\user}
 \addPrC{L'\user sta eseguendo l'autenticazione con cambio password.}
@@ -448,46 +463,49 @@ Di seguito vengono riportati gli attori secondari individuati:
 % --------
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema.}
 \addPoC{L'\admin visualizza se è presente un account MyVimar collegato.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione dell'account MyVimar;}
 \addScenarioPrincipale{L'\admin visualizza se è presente un account MyVimar collegato.}
-\makeUC[0.6]{\VaMV}{Visualizzazione account MyVimar collegato}
+\addInclusione{\rif{\VaMV.1}}
+\makeUC{\VaMV}{Visualizzazione account MyVimar collegato}
 
 \addAttore{\admin}
-\addAttoreSec{\db;}
-\addAttoreSec{\cloud.}
+\addPrC{L'\admin sta visualizzando l'account MyVimar collegato.}
+\addPoC{L'\admin visualizza la email dell'account MyVimar collegato.}
+\addScenarioPrincipale{L'\admin visualizza la email dell'account MyVimar collegato.}
+\makeUC{\VaMV.1}{Visualizzazione email}
+
+\addAttore{\admin}
+\addAttoreSec{\cloud}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema.}
 \addPoC{Il Sistema aggiunge le credenziali fornite dal portale di Vimar alla propria configurazione.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione dell'account MyVimar;}
 \addScenarioPrincipale{L'\admin viene reindirizzato al portale di Vimar per collegare l'account
     segue la procedura.}
-\makeUC[0.6]{\CaMV}{Collegamento account MyVimar}
+\makeUC[0.633]{\CaMV}{Collegamento account MyVimar}
 
 \addAttore{\admin}
-\addAttoreSec{\db;}
-\addAttoreSec{\cloud.}
+\addAttoreSec{\cloud}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema.}
 \addPoC{Il Sistema rimuove le credenziali dell'account MyVimar dalla propria configurazione.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione dell'account MyVimar;}
 \addScenarioPrincipale{L'\admin rimuove l'account MyVimar collegato.}
-\makeUC[0.6]{\RaMV}{Rimozione account MyVimar}
+\makeUC[0.633]{\RaMV}{Rimozione account MyVimar}
 
 % --------
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema.}
 \addPoC{L'\admin visualizza l'elenco degli utenti.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione utenti;}
 \addScenarioPrincipale{L'\admin visualizza l'elenco degli utenti (\rif{\Vu.1}).}
 \addInclusione{\rif{\Vu.1}}
-\makeUC[0.6]{\Vu}{Visualizzazione elenco utenti}
+\makeUC{\Vu}{Visualizzazione elenco utenti}
 
 \addPrC{L'\admin sta visualizzando l'elenco di tutti gli utenti.}
 \addPoC{L'\admin visualizza un singolo utente con le proprie informazioni.}
@@ -522,7 +540,6 @@ Di seguito vengono riportati gli attori secondari individuati:
 \makeUC{\Vu.1.3}{Visualizzazione username}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema.}
 \addPoC{Un nuovo utente \os è stato creato all'interno del Sistema.}
@@ -544,7 +561,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioAlternativo{L'username inserito è già in uso (\rif{\Eruu}).}
 \addEstensione{\rif{\Eruu}}
 %\addTrigger{L'\admin vuole registrare un nuovo \user del \os.}
-\makeUC[1]{\Cu}{Creazione nuovo utente \os}
+\makeUC[0.825]{\Cu}{Creazione nuovo utente \os}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo utente \os.}
@@ -571,7 +588,6 @@ Di seguito vengono riportati gli attori secondari individuati:
 \makeUC{\Cu.4}{Generazione password temporanea}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'\os che si vuole eliminare esiste nel Sistema.}
@@ -579,19 +595,18 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione utenti;}
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla eliminazione di un utente;}
 \addScenarioPrincipale{L'\admin elimina l'utente \os.}
-\makeUC[0.6]{\Eu}{Eliminazione utente \os}
+\makeUC{\Eu}{Eliminazione utente \os}
 
 % --------
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema.}
 \addPoC{L'\admin visualizza l'elenco dei reparti.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
 \addScenarioPrincipale{L'\admin visualizza l'elenco dei reparti (\rif{\Vr.1}).}
 \addInclusione{\rif{\Vr.1}}
-\makeUC[0.6]{\Vr}{Visualizzazione elenco reparti}
+\makeUC{\Vr}{Visualizzazione elenco reparti}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta visualizzando l'elenco dei reparti.}
@@ -635,7 +650,6 @@ Di seguito vengono riportati gli attori secondari individuati:
 \makeUC{\Vr.1.2.1.1}{Visualizzazione nome appartamento}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema.}
 \addPoC{Il reparto viene aggiunto nel Sistema.}
@@ -650,7 +664,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioAlternativo{Il nome inserito è già in uso (\rif{\Ernru}).}
 \addEstensione{\rif{\Ernru}}
 \addInclusione{\rif{\Cr.1}}
-\makeUC[1]{\Cr}{Creazione reparto}
+\makeUC[0.825]{\Cr}{Creazione reparto}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo reparto.}
@@ -659,7 +673,6 @@ Di seguito vengono riportati gli attori secondari individuati:
 \makeUC{\Cr.1}{Inserimento nome}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{Il reparto che si vuole modificare esiste nel sistema.}
@@ -668,10 +681,9 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla modifica di un reparto;}
 \addScenarioPrincipale{L'\admin modifica il nome del reparto;}
 \addScenarioPrincipale{L'\admin conferma l'operazione.}
-\makeUC[0.6]{\Mr}{Modifica nome reparto}
+\makeUC{\Mr}{Modifica nome reparto}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{Il reparto che si vuole eliminare esiste nel Sistema.}
@@ -679,12 +691,11 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'eliminazione di un reparto;}
 \addScenarioPrincipale{L'\admin elimina il reparto.}
-\makeUC[0.6]{\Er}{Eliminazione reparto}
+\makeUC{\Er}{Eliminazione reparto}
 
 % --------
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema.}
 \addPoC{L'assegnazione \os - reparto viene registrata nel Sistema.}
@@ -699,7 +710,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioPrincipale{L'\admin conferma l'operazione.}
 \addInclusione{\rif{\Aaosr.1}}
 \addInclusione{\rif{\Aaosr.2}}
-\makeUC[0.6]{\Aaosr}{Aggiunta assegnazione utente \os - reparto}
+\makeUC{\Aaosr}{Aggiunta assegnazione utente \os - reparto}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta aggiungendo un'assegnazione utente \os - reparto.}
@@ -714,7 +725,6 @@ Di seguito vengono riportati gli attori secondari individuati:
 \makeUC{\Aaosr.2}{Selezione utente \os}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'assegnazione utente \os - reparto che si vuole rimuovere esiste nel Sistema.}
@@ -722,12 +732,11 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione reparti;}
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla rimozione di un'assegnazione utente \os - reparto;}
 \addScenarioPrincipale{L'\admin rimuove l'assegnazione utente \os - reparto.}
-\makeUC[0.6]{\Raosr}{Rimozione assegnazione utente \os - reparto}
+\makeUC{\Raosr}{Rimozione assegnazione utente \os - reparto}
 
 % --------
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'\admin si trova nella sezione gestione reparti.}
@@ -743,7 +752,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioPrincipale{L'\admin conferma l'operazione.}
 \addInclusione{\rif{\Aaapr.1}}
 \addInclusione{\rif{\Aaapr.2}}
-\makeUC[0.6]{\Aaapr}{Aggiunta assegnazione appartamento - reparto}
+\makeUC{\Aaapr}{Aggiunta assegnazione appartamento - reparto}
 
 \addAttore{\admin}
 \addPrC{L'\admin sta aggiungendo un'assegnazione appartamento - reparto.}
@@ -758,7 +767,6 @@ Di seguito vengono riportati gli attori secondari individuati:
 \makeUC{\Aaapr.2}{Selezione appartamento}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'assegnazione appartamento - reparto che si vuole rimuovere esiste nel Sistema;}
@@ -766,11 +774,12 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla assegnazione di un'assegnazione appartamento - reparto;}
 \addPoC{L'assegnazione appartamento - reparto viene rimossa dal Sistema.}
 \addScenarioPrincipale{L'\admin rimuove l'assegnazione appartamento - reparto}
-\makeUC[0.6]{\Raapr}{Rimozione assegnazione appartamento - reparto}
+\makeUC{\Raapr}{Rimozione assegnazione appartamento - reparto}
 
 % --------
 
 \addAttore{\user}
+\addAttoreSec{\cloud}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\user è autenticato nel Sistema.}
 \addScenarioPrincipale{L'\user seleziona dal menù l'opzione relativa alla visualizzazione dashboard;}
@@ -785,14 +794,14 @@ Di seguito vengono riportati gli attori secondari individuati:
         \item analisi presenze (\rif{\Vd.6}).
     \end{itemize}
 }
-%\addTrigger{L'\user vuole visualizzare la sezione Dashboard.}
+%\addTrigger{L'\user vuole visualizzare la sezione dashboard.}
 \addInclusione{\rif{\Vd.1}}
 \addInclusione{\rif{\Vd.2}}
 \addInclusione{\rif{\Vd.3}}
 \addInclusione{\rif{\Vd.4}}
 \addInclusione{\rif{\Vd.5}}
 \addInclusione{\rif{\Vd.6}}
-\makeUC[0.6]{\Vd}{Visualizzazione dashboard}
+\makeUC[0.633]{\Vd}{Visualizzazione dashboard}
 
 \addAttore{\user}
 \addPrC{L'\user sta visualizzando la dashboard.}
@@ -889,14 +898,14 @@ Di seguito vengono riportati gli attori secondari individuati:
 
 \addAttore{\user}
 \addPrC{L'\user sta visualizzando la dashboard.}
-\addPoC{L'\user visualizza il grafico che riporta l'andamento della temperatura nelle ultime 12 ore.}
+\addPoC{L'\user visualizza il grafico che riporta l'andamento della temperatura espressa in gradi Celsius nelle ultime 12 ore.}
 \addScenarioPrincipale{L'\user visualizza il grafico che riporta l'andamento della temperatura nelle ultime 12 ore.}
 %\addTrigger{L'\user vuole visualizzare il modulo opzionale relativo all'analisi clima.}
 \makeUC{\Vd.4}{Visualizzazione analisi clima}
 
 \addAttore{\user}
 \addPrC{L'\user sta visualizzando la dashboard.}
-\addPoC{L'\user visualizza il grafico che riporta l'andamento dei consumi nelle ultime 12 ore.}
+\addPoC{L'\user visualizza il grafico che riporta l'andamento dei consumi espressi in watt nelle ultime 12 ore.}
 \addScenarioPrincipale{L'\user visualizza il grafico che riporta l'andamento dei consumi nelle ultime 12 ore.}
 %\addTrigger{L'\user vuole visualizzare il modulo opzionale relativo all'analisi consumi.}
 \makeUC{\Vd.5}{Visualizzazione analisi consumi}
@@ -909,78 +918,94 @@ Di seguito vengono riportati gli attori secondari individuati:
 \makeUC{\Vd.6}{Visualizzazione analisi presenze}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
-\addPrC{L'\admin si trova nella sezione Dashboard.}
-\addPoC{Il Sistema aggiunge nella visualizzazione il modulo statistiche allarmi.}
+\addPrC{L'\admin si trova nella sezione dashboard.}
+\addPoC{Il Sistema aggiunge alla visualizzazione della dashboard il modulo selezionato.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo selezionato.}
+\addGeneralizzazione{\rif{\Amsa}}
+\addGeneralizzazione{\rif{\Amiu}}
+\addGeneralizzazione{\rif{\Amacl}}
+\addGeneralizzazione{\rif{\Amaco}}
+\makeUC[0.6]{\Am}{Aggiunta modulo alla dashboard}
+
+\addAttore{\admin}
+\addPrC{L'\admin si trova nella sezione dashboard.}
+\addPoC{Il Sistema aggiunge alla visualizzazione della dashboard il modulo statistiche allarmi.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo statistiche allarmi.}
-\makeUC[0.6]{18}{Aggiunta modulo statistiche allarmi}
+\makeUC{\Amsa}{Aggiunta modulo statistiche allarmi}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
-\addPrC{L'\admin si trova nella sezione Dashboard.}
-\addPoC{Il Sistema rimuove nella visualizzazione il modulo statistiche allarmi.}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
-\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo statistiche allarmi.}
-\makeUC[0.6]{19}{Rimozione modulo statistiche allarmi}
-
-\addAttore{\admin}
-\addAttoreSec{\db}
-\addPrC{L'\admin si trova nella sezione Dashboard.}
-\addPoC{Il Sistema aggiunge nella visualizzazione il modulo informazioni \user}
+\addPrC{L'\admin si trova nella sezione dashboard.}
+\addPoC{Il Sistema aggiunge alla visualizzazione della dashboard il modulo informazioni \user}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo informazioni \user}
-\makeUC[0.6]{20}{Aggiunta modulo informazioni \user}
+\makeUC{\Amiu}{Aggiunta modulo informazioni \user}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
-\addPrC{L'\admin si trova nella sezione Dashboard.}
-\addPoC{Il Sistema rimuove nella visualizzazione il modulo informazioni \user}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
-\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo informazioni \user}
-\makeUC[0.6]{21}{Rimozione modulo informazioni \user}
-
-\addAttore{\admin}
-\addAttoreSec{\db}
-\addPrC{L'\admin si trova nella sezione Dashboard.}
-\addPoC{Il Sistema aggiunge nella visualizzazione il modulo analisi clima.}
+\addPrC{L'\admin si trova nella sezione dashboard.}
+\addPoC{Il Sistema aggiunge alla visualizzazione della dashboard il modulo analisi clima.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo analisi clima.}
-\makeUC[0.6]{22}{Aggiunta modulo analisi clima}
+\makeUC{\Amacl}{Aggiunta modulo analisi clima}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
-\addPrC{L'\admin si trova nella sezione Dashboard.}
-\addPoC{Il Sistema rimuove nella visualizzazione il modulo analisi clima.}
-\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
-\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo analisi clima.}
-\makeUC[0.6]{23}{Rimozione modulo analisi clima}
-
-\addAttore{\admin}
-\addAttoreSec{\db}
-\addPrC{L'\admin si trova nella sezione Dashboard.}
-\addPoC{Il Sistema aggiunge nella visualizzazione il modulo analisi consumi.}
+\addPrC{L'\admin si trova nella sezione dashboard.}
+\addPoC{Il Sistema aggiunge alla visualizzazione della dashboard il modulo analisi consumi.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin aggiunge alla visualizzazione il modulo analisi consumi.}
-\makeUC[0.6]{24}{Aggiunta modulo analisi consumi}
+\makeUC{\Amaco}{Aggiunta modulo analisi consumi}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
-\addPoC{Il Sistema rimuove nella visualizzazione il modulo analisi consumi.}
+\addPrC{L'\admin si trova nella sezione dashboard.}
+\addPoC{Il Sistema rimuove dalla visualizzazione il modulo selezionato.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo selezionato.}
+\addGeneralizzazione{\rif{\Rmsa}}
+\addGeneralizzazione{\rif{\Rmiu}}
+\addGeneralizzazione{\rif{\Rmacl}}
+\addGeneralizzazione{\rif{\Rmaco}}
+\makeUC[0.6]{\Rm}{Rimozione modulo dalla dashboard}
+
+\addAttore{\admin}
+\addPrC{L'\admin si trova nella sezione dashboard.}
+\addPoC{Il Sistema rimuove dalla visualizzazione della dashboard il modulo statistiche allarmi.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo statistiche allarmi.}
+\makeUC{\Rmsa}{Rimozione modulo statistiche allarmi}
+
+\addAttore{\admin}
+\addPrC{L'\admin si trova nella sezione dashboard.}
+\addPoC{Il Sistema rimuove dalla visualizzazione della dashboard il modulo informazioni \user}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo informazioni \user}
+\makeUC{\Rmiu}{Rimozione modulo informazioni \user}
+
+\addAttore{\admin}
+\addPrC{L'\admin si trova nella sezione dashboard.}
+\addPoC{Il Sistema rimuove dalla visualizzazione della dashboard il modulo analisi clima.}
+\addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
+\addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo analisi clima.}
+\makeUC{\Rmacl}{Rimozione modulo analisi clima}
+
+\addAttore{\admin}
+\addPrC{L'\admin si trova nella sezione dashboard.}
+\addPoC{Il Sistema rimuove nella visualizzazione della dashboard il modulo analisi consumi.}
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione delle informazioni della dashboard;}
 \addScenarioPrincipale{L'\admin rimuove dalla visualizzazione il modulo analisi consumi.}
-\addPrC{L'\admin si trova nella sezione Dashboard.}
-\makeUC[0.6]{25}{Rimozione modulo analisi consumi}
+\addPrC{L'\admin si trova nella sezione dashboard.}
+\makeUC{\Rmaco}{Rimozione modulo analisi consumi}
 
 \addAttore{\user}
-\addPrC{L'\user si trova nella sezione Dashboard.}
+\addPrC{L'\user si trova nella sezione dashboard.}
 \addPoC{Il Sistema contrassegna l'allarme come risolto.}
 \addScenarioPrincipale{L'\user contrassegna l'allarme come risolto.}
-\makeUC[0.6]{26}{Risoluzione allarme}
+\makeUC{\Ra}{Risoluzione allarme}
 
 % --------
 
 \addAttore{\user}
+\addAttoreSec{\cloud}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\user è autenticato nel Sistema.}
 \addPoC{L'\user è all'interno della sezione analytics.}
@@ -1009,7 +1034,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addInclusione{\rif{\Va.7}}
 \addInclusione{\rif{\Va.8}}
 \addInclusione{\rif{\Va.9}}
-\makeUC[0.6][0.55]{\Va}{Visualizzazione analytics}
+\makeUC[0.633][0.55]{\Va}{Visualizzazione analytics}
 
 \addAttore{\user}
 \addPrC{L'\user si trova nella sezione analytics.}
@@ -1083,6 +1108,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \makeUC{\Va.9}{Visualizzazione grafico relativo alla frequenza delle cadute}
 
 \addAttore{\user}
+\addAttoreSec{\cloud}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\user è autenticato nel Sistema.}
 \addPoC{L'\user visualizza un appartamento con le proprie informazioni.}
@@ -1097,7 +1123,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addInclusione{\rif{\Vap.1}}
 \addInclusione{\rif{\Vap.2}}
 \addInclusione{\rif{\Vap.3}}
-\makeUC[0.6]{\Vap}{Visualizzazione appartamento}
+\makeUC[0.633]{\Vap}{Visualizzazione appartamento}
 
 \addAttore{\user}
 \addPrC{L'\user sta visualizzando un appartamento.}
@@ -1167,7 +1193,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addGeneralizzazione{\rif{\Vap.3.1.2.6}}
 \addGeneralizzazione{\rif{\Vap.3.1.2.7}}
 \addGeneralizzazione{\rif{\Vap.3.1.2.8}}
-\makeUC[0.725]{\Vap.3.1.2.1}{Visualizzazione elemento elenco dispositivi}
+\makeUC[0.715]{\Vap.3.1.2.1}{Visualizzazione elemento elenco dispositivi}
 
 \addAttore{\user}
 \addPrC{L'\user sta visualizzando un dispositivo.}
@@ -1267,28 +1293,25 @@ Di seguito vengono riportati gli attori secondari individuati:
 \makeUC{\Vap.3.1.2.8}{Visualizzazione tapparella}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'\admin si trova nella sezione dedicata alla visualizzazione di un appartamento.}
 \addPoC{Il Sistema abilita l'appartamento.}
 \addScenarioPrincipale{L'\admin abilita l'appartamento}
-\makeUC[0.6]{\Aapp}{Abilita appartamento}
+\makeUC{\Aapp}{Abilita appartamento}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'\admin si trova nella sezione dedicata alla visualizzazione di un appartamento.}
 \addPoC{Il Sistema disabilita l'appartamento.}
 \addScenarioPrincipale{L'\admin disabilita l'appartamento}
-\makeUC[0.6]{\Dapp}{Disabilita appartamento}
+\makeUC{\Dapp}{Disabilita appartamento}
 
 % --------
 
 \addAttore{\admin}
-\addAttoreSec{\db;}
-\addAttoreSec{\cloud.}
+\addAttoreSec{\cloud}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema.}
 \addPoC{Un nuovo allarme è aggiunto alla configurazione del Sistema.}
@@ -1321,21 +1344,21 @@ Di seguito vengono riportati gli attori secondari individuati:
 \makeUC[1]{\Aa}{Creazione allarme}
 
 \addAttore{\admin}
-\addPrC{L'\admin sta aggiungendo un nuovo allarme.}
+\addPrC{L'\admin sta creando un nuovo allarme.}
 \addPoC{L'appartamento è selezionato per l'allarme che si vuole creare.}
 %\addTrigger{L'\admin deve selezionare un sensore per l'allarme.}
 \addScenarioPrincipale{L'\admin seleziona l'appartamento per l'allarme che vuole creare.}
 \makeUC{\Aa.1}{Selezione appartamento}
 
 \addAttore{\admin}
-\addPrC{L'\admin sta aggiungendo un nuovo allarme.}
+\addPrC{L'\admin sta creando un nuovo allarme.}
 \addPoC{Il sensore è selezionato per l'allarme che si vuole creare.}
 %\addTrigger{L'\admin deve selezionare un sensore per l'allarme.}
 \addScenarioPrincipale{L'\admin seleziona il sensore per l'allarme che vuole creare.}
 \makeUC{\Aa.2}{Selezione sensore}
 
 \addAttore{\admin}
-\addPrC{L'\admin sta aggiungendo un nuovo allarme.}
+\addPrC{L'\admin sta creando un nuovo allarme.}
 \addPoC{La priorità è selezionata per l'allarme che si vuole creare.}
 %\addTrigger{L'\admin deve assegnare una priorità all'allarme.}
 \addScenarioPrincipale{L'\admin seleziona la priorità dell'allarme che si vuole creare.
@@ -1344,23 +1367,27 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addGeneralizzazione{\rif{\Aa.5}}
 \addGeneralizzazione{\rif{\Aa.6}}
 \addGeneralizzazione{\rif{\Aa.7}}
-\makeUC[0.575]{\Aa.3}{Selezione livello priorità allarme}
+\makeUC[0.6]{\Aa.3}{Selezione livello priorità allarme}
 
+\addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo allarme.}
 \addPoC{La priorità è livello 1 per l'allarme che si vuole creare.}
 \addScenarioPrincipale{L'\admin seleziona la priorità livello 1 per l'allarme che vuole creare}
 \makeUC{\Aa.4}{Selezione livello priorità allarme 1 (bianco)}
 
+\addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo allarme.}
 \addPoC{La priorità è livello 2 per l'allarme che si vuole creare.}
 \addScenarioPrincipale{L'\admin seleziona la priorità livello 2 per l'allarme che vuole creare}
 \makeUC{\Aa.5}{Selezione livello priorità allarme 2 (verde)}
 
+\addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo allarme.}
 \addPoC{La priorità è livello 3 per l'allarme che si vuole creare.}
 \addScenarioPrincipale{L'\admin seleziona la priorità livello 3 per l'allarme che vuole creare}
 \makeUC{\Aa.6}{Selezione livello priorità allarme 3 (arancione)}
 
+\addAttore{\admin}
 \addPrC{L'\admin sta creando un nuovo allarme.}
 \addPoC{La priorità è livello 4 per l'allarme che si vuole creare.}
 \addScenarioPrincipale{L'\admin seleziona la priorità livello 4 per l'allarme che vuole creare}
@@ -1390,7 +1417,6 @@ Di seguito vengono riportati gli attori secondari individuati:
 % --------
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'allarme che si vuole modificare esiste nel sistema.}
@@ -1400,10 +1426,9 @@ Di seguito vengono riportati gli attori secondari individuati:
 %\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
 \addScenarioPrincipale{L'\admin seleziona la nuova priorità;}
 \addScenarioPrincipale{L'\admin conferma l'operazione.}
-\makeUC[0.6]{\Mpa}{Modifica priorità allarme}
+\makeUC{\Mpa}{Modifica priorità allarme}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'allarme che si vuole modificare esiste nel sistema.}
@@ -1413,10 +1438,9 @@ Di seguito vengono riportati gli attori secondari individuati:
 %\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
 \addScenarioPrincipale{L'\admin seleziona la nuova soglia d'intervento;}
 \addScenarioPrincipale{L'\admin conferma l'operazione.}
-\makeUC[0.6]{\Msia}{Modifica soglia intervento allarme}
+\makeUC{\Msia}{Modifica soglia intervento allarme}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'allarme che si vuole modificare esiste nel sistema.}
@@ -1426,10 +1450,9 @@ Di seguito vengono riportati gli attori secondari individuati:
 %\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
 \addScenarioPrincipale{L'\admin seleziona il nuovo orario di attivazione.}
 \addScenarioPrincipale{L'\admin conferma l'operazione.}
-\makeUC[0.6]{\Moaa}{Modifica orario attivazione allarme}
+\makeUC{\Moaa}{Modifica orario attivazione allarme}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'allarme che si vuole modificare esiste nel sistema.}
@@ -1438,10 +1461,9 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla modifica di un allarme;}
 %\addTrigger{L'\admin vuole modificare la priorità di un allarme.}
 \addScenarioPrincipale{L'\admin seleziona il nuovo orario di disattivazione.}
-\makeUC[0.6]{\Moda}{Modifica orario disattivazione allarme}
+\makeUC{\Moda}{Modifica orario disattivazione allarme}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'allarme che si vuole abilitare esiste nel sistema.}
@@ -1449,10 +1471,9 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla abilitazione di un allarme;}
 \addScenarioPrincipale{L'\admin abilita un allarme dal Sistema.}
-\makeUC[0.6]{\Aal}{Abilita allarme}
+\makeUC{\Aal}{Abilita allarme}
 
 \addAttore{\admin}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'allarme che si vuole disabilitare esiste nel sistema.}
@@ -1460,13 +1481,12 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa alla disabilitazione di un allarme;}
 \addScenarioPrincipale{L'\admin disabilita un allarme dal Sistema.}
-\makeUC[0.6]{\Dal}{Disabilita allarme}
+\makeUC{\Dal}{Disabilita allarme}
 
 % --------
 
 \addAttore{\admin}
-\addAttoreSec{\db;}
-\addAttoreSec{\cloud.}
+\addAttoreSec{\cloud}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\admin è autenticato nel Sistema;}
 \addPrC{L'allarme che si vuole eliminare esiste nel sistema.}
@@ -1474,19 +1494,18 @@ Di seguito vengono riportati gli attori secondari individuati:
 \addScenarioPrincipale{L'\admin seleziona dal menù l'opzione relativa alla gestione allarmi;}
 \addScenarioPrincipale{L'\admin seleziona l'opzione relativa all'eliminazione di un allarme;}
 \addScenarioPrincipale{L'\admin elimina un allarme dal Sistema.}
-\makeUC[0.6]{\Ea}{Elimina allarme}
+\makeUC[0.633]{\Ea}{Elimina allarme}
 
 % --------
 
 \addAttore{\user}
-\addAttoreSec{\db}
 \addPrC{Il Sistema è attivo;}
 \addPrC{L'\user è autenticato nel Sistema.}
 \addPoC{L'\user visualizza l'elenco delle notifiche.}
 \addScenarioPrincipale{L'\user seleziona dal menù l'opzione relativa alla visualizzazione delle notifiche;}
 \addScenarioPrincipale{L'\user visualizza l'elenco delle notifiche (\rif{\Vn.1}).}
 \addInclusione{\rif{\Vn.1}}
-\makeUC[0.6]{\Vn}{Visualizzazione elenco notifiche}
+\makeUC{\Vn}{Visualizzazione elenco notifiche}
 
 \addAttore{\user}
 \addPrC{L'\user sta visualizzando l'elenco delle notifiche.}
@@ -1588,7 +1607,7 @@ Di seguito vengono riportati gli attori secondari individuati:
 
 \newpage
 
-\section{Requisiti}{
+\section{Requisiti}
   In questa sezione viene presentata la specifica dei requisiti. In particolare i requisiti si dividono in:
   \begin{itemize}
       \item Funzionali: descrivono le funzionalità che un Sistema deve avere per soddisfare i bisogni;
@@ -1605,38 +1624,40 @@ Di seguito vengono riportati gli attori secondari individuati:
       la password non è corretta per l'\user inserito}{\rif{\Erunr}}
 
   % --- Autenticazione con cambio psw ---
-  \addReqF{2}{L'\user deve potersi autenticare presso il Sistema e impostare una nuova password}{\rif{\Aucp}}
+  \addReqF{2}{L'\user deve potersi autenticare presso il Sistema e impostare una nuova password}{\rif{\Aucp}} % 5
   % \addReqF{2}{L'\user deve inserire il proprio \user per registrarsi presso il Sistema}{}
   \addReqF{2}{L'\user deve inserire la password temporanea che gli è stata fornita dall'amministratore per
       autenticarsi presso il Sistema e impostare una nuova password}{\rif{\Aucp}\\\rif{\Aucp.1}}
   \addReqF{2}{L'\user deve inserire la nuova password per registrarsi presso il Sistema}{\rif{\Aucp}\\\rif{\Aucp.2}}
-  \addReqF{2}{L'\user deve ricevere un errore se l'username non è registrato nel Sistema}{\rif{\Erunr}}
+
   \addReqF{2}{L'\user deve ricevere un errore se l'username non è registrato nel Sistema o
-      la password temporanea non è corretta per l'\user inserito}{\rif{\Erpte}}
+      la password temporanea non è corretta per l'\user inserito}{\rif{\Erpte}} % 8
   \addReqF{2}{L'\user deve ricevere un errore se la nuova password è uguale alla password temporanea}{\rif{\Ernpupt}}
   \addReqF{2}{L'\user deve ricevere un errore se la nuova password non rispetta i criteri richiesti}{\rif{\Ernpnv}}
 
   % --- MYVimar e ab. dis. appartamenti ---
-  \addReqF{2}{L'\admin deve poter visualizzare se un account MyVimar è configurato nel Sistema}{\rif{\VaMV}}
+  \addReqF{2}{L'\admin deve poter visualizzare se un account MyVimar è configurato nel Sistema}{\rif{\VaMV}} % 11
+  \addReqF{2}{L'\admin visualizzando l'account MyVimar collegato deve visualizzare l'email dell'account}{\rif{\VaMV}\\\rif{\VaMV.1}}
   \addReqF{2}{L'\admin deve poter collegare un account MyVimar nel Sistema}{\rif{\CaMV}}
   \addReqF{2}{L'\admin deve poter rimuovere un account MyVimar dal Sistema}{\rif{\RaMV}}
 
   % --- CRUD utente ---
-  \addReqF{1}{L'\admin deve poter visualizzare l'elenco degli utenti del Sistema}{\rif{\Vu}}
+  \addReqF{1}{L'\admin deve poter visualizzare l'elenco degli utenti del Sistema}{\rif{\Vu}} % 15
   \addReqF{2}{L'\admin visualizzando l'elenco degli utenti del sistema deve visualizzare un utente del Sistema nel dettaglio}{\rif{\Vu}\\\rif{\Vu.1}}
   \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare il nome}{\rif{\Vu.1}\\\rif{\Vu.1.1}}
   \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare il cognome}{\rif{\Vu.1}\\\rif{\Vu.1.2}}
   \addReqF{2}{L'\admin visualizzando un utente del sistema nel dettaglio deve visualizzare l'username}{\rif{\Vu.1}\\\rif{\Vu.1.3}}
-  \addReqF{1}{L'\admin deve poter creare un utente \os}{\rif{\Cu}}
+
+  \addReqF{1}{L'\admin deve poter creare un utente \os}{\rif{\Cu}} % 20
   \addReqF{1}{L'\admin deve inserire il nome dell'\os per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.1}}
   \addReqF{1}{L'\admin deve inserire il cognome dell'\os per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.2}}
   \addReqF{1}{L'\admin deve inserire un username per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.3}}
   \addReqF{1}{L'\admin deve generare la password temporanea per creare un utente \os}{\rif{\Cu}\\\rif{\Cu.4}}
   \addReqF{1}{L'\admin deve ricevere un errore se l'username è già in uso}{\rif{\Eruu}}
-  \addReqF{1}{L'\admin deve poter eliminare un utente \os}{\rif{4}}
+  \addReqF{1}{L'\admin deve poter eliminare un utente \os}{\rif{\Eu}}
 
   % --- CRUD reparti ---
-  \addReqF{2}{L'\admin deve poter visualizzare tutti i reparti del Sistema}{\rif{\Vr}}
+  \addReqF{2}{L'\admin deve poter visualizzare tutti i reparti del Sistema}{\rif{\Vr}} % 27
   \addReqF{2}{L'\admin deve poter visualizzare un reparto del Sistema nel dettaglio}{\rif{\Vr}\\\rif{\Vr.1}}
   \addReqF{2}{L'\admin visualizzando un reparto del Sistema deve poter visualizzare il nome del reparto}{\rif{\Vr.1}\\\rif{\Vr.1.1}}
   \addReqF{2}{L'\admin deve poter creare un nuovo reparto nel Sistema}{\rif{\Cr}}
@@ -1656,7 +1677,7 @@ Di seguito vengono riportati gli attori secondari individuati:
   \addReqF{2}{L'\admin deve selezionare un reparto per assegnare un reparto a un appartamento}{\rif{\Aaapr}\\\rif{\Aaapr.2}}
   \addReqF{2}{L'\admin deve poter eliminare l'assegnazione appartamento - reparto}{\rif{\Raapr}}
 
-  % --- Dashboard UC10 ---
+  % --- dashboard UC10 ---
   \addReqF{2}{L'\user deve poter visualizzare una dashboard che rappresenta lo stato del Sistema}{\rif{\Vd}}
   \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo gestione allarmi}{\rif{\Vd}\\\rif{\Vd.1}}
   \addReqF{2}{L'\user visualizzando il modulo gestione allarmi deve poter visualizzare
@@ -1679,32 +1700,39 @@ Di seguito vengono riportati gli attori secondari individuati:
   \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi consumi}{\rif{\Vd}\\\rif{\Vd.5}}
   \addReqF{2}{L'\user visualizzando la dashboard deve poter visualizzare un modulo analisi presenze}{\rif{\Vd}\\\rif{\Vd.6}}
 
-  % --- Modifiche Dashboard UC11-18 ---
-  \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo statistiche allarmi}{\rif{11}}
-  \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo statistiche allarmi}{\rif{12}}
-  \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo informazioni \user}{\rif{13}}
-  \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo informazioni \user}{\rif{14}}
-  \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo analisi clima}{\rif{15}}
-  \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo analisi clima}{\rif{16}}
-  \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard il modulo analisi consumi}{\rif{17}}
-  \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard il modulo analisi consumi}{\rif{18}}
-
-  \addReqF{2}{L'\user deve poter risolvere un allarme}{\rif{19}}
+  % --- Modifiche dashboard UC11-18 ---
+  \addReqF{1}{L'\admin deve poter aggiungere alla visualizzazione della dashboard un modulo tra i seguenti:
+    \begin{itemize}
+        \item statistiche allarmi;
+        \item informazioni Utente;
+        \item analisi clima;
+        \item analisi consumi.
+    \end{itemize}
+  }{\rif{\Am}\\\rif{\Amsa}\\\rif{\Amiu}\\\rif{\Amacl}\\\rif{\Amaco}}
+  \addReqF{1}{L'\admin deve poter rimuovere dalla visualizzazione della dashboard un modulo tra i seguenti:
+    \begin{itemize}
+        \item statistiche allarmi;
+        \item informazioni Utente;
+        \item analisi clima;
+        \item analisi consumi.
+    \end{itemize}
+  }{\rif{\Rm}\\\rif{\Rmsa}\\\rif{\Rmiu}\\\rif{\Rmacl}\\\rif{\Rmaco}}
+  \addReqF{2}{L'\user deve poter risolvere un allarme}{\rif{\Ra}}
 
   % --- Analytics UC20 --- 
   \addReqF{2}{L'\user deve poter visualizzare le analytics}{\rif{\Va}}
-  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare l'elenco dei suggerimenti risparmio energetico}{\rif{\Va.1}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare l'elenco dei suggerimenti risparmio energetico}{\rif{\Va}\\\rif{\Va.1}}
   \addReqF{2}{L'\user visualizzando l'elenco dei suggerimenti risparmio energetico deve visualizzare un suggerimento
-      risparmio energetico}{\rif{\Va.1.1}}
-  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico dedicato al consumo energetico}{\rif{\Va.2}}
-  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico dedicato alle anomalie dell'impianto}{\rif{\Va.3}}
-  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo al rilevamento di presenza}{\rif{\Va.4}}
+      risparmio energetico}{\rif{\Va.1}\\\rif{\Va.1.1}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico dedicato al consumo energetico}{\rif{\Va}\\\rif{\Va.2}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico dedicato alle anomalie dell'impianto}{\rif{\Va}\\\rif{\Va.3}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo al rilevamento di presenza}{\rif{\Va}\\\rif{\Va.4}}
   \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla presenza prolungata nello stesso
-      ambiente}{\rif{\Va.5}}
-  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alle variazioni di temperatura}{\rif{\Va.6}}
-  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo agli allarmi inviati e risolti}{\rif{\Va.7}}
-  \addReqF{0}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla frequenza degli allarmi}{\rif{\Va.8}}
-  \addReqF{0}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla frequenza delle cadute}{\rif{\Va.9}}
+      ambiente}{\rif{\Va}\\\rif{\Va.5}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alle variazioni di temperatura}{\rif{\Va}\\\rif{\Va.6}}
+  \addReqF{2}{L'\user visualizzando le analytics deve visualizzare il grafico relativo agli allarmi inviati e risolti}{\rif{\Va}\\\rif{\Va.7}}
+  \addReqF{0}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla frequenza degli allarmi}{\rif{\Va}\\\rif{\Va.8}}
+  \addReqF{0}{L'\user visualizzando le analytics deve visualizzare il grafico relativo alla frequenza delle cadute}{\rif{\Va}\\\rif{\Va.9}}
 
   % --- Appartamento --- 
   \addReqF{2}{L'\user deve poter visualizzare un appartamento del Sistema}{\rif{\Vap}}
@@ -1713,7 +1741,7 @@ Di seguito vengono riportati gli attori secondari individuati:
   \addReqF{2}{L'\user visualizzando un appartamento del Sistema deve visualizzare le stanze dell'appartamento}{\rif{\Vap}\\\rif{\Vap.3}}
   \addReqF{2}{L'\user deve visualizzare una stanza nel dettaglio}{\rif{\Vap.3}\\\rif{\Vap.3.1}}
   \addReqF{2}{L'\user visualizzando una stanza deve visualizzare il nome della stanza}{\rif{\Vap.3.1}\\\rif{\Vap.3.1.1}}
-  \addReqF{2}{L'\user visualizzando una stanza deve visualizzare l'elenco dei dispositivi della stanza}{\rif{\Vap.3.1}\rif{\Vap.3.1.2}}
+  \addReqF{2}{L'\user visualizzando una stanza deve visualizzare l'elenco dei dispositivi della stanza}{\rif{\Vap.3.1}\\\rif{\Vap.3.1.2}}
   \addReqF{2}{L'\user visualizzando l'elenco dei dispositivi deve visualizzare un singolo dispositivo di tipo:
       \begin{itemize}
           \item termostato;
@@ -1728,37 +1756,9 @@ Di seguito vengono riportati gli attori secondari individuati:
   \addReqF{2}{L'\user visualizzando un dispositivo deve vedere il nome}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.1}}
   \addReqF{2}{L'\user visualizzando un dispositivo deve vedere lo stato}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.2}}
   \addReqF{0}{L'\user visualizzando un dispositivo deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.3}}
-  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo termostato}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.1}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere il nome}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.1}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere lo stato}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.2}}
-  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo termostato deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.1}\\\rif{\Vap.3.1.2.1.3}}
-  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo sensore di caduta}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.2}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere il nome}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.1}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere lo stato}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.2}}
-  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo sensore di caduta deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.2}\\\rif{\Vap.3.1.2.2.3}}
-  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo sensore di presenza}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.3}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere il nome}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.1}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere lo stato}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.2}}
-  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo sensore di presenza deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.3}\\\rif{\Vap.3.1.2.3.3}}
-  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo punto luce}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.4}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere il nome}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.1}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere lo stato}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.2}}
-  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo punto luce deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.4}\\\rif{\Vap.3.1.2.4.3}}
-  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo pulsante di allarme}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.5}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere il nome}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.1}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere lo stato}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.2}}
-  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo pulsante di allarme deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.5}\\\rif{\Vap.3.1.2.5.3}}
-  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo porta di ingresso}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.6}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere il nome}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.1}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere lo stato}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.2}}
-  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo porta di ingresso deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.6}\\\rif{\Vap.3.1.2.6.3}}
-  % \addReqF{2}{L'\admin visualizzando i dispositivi associati a una stanza deve vedere i dispositivi di tipo tapparella}{\rif{\Vap.3.1.2}\\\rif{\Vap.3.1.2.7}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere il nome}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.1}}
-  % \addReqF{2}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere lo stato}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.2}}
-  % \addReqF{0}{L'\admin visualizzando un dispositivo di tipo tapparella deve vedere le azioni eseguibili}{\rif{\Vap.3.1.2.7}\\\rif{\Vap.3.1.2.7.3}}
+
   \addReqF{2}{L'\admin deve poter abilitare un appartamento nel Sistema}{\rif{\Aapp}}
   \addReqF{2}{L'\admin deve poter disabilitare un appartamento nel Sistema}{\rif{\Dapp}}
-  % aggiungere tutti i sotto dispositivi
 
   % --- Modifiche allarme --- 
   \addReqF{2}{L'\admin deve poter creare un allarme nel Sistema}{\rif{\Aa}}
@@ -1800,44 +1800,234 @@ Di seguito vengono riportati gli attori secondari individuati:
   \addReqQ{0}{Il Sistema deve essere corredato da test di integrazione con una copertura di almeno 90\%}{\capitolato\S5.3\\\capitolato\S6.2}
   \addReqQ{2}{Il Sistema deve essere corredato da test di Sistema con una copertura di almeno 75\%}{\capitolato\S5.3\\\capitolato\S6.2}
   \addReqQ{2}{Il Sistema deve essere corredato da test end-to-end con una copertura di almeno 80\%}{\capitolato\S5.3\\\capitolato\S6.2}
+  \addReqQ{2}{Il codice sorgente dovra essere contenuto in un repository versionato tramite \textit{GIT$_G$}, esposto pubblicamente
+     e con licenza open source (es. MIT, Apache 2)}{\capitolato \S 5.1}
+  \addReqQ{2}{Le librerie o i framework che verranno utilizzati dovranno avere licenza open source}{\capitolato \S 5.1}
+  \addReqQ{0}{Utilizzare servizi serverless come \textit{AWS$_G$} SimpleNotificationService (SNS) e \textit{AWS$_G$} Lambda per gli allarmi tramite
+      Web Push Notification}{\capitolato\S 5.2.1}
+  \addReqQ{0}{Utilizzare per la raccolta e la rielaborazione dati per le analytics è possibile valutare servizi serverless
+      di \textit{AWS$_G$} Kinesis, \textit{AWS$_G$} Athena oppure \textit{AWS$_G$} CloudWatch, \textit{AWS$_G$} S3}{\capitolato\S 5.2.1}
+  \addReqQ{2}{Consegnare una documentazione sull’architettura realizzata tramite il modello \textit{C4$_G$} (diagramma di contesto e di
+      container) e/o altri tipi di schemi}{\capitolato\S6.1}
+  \addReqQ{2}{Consegnare bozzetti grafici relativi alla progettazione di design dell’applicativo web responsive}{\capitolato\S6.1}
+  \addReqQ{2}{Consegnare documentazione sintetica della libreria backend (se implementata)}{\capitolato\S6.1}
+  \addReqQ{2}{Consegnare spese stimate della propria soluzione in Cloud \textit{AWS$_G$} in base ai servizi previsti}{\capitolato\S6.1}
+  \addReqQ{2}{Consegnare la documentazione dei casi d'uso per l’utilizzo dell’applicativo web.}{\capitolato\S6.1}
+  \addReqQ{0}{Consegnare la documentazione delle API backend}{\capitolato\S6.1}
+  \addReqQ{0}{Consegnare la documentazione di tutti i test realizzati e report, con relativo coverage e risultato.}{\capitolato\S6.1}
+  \addReqQ{0}{Consegnare codice sorgente (accessibile al pubblico dominio) con licenza open source e con un file README
+      contenente le istruzioni di installazione e primo utilizzo.}{\capitolato\S6.1}
+  \addReqQ{0}{Consegnare screenshot e video dimostrativo della soluzione in funzione.}{\capitolato\S6.1}
+  \addReqQ{0}{Consegnare manuale di utilizzo dell’applicativo web per gli utenti.}{\capitolato\S6.1}
+  \addReqQ{2}{L'applicazione web deve essere supportata dai seguenti browser con le seguenti versioni:
+  \begin{itemize}
+    \item Safari in versione 26.3;
+    \item Chrome in versione 143.
+  \end{itemize}
+  }{Intervista}
   \makeReqQtable
 
   \newpage
 
   \addReqV{2}{L’infrastruttura Cloud deve usare Docker con docker-compose al fine di far valere il principio
       di infrastructure as code.}{\capitolato \S 5.1}
-  \addReqV{0}{Per l’infrastruttura Cloud è concesso utilizzare Terraform, AWS CDK V2 o Ansible}{\capitolato \S 5.1}
-  \addReqV{2}{L’applicativo deve prevedere l’uso della tecnologia KNX IoT 3rd party API.}{\capitolato \S 5.1}
+  \addReqV{0}{Per l’infrastruttura Cloud è concesso utilizzare Terraform, \textit{AWS$_G$} CDK V2 o Ansible}{\capitolato \S 5.1}
+  \addReqV{2}{L’applicativo deve prevedere l’uso della tecnologia \textit{KNX IoT 3rd party API$_G$}.}{\capitolato \S 5.1}
   \addReqV{2}{L’applicativo deve prevedere l’utilizzo del meccanismo di ricezione delle notifiche di
       impianto (push) messo a disposizione dallo standard KNX IoT (i.e. Subscription).}{\capitolato \S 5.1}
-  \addReqV{2}{Il repository di lavoro deve essere versionato tramite GIT e deve essere pubblicamente
-      accessibile (es. GitHub, BitBucket, GitLab) e per i sorgenti la licenza dovrà essere open
-      source (es. MIT, Apache 2)}{\capitolato \S 5.1}
-  \addReqV{2}{Le librerie o i framework che verranno utilizzati dovranno avere licenza open source}{\capitolato \S 5.1}
-  \addReqV{0}{Distribuire con AWS LightSail oppure AWS EC2 con Docker installato l’infrastruttura Cloud}{\capitolato\S 5.2.1}
+  \addReqV{0}{Distribuire con \textit{AWS$_G$} LightSail oppure \textit{AWS$_G$} EC2 con Docker installato l’infrastruttura Cloud}{\capitolato\S 5.2.1}
   \addReqV{1}{La soluzione viene implementata con un componente libreria backend realizzato ad hoc per l’interfacciamento con le
-      API di KNX IoT, potenzialmente indipendente e riutilizzabile separatamente come “SDK” (Software Development Kit).}{\capitolato\S 6.2}
-  \addReqV{0}{Utilizzare servizi serverless come AWS SimpleNotificationService (SNS) e AWS Lambda per gli allarmi tramite
-      Web Push Notification}{\capitolato\S 5.2.1}
-  \addReqV{0}{Utilizzare per la raccolta e la rielaborazione dati per le analytics è possibile valutare servizi serverless
-      di AWS Kinesis, AWS Athena oppure AWS CloudWatch, AWS S3}{\capitolato\S 5.2.1}
-  \addReqV{2}{Consegnare una documentazione sull’architettura realizzata tramite il modello C4 (diagramma di contesto e di
-      container) e/o altri tipi di schemi}{\capitolato\S6.1}
-  \addReqV{2}{Consegnare bozzetti grafici relativi alla progettazione di design dell’applicativo web responsive}{\capitolato\S6.1}
-  \addReqV{2}{Consegnare documentazione sintetica della libreria backend (se implementata)}{\capitolato\S6.1}
-  \addReqV{2}{Consegnare spese stimate della propria soluzione in Cloud AWS in base ai servizi previsti}{\capitolato\S6.1}
-  \addReqV{2}{Consegnare la documentazione dei casi d'uso per l’utilizzo dell’applicativo web.}{\capitolato\S6.1}
-  \addReqV{0}{Consegnare la documentazione delle API backend}{\capitolato\S6.1}
-  \addReqV{0}{Consegnare la documentazione di tutti i test realizzati e report, con relativo coverage e risultato.}{\capitolato\S6.1}
-  \addReqV{0}{Consegnare codice sorgente (accessibile al pubblico dominio) con licenza open source e con un file README
-      contenente le istruzioni di installazione e primo utilizzo.}{\capitolato\S6.1}
-  \addReqV{0}{Consegnare screenshot e video dimostrativo della soluzione in funzione.}{\capitolato\S6.1}
-  \addReqV{0}{Consegnare manuale di utilizzo dell’applicativo web per gli utenti.}{\capitolato\S6.1}
+    API di \textit{KNX IoT$_G$}, potenzialmente indipendente e riutilizzabile separatamente come “SDK” (Software Development Kit).}{\capitolato\S 6.2}
+  \addReqV{1}{Utilizzare per lo sviluppo della componente front-end uno dei seguenti framework:
+  \begin{itemize}
+    \item \textit{Angular$_G$} (in Typescript);
+    \item React (in Typescript);
+    \item Flask (in Python).
+  \end{itemize}
+  }{Intervista}
+  \addReqV{1}{Utilizzare per lo sviluppo della componente back-end uno dei seguenti framework:
+  \begin{itemize}
+    \item \textit{Express$_G$} (in Typescript);
+    \item Nestjs (in Typescript);
+    \item Flask (in Python);
+    \item Fast API (in Python).
+  \end{itemize}
+  }{Intervista}
+  \addReqV{1}{Utilizzare come database relazionale uno dei seguenti:
+  \begin{itemize}
+    \item \textit{PostgreSQL$_G$};
+    \item MySQL.
+  \end{itemize}
+  }{Intervista}
+  \addReqV{1}{Utilizzare come database NoSQL uno dei seguenti:
+  \begin{itemize}
+    \item \textit{TimescaleDB$_G$};
+    \item InfluxDB.
+  \end{itemize}
+  }{Intervista}
   \makeReqVtable
 
-  \makeSummaryTable
+  \addUCT{\rif{\Au}}{\req{1}{2}\\\req{2}{2}\\\req{3}{2}}
+  \addUCT{\rif{\Au.1}}{\req{2}{2}}
+  \addUCT{\rif{\Au.2}}{\req{3}{2}}
+  
+  \addUCT{\rif{\Aucp}}{\req{5}{2}\\\req{6}{2}\\\req{7}{2}}
+  \addUCT{\rif{\Aucp.1}}{\req{6}{2}}
+  \addUCT{\rif{\Aucp.2}}{\req{7}{2}}
 
-  % NICE TO HAVE: La gestione impianto dell’applicativo web permette di eseguire azioni con i dispositivi di impianto (es. accendere una luce).
- }
+  \addUCT{\rif{\VaMV}}{\req{11}{2}\\\req{12}{2}}
+  \addUCT{\rif{\VaMV.1}}{\req{12}{2}}
+  \addUCT{\rif{\CaMV}}{\req{13}{2}}
+  \addUCT{\rif{\RaMV}}{\req{14}{2}}
+
+  \addUCT{\rif{\Vu}}{\req{15}{2}\\\req{16}{2}}
+  \addUCT{\rif{\Vu}.1}{\req{16}{2}\\\req{17}{2}\\\req{18}{2}\\\req{19}{2}}
+  \addUCT{\rif{\Vu}.1.1}{\req{17}{2}}
+  \addUCT{\rif{\Vu}.1.2}{\req{18}{2}}
+  \addUCT{\rif{\Vu}.1.3}{\req{19}{2}}
+
+  \addUCT{\rif{\Cu}}{\req{20}{2}\\\req{21}{2}\\\req{22}{2}\\\req{23}{2}\\\req{24}{2}}
+  \addUCT{\rif{\Cu.1}}{\req{21}{2}}
+  \addUCT{\rif{\Cu.2}}{\req{22}{2}}
+  \addUCT{\rif{\Cu.3}}{\req{23}{2}}
+  \addUCT{\rif{\Cu.4}}{\req{24}{2}}
+  \addUCT{\rif{\Eu}}{\req{26}{2}}
+
+  \addUCT{\rif{\Cu}}{\req{20}{2}\\\req{21}{2}\\\req{22}{2}\\\req{23}{2}\\\req{24}{2}}
+  \addUCT{\rif{\Cu.1}}{\req{21}{2}}
+  \addUCT{\rif{\Cu.2}}{\req{22}{2}}
+  \addUCT{\rif{\Cu.3}}{\req{23}{2}}
+  \addUCT{\rif{\Cu.4}}{\req{24}{2}}
+  \addUCT{\rif{\Eu}}{\req{26}{2}}
+
+  \addUCT{\rif{\Cu}}{\req{20}{1}\\\req{21}{1}\\\req{22}{1}\\\req{23}{1}\\\req{24}{1}}
+  \addUCT{\rif{\Cu.1}}{\req{21}{1}}
+  \addUCT{\rif{\Cu.2}}{\req{22}{1}}
+  \addUCT{\rif{\Cu.3}}{\req{23}{1}}
+  \addUCT{\rif{\Cu.4}}{\req{24}{1}}
+
+  % Eliminazione OS
+  \addUCT{\rif{\Eu}}{\req{26}{1}}
+
+  % Visualizza reparti
+  \addUCT{\rif{\Vr}}{\req{27}{2}\\\req{28}{2}\\\req{29}{2}}
+  \addUCT{\rif{\Vr.1}}{\req{28}{2}\\\req{29}{2}}
+  \addUCT{\rif{\Vr.1.1}}{\req{29}{2}}
+
+  % Creazione reparto
+  \addUCT{\rif{\Cr}}{\req{30}{2}\\\req{31}{2}}
+  \addUCT{\rif{\Cr.1}}{\req{31}{2}}
+
+  \addUCT{\rif{\Mr}}{\req{33}{2}}
+  \addUCT{\rif{\Er}}{\req{34}{2}}
+  \addUCT{\rif{\Aaosr}}{\req{35}{2}\\\req{36}{2}\\\req{37}{2}}
+  \addUCT{\rif{\Aaosr.1}}{\req{36}{2}}
+  \addUCT{\rif{\Aaosr.2}}{\req{37}{2}}
+  \addUCT{\rif{\Raosr}}{\req{38}{2}}
+  \addUCT{\rif{\Aaapr}}{\req{39}{2}\\\req{40}{2}\\\req{41}{2}}
+  \addUCT{\rif{\Aaapr.1}}{\req{40}{2}}
+  \addUCT{\rif{\Aaapr.2}}{\req{41}{2}}
+
+  \addUCT{\rif{\Raapr}}{\req{42}{2}}
+
+  \addUCT{\rif{\Vd}}{\req{43}{2}\\\req{44}{2}\\\req{49}{2}\\\req{52}{2}\\\req{55}{2}\\\req{56}{2}\\\req{57}{2}}
+  \addUCT{\rif{\Vd.1}}{\req{44}{2}\\\req{45}{2}}
+  \addUCT{\rif{\Vd.1.1}}{\req{45}{2}\\\req{46}{2}\\\req{47}{2}\\\req{48}{2}}
+  \addUCT{\rif{\Vd.1.1.1}}{\req{46}{2}}
+  \addUCT{\rif{\Vd.1.1.2}}{\req{47}{2}}
+  \addUCT{\rif{\Vd.1.1.3}}{\req{48}{2}}
+  \addUCT{\rif{\Vd.2}}{\req{49}{2}\\\req{50}{2}\\\req{51}{2}}
+  \addUCT{\rif{\Vd.2.1}}{\req{50}{2}}
+  \addUCT{\rif{\Vd.2.2}}{\req{51}{2}}
+  \addUCT{\rif{\Vd.3}}{\req{52}{2}\\\req{53}{2}\\\req{54}{2}}
+  \addUCT{\rif{\Vd.3.1}}{\req{53}{2}}
+  \addUCT{\rif{\Vd.3.2}}{\req{54}{2}}
+  \addUCT{\rif{\Vd.4}}{\req{55}{2}}
+  \addUCT{\rif{\Vd.5}}{\req{56}{2}}
+  \addUCT{\rif{\Vd.6}}{\req{57}{2}}
+
+  \addUCT{\rif{\Am}}{\req{58}{2}}
+  \addUCT{\rif{\Amsa}}{\req{58}{2}}
+  \addUCT{\rif{\Amiu}}{\req{58}{2}}
+  \addUCT{\rif{\Amacl}}{\req{58}{2}}
+  \addUCT{\rif{\Amaco}}{\req{58}{2}}
+
+  \addUCT{\rif{\Rm}}{\req{59}{2}}
+  \addUCT{\rif{\Rmsa}}{\req{59}{2}}
+  \addUCT{\rif{\Rmiu}}{\req{59}{2}}
+  \addUCT{\rif{\Rmacl}}{\req{59}{2}}
+  \addUCT{\rif{\Rmaco}}{\req{59}{2}}
+
+  \addUCT{\rif{\Ra}}{\req{60}{2}}
+  \addUCT{\rif{\Va}}{
+    \req{61}{2}\\\req{62}{2}\\\req{64}{2}\\\req{65}{2}\\\req{66}{2}\\\req{67}{2}\\\req{68}{2}\\\req{69}{2}
+    \\\req{70}{0}\\\req{71}{0}}
+  \addUCT{\rif{\Va.1}}{\req{62}{2}\\\req{63}{2}}
+  \addUCT{\rif{\Va.1.1}}{\req{63}{2}}
+  \addUCT{\rif{\Va.2}}{\req{64}{2}}
+  \addUCT{\rif{\Va.3}}{\req{65}{2}}
+  \addUCT{\rif{\Va.4}}{\req{66}{2}}
+  \addUCT{\rif{\Va.5}}{\req{67}{2}}
+  \addUCT{\rif{\Va.6}}{\req{68}{2}}
+  \addUCT{\rif{\Va.7}}{\req{69}{2}}
+  \addUCT{\rif{\Va.8}}{\req{70}{0}}
+  \addUCT{\rif{\Va.9}}{\req{71}{0}}
+
+  \addUCT{\rif{\Vap}}{\req{72}{2}\\\req{73}{2}\\\req{74}{0}\\\req{75}{2}}
+  \addUCT{\rif{\Vap.1}}{\req{73}{2}}
+  \addUCT{\rif{\Vap.2}}{\req{74}{0}}
+  \addUCT{\rif{\Vap.3}}{\req{75}{2}\\\req{76}{2}}
+  \addUCT{\rif{\Vap.3.1}}{\req{76}{2}\\\req{77}{2}\\\req{78}{2}}
+  \addUCT{\rif{\Vap.3.1.1}}{\req{77}{2}}
+  \addUCT{\rif{\Vap.3.1.2}}{\req{78}{2}\\\req{79}{2}}
+  \addUCT{\rif{\Vap.3.1.2.1}}{\req{79}{2}\\\req{80}{2}\\\req{81}{2}\\\req{82}{0}}
+  \addUCT{\rif{\Vap.3.1.2.1.1}}{\req{80}{2}}
+  \addUCT{\rif{\Vap.3.1.2.1.2}}{\req{81}{2}}
+  \addUCT{\rif{\Vap.3.1.2.1.3}}{\req{82}{0}}
+  \addUCT{\rif{\Vap.3.1.2.2}}{\req{79}{2}}
+  \addUCT{\rif{\Vap.3.1.2.3}}{\req{79}{2}}
+  \addUCT{\rif{\Vap.3.1.2.4}}{\req{79}{2}}
+  \addUCT{\rif{\Vap.3.1.2.5}}{\req{79}{2}}
+  \addUCT{\rif{\Vap.3.1.2.6}}{\req{79}{2}}
+  \addUCT{\rif{\Vap.3.1.2.7}}{\req{79}{2}}
+  \addUCT{\rif{\Vap.3.1.2.8}}{\req{79}{2}}
+  \addUCT{\rif{\Aapp}}{\req{83}{2}}
+  \addUCT{\rif{\Dapp}}{\req{84}{2}}
+  \addUCT{\rif{\Aa}}{\req{85}{2}\\\req{86}{2}\\\req{87}{2}\\\req{88}{2}\\\req{89}{2}\\\req{90}{2}\\\req{91}{2}}
+  \addUCT{\rif{\Aa.1}}{\req{86}{2}}
+  \addUCT{\rif{\Aa.2}}{\req{87}{2}}
+  \addUCT{\rif{\Aa.3}}{\req{88}{2}}
+  \addUCT{\rif{\Aa.4}}{\req{88}{2}}
+  \addUCT{\rif{\Aa.5}}{\req{88}{2}}
+  \addUCT{\rif{\Aa.6}}{\req{88}{2}}
+  \addUCT{\rif{\Aa.7}}{\req{88}{2}}
+  \addUCT{\rif{\Aa.8}}{\req{89}{2}}
+  \addUCT{\rif{\Aa.9}}{\req{90}{2}}
+  \addUCT{\rif{\Aa.10}}{\req{91}{2}}
+  \addUCT{\rif{\Mpa}}{\req{95}{2}}
+  \addUCT{\rif{\Msia}}{\req{96}{2}}
+  \addUCT{\rif{\Moaa}}{\req{97}{2}}
+  \addUCT{\rif{\Moda}}{\req{98}{2}}
+  \addUCT{\rif{\Aal}}{\req{99}{2}}
+  \addUCT{\rif{\Dal}}{\req{100}{2}}
+  \addUCT{\rif{\Ea}}{\req{101}{2}}
+  \addUCT{\rif{\Vn}}{\req{102}{0}\\\req{103}{0}}
+  \addUCT{\rif{\Vn.1}}{\req{103}{0}\\\req{104}{0}\\\req{105}{0}}
+  \addUCT{\rif{\Vn.1.1}}{\req{104}{0}}
+  \addUCT{\rif{\Vn.1.2}}{\req{105}{0}}
+  \addUCT{\rif{\Erunr}}{\req{4}{2}}
+  \addUCT{\rif{\Erpte}}{\req{8}{2}}
+  \addUCT{\rif{\Ernpupt}}{\req{9}{2}}
+  \addUCT{\rif{\Ernpnv}}{\req{10}{2}}
+  \addUCT{\rif{\Eruu}}{\req{25}{2}}
+  \addUCT{\rif{\Ernru}}{\req{32}{2}}
+  \addUCT{\rif{\Ernru}}{\req{32}{2}}
+  \addUCT{\rif{\Erns}}{\req{92}{2}}
+  \addUCT{\rif{\Ernlp}}{\req{93}{2}}
+  \addUCT{\rif{\Ernss}}{\req{94}{2}}
+
+  \makeUCTTable
+
+  \makeSummaryTable
 
 \end{document}
