@@ -1,0 +1,111 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{template/template}
+
+\setDocTitle{Verbale interno 23/02/2026}
+\setDocVersion{0.1.1}
+\setDocData{26/02/2026}
+\setDocIndex{vi\_2026\_02\_23}
+\setDocState{1}
+\setDocRecipient{1}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+\addChangelog{0.1.1}{26/02/2026}{L. Granziero}{C. Libralato}{\noOne}{correzione errori e riformulazione approfondimenti}
+\addChangelog{0.1.0}{24/02/2026}{L. Granziero}{C. Libralato}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{23/02/2026}{14:30}{16:30}{via \textit{Discord$_G$}}
+
+\addParticipant{Valeria}{Baleanu}{Progettista}{P}
+\addParticipant{Leonardo}{Pellizzon}{Amministratore}{P}
+\addParticipant{Luca}{Granziero}{Responsabile}{P}
+\addParticipant{Francesco}{Pasqual}{Progettista}{P}
+\addParticipant{Giuseppe}{De Fina}{Progettista}{P}
+\addParticipant{Christian}{Libralato}{Verificatore}{P}
+\addParticipant{Filippo}{Venzo}{Progettista}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{vi\_2026\_02\_09.a1}{\noOne}{SnakeByte team}{10/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a2}{\#106}{G. de Fina}{12/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a3}{PR \#103}{F. Pasqual, L. Granziero}{09/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a4}{\#105}{F. Venzo}{14/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a5}{\#104}{G. de Fina}{12/02/2026}
+\addPrecedentTodo{vi\_2026\_02\_09.a6}{\#104}{G. de Fina}{12/02/2026}
+
+\makePrecedentTodoTable
+
+
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Organizzazione degli \textit{Sprint$_G$} di sviluppo e revisione dei ruoli;
+    \item rivalutazione scelta tecnologica del backend;
+    \item pianificazione tecnica del database;
+    \item organizzazione del lavoro e pianificazione collaborativa.
+\end{itemize}
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Ruoli e organizzazione degli sprint}
+È stata discussa l’assegnazione dei ruoli nei vari sprint ed è stato evidenziato come la fase di progettazione debba precedere quella di programmazione,
+al fine di garantire una corretta definizione dell’architettura e delle funzionalità. 
+Il gruppo ha concordato di assegnare quattro progettisti per accelerare la fase iniziale di progettazione e consentire un avanzamento più efficiente delle attività successive. 
+È stato inoltre stabilito che i ruoli sarebbero stati aggiornati sia per lo sprint corrente sia per quelli futuri e che il budget complessivo sarebbe rimasto invariato,
+consentendo esclusivamente una riallocazione delle ore tra i diversi sprint senza alcun incremento del totale previsto.
+
+\subsection*{Rivalutazione scelta tecnologica backend}
+È stato discusso il possibile impiego di \textit{NestJS$_G$} in sostituzione di \textit{Express$_G$} per lo sviluppo della componente backend, 
+analizzandone le caratteristiche e i vantaggi architetturali. 
+In particolare, NestJS è stato ritenuto più adeguato grazie al supporto nativo per la dependency injection, alla presenza di strumenti integrati per il testing e a una migliore organizzazione modulare del codice. 
+A seguito del confronto tecnico, il gruppo ha deciso all’unanimità di adottare NestJS come framework backend e ha concordato di comunicare tale decisione al docente tramite mail.
+
+\subsection*{Database e aspetti tecnici}
+È stato confermato l’utilizzo di \textit{PostgreSQL$_G$} come database principale del progetto, in quanto ritenuto adeguato ai requisiti tecnici e funzionali individuati. 
+Nel corso della discussione è stata inoltre valutata positivamente la possibilità di utilizzare \textit{TimescaleDB$_G$} come estensione per la gestione di dati temporali, considerandone i potenziali benefici 
+in termini di organizzazione e prestazioni. 
+Sono stati infine approfonditi alcuni aspetti tecnici relativi alla gestione delle tabelle e alle implicazioni sul comportamento del sistema.
+
+\subsection*{Organizzazione del lavoro}
+È stata discussa la modalità di collaborazione tra i progettisti ed è stato concordato di iniziare con una fase di lavoro congiunta, al fine di favorire una migliore comprensione condivisa delle scelte progettuali 
+e dell’architettura del sistema. 
+Successivamente, il gruppo ha stabilito che le attività sarebbero state suddivise tra i membri, in modo da proseguire il lavoro in maniera più efficiente e organizzata.
+
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+
+\addDecision{Modifica dei ruoli negli sprint con assegnazione di quattro progettisti}
+\addDecision{Adozione di NestJS come framework backend}
+\addDecision{Utilizzo di PostgreSQL come database principale}
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+\addTodo{\#141}{Scrittura verbale interno}{L. Granziero}{25/02/2026}
+\addTodo{\#143}{Aggiornare il Piano di Progetto allo sprint 8}{L. Pellizzon}{28/02/2026}
+
+
+\makeTodoTable
+
+\end{document}
+ v  
