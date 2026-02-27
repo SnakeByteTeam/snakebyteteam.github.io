@@ -1,0 +1,59 @@
+\documentclass{beamer}
+
+\usepackage{../tema}
+
+
+\title{SAL}
+\author[L. Granziero]{L. Granziero}
+\setDate{25/02/2026}
+
+\begin{document}
+
+{
+  \setbeamertemplate{footline}{}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+
+\addMember{Filippo}{Venzo}{Progettista}
+\addMember{Giuseppe}{De Fina}{Progettista}
+\addMember{Valeria}{Baleanu}{Progettista}
+\addMember{Christian}{Libralato}{Verificatore}
+\addMember{Leonardo}{Pellizzon}{Amministratore}
+\addMember{Francesco}{Pasqual}{Progettista}
+\addMember{Luca}{Granziero}{Responsabile}
+\makeMembersFrame
+
+\begin{frame}{Avanzamenti settimanali}
+    \begin{itemize}
+        \item Avviata la prima fase di progettazione con il coinvolgimento di quattro progettisti, al fine di accelerare il processo.
+        \item Decisione di utilizzare NestJS al posto di Express per realizzare l'MVP
+        \item Confermato l'utilizzo di PostgreSQL come database principale e TimescaleDB per la gestione di dati temporali
+        \item Preparazione in vista del colloquio con il Prof. Vardanega 
+\end{itemize}
+\end{frame}
+
+
+\addManualTodo{vi\_2026\_02\_23.a1}{\#141}{Scrittura verbale interno}{L. Granziero}{25/02/2026}
+\addManualTodo{vi\_2026\_02\_23.a2}{\#143}{Aggiornare il Piano di Progetto allo sprint 8}{L. Pellizzon}{28/02/2026}
+
+
+
+\makeTodoFrame
+
+\begin{frame}{Limiti o blocchi incontrati}
+\begin{itemize}
+\item Piccolo ritardo nella seconda parte di RTB: colloquio con il Prof. Vardanega
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Dubbi incontrati}
+Nella prima fase di progettazione sono emersi i seguenti dubbi: 
+  \begin{itemize}
+\item Tutti i browser dovranno essere supportati da \textit{View4Life}? In tutte le versioni?
+\item Dubbi riguardanti la modellazione del database.
+  \end{itemize}
+\end{frame}
+
+\end{document}
