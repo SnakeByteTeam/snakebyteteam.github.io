@@ -1,5 +1,9 @@
+%============================
+% Verbale riunione – Progettazione e pianificazione Sprint 9
+%============================
 \documentclass[10pt, letterpaper]{article}
-\usepackage{../../../../template/template}
+\usepackage{template}
+
 % ------------------------
 % Impostazioni documento
 % ------------------------
@@ -32,7 +36,7 @@
 % ------------------------
 \addParticipant{Filippo}{Venzo}{Progettista}{P}
 \addParticipant{Valeria}{Baleanu}{Progettista}{P}
-\addParticipant{Luca}{Granziero}{Responsabile}{A}
+\addParticipant{Luca}{Granziero}{Responsabile}{P}
 \addParticipant{Christian}{Libralato}{Verificatore}{P}
 \addParticipant{Francesco}{Pasqual}{Progettista}{P}
 \addParticipant{Leonardo}{Pellizzon}{Amministratore}{P}
@@ -41,24 +45,25 @@
 
 \section{Ordine del giorno}
 \begin{itemize}
-  \item Aggiornamento avanzamento progetto e pianificazione Sprint$_G$ 9;
-  \item Scelte tecnologiche e stato della progettazione del database;
-  \item Requisiti di compatibilità browser e supporto mobile;
-  \item Preparazione della presentazione per il professor Vardanega;
-  \item Discussione architetturale e organizzazione delle attività future.
+  \item Avanzamento progetto e pianificazione Sprint$_G$ 9;
+  \item scelte tecnologiche e stato della progettazione;
+  \item gestione allarmi, dashboard e ruoli utente;
+  \item requisiti di compatibilità browser e supporto mobile;
+  \item organizzazione attività future.
+
 \end{itemize}
 
 \section{Approfondimento}
 
 \subsection{Avanzamento progetto e pianificazione Sprint 9}
-È stato illustrato lo stato di avanzamento del progetto, aggiornando il gruppo sulle attività svolte, sulla pianificazione dello sprint corrente e sulla preparazione della presentazione per il professor Vardanega. In particolare, è stata presentata la composizione del team per lo Sprint 9, evidenziando la presenza di quattro progettisti.
+È stato illustrato lo stato di avanzamento del progetto, aggiornando la Proponente sulle attività svolte, sulla pianificazione dello sprint corrente e sulla preparazione della presentazione per la Requirements and Technology Baseline (RTB). In particolare, è stata presentata l'assegnazione dei ruoli per lo Sprint 9, evidenziando la presenza di quattro progettisti.
 \noindent
 È stato inoltre chiarito che, in considerazione della fase progettuale corrente, i programmatori sono stati convertiti al ruolo di progettisti, al fine di garantire maggiore coerenza con gli obiettivi dello sprint e favorire il progresso delle attività di modellazione e definizione dell’architettura.
 
 \subsection{Scelte tecnologiche e stato della progettazione}
-È stato presentato l’avvio della fase di progettazione, con particolare attenzione alla modellazione del database mediante diagramma ER. Il gruppo ha illustrato la struttura delle entità e delle relazioni, affrontando in dettaglio la gestione della gerarchia tra unità, appartamenti, stanze e dispositivi e ricevendo suggerimenti per ottimizzare la struttura e garantire l’univocità dei dati.
+È stato presentato l’avvio della fase di progettazione, con particolare attenzione alla modellazione del database mediante diagramma ER. Il gruppo ha illustrato la struttura delle entità e delle relazioni affrontando in dettaglio la gestione della gerarchia tra unità, appartamenti, stanze e dispositivi e ricevendo suggerimenti per ottimizzare la struttura e garantire l’univocità dei dati.
 \noindent
-È stata inoltre confermata l’adozione di \textit{NestJS$_G$} in sostituzione di \textit{Express$_G$}, seguendo i suggerimenti ricevuti, e l’utilizzo di \textit{PostgreSQL$_G$} come database relazionale principale, affiancato da \textit{TimescaleDB$_G$} per la gestione efficiente delle serie temporali. In particolare, è stata illustrata la progettazione di una hypertable per la memorizzazione dei dati di consumo energetico, basata sull’associazione tra timestamp e dispositivo.
+È stata inoltre confermata l’adozione di \textit{NestJS$_G$} in sostituzione di \textit{Express$_G$}, e l’utilizzo di \textit{PostgreSQL$_G$} come database relazionale principale, affiancato da \textit{TimescaleDB$_G$} per la gestione efficiente delle serie temporali. In particolare, è stata illustrata la progettazione di una hypertable per la memorizzazione dei dati di consumo energetico, basata sull’associazione tra timestamp e dispositivo.
 \noindent
 Sono state inoltre discusse le strategie di sincronizzazione con le API esterne e la gestione della struttura dell’impianto, valutando l’utilizzo di un sistema di caching per ridurre il numero di chiamate e migliorare la scalabilità complessiva del sistema. In tale contesto, è stato suggerito di mantenere la struttura principale nel database relazionale, affiancata da una cache per ottimizzare l’accesso ai dati e semplificare la gestione delle modifiche.
 
@@ -72,12 +77,12 @@ Infine, è stata discussa la gestione dei ruoli utente, valutando l’utilizzo d
 \subsection{Requisiti di compatibilità browser e supporto mobile}
 Sono stati chiariti i requisiti minimi di compatibilità browser dell’applicativo, stabilendo il supporto prioritario per Chrome, Edge e Safari, mentre il supporto per Firefox è stato considerato opzionale. È stato inoltre specificato che non sarà previsto il supporto per browser obsoleti.
 \noindent
-È stato inoltre suggerito di indicare come requisito minimo la prima versione disponibile nel 2026 per ciascun browser supportato, al fine di garantire chiarezza nella documentazione e coerenza con i requisiti progettuali.
+È stato inoltre suggerito di considerare come requisito minimo la prima versione disponibile nel 2026 per ciascun browser supportato, al fine di garantire chiarezza nella documentazione e coerenza con i requisiti progettuali.
 \noindent
 Infine, è stata evidenziata l’importanza di garantire il corretto funzionamento dell’applicativo anche su dispositivi mobili, assicurando compatibilità con le principali funzionalità JavaScript e un’esperienza utente priva di anomalie grafiche.
 
-\subsection{Preparazione presentazione e organizzazione attività}
-Il gruppo ha discusso la preparazione della presentazione per il professor Vardanega, con particolare attenzione alla gestione documentale, alla pianificazione e alla presentazione delle scelte progettuali effettuate.
+\subsection{Organizzazione attività future}
+Il gruppo ha discusso la preparazione della presentazione per la RTB, con particolare attenzione alla gestione documentale, alla pianificazione e alla presentazione delle scelte progettuali effettuate.
 \noindent
 Infine, è stata sottolineata l’importanza di comunicare tempestivamente eventuali difficoltà, al fine di consentire una gestione efficace delle criticità e garantire il raggiungimento degli obiettivi progettuali.
 
@@ -91,8 +96,6 @@ Infine, è stata sottolineata l’importanza di comunicare tempestivamente event
 
 \addDecision{Il supporto browser prioritario includerà Chrome, Edge e Safari, con versioni minime corrispondenti alle prime release disponibili nel 2026.}
 
-\addDecision{È stato stabilito che l’applicativo dovrà garantire piena compatibilità anche su dispositivi mobili.}
-
 \addDecision{La struttura dell’impianto sarà gestita tramite database relazionale affiancato da un sistema di caching per migliorare scalabilità ed efficienza.}
 
 \makeDecisionTable
@@ -103,9 +106,9 @@ Infine, è stata sottolineata l’importanza di comunicare tempestivamente event
 
 \addTodo{-}{Aggiornare i requisiti del progetto specificando i browser supportati e le relative versioni minime.}{Gruppo \teamName}{28/02/2026}
 
-\addTodo{-}{Raffinare il modello ER, chiarendo le relazioni tra unità, appartamenti e dispositivi.}{Gruppo \teamName}{28/02/2026}
+\addTodo{-}{Raffinare il modello ER, chiarendo le relazioni tra unità, appartamenti e dispositivi.}{V. Baleanu, G. De Fina, F. Pasqual, F. Venzo}{28/02/2026}
 
-\addTodo{-}{Definire e presentare lo schema di gestione dei dati per TimescaleDB.}{Gruppo \teamName}{4/03/2026}
+\addTodo{-}{Definire e presentare lo schema di gestione dei dati per TimescaleDB.}{V. Baleanu, G. De Fina, F. Pasqual, F. Venzo}{04/03/2026}
 
 \makeTodoTable
 
