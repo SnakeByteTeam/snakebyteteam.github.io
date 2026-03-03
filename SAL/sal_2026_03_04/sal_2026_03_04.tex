@@ -1,0 +1,58 @@
+\documentclass{beamer}
+
+\usepackage{../tema}
+
+
+\title{SAL}
+\author[L. Granziero]{L. Granziero}
+\setDate{04/03/2026}
+
+\begin{document}
+
+{
+  \setbeamertemplate{footline}{}
+  \begin{frame}
+    \titlepage
+  \end{frame}
+}
+
+\addMember{Filippo}{Venzo}{Progettista}
+\addMember{Giuseppe}{De Fina}{Progettista}
+\addMember{Valeria}{Baleanu}{Progettista}
+\addMember{Christian}{Libralato}{Verificatore}
+\addMember{Leonardo}{Pellizzon}{Amministratore}
+\addMember{Francesco}{Pasqual}{Progettista}
+\addMember{Luca}{Granziero}{Responsabile}
+\makeMembersFrame
+
+\begin{frame}{Avanzamenti settimanali}
+    \begin{itemize}
+        \item Continuazione fase di progettazione, sempre con il coinvolgimento di 4 progettisti 
+\end{itemize}
+\end{frame}
+
+% PRIMO FRAME: Attività terminate dal verbale esterno 
+
+% Reset delle entries per il secondo frame 
+\renewcommand{\precedentTodoEntries}{}
+
+%  SECONDO FRAME: Attività terminate dal verbale interno
+\addPrecedentTodo{vi\_2026\_02\_25.a1}{\#141}{Scrittura verbale interno}{L. Granziero}{28/02/2026}
+
+\makePrecedentTodoFrame
+
+
+\begin{frame}{Attività da completare}
+\begin{itemize}
+    \item Aggiornare il PdP allo sprint 8
+    \item Disporre di una progettazione a un livello di dettaglio adeguato per poter avviare la programmazione all’inizio del prossimo sprint (o al più tardi a metà sprint).
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Dubbi incontrati}
+  \begin{itemize}
+    \item  dubbi sulla sezione analytics e consigli 
+  \end{itemize}
+\end{frame}
+
+\end{document}
