@@ -74,6 +74,8 @@ HTML
 JSON
 XML
 PDF
+JWT
+OAuth
 
 # Termini tecnici inglesi
 dataset
@@ -256,3 +258,4 @@ setup
 config
 log
 logs
+letterpaper
