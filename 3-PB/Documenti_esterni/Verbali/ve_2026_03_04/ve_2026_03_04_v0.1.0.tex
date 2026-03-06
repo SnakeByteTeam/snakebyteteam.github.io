@@ -1,0 +1,114 @@
+%============================
+% Verbale riunione – Aggiornamenti progettuali e chiarimenti tecnici
+%============================
+\documentclass[10pt, letterpaper]{article}
+\usepackage{template}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Verbale esterno 04/03/2026}
+\setDocVersion{0.1.0}
+\setDocData{06/03/2026}
+\setDocIndex{ve\_2026\_03\_04}
+\setDocState{1}
+\setDocRecipient{2}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage 
+\addChangelog{0.1.0}{06/03/2026}{L. Granziero}{C. Libralato}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{04/03/2026}{16:00}{17:00}{via \textit{Microsoft Teams$_G$}}
+
+% ------------------------
+% Partecipanti
+% ------------------------
+\addParticipant{Filippo}{Venzo}{Progettista}{P}
+\addParticipant{Valeria}{Baleanu}{Progettista}{A}
+\addParticipant{Luca}{Granziero}{Responsabile}{P}
+\addParticipant{Christian}{Libralato}{Verificatore}{P}
+\addParticipant{Francesco}{Pasqual}{Progettista}{P}
+\addParticipant{Leonardo}{Pellizzon}{Amministratore}{P}
+\addParticipant{Giuseppe}{De Fina}{Progettista}{P}
+\makeMeetingParticipantsTable
+
+\section{Ordine del giorno}
+\begin{itemize}
+  \item Aggiornamento sullo stato del progetto;
+  \item progettazione della sezione Analytics;
+  \item autenticazione e integrazione con servizi esterni;
+  \item ottimizzazione e qualità del codice.
+\end{itemize}
+
+\section{Approfondimento}
+
+\subsection{Aggiornamento sullo stato del progetto}
+Durante la riunione è stato presentato un aggiornamento generale sullo stato di avanzamento del progetto, illustrando le attività completate e quelle ancora in corso. È stato confermato che la suddivisione dei ruoli all’interno del gruppo è rimasta invariata, mantenendo quattro progettisti, un amministratore, un verificatore e un responsabile, e che la fase di progettazione è proseguita regolarmente secondo quanto pianificato.
+\noindent
+È stato inoltre evidenziato che l’unica attività attualmente completata riguarda la redazione del verbale interno, mentre tra le attività ancora da svolgere rientra l’aggiornamento del piano di progetto allo \textit{Sprint$_G$} 8. L’obiettivo è raggiungere entro la conclusione dello sprint una progettazione sufficientemente definita da consentire l’avvio della fase di programmazione, con una scadenza ultima fissata alla metà dello sprint successivo.
+
+\subsection{Progettazione della sezione Analytics}
+Una parte significativa della riunione è stata dedicata all’analisi di alcuni dubbi progettuali relativi alla sezione Analytics della \textit{Dashboard$_G$}, con particolare attenzione alla gestione delle serie temporali, alla definizione della granularità dei dati, alla visualizzazione delle anomalie e ai livelli di aggregazione delle informazioni.
+\noindent
+È stato discusso se mantenere una granularità fissa per ciascun tipo di analisi oppure consentire all’utente di selezionare il livello di dettaglio desiderato. È stato suggerito di differenziare la granularità in base alla tipologia di dato analizzato, ad esempio mantenendo il dettaglio a livello di singolo dispositivo per dati come la temperatura, mentre per eventi quali cadute o allarmi aggregando le informazioni a livello di reparto.
+\noindent
+Durante la discussione sono stati inoltre chiariti alcuni aspetti relativi alle serie temporali fornite dal server Vimar, evidenziando che la storicità dei dati disponibili è limitata a un periodo relativamente breve. Per questo motivo è stato suggerito di sottoscriversi ai data point rilevanti per poter storicizzare i cambiamenti e gestire autonomamente le politiche di conservazione dei dati.
+\noindent
+È stata infine affrontata la definizione delle anomalie di impianto, che possono includere consumi significativamente superiori alla media, disconnessioni di dispositivi o impianti temporaneamente offline; è stato inoltre osservato che, anche in assenza di un energy meter dedicato, è possibile stimare i consumi energetici utilizzando i dati degli attuatori e delle sottoscrizioni disponibili.
+
+
+\subsection{Autenticazione e integrazione con servizi esterni}
+Nel corso dell’incontro sono stati approfonditi gli aspetti relativi alla gestione dell’autenticazione degli utenti e all’integrazione con le API esterne di KNX IOT.
+\noindent
+È stato chiarito che l’autenticazione degli utenti della Dashboard avverrà tramite credenziali composte da nome utente o email e password salvata in modo sicuro. A seguito del login verrà generato un token JWT, che potrà essere conservato nel local storage o nel session storage del browser e utilizzato per proteggere le chiamate alle API della Dashboard.
+\noindent
+Parallelamente è stata discussa la gestione dell’autenticazione verso le API esterne, che avverrà tramite protocollo OAuth2: l’amministratore del sistema effettuerà il login sul servizio My Vimar ottenendo un access token e un refresh token che verranno utilizzati dal sistema per effettuare le chiamate alle API.
+\noindent
+È stata infine sottolineata l’importanza di non esporre tali credenziali o token sensibili nel browser degli utenti, ma di gestirli esclusivamente lato server tramite servizi dedicati, al fine di garantire adeguati livelli di sicurezza e prevenire accessi non autorizzati.
+
+\subsection{Ottimizzazione e qualità del codice}
+Infine sono state discusse alcune possibili strategie di ottimizzazione e strumenti utili per migliorare la qualità complessiva del progetto.
+\noindent
+In particolare è stata valutata l’introduzione di un sistema di caching per i grafici generati dalla Dashboard, in modo che i risultati relativi a determinate giornate possano essere memorizzati e serviti direttamente dal server senza essere ricalcolati ogni volta. È stato tuttavia suggerito di valutare attentamente il rapporto tra il tempo necessario per implementare tale soluzione e i benefici effettivi rispetto alle priorità del progetto.
+\noindent
+È stato inoltre proposto l’utilizzo di \textit{SonarQube$_G$} per l’analisi statica del codice, strumento che consente di monitorare diverse metriche di qualità e individuare eventuali problematiche; essendo gratuito, può essere integrato facilmente nel flusso di lavoro del progetto.
+
+
+% ------------------------
+% Decisioni
+% ------------------------
+
+
+\addDecision{La progettazione della sezione Analytics adotterà livelli di granularità differenti in base alla tipologia di dato analizzato.}
+
+\addDecision{L’autenticazione degli utenti della Dashboard sarà gestita tramite token JWT generati a seguito del login.}
+
+\addDecision{L’integrazione con le API di KNX IOT avverrà tramite protocollo OAuth2 gestito lato server, evitando l’esposizione delle credenziali nel browser degli utenti.}
+
+\makeDecisionTable
+
+% ------------------------
+% TODO
+% ------------------------
+
+\addTodo{-}{Proseguire l’aggiornamento del piano di progetto per completare lo Sprint 8.}{L. Pellizzon}{08/03/2026}
+
+\addTodo{-}{Proseguire le attività di progettazione tenendo conto dei chiarimenti emersi durante la riunione e delle nuove informazioni acquisite.}{F. Venzo, V. Baleanu, F. Pasqual, G. De Fina}{08/03/2026}
+
+
+\addTodo{-}{Inoltrare i verbali esterni per l'approvazione da parte della proponente}{L. Granziero}{06/03/2026}
+
+\makeTodoTable
+
+\end{document}
