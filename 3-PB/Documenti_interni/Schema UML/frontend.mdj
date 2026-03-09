@@ -21428,6 +21428,7 @@
 									"model": {
 										"$ref": "AAAAAAGczGgzxagcFdQ="
 									},
+									"visible": false,
 									"font": "Arial;13;0",
 									"parentStyle": false,
 									"left": 1987,
@@ -21451,18 +21452,19 @@
 									"model": {
 										"$ref": "AAAAAAGczGgzxagcFdQ="
 									},
-									"visible": null,
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 2016,
-									"top": 636,
+									"left": 1984,
+									"top": 615,
+									"width": 51.30810546875,
 									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 30,
+									"alpha": 1.9175639127374042,
+									"distance": 9.219544457292887,
 									"hostEdge": {
 										"$ref": "AAAAAAGczIUXJqpsiY4="
 									},
-									"edgePosition": 1
+									"edgePosition": 1,
+									"text": "«injects»"
 								},
 								{
 									"_type": "EdgeLabelView",
@@ -26401,7 +26403,6 @@
 									"_parent": {
 										"$ref": "AAAAAAGcw97/Vq4vAVA="
 									},
-									"name": "injects",
 									"end1": {
 										"_type": "UMLAssociationEnd",
 										"_id": "AAAAAAGczGgzxagdpl0=",
@@ -26422,7 +26423,8 @@
 											"$ref": "AAAAAAGcw97/Va4aFe0="
 										},
 										"navigable": "navigable"
-									}
+									},
+									"stereotype": "injects"
 								},
 								{
 									"_type": "UMLAssociation",
