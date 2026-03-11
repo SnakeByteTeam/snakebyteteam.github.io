@@ -47199,7 +47199,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGc01XMv7z6x5I="
 					},
-					"name": "Class Diagram by Mermaid",
+					"name": "Event Subscription - Alarm  State Service",
 					"ownedViews": [
 						{
 							"_type": "UMLClassView",
@@ -53340,7 +53340,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGc3c6rmB3VVj8="
 					},
-					"name": "Class Diagram by Mermaid",
+					"name": "MyVimar Integration - Vimar Cloud Api Service",
 					"ownedViews": [
 						{
 							"_type": "UMLClassView",
@@ -57517,7 +57517,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGc3c8bWiTPK8g="
 					},
-					"name": "Class Diagram by Mermaid",
+					"name": "MainLayout Feature",
 					"ownedViews": [
 						{
 							"_type": "UMLClassView",
