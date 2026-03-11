@@ -10090,7 +10090,7 @@
 											"top": 1751,
 											"width": 167.8798828125,
 											"height": 13,
-											"text": "PlantAnomaliesAnalytics ?"
+											"text": "PlantAnomaliesAnalytics"
 										},
 										{
 											"_type": "LabelView",
@@ -92017,6 +92017,20 @@
 							"width": 70,
 							"height": 40,
 							"text": "Diventa Facade"
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAGc3bY44ZjBbGg=",
+							"_parent": {
+								"$ref": "AAAAAAGcrthAlwN3VJ0="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 2560,
+							"top": 1824,
+							"width": 144,
+							"height": 131,
+							"text": "Anomalie:\nEsempio: consumi fuori media di un appartamento rispetto ad altri"
 						}
 					]
 				},
@@ -94315,7 +94329,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGcrthAlwN2kjs="
 					},
-					"name": "PlantAnomaliesAnalytics ?",
+					"name": "PlantAnomaliesAnalytics",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
