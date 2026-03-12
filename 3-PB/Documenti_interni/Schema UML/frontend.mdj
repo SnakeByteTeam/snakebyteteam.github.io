@@ -70220,7 +70220,7 @@
 											"top": 697,
 											"width": 226.41162109375,
 											"height": 13,
-											"text": "AlarmManagementFacadeService"
+											"text": "AlarmManagementService"
 										},
 										{
 											"_type": "LabelView",
@@ -73925,12 +73925,12 @@
 									},
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 1855,
-									"top": 811,
+									"left": 1864,
+									"top": 776,
 									"width": 108.38623046875,
 									"height": 13,
-									"alpha": 1.5707963267948966,
-									"distance": 30,
+									"alpha": 3.3055484748567845,
+									"distance": 16.15549442140351,
 									"hostEdge": {
 										"$ref": "AAAAAAGc4buQm9i2jYM="
 									},
@@ -78751,7 +78751,7 @@
 											"top": 1644,
 											"width": 226.41162109375,
 											"height": 13,
-											"text": "NotificationFacadeService"
+											"text": "NotificationService"
 										},
 										{
 											"_type": "LabelView",
@@ -85780,7 +85780,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGc4buQmdczL2o="
 					},
-					"name": "AlarmManagementFacadeService",
+					"name": "AlarmManagementService",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
@@ -87802,7 +87802,7 @@
 											"top": 430,
 											"width": 226.41162109375,
 											"height": 13,
-											"text": "NotificationFacadeService"
+											"text": "NotificationService"
 										},
 										{
 											"_type": "LabelView",
@@ -89342,12 +89342,12 @@
 									},
 									"font": "Arial;13;0",
 									"parentStyle": false,
-									"left": 288,
-									"top": 391,
+									"left": 360,
+									"top": 407,
 									"width": 108.392578125,
 									"height": 13,
-									"alpha": -1.6534099886987428,
-									"distance": 157.53729717117784,
+									"alpha": -1.696762934375371,
+									"distance": 230.82894099310857,
 									"hostEdge": {
 										"$ref": "AAAAAAGc4d8JjMoJw5s="
 									},
@@ -92464,7 +92464,7 @@
 					"_parent": {
 						"$ref": "AAAAAAGc4d8JiclQUeg="
 					},
-					"name": "NotificationFacadeService",
+					"name": "NotificationService",
 					"ownedElements": [
 						{
 							"_type": "UMLAssociation",
