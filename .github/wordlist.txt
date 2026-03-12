@@ -199,6 +199,7 @@ OP
 OB
 DE
 NI
+RO
 
 # Termini metodologici
 Agile
@@ -217,7 +218,23 @@ scalabilita
 tracciabilita
 replicabilita
 interoperabilita
+manutenibile
 modularita
+ottimalita
+
+
+UC
+italian
+macrosezioni
+nell
+posticipabili
+pressochè
+rendicontabili
+ripianificazione
+ripianificazioni
+sull
+xcolor
+
 
 # Termini italiani tecnici
 domotico
@@ -232,6 +249,8 @@ redattore
 verificatore
 approvatore
 assegnatario
+versionamento
+ripianificare
 
 # Verbi/azioni tecniche
 autenticare
@@ -246,6 +265,7 @@ test
 versioning
 
 # Altri termini comuni nei documenti
+Gantt
 online
 offline
 app
