@@ -1,0 +1,75 @@
+
+\documentclass[10pt, letterpaper]{article}
+\usepackage{../../../../template/template}
+
+
+\setDocTitle{Verbale esterno 18/02/2026}
+\setDocVersion{1.0.0}
+\setDocData{18/02/2026}
+\setDocIndex{ve\_2026\_02\_18}
+\setDocState{2}
+\setDocRecipient{2}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{18/02/2026}{16:00}{17:00}{via \textit{Microsoft Teams$_G$}}
+
+% ------------------------
+% Partecipanti
+% ------------------------
+\addParticipant{Filippo}{Venzo}{Responsabile}{P}
+\addParticipant{Valeria}{Baleanu}{Progettista}{P}
+\addParticipant{Luca}{Granziero}{Verificatore}{P}
+\addParticipant{Christian}{Libralato}{Progettista}{P}
+\addParticipant{Francesco}{Pasqual}{Verificatore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Progettista}{P}
+\addParticipant{Giuseppe}{De Fina}{Amministratore}{P}
+\makeMeetingParticipantsTable
+
+\section{Ordine del giorno}
+\begin{itemize}
+  \item Riscontro revisione RTB;
+  \item valutazione tecnologie backend;
+  \item strategie di caching;
+  \item pianificazione attività future;
+\end{itemize}
+
+\section{Approfondimento}
+
+\subsection{Riscontro revisione RTB}
+Il gruppo ha riferito alla proponente l'esito della revisione RTB. 
+
+\subsection{Valutazione tecnologie backend}
+In seguito alle criticità sollevate dal professor Cardin circa l'utilizzo di \textit{Express$_{G}$} ritenuto poco strutturato per un'architettura complessa, il gruppo ha discusso insieme alla proponente il passaggio a \textit{NestJS$_{G}$}. Questa scelta garantirebbe una struttura più rigorosa ed una gestione delle dipendenze aiutata da un \textit{IoC Container$_{G}$} intergrato.
+
+\subsection{Strategie di caching}
+È stata discussa la proposta di utilizzare PostgreSQL con campi \textit{JSONB$_{G}$} e indici \textit{GIN$_{G}$} per la gestione del caching, in alternativa ad un \textit{database} non relazionale. La Proponente ha confermato la validità tecnica di questo approccio, raccomandando però particolare attenzione alla persistenza dei dati e alla gestione delle tabelle \textit{unlogged} per ottimizzare le performance senza compromettere la stabilità in caso di crash.
+
+\subsection{Pianificazione delle attività future}
+La proponente ha suggerito di sfruttare il tempo d'attesa della seconda revisione della \textit{milestone} RTB per predisporre la \textit{repository} del progetto. L'obiettivo è anticipare la configurazione dei \textit{configuration item$_{G}$} e della base \textit{frontend}.
+
+
+% ------------------------
+% Decisioni
+% ------------------------
+
+\addDecision{Conferma dell'approccio PostgreSQL (JSONB/GIN) per il caching dei dati}
+
+\makeDecisionTable
+
+% ------------------------
+% TODO
+% ------------------------
+
+\addTodo{-}{Preparazione \textit{repository}}{Gruppo \teamName}{28/02/2026}
+\makeTodoTable
+
+\end{document}
