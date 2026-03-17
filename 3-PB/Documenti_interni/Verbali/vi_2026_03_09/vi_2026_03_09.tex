@@ -1,0 +1,119 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 09/03/2026}
+\setDocVersion{-}
+\setDocData{09/03/2026}
+\setDocIndex{vi\_2026\_03\_09}
+\setDocState{1}
+\setDocRecipient{1}
+
+\begin{document}
+
+\makeTitlePage
+
+% \newpage
+% \addChangelog{0.1.0}{11/03/2026}{F. Pasqual}{C. Libralato}{\noOne}{\firstDraft}
+% \makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{09/03/2026}{14:30}{16:30}{via \textit{Discord$_G$}}
+
+\addParticipant{Valeria}{Baleanu}{Progettista}{P}
+\addParticipant{Leonardo}{Pellizzon}{Progettista}{P}
+\addParticipant{Luca}{Granziero}{Progettista}{P}
+\addParticipant{Francesco}{Pasqual}{Responsabile}{P}
+\addParticipant{Giuseppe}{De Fina}{Progettista}{P}
+\addParticipant{Christian}{Libralato}{Verificatore}{P}
+\addParticipant{Filippo}{Venzo}{Amministratore}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{vi\_2026\_03\_02.a1}{\#144}{L. Granziero, C. Libralato}{04/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_02.a2}{\#142}{L. Granziero, C. Libralato}{08/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_02.a3}{\#146}{L. Granziero}{08/03/2026}
+\makePrecedentTodoTable
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Coordinamento ruoli progettista/programmatore e aggiornamento \textit{sprint$_G$};
+    \item gestione e design \textit{backend}: allarmi, notifiche e gestione utenti;
+    \item organizzazione \textit{frontend} e personalizzazione dashboard;
+    \item gestione documentazione e strumenti di supporto;
+    \item divisione compiti e pianificazione ultime attività.
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Coordinamento ruoli e aggiornamento \textit{sprint}}
+Il team ha discusso la necessità di completare interamente la fase di progettazione prima di passare alla programmazione effettiva.
+Per garantire questo risultato, è stato deciso che durante la prima metà del prossimo sprint anche i membri con ruoli diversi dal progettista lavoreranno in veste di progettisti nei momenti di necessità.
+Si è inoltre stabilito di mantenere inalterata la durata degli \textit{sprint} a due settimane per minimizzare le perdite di tempo legate all'overhead gestionale.
+Infine, è emersa la necessità di aggiornare il Piano di Progetto e il Piano di Qualifica includendo dati, metriche e grafici aggiornati fino allo \textit{sprint} 9.
+
+\subsection*{Gestione e design backend}
+Sono stati esaminati i progressi lato \textit{backend}, focalizzandosi in particolare sulla modellazione dettagliata
+degli allarmi e dei relativi \textit{use case$_G$}, oltre che sulla gestione degli utenti e sulla sincronizzazione \textit{frontend}/\textit{backend} tramite \textit{DTO$_G$}.
+Un punto cruciale della discussione ha riguardato l'importanza di differenziare nel \textit{database} le chiavi naturali da quelle surrogate per le entità di reparti,
+utenti e dispositivi, tema che richiederà un ulteriore approfondimento con i docenti e il referente aziendale.
+Sono state inoltre affrontate l'implementazione della comunicazione via \textit{WebSocket$_G$} per le notifiche rapide, l'applicazione rigorosa dei principi \textit{SOLID$_G$} e la messa in sicurezza degli \textit{endpoint$_G$} con logiche specifiche per i \textit{token JWT$_G$}.
+
+\subsection*{Organizzazione frontend e dashboard}
+Per quanto concerne il \textit{frontend}, la discussione si è concentrata sulla struttura generale e sulla necessità
+di definire con precisione i servizi a livello 3 del modello \textit{C4}.
+È stata avanzata l'ipotesi di rendere la \textit{dashboard$_G$} personalizzabile, lasciando come punto in sospeso se memorizzare tali preferenze lato utente o lato amministratore.
+A supporto della progettazione grafica e del design collaborativo è stato confermato l'impiego di \textit{Figma$_G$}.
+Resta da verificare la disponibilità e l'applicabilità di eventuali pacchetti \textit{Angular} integrabili per il \textit{wireframing} e la generazione di codice.
+
+\subsection*{Gestione documentazione e strumenti di supporto}
+Analizzando le limitazioni dell'attuale strumento utilizzato per i diagrammi e l'esigenza di un miglior
+versionamento, è stato deciso di archiviare i file dei diagrammi e i documenti di specifica direttamente su \textit{GitHub$_G$},
+centralizzando così le risorse e facilitandone l'accessibilità.
+
+\subsection*{Divisione compiti e pianificazione ultime attività}
+La riunione si è conclusa con una chiara ripartizione dei carichi di lavoro per le fasi imminenti:
+considerate le imminenti indisponibilità esterne di alcuni componenti, è stata ribadita la priorità assoluta di implementare prima le funzionalità obbligatorie del progetto, posticipando quelle opzionali.
+È stato confermato l'impegno a mantenere una comunicazione costante e a sfruttare appieno gli strumenti collaborativi per portare a termine i lavori nei tempi previsti.
+Infine, si è ricordata la necessità di redigere le presentazioni per il Diario di Bordo e per il \textit{SAL$_G$} con l'azienda del 11/03/2026.
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+\addDecision{Dedicare la prima metà dello sprint esclusivamente alla progettazione con tutti i membri operativi come progettisti}
+\addDecision{Aggiornare i dati e le metriche del Piano di Progetto e Piano di Qualifica fino allo sprint 9}
+\addDecision{Mantenere gli sprint della durata di due settimane}
+\addDecision{Utilizzo di Figma per il design grafico collaborativo}
+\addDecision{Centralizzare la documentazione e i diagrammi SVG dei diagrammi delle classi su GitHub per migliorarne versionamento e gestione}
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+\addTodo{\#161}{Stesura verbale interno relativo alla riunione del 09/03/2026}{F. Pasqual, C. Libralato}{16/03/2026}
+\addTodo{\#163}{Redazione presentazione per Diario di Bordo}{F. Pasqual, C. Libralato}{11/03/2026}
+\addTodo{\#164}{Aggiornare Piano di Progetto fino allo sprint 9}{F. Venzo}{22/03/2026}
+\addTodo{\#166}{Redazione presentazione per \textit{SAL}}{F. Pasqual, C. Libralato}{11/03/2026}
+\addTodo{\#167}{Preparare bozzetti grafici e design frontend collaborativo su Figma}{V. Baleanu, L. Pellizzon, L. Granziero, G. De Fina}{18/03/2026}
+\addTodo{\#165}{Aggiornare Piano di Qualifica fino allo sprint 9}{F. Venzo}{22/03/2026}
+\addTodo{\#169}{Aggiungere nuovi termini al glossario}{F. Pasqual}{16/03/2026}
+\addTodo{\#172}{Completare modellazione classi backend di notifiche, WebSocket, allarmi e utenti}{V. Baleanu, L. Pellizzon, L. Granziero, G. De Fina}{16/03/2026}
+\addTodo{\#174}{Completare modellazione classi frontend}{V. Baleanu, L. Pellizzon, L. Granziero, G. De Fina}{16/03/2026}
+\addTodo{\#173}{Creare documentazione condivisa su GitHub con caricamento diagrammi e specifiche}{F. Pasqual}{16/03/2026}
+
+\makeTodoTable
+
+\end{document}
