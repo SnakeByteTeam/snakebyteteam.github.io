@@ -1,0 +1,76 @@
+\documentclass{beamer}
+
+\usepackage{../tema}
+
+
+\title{SAL}
+\author[F. Pasqual, C. Libralato]{F. Pasqual, C. Libralato}
+\setDate{18/03/2026}
+
+\begin{document}
+
+{
+\setbeamertemplate{footline}{}
+\begin{frame}
+    \titlepage
+\end{frame}
+}
+
+\addMember{Filippo}{Venzo}{Amministratore}
+\addMember{Giuseppe}{De Fina}{Programmatore}
+\addMember{Valeria}{Baleanu}{Programmatore}
+\addMember{Christian}{Libralato}{Verificatore}
+\addMember{Leonardo}{Pellizzon}{Programmatore}
+\addMember{Francesco}{Pasqual}{Responsabile}
+\addMember{Luca}{Granziero}{Programmatore}
+\makeMembersFrame
+
+\begin{frame}{Avanzamenti settimanali}
+    \begin{itemize}
+        \setlength{\itemsep}{0.9em}
+        \item Terminazione dell'attività di progettazione;
+        \item Definizione dei bozzetti \textit{wireframe$_G$} su Figma;
+        \item Creazione dei progetti e strutturazione della codebase per \textit{frontend} e \textit{backend}.
+    \end{itemize}
+\end{frame}
+
+% PRIMO FRAME: Attività terminate dal verbale esterno 
+\addPrecedentTodo{ve\_2026\_03\_11.a1}{\#182}{Inviare al referente della Proponente i bozzetti delle principali schermate per ricevere \textit{feedback}.}{F. Pasqual}{18/03/2026}
+\addPrecedentTodo{ve\_2026\_03\_11.a2}{\#183}{Aggiornare il tabellone condiviso dal referente della Proponente con lo stato di avanzamento delle attività.}{F. Pasqual, F. Venzo}{18/03/2026}
+
+\renewcommand{\precedentTodoEntries}{}
+
+%  SECONDO FRAME: Attività terminate dal verbale interno
+\addPrecedentTodo{vi\_2026\_03\_09.a1}{\#161}{Stesura verbale interno relativo alla riunione del 09/03/2026}{F. Pasqual, C. Libralato}{16/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a2}{\#163}{Redazione presentazione per Diario di Bordo}{F. Pasqual, C. Libralato}{11/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a3}{\#164}{Aggiornare Piano di Progetto fino allo sprint 9}{F. Venzo}{22/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a6}{\#165}{Aggiornare Piano di Qualifica fino allo sprint 9}{F. Venzo}{22/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a4}{\#166}{Redazione presentazione per \textit{SAL}}{F. Pasqual, C. Libralato}{11/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a5}{\#167}{Preparare bozzetti grafici e design frontend collaborativo su Figma}{V. Baleanu, L. Pellizzon, L. Granziero, G. De Fina}{18/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a7}{\#169}{Aggiungere nuovi termini al glossario}{F. Pasqual}{16/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a8}{\#172}{Completare modellazione classi backend di notifiche, WebSocket, allarmi e utenti}{V. Baleanu, L. Pellizzon, L. Granziero, G. De Fina}{16/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a10}{\#173}{Creare documentazione condivisa su GitHub con caricamento diagrammi e specifiche}{F. Pasqual}{16/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a9}{\#174}{Completare modellazione classi frontend}{V. Baleanu, L. Pellizzon, L. Granziero, G. De Fina}{16/03/2026}
+
+\makePrecedentTodoFrame
+
+
+\begin{frame}{Attività da completare}
+    \begin{itemize}
+        \setlength{\itemsep}{0.9em}
+        \item Sviluppo \textit{frontend}: \textit{feature} Angular del \textit{core} dell'applicazione (Event Subscription, User/Plant Management, ...);
+        \item Sviluppo \textit{backend}: prima implementazione dei moduli Nest (autenticazione, \textit{user}, reparti, token, ...).
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Dubbi incontrati}
+    \begin{itemize}
+        \setlength{\itemsep}{0.9em}
+        \item Strutturazione codebase: \textit{monorepo} e \textit{tool} per la sua gestione (\textit{Nx, Turborepo});
+        \item Notifiche \textit{backend - frontend} tramite connessioni \textit{WebSocket$_G$};
+        \item Bozzetti \textit{wireframe};
+        \item Validazione entità: valori e \textit{range}.
+    \end{itemize}
+\end{frame}
+
+\end{document}
