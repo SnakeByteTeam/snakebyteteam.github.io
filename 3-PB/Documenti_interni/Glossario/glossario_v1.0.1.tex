@@ -2,15 +2,16 @@
 \usepackage{../../../template/template}
 
 \setDocTitle{Glossario}
-\setDocData{14/02/2026}
-\setDocVersion{1.0.0}
-\setDocState{2}
+\setDocData{18/03/2026}
+\setDocVersion{1.0.1}
+\setDocState{1}
 \setDocRecipient{0}
 
 \begin{document}
 
 \makeTitlePage
 
+\addChangelog{1.0.1}{18/03/2026}{F. Venzo}{C. Libralato}{\noOne}{Aggiunti nuovi termini al glossario}
 \addChangelog{1.0.0}{14/02/2026}{\noOne}{\noOne}{F. Venzo}{\approval}
 \addChangelog{0.1.0}{13/02/2026}{L. Pellizzon}{F. Pasqual}{\noOne}{\firstDraft}
 \makeChangelog
@@ -49,6 +50,11 @@ un protocollo di comunicazione internazionale.
 
 \section{B}
 
+\subsection*{Backend-for-frontend proxy}
+Backend for Frontend (BFF) è un pattern architetturale che prevede la creazione di servizi backend dedicati e specifici per ogni tipo di interfaccia frontend. Invece di avere un unico backend generico che serve tutte le piattaforme, il pattern BFF introduce un layer intermedio (proxy) che ottimizza le API per le esigenze specifiche di ciascun client: web, mobile, smart TV, IoT, ecc.
+
+Il pattern BFF è stato formalizzato da Sam Newman nel 2015, nell'articolo "Backends for Frontends" e successivamente nel libro "Building Microservices" (O'Reilly, 2015).
+
 \subsection*{Black-box}
 Approccio in cui un modello o sistema è utilizzato senza conoscerne il contenuto, ovvero il suo funzionamento interno, ma solo osservando l'input e l'output.
 
@@ -73,7 +79,7 @@ utenti possono generare diagrammi architetturali in modo molto flessibile. Rifer
 \subsection*{Capitolato}
 Il capitolato è un documento che descrive in modo dettagliato le specifiche tecniche e le condizioni necessarie per lo sviluppo di un
 progetto software. Viene redatto dal proponente e presentato ai fornitori o agli sviluppatori interessati a partecipare alla gara
-d'apparto per la realizzazione del prodotto.
+d'appalto per la realizzazione del prodotto.
 
 \subsection*{Chat}
 Sistema di comunicazione in tempo reale che avviene tra utenti in modo testuale.
@@ -82,12 +88,15 @@ Sistema di comunicazione in tempo reale che avviene tra utenti in modo testuale.
 Insieme di pratiche che uniscono lo sviluppo software e operazioni IT in ambienti cloud per migliorare automazione, integrazione e distribuzione continua.
 
 \subsection*{Commit}
-Il commit è un operazione di salvataggio all'interno di un repository Git che registra una versione specifica dei file, consentendo di tenere traccia delle modifiche
+Il commit è un'operazione di salvataggio all'interno di un repository Git che registra una versione specifica dei file, consentendo di tenere traccia delle modifiche
 effettuate nel tempo.
 
 \subsection*{Committente}
 Il committente è l'individuo o l'organizzazione che commissiona la realizzazione di un progetto software e ne finanzia lo sviluppo. Esso è responsabile della definizione dei
-requisiti e delle specifiche del progetto, oltre a valutare il prodotto finale in base ai propri obbiettivi e aspettative iniziali.
+requisiti e delle specifiche del progetto, oltre a valutare il prodotto finale in base ai propri obiettivi e aspettative iniziali.
+
+\subsection*{Configuration item}
+Qualsiasi componente (software, hardware o documento) trattato come singola unità a fini di gestione. Rappresenta l'elemento che viene identificato, tracciato e sottoposto al processo formale di controllo di configurazione. Un insieme di configuration item, una volta approvati, formano una \textit{baseline} che può essere modificata solo attraverso procedure formali e sotto stretto controllo di versione.
 
 \subsection*{Container}
 Un container è un'unità standard di software che impacchetta il codice e tutte le sue dipendenze in modo che l'applicazione venga eseguita in modo rapido e
@@ -95,6 +104,10 @@ affidabile da un ambiente informatico all'altro
 
 \subsection*{Continuous Integration e Deployment (CI/CD)}
 Insieme di pratiche volte ad automatizzare l'integrazione, i test e la distribuzione del software per garantire rilasci frequenti e affidabili.
+
+\subsection*{Cookie}
+Stringa di testo di piccole dimensioni inviata da un server ad un client (browser) affinché la memorizzi e la ritrasmetta al medesimo server nelle sessioni successive. Permette di realizzare meccanismi di autenticazione, di tracciatura di sessione e di memorizzazione di informazioni di uno specifico utente (es. preferenze sull'aspetto grafico o linguistico dell'applicativo).
+
 
 \subsection*{CRUD}
 Acronimo di Create, Read, Update, Delete. Rappresenta le quattro operazioni fondamentali per la gestione dei dati in un sistema informatico.
@@ -116,6 +129,9 @@ dei dati passati e attuali per prevedere le tendenze future.
 \subsection*{Deliverable}
 Artefatto concreto e tangibile prodotto durante il ciclo di vita del progetto che deve essere consegnato agli stakeholder. Include documenti, software, report e
 qualsiasi altro prodotto specificato nei requisiti del progetto.
+
+\subsection*{Design}
+È un'attività del processo di sviluppo che consiste nell'individuare le parti che compongono il prodotto, precisarne le responsabilità e definire le regole di interazione tra di essi. Risponde al quesito di come realizzare la soluzione. Il risultato di questa attività è un'architettura logica. 
 
 \subsection*{Develop}
 Nel modello di branching Gitflow, 'develop' è il ramo principale di integrazione per lo sviluppo di nuove funzionalità. Contiene la storia completa del progetto
@@ -148,6 +164,9 @@ scenario di progetto indica l'ottenimento di un riscontro valutativo sull'operat
 
 \section{G}
 
+\subsection*{GIN}
+Generalized Inverted Index, è una struttura di indicizzazione progettata per gestire dati strutturati (JSONB) i cui elementi interni devono essere interrogati singolarmente. Mappa ogni chiave di singolo elemento ad una lista di identificativi di riga, rendendo efficienti le ricerche. Permette di implementare strategie di scansione personalizzate per diversi tipi di dati, ottimizzando lo storage tramite l'archiviazione univoca delle chiavi. 
+
 \subsection*{Git}
 Sistema di controllo di versione distribuito che permette a molteplici sviluppatori di lavorare mantenendo un registro delle modifiche che vengono apportate al
 codice di uno stesso progetto.
@@ -178,6 +197,11 @@ Pratica che prevede la gestione e configurazione dell'infrastruttura informatica
 \subsection*{Internet of Things (IoT)}
 Rete di dispositivi fisici dotati di sensori, software e altre tecnologie, che consente loro di connettersi a Internet, raccogliere e scambiare dati
 
+\subsection*{IoC Container}
+Componente deputato all'implementazione del paradigma \textit{Inversion of Control} ovvero la delegazione ad una entità esterna (container) la gestione del ciclo di vita degli oggetti.
+Registra le dipendenze di ogni componente e alla sua creazione le inietta, togliendo la responsabilità agli oggetti stessi di istanziare manualmente le proprie dipendenze.
+Riduce l'accoppiamento tra le classi.
+
 \subsection*{Issue}
 Un GitHub Issue è una funzionalità di GitHub dedicata alla gestione delle attività e al tracciamento dei problemi all'interno di un progetto software.
 Ogni issue rappresenta un elemento di lavoro o una segnalazione specifica e può essere arricchita con diverse informazioni: assegnatari, per indicare i
@@ -194,6 +218,9 @@ garantendo una gestione più efficiente del ciclo di sviluppo.
 \subsection*{Jira}
 Strumento software proprietario ampiamente utilizzato per la gestione dei progetti, l'Issue Tracking e lo sviluppo Agile. Permette ai team di pianificare,
 tracciare e rilasciare software, gestendo problemi (Issue) e flussi di lavoro personalizzati.
+
+\subsection*{JSONB}
+Tipo di dato di PostgreSQL che permette la memorizzazione di file JSON in formato binario. Permette una maggiore velocità nell'interrogazione e manipolazione rispetto al formato standard JSON e supporta vari tipi di indici, migliorando ulteriormente le prestazioni delle query.
 
 \section{L}
 
@@ -217,7 +244,8 @@ Il processo sincronizza le modifiche tra i diversi flussi di lavoro, spesso a se
 Piattaforma di comunicazione e collaborazione unificata che combina chat di lavoro persistente, teleconferenza, condivisione di contenuti e integrazione
 delle applicazioni.
 
-\subsection*{Microsoft Copilot}I copiloti sono interazioni di intelligenza artificiale generative basate su chat di Microsoft. Hanno funzionalità specializzate in base agli utenti e ai casi
+\subsection*{Microsoft Copilot}
+I copiloti sono interazioni di intelligenza artificiale generative basate su chat di Microsoft. Hanno funzionalità specializzate in base agli utenti e ai casi
 d'uso. Alcuni Copilot si possono utilizzare come prodotto autonomo, mentre altri sono integrati in altri prodotti, servizi e dispositivi Microsoft.
 
 \subsection*{Milestone}
@@ -227,19 +255,29 @@ influenzano direttamente la durata complessiva del progetto, ma servono a eviden
 
 \subsection*{Mocking}
 In ingegneria del software è una tecnica che permette di isolare e testare con facilità una porzione del programma sfruttando degli oggetti (mock) che simulano
-dipendenze reali come databases e APIs.
+dipendenze reali come database e API.
+
+\section{N}
+
+\subsection*{NestJs}
+Framework Node.js open-source per lo sviluppo di applicazioni server-side (backend). Si basa sul linguaggio TypeScript ed adotta un'architettura modulare ispirata dal framework Angular. Integra nativamente un \textit{IoC Container} per la gestione della Dependency Injection e test automatici. Garantisce una struttura solida.
 
 \section{O}
 
 \subsection*{Open Web Application Security Project (OWASP)}
 Definisce l'organizzazione che promuove la sicurezza del software e che fornisce linee guida per la protezione delle applicazioni web.
+
 \section{P}
+
+\subsection*{Payload}
+In italiano "carico utile", indica la parte dei dati trasmessi effettivamente informativa, destinata al ricevente. Di questa non fanno parte metadati o header il quale unico scopo è il funzionamento del protocollo di comunicazione adottato.
+
 
 \subsection*{Prisma ORM}
 Toolkit open source per Node.js e TypeScript che semplifica l'accesso ai database.
 
 \subsection*{Project Board}
-Tabellone interattivo fornito da piattaforme di gestione di progetto come Github o Jira che riassume in maniera visiva lo stato del progetto e ne permette
+Tabellone interattivo fornito da piattaforme di gestione di progetto come GitHub o Jira che riassume in maniera visiva lo stato del progetto e ne permette
 la gestione.
 
 \subsection*{Prompt Engineering}
@@ -274,13 +312,15 @@ Azione correttiva volta a risolvere problemi di sicurezza rilevati in un sistema
 Architettura per la comunicazione tra sistemi distribuiti basata su protocolli HTTP, utilizzata nella creazione di API web.
 
 \subsection*{Round Review}
-Consiste in una delle tante review di un documento che avvengono in maniera iterativa da parte di verificatori, esse generano modifiche del documento
-fino al raggiungimento di un risultato approvabile. (P.S Non si trovano definizioni online, non si capisce se è un processo o se è un iterazione del processo).
+Applicativo per la revisione dei documenti, sviluppato \textit{ad-hoc} dal referente di Vimar S.p.A. per il progetto didattico del corso di Ingegneria del Software.
 
 \section{S}
 
 \subsection*{Software Development Kit (SDK)}
 Insieme di strumenti, librerie e documentazione forniti per facilitare lo sviluppo di applicazioni che interagiscono con un determinato sistema o chiamate API.
+
+\subsection*{SonarQube}
+Piattaforma open-source che prevede la continua ispezione del codice tramite analisi statica. Individua automaticamente bug e vulnerabilità. Può essere integrato nella pipeline CI/CD in modo da garantire che il software sia ispezionato ad ogni modifica nel repository.
 
 \subsection*{Sprint}
 Nel contesto Agile, uno Sprint è un breve periodo di tempo, di durata 2-4 settimane, in cui uno Scrum Team lavora per completare una determinata quantità di
