@@ -1,0 +1,140 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 16/03/2026}
+\setDocVersion{-}
+\setDocData{16/03/2026}
+\setDocIndex{vi\_2026\_03\_16}
+\setDocState{1}
+\setDocRecipient{1}
+
+\begin{document}
+
+\makeTitlePage
+
+% \newpage
+% \addChangelog{0.1.0}{11/03/2026}{F. Pasqual}{C. Libralato}{\noOne}{\firstDraft}
+% \makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{16/03/2026}{14:30}{16:30}{via \textit{Discord$_G$}}
+
+\addParticipant{Valeria}{Baleanu}{Programmatore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Programmatore}{P}
+\addParticipant{Francesco}{Pasqual}{Responsabile}{P}
+\addParticipant{Giuseppe}{De Fina}{Programmatore}{P}
+\addParticipant{Christian}{Libralato}{Verificatore}{P}
+\addParticipant{Filippo}{Venzo}{Amministratore}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{vi\_2026\_03\_09.a1}{\#161}{F. Pasqual, C. Libralato}{16/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a2}{\#163}{F. Pasqual, C. Libralato}{11/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a3}{\#164}{F. Venzo}{22/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a4}{\#166}{F. Pasqual, C. Libralato}{11/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a5}{\#167}{V. Baleanu, L. Pellizzon, L. Granziero, G. De Fina}{18/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a6}{\#165}{F. Venzo}{22/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a7}{\#169}{F. Pasqual}{16/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a8}{\#172}{V. Baleanu, L. Pellizzon, L. Granziero, G. De Fina}{16/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a9}{\#174}{V. Baleanu, L. Pellizzon, L. Granziero, G. De Fina}{16/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_09.a10}{\#173}{F. Pasqual}{16/03/2026}
+\makePrecedentTodoTable
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Implementazione autenticazione \textit{JWT$_G$} e gestione \textit{refresh token};
+    \item organizzazione progetto: struttura moduli, cartelle e convenzioni;
+    \item scelta delle versioni \textit{Node.js$_G$} e \textit{NestJS$_G$} per il progetto;
+    \item gestione del \textit{workflow} e del \textit{branching$_G$}: divisione \textit{frontend}/\textit{backend};
+    \item divisione dei compiti e scadenze provvisorie sui moduli utenti, allarmi e \textit{analytics}.
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Implementazione autenticazione \textit{JWT$_G$} e gestione \textit{refresh token}}
+Il team ha discusso l'implementazione del sistema di \textit{login} e \textit{JWT} nel \textit{backend}.
+Si è valutata la necessità di includere o meno il \textit{refresh token} e i metodi associati.
+A corredo, è stato condiviso un documento di riferimento per unificare le regole di validazione
+di \textit{username} e altri dati tra le due componenti.
+
+\subsection*{Organizzazione progetto: struttura moduli, cartelle e \textit{convention}}
+Si è affrontata la definizione della struttura del progetto \textit{backend} in \textit{NestJS} applicando i principi
+dell'architettura esagonale. È stata proposta e approvata la suddivisione delle cartelle in \textit{application}
+(che include porte e \textit{use case$_G$}), \textit{domain} (\textit{core}) e \textit{infrastructure}
+(\textit{repository}, \textit{entity}, \textit{DTO$_G$}).
+Si è convenuto di separare i \textit{DTO} nello strato di infrastruttura e di mantenere la convenzione dei nomi in
+minuscolo.
+
+\subsection*{Scelta delle versioni \textit{Node.js}, \textit{NestJS} e \textit{Angular$_G$} per il progetto}
+A seguito di una discussione tecnica sulle versioni degli ambienti da utilizzare, è stato deciso di adottare
+\textit{Node.js} versione 24.14 LTS, in quanto garantisce supporto a lungo termine e maggiore stabilità fino al 2028.
+Per quanto riguarda il \textit{framework backend}, \textit{NestJS} verrà utilizzato alla versione 11 stabile.
+Per quanto riguarda il \textit{framework frontend}, \textit{Angular} verrà utilizzato alla versione 21 stabile.
+È stata evidenziata l'assoluta necessità di uniformare dipendenze e versioni tra tutti i membri per evitare incompatibilità.
+Infine, si è discusso dei futuri strumenti di
+\textit{CI/CD$_G$} e \textit{caching} per le \textit{build}, valutando soluzioni \textit{monorepo$_G$} come \textit{NX} o
+\textit{Turbo Repo}.
+
+
+\subsection*{Gestione \textit{workflow} e \textit{branching}}
+Per organizzare il processo di sviluppo, si è deciso di dividere la \textit{codebase} in due cartelle: \textit{backend} e \textit{frontend}.
+Allo scopo di mantenere l'indipendenza delle due macro-aree, è stato deciso di separare i rami di sviluppo creando due \textit{branch} distinti: \textit{backend} e \textit{frontend},
+i quali fungeranno da \textit{branch} base.
+L'approccio lavorativo imporrà di sviluppare le funzionalità in appositi \textit{feature$_G$ branch} derivati dai rispettivi
+\textit{branch} base, per poi effettuare il \textit{merge$_G$}
+unicamente in seguito al superamento dei test nel \textit{develop$_G$}.
+
+\subsection*{Divisione compiti, scadenze e questioni in sospeso}
+Sono state assegnate le responsabilità di sviluppo iniziali: L. Pellizzon si occuperà del modulo utenti,
+L. Granziero e F. Venzo dell'autenticazione verso le \textit{API Vimar} e della gestione degli allarmi, mentre V. Baleanu e G. De Fina prenderanno
+in carico gli \textit{analytics} lato \textit{frontend}. L'obiettivo primario è produrre una prima bozza di codice
+funzionante entro la fine della settimana, procedendo per rilasci progressivi.
+Restano ancora in sospeso alcune questioni che necessitano di chiarimenti, attesi da un colloquio con il prof. Cardin.
+Infine, Responsabile e Amministratore dovranno verificare tecnicamente la fattibilità e l'utilità dell'integrazione di \textit{NX} o \textit{Turbo Repo} prima della sua adozione
+definitiva.
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+\addDecision{Implementare l'autenticazione con login, \textit{access token JWT e refresh token}}
+\addDecision{Adottare un'architettura esagonale nel \textit{backend} con suddivisione in \textit{application}, \textit{domain} e \textit{infrastructure}, mantenendo i \textit{DTO} nello strato \textit{infrastructure}}
+\addDecision{Utilizzare \textit{Node.js} versione 24.14 LTS}
+\addDecision{Utilizzare \textit{NestJS} versione 11 stabile per il \textit{backend}}
+\addDecision{Adottare \textit{Angular} versione 21 stabile per il \textit{frontend}}
+\addDecision{Adottare branch base separati per \textit{frontend} e \textit{backend}}
+\addDecision{Richiedere colloquio al prof. Cardin}
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+\addTodo{\#5}{Implementare gestione utenti lato \textit{backend}}{L. Pellizzon}{22/03/2026}
+\addTodo{\#6}{Implementare autenticazione alle \textit{API Vimar} e sviluppare modulo allarmi}{L. Granziero, F. Venzo}{22/03/2026}
+\addTodo{\#7}{Implementare modulo \textit{analytics} lato \textit{backend}}{V. Baleanu, G. De Fina}{22/03/2026}
+\addTodo{\#8}{Implementare \textit{feature} di ricezione notifiche lato \textit{frontend}}{G. De Fina}{22/03/2026}
+\addTodo{\#206}{Documentare in modo definitivo le versioni dei \textit{framework} e dell'ambiente \textit{Node.js} da utilizzare}{F. Pasqual}{22/03/2026}
+\addTodo{\#180}{Testare l'integrazione di \textit{NX} o \textit{Turbo Repo}}{F. Pasqual, F. Venzo}{20/03/2026}
+\addTodo{\#207}{Concordare un colloquio con il prof. Cardin per chiarire le questioni aperte sul \textit{design$_G$}}{F. Pasqual}{20/03/2026}
+\addTodo{\#208}{Stesura verbale della riunione}{F. Pasqual}{20/03/2026}
+\addTodo{\#209}{Aggiornamento glossario con termini emersi nella riunione}{F. Pasqual}{20/03/2026}
+\makeTodoTable
+
+\end{document}
