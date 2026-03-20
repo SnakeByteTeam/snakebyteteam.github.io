@@ -2,15 +2,17 @@
 \usepackage{../../../template/template}
 
 \setDocTitle{Glossario}
-\setDocData{14/02/2026}
-\setDocVersion{1.0.0}
-\setDocState{2}
+\setDocData{19/03/2026}
+\setDocVersion{1.0.2}
+\setDocState{1}
 \setDocRecipient{0}
 
 \begin{document}
 
 \makeTitlePage
 
+\addChangelog{1.0.2}{19/03/2026}{F. Pasqual}{C. Libralato}{\noOne}{Aggiunti termini: Codebase, Docker Registry, GitHub Actions, Monorepo, SHA-512, Socket.io, Web Push Notification, WebSocket}
+\addChangelog{1.0.1}{18/03/2026}{F. Venzo}{C. Libralato}{\noOne}{Aggiunti nuovi termini al glossario}
 \addChangelog{1.0.0}{14/02/2026}{\noOne}{\noOne}{F. Venzo}{\approval}
 \addChangelog{0.1.0}{13/02/2026}{L. Pellizzon}{F. Pasqual}{\noOne}{\firstDraft}
 \makeChangelog
@@ -49,6 +51,11 @@ un protocollo di comunicazione internazionale.
 
 \section{B}
 
+\subsection*{Backend-for-frontend proxy}
+Backend for Frontend (BFF) è un pattern architetturale che prevede la creazione di servizi backend dedicati e specifici per ogni tipo di interfaccia frontend. Invece di avere un unico backend generico che serve tutte le piattaforme, il pattern BFF introduce un layer intermedio (proxy) che ottimizza le API per le esigenze specifiche di ciascun client: web, mobile, smart TV, IoT, ecc.
+
+Il pattern BFF è stato formalizzato da Sam Newman nel 2015, nell'articolo "Backends for Frontends" e successivamente nel libro "Building Microservices" (O'Reilly, 2015).
+
 \subsection*{Black-box}
 Approccio in cui un modello o sistema è utilizzato senza conoscerne il contenuto, ovvero il suo funzionamento interno, ma solo osservando l'input e l'output.
 
@@ -73,7 +80,7 @@ utenti possono generare diagrammi architetturali in modo molto flessibile. Rifer
 \subsection*{Capitolato}
 Il capitolato è un documento che descrive in modo dettagliato le specifiche tecniche e le condizioni necessarie per lo sviluppo di un
 progetto software. Viene redatto dal proponente e presentato ai fornitori o agli sviluppatori interessati a partecipare alla gara
-d'apparto per la realizzazione del prodotto.
+d'appalto per la realizzazione del prodotto.
 
 \subsection*{Chat}
 Sistema di comunicazione in tempo reale che avviene tra utenti in modo testuale.
@@ -81,13 +88,20 @@ Sistema di comunicazione in tempo reale che avviene tra utenti in modo testuale.
 \subsection*{Cloud e DevOps}
 Insieme di pratiche che uniscono lo sviluppo software e operazioni IT in ambienti cloud per migliorare automazione, integrazione e distribuzione continua.
 
+\subsection*{Codebase}
+L'insieme di file sorgenti che compongono un progetto software. Include tutti i file di codice,
+script, configurazioni e risorse necessari per il funzionamento dell'applicazione.
+
 \subsection*{Commit}
-Il commit è un operazione di salvataggio all'interno di un repository Git che registra una versione specifica dei file, consentendo di tenere traccia delle modifiche
+Il commit è un'operazione di salvataggio all'interno di un repository Git che registra una versione specifica dei file, consentendo di tenere traccia delle modifiche
 effettuate nel tempo.
 
 \subsection*{Committente}
 Il committente è l'individuo o l'organizzazione che commissiona la realizzazione di un progetto software e ne finanzia lo sviluppo. Esso è responsabile della definizione dei
-requisiti e delle specifiche del progetto, oltre a valutare il prodotto finale in base ai propri obbiettivi e aspettative iniziali.
+requisiti e delle specifiche del progetto, oltre a valutare il prodotto finale in base ai propri obiettivi e aspettative iniziali.
+
+\subsection*{Configuration item}
+Qualsiasi componente (software, hardware o documento) trattato come singola unità a fini di gestione. Rappresenta l'elemento che viene identificato, tracciato e sottoposto al processo formale di controllo di configurazione. Un insieme di configuration item, una volta approvati, formano una \textit{baseline} che può essere modificata solo attraverso procedure formali e sotto stretto controllo di versione.
 
 \subsection*{Container}
 Un container è un'unità standard di software che impacchetta il codice e tutte le sue dipendenze in modo che l'applicazione venga eseguita in modo rapido e
@@ -95,6 +109,10 @@ affidabile da un ambiente informatico all'altro
 
 \subsection*{Continuous Integration e Deployment (CI/CD)}
 Insieme di pratiche volte ad automatizzare l'integrazione, i test e la distribuzione del software per garantire rilasci frequenti e affidabili.
+
+\subsection*{Cookie}
+Stringa di testo di piccole dimensioni inviata da un server ad un client (browser) affinché la memorizzi e la ritrasmetta al medesimo server nelle sessioni successive. Permette di realizzare meccanismi di autenticazione, di tracciatura di sessione e di memorizzazione di informazioni di uno specifico utente (es. preferenze sull'aspetto grafico o linguistico dell'applicativo).
+
 
 \subsection*{CRUD}
 Acronimo di Create, Read, Update, Delete. Rappresenta le quattro operazioni fondamentali per la gestione dei dati in un sistema informatico.
@@ -117,6 +135,9 @@ dei dati passati e attuali per prevedere le tendenze future.
 Artefatto concreto e tangibile prodotto durante il ciclo di vita del progetto che deve essere consegnato agli stakeholder. Include documenti, software, report e
 qualsiasi altro prodotto specificato nei requisiti del progetto.
 
+\subsection*{Design}
+È un'attività del processo di sviluppo che consiste nell'individuare le parti che compongono il prodotto, precisarne le responsabilità e definire le regole di interazione tra di essi. Risponde al quesito di come realizzare la soluzione. Il risultato di questa attività è un'architettura logica.
+
 \subsection*{Develop}
 Nel modello di branching Gitflow, 'develop' è il ramo principale di integrazione per lo sviluppo di nuove funzionalità. Contiene la storia completa del progetto
 e riceve i merge dai rami secondari prima di essere pronto per una release.
@@ -127,6 +148,11 @@ Discord è una piattaforma di comunicazione digitale che integra in modo fluido 
 \subsection*{Docker}
 Piattaforma software che consente di creare, testare e distribuire applicazioni rapidamente. Docker confeziona il software in unità standardizzate chiamate contenitori
 che hanno tutto ciò di cui il software ha bisogno per essere eseguito, comprese librerie, strumenti di sistema, codice e runtime.
+
+\subsection*{Docker Registry}
+Repository centralizzato su un server che memorizza e distribuisce immagini Docker.
+Permette la condivisione, il download e il caricamento di immagini containerizzate, facilitando
+la distribuzione e la gestione versionale dei container.
 
 \section{E}
 
@@ -148,6 +174,9 @@ scenario di progetto indica l'ottenimento di un riscontro valutativo sull'operat
 
 \section{G}
 
+\subsection*{GIN}
+Generalized Inverted Index, è una struttura di indicizzazione progettata per gestire dati strutturati (JSONB) i cui elementi interni devono essere interrogati singolarmente. Mappa ogni chiave di singolo elemento ad una lista di identificativi di riga, rendendo efficienti le ricerche. Permette di implementare strategie di scansione personalizzate per diversi tipi di dati, ottimizzando lo storage tramite l'archiviazione univoca delle chiavi.
+
 \subsection*{Git}
 Sistema di controllo di versione distribuito che permette a molteplici sviluppatori di lavorare mantenendo un registro delle modifiche che vengono apportate al
 codice di uno stesso progetto.
@@ -157,18 +186,22 @@ Piattaforma di sviluppo collaborativo che si basa su Git, per il controllo delle
 sviluppo per la gestione di progetti, permette la tracciabilità delle modifiche al codice sorgente e la collaborazione fra i membri del team, facilitandone
 il coordinamento.
 
+\subsection*{GitHub Actions}
+Servizio di automazione offerto da GitHub che permette di eseguire workflow personalizzati
+in risposta a specifici eventi nel repository, come push, pull request o rilascio. Viene utilizzato per automatizzare CI/CD e altre operazioni di sviluppo.
+
 \subsection*{GitHub Projects}
 Funzionalità di gestione del lavoro offerta da GitHub, che consente ai team di organizzare, pianificare e monitorare le attività relative al codice, spesso
 utilizzando bacheche Kanban. È strettamente integrata con Issues e pull request del repository.
+
+\subsection*{Gmail}
+Servizio di posta elettronica di Google che si basa sul cloud.
 
 \subsection*{Google Meet}
 Servizio online di videoconferenze messo a disposizione da Google.
 
 \subsection*{Google Sheets}
 Editor online di fogli di calcolo messo a disposizione dalla Google Workspace, insieme di strumenti online di produttività dell'omonima azienda.
-
-\subsection*{Gmail}
-Servizio di posta elettronica di Google che si basa sul cloud.
 
 \section{I}
 
@@ -177,6 +210,11 @@ Pratica che prevede la gestione e configurazione dell'infrastruttura informatica
 
 \subsection*{Internet of Things (IoT)}
 Rete di dispositivi fisici dotati di sensori, software e altre tecnologie, che consente loro di connettersi a Internet, raccogliere e scambiare dati
+
+\subsection*{IoC Container}
+Componente deputato all'implementazione del paradigma \textit{Inversion of Control} ovvero la delegazione ad una entità esterna (container) la gestione del ciclo di vita degli oggetti.
+Registra le dipendenze di ogni componente e alla sua creazione le inietta, togliendo la responsabilità agli oggetti stessi di istanziare manualmente le proprie dipendenze.
+Riduce l'accoppiamento tra le classi.
 
 \subsection*{Issue}
 Un GitHub Issue è una funzionalità di GitHub dedicata alla gestione delle attività e al tracciamento dei problemi all'interno di un progetto software.
@@ -194,6 +232,9 @@ garantendo una gestione più efficiente del ciclo di sviluppo.
 \subsection*{Jira}
 Strumento software proprietario ampiamente utilizzato per la gestione dei progetti, l'Issue Tracking e lo sviluppo Agile. Permette ai team di pianificare,
 tracciare e rilasciare software, gestendo problemi (Issue) e flussi di lavoro personalizzati.
+
+\subsection*{JSONB}
+Tipo di dato di PostgreSQL che permette la memorizzazione di file JSON in formato binario. Permette una maggiore velocità nell'interrogazione e manipolazione rispetto al formato standard JSON e supporta vari tipi di indici, migliorando ulteriormente le prestazioni delle query.
 
 \section{L}
 
@@ -217,7 +258,8 @@ Il processo sincronizza le modifiche tra i diversi flussi di lavoro, spesso a se
 Piattaforma di comunicazione e collaborazione unificata che combina chat di lavoro persistente, teleconferenza, condivisione di contenuti e integrazione
 delle applicazioni.
 
-\subsection*{Microsoft Copilot}I copiloti sono interazioni di intelligenza artificiale generative basate su chat di Microsoft. Hanno funzionalità specializzate in base agli utenti e ai casi
+\subsection*{Microsoft Copilot}
+I copiloti sono interazioni di intelligenza artificiale generative basate su chat di Microsoft. Hanno funzionalità specializzate in base agli utenti e ai casi
 d'uso. Alcuni Copilot si possono utilizzare come prodotto autonomo, mentre altri sono integrati in altri prodotti, servizi e dispositivi Microsoft.
 
 \subsection*{Milestone}
@@ -227,19 +269,40 @@ influenzano direttamente la durata complessiva del progetto, ma servono a eviden
 
 \subsection*{Mocking}
 In ingegneria del software è una tecnica che permette di isolare e testare con facilità una porzione del programma sfruttando degli oggetti (mock) che simulano
-dipendenze reali come databases e APIs.
+dipendenze reali come database e API.
+
+\subsection*{Monorepo}
+Repository che contiene più progetti o applicazioni correlate gestite in un'unica base di
+codice centralizzata. Permette una migliore condivisione di codice, configurazioni comuni e
+semplifica la gestione delle dipendenze tra i progetti.
+
+\section{N}
+
+\subsection*{NestJs}
+Framework Node.js open-source per lo sviluppo di applicazioni server-side (backend). Si basa sul linguaggio TypeScript ed adotta un'architettura modulare ispirata dal framework Angular. Integra nativamente un \textit{IoC Container} per la gestione della Dependency Injection e test automatici. Garantisce una struttura solida.
+
+\subsection*{Node.js}
+Runtime JavaScript basato sul motore V8 di Chrome che permette di eseguire codice JavaScript lato server. Ampiamente usato per sviluppare applicazioni backend, API e strumenti da linea di comando grazie al suo modello I/O asincrono ed event-driven.
+
+\subsection*{Nx}
+Strumento open-source per la gestione di monorepo che consente di organizzare più applicazioni e librerie in un unico repository. Fornisce cache intelligente, task graph e automazione dei workflow per velocizzare build, test e linting.
 
 \section{O}
 
 \subsection*{Open Web Application Security Project (OWASP)}
 Definisce l'organizzazione che promuove la sicurezza del software e che fornisce linee guida per la protezione delle applicazioni web.
+
 \section{P}
+
+\subsection*{Payload}
+In italiano "carico utile", indica la parte dei dati trasmessi effettivamente informativa, destinata al ricevente. Di questa non fanno parte metadati o header il quale unico scopo è il funzionamento del protocollo di comunicazione adottato.
+
 
 \subsection*{Prisma ORM}
 Toolkit open source per Node.js e TypeScript che semplifica l'accesso ai database.
 
 \subsection*{Project Board}
-Tabellone interattivo fornito da piattaforme di gestione di progetto come Github o Jira che riassume in maniera visiva lo stato del progetto e ne permette
+Tabellone interattivo fornito da piattaforme di gestione di progetto come GitHub o Jira che riassume in maniera visiva lo stato del progetto e ne permette
 la gestione.
 
 \subsection*{Prompt Engineering}
@@ -274,13 +337,21 @@ Azione correttiva volta a risolvere problemi di sicurezza rilevati in un sistema
 Architettura per la comunicazione tra sistemi distribuiti basata su protocolli HTTP, utilizzata nella creazione di API web.
 
 \subsection*{Round Review}
-Consiste in una delle tante review di un documento che avvengono in maniera iterativa da parte di verificatori, esse generano modifiche del documento
-fino al raggiungimento di un risultato approvabile. (P.S Non si trovano definizioni online, non si capisce se è un processo o se è un iterazione del processo).
+Applicativo per la revisione dei documenti, sviluppato \textit{ad-hoc} dal referente di Vimar S.p.A. per il progetto didattico del corso di Ingegneria del Software.
 
 \section{S}
 
+\subsection*{SHA-512}
+Algoritmo crittografico hash della famiglia SHA-2 che genera un hash di 512 bit (64 byte). Viene utilizzato per garantire l'integrità dei dati e per verificare l'autenticità di file, password e in contesti di sicurezza informatica.
+
+\subsection*{Socket.io}
+Libreria JavaScript basata su WebSocket che permette la comunicazione bidirezionale e in tempo reale tra client e server. Fornisce fallback automatici per browser non compatibili con WebSocket e gestione intelligente delle disconnessioni.
+
 \subsection*{Software Development Kit (SDK)}
 Insieme di strumenti, librerie e documentazione forniti per facilitare lo sviluppo di applicazioni che interagiscono con un determinato sistema o chiamate API.
+
+\subsection*{SonarQube}
+Piattaforma open-source che prevede la continua ispezione del codice tramite analisi statica. Individua automaticamente bug e vulnerabilità. Può essere integrato nella pipeline CI/CD in modo da garantire che il software sia ispezionato ad ogni modifica nel repository.
 
 \subsection*{Sprint}
 Nel contesto Agile, uno Sprint è un breve periodo di tempo, di durata 2-4 settimane, in cui uno Scrum Team lavora per completare una determinata quantità di
@@ -294,6 +365,9 @@ aspettative di tempi, costi, e risultati, devono essere concordati gli argomenti
 
 \subsection*{TimescaleDB}
 Database relazionale per sequenze di dati che cambiano nel tempo, è implementato come estensione di PostgreSQL.
+
+\subsection*{Turbo Repo}
+Tool per la gestione di monorepo JavaScript/TypeScript che ottimizza l'esecuzione delle pipeline di sviluppo. Introduce build incrementali, caching locale/remoto e orchestrazione delle task per ridurre i tempi di build e migliorare la produttivita del team.
 
 \section{U}
 
@@ -312,5 +386,13 @@ Il Way of Working (WoW) descrive il modo in cui un team o un'organizzazione gest
 Include pratiche, processi, metodologie, tecniche e convenzioni che favoriscono un lavoro efficiente e coerente. Il WoW riguarda aspetti come comunicazione,
 collaborazione, gestione del tempo, uso di strumenti e processi decisionali. Un WoW ben definito migliora l'efficacia operativa, la qualità dei risultati e la
 soddisfazione del team, adattandosi alla cultura e alle esigenze aziendali.
+
+\subsection*{Web Push Notification}
+Notifiche inviate da un server a un browser o applicazione web anche quando l'utente non sta attivamente interagendo con la pagina.
+Richiedono il consentimento esplicito dell'utente e una subscription al servizio, permettendo la comunicazione proattiva con gli utenti.
+
+\subsection*{WebSocket}
+Protocollo di comunicazione basato su TCP che fornisce una connessione full-duplex persistente tra client e server.
+Permette lo scambio bidirezionale di dati in tempo reale, riducendo la latenza rispetto alle tradizionali richieste HTTP polling.
 
 \end{document}
