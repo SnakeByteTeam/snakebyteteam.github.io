@@ -2,8 +2,8 @@
 \usepackage{../../../template/template}
 
 \setDocTitle{Glossario}
-\setDocData{18/03/2026}
-\setDocVersion{1.0.1}
+\setDocData{19/03/2026}
+\setDocVersion{1.0.2}
 \setDocState{1}
 \setDocRecipient{0}
 
@@ -11,6 +11,7 @@
 
 \makeTitlePage
 
+\addChangelog{1.0.2}{19/03/2026}{F. Pasqual}{C. Libralato}{\noOne}{Aggiunti termini: Codebase, Docker Registry, GitHub Actions, Monorepo, SHA-512, Socket.io, Web Push Notification, WebSocket}
 \addChangelog{1.0.1}{18/03/2026}{F. Venzo}{C. Libralato}{\noOne}{Aggiunti nuovi termini al glossario}
 \addChangelog{1.0.0}{14/02/2026}{\noOne}{\noOne}{F. Venzo}{\approval}
 \addChangelog{0.1.0}{13/02/2026}{L. Pellizzon}{F. Pasqual}{\noOne}{\firstDraft}
@@ -87,6 +88,10 @@ Sistema di comunicazione in tempo reale che avviene tra utenti in modo testuale.
 \subsection*{Cloud e DevOps}
 Insieme di pratiche che uniscono lo sviluppo software e operazioni IT in ambienti cloud per migliorare automazione, integrazione e distribuzione continua.
 
+\subsection*{Codebase}
+L'insieme di file sorgenti che compongono un progetto software. Include tutti i file di codice,
+script, configurazioni e risorse necessari per il funzionamento dell'applicazione.
+
 \subsection*{Commit}
 Il commit è un'operazione di salvataggio all'interno di un repository Git che registra una versione specifica dei file, consentendo di tenere traccia delle modifiche
 effettuate nel tempo.
@@ -144,6 +149,11 @@ Discord è una piattaforma di comunicazione digitale che integra in modo fluido 
 Piattaforma software che consente di creare, testare e distribuire applicazioni rapidamente. Docker confeziona il software in unità standardizzate chiamate contenitori
 che hanno tutto ciò di cui il software ha bisogno per essere eseguito, comprese librerie, strumenti di sistema, codice e runtime.
 
+\subsection*{Docker Registry}
+Repository centralizzato su un server che memorizza e distribuisce immagini Docker.
+Permette la condivisione, il download e il caricamento di immagini containerizzate, facilitando
+la distribuzione e la gestione versionale dei container.
+
 \section{E}
 
 \subsection*{Express}
@@ -176,18 +186,22 @@ Piattaforma di sviluppo collaborativo che si basa su Git, per il controllo delle
 sviluppo per la gestione di progetti, permette la tracciabilità delle modifiche al codice sorgente e la collaborazione fra i membri del team, facilitandone
 il coordinamento.
 
+\subsection*{GitHub Actions}
+Servizio di automazione offerto da GitHub che permette di eseguire workflow personalizzati
+in risposta a specifici eventi nel repository, come push, pull request o rilascio. Viene utilizzato per automatizzare CI/CD e altre operazioni di sviluppo.
+
 \subsection*{GitHub Projects}
 Funzionalità di gestione del lavoro offerta da GitHub, che consente ai team di organizzare, pianificare e monitorare le attività relative al codice, spesso
 utilizzando bacheche Kanban. È strettamente integrata con Issues e pull request del repository.
+
+\subsection*{Gmail}
+Servizio di posta elettronica di Google che si basa sul cloud.
 
 \subsection*{Google Meet}
 Servizio online di videoconferenze messo a disposizione da Google.
 
 \subsection*{Google Sheets}
 Editor online di fogli di calcolo messo a disposizione dalla Google Workspace, insieme di strumenti online di produttività dell'omonima azienda.
-
-\subsection*{Gmail}
-Servizio di posta elettronica di Google che si basa sul cloud.
 
 \section{I}
 
@@ -257,6 +271,11 @@ influenzano direttamente la durata complessiva del progetto, ma servono a eviden
 In ingegneria del software è una tecnica che permette di isolare e testare con facilità una porzione del programma sfruttando degli oggetti (mock) che simulano
 dipendenze reali come database e API.
 
+\subsection*{Monorepo}
+Repository che contiene più progetti o applicazioni correlate gestite in un'unica base di
+codice centralizzata. Permette una migliore condivisione di codice, configurazioni comuni e
+semplifica la gestione delle dipendenze tra i progetti.
+
 \section{N}
 
 \subsection*{NestJs}
@@ -322,6 +341,12 @@ Applicativo per la revisione dei documenti, sviluppato \textit{ad-hoc} dal refer
 
 \section{S}
 
+\subsection*{SHA-512}
+Algoritmo crittografico hash della famiglia SHA-2 che genera un hash di 512 bit (64 byte). Viene utilizzato per garantire l'integrità dei dati e per verificare l'autenticità di file, password e in contesti di sicurezza informatica.
+
+\subsection*{Socket.io}
+Libreria JavaScript basata su WebSocket che permette la comunicazione bidirezionale e in tempo reale tra client e server. Fornisce fallback automatici per browser non compatibili con WebSocket e gestione intelligente delle disconnessioni.
+
 \subsection*{Software Development Kit (SDK)}
 Insieme di strumenti, librerie e documentazione forniti per facilitare lo sviluppo di applicazioni che interagiscono con un determinato sistema o chiamate API.
 
@@ -361,5 +386,13 @@ Il Way of Working (WoW) descrive il modo in cui un team o un'organizzazione gest
 Include pratiche, processi, metodologie, tecniche e convenzioni che favoriscono un lavoro efficiente e coerente. Il WoW riguarda aspetti come comunicazione,
 collaborazione, gestione del tempo, uso di strumenti e processi decisionali. Un WoW ben definito migliora l'efficacia operativa, la qualità dei risultati e la
 soddisfazione del team, adattandosi alla cultura e alle esigenze aziendali.
+
+\subsection*{Web Push Notification}
+Notifiche inviate da un server a un browser o applicazione web anche quando l'utente non sta attivamente interagendo con la pagina.
+Richiedono il consentimento esplicito dell'utente e una subscription al servizio, permettendo la comunicazione proattiva con gli utenti.
+
+\subsection*{WebSocket}
+Protocollo di comunicazione basato su TCP che fornisce una connessione full-duplex persistente tra client e server.
+Permette lo scambio bidirezionale di dati in tempo reale, riducendo la latenza rispetto alle tradizionali richieste HTTP polling.
 
 \end{document}
