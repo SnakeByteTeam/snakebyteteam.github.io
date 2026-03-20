@@ -1,0 +1,118 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Verbale esterno 18/03/2026}
+\setDocVersion{-}
+\setDocData{18/03/2026}
+\setDocIndex{ve\_2026\_03\_18}
+\setDocState{1}
+\setDocRecipient{2}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{18/03/2026}{16:30}{17:00}{via \textit{Microsoft Teams$_G$}}
+
+% ------------------------
+% Partecipanti
+% ------------------------
+\addParticipant{Filippo}{Venzo}{Amministratore}{P}
+\addParticipant{Valeria}{Baleanu}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Programmatore}{P}
+\addParticipant{Christian}{Libralato}{Verificatore}{P}
+\addParticipant{Francesco}{Pasqual}{Responsabile}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Programmatore}{P}
+\makeMeetingParticipantsTable
+
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+      \item Avanzamento del progetto e transizione alla fase di codifica;
+      \item scelte tecniche per la gestione della \textit{codebase$_G$};
+      \item presentazione e revisione dei \textit{wireframe$_G$};
+      \item implementazione del sistema di notifiche \textit{real-time};
+      \item validazione delle entità e sicurezza delle \textit{password};
+      \item allineamento su strumenti di gestione e informazioni sui tirocini formativi.
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Avanzamento del progetto e transizione alla fase di codifica}
+Il Responsabile ha illustrato lo stato dei lavori, confermando la conclusione della fase di progettazione e il
+passaggio ufficiale alla stesura del codice, con il team interamente focalizzato sullo sviluppo \textit{frontend}
+e \textit{backend}. Alla richiesta del referente della Proponente circa la sostenibilità dei ritmi lavorativi, il
+team ha confermato che il carico, seppur importante, risulta ben gestibile e le attività previste sono state completate
+con successo.
+
+\subsection*{Scelte tecniche e gestione della \textit{codebase}}
+Il team ha presentato la decisione di adottare una struttura \textit{monorepo$_G$} per ospitare sia il
+\textit{frontend} che il \textit{backend}. Si è discusso dell'impiego di strumenti avanzati per la gestione
+del \textit{monorepo} (come \textit{Nx$_G$} o \textit{Turborepo$_G$}), tuttavia si è deciso in accordo con il
+referente della Proponente di rimandarne l'integrazione per mantenere la gestione più semplice e lineare in questa fase.
+Il referente ha inoltre suggerito di affidarsi a \textit{GitHub Actions$_G$} e di esplorare l'impiego di \textit{Docker Registry$_G$}.
+
+\subsection*{Presentazione e revisione dei \textit{wireframe}}
+È stata effettuata una panoramica sui \textit{wireframe} realizzati su \textit{Figma$_G$}. Il design
+proposto adotta uno stile minimalista incentrato sul colore principale di Vimar ed è progettato per essere pienamente
+\textit{responsive}. Le interfacce includono un doppio menù di navigazione, una mappa topologica per i dispositivi
+e schermate dedicate alla gestione di allarmi e reparti. Il referente della Proponente ha fornito \textit{feedback}
+positivi e ha richiesto un link in sola lettura per condividere il lavoro con il \textit{graphic designer} aziendale
+per ulteriori affinamenti estetici.
+
+\subsection*{Implementazione notifiche e connessioni \textit{WebSocket}}
+Per la gestione degli allarmi è stata presentata la scelta di utilizzare le \textit{WebSocket$_G$}
+(tramite \textit{Socket.io$_G$}), implementando il concetto di \textit{room} per isolare le notifiche ai soli operatori
+collegati a uno specifico reparto. Si pensa che verrà implementata una \textit{room} per ogni reparto.
+L'alternativa delle \textit{web push notification$_G$} è stata momentaneamente scartata ma non esclusa, nel caso avanzi del tempo.
+Il referente della Proponente ha validato l'approccio tecnico, suggerendo di valutare l'aggiunta di \textit{feedback}
+sonori o visivi per massimizzare la visibilità degli allarmi critici.
+
+\subsection*{Validazione delle entità e sicurezza}
+Il team di progettisti ha illustrato i criteri di validazione pensati per i campi delle entità, con un focus specifico su \textit{username} e
+\textit{password}. Il referente della Proponente ha raccomandato l'adozione di algoritmi di \textit{hashing} robusti
+(come \textit{SHA-512$_G$}) per il salvataggio delle credenziali, suggerendo una
+lunghezza minima di 12 caratteri. Si è inoltre discussa la gestione sicura e il ciclo di vita delle
+\textit{password} temporanee generate dagli amministratori.
+
+\subsection*{Strumenti di gestione e tirocini formativi}
+La riunione si è conclusa con un allineamento sugli strumenti organizzativi: è stata ribadita l'importanza di
+mantenere aggiornata il \textit{GitHub Projet$_G$} condiviso.
+Infine, il referente ha illustrato i dettagli per le future opportunità di tirocinio.
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+\addDecision{Posticipata l'integrazione di tool complessi di gestione \textit{monorepo} a favore di una struttura standard ben documentata}
+\addDecision{Utilizzo esclusivo di connessioni \textit{WebSocket} (\textit{Socket.io}) suddivise a "stanze" per le notifiche \textit{real-time} di reparto}
+\addDecision{Applicazione di policy rigorose per le \textit{password}: utilizzo di \textit{hashing} forte (es. \textit{SHA-512$_G$}) e lunghezza minima garantita}
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+\addTodo{\#216}{Condividere il link dei bozzetti \textit{Figma$_G$} in modalità sola visualizzazione al referente della Proponente}{C. Libralato}{22/03/2026}
+
+\makeTodoTable
+
+\end{document}
