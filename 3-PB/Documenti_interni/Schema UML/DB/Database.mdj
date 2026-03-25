@@ -710,7 +710,7 @@
 									"parentStyle": true,
 									"left": 1432,
 									"top": 501,
-									"width": 231.73486328125,
+									"width": 239.67578125,
 									"height": 13,
 									"text": "STRUCTURE_CACHE"
 								},
@@ -737,7 +737,7 @@
 											"parentStyle": true,
 											"left": 1437,
 											"top": 524,
-											"width": 221.73486328125,
+											"width": 229.67578125,
 											"height": 13
 										},
 										{
@@ -753,7 +753,7 @@
 											"parentStyle": true,
 											"left": 1437,
 											"top": 539,
-											"width": 221.73486328125,
+											"width": 229.67578125,
 											"height": 13
 										},
 										{
@@ -769,7 +769,7 @@
 											"parentStyle": true,
 											"left": 1437,
 											"top": 554,
-											"width": 221.73486328125,
+											"width": 229.67578125,
 											"height": 13
 										},
 										{
@@ -786,7 +786,7 @@
 											"parentStyle": true,
 											"left": 1437,
 											"top": 569,
-											"width": 221.73486328125,
+											"width": 229.67578125,
 											"height": 13
 										}
 									],
@@ -794,7 +794,7 @@
 									"parentStyle": true,
 									"left": 1432,
 									"top": 519,
-									"width": 231.73486328125,
+									"width": 239.67578125,
 									"height": 53
 								}
 							],
@@ -802,7 +802,7 @@
 							"parentStyle": false,
 							"left": 1432,
 							"top": 496,
-							"width": 231.73486328125,
+							"width": 239.67578125,
 							"height": 76,
 							"nameLabel": {
 								"$ref": "AAAAAAGdD/0vzTSqU+g="
@@ -823,7 +823,7 @@
 							"top": 304,
 							"width": 304,
 							"height": 147,
-							"text": "CREATE INDEX idx_structure_cache_cached_at \nON structure_cache (cached_at);\n-\nCREATE INDEX idx_structure_cache_ward_id \nON structure_cache (ward_id);\n-\nCREATE INDEX idx_structure_cache_data \nON structure_cache \nUSING GIN (data jsonb_path_ops);\n"
+							"text": "CREATE INDEX idx_structure_cache_cached_at \nON structure_cache (cached_at);\n-\nCREATE INDEX idx_structure_cache_data \nON structure_cache \nUSING GIN (data jsonb_path_ops);\n"
 						},
 						{
 							"_type": "UMLNoteView",
@@ -835,9 +835,9 @@
 							"parentStyle": false,
 							"left": 1840,
 							"top": 448,
-							"width": 102.8115234375,
+							"width": 110.75244140625,
 							"height": 116,
-							"text": "Per evitare ambiguità con le zones meglio usare TIMESTAMPZ"
+							"text": "Per evitare ambiguità con le zones meglio usare TIMESTAMPTZ"
 						},
 						{
 							"_type": "ERDEntityView",
@@ -1455,7 +1455,7 @@
 								"$ref": "AAAAAAGdEAONgjUNOI8="
 							},
 							"lineStyle": 1,
-							"points": "1839:510;1665:524"
+							"points": "1839:511;1673:524"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -1472,7 +1472,7 @@
 								"$ref": "AAAAAAGdEAIEUzT8Y98="
 							},
 							"lineStyle": 1,
-							"points": "1529:452;1538:495"
+							"points": "1531:452;1541:495"
 						},
 						{
 							"_type": "ERDEntityView",
@@ -2112,75 +2112,152 @@
 						},
 						{
 							"_type": "ERDEntityView",
-							"_id": "AAAAAAGdH/BL8HF7zLk=",
+							"_id": "AAAAAAGdJF7do1OgTzU=",
 							"_parent": {
 								"$ref": "AAAAAAGdD/JRrDNE97Y="
 							},
 							"model": {
-								"$ref": "AAAAAAGdH/BL73F5d8U="
+								"$ref": "AAAAAAGdJF7do1OeCrU="
 							},
 							"subViews": [
 								{
 									"_type": "LabelView",
-									"_id": "AAAAAAGdH/BL8HF8j8I=",
+									"_id": "AAAAAAGdJF7do1OhWJg=",
 									"_parent": {
-										"$ref": "AAAAAAGdH/BL8HF7zLk="
+										"$ref": "AAAAAAGdJF7do1OgTzU="
 									},
 									"font": "Arial;13;1",
 									"parentStyle": true,
-									"left": 1568,
-									"top": 805,
-									"width": 88.736328125,
+									"left": 1696,
+									"top": 661,
+									"width": 236.57177734375,
 									"height": 13,
-									"text": "TIMESERIES"
+									"text": "DATAPOINT_HISTORY"
 								},
 								{
 									"_type": "ERDColumnCompartmentView",
-									"_id": "AAAAAAGdH/BL8HF9qIo=",
+									"_id": "AAAAAAGdJF7do1Oi56A=",
 									"_parent": {
-										"$ref": "AAAAAAGdH/BL8HF7zLk="
+										"$ref": "AAAAAAGdJF7do1OgTzU="
 									},
 									"model": {
-										"$ref": "AAAAAAGdH/BL73F5d8U="
+										"$ref": "AAAAAAGdJF7do1OeCrU="
 									},
 									"subViews": [
 										{
 											"_type": "ERDColumnView",
-											"_id": "AAAAAAGdH/B2v3GKUXQ=",
+											"_id": "AAAAAAGdJF7yuFOuxAU=",
 											"_parent": {
-												"$ref": "AAAAAAGdH/BL8HF9qIo="
+												"$ref": "AAAAAAGdJF7do1Oi56A="
 											},
 											"model": {
-												"$ref": "AAAAAAGdH/B2tnGHXCI="
+												"$ref": "AAAAAAGdJF7yrFOrDuM="
 											},
 											"font": "Arial;13;0",
 											"parentStyle": true,
-											"left": 1573,
-											"top": 828,
-											"width": 78.736328125,
+											"left": 1701,
+											"top": 684,
+											"width": 226.57177734375,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGdJF8a1VO2iuY=",
+											"_parent": {
+												"$ref": "AAAAAAGdJF7do1Oi56A="
+											},
+											"model": {
+												"$ref": "AAAAAAGdJF8azVOzhis="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 1701,
+											"top": 699,
+											"width": 226.57177734375,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGdJF9DulO97Jk=",
+											"_parent": {
+												"$ref": "AAAAAAGdJF7do1Oi56A="
+											},
+											"model": {
+												"$ref": "AAAAAAGdJF9Dr1O6eyM="
+											},
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 1701,
+											"top": 714,
+											"width": 226.57177734375,
+											"height": 13
+										},
+										{
+											"_type": "ERDColumnView",
+											"_id": "AAAAAAGdJGnyeFPnJbo=",
+											"_parent": {
+												"$ref": "AAAAAAGdJF7do1Oi56A="
+											},
+											"model": {
+												"$ref": "AAAAAAGdJGnycFPkIh8="
+											},
+											"visible": false,
+											"font": "Arial;13;0",
+											"parentStyle": true,
+											"left": 1677,
+											"top": 689,
+											"width": 226.57177734375,
 											"height": 13
 										}
 									],
 									"font": "Arial;13;0",
 									"parentStyle": true,
-									"left": 1568,
-									"top": 823,
-									"width": 88.736328125,
-									"height": 23
+									"left": 1696,
+									"top": 679,
+									"width": 236.57177734375,
+									"height": 53
 								}
 							],
 							"font": "Arial;13;0",
 							"parentStyle": false,
-							"left": 1568,
-							"top": 800,
-							"width": 88.736328125,
-							"height": 46,
+							"left": 1696,
+							"top": 656,
+							"width": 236.57177734375,
+							"height": 76,
 							"nameLabel": {
-								"$ref": "AAAAAAGdH/BL8HF8j8I="
+								"$ref": "AAAAAAGdJF7do1OhWJg="
 							},
 							"columnCompartment": {
-								"$ref": "AAAAAAGdH/BL8HF9qIo="
+								"$ref": "AAAAAAGdJF7do1Oi56A="
 							}
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAGdJHZTw1Pzve4=",
+							"_parent": {
+								"$ref": "AAAAAAGdD/JRrDNE97Y="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 1976,
+							"top": 664,
+							"width": 136,
+							"height": 40,
+							"text": "indice datapoint_id\nindice timestamp"
+						},
+						{
+							"_type": "UMLNoteView",
+							"_id": "AAAAAAGdJHijvVQTTwY=",
+							"_parent": {
+								"$ref": "AAAAAAGdD/JRrDNE97Y="
+							},
+							"font": "Arial;13;0",
+							"parentStyle": false,
+							"left": 1976,
+							"top": 712,
+							"width": 112,
+							"height": 25,
+							"text": "timescaleDB"
 						}
 					]
 				},
@@ -2610,7 +2687,7 @@
 								"$ref": "AAAAAAGdD/0vzTSncWg="
 							},
 							"name": "CACHED_AT",
-							"type": "TIMESTAMPZ",
+							"type": "TIMESTAMPTZ",
 							"length": 0,
 							"primaryKey": true
 						},
@@ -3208,7 +3285,85 @@
 							"_parent": {
 								"$ref": "AAAAAAGdH/BL73F5d8U="
 							},
-							"name": "Column1"
+							"name": "TIME",
+							"type": "TIMESTAMPZ",
+							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGdJFol+FN0Fgg=",
+							"_parent": {
+								"$ref": "AAAAAAGdH/BL73F5d8U="
+							},
+							"name": "DATA",
+							"type": "JSONB",
+							"length": 0
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGdJFq1EVN7E5o=",
+							"_parent": {
+								"$ref": "AAAAAAGdH/BL73F5d8U="
+							},
+							"name": "PLANT_ID",
+							"type": "UUID",
+							"length": "36",
+							"foreignKey": true,
+							"referenceTo": {
+								"$ref": "AAAAAAGdH+v/0HEbWO4="
+							}
+						}
+					]
+				},
+				{
+					"_type": "ERDEntity",
+					"_id": "AAAAAAGdJF7do1OeCrU=",
+					"_parent": {
+						"$ref": "AAAAAAGdD/JRrDNDEUE="
+					},
+					"name": "DATAPOINT_HISTORY",
+					"columns": [
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGdJF7yrFOrDuM=",
+							"_parent": {
+								"$ref": "AAAAAAGdJF7do1OeCrU="
+							},
+							"name": "TIMESTAMP",
+							"type": "TIMESTAMPTZ",
+							"length": 0,
+							"primaryKey": true
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGdJF8azVOzhis=",
+							"_parent": {
+								"$ref": "AAAAAAGdJF7do1OeCrU="
+							},
+							"name": "DATAPOINT_ID",
+							"type": "UUID",
+							"length": "36",
+							"primaryKey": true
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGdJF9Dr1O6eyM=",
+							"_parent": {
+								"$ref": "AAAAAAGdJF7do1OeCrU="
+							},
+							"name": "VALUE",
+							"type": "VARCHAR",
+							"length": "128"
+						},
+						{
+							"_type": "ERDColumn",
+							"_id": "AAAAAAGdJGnycFPkIh8=",
+							"_parent": {
+								"$ref": "AAAAAAGdJF7do1OeCrU="
+							},
+							"name": "PLANT_ID",
+							"type": "UUID",
+							"length": "36"
 						}
 					]
 				}
