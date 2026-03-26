@@ -1,0 +1,95 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 24/03/2026}
+\setDocVersion{-}
+\setDocData{24/03/2026}
+\setDocIndex{vi\_2026\_03\_24}
+\setDocState{1}
+\setDocRecipient{1}
+
+\begin{document}
+
+\makeTitlePage
+
+% \newpage
+% \addChangelog{0.1.0}{11/03/2026}{F. Pasqual}{C. Libralato}{\noOne}{\firstDraft}
+% \makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{24/03/2026}{13:45}{14:30}{via \textit{Discord$_G$}}
+
+\addParticipant{Valeria}{Baleanu}{Programmatore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Amministratore}{P}
+\addParticipant{Francesco}{Pasqual}{Programmatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Verificatore}{P}
+\addParticipant{Christian}{Libralato}{Responsabile}{P}
+\addParticipant{Filippo}{Venzo}{Programmatore}{P}
+\makeMeetingParticipantsTable
+
+
+\addPrecedentTodo{vi\_2026\_03\_16.a1}{\#5}{L. Pellizzon}{22/03/2026}
+
+\addPrecedentTodo{vi\_2026\_03\_16.a1}{\#5}{L. Pellizzon}{22/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_16.a2}{\#6}{L. Granziero, F. Venzo}{22/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_16.a3}{\#7}{V. Baleanu, G. De Fina}{22/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_16.a4}{\#8}{G. De Fina}{22/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_16.a8}{\#208}{F. Pasqual}{20/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_16.a9}{\#209}{F. Pasqual}{20/03/2026}
+
+
+\makePrecedentTodoTable
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Analisi struttura allarmi;
+    \item strategie di aggiornamento cache dispositivi;
+    \item gestione autenticazione JWT e associazione email utente;
+    \item stato avanzamento sviluppo front-end e backend;
+    \item organizzazione e divisione specifica tecnica;
+    \item azioni di sistemazione documentazione e piani sprint.
+   
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Analisi struttura allarmi}
+È stata discussa la struttura dati degli allarmi con attenzione a campi quali ID univoco, activation time, resolution time, stato e associazione ad utente.
+Si è deciso che lo stato non deve essere memorizzato ma calcolato in base ai valori activation time, resolution time e l'assegnazione ad un operatore al fine di evitare 
+ridondanze. Inoltre si è convenuto sul fatto che il nome dell'allarme deve provenire dalla regola scatenante piuttosto che dall'evento stesso.
+
+\subsection*{Strategie di aggiornamento cache dispositivi}
+
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+\addDecision{Implementare l'autenticazione con login, \textit{access token JWT e refresh token}}
+
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+\addTodo{\#209}{Aggiornamento glossario con termini emersi nella riunione}{F. Pasqual}{20/03/2026}
+\makeTodoTable
+
+\end{document}
