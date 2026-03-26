@@ -42,8 +42,7 @@
 
 \addPrecedentTodo{vi\_2026\_03\_16.a1}{\#5}{L. Pellizzon}{22/03/2026}
 \addPrecedentTodo{vi\_2026\_03\_16.a2}{\#6}{L. Granziero, F. Venzo}{22/03/2026}
-\addPrecedentTodo{vi\_2026\_03\_16.a3}{\#7}{V. Baleanu, G. De Fina}{22/03/2026}
-\addPrecedentTodo{vi\_2026\_03\_16.a4}{\#8}{G. De Fina}{22/03/2026}
+
 \addPrecedentTodo{vi\_2026\_03\_16.a8}{\#208}{F. Pasqual}{20/03/2026}
 \addPrecedentTodo{vi\_2026\_03\_16.a9}{\#209}{F. Pasqual}{20/03/2026}
 
@@ -62,8 +61,6 @@
     \item gestione autenticazione JWT e associazione email utente;
     \item stato avanzamento sviluppo front-end e backend;
     \item organizzazione e divisione specifica tecnica;
-    \item azioni di sistemazione documentazione e piani sprint.
-   
 \end{itemize}
 
 % -------------------------------------------------
@@ -77,19 +74,43 @@ Si è deciso che lo stato non deve essere memorizzato ma calcolato in base ai va
 ridondanze. Inoltre si è convenuto sul fatto che il nome dell'allarme deve provenire dalla regola scatenante piuttosto che dall'evento stesso.
 
 \subsection*{Strategie di aggiornamento cache dispositivi}
+Si è affrontata la gestione della cache per i dispositivi degli impianti, che è conservata in file un JSON per ogni impianto e va aggiornata quando risulta obsoleta. 
+Sono stati discussi diversi approcci per la gestione dell'età della cache e del suo aggiornamento, che consistono nell'affidamento a uno tra: \textit{cron job$_G$}, device service, adapter o servizio dedicato. 
+La scelta non è ancora stata definita.
 
+\subsection*{Gestione autenticazione JWT e associazione email utente}
+È stato approfondito il flusso di autenticazione con JWT: il login causa \textit{redirect} alla pagina gialla di Vimar, che restituisce un code in \textit{callback} al \textit{backend}.
+Attualmente mancano informazioni legate all'email dell'utente autenticato e allo stato di collegamento. Si è convenuto di aggiungere un endpoint "user info" che fornisca email e flag di collegamento dopo il login,
+dal momento che la callback non può rispondere direttamente con queste informazioni al front-end.
+
+\subsection*{Stato avanzamento sviluppo front-end e backend}
+Il team ha illustrato lo stato attuale dello sviluppo. Sono stati discussi i test unitari con mock del backend e la necessità di mostrare almeno una demo funzionante
+per il prossimo incontro con la Proponente. Sono stati valutati anche gli strumenti \textit{swagger$_G$} per documentazione API e possibili miglioramenti alla struttura degli endpoint.
+
+\subsection*{Organizzazione e divisione specifica tecnica}
+È stato proposto di dividere chiaramente la specifica in sezioni per backend e frontend, si è inoltre valutato di creare una sezione comune di \textit{DTO$_G$} condivisi fra client e servizio per evitare ridondanze. 
 
 % -------------------------------------------------
 % Decisioni
 % -------------------------------------------------
-\addDecision{Implementare l'autenticazione con login, \textit{access token JWT e refresh token}}
+\addDecision{Rimuovere il campo status memorizzato negli allarmi e calcolarlo dinamicamente.}
+\addDecision{Implementare un endpoint user info che fornisca email e stato collegamento utente dopo login.}
+\addDecision{Mostrare una demo nella prossima riunione con la Proponente.}
+\addDecision{Dividere la specifica tecnica in sezioni distinte per backend e frontend con una sezione comune per DTO condivisi.}
+
 
 \makeDecisionTable
 
 % -------------------------------------------------
 % Azioni
 % -------------------------------------------------
-\addTodo{\#209}{Aggiornamento glossario con termini emersi nella riunione}{F. Pasqual}{20/03/2026}
+\addTodo{\noOne}{Definire la modalità definitiva di aggiornamento cache dispositivi.}{\teamName}{31/03/2026}
+\addTodo{\#24}{Creare endpoint "user info" per fornire email e flag collegamento utente dopo login con JWT.}{F. Venzo}{31/03/2026}
+\addTodo{\noOne}{Integrare frontend e backend.}{\teamName}{26/03/2026}
+\addTodo{\#224}{Redigere il verbale della riunione.}{C. Libralato}{31/03/2026}
+\addTodo{\#225}{Aggiornare glossario.}{C. Libralato}{31/03/2026}
+
 \makeTodoTable
+
 
 \end{document}
