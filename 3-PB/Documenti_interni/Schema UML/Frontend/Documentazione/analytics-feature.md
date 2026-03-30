@@ -8,33 +8,43 @@ del Frontend Angular dell'applicazione **View4Life**.
 
 ## Indice
 
-1. [Panoramica Architetturale](#1-panoramica-architetturale)
-2. [DTO](#2-dto)
-   - [AnalyticsDto](#analyticsdto)
-   - [ChartDataDto](#chartdatadto)
-   - [ChartDatasetDto](#chartdatasetdto)
-   - [EnergySavingSuggestionDto](#energysavingsuggestiondto)
-3. [Service](#3-service)
-   - [AnalyticsApiService](#analyticsapiservice)
-4. [Interfaccia](#4-interfaccia)
-   - [IChartComponent](#ichartcomponent)
-5. [Component](#5-component)
-   - [AnalyticsComponent](#analyticscomponent)
-   - [EnergySavingListComponent](#energysavinglistcomponent)
-   - [EnergyConsumptionChartComponent](#energyconsumptionchartcomponent)
-   - [PlantAnomaliesChartComponent](#plantanomalieschartcomponent)
-   - [PresenceDetectionChartComponent](#presencedetectionchartcomponent)
-   - [ProlongedPresenceChartComponent](#prolongedpresencechartcomponent)
-   - [TemperatureVariationsChartComponent](#temperaturevariationschartcomponent)
-   - [AlarmsSentResolvedChartComponent](#alarmssentresolvedchartcomponent)
-   - [AlarmFrequencyChartComponent](#alarmfrequencychartcomponent)
-   - [FallFrequencyChartComponent](#fallfrequencychartcomponent)
-6. [Module](#6-module)
-   - [AnalyticsModule](#analyticsmodule)
-   - [AnalyticsRoutingModule](#analyticsroutingmodule)
-7. [Riferimenti Esterni](#7-riferimenti-esterni)
-8. [Design Pattern](#8-design-pattern)
-9. [Relazioni](#9-relazioni)
+- [Spiegazione: Analytics Feature \& Analytics API Service UML (v2)](#spiegazione-analytics-feature--analytics-api-service-uml-v2)
+  - [Indice](#indice)
+  - [1. Panoramica Architetturale](#1-panoramica-architetturale)
+  - [2. DTO](#2-dto)
+    - [`AnalyticsDto`](#analyticsdto)
+    - [`ChartDataDto`](#chartdatadto)
+    - [`ChartDatasetDto`](#chartdatasetdto)
+    - [`EnergySavingSuggestionDto`](#energysavingsuggestiondto)
+  - [3. Service](#3-service)
+    - [`AnalyticsApiService`](#analyticsapiservice)
+    - [Attributi](#attributi)
+    - [Metodi](#metodi)
+  - [4. Interfaccia](#4-interfaccia)
+    - [`IChartComponent`](#ichartcomponent)
+  - [5. Component](#5-component)
+    - [`AnalyticsComponent`](#analyticscomponent)
+    - [Attributi](#attributi-1)
+    - [Metodi](#metodi-1)
+    - [`EnergySavingListComponent`](#energysavinglistcomponent)
+    - [`EnergyConsumptionChartComponent`](#energyconsumptionchartcomponent)
+    - [`PlantAnomaliesChartComponent`](#plantanomalieschartcomponent)
+    - [`PresenceDetectionChartComponent`](#presencedetectionchartcomponent)
+    - [`ProlongedPresenceChartComponent`](#prolongedpresencechartcomponent)
+    - [`TemperatureVariationsChartComponent`](#temperaturevariationschartcomponent)
+    - [`AlarmsSentResolvedChartComponent`](#alarmssentresolvedchartcomponent)
+    - [`AlarmFrequencyChartComponent`](#alarmfrequencychartcomponent)
+    - [`FallFrequencyChartComponent`](#fallfrequencychartcomponent)
+  - [6. Module](#6-module)
+    - [`AnalyticsModule`](#analyticsmodule)
+    - [`AnalyticsRoutingModule`](#analyticsroutingmodule)
+  - [7. Riferimenti Esterni](#7-riferimenti-esterni)
+  - [8. Design Pattern](#8-design-pattern)
+    - [Interfaccia comune `IChartComponent`](#interfaccia-comune-ichartcomponent)
+    - [`EnergySavingListComponent` fuori dall'interfaccia](#energysavinglistcomponent-fuori-dallinterfaccia)
+    - [Smart/Dumb Components](#smartdumb-components)
+    - [Unica chiamata HTTP per tutta la pagina](#unica-chiamata-http-per-tutta-la-pagina)
+  - [9. Relazioni](#9-relazioni)
 
 ---
 
@@ -124,6 +134,8 @@ di rendering, non di struttura dati.
 |---|---|---|
 | `labels` | `string[]` | Etichette dell'asse X (es. date, ore, nomi di stanze) |
 | `datasets` | `ChartDatasetDto[]` | Uno o più dataset da renderizzare nel grafico |
+| `title` | `string` | titolo dell'insieme di dati considerato (sarà titolo del grafico) |
+| `unit` | `string` | Unità di misura dei dati del dataset |
 
 ---
 
@@ -137,7 +149,7 @@ Un `ChartDataDto` può contenerne più di uno (es. grafico con più linee).
 
 | Campo | Tipo | Descrizione |
 |---|---|---|
-| `label` | `string` | Nome della serie, mostrato nella legenda del grafico |
+| `metric` | `string` | Nome della serie, mostrato nella legenda del grafico |
 | `data` | `number[]` | Valori numerici della serie, in corrispondenza uno-a-uno con `ChartDataDto.labels` |
 
 ---
@@ -154,6 +166,9 @@ Corrisponde a UC29.1.1 (visualizzazione elemento elenco suggerimenti).
 |---|---|---|
 | `suggestionId` | `string` | Identificatore univoco del suggerimento |
 | `description` | `string` | Testo del suggerimento mostrato in lista — UC29.1.1 |
+| `isSuggestion` | `boolean` | Flag booleano che indica se visualizzare il suggerimento o meno |
+
+Il flag è necessario in quanto usando un LLM, questo fornirà sempre una risposta anche se vi sono suggerimenti, quindi si rende questo caso facilmente riconoscibile con un flag.
 
 ---
 
