@@ -710,7 +710,7 @@
 									"parentStyle": true,
 									"left": 1432,
 									"top": 501,
-									"width": 239.67578125,
+									"width": 245.8330078125,
 									"height": 13,
 									"text": "STRUCTURE_CACHE"
 								},
@@ -737,7 +737,7 @@
 											"parentStyle": true,
 											"left": 1437,
 											"top": 524,
-											"width": 229.67578125,
+											"width": 235.8330078125,
 											"height": 13
 										},
 										{
@@ -753,7 +753,7 @@
 											"parentStyle": true,
 											"left": 1437,
 											"top": 539,
-											"width": 229.67578125,
+											"width": 235.8330078125,
 											"height": 13
 										},
 										{
@@ -769,7 +769,7 @@
 											"parentStyle": true,
 											"left": 1437,
 											"top": 554,
-											"width": 229.67578125,
+											"width": 235.8330078125,
 											"height": 13
 										},
 										{
@@ -786,7 +786,7 @@
 											"parentStyle": true,
 											"left": 1437,
 											"top": 569,
-											"width": 229.67578125,
+											"width": 235.8330078125,
 											"height": 13
 										}
 									],
@@ -794,7 +794,7 @@
 									"parentStyle": true,
 									"left": 1432,
 									"top": 519,
-									"width": 239.67578125,
+									"width": 245.8330078125,
 									"height": 53
 								}
 							],
@@ -802,7 +802,7 @@
 							"parentStyle": false,
 							"left": 1432,
 							"top": 496,
-							"width": 239.67578125,
+							"width": 245.8330078125,
 							"height": 76,
 							"nameLabel": {
 								"$ref": "AAAAAAGdD/0vzTSqU+g="
@@ -1455,7 +1455,7 @@
 								"$ref": "AAAAAAGdEAONgjUNOI8="
 							},
 							"lineStyle": 1,
-							"points": "1839:511;1673:524"
+							"points": "1839:511;1679:524"
 						},
 						{
 							"_type": "UMLNoteLinkView",
@@ -1472,7 +1472,7 @@
 								"$ref": "AAAAAAGdEAIEUzT8Y98="
 							},
 							"lineStyle": 1,
-							"points": "1531:452;1541:495"
+							"points": "1532:452;1544:495"
 						},
 						{
 							"_type": "ERDEntityView",
@@ -2130,7 +2130,7 @@
 									"parentStyle": true,
 									"left": 1696,
 									"top": 661,
-									"width": 236.57177734375,
+									"width": 241.62451171875,
 									"height": 13,
 									"text": "DATAPOINT_HISTORY"
 								},
@@ -2157,7 +2157,7 @@
 											"parentStyle": true,
 											"left": 1701,
 											"top": 684,
-											"width": 226.57177734375,
+											"width": 231.62451171875,
 											"height": 13
 										},
 										{
@@ -2173,7 +2173,7 @@
 											"parentStyle": true,
 											"left": 1701,
 											"top": 699,
-											"width": 226.57177734375,
+											"width": 231.62451171875,
 											"height": 13
 										},
 										{
@@ -2189,7 +2189,7 @@
 											"parentStyle": true,
 											"left": 1701,
 											"top": 714,
-											"width": 226.57177734375,
+											"width": 231.62451171875,
 											"height": 13
 										},
 										{
@@ -2206,7 +2206,7 @@
 											"parentStyle": true,
 											"left": 1677,
 											"top": 689,
-											"width": 226.57177734375,
+											"width": 231.62451171875,
 											"height": 13
 										}
 									],
@@ -2214,7 +2214,7 @@
 									"parentStyle": true,
 									"left": 1696,
 									"top": 679,
-									"width": 236.57177734375,
+									"width": 241.62451171875,
 									"height": 53
 								}
 							],
@@ -2222,7 +2222,7 @@
 							"parentStyle": false,
 							"left": 1696,
 							"top": 656,
-							"width": 236.57177734375,
+							"width": 241.62451171875,
 							"height": 76,
 							"nameLabel": {
 								"$ref": "AAAAAAGdJF7do1OhWJg="
@@ -2233,31 +2233,34 @@
 						},
 						{
 							"_type": "UMLNoteView",
-							"_id": "AAAAAAGdJHZTw1Pzve4=",
+							"_id": "AAAAAAGdOcWaIVhs4UQ=",
 							"_parent": {
 								"$ref": "AAAAAAGdD/JRrDNE97Y="
 							},
 							"font": "Arial;13;0",
 							"parentStyle": false,
-							"left": 1976,
-							"top": 664,
-							"width": 136,
-							"height": 40,
-							"text": "indice datapoint_id\nindice timestamp"
+							"left": 1672,
+							"top": 808,
+							"width": 520,
+							"height": 128,
+							"text": "SELECT create_hypertable('datapoint_history', 'timestamp');\n\nCREATE INDEX idx_datapoint_history_datapoint_id\n    ON datapoint_history (datapoint_id, timestamp DESC);\n\nALTER TABLE datapoint_history SET (\n    timescaledb.compress,\n    timescaledb.compress_segmentby = 'datapoint_id'\n);"
 						},
 						{
-							"_type": "UMLNoteView",
-							"_id": "AAAAAAGdJHijvVQTTwY=",
+							"_type": "UMLNoteLinkView",
+							"_id": "AAAAAAGdOcW80lh0b8w=",
 							"_parent": {
 								"$ref": "AAAAAAGdD/JRrDNE97Y="
 							},
 							"font": "Arial;13;0",
 							"parentStyle": false,
-							"left": 1976,
-							"top": 712,
-							"width": 112,
-							"height": 25,
-							"text": "timescaleDB"
+							"head": {
+								"$ref": "AAAAAAGdJF7do1OgTzU="
+							},
+							"tail": {
+								"$ref": "AAAAAAGdOcWaIVhs4UQ="
+							},
+							"lineStyle": 1,
+							"points": "1890:807;1841:733"
 						}
 					]
 				},
@@ -3341,8 +3344,8 @@
 								"$ref": "AAAAAAGdJF7do1OeCrU="
 							},
 							"name": "DATAPOINT_ID",
-							"type": "UUID",
-							"length": "36",
+							"type": "VARCHAR",
+							"length": "128",
 							"primaryKey": true
 						},
 						{
