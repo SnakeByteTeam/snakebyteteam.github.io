@@ -1,0 +1,255 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[nomarginpar, margin=2.75cm, tmargin=3cm, bmargin=1.75cm]{geometry}
+\usepackage{graphicx}
+\usepackage[
+    colorlinks=true,      
+    linkcolor=black,      
+    urlcolor=blue,       
+    citecolor=black       
+]{hyperref}
+\usepackage[table, x11names]{xcolor}
+\renewcommand{\contentsname}{Indice}
+\usepackage{fancyhdr}
+
+%Comandi per livello di sottosezioni = 3
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\newcommand{\trisubsection}[1]{\paragraph{#1}\mbox{}\\}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{SnakeByte} 
+\fancyhead[R]{Way of Working}
+\fancyfoot[C]{\thepage}
+
+
+\begin{document}
+
+\begin{titlepage}
+    \begin{center}
+        \begin{center}
+            \includegraphics[width=0.6\textwidth]{./img/logo.pdf}
+        \end{center}
+        \vspace{4cm}
+        \huge\textbf{Way of Working}\par
+        \vspace{2cm}
+        \large \textbf{SnakeByte} (Gruppo 1):\\
+        \large Valeria Baleanu, Leonardo Pellizzon, Filippo Venzo, Giuseppe De Fina, \\
+         Francesco Pasqual, Christian Libralato, Luca Granziero \\
+        (2109911, 2111006, 2113705, 2113187, 2103119, 2101047, 2075512)
+        \vfill
+        \small
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \multicolumn{4}{|c|}{\textbf{Informazioni documento}} \\
+                \hline
+                \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
+                \hline
+                0.1.0 & 17/10/2025 & Verificato & SnakeByte, prof. Tullio Vardanega, prof. Riccardo Cardin \\
+                \hline
+            \end{tabular}
+        \end{center}
+        \vfill
+        \large Contatti: snakebyteteam@gmail.com
+    \end{center}
+\end{titlepage}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    \multicolumn{6}{|c|}{\textbf{Versioni del documento}} \\
+    \hline
+    \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verifica} & \textbf{Approvazione} & \textbf{Descrizione} \\
+    \hline
+    0.1.0 & 17/10/2025 & F. Venzo & L. Granziero & - & Prima stesura \\
+    \hline
+\end{tabular}    
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduzione}
+\subsection{Finalità del documento}
+Il presente documente intende fissare le linee guida che il gruppo \textit{SnakeByte} si impegna a rispettare ed attuare per perseguire la migliore efficenza ed efficacia nel processo di realizzazione del progetto didattico.
+
+Il documento è strutturato secondo le norme dello Standard ISO/IEC 122007:1995 e segue quanto descritto nel \textit{Regolamento del progetto didattico (A.a. 2025/2026)}. Presenta una descrizione dei \textit{processi} del ciclo di vita del \textit{software} e delle \textit{attività} di cui sono composti.
+A sua volta, ogni attività, è composta da una serie di procedure metodiche dotate di obiettivi e strumenti ben definiti.
+
+E' importante notare che il documento in questione è in continua evoluzione fino al suo ritiro, poiché le norme contenute al suo interno vegono costantemente revisionate, ottimizzate ed aggiornate, seguendo un approccio iterativo.
+
+Ogni attività svolta nell'interesse del progetto didattico e nei suoi materiali è regolamentata precedentemente all'esecuzione della stessa.
+
+\subsection{Glossario}
+Il documento cita alcuni termini la cui defizione può risultare ambigua. Per questo, è possibile consultare il glossario, contenuto nella documentazione del progetto \texttt{<link a pdf glossario>}, il quale contiene le definizioni di tali espressioni, che sarrano marcate da una lettera \textit{G} a pedice (?)
+
+\subsection{Riferimenti Normativi}
+\begin{itemize}
+    \item \textbf{Standard ISO/IEC 122007:1995}: 
+    
+    \url{https://www.math.unipd.it/~tullio/IS-1/2009/Approfondimenti/ISO_12207-1995.pdf} 
+    
+    (consultato il 20/10/2025)
+    \item \textbf{Regolamento del progetto didattico}: 
+    
+    \url{https://www.math.unipd.it/~tullio/IS-1/2025/Dispense/PD1.pdf} 
+    
+    (consultato il 20/10/2025)
+\end{itemize}
+
+\subsection{Riferimenti Informativi}
+\begin{itemize}
+    \item Glossario \texttt{<link a glossario>}
+\end{itemize}
+
+\section{Processi primari}
+\subsection{Fornitura}
+Il processo di fornitura, come specificato nello Standard ISO/IEC 122007:1995, definisce le attività dell'organizzazione che fornisce il prodotto software all'acquirente, dalla concezione fino alla consegna del prodotto. Viene istanziato conseguentemente alla redazione della \textit{Valutazioni dei capitolati} \texttt{<link al documento valutazione>}.
+
+\subsubsection{Attività}
+Il processo di fornitura si compone delle seguenti attività
+\begin{itemize}
+    \item \textbf{Avviamento}: revisione delle proposte dei richiedenti. Per i capitolati di maggiore interesse vengono mandate delle comunicazione via mail per eventuali approfondimenti.
+    
+    \item \textbf{Preparazione delle riposta}: viene scelto il capitolato per cui ci vuole candidare sulla base delle considerazioni fatte nelle fase precendete e viene preparato il documento di \textbf{candidatura} \texttt{<link doc>}.
+\end{itemize}
+
+\subsubsection{Documentazione}
+La documentazione prodotta durante le attività di fornitura, la quale verrà consegnata ai committenti quali \textit{Prof.} Tullio Vardanega, \textit{Prof.} Riccardo Cardin e all'azienda proponente è la seguente 
+
+\begin{itemize}
+    \item \textbf{Valutazioni dei capitolati} contenente 
+    \begin{itemize}
+        \item Titolo del capitolato e nome dell'azienda proponente;
+        \item Una breve descrizione del capitolato e dei suoi obiettivi;
+        \item Punti di forza;
+        \item Criticità.
+    \end{itemize}
+    \item \textbf{Candidatura} contenente
+    \begin{itemize}
+        \item Scandenza di consegna prevista;
+        \item Preventivo dei costi totali del progetto (calcolato secondo il \textit{Regolamento del progetto didattico});
+        \item Dichiarazioni di impengo in ore produttive per componente del gruppo.
+    \end{itemize}
+\end{itemize}
+
+\section{Processi di supporto}
+\subsection{Documentazione}
+
+\subsubsection{Struttura dei documenti}
+Le seguenti sezioni illustrano le componenti che ogni documento creato deve avere e per ogni tipologia le caratteristiche dedicate.
+
+\trisubsection{Prima pagina}  
+
+La prima pagina di ogni documento deve riportare, in ordine di posizionamento dall'alto verso il basso
+
+\begin{itemize}
+    \item Logo del gruppo \textit{SnakeByte};
+    \item Titolo del documento;
+    \item Il nome e il numero del gruppo \textit{SnakeByte};
+    \item Nome e cognome di ogni componente e relativo numero di matricola UniPD;
+    \item Informazioni generali del documento quali
+    \begin{itemize}
+        \item Versione attuale;
+        \item Data di creazione della versione;
+        \item Lo stato attuale;
+        \item I destinatari del documento.
+    \end{itemize}
+    \item Contatto email del gruppo \textit{SnakeByte}
+\end{itemize}
+
+\trisubsection{Intestazione}
+
+Ogni pagina di qualsiasi documento deve riportate come intestazione
+\begin{itemize}
+    \item Nome del gruppo \textit{SnakeByte}
+    \item Titolo del relativo documento
+\end{itemize}
+
+\trisubsection{Registro delle modifiche}
+
+Tutti i documenti, interni ed esterni, devono riportare a partire dalla seconda pagina il \textit{registro delle modifiche} sottoforma di tabella, la quale deve riassumemere
+
+\begin{itemize}
+    \item Versione del documento;
+    \item Data di creazione;
+    \item Autore della versione;
+    \item Verificatore della versione;
+    \item Approvatore della versione;
+    \item Descrizione riassuntiva delle modifiche alla versione precedente.
+\end{itemize}
+
+Ogni modifica ad un documento scatena la crezione di una nuova versione di esso e quindi la compilazione di una nuova riga, verso il basso, della tabella.\\
+
+\trisubsection{Indice}
+
+Ogni documente deve riportare l'indice dove saranno elencati i titoli di tutte le sezioni e sottosezioni.
+
+Ogni titolo deve essere provvisto di link che porta alla sezione associata all'interno dello stesso documento.\\
+
+\textbf{Metodologie}
+\begin{itemize}
+    \item Questo deve essere fatto tramite il pacchetto \texttt{hyperref} fornito dal il linguaggio \LaTeX
+\end{itemize}
+
+\subsubsection{Struttura dei verbali}
+I verbali sia interni che esterni, oltre alla struttura descritta nel capitolo \hyperref[sec:Struttura]{\textit{§3.1.1}}, devono essere composti dalle seguenti sezioni
+
+\begin{itemize}
+    \item \textbf{Informazioni}, contenente
+    \begin{itemize}
+        \item Data di svolgimento;
+        \item Ora inizio;
+        \item Ora fine;
+        \item Modalità di svolgimento (Presenza, Online o tramite canali asincroni).
+    \end{itemize}
+    \item \textbf{Presenze}, contenente, in forma tabellare, le seguenti informazioni
+    \begin{itemize}
+        \item Nome e cognome di tutti i membri;
+        \item Ruolo (ND se non definito);
+        \item Presenza alla riunione.
+    \end{itemize}
+    \item \textbf{Ordine del giorno}, con all'interno una lista degli argomenti che vengono trattati all'interno dell'incontro;
+    \item \textbf{Approfondimento} degli argomenti ordine del giorno;
+    \item \textbf{Decisioni} (\hyperref[sec:TabellaDecisioni]{Sezione \textit{§3.1.2.1}});
+    \item \textbf{Attività da svolgere} (\hyperref[sec:TabellaToDo]{Sezione \textit{§3.1.2.2}})
+\end{itemize}
+
+\label{sec:TabellaDecisioni}
+\trisubsection{Tabella delle decisioni}
+Per il tracciamento e l'organizzazione di ogni decisione presa collettivamente dal gruppo \textit{SnakeByte}, al termine di ogni verbale, deve essere presente una tabella che riporta le decisioni prese in seguito alla riunione in questione. Per ogni decisione deve essere riportato
+\begin{itemize}
+    \item Identificativo alfanumerico della decisioni, così composto\\ \texttt{v\{i, e\}}\_AAAA\_MM\_GG.d\texttt{<numero\_decisione>};
+    \item Descrizione testuale della decisione presa;
+\end{itemize}
+
+\label{sec:TabellaToDo}
+\trisubsection{Tabella delle attività da svolgere}
+Per il tracciamento delle attività da eseguire, emerse durante l'incontro trattato dal verbale, deve essere presente una tabella che riporta una lista di queste, riassumendo le seguenti informazioni
+\begin{itemize}
+    \item Identificativo alfanumerico dell'attività, così composto\\ \texttt{v\{i, e\}}\_AAAA\_MM\_GG.a\texttt{<numero\_attività>};
+    \item Descrizione testuale dell'attività;
+    \item Id GitHub Issue associata all'attività (carattere \textit{"-"} se non presente).
+\end{itemize}
+
+
+\section{Processi organizzativi}
+
+\subsection{Coordinamento}
+
+\subsubsection{Riunione interna fissata}
+Il gruppo \textit{SnakeByte} ha scelto di fissare un giorno all'interno della settimana lavorativa in cui si svolge una riunione in presenza a cui prendono parte i componenti del gruppo. La partecipazione dei membri è richiesta ma non tassativa.
+
+Il giorno attuale in cui si tiene la riunione è il \textit{Lunedì} alle ore \textit{12.15} circa.
+
+Altre eventuali riunioni possono essere fissate tramite confronto e accordo tra i componenti del gruppo su giorno e ora.
+
+\subsubsection{Comunicazioni interne}
+Per le comunicazione interne, il gruppo \textit{SnakeByte} ha individuato come mezzo per la trasmissione di informazioni in formato asincrono l'applicazione di messaggistica \textit{Whatsapp}. Mentre per le comunicazioni sincrone \textit{Discord}.
+
+\subsubsection{Comunicazini esterne}
+Per le comunicazioni esterne, il gruppo \textit{SnakeByte} ha individuato come mezzo per la trasmissione di informazioni in formato asincrono i messaggi email, tramite esclusivamente l'indirizzo ufficiale del gruppo (\textit{snakebyteteam@gmail.com}). Mentre per le comunicazioni sincrone l'applicazione di videoconferenze \textit{Google Meet}. 
+
+\end{document}
