@@ -1,6 +1,6 @@
 \documentclass[10pt, letterpaper]{article}
 
-\usepackage{../../../template/template}
+\usepackage{template}
 \usepackage{templatePdP}
 \usepackage{template}
 \usepackage{float}
@@ -13,9 +13,9 @@
 % Macro sono in relazione all'ultima modifica
 \setDocIndex{Piano_di_Progetto}
 \setDocTitle{Piano di Progetto}
-\setDocVersion{1.0.2}
+\setDocVersion{1.0.3}
 \setDocState{1}
-\setDocData{12/03/2026}
+\setDocData{31/03/2026}
 \setDocRecipient{2}
 
 \setcounter{tocdepth}{4}
@@ -265,6 +265,7 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 \begin{document}
 
 \makeTitlePage
+\addChangelog{1.0.3}{31/03/2026}{L. Granziero}{G. De Fina}{\noOne}{Aggiornamento di consuntivo e retrospettiva allo sprint 10}
 \addChangelog{1.0.2}{10/03/2026}{F. Venzo}{C. Libralato}{\noOne}{Aggiornamento di consuntivo e retrospettiva allo sprint 9}
 \addChangelog{1.0.1}{08/03/2026}{L. Pellizzon}{C. Libralato}{\noOne}{Aggiornamento di consuntivo e retrospettiva allo sprint 8}
 \addChangelog{1.0.0}{13/02/2026}{\noOne}{\noOne}{F. Venzo}{\approval}
@@ -1604,4 +1605,87 @@ Il gruppo durante i futuri sprint dovrà prestare particolare attenzione a quest
 Inoltre, in questo periodo di avanzamento sono cominciate le prime attività volte alla progettazione del sistema. Proprio per le risorse limitate, per le conoscenze non ancora sviluppate e sotto consiglio del Prof. Vardanega, si è deciso di far precedere alla progettazione alcune attività collaborative propedeutiche a questa, con lo scopo futuro di eseguire una progettazione più efficace ed efficiente.
 In previsione dei prossimi sprint, il gruppo si impegna a mantenere l'attuale livello di comunicazione e collaborazione e a migliorare la precisione nella stima orario per ruolo, in modo da ottimizzare l'utilizzo delle risorse rimanenti.
 
+\vspace{1em}
+    \hrule
+    \vspace{1em}
+
+    \subsection{Sprint 10 (09/03/2026 - 22/03/2026)}
+    \subsubsection{Avanzamento}
+    \trisubsection{Attività programmate}
+    Si prevede l'esecuzione delle seguenti attività:
+    \begin{itemize}
+        \item Inizio e fine della fase di progettazione;
+        \item aggiornamento periodico del Piano di Progetto e Piano di Qualifica;
+        \item Creazione di bozzetti grafici rappresentativi dell’interfaccia della web application
+        \item Inizio implementazione MVP
+    \end{itemize}
+
+    \trisubsection{Attività svolte}
+    Nel corso del periodo di avanzamento sono state svolte le seguenti attività:
+    \begin{itemize}
+        \item Inizio e fine della fase di progettazione;
+        \item \textbf{piano di Progetto e Piano di Qualifica}: aggiornamento allo sprint 9
+        \item \textbf{Glossario}: aggiornamento con i termini riguardanti la progettazione e la codifica
+        \item Creazione di bozzetti grafici rappresentativi dell’interfaccia della web application
+        \item Avvio dell’implementazione dell’MVP, con una suddivisione del lavoro: una parte del team si è concentrata sul backend, mentre l’altra sul frontend.
+    \end{itemize}
+
+    \subsubsection{Rischi}
+    \trisubsection{Rischi attesi}
+    \begin{itemize}
+    \item \rif{RT1} - Conoscenza insufficiente di una tecnologia;
+    \item \rif{RI1} - Impegni personali;
+    \item \rif{RO1} - Carico di lavoro eccessivo;
+    \item \rif{RC3} - Disparità di conoscenze tra componenti;
+    \item \rif{RO8} - Sottostima corsi e ore 
+    \end{itemize}
+    \trisubsection{Rischi manifestati}
+    \begin{itemize}
+        \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: L'avvio dell'implementazione dell'MVP ha evidenziato lacune tecnologiche sia sul fronte della progettazione architetturale che su quello dello sviluppo: alcuni membri hanno incontrato difficoltà nell'applicare i pattern progettuali definiti e nell'utilizzo delle tecnologie scelte per backend e frontend in un contesto produttivo. La mitigazione è avvenuta attraverso sessioni collaborative di allineamento e confronto interno tra i membri del gruppo.
+        \item \rif{RC3} - Disparità di conoscenze tra componenti: La principale difficoltà riscontrata è stata la traduzione della progettazione in codice: sebbene tutti i membri avessero acquisito esperienza sulle tecnologie durante il PoC, la riassegnazione dei ruoli tra backend e frontend ha creato una disparità situazionale, con alcuni membri chiamati a lavorare sulla parte del sistema opposta a quella sviluppata in precedenza. La mitigazione è avvenuta attraverso sessioni di confronto interno, una collaborazione più stretta tra chi aveva già familiarità con la componente assegnata e chi invece la affrontava per la prima volta, e ore di studio individuale dedicate a colmare le lacune emerse.
+        \item \rif{RO8} - Le stime orarie si sono rivelate insufficienti: a fronte di 60 ore preventivate ne sono state effettivamente svolte 71 (+11 ore). La sottostima è attribuibile alla complessità dell'avvio dell'implementazione dell'MVP, superiore alle previsioni. La mitigazione avverrà attraverso una pianificazione più accurata negli sprint successivi, basata sui dati raccolti.
+    \end{itemize}
+
+    \subsubsection{Costi}
+    Le ore effettive svolte dai singoli componenti del gruppo sono di seguito riportate:
+
+    \setRuoloFilippo{\Amm}
+    \setRuoloChristian{\Verif}
+    \setRuoloValeria{\Progr}
+    \setRuoloGiuseppe{\Progr}
+    \setRuoloFrancesco{\Resp}
+    \setRuoloLuca{\Progr}
+    \setRuoloLeonardo{\Progr}
+
+    \setHPrevisteFilippo{6}
+    \setHPrevisteChristian{11}
+    \setHPrevisteValeria{8}
+    \setHPrevisteGiuseppe{10}
+    \setHPrevisteFrancesco{7}
+    \setHPrevisteLuca{10}
+    \setHPrevisteLeonardo{8}
+
+    \setHRealiFilippo{10}
+    \setHRealiChristian{15}
+    \setHRealiValeria{10}
+    \setHRealiGiuseppe{10}
+    \setHRealiFrancesco{6}
+    \setHRealiLuca{10}
+    \setHRealiLeonardo{10}
+
+    \makeTableRuoli{10}
+    Si deriva il consuntivo delle ore e dei costi rispetto ai singoli ruoli:
+    \makeTableDeviazioni{10}
+
+    \subsubsection{Preventivo a finire}
+    Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i campi "iniziali" fanno riferimento all'inizio dello sprint corrente:
+
+    \makeTablePreventivo{10}
+
+    \subsubsection{Retrospettiva}
+Lo Sprint 10 ha segnato l'ingresso del gruppo nella fase di implementazione dell'MVP, preceduta dal completamento della progettazione. Complessivamente il gruppo si ritiene soddisfatto del lavoro svolto, avendo rispettato gli obiettivi principali dello sprint nonostante le difficoltà emerse.
+Il passaggio dalla progettazione alla codifica si è rivelato più complesso del previsto, in particolare per i membri riassegnati alla componente opposta a quella sviluppata durante il PoC, rendendo necessarie ore aggiuntive di studio individuale e sessioni di confronto interno. Nonostante la fase finale e concentrata del progetto lasciasse presagire un carico di lavoro difficile da gestire, la maturazione raggiunta dal gruppo nel corso degli sprint precedenti ha permesso di affrontare le attività con maggiore consapevolezza rispetto alle fasi iniziali.
+Dal punto di vista delle risorse, si registra una sottostima delle ore più marcata rispetto agli sprint precedenti (+11 ore), imputabile alla complessità dell'avvio dello sviluppo produttivo. Il gruppo si impegna a calibrare con maggiore precisione le stime negli sprint rimanenti, tenendo conto delle risorse ormai limitate, con l'obiettivo di completare l'implementazione dell'MVP entro la scadenza prevista.
 \end{document}
+
+
