@@ -1,0 +1,70 @@
+\documentclass{beamer}
+
+\usepackage{../tema}
+
+
+\title{SAL}
+\author[C. Libralato, G. De Fina]{C. Libralato, G. De Fina}
+\setDate{01/04/2026}
+
+\begin{document}
+
+{
+\setbeamertemplate{footline}{}
+\begin{frame}
+    \titlepage
+\end{frame}
+}
+
+\addMember{Filippo}{Venzo}{Amministratore}
+\addMember{Giuseppe}{De Fina}{Verificatore}
+\addMember{Valeria}{Baleanu}{Programmatore}
+\addMember{Christian}{Libralato}{Responsabile}
+\addMember{Leonardo}{Pellizzon}{Programmatore}
+\addMember{Francesco}{Pasqual}{Programmatore}
+\addMember{Luca}{Granziero}{Amministratore}
+\makeMembersFrame
+
+\begin{frame}{Avanzamenti settimanali}
+    \begin{itemize}
+        \setlength{\itemsep}{0.9em}
+        \item Continuazione codifica e integrazioni tra parti di  \textit{frontend} e \textit{backend};
+        \item continuazione redazione Specifica Tecnica.
+    \end{itemize}
+\end{frame}
+
+% PRIMO FRAME: Attività terminate dal verbale esterno 
+\addPrecedentTodo{ve\_2026\_03\_18.a1}{\noOne}{Comunicare entro il fine settimana una data per il collaudo.}{C. Libralato}{27/03/2026}
+\makePrecedentTodoFrame
+
+\renewcommand{\precedentTodoEntries}{}
+
+%  SECONDO FRAME: Attività terminate dal verbale interno
+
+\addPrecedentTodo{vi\_2026\_03\_24.a3}{\noOne}{Integrare frontend e backend.}{SnakeByte}{26/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_24.a4}{\#224}{Redigere il verbale della riunione.}{C. Libralato}{31/03/2026}
+\makePrecedentTodoFrame
+
+
+\begin{frame}{Attività da completare}
+    \begin{itemize}
+        \setlength{\itemsep}{0.9em}
+        \item Terminazione codifica;
+        \item terminazione redazione Specifica Tecnica;
+        \item redazione Manuale Utente. 
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Dubbi incontrati}
+    \begin{itemize}
+        \setlength{\itemsep}{0.9em}
+        \item Per concentrare le risorse sui requisiti principali, date le tempistiche ridotte, si è pensato di ridurre alcune funzionalità opzionali, in particolare:
+        \begin{itemize}
+            \item rendere la Dashboard predefinita e non personalizzabile;
+            \item interagire con i dispositivi in sola lettura;
+            \item rimuovere / modificare alcune componenti grafiche.
+        \end{itemize}
+    \end{itemize}
+\end{frame}
+
+\end{document}
