@@ -1,6 +1,6 @@
 \documentclass[10pt, letterpaper]{article}
 \usepackage[nomarginpar, margin=2.75cm, tmargin=3cm, bmargin=1.75cm]{geometry}
-\usepackage[
+\usepackage[        
     colorlinks=true,      
     linkcolor=black,      
     urlcolor=blue,       
@@ -35,7 +35,7 @@
 \begin{titlepage}
     \begin{center}
         \begin{center}
-            \includegraphics[width=0.6\textwidth]{../../../template/img/logo.pdf}
+            \includegraphics[width=0.6\textwidth]{logo.pdf}
         \end{center}
         \vspace{4cm}
         \huge\textbf{Piano di qualifica}\par
@@ -53,7 +53,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                1.0.2                                  & 13/03/2026    & Verificato      &
+                1.0.3                                  & 01/04/2026    & Verificato      &
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
@@ -72,6 +72,7 @@
         \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}}                                                                                                                                                                    \\
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore}    & \textbf{Approvatore} & \textbf{Descrizione}\\
+        \hline 1.0.3                                  & 01/04/2026    & L. Granziero & G. De Fina & - & Aggiornamento allo sprint 10\\
         \hline
         1.0.2                                  & 13/03/2026    & F. Venzo & C. Libralato & - & Aggiornamento allo sprint 9\\
         \hline
@@ -539,6 +540,7 @@ Il grafico rappresenta quanto riportato nella figura \ref{fig:mpc1-mpc2} (MPC1 e
 Al termine dello Sprint 5, momento in cui lo sforamento di budget ha raggiunto il valore massimo, è stata effettuata una lieve ripianificazione che ha contribuito alla riduzione dello scostamento dai costi previsti.
 Dallo Sprint 7 allo Sprint 8 il costo stimato al completamento è rimasto al di sotto del preventivo iniziale, subendo un leggero aumento durante lo Sprint 9. 
 Per i prossimi periodi si prevede, grazie all'esperienza maturata fino ad ora, di raffinare le stime orarie e quindi di riportare l'EAC completamente in linea o al di sotto del previsto.
+Allo Sprint 10 l'EAC si è attestato sensibilmente al di sotto del BAC, confermando una gestione del budget più efficiente precedentemente prevista.
 
 \subsection{MPC8 - Requirements Stability Index}
 \begin{figure}[H]
@@ -559,7 +561,12 @@ Dallo Sprint 4 in poi i requisiti hanno avuto una stabilità pressoché ottima e
     \label{fig:mpc9}
 \end{figure}
 
-Durante tutti gli sprint la leggibilità dei documenti è rimasta buona e al di sopra della soglia di accettabilità. Si prevede, per i prossimi sprint, un andamento simile.
+Durante tutti gli sprint la leggibilità dei documenti è rimasta buona e al di 
+sopra della soglia di accettabilità. Allo Sprint 10 si è registrato un calo 
+dell'indice di Gulpease per il Glossario e le Norme di Progetto, dovuto 
+all'aggiunta di contenuti correlati alla progettazione e alla codifica. 
+Entrambi i documenti rimangono comunque al di sopra della soglia di accettabilità.
+
 
 \subsection{MPC10 - Indice di Frammentazione}
 \begin{figure}[H]
@@ -596,8 +603,10 @@ Per i prossimi sprint è previsto il mantenimento del trend positivo, con l'obie
 
 La percentuale rispetto al totale dei rischi inattesi è superiore al valore massimo accettabile nella maggior parte dei periodi.
 Testimonia una capacità ancora non matura di previsione dei rischi da parte del gruppo.
-Si può notare però che agli Sprint 6, 7 e 8 è diminuita, subendo un rialzo allo Sprint 9, si prevede che per lo Sprint 10, grazie all'esperienza maturata fino ad ora, rimanga al di sotto del valore massimo accettabile.
-\\I rischi inattesi non hanno influenzato significativamente l'andamento del progetto (come evidenziato dal grafico dello SPI), in quanto erano state preventivate ore aggiuntive proprio per farvi fronte.
+Si può notare però che agli Sprint 6, 7 e 8 è diminuita, subendo un rialzo 
+allo Sprint 9. Allo Sprint 10 la percentuale di rischi inattesi si è 
+mantenuta al di sotto del valore massimo accettabile, confermando il 
+miglioramento nella capacità di previsione dei rischi da parte del gruppo.
 
 \subsection{MPC14 - Labor Efficiency}
 \begin{figure}[H]
@@ -607,9 +616,14 @@ Si può notare però che agli Sprint 6, 7 e 8 è diminuita, subendo un rialzo al
     \label{fig:mpc14}
 \end{figure}
 
-Dal grafico è possibile notare, fin dal primo Sprint, un'eccellente efficienza nel lavoro svolto, con un picco importante durante lo Sprint 6 e 8. 
-È opportuno sottolineare che tale andamento non indica un'eccessiva efficienza operativa del gruppo, bensì evidenzia che le ore preventivate sono risultate superiori rispetto a quelle effettivamente impiegate.
-Si prevede che, negli sprint successivi al 9, l'andamento tenda a stabilizzarsi grazie a una maggiore accuratezza nelle stime e a una migliore calibrazione del carico di lavoro.
-
+Dal grafico è possibile notare, fin dal primo Sprint, un'eccellente efficienza 
+nel lavoro svolto, con un picco importante durante lo Sprint 6 e 8. 
+È opportuno sottolineare che tale andamento non indica un'eccessiva efficienza 
+operativa del gruppo, bensì evidenzia che le ore preventivate sono risultate 
+superiori rispetto a quelle effettivamente impiegate. Allo Sprint 10 si è 
+registrato un calo della Labor Efficiency al di sotto del valore ottimo, dovuto 
+a una stima delle ore più accurata rispetto ai periodi precedenti: le ore 
+effettivamente impiegate si sono avvicinate a quelle preventivate, riducendo 
+il surplus che aveva caratterizzato gli sprint precedenti.
 
 \end{document}
