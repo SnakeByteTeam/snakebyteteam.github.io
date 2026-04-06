@@ -1681,12 +1681,26 @@ In previsione dei prossimi sprint, il gruppo si impegna a mantenere l'attuale li
     \subsubsection{Preventivo a finire}
     Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i campi "iniziali" fanno riferimento all'inizio dello sprint corrente:
 
+    % Ridistribuzione ore Progettista non utilizzate (27h) -
+\edef\oreTotRespRimaste{\fpeval{\oreTotRespRimaste + 8}}
+\edef\budgetRespRimasto{\fpeval{\budgetRespRimasto + 240}}
+
+\edef\oreTotAmmRimaste{\fpeval{\oreTotAmmRimaste + 10}}
+\edef\budgetAmmRimasto{\fpeval{\budgetAmmRimasto + 200}}
+
+\edef\oreTotProgeRimaste{\fpeval{\oreTotProgeRimaste - 27}}
+\edef\budgetProgeRimasto{\fpeval{\budgetProgeRimasto - 675}}
+
+\edef\oreTotProgrRimaste{\fpeval{\oreTotProgrRimaste + 9}}
+\edef\budgetProgrRimasto{\fpeval{\budgetProgrRimasto + 135}}
+
     \makeTablePreventivo{10}
 
     \subsubsection{Retrospettiva}
 Lo Sprint 10 ha segnato l'ingresso del gruppo nella fase di implementazione dell'MVP, preceduta dal completamento della progettazione. Complessivamente il gruppo si ritiene soddisfatto del lavoro svolto, avendo rispettato gli obiettivi principali dello sprint nonostante le difficoltà emerse.
 Il passaggio dalla progettazione alla codifica si è rivelato più complesso del previsto, in particolare per i membri riassegnati alla componente opposta a quella sviluppata durante il PoC, rendendo necessarie ore aggiuntive di studio individuale e sessioni di confronto interno. Nonostante la fase finale e concentrata del progetto lasciasse presagire un carico di lavoro difficile da gestire, la maturazione raggiunta dal gruppo nel corso degli sprint precedenti ha permesso di affrontare le attività con maggiore consapevolezza rispetto alle fasi iniziali.
 Dal punto di vista delle risorse, si registra una sottostima delle ore più marcata rispetto agli sprint precedenti (+11 ore), imputabile alla complessità dell'avvio dello sviluppo produttivo. Il gruppo si impegna a calibrare con maggiore precisione le stime negli sprint rimanenti, tenendo conto delle risorse ormai limitate, con l'obiettivo di completare l'implementazione dell'MVP entro la scadenza prevista.
+Al termine dello sprint 10, rilevando che le 27 ore residue del ruolo di Progettista non sarebbero state impiegate nei restanti sprint, il gruppo ha deliberato la loro redistribuzione ai ruoli con risorse insufficienti per il completamento dello sprint 11: 8 ore al Responsabile, 10 ore all'Amministratore e 9 ore al Programmatore. Tale operazione non altera il budget complessivo del progetto.
 
 
 
@@ -1772,3 +1786,7 @@ Lo Sprint 11 segna la conclusione del progetto, con il completamento dell'MVP e 
 La pressione derivante dalla scadenza prefissata ha richiesto un impegno straordinario da parte di tutti i membri, che hanno saputo collaborare attivamente indipendentemente dal ruolo ricoperto, contribuendo al completamento del prodotto nei tempi previsti. L'integrazione tra frontend e backend ha rappresentato la sfida tecnica più significativa dello sprint: il coordinamento continuo richiesto tra le due parti del team ha inevitabilmente aumentato il carico di lavoro complessivo, ma ha anche permesso di mantenere la coerenza del sistema e di portare a termine le funzionalità previste con un risultato di qualità.
 Guardando al percorso complessivo del progetto, è evidente la crescita raggiunta dal gruppo su tutti i fronti. La capacità di affrontare questa fase finale con consapevolezza e spirito di collaborazione, pur in presenza di risorse ormai limitate e di una scadenza ravvicinata, è la testimonianza più concreta della maturazione avvenuta nel corso degli sprint, sia sul piano tecnico che su quello organizzativo e comunicativo.
 \end{document}
+
+
+
+
