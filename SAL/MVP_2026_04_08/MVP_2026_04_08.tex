@@ -1,0 +1,173 @@
+\documentclass{beamer}
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[table, x11names]{xcolor}
+\usepackage{xstring}
+\usepackage{etoolbox}
+\usepackage{tabularx}
+\usepackage[export]{adjustbox}
+
+\newcommand{\Date}{}
+
+\newcommand{\setDate}[1]{\renewcommand{\Date}{#1}}
+
+\useinnertheme{default}
+\useoutertheme{default}
+\usecolortheme{default}
+
+\definecolor{aziendaPrimary}{RGB}{84, 150, 104}
+\setbeamercolor{structure}{fg=aziendaPrimary}
+\setbeamercolor{frametitle}{bg=aziendaPrimary!10,fg=aziendaPrimary}
+
+% rimuovere i simboli di navigazione
+\setbeamertemplate{navigation symbols}{}
+
+% pagina iniziale
+\setbeamertemplate{title page}{
+  \vspace{2em}
+  \begin{center}
+    \begin{minipage}{0.3\textwidth}
+      \centering
+      \includegraphics[height=2.1cm, left]{./logounipd.png}
+    \end{minipage}
+    \begin{minipage}{0.3\textwidth}
+      \centering
+      \includegraphics[height=2.5cm, center]{../logo-crop.pdf}
+    \end{minipage}
+    \begin{minipage}{0.3\textwidth}
+      \centering
+      \includegraphics[height=2cm, right]{./logoview4life.png}
+    \end{minipage}
+  \end{center}
+  \begin{center}
+      {\usebeamerfont{title}\color{black}\textbf{\inserttitle}\par}
+    \vspace{0.5em}
+    {\usebeamerfont{date}\insertauthor\par}
+    {\usebeamerfont{date}\Date\par}
+  \end{center}
+}
+
+% footer
+\setbeamertemplate{footline}{
+  \vspace{2ex}
+  \hbox{
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hspace*{0.5em}
+      \raggedright\usebeamerfont{footline}{Progetto View4Life}
+    \end{minipage}%
+    \begin{minipage}[t]{0.20\paperwidth}
+      \centering\usebeamerfont{footline}Slide \insertframenumber{} di \inserttotalframenumber
+    \end{minipage}%
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hfill
+      \insertshortauthor
+      \hspace*{0.8em}
+      \raisebox{-0.25\height}{\includegraphics[width=0.7cm]{../logo-crop.pdf}}
+      \hspace*{1.3em}
+    \end{minipage}
+  }
+  \vspace{0.8ex}
+}
+
+\usepackage[absolute,overlay]{textpos}
+
+\title{Progetto View4Life del corso \\ di Ingegneria del Software}
+\author{Presentazione del \textit{Minimum Viable Product}}
+\setDate{8/04/2026}
+
+\begin{document}
+
+{
+\setbeamertemplate{footline}{}
+\begin{frame}
+  \titlepage
+\end{frame}
+}
+
+\begin{frame}{L'obiettivo del progetto}
+  % \begin{textblock*}{2cm}(10.5cm,0.5cm)
+  %   \includegraphics[width=2cm]{immagine}
+  % \end{textblock*}
+  Sviluppare un applicativo \textit{web} per permettere la gestione delle residenze protette da parte del personale sanitario
+  e dell'amministratore, tramite l'uso dei dispositivi \textit{IoT} della gamma \textit{View Wireless}. \\
+  In particolare, l'applicativo deve:
+  \begin{itemize}
+    \item Visualizzare le informazioni dei vari \textbf{dispositivi};
+    \item gestire gli stati degli \textbf{allarmi}, che verranno presi in carico dal personale sanitario;
+    \item visualizzare le \textbf{\textit{analytics}} relative alla piattaforma e agli impianti, con relativi suggerimenti
+          per il \textbf{risparmio energetico};
+    \item visualizzare una \textbf{\textit{dashboard}} contenente le informazioni principali (stato dispositivi, allarmi attivi, ...).
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Avanzamento fino ad oggi}
+  \centering
+  \includegraphics[
+    width=\textwidth,
+    height=\textheight,
+    keepaspectratio
+  ]{stato_avanzamento.drawio.png}
+\end{frame}
+
+\begin{frame}{Funzionalità principali - Dashboard}
+  \centering
+  \includegraphics[
+    width=\textwidth,
+    height=\textheight,
+    keepaspectratio
+  ]{dashboard.png}
+\end{frame}
+
+\begin{frame}{Funzionalità principali - Gestione Allarmi}
+  \centering
+  \includegraphics[
+    width=\textwidth,
+    height=\textheight,
+    keepaspectratio
+  ]{gestione-allarmi.png}
+\end{frame}
+
+\begin{frame}{Funzionalità principali - Configurazione Allarmi}
+  \centering
+  \includegraphics[
+    width=\textwidth,
+    height=\textheight,
+    keepaspectratio
+  ]{configurazione-allarmi.png}
+\end{frame}
+
+\begin{frame}{Funzionalità principali - Configurazione Allarmi}
+  \centering
+  \includegraphics[
+    width=\textwidth,
+    height=\textheight,
+    keepaspectratio
+  ]{configurazione-allarme-1.png}
+\end{frame}
+
+\begin{frame}{Funzionalità principali - Analytics}
+  \centering
+  \includegraphics[
+    width=\textwidth,
+    height=\textheight,
+    keepaspectratio
+  ]{analytics.png}
+\end{frame}
+
+\begin{frame}{Modello C4 (context overview)}
+\end{frame}
+
+\begin{frame}{Tecnologie scelte}
+\end{frame}
+
+\begin{frame}{Struttura Docker}
+\end{frame}
+
+\begin{frame}{Aspetti positivi del progetto}
+\end{frame}
+
+\begin{frame}{Aspetti negativi del progetto}
+\end{frame}
+
+\end{document}
