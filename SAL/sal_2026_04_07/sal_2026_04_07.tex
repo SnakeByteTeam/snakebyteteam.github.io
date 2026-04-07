@@ -1,0 +1,65 @@
+\documentclass{beamer}
+
+\usepackage{../tema}
+
+
+\title{SAL}
+\author[C. Libralato, G. de Fina]{C. Libralato, G. de Fina}
+\setDate{07/04/2026}
+
+\begin{document}
+
+{
+\setbeamertemplate{footline}{}
+\begin{frame}
+    \titlepage
+\end{frame}
+}
+
+\addMember{Filippo}{Venzo}{Programmatore}
+\addMember{Giuseppe}{De Fina}{Verificatore}
+\addMember{Valeria}{Baleanu}{Programmatore}
+\addMember{Christian}{Libralato}{Responsabile}
+\addMember{Leonardo}{Pellizzon}{Programmatore}
+\addMember{Francesco}{Pasqual}{Programmatore}
+\addMember{Luca}{Granziero}{Amministratore}
+\makeMembersFrame
+
+\begin{frame}{Avanzamenti settimanali}
+    \begin{itemize}
+        \setlength{\itemsep}{0.9em}
+        \item Continuazione integrazione frontend e backend;
+        \item rivisitazione stilistica dell'interfaccia;
+    \end{itemize}
+\end{frame}
+
+\addPrecedentTodo{vi\_2026\_04\_01.a1}{\noOne}{Redigere verbale esterno}{C. Libralato}{05/04/2026}
+
+\makePrecedentTodoFrame
+
+%  SECONDO FRAME: Attività terminate dal verbale interno
+\addPrecedentTodo{vi\_2026\_03\_31.a1}{\noOne}{Stesura verbale interno}{C. Libralato}{05/04/2026}
+\addPrecedentTodo{vi\_2026\_03\_31.a2}{\noOne}{Aggiornamento PDP e PDQ}{L. Granziero}{05/04/2026}
+\addPrecedentTodo{vi\_2026\_03\_31.a3}{\noOne}{Implementare salvataggio notifiche degli allarmi}{F. Venzo}{05/04/2026}
+
+\makePrecedentTodoFrame
+
+
+\begin{frame}{Attività da completare}
+    \begin{itemize}
+        \setlength{\itemsep}{0.9em}
+        \item Terminazione totale della codifica delle funzionalità;
+        \item terminazione scrittura test (integrazione e sistema);
+        \item esecuzione deploy;
+        \item gestione parte documentale (diagrammi UML, Specifica Tecnica, Manuale Utente)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Dubbi incontrati}
+    \begin{itemize}
+        \setlength{\itemsep}{0.9em}
+        \item Problemi con le tempistiche;
+    \end{itemize}
+\end{frame}
+
+\end{document}
