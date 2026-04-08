@@ -82,7 +82,7 @@
 
 {
 \setbeamertemplate{footline}{}
-\begin{frame}                              
+\begin{frame}                                
   \titlepage
 \end{frame}
 }
@@ -94,7 +94,7 @@
   Sviluppare un applicativo \textit{web} per permettere la gestione delle residenze protette da parte del personale sanitario
   e dell'amministratore, tramite l'uso dei dispositivi \textit{IoT} della gamma \textit{View Wireless}. \\
   In particolare, l'applicativo deve:
-  \begin{itemize}                              
+  \begin{itemize}                                
     \item Visualizzare le informazioni dei vari \textbf{dispositivi};
     \item gestire gli stati degli \textbf{allarmi}, che verranno presi in carico dal personale sanitario;
     \item visualizzare le \textbf{\textit{analytics}} relative alla piattaforma e agli impianti, con relativi suggerimenti
@@ -106,7 +106,7 @@
 
 \begin{frame}{Avanzamento fino ad oggi}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=\textheight,
     keepaspectratio
@@ -115,7 +115,7 @@
 
 \begin{frame}{Autenticazione: funzionalità (1/3)}
   Il sistema prevede l'utilizzo da parte di due categorie di utenti:
-  \begin{itemize}                              
+  \begin{itemize}                                
     \item Amministratore,
     \item Operatore Socio Sanitario.
   \end{itemize}
@@ -127,7 +127,7 @@
 
 \begin{frame}{Autenticazione: flusso(2/3)}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=\textheight,
     keepaspectratio
@@ -136,7 +136,7 @@
 
 \begin{frame}{Autenticazione: interfaccia(3/3)}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=\textheight,
     keepaspectratio
@@ -147,7 +147,7 @@
   La dashboard è la schermata principale dell'applicativo e permette di ottenere una panoramica dello stato
   dell'impianto.\\
   Prevede la possibilità di:
-  \begin{itemize}                              
+  \begin{itemize}                                
     \item Visualizzare la lista limitata degli allarmi attivi con priorità maggiore.
     \item Prendere in carico un allarme;
     \item consultare i consumi energetici e le statistiche sugli allarmi;
@@ -157,7 +157,7 @@
 
 \begin{frame}{Dashboard: interfaccia(2/2)}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=\textheight,
     keepaspectratio
@@ -166,7 +166,7 @@
 
 \begin{frame}{Gestione Allarmi: funzionalità (1/3)}
   La sezione di gestione allarmi allarmi è rivolta agli Operatori Socio Sanitari e permette di:
-  \begin{itemize}                              
+  \begin{itemize}                                
     \item Visualizzare la lista completa degli allarmi attivi.
     \item Prendere in carico un allarme.
   \end{itemize}
@@ -174,7 +174,7 @@
 
 \begin{frame}{Gestione Allarmi: flusso (2/3)}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=\textheight,
     keepaspectratio
@@ -183,7 +183,7 @@
 
 \begin{frame}{Gestione Allarmi: interfaccia (3/3)}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=\textheight,
     keepaspectratio
@@ -194,7 +194,7 @@
   La sezione Configurazione allarmi è riservata all'amministratore e ha lo scopo di fornire gli strumenti 
   per definire il comportamento degli allarmi all'interno dell'impianto\\
   Prevede la possibilità di:
-  \begin{itemize}                              
+  \begin{itemize}                                
     \item Visualizzare la lista degli allarmi;
     \item Eliminare, disabilitare allarmi o modificarne le caratteristiche (ad esempio priorità, soglia, orario d'attivazione, ...).
     \item Creare nuovi allarmi tramite modulo dedicato.
@@ -203,7 +203,7 @@
 
 \begin{frame}{Configurazione Allarmi: interfaccia (2/3)}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=\textheight,
     keepaspectratio
@@ -212,7 +212,7 @@
 
 \begin{frame}{Configurazione Allarmi: interfaccia (3/3)}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=0.9\textwidth,
     height=0.9\textheight,
     keepaspectratio
@@ -224,7 +224,7 @@
   Sulla base di questi, e in riferimento alle metriche compatibili (ad esempio la temperatura giornaliera), 
   viene dinamicamente interrogato un LLM
   che produce una serie di suggerimenti per il risparmio energetico.
-  \begin{itemize}                              
+  \begin{itemize}                                
     \item Visualizzare i grafici relativi alle statistiche di un impianto.
     \item Visualizzare i suggerimenti per il risparmio energetico.
           
@@ -233,7 +233,7 @@
 
 \begin{frame}{Analytics: flusso (2/3)}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=\textheight,
     keepaspectratio
@@ -242,7 +242,7 @@
 
 \begin{frame}{Analytics: interfaccia (3/3)}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=\textheight,
     keepaspectratio
@@ -251,7 +251,7 @@
 
 \begin{frame}{Altre funzionalità amministratore}
   La figura dell'amministratore ha inoltre accesso alle seguenti funzionalità:
-  \begin{itemize}                              
+  \begin{itemize}                                
     \item Gestione Reparti: permette di amministrare le relazioni di appartenenza tra appartamento e reparto, e tra operatore sanitario e reparto.
     \item Gestione Utenti: permette la creazione e l'eliminazione di utenti.
   \end{itemize}
@@ -259,7 +259,7 @@
 
 \begin{frame}{Modello architetturale(1/2)}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=0.8\textheight,
     keepaspectratio
@@ -268,7 +268,7 @@
 
 \begin{frame}{Modello architetturale (2/2)}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=0.8\textheight,
     keepaspectratio
@@ -278,7 +278,7 @@
 
 \begin{frame}{Tecnologie scelte}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=\textheight,
     keepaspectratio
@@ -287,7 +287,7 @@
 
 \begin{frame}{Struttura Docker}
   \centering
-  \includegraphics[                              
+  \includegraphics[                                
     width=\textwidth,
     height=\textheight,
     keepaspectratio
@@ -296,7 +296,7 @@
 
 \begin{frame}{Aspetti positivi del progetto}
   Il gruppo, in riferimento al progetto, ha individuato i seguenti aspetti positivi:
-  \begin{itemize}                              
+  \begin{itemize}                                
     \item Sviluppo delle competenze di comunicazione e collaborazione 
           all'interno di un team strutturato.
     \item Acquisizione di nuove conoscenze tecniche legate 
@@ -312,7 +312,7 @@
 
 \begin{frame}{Aspetti negativi del progetto}
   Gli aspetti negativi riscontrati dal gruppo durante il progetto sono:
-  \begin{itemize}                              
+  \begin{itemize}                                
     \item Leggero disallineamento sui requisiti di progetto tra team e Proponente.
     \item Difficoltà nella definizione di previsioni corrette.
     \item Difficoltà nel rispetto delle scadenze.
