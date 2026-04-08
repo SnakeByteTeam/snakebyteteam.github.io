@@ -71,6 +71,8 @@
 }
 
 \usepackage[absolute,overlay]{textpos}
+\definecolor{flagColor}{RGB}{0, 191, 99}
+\definecolor{bgColor}{RGB}{27,77, 52}
 
 \title{Progetto View4Life del corso \\ di Ingegneria del Software}
 \author{Presentazione del \textit{Minimum Viable Product}}
@@ -101,6 +103,7 @@
   \end{itemize}
 \end{frame}
 
+
 \begin{frame}{Avanzamento fino ad oggi}
   \centering
   \includegraphics[
@@ -123,11 +126,21 @@ Il flusso di questa operazione è di seguito riportato:
 \end{frame}
 
 \begin{frame}{Autenticazione: flusso(2/3)}
-  
+\centering
+\includegraphics[
+  width=\textwidth,
+  height=\textheight,
+  keepaspectratio
+]{autenticazione-flusso.png}
 \end{frame}
 
 \begin{frame}{Autenticazione: interfaccia(3/3)}
-  
+\centering
+\includegraphics[
+  width=\textwidth,
+  height=\textheight,
+  keepaspectratio
+]{login.png}
 \end{frame}
 
 \begin{frame}{Dashboard: funzionalità (1/2)}
@@ -272,7 +285,12 @@ La figura dell'amministratore ha inoltre accesso alle seguenti funzionalità:
 \end{frame}
  
 \begin{frame}{Struttura Docker}
-  *abbozzo dei containers*
+ \centering
+  \includegraphics[
+    width=\textwidth,
+    height=\textheight,
+    keepaspectratio
+  ]{docker-structure.png}
 \end{frame}
 
 \begin{frame}{Aspetti positivi del progetto}
@@ -298,7 +316,6 @@ Gli aspetti negativi riscontrati dal gruppo durante il progetto sono:
     \item Difficoltà nella definizione di previsioni corrette.
     \item Difficoltà nel rispetto delle scadenze.
     \item Sporadica mancanza di comunicazione interna, che ha comunque provocato rallentamenti.
-    \item Carico di lavoro? (documentale?).
 \end{itemize}
 \end{frame}
 
