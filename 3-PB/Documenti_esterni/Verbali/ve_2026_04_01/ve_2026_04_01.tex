@@ -48,7 +48,7 @@
       \item Pianificazione delle Sessioni di Demo e Presentazione;
       \item implementazione delle Analytics e dei Suggerimenti;
       \item rinegoziazione e Definizione dei Requisiti di Dashboard e Interazione;
-      \item preparazione al Collaudo e Deliverable di Progetto;
+      \item preparazione al Collaudo e Deliverables di Progetto;
       \item visualizzazione interfaccia grafica;
       \item tipologia dei Grafici Analytics;
       \item simulazione e Test dei Sensori di Caduta.
@@ -66,21 +66,20 @@ La Proponente si è inoltre resa disponibile a fornire un server qualora necessa
 e sottolineando l'importanza di avere tutto pronto per l'8 aprile.
 
 \subsection*{Implementazione delle Analytics e dei Suggerimenti}
-È stata esposta l'implementazione delle analytics e dei suggerimenti tramite il modello Grok, spiegando la logica di caching, la periodicità di aggiornamento.
-Il modello Grok viene utilizzato per generare suggerimenti gratuiti, con limiti di 30 richieste al minuto e 14.000 al giorno, integrando i suggerimenti direttamente nelle analytics inviate dal backend al frontend.
-I suggerimenti sono inclusi nelle analytics, la generazione di entrambi avviene on demand tramite trigger sull'accesso alla sezione Analytics, con caching gestito da nginx per utente e Plant ID,
+È stata esposta l'implementazione delle analytics e dei suggerimenti tramite il modello Groq, spiegando la logica di caching, la periodicità di aggiornamento.
+Il modello Groq viene utilizzato per generare suggerimenti gratuiti, con limiti di 30 richieste al minuto e 14.000 al giorno, integrando i suggerimenti direttamente nelle analytics inviate dal backend al frontend.
+I suggerimenti sono inclusi nelle analytics, la generazione di entrambi avviene on demand tramite trigger sull'accesso alla sezione Analytics, con caching gestito da \textit{nginx$_G$} per utente e Plant ID,
 e scadenza della cache ogni 24 ore; non è previsto un refresh forzato, ma è stata caldamente consigliata un'opzione di refresh manuale. 
 
 \subsection*{Rinegoziazione e Definizione dei Requisiti di Dashboard e Interazione}
-Si è discussa la necessità di rinegoziare alcuni requisiti opzionali, proponendo di rendere la dashboard fissa e non personalizzabile, limitare l'interazione in scrittura con i dispositivi 
-e rimuovere la mappa degli allarmi.
+Si è discussa la necessità di rinegoziare alcuni requisiti opzionali, proponendo di rendere la dashboard fissa e non personalizzabile e rimuovere la mappa degli allarmi.
 
 È stato poi concordato di mostrare i suggerimenti nei grafici tramite un box laterale, evitando la sidebar per valorizzare i suggerimenti e facilitare la comprensione del riferimento metrico. Infine è stata
 sottolineata l'importanza di includere la location nell'allarme per permettere all'operatore di sapere dove intervenire, compensando la rimozione della mappa degli allarmi, oltre che dare importanza agli allarmi 
 ad alta priorità nella dashboard.
 
-\subsection*{Preparazione al Collaudo e Deliverable di Progetto}
-Sono state illustrate le modalità di collaudo, i deliverable richiesti e le aspettative per la presentazione finale, specificando la necessità di mostrare l'avanzamento, la demo, l'architettura (modello C4), la timeline e una retrospettiva, con indicazioni sulla gestione dei bozzetti e dei manuali utente.
+\subsection*{Preparazione al Collaudo e Deliverables di Progetto}
+Sono state illustrate le modalità di collaudo, i deliverables richiesti e le aspettative per la presentazione finale, specificando la necessità di mostrare l'avanzamento, la demo, l'architettura (modello C4), la timeline e una retrospettiva, con indicazioni sulla gestione dei bozzetti e dei manuali utente.
 È stato inoltre chiarito che i bozzetti possono essere presentati come versione preliminare, senza necessità di aggiornarli completamente, ma è auspicabile mantenere coerenza tra bozzetti e implementazione finale.
 
 \subsection*{Visualizzazione interfaccia grafica}
@@ -88,7 +87,7 @@ Sono state illustrate le modalità di collaudo, i deliverable richiesti e le asp
 con discussione sulla coerenza grafica, l'uso dei colori e l'integrazione con l'autenticazione interna e verso Vimar.
 
 \subsection*{Tipologia dei Grafici Analytics}
-Si è poi discussa la scelta tra grafici a barre e a punti per le diverse analytics, concordando sulla visualizzazione in base alla continuità dei dati e sull'inserimento di selettori e indicazioni temporali del periodo di riferimento dei dati.
+Si è poi discussa la scelta tra grafici a barre e a punti per le diverse analytics, concordando sulla visualizzazione in base alla continuità dei dati.
 È stato concordato di inserire un selettore per appartamento e di indicare chiaramente il periodo di riferimento dei dati, come gli ultimi 30 giorni, per facilitare la comprensione da parte dell'utente.
 
 \subsection*{Simulazione e Test dei Sensori di Caduta}
@@ -99,7 +98,7 @@ Si è infine configurata la simulazione e il test dei sensori di caduta, inviand
 % -------------------------------------------------
 \addDecision{Aggiunta della funzionalità di refresh manuale per le Analytics}
 \addDecision{Spostamento dei suggerimenti in un box laterale associato al grafico con scorrimento verticale}
-\addDecision{Riduzione requisiti opzionali, con mantenimento di dashboard statica, limitazione scrittura dei dispositivi e rimozione mappa allarmi}
+\addDecision{Riduzione requisiti opzionali, con mantenimento di dashboard statica e rimozione mappa allarmi}
 \makeDecisionTable
 
 % -------------------------------------------------
