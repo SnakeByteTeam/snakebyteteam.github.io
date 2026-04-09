@@ -1,0 +1,107 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Verbale esterno 26/03/2026}
+\setDocVersion{-}
+\setDocData{26/03/2026}
+\setDocIndex{ve\_2026\_03\_26}
+\setDocState{2}
+\setDocRecipient{2}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{26/03/2026}{16:30}{17:00}{via \textit{Microsoft Teams$_G$}}
+
+% ------------------------
+% Partecipanti
+% ------------------------
+\addParticipant{Filippo}{Venzo}{Programmatore}{P}
+\addParticipant{Valeria}{Baleanu}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Amministratore}{P}
+\addParticipant{Christian}{Libralato}{Responsabile}{P}
+\addParticipant{Francesco}{Pasqual}{Programmatore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Verificatore}{A}
+\makeMeetingParticipantsTable
+
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+      \item Avanzamento del Progetto e Scadenze;
+      \item implementazione Suggerimenti e Analytics;
+      \item gestione della Cache degli Impianti;
+      \item allineamento Frontend e Backend.
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Avanzamento del Progetto e Scadenze}
+Il Responsabile ha illustrato lo stato dei lavori, riportando che buona parte della logica di \textit{backend} e \textit{frontend} è stata implementata, ad esclusione
+della parte di analytics, notifiche e definizione estetica dell'applicazione. 
+
+Riguardo la documentazione è stato annunciato l'inizio della stesura della
+Specifica tecnica e l'ultimazione dei diagrammi UML e C4, a meno di ultime rifiniture.
+La Proponente ha infine esposto la necessità di fornire un data per fissare il collaudo dell'applicativo, che coinvolgerà anche il team
+marketing, da comunicare entro fine settimana.
+
+\subsection*{Implementazione Suggerimenti e Analytics}
+Il team ha chiesto consigli su come implementare i suggerimenti, sono state valutate delle strategie basate su  approcci statici, di machine learning e con l'utilizzo di API di LLM,
+suggerendo di partire da suggerimenti statici e, in parallelo, sperimentare soluzioni più dinamiche.
+
+In particolare, in riferimento all'utilizzo di API per LLM, è stato spiegato che questa soluzione, che si basa sul passaggio di dati di riferimento e dati da analizzare tramite prompt engineering, può essere rapida e flessibile, mentre l'addestramento di un modello ML classico richiederebbe più tempo e dati.
+
+È stato successivamente chiarito un dubbio legato alla soglia da utilizzare per considerare una presenza "prolungata". L'esito è stato che la soglia può variare in base al contesto ma può corrispondere a valori al di sotto di un'ora per situazioni più critiche, come la presenza in bagno.
+
+È infine stato offerto supporto per l'accesso a modelli come Amazon Nova qualora necessario, suggerendo ad ogni modo di provare con i modelli conosciuti.
+
+
+\subsection*{Gestione della Cache degli Impianti}
+
+È stato illustrato il funzionamento attuale della cache degli impianti e sono state fornite indicazioni su come ottimizzare l'aggiornamento tramite subscription alle notifiche di modifica, evitando l'aggiornamento periodico e riducendo l'overhead. Sono dunque state introdotte le subscription di tipo 'node',
+che notificano il cambiamento della struttura dell'impianto, permettendo di invalidare e aggiornare la cache in modo mirato.
+
+\subsection*{Allineamento Frontend e Backend}
+Il team ha infine presentato una demo del sistema funzionante, frutto di una prima integrazione tra \textit{backend} e \textit{frontend}.
+È stato confermato che la documentazione delle API tramite file OpenAPI (swagger.yaml) è sufficiente e che la versione 3.x è accettata. 
+
+Inoltre, riguardo allo stile grafico è stato suggerito di usare librerie di icone e uno stile moderno, in riferimento al quale verranno a breve 
+condivisi i commenti elaborati dal team UX/UI sui bozzetti grafici realizzati.
+
+
+
+% -------------------------------------------------
+
+% Decisioni
+% -------------------------------------------------
+\addDecision{I suggerimenti saranno realizzati in maniera ibrida con l'utlizzo di metodi statici e di API per LLM.}
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+\addTodo{\noOne}{Comunicare entro il fine settimana una data per il collaudo.}{C. Libralato}{27/03/2026}
+
+\makeTodoTable
+
+\end{document}
