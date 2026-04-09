@@ -92,13 +92,14 @@ Nel Sistema realizzato sono presenti due tipologie di utenti: \textbf{\admin} e 
 L'\textbf{\os} è l'utente che opera all'interno del Sistema svolgendo attività legate ai reparti e agli allarmi. Può consultare e aggiornare le informazioni di propria competenza, senza però avere accesso alle funzionalità amministrative.
 Questo tipo di utente può effettuare le seguenti azioni:
 \begin{itemize}
-    \item Autenticarsi;
+    \item Autenticazione;
+    \item Prima autenticazione con cambio password;
     \item Visualizzare il cruscotto iniziale (\textit{Dashboard}${_G}$);
     \item Visualizzare e modificare lo stato dei dispositivi \textit{IoT}${_G}$;
     \item Visualizzare e risolvere gli allarmi attivi;
     \item Visualizzare lo storico degli allarmi risolti;
-    \item Visualizzare le notifiche relative agli allarmi attivi;
-    \item Visualizzare il cruscotto analitico (\textit{Analytics}) relativo agli appartamenti;
+    \item Visualizzare l'elenco delle notifiche;
+    \item Visualizzare il cruscotto analitico (\textit{Analytics}).
 \end{itemize}
 
 \subsubsection{Amministratore}
@@ -110,25 +111,60 @@ In aggiunta alle funzionalità disponibili all'\os, questo tipo di utente può e
     \item Creare un reparto;
     \item Assegnare degli appartamenti ad un reparto;
     \item Assegnare degli Operatori Sanitari ad un reparto;
-    \item Creare ed eliminare utenti di tipo \os;
+    \item Creare ed eliminare utenti di tipo \os.
 \end{itemize}
 
-\subsection{Autenticazione e autorizzazione}
-\subsubsection{Token}
-\subsubsection{Procedura di autenticazione}
+% \subsection{Autenticazione e autorizzazione}
+% \subsubsection{Token}
+% \subsubsection{Procedura di autenticazione}
 
 \subsection{Dispositivi}
-Sono i dispositivi \textit{IoT} della gamma \textit{View Wireless} dislocati nelle varie stanze degli appartamenti. 
+Sono i dispositivi \textit{IoT} della gamma \textit{View Wireless} installati nelle varie stanze degli appartamenti. 
 I dispositivi \textit{IoT} gestiti dal Sistema sono: termostati, tapparelle, luci, pulsanti di allarme, sensori di presenza e di caduta.
 
 \subsection{Datapoint}
-
+Un \textit{datapoint} è una singola proprietà misurabile o controllabile di un 
+dispositivo \textit{IoT}.
+Ogni \textit{datapoint} ha un valore che può essere letto dal Sistema e modificato dall'utente. 
+I datapoint sono il livello di granularità su cui vengono definite le regole 
+di allarme (es. ''se il \textit{datapoint} temperatura del termostato supera 30°C, 
+scatta l'allarme'').
 
 \subsection{Appartamenti}
+unità abitative monitorate dal Sistema, corrispondenti alle singole 
+residenze protette. 
+Ogni appartamento contiene più stanze, ciascuna dotata di dispositivi \textit{IoT}. 
+Nel Sistema, gli appartamenti vengono assegnati a un reparto dall'\admin.
+
 \subsection{Reparti}
+Raggruppamenti logici di appartamenti e operatori sanitari, 
+che rispecchiano l'organizzazione della struttura. 
+Ogni reparto ha un nome, un insieme di appartamenti assegnati e un 
+insieme di Operatori Sanitari responsabili. 
+La gestione dei reparti (creazione, modifica, eliminazione e assegnazioni) 
+è di competenza esclusiva dell'\admin.
+Il reparto è il meccanismo centrale di controllo degli accessi del Sistema: 
+ogni Operatore Sanitario, infatti, può visualizzare e gestire esclusivamente 
+gli allarmi relativi agli appartamenti assegnati al proprio reparto, 
+garantendo che ciascun operatore operi solo nell'ambito di sua competenza.
+Un Operatore Sanitario può essere associato a più reparti.
+
 \subsection{Allarmi}
 \subsubsection{Regole di allarme}
+Una regola di allarme è la configurazione che definisce quando un 
+allarme deve scattare. 
+È composta da: il \textit{datapoint} monitorato, una soglia di intervento 
+(ovvero il valore oltre cui scatta), un livello di priorità, 
+e un intervallo orario di attivazione/disattivazione. 
+Le regole sono create e gestite solo dall'Amministratore e possono essere 
+abilitate o disabilitate senza essere eliminate.
 \subsubsection{Evento di allarme}
+È l'istanza concreta che si genera quando le condizioni definite da 
+una regola di allarme vengono soddisfatte. 
+Appare nella \textit{dashboard} dell'Operatore Sanitario come allarme attivo, 
+mostrando il nome, la priorità e il tempo trascorso dallo scatto. 
+L'Operatore Sanitario può contrassegnarlo come risolto, 
+dopodiché viene registrato nelle statistiche come allarme risolto.
 
 \section{Test}
 \subsection{Esecuzione dei test di unità}
@@ -155,49 +191,374 @@ I dispositivi \textit{IoT} gestiti dal Sistema sono: termostati, tapparelle, luc
 \paragraph{Ripristino}
 
 \section{Guida all'utilizzo}
-\subsection{Login}
-\subsubsection{Primo accesso come Operatore Sanitario}
+\subsection{Accesso}
+\begin{enumerate}
+    \item Inserire le proprie credenziali nei campi \textbf{Username} e \textbf{Password};
+          \screenshot{Schermata di login: campi username e password}
+    \item Premere \textbf{Accedi}. Il Sistema verifica le credenziali e reindirizza 
+          alla \textit{Dashboard}.
+\end{enumerate}
+
+\subsection{Primo accesso come Operatore Sanitario}
+\label{sec:primo-accesso}
+\begin{enumerate}
+    \item Ottenere le credenziali provvisorie (username e password temporanea) 
+          dall'\admin;
+    \item Inserire le credenziali nella schermata di login e premere \textbf{Accedi};
+          \screenshot{Schermata di login: campi username e password temporanea}
+    \item Il Sistema riconosce che si tratta del primo accesso e reindirizza 
+          alla schermata di cambio password;
+    \item Inserire la password temporanea nel campo \textbf{Password attuale};
+    \item Inserire la nuova password nel campo \textbf{Nuova password};
+          \screenshot{Schermata cambio password: campi password temporanea, nuova password e conferma}
+    \item Premere \textbf{Conferma}. Il Sistema aggiorna le credenziali e reindirizza 
+          alla \textit{Dashboard}.
+\end{enumerate}
+
 \subsection{Collegare l'utente Amministratore al relativo \textit{account MyVimar}}
-\subsection{Logout}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Profilo};
+    \item Premere il pulsante \textbf{Vai a MyVimar};
+    \item Il Sistema reindirizza al portale di autenticazione di Vimar;
+          \screenshot{Portale di autenticazione Vimar}
+    \item Inserire le credenziali MyVimar e confermare l'autorizzazione;
+    \item Il Sistema registra il collegamento e mostra l'indirizzo email 
+          dell'account MyVimar collegato.
+          \screenshot{Sezione Account MyVimar con email account collegato}
+\end{enumerate}
 
 \subsection{Visualizzare la \textit{Dashboard}}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textit{\textbf{Dashboard}};
+    \item Il Sistema mostra la \textit{Dashboard}, che include sempre il modulo
+          \textbf{Gestione Allarmi} e, se configurati dall'\admin, uno o più
+          tra i seguenti moduli opzionali:
+          \begin{itemize}
+              \item Statistiche Allarmi;
+              \item Informazioni Utente;
+              \item Analisi Clima;
+              \item Analisi Consumi;
+              \item Analisi Presenze.
+          \end{itemize}
+          \screenshot{Dashboard: panoramica con modulo Gestione Allarmi e moduli opzionali attivi}
+\end{enumerate}
 
 \subsection{Gestire le notifiche}
 \subsubsection{Visualizzare le notifiche}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Notifiche}.
+          \screenshot{Icona / voce Notifiche nel menu principale}
+    \item Il Sistema mostra l'elenco delle notifiche. Per ogni notifica sono visibili:
+          \begin{itemize}
+              \item Il \textbf{titolo} della notifica;
+              \item il \textbf{tempo trascorso} dall'invio.
+          \end{itemize}
+          \screenshot{Elenco notifiche: titolo e tempo trascorso dall'invio per ogni elemento}
+\end{enumerate}
 \subsubsection{Eliminare le notifiche}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Notifiche};
+    \item Individuare la notifica da eliminare nell'elenco;
+    \item Premere il pulsante \textbf{Elimina} accanto alla notifica;
+          \screenshot{Pulsante Elimina accanto a una notifica nell'elenco}
+    \item Se si vogliono eliminare tutte le notifiche, premere il pulsante \textbf{Cancella tutte};
+            \screenshot{Bottone cancella tutte notifiche}
+    \item Il Sistema rimuove la notifica dall'elenco.
+\end{enumerate}
 
 \subsection{Gestire i dispositivi di un appartamento}
 \subsubsection{Visualizzare i dispositivi}
-\subsubsection{Modificare lo stato dei dispositivi}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Dispositivi};
+          \screenshot{Sezione Dispositivi nel menu principale}
+    \item Selezionare l'appartamento desiderato;
+          \screenshot{Elenco appartamenti}
+    \item Il Sistema mostra la vista dell'appartamento, con l'elenco delle stanze; 
+          Selezionare la stanza desiderata;
+          \screenshot{Vista appartamento: elenco stanze}
+    \item Il Sistema mostra l'elenco dei dispositivi presenti nella stanza. 
+          Per ogni dispositivo sono visibili:
+          \begin{itemize}
+              \item Il \textbf{nome} del dispositivo;
+              \item lo \textbf{stato} attuale;
+              \item le \textbf{azioni} eseguibili.
+          \end{itemize}
+          \screenshot{Elenco dispositivi nella stanza: nome, stato e azioni disponibili}
+\end{enumerate}
 
-\subsection{Gestire gli eventi di allarme}
-\subsubsection{Visualizzare gli eventi di allarme}
-\subsubsection{Risolvere un evento di allarme}
-\subsubsection{Visualizzare lo storico degli eventi di allarme}
+\subsubsection{Modificare lo stato dei dispositivi}
+\begin{enumerate}
+    \item Visualizzare i dispositivi della stanza seguendo i passi descritti 
+          nella sezione precedente;
+    \item Individuare il dispositivo da modificare;
+    \item Selezionare l'azione desiderata tra quelle disponibili per il dispositivo;
+          \screenshot{Azioni disponibili per un dispositivo: esempio luce accesa/spenta}
+    \item Dopo aver selezionato il nuovo stato, premere \textbf{Scrivi};
+            \screenshot{bottone Scrivi}
+    \item Il Sistema invia il comando al dispositivo e comunica all'utente il cambio di stato.
+          \screenshot{comunicazioe cambio di stato dispositivo}
+\end{enumerate}
+
+\subsection{Gestire gli allarmi attivi}
+\subsubsection{Visualizzare gli allarmi attivi}
+Il modulo \textbf{Gestione Allarmi} è sempre visibile nella Dashboard e presenta
+l'elenco degli allarmi correntemente attivi. Per ogni allarme sono mostrati:
+\begin{itemize}
+    \item Il \textbf{segnale di pericolo} (indicatore visivo del livello di priorità);
+    \item il \textbf{nome} dell'allarme;
+    \item il \textbf{luogo} in cui è scattato l'allarme;
+    \item il \textbf{tempo trascorso} dallo scatto dell'allarme.
+\end{itemize}
+\screenshot{Modulo Gestione Allarmi: elenco allarmi attivi con segnale di pericolo, nome e tempo trascorso}
+
+\subsubsection{Risolvere un allarme attivo}
+\begin{enumerate}
+    \item Nel modulo \textbf{Gestione Allarmi}, individuare l'allarme da risolvere;
+    \item Premere il pulsante \textbf{Gestisci} accanto all'allarme.;
+          \screenshot{Pulsante Gestisci accanto a un allarme attivo nel modulo Gestione Allarmi}
+    \item Il Sistema contrassegna l'allarme come risolto e lo rimuove dall'elenco degli allarmi attivi.
+          \screenshot{Dashboard dopo risoluzione: allarme non più presente nell'elenco attivi}
+\end{enumerate}
+
+\subsubsection{Visualizzare lo storico degli allarmi risolti}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Storico Allarmi};
+          \screenshot{Voce Storico Allarmi nel menu principale}
+    \item Il Sistema mostra l'elenco degli allarmi contrassegnati come risolti. 
+          Per ogni allarme sono visibili:
+          \begin{itemize}
+              \item Il \textbf{nome} dell'allarme;
+              \item il \textbf{luogo} in cui è scattato;
+              \item l' \textbf{orario di scatto};
+              \item l' \textbf{orario di risoluzione};
+              \item il \textbf{gestore} dell'allarme.
+          \end{itemize}
+          \screenshot{Elenco storico allarmi risolti}
+\end{enumerate}
 
 \subsection{Gestire le regole di allarme}
-\subsubsection{Visualizzare le regole di allarme}
+La configurazione degli allarmi è riservata all'\admin. Ogni allarme è associato
+al \textit{datapoint} di un dispositivo di un appartamento e definisce la condizione 
+che scatena un allarme e la relativa notifica agli utenti associati al reparto corrispondente.
+\\I parametri configurabili per ogni allarme sono:
+\begin{itemize}
+    \item \textbf{Nome} dell'allarme;
+    \item \textbf{Appartamento} a cui l'allarme è associato;
+    \item \textbf{Dispositivo} e relativo \textit{\textbf{Datapoint}} che scatena l'allarme;
+    \item \textbf{Livello di priorità}, scelto tra quattro livelli:
+          \begin{itemize}
+              \item Livello 1: Bianco (priorità minima);
+              \item Livello 2: Verde;
+              \item Livello 3: Arancione;
+              \item Livello 4: Rosso (priorità massima).
+          \end{itemize}
+    \item \textbf{Soglia di intervento}: condizione che fa scattare l'allarme;
+    \item \textbf{Orario di attivazione}: orario a partire dal quale l'allarme è operativo;
+    \item \textbf{Orario di disattivazione}: orario a partire dal quale l'allarme viene sospeso.
+\end{itemize}
+
 \subsubsection{Creare una nuova regola di allarme}
-\subsubsection{Abilitare o disabilitare una regola di allarme}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Configurazione Allarmi};
+          \screenshot{Sezione Configurazione Allarmi elenco allarmi configurati}
+    \item Premere il pulsante '+' (\textbf{Nuovo allarme});
+          \screenshot{Pulsante Nuovo allarme nella sezione Configurazione Allarmi}
+    \item Selezionare l'\textbf{appartamento} a cui associare l'allarme;
+          \screenshot{Form creazione allarme selezione appartamento}
+    \item Selezionare il \textbf{dispositivo} tra quelli disponibili nell'appartamento scelto;
+          \screenshot{Form creazione allarme selezione sensore}
+    \item Selezionare il \textbf{livello di priorità} (1, 2, 3 o 4);
+          \screenshot{Form creazione allarme selezione livello di priorità con i 4 colori}
+    \item Impostare la \textbf{soglia di intervento};
+          \screenshot{Form creazione allarme campo soglia di intervento}
+    \item Impostare l'\textbf{orario di attivazione} e l'\textbf{orario di disattivazione};
+          \screenshot{Form creazione allarme campi orario di attivazione e disattivazione}
+    \item Premere \textbf{Crea Allarme} per confermare. Il Sistema salva l'allarme e lo aggiunge
+          all'elenco.
+          \screenshot{bottone crea allarme}
+\end{enumerate}
+
+\subsubsection{Abilitare una regola di allarme}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Configurazione Allarmi}, individuare l'allarme da abilitare.
+    \item Premere il pulsante di commutazione corrispondente.
+          \screenshot{Pulsante toggle accanto a un allarme disabilitato}
+    \item Il Sistema attiva l'allarme: da questo momento il \textit{datapoint} associato può scatenarlo.
+\end{enumerate}
+
+\subsubsection{Disabilitare una regola di allarme}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Configurazione Allarmi}, individuare l'allarme da disabilitare.
+    \item Premere il pulsante di commutazione corrispondente.
+          \screenshot{Pulsante Disabilita accanto a un allarme attivo}
+    \item Il Sistema disattiva l'allarme: da questo momento il \textit{datapoint} associato non può scatenarlo.
+\end{enumerate}
+
+\subsubsection{Visualizzare le regole di allarme}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Configurazione Allarmi};
+    \item Il Sistema mostra l'elenco delle regole di allarme configurate. 
+          Per ogni regola sono visibili:
+          \begin{itemize}
+              \item Il \textbf{nome} dell'allarme;
+              \item la \textbf{posizione} del dispositivo associato;
+              \item il \textbf{livello di priorità};
+              \item il \textbf{valore di soglia};
+              \item l'\textbf{orario di attivazione};
+              \item l'\textbf{orario di disattivazione};
+              \item lo \textbf{stato} (abilitato/disabilitato).
+          \end{itemize}
+          \screenshot{Elenco regole di allarme}
+\end{enumerate}
+
+
 \subsubsection{Modificare una regola di allarme}
+L'\admin può modificare singolarmente i parametri di un allarme esistente.
+Gli unici parametri modificabili sono: priorità, valore di soglia e orari di attivazione/disattivazione.
+
+\paragraph{Modificare la priorità}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Configurazione Allarmi}, selezionare l'allarme da modificare premendo su \textbf{Modifica};
+    \item Selezionare il campo \textbf{Priorità};
+          \screenshot{Opzione Modifica priorità per un allarme esistente}
+    \item Selezionare il nuovo livello di priorità e premere il bottone \textbf{Applica modifiche}.
+\end{enumerate}
+
+\paragraph{Modificare la soglia di intervento}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Configurazione Allarmi}, selezionare l'allarme da modificare premendo su \textbf{Modifica};
+    \item Selezionare il campo \textbf{Valore soglia};
+          \screenshot{Opzione Modifica soglia per un allarme esistente}
+    \item Selezionare il nuovo livello di priorità e premere il bottone \textbf{Applica modifiche}.
+\end{enumerate}
+
+\paragraph{Modificare gli orari}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Configurazione Allarmi}, selezionare l'allarme da modificare premendo su \textbf{Modifica}.
+    \item Selezionare il campo \textbf{Orari};
+          \screenshot{Opzioni Modifica orario attivazione / disattivazione per un allarme}
+    \item Inserire il nuovo orario e premere il bottone \textbf{Applica modifiche}.
+\end{enumerate}
+
 \subsubsection{Eliminare una regola di allarme}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Configurazione Allarmi}, selezionare l'allarme da eliminare premendo su \textbf{Elimina};
+          \screenshot{Eliminare una regola di allarme}
+    \item Confermare nuovamente l'eliminazione premendo sul bottone \textbf{Elimina}.
+          \screenshot{Dialog sei sicuro di voler eliminare}
+\end{enumerate}
 
 \subsection{Visualizzare le \textit{Analytics} di un appartamento}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Analytics};
+          \screenshot{Voce Analytics nel menu principale}
+    \item Selezionare l'appartamento di cui si vogliono visualizzare le analytics;
+          \screenshot{Selezione appartamento nella sezione Analytics}
+    \item Il Sistema mostra i grafici relativi all'appartamento selezionato, tra cui:
+          \begin{itemize}
+              \item \textbf{Consumo energetico};
+              \item \textbf{Anomalie dell'impianto};
+              \item \textbf{Rilevamento di presenza};
+              \item \textbf{Presenza prolungata};
+              \item \textbf{Variazioni di temperatura};
+              \item \textbf{Allarmi inviati e risolti};
+              \item \textbf{Frequenza degli allarmi};
+              \item \textbf{Frequenza delle cadute}.
+          \end{itemize}
+          \screenshot{Grafici Analytics per l'appartamento selezionato}
+\end{enumerate}
 
 \subsection{Gestire i reparti}
 \subsubsection{Visualizzare tutti i reparti}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Gestione Reparti};
+          \screenshot{Voce Gestione Reparti nel menu principale}
+    \item Il Sistema mostra l'elenco dei reparti configurati. Per ogni reparto 
+          sono visibili:
+          \begin{itemize}
+              \item Il \textbf{nome} del reparto;
+              \item l'elenco degli \textbf{appartamenti} associati.
+              \item l'elenco degli \textbf{Operatori Sanitari} associati.
+          \end{itemize}
+          \screenshot{Elenco reparti con nome e appartamenti associati}
+\end{enumerate}
+
 \subsubsection{Creare un reparto}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Gestione Reparti}, premere il pulsante '+' \textbf{Nuovo reparto};
+          \screenshot{Pulsante Nuovo reparto nella sezione Reparti}
+    \item Inserire il \textbf{nome} del reparto;
+          \screenshot{Campo nome nella creazione di un reparto}
+    \item Premere \textbf{Crea reparto} per confermare. Il Sistema salva il reparto 
+          e lo aggiunge all'elenco.
+          \screenshot{Reparto appena creato nell'elenco reparti}
+\end{enumerate}
+
 \subsubsection{Assegnare un appartamento ad un reparto}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Gestione Reparti}, selezionare il reparto desiderato;
+    \item Selezionare la sezione \textbf{Appartamenti} e premere '+';
+          \screenshot{Sezione appartamenti in gestione reparti}
+    \item Selezionare l'appartamento da assegnare tra quelli disponibili;
+          \screenshot{Selezione appartamento da assegnare al reparto}
+    \item Premere \textbf{Assegna}. Il Sistema registra l'assegnazione e 
+          aggiorna l'elenco degli appartamenti del reparto.
+          \screenshot{Appartamento aggiunto all'elenco del reparto}
+\end{enumerate}
+
 \subsubsection{Assegnare un Operatore Sanitario ad un reparto}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Gestione Reparti}, selezionare il reparto desiderato;
+    \item Selezionare la sezione \textbf{Operatori} e premere '+';
+          \screenshot{Sezione operatori in gestione reparti}
+    \item Selezionare l'Operatore Sanitario da assegnare tra quelli disponibili;
+          \screenshot{Selezione Operatore Sanitario da assegnare al reparto}
+    \item Premere \textbf{Assegna}. Il Sistema registra l'assegnazione.
+          \screenshot{Operatore Sanitario aggiunto al reparto}
+\end{enumerate}
 
 \subsection{Gestire gli utenti}
 \subsubsection{Visualizzare l'elenco degli Operatori Sanitari}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Gestione Utenti};
+          \screenshot{Voce Gestione Utenti nel menu principale}
+    \item Il Sistema mostra l'elenco degli Operatori Sanitari registrati. 
+          Per ogni utente sono visibili:
+          \begin{itemize}
+              \item Il \textbf{nome};
+              \item il \textbf{cognome};
+              \item lo \textbf{username}.
+          \end{itemize}
+          \screenshot{Elenco Operatori Sanitari con nome, cognome e username}
+\end{enumerate}
+
 \subsubsection{Creare un nuovo Operatore Sanitario}
-% ------------------------
-% PARLARE DELLA GENERAZIONE DELLA PASSWORD PER IL PRIMO ACCESSO
-% FARE RIFERIMENTO ALLA SEZIONE PRECEDENTE "PRIMO ACCESSO COME OPERATORE SANITARIO"
-% ------------------------
+\begin{enumerate}
+    \item Dalla sezione \textbf{Gestione Utenti}, premere il pulsante \textbf{Inserisci Nuovo Operatore};
+          \screenshot{Pulsante Inserisci nuovo operatore nella sezione Gestione Utenti}
+    \item Inserire il \textbf{nome}, il \textbf{cognome} e lo \textbf{username} 
+          del nuovo Operatore Sanitario;
+          \screenshot{Form creazione utente: campi nome, cognome e username}
+    \item Premere \textbf{Crea Utente}. Il Sistema genera 
+          automaticamente una password provvisoria da consegnare all'operatore;
+          \screenshot{Password temporanea generata dal Sistema}
+    \item Premere \textbf{Ho comunicato la password} per confermare. Il Sistema registra il 
+          nuovo Operatore Sanitario e lo aggiunge all'elenco.
+\end{enumerate}
+Al primo accesso, l'Operatore Sanitario dovrà sostituire la password temporanea
+con una personale, seguendo la procedura descritta in \S\ref{sec:primo-accesso}.
+
 \subsubsection{Eliminare un Operatore Sanitario}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Gestione Utenti}, individuare l'Operatore Sanitario 
+          da eliminare;
+    \item Premere il pulsante \textbf{Elimina} accanto all'utente;
+          \screenshot{Pulsante Elimina accanto a un Operatore Sanitario nell'elenco}
+    \item Confermare l'eliminazione premendo \textbf{Elimina} nel dialogo 
+          di conferma.
+          \screenshot{Dialog di conferma eliminazione Operatore Sanitario}
+    \item Il Sistema rimuove l'Operatore Sanitario dal Sistema.
+\end{enumerate}
 
 \section{Riferimento API}
 % LINK A SWAGGER: view4life.me/api/api#
