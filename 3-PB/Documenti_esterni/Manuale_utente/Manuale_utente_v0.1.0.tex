@@ -1,23 +1,46 @@
 \documentclass[10pt, letterpaper]{article}
 \usepackage{../../../template/template}
+\usepackage{xspace}
 
 % ------------------------
 % Impostazioni documento
 % ------------------------
 
 \setDocTitle{Manuale Utente}
-\setDocVersion{0.1.0}
+\setDocVersion{0.2.1}
 \setDocData{9/04/2026}
 \setDocIndex{Manuale Utente}
 \setDocState{1}
 \setDocRecipient{2}
+
+\newcommand{\user}{Utente\xspace}
+\newcommand{\os}{Operatore Sanitario\xspace}
+\newcommand{\admin}{Amministratore\xspace}
+\newcommand{\cloud}{Cloud Vimar\xspace}
+\newcommand{\reparto}{Reparto\xspace}
+\newcommand{\appartamento}{Appartamento\xspace}
+\newcommand{\myvimar}{MyVimar\xspace}
+
+\newcommand{\screenshot}[1]{%
+    \begin{center}
+    \fbox{%
+      \parbox{0.8\textwidth}{%
+            \centering\vspace{1em}
+            \textit{[Inserire screenshot: #1]}
+            \vspace{1em}
+        }%
+    }
+    \end{center}
+}
 
 \begin{document}
 
 \makeTitlePage
 
 \newpage 
-\addChangelog{0.1.0}{9/04/2026}{V. Baleanu}{-}{\noOne}{\firstDraft}
+\addChangelog{0.2.1}{09/04/2026}{V. Baleanu}{G. De Fina}{\noOne}{---}
+\addChangelog{0.2.0}{06/04/2026}{L. Granziero}{G. De Fina}{\noOne}{Schermate di gestione, configurazione allarmi}
+\addChangelog{0.1.0}{05/04/2026}{L. Granziero}{G. De Fina}{\noOne}{\firstDraft}
 \makeChangelog
 
 \newpage
@@ -29,26 +52,78 @@
 \section{Introduzione}
 
 \subsection{Scopo del documento}
+Lo scopo del Manuale Utente è quello di introdurre il lettore al Sistema sviluppato da \textit{SnakeByte} per il Capitolato${_G}$ C9 proposto da \textit{Vimar S.p.A.}.
+Il manuale illustra le modalità di installazione del Sistema e le operazioni che l'utente può svolgere all'interno del Sistema, guidandolo passo dopo passo nelle funzionalità disponibili.
+\\In particolare, nel presente documento sono contenute le seguenti sezioni:
+\begin{itemize}
+    \item \textbf{Concetti}: una spiegazione completa dei concetti chiave che potrebbe essere necessario conoscere per utilizzare il Sistema correttamente;
+    \item \textbf{Test}: una spiegazione su come eseguire i vari test di unità, integrazione e accettazione;
+    \item \textbf{Requisiti}: una definizione di quelli che sono i requisiti minimi di \textit{hardware}, \textit{software} e \textit{browser} per poter correttamente eseguire il Sistema;
+    \item \textbf{Accesso e installazione}: una spiegazione dettagliata per poter eseguire il Sistema;
+    \item \textbf{Guida all'utilizzo}: una guida completa che descrive in modo chiaro e dettagliato le operazioni da eseguire per utilizzare una specifica funzionalità;
+    \item \textbf{Riferimento API}: documenta in modo chiaro e dettagliato tutte le chiamate \textit{API} disponibili nel Sistema, specificandone utilizzo, parametri e risultati.
+    \item \textbf{Supporto tecnico}: una sezione dedicata alla richiesta di assistenza in caso di problematiche durante l'utilizzo della piattaforma.
+\end{itemize}
 
 \subsection{Glossario}
+All'interno del documento possono essere presenti termini il cui significato può risultare ambiguo o sconosciuto, essi sono
+riportati in italico e alla loro prima occorrenza è associata una \textit{G} a pedice ad indicare la presenza del suddetto termine 
+all'interno del \texorpdfstring{\textit{glossario$_G$}}{glossario}, che è disponibile al seguente link: \href{https://snakebyteteam.github.io/glossary.html}{Glossario}.
 
 \subsection{Riferimenti}
 \subsubsection{Riferimenti normativi}
+\begin{itemize}
+    \item  \href{https://snakebyteteam.github.io/3-PB/Documenti_interni/Norme_di_progetto/Norme_di_Progetto_v2.0.0.pdf}{Norme di Progetto v2.0.0} (consultato il 09/04/2026).
+\end{itemize}
+
 \subsubsection{Riferimenti informativi}
+\begin{itemize}
+    \item \href{https://snakebyteteam.github.io/3-PB/Documenti_esterni/Analisi_dei_requisiti/Analisi_dei_Requisiti_v2.0.0.pdf}{Analisi dei Requisiti v2.0.0} (consultato il 09/04/2026).
+    \item \href{https://snakebyteteam.github.io/2-RTB/Documenti_interni/Glossario/Glossario_v2.0.0.pdf}{Glossario v2.0.0} (consultato il 09/04/2026).
+\end{itemize}
+
 
 \section{Concetti}
 
 \subsection{Tipi di utenti}
+Nel Sistema realizzato sono presenti due tipologie di utenti: \textbf{\admin} e \textbf{\os}.
+
 \subsubsection{Operatore Sanitario}
+L'\textbf{\os} è l'utente che opera all'interno del Sistema svolgendo attività legate ai reparti e agli allarmi. Può consultare e aggiornare le informazioni di propria competenza, senza però avere accesso alle funzionalità amministrative.
+Questo tipo di utente può effettuare le seguenti azioni:
+\begin{itemize}
+    \item Autenticarsi;
+    \item Visualizzare il cruscotto iniziale (\textit{Dashboard}${_G}$);
+    \item Visualizzare e modificare lo stato dei dispositivi \textit{IoT}${_G}$;
+    \item Visualizzare e risolvere gli allarmi attivi;
+    \item Visualizzare lo storico degli allarmi risolti;
+    \item Visualizzare le notifiche relative agli allarmi attivi;
+    \item Visualizzare il cruscotto analitico (\textit{Analytics}) relativo agli appartamenti;
+\end{itemize}
+
 \subsubsection{Amministratore}
-\subsubsection{Riepilogo degli utenti}
+L'\textbf{\admin} è l'utente responsabile della gestione complessiva del Sistema, inclusi i reparti, gli allarmi e gli operatori sanitari presenti.
+In aggiunta alle funzionalità disponibili all'\os, questo tipo di utente può effettuare anche le seguenti azioni:
+\begin{itemize}
+    \item Collegare il proprio profilo all'\textit{account} \textit{MyVimar};
+    \item Visualizzare, creare e gestire le regole di allarme;
+    \item Creare un reparto;
+    \item Assegnare degli appartamenti ad un reparto;
+    \item Assegnare degli Operatori Sanitari ad un reparto;
+    \item Creare ed eliminare utenti di tipo \os;
+\end{itemize}
 
 \subsection{Autenticazione e autorizzazione}
 \subsubsection{Token}
 \subsubsection{Procedura di autenticazione}
 
 \subsection{Dispositivi}
+Sono i dispositivi \textit{IoT} della gamma \textit{View Wireless} dislocati nelle varie stanze degli appartamenti. 
+I dispositivi \textit{IoT} gestiti dal Sistema sono: termostati, tapparelle, luci, pulsanti di allarme, sensori di presenza e di caduta.
+
 \subsection{Datapoint}
+
+
 \subsection{Appartamenti}
 \subsection{Reparti}
 \subsection{Allarmi}
