@@ -1,0 +1,135 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage{../../../template/template}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Manuale Utente}
+\setDocVersion{0.1.0}
+\setDocData{9/04/2026}
+\setDocIndex{Manuale Utente}
+\setDocState{1}
+\setDocRecipient{2}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage 
+\addChangelog{0.1.0}{9/04/2026}{V. Baleanu}{-}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduzione}
+
+\subsection{Scopo del documento}
+
+\subsection{Glossario}
+
+\subsection{Riferimenti}
+\subsubsection{Riferimenti normativi}
+\subsubsection{Riferimenti informativi}
+
+\section{Concetti}
+
+\subsection{Tipi di utenti}
+\subsubsection{Operatore Sanitario}
+\subsubsection{Amministratore}
+\subsubsection{Riepilogo degli utenti}
+
+\subsection{Autenticazione e autorizzazione}
+\subsubsection{Token}
+\subsubsection{Procedura di autenticazione}
+
+\subsection{Dispositivi}
+\subsection{Datapoint}
+\subsection{Appartamenti}
+\subsection{Reparti}
+\subsection{Allarmi}
+\subsubsection{Regole di allarme}
+\subsubsection{Evento di allarme}
+
+\section{Test}
+\subsection{Esecuzione dei test di unità}
+\subsection{Esecuzione dei test di integrazione}
+\subsection{Esecuzione dei test di accettazione}
+
+\section{Requisiti}
+\subsection{Browser supportati}
+\subsection{Requisiti hardware}
+\subsection{Requisiti software}
+
+\section{Accesso e installazione}
+\subsection{Utilizzo via web}
+
+\subsection{Installazione dalla \textit{repository} su \textit{GitHub}}
+\subsubsection{Preparazione del Sistema}
+\paragraph{Installazione di Docker}
+\paragraph{Installazione del Software}
+\paragraph{Configurazione del file \texttt{.env}}
+
+\subsubsection{Esecuzione del Sistema}
+\paragraph{Avvio}
+\paragraph{Spegnimento}
+\paragraph{Ripristino}
+
+\section{Guida all'utilizzo}
+\subsection{Login}
+\subsubsection{Primo accesso come Operatore Sanitario}
+\subsection{Collegare l'utente Amministratore al relativo \textit{account MyVimar}}
+\subsection{Logout}
+
+\subsection{Visualizzare la \textit{Dashboard}}
+
+\subsection{Gestire le notifiche}
+\subsubsection{Visualizzare le notifiche}
+\subsubsection{Eliminare le notifiche}
+
+\subsection{Gestire i dispositivi di un appartamento}
+\subsubsection{Visualizzare i dispositivi}
+\subsubsection{Modificare lo stato dei dispositivi}
+
+\subsection{Gestire gli eventi di allarme}
+\subsubsection{Visualizzare gli eventi di allarme}
+\subsubsection{Risolvere un evento di allarme}
+\subsubsection{Visualizzare lo storico degli eventi di allarme}
+
+\subsection{Gestire le regole di allarme}
+\subsubsection{Visualizzare le regole di allarme}
+\subsubsection{Creare una nuova regola di allarme}
+\subsubsection{Abilitare o disabilitare una regola di allarme}
+\subsubsection{Modificare una regola di allarme}
+\subsubsection{Eliminare una regola di allarme}
+
+\subsection{Visualizzare le \textit{Analytics} di un appartamento}
+
+\subsection{Gestire i reparti}
+\subsubsection{Visualizzare tutti i reparti}
+\subsubsection{Creare un reparto}
+\subsubsection{Assegnare un appartamento ad un reparto}
+\subsubsection{Assegnare un Operatore Sanitario ad un reparto}
+
+\subsection{Gestire gli utenti}
+\subsubsection{Visualizzare l'elenco degli Operatori Sanitari}
+\subsubsection{Creare un nuovo Operatore Sanitario}
+% ------------------------
+% PARLARE DELLA GENERAZIONE DELLA PASSWORD PER IL PRIMO ACCESSO
+% FARE RIFERIMENTO ALLA SEZIONE PRECEDENTE "PRIMO ACCESSO COME OPERATORE SANITARIO"
+% ------------------------
+\subsubsection{Eliminare un Operatore Sanitario}
+
+\section{Riferimento API}
+% LINK A SWAGGER: view4life.me/api/api#
+
+\section{Supporto Tecnico}
+Il nostro team è disponibile per offrire supporto in caso di domande o problematiche legate al progetto. 
+In presenza di difficoltà tecniche, dubbi sull'utilizzo delle funzionalità o problemi durante l'installazione, 
+è possibile contattarci all'indirizzo: snakebyteteam@gmail.com, descrivendo nella maniera più dettagliata possibile il problema.
+
+\end{document}
