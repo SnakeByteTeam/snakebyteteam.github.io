@@ -1,6 +1,8 @@
 \documentclass[10pt, letterpaper]{article}
 \usepackage{../../../template/template}
 \usepackage{xspace}
+\usepackage{float}
+\usepackage[italian]{babel}
 
 % ------------------------
 % Impostazioni documento
@@ -8,7 +10,7 @@
 
 \setDocTitle{Manuale Utente}
 \setDocVersion{0.2.1}
-\setDocData{9/04/2026}
+\setDocData{10/04/2026}
 \setDocIndex{Manuale Utente}
 \setDocState{1}
 \setDocRecipient{2}
@@ -38,7 +40,8 @@
 \makeTitlePage
 
 \newpage 
-\addChangelog{0.2.1}{09/04/2026}{V. Baleanu}{G. De Fina}{\noOne}{---}
+\addChangelog{0.2.2}{10/04/2026}{V. Baleanu}{G. De Fina}{\noOne}{Aggiunta sezione riferimento API}
+\addChangelog{0.2.1}{09/04/2026}{V. Baleanu}{G. De Fina}{\noOne}{Aggiunta sezione test}
 \addChangelog{0.2.0}{06/04/2026}{L. Granziero}{G. De Fina}{\noOne}{Schermate di gestione, configurazione allarmi}
 \addChangelog{0.1.0}{05/04/2026}{L. Granziero}{G. De Fina}{\noOne}{\firstDraft}
 \makeChangelog
@@ -48,6 +51,14 @@
 \tableofcontents
 
 \newpage
+
+\listoffigures
+
+\newpage
+
+% \listoftables
+
+% \newpage
 
 \section{Introduzione}
 
@@ -61,25 +72,33 @@ Il manuale illustra le modalità di installazione del Sistema e le operazioni ch
     \item \textbf{Requisiti}: una definizione di quelli che sono i requisiti minimi di \textit{hardware}, \textit{software} e \textit{browser} per poter correttamente eseguire il Sistema;
     \item \textbf{Accesso e installazione}: una spiegazione dettagliata per poter eseguire il Sistema;
     \item \textbf{Guida all'utilizzo}: una guida completa che descrive in modo chiaro e dettagliato le operazioni da eseguire per utilizzare una specifica funzionalità;
-    \item \textbf{Riferimento API}: documenta in modo chiaro e dettagliato tutte le chiamate \textit{API} disponibili nel Sistema, specificandone utilizzo, parametri e risultati.
     \item \textbf{Supporto tecnico}: una sezione dedicata alla richiesta di assistenza in caso di problematiche durante l'utilizzo della piattaforma.
 \end{itemize}
 
 \subsection{Glossario}
 All'interno del documento possono essere presenti termini il cui significato può risultare ambiguo o sconosciuto, essi sono
 riportati in italico e alla loro prima occorrenza è associata una \textit{G} a pedice ad indicare la presenza del suddetto termine 
-all'interno del \texorpdfstring{\textit{glossario$_G$}}{glossario}, che è disponibile al seguente link: \href{https://snakebyteteam.github.io/glossary.html}{Glossario}.
+all'interno del \texorpdfstring{\textit{glossario}}{glossario}$_G$, che è disponibile al seguente link: \href{https://snakebyteteam.github.io/glossary.html}{Glossario}.
 
 \subsection{Riferimenti}
 \subsubsection{Riferimenti normativi}
 \begin{itemize}
-    \item  \href{https://snakebyteteam.github.io/3-PB/Documenti_interni/Norme_di_progetto/Norme_di_Progetto_v2.0.0.pdf}{Norme di Progetto v2.0.0} (consultato il 09/04/2026).
+    \item \textbf{Norme di Progetto}:
+          \\ \url{https://snakebyteteam.github.io/3-PB/Documenti_interni/Norme_di_progetto/Norme_di_Progetto_v1.0.0.pdf}
+          \\ (consultato il 10/04/2026).
+    \item \textbf{Vimar View4Life Capitolato di Ingegneria del Software Università di Padova 2025-2026}:
+          \\ \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C9.pdf}
+          \\ (consultato il 10/04/2026).
 \end{itemize}
 
 \subsubsection{Riferimenti informativi}
 \begin{itemize}
-    \item \href{https://snakebyteteam.github.io/3-PB/Documenti_esterni/Analisi_dei_requisiti/Analisi_dei_Requisiti_v2.0.0.pdf}{Analisi dei Requisiti v2.0.0} (consultato il 09/04/2026).
-    \item \href{https://snakebyteteam.github.io/2-RTB/Documenti_interni/Glossario/Glossario_v2.0.0.pdf}{Glossario v2.0.0} (consultato il 09/04/2026).
+    \item \textbf{Analisi dei Requisiti}:
+      \\ \url{https://snakebyteteam.github.io/3-PB/Documenti_esterni/Analisi_dei_requisiti/Analisi_dei_Requisiti_v2.0.0.pdf} 
+      \\ (consultato il 10/04/2026).
+    \item \textbf{Glossario}:
+      \\ \url{https://snakebyteteam.github.io/2-RTB/Documenti_interni/Glossario/Glossario_v2.0.0.pdf} 
+      \\ (consultato il 10/04/2026).
 \end{itemize}
 
 
@@ -114,10 +133,6 @@ In aggiunta alle funzionalità disponibili all'\os, questo tipo di utente può e
     \item Creare ed eliminare utenti di tipo \os.
 \end{itemize}
 
-% \subsection{Autenticazione e autorizzazione}
-% \subsubsection{Token}
-% \subsubsection{Procedura di autenticazione}
-
 \subsection{Dispositivi}
 Sono i dispositivi \textit{IoT} della gamma \textit{View Wireless} installati nelle varie stanze degli appartamenti. 
 I dispositivi \textit{IoT} gestiti dal Sistema sono: termostati, tapparelle, luci, pulsanti di allarme, sensori di presenza e di caduta.
@@ -131,7 +146,7 @@ di allarme (es. ''se il \textit{datapoint} temperatura del termostato supera 30�
 scatta l'allarme'').
 
 \subsection{Appartamenti}
-unità abitative monitorate dal Sistema, corrispondenti alle singole 
+Unità abitative monitorate dal Sistema, corrispondenti alle singole 
 residenze protette. 
 Ogni appartamento contiene più stanze, ciascuna dotata di dispositivi \textit{IoT}. 
 Nel Sistema, gli appartamenti vengono assegnati a un reparto dall'\admin.
@@ -167,38 +182,272 @@ L'Operatore Sanitario può contrassegnarlo come risolto,
 dopodiché viene registrato nelle statistiche come allarme risolto.
 
 \section{Test}
+
+I test del Sistema sono suddivisi in tre categorie: test di unità, test di integrazione e test di accettazione.
+Per eseguirli è necessario aver completato la fase di installazione descritta nella sezione~\ref{sec:installazione-github}.
+
+\noindent
+I test sono suddivisi tra \textbf{backend} e \textbf{frontend} e vengono eseguiti utilizzando gli strumenti forniti rispettivamente da \textit{NestJS}$_G$ e \textit{Angular}$_G$.
+
 \subsection{Esecuzione dei test di unità}
+
+I test di unità verificano il corretto funzionamento dei singoli moduli del Sistema in isolamento.
+\begin{itemize}
+      \item \textbf{Backend}: Aprire un terminale nella directory \texttt{backend} ed eseguire:
+      \begin{verbatim}npm test\end{verbatim}
+      
+      \textbf{Nota:} questo comando esegue automaticamente anche i test di integrazione.
+      \item \textbf{Frontend}: Aprire un terminale nella directory \texttt{frontend} ed eseguire:
+      \begin{verbatim}ng test\end{verbatim}
+      Al termine dell'esecuzione, il Sistema mostra un riepilogo dei test eseguiti e dei risultati ottenuti.
+\end{itemize}
+
 \subsection{Esecuzione dei test di integrazione}
+
+I test di integrazione verificano la corretta interazione tra i diversi moduli del Sistema.
+
+\begin{itemize}
+      \item \textbf{Backend}: I test di integrazione sono eseguiti insieme ai test di unità tramite il comando:
+      \begin{verbatim}npm test\end{verbatim}
+      I test sono organizzati nelle \textit{directory} \texttt{test/unit/} e \texttt{test/integration/}, ma vengono eseguiti congiuntamente dal framework di testing.
+      
+      \textbf{Nota:} è necessario che il \textit{database} sia in esecuzione.
+      \item \textbf{Frontend}: Nel frontend \textit{Angular}, i test di integrazione sono inclusi nei test eseguiti tramite:
+      \begin{verbatim}ng test\end{verbatim}
+\end{itemize}
+
+
+
 \subsection{Esecuzione dei test di accettazione}
 
+I test di accettazione (\textit{end-to-end}) verificano il comportamento del Sistema dal punto di vista dell'utente finale, simulando scenari reali di utilizzo.
+
+\begin{itemize}
+      \item \textbf{Backend}: Aprire un terminale nella \textit{directory} \texttt{backend} ed eseguire:
+      \begin{verbatim}npm run test:e2e\end{verbatim}
+
+      \textbf{Nota:} questi test utilizzano una configurazione separata e richiedono che il \textit{database} sia attivo.
+      \item  \textbf{Frontend}: Il progetto frontend non include test end-to-end dedicati.
+      La copertura dei flussi utente è garantita dai test di accettazione del backend, eseguibili tramite il comando \texttt{npm run test:e2e} nella directory \texttt{backend}.
+\end{itemize}
+
 \section{Requisiti}
+\label{sec:requisiti}
+
+Di seguito sono elencati i requisiti minimi necessari per poter eseguire correttamente il Sistema.
+
 \subsection{Browser supportati}
+\label{sec:browsers}
+
+I browser supportati sono:
+
+\begin{itemize}
+    \item   \textbf{Safari}: in versione 26.3
+    \item   \textbf{Chrome}: in versione 143
+\end{itemize}
+
 \subsection{Requisiti hardware}
+In merito agli applicativi sviluppati, trattandosi di una \textit{web application} containerizzata tramite \textit{Docker} 
+e basata su tecnologie moderne, i requisiti \textit{hardware} 
+dipendono principalmente dal numero di \textit{container} in esecuzione e dal carico di lavoro previsto.
+
+L'applicazione è comunque progettata per funzionare correttamente anche su macchine di fascia medio-bassa, 
+pur beneficiando di risorse aggiuntive in termini di prestazioni e reattività.
+
+A scopo puramente esemplificativo, si riportano di seguito i requisiti minimi consigliati per un ambiente di sviluppo o utilizzo a basso carico:
+
+\begin{itemize}
+    \item \textbf{CPU}: processore \textit{multi-core} (almeno 2 \textit{core}) con frequenza di almeno 2.0 GHz, necessario per gestire i \textit{container Docker} e i servizi applicativi;
+    \item \textbf{RAM}: almeno 4 GB (8 GB consigliati), considerando l'esecuzione simultanea di molti servizi;
+    \item \textbf{Spazio su disco}: almeno 1 GB di spazio libero per immagini \textit{Docker}, \textit{container} e dati persistenti del \textit{database}.
+\end{itemize}
+
 \subsection{Requisiti software}
+In merito al Sistema Operativo, l'esecuzione del Sistema richiede esclusivamente la presenza del \textit{software} di containerizzazione \textit{Docker} (versione 29.4 o superiore), 
+il quale consente di eseguire tutti i servizi applicativi all'interno di appositi \textit{container}, senza la necessità di installare manualmente ulteriori dipendenze sulla macchina ospitante.
+\\Grazie all'utilizzo di \textit{Docker}, tutte le tecnologie necessarie al funzionamento del Sistema 
+sono incluse e configurate all'interno dei \textit{container}, garantendo isolamento, portabilità e semplicità di distribuzione.
+\\La configurazione e l'avvio dei servizi sono gestiti automaticamente tramite strumenti di orchestrazione (es. \textit{Docker Compose}), 
+riducendo al minimo le operazioni richieste all'utente.
+\\Pertanto, per l'esecuzione del Sistema è sufficiente disporre dei seguenti applicativi:
+\begin{itemize}
+    \item \textbf{Docker}: versione 29.4.0 o superiore;
+    \item \textbf{Docker Compose}: versione 5.0.0 o superiore.
+\end{itemize}
+
 
 \section{Accesso e installazione}
+
+Il Sistema può essere utilizzato in due modalità: tramite accesso \textit{web} all'istanza già distribuita, oppure tramite installazione locale dalla \textit{repository} su \textit{GitHub}.
+
 \subsection{Utilizzo via web}
+\label{sec:utilizzo-web}
+
+La modalità più semplice per accedere al Sistema è tramite browser, collegandosi all'indirizzo dell'istanza distribuita.
+Non è richiesta alcuna installazione.
+
+\begin{enumerate}
+    \item Aprire il browser supportato (vedere Sezione~\ref{sec:browsers});
+    \item Navigare all'indirizzo \href{https://view4life.me}{view4life.me};
+    \item Inserire le proprie credenziali nella schermata di accesso e premere \textbf{Accedi} (vedere sezione~\ref{sec:accesso}).
+\end{enumerate}
 
 \subsection{Installazione dalla \textit{repository} su \textit{GitHub}}
+\label{sec:installazione-github}
+
+Per eseguire il Sistema in locale è necessario soddisfare i requisiti descritti nella Sezione~\ref{sec:requisiti}.
+
 \subsubsection{Preparazione del Sistema}
-\paragraph{Installazione di Docker}
+
+\paragraph{Installazione di \textit{Docker}}
+
+\begin{enumerate}
+    \item Verificare che \textit{Docker} e \textit{Docker Compose} siano installati eseguendo:
+\begin{verbatim}
+docker --version
+docker compose version
+\end{verbatim}
+    \item Se non sono installati, seguire le istruzioni ufficiali disponibili su \href{https://docs.docker.com/get-docker/}{docs.docker.com/get-docker};
+    \item Assicurarsi che il servizio \textit{Docker} sia in esecuzione:
+    \begin{itemize}
+      \item Su Linux: \begin{verbatim}sudo systemctl start docker\end{verbatim}
+      \item Su MacOS: \begin{verbatim}open -a Docker\end{verbatim}
+      \item Su Windows (su PowerShell come amministratore): \begin{verbatim}Start-Service com.docker.service\end{verbatim}
+\end{itemize}
+\end{enumerate}
+
 \paragraph{Installazione del Software}
+
+\begin{enumerate}
+    \item Aprire un terminale in una cartella a propria scelta, quindi clonare 
+    la \textit{repository} del progetto:
+\begin{verbatim}
+git clone https://github.com/SnakeByte/MVP.git
+\end{verbatim}
+    \item Spostarsi nella cartella appena creata:
+\begin{verbatim}
+cd MVP
+\end{verbatim}
+\end{enumerate}
+
 \paragraph{Configurazione del file \texttt{.env}}
+Il file \texttt{.env} contiene le variabili d'ambiente necessarie al corretto funzionamento del Sistema, 
+tra cui configurazioni relative alla base di dati, ai servizi \textit{backend} e alle eventuali porte di esposizione dei \textit{container} \textit{Docker}.
+
+\begin{enumerate}
+    \item Nella \textit{directory} radice del progetto, creare un file \texttt{.env};
+    \item Aprire il file con un editor di testo e inserire le seguenti voci (alle quali associare i propri dati):
+\begin{itemize}
+    \item \textbf{Configurazione server}
+    \begin{itemize}
+        \item \texttt{PORT}: Porta su cui gira il server \textit{backend}.
+    \end{itemize}
+
+    \item \textbf{Autenticazione e OAuth}
+    \begin{itemize}
+        \item \texttt{CLIENTID}: Identificativo pubblico dell'applicazione;
+        \item \texttt{CLIENTSECRET}: Chiave segreta associata al client;
+        \item \texttt{HOST1}: Endpoint di autenticazione OpenID Connect;
+        \item \texttt{HOST2}: Endpoint per ottenere il token di accesso;
+        \item \texttt{REDIRECT\_URI}: URI di redirect dopo autenticazione;
+        \item \texttt{ACCESS\_SECRET}: Secret per gestione access token;
+        \item \texttt{REFRESH\_SECRET}: Secret per gestione refresh token.
+    \end{itemize}
+
+    \item \textbf{API e configurazione KNX/Vimar}
+    \begin{itemize}
+        \item \texttt{HOST3}: Endpoint base delle API KNX/Vimar;
+        \item \texttt{PLANT\_DOMAIN}: Endpoint di discovery KNX.
+    \end{itemize}
+
+    \item \textbf{Credenziali utente MyVimar}
+    \begin{itemize}
+        \item \texttt{Utente}: Username dell'utente per l'account \texttt{MyVimar};
+        \item \texttt{Password}: Password dell'utente per l'account \texttt{MyVimar}.
+    \end{itemize}
+
+    \item \textbf{Database}
+    \begin{itemize}
+        \item \texttt{DBUSER}: Username del \textit{database};
+        \item \texttt{DBPASSWORD}: Password del \textit{database};
+        \item \texttt{DBPORT}: Porta del \textit{database};
+        \item \texttt{DBNAME}: Nome del \textit{database};
+        \item \texttt{PG\_CONNECTION\_STRING}: Stringa completa di connessione al \textit{database}.
+    \end{itemize}
+
+    \item \textbf{Webhook e sottoscrizioni}
+    \begin{itemize}
+        \item \texttt{SECRET\_FOR\_SUB}: Secret per la gestione delle sottoscrizioni;
+        \item \texttt{NODE\_SUB\_CALLBACK}: Endpoint callback per le sottoscrizioni;
+        \item \texttt{DATAPOINT\_SUB\_CALLBACK}: Endpoint callback per aggiornamenti datapoint.
+    \end{itemize}
+
+    \item \textbf{Integrazioni esterne}
+    \begin{itemize}
+        \item \texttt{GROQ\_API\_KEY}: API key per integrazione con servizi Groq.
+    \end{itemize}
+
+\end{itemize}
+
+\item Salvare il file \texttt{.env}.
+\end{enumerate}
 
 \subsubsection{Esecuzione del Sistema}
+
 \paragraph{Avvio}
+\label{sec:avvio}
+
+\begin{enumerate}
+    \item Dalla \textit{directory} radice del progetto, avviare l'infrastruttura eseguendo il comando:
+\begin{verbatim}
+docker compose up -d
+\end{verbatim}
+
+    \item Attendere il completamento dell'avvio di tutti i \textit{container}. L'operazione è considerata conclusa quando tutti i servizi risultano nello stato \textit{running} o \textit{healthy}.
+
+    \item Aprire il browser e accedere all'indirizzo:
+\begin{verbatim}
+http://localhost:80
+\end{verbatim}
+per visualizzare la schermata iniziale del Sistema.
+\end{enumerate}
+
 \paragraph{Spegnimento}
+
+\begin{enumerate}
+    \item Per arrestare il Sistema senza perdita dei dati persistenti, eseguire:
+\begin{verbatim}
+docker compose down
+\end{verbatim}
+
+    \item I dati vengono conservati all'interno dei volumi Docker, che rimangono disponibili per successive riaccensioni del Sistema.
+\end{enumerate}
+
 \paragraph{Ripristino}
+
+\begin{enumerate}
+    \item Per ripristinare il Sistema allo stato iniziale, eliminando anche i dati persistenti e ricostruendo le immagini \textit{Docker}, eseguire:
+\begin{verbatim}
+docker compose down -v --remove-orphans && docker compose up -d --build
+\end{verbatim}
+
+    \item Tutti i servizi vengono arrestati, i volumi eliminati e successivamente ricreati e riavviati. L'operazione potrebbe richiedere alcuni minuti a causa della ricostruzione delle immagini \textit{Docker}.
+\end{enumerate}
+\textbf{Attenzione:} il comando \texttt{docker compose down -v} elimina in modo irreversibile tutti i dati memorizzati nei volumi \textit{Docker}, inclusi quelli del \textit{database}. 
+L'opzione \texttt{--remove-orphans} rimuove inoltre eventuali container non più definiti nel file di configurazione.
 
 \section{Guida all'utilizzo}
 \subsection{Accesso}
+\label{sec:accesso}
 \begin{enumerate}
     \item Inserire le proprie credenziali nei campi \textbf{Username} e \textbf{Password};
     \item Premere \textbf{Accedi}. Il Sistema verifica le credenziali e reindirizza 
     alla \textit{Dashboard}.
-          \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.5\textwidth]{./img/accesso.png}
-           \end{flushleft}
+            \caption{Schermata di accesso}
+        \end{figure}
 \end{enumerate}
 
 \subsection{Primo accesso come Operatore Sanitario}
@@ -207,52 +456,68 @@ dopodiché viene registrato nelle statistiche come allarme risolto.
     \item Ottenere le credenziali provvisorie (username e password temporanea) 
           dall'\admin;
     \item Inserire le credenziali nella schermata di login e premere \textbf{Accedi};
-            \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.5\textwidth]{./img/accedi_credenziali_temp.png}
-           \end{flushleft}
+            \caption{Accesso con credenziali temporanee}
+        \end{figure}
     \item Il Sistema riconosce che si tratta del primo accesso e reindirizza 
           alla schermata di cambio password;
     \item Inserire la password temporanea nel campo \textbf{Password attuale};
     \item Inserire la nuova password nel campo \textbf{Nuova password};
     \item Premere \textbf{Conferma e continua}. Il Sistema aggiorna le credenziali e reindirizza 
     alla \textit{Dashboard}.
-            \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.5\textwidth]{./img/nuova_pass_oss.png}
-           \end{flushleft}
+            \caption{Schermata di cambio password al primo accesso}
+        \end{figure}
 \end{enumerate}
 
 \subsection{Collegare l'utente Amministratore al relativo \textit{account MyVimar}}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Profilo};
-            \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.6\textwidth]{./img/clicca_profilo.png}
-           \end{flushleft}
+            \caption{Voce Profilo nel menu principale}
+        \end{figure}
     \item Premere \textbf{Vai a MyVimar};
-           \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.8\textwidth]{./img/vai_myvimar.png}
-           \end{flushleft}
+            \caption{Pulsante Vai a MyVimar nella schermata Profilo}
+        \end{figure}
     \item Premere su \textbf{Collega account MyVimar};
-           \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.6\textwidth]{./img/collega_account_myvari.png}
-           \end{flushleft}
+            \caption{Pulsante Collega account MyVimar}
+        \end{figure}
     \item Il Sistema reindirizza al portale di autenticazione di Vimar;
-            \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.5\textwidth]{./img/pagina_gialla_vimar.png}
-           \end{flushleft}
+            \caption{Portale di autenticazione Vimar}
+        \end{figure}
     \item Inserire le credenziali MyVimar e premere \textbf{Entra};
     \item Il Sistema registra il collegamento e mostra l'indirizzo email 
           dell'account MyVimar collegato.
-            \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.8\textwidth]{./img/stato_collegamento_myVimar.png}
-            \end{flushleft}
+            \caption{Stato del collegamento all'account MyVimar}
+        \end{figure}
 \end{enumerate}
 
 \subsection{Visualizzare la \textit{Dashboard}}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textit{\textbf{Dashboard}};
-    \item \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.4\textwidth]{./img/vai_dashboard.png}
-           \end{flushleft}
+            \caption{Voce Dashboard nel menu principale}
+        \end{figure}
     \item Il Sistema mostra la \textit{Dashboard}, che include sempre il modulo
           \textbf{Gestione Allarmi} e i seguenti moduli:
           \begin{itemize}
@@ -260,59 +525,70 @@ dopodiché viene registrato nelle statistiche come allarme risolto.
               \item Analisi Consumi;
               \item Struttura appartamento.
           \end{itemize}
-            \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=\textwidth]{./img/dashboard.png}
-           \end{flushleft}
+            \caption{Schermata principale della Dashboard}
+        \end{figure}
 \end{enumerate}
 
 \subsection{Gestire le notifiche}
 \subsubsection{Visualizzare le notifiche}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Notifiche}.
-      \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.4\textwidth]{./img/voce_notifiche.png}
-      \end{flushleft}
+            \caption{Voce Notifiche nel menu principale}
+        \end{figure}
     \item Il Sistema mostra l'elenco delle notifiche. Per ogni notifica sono visibili:
           \begin{itemize}
               \item Il \textbf{titolo} della notifica;
               \item il \textbf{tempo trascorso} dall'invio.
           \end{itemize}
-           \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.8\textwidth]{./img/elenco_notifiche.png}
-           \end{flushleft}
-      \end{enumerate}
+            \caption{Elenco delle notifiche}
+        \end{figure}
+\end{enumerate}
+
 \subsubsection{Eliminare le notifiche}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Notifiche};
     \item Individuare la notifica da eliminare nell'elenco;
     \item Premere il pulsante \textbf{Elimina} accanto alla notifica;
-            \begin{flushleft}
-            \includegraphics[width=0.7\textwidth]{./img/elimina_notifica.png}   
-           \end{flushleft}
-            \item Se si vogliono eliminare tutte le notifiche, premere il pulsante \textbf{Cancella tutte};
-            \begin{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\textwidth]{./img/elimina_notifica.png}
+            \caption{Pulsante Elimina per una singola notifica}
+        \end{figure}
+    \item Se si vogliono eliminare tutte le notifiche, premere il pulsante \textbf{Cancella tutte};
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.7\textwidth]{./img/elimina_tutte_notifiche.png}
-           \end{flushleft}
-            \item Il Sistema rimuove la notifica dall'elenco.
+            \caption{Pulsante Cancella tutte le notifiche}
+        \end{figure}
+    \item Il Sistema rimuove la notifica dall'elenco.
 \end{enumerate}
 
 \subsection{Gestire i dispositivi di un appartamento}
 \subsubsection{Visualizzare i dispositivi}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Dispositivi};
-    
-            \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=0.4\textwidth]{./img/voce_dispositivi.png}
-           \end{flushleft}
-
-            \item Selezionare l'appartamento desiderato;
-
-            \begin{flushleft}
-            \includegraphics[width=0.4\textwidth]{./img/selettore_appartamento_dispositivi.png} 
-           \end{flushleft}
-
-       \item Il Sistema mostra la vista dell'appartamento, con l'elenco delle stanze; 
-      \item Il Sistema mostra l'elenco dei dispositivi suddivisi per stanza.\\ 
+            \caption{Voce Dispositivi nel menu principale}
+        \end{figure}
+    \item Selezionare l'appartamento desiderato;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/selettore_appartamento_dispositivi.png}
+            \caption{Selettore appartamento nella sezione Dispositivi}
+        \end{figure}
+    \item Il Sistema mostra la vista dell'appartamento, con l'elenco delle stanze; 
+    \item Il Sistema mostra l'elenco dei dispositivi suddivisi per stanza.\\
           Per ogni dispositivo sono visibili:
           \begin{itemize}
               \item Il \textbf{nome} del dispositivo;
@@ -322,9 +598,11 @@ dopodiché viene registrato nelle statistiche come allarme risolto.
               \item un selettore di \textbf{valore};
               \item l' \textbf{azione} di scrittura.
           \end{itemize}
-           \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=\textwidth]{./img/elenco_dispositivi.png}
-           \end{flushleft}
+            \caption{Elenco dei dispositivi suddivisi per stanza}
+        \end{figure}
 \end{enumerate}
 
 \subsubsection{Modificare lo stato dei dispositivi}
@@ -333,23 +611,29 @@ dopodiché viene registrato nelle statistiche come allarme risolto.
           nella sezione precedente;
     \item Individuare il dispositivo da modificare;
     \item Selezionare l'azione desiderata tra quelle disponibili per il dispositivo;
-          \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=\textwidth]{./img/opzioni_disp.png}
-           \end{flushleft}
+            \caption{Opzioni disponibili per la modifica di un dispositivo}
+        \end{figure}
     \item Dopo aver selezionato il nuovo stato, premere \textbf{Scrivi};
-            \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=\textwidth]{./img/scrivi.png}
-           \end{flushleft}
+            \caption{Pulsante Scrivi per confermare la modifica del dispositivo}
+        \end{figure}
     \item Il Sistema invia il comando al dispositivo e comunica all'utente il cambio di stato;
-          \begin{flushleft}
+        \begin{figure}[H]
+            \centering
             \includegraphics[width=\textwidth]{./img/comando_corr.png}
-           \end{flushleft}
+            \caption{Conferma dell'avvenuto cambio di stato del dispositivo}
+        \end{figure}
     \item Per poter visualizzare il nuovo stato del dispositivo è necessario ricaricare la pagina.
 \end{enumerate}
 
 \subsection{Gestire gli allarmi attivi}
 \subsubsection{Visualizzare gli allarmi attivi}
-Il modulo \textbf{Gestione Allarmi} è sempre visibile nella Dashboard e dalla voce \textbf{Gestione Allarmi} e presenta
+Il modulo \textbf{Gestione Allarmi} è sempre visibile nella Dashboard e dalla voce del menu principale \textbf{Gestione Allarmi} e presenta
 l'elenco degli allarmi correntemente attivi. Per ogni allarme sono mostrati:
 \begin{itemize}
     \item Il \textbf{segnale di pericolo} (indicatore visivo del livello di priorità);
@@ -357,27 +641,33 @@ l'elenco degli allarmi correntemente attivi. Per ogni allarme sono mostrati:
     \item il \textbf{luogo} in cui è scattato l'allarme;
     \item il \textbf{tempo trascorso} dallo scatto dell'allarme.
 \end{itemize}
-\begin{flushleft}
-      \includegraphics[width=\textwidth]{./img/gestione-allarmi.png}
-\end{flushleft}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./img/gestione-allarmi.png}
+    \caption{Modulo Gestione Allarmi con elenco degli allarmi attivi}
+\end{figure}
 
 \subsubsection{Risolvere un allarme attivo}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Gestione Allarmi};
     \item Individuare l'allarme da risolvere;
-    \item Premere il pulsante \textbf{Gestisci} accanto all'allarme.;
-          \begin{flushleft}
-                  \includegraphics[width=\textwidth]{./img/gestisci.png}
-            \end{flushleft}
+    \item Premere il pulsante \textbf{Gestisci} accanto all'allarme;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/gestisci.png}
+            \caption{Pulsante Gestisci per la risoluzione di un allarme}
+        \end{figure}
     \item Il Sistema contrassegna l'allarme come risolto e lo rimuove dall'elenco degli allarmi attivi.
 \end{enumerate}
 
 \subsubsection{Visualizzare lo storico degli allarmi risolti}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Storico Allarmi};
-          \begin{flushleft}
-                  \includegraphics[width=0.4\textwidth]{./img/voce_storico_allarmi.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/voce_storico_allarmi.png}
+            \caption{Voce Storico Allarmi nel menu principale}
+        \end{figure}
     \item Il Sistema mostra l'elenco degli allarmi contrassegnati come risolti. 
           Per ogni allarme sono visibili:
           \begin{itemize}
@@ -387,9 +677,11 @@ l'elenco degli allarmi correntemente attivi. Per ogni allarme sono mostrati:
               \item l' \textbf{orario di risoluzione};
               \item il \textbf{gestore} dell'allarme.
           \end{itemize}
-          \begin{flushleft}
-                  \includegraphics[width=\textwidth]{./img/storico_allarmi.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/storico_allarmi.png}
+            \caption{Schermata Storico degli allarmi risolti}
+        \end{figure}
 \end{enumerate}
 
 \subsection{Gestire le regole di allarme}
@@ -416,32 +708,42 @@ che scatena un allarme e la relativa notifica agli utenti associati al reparto c
 \subsubsection{Creare una nuova regola di allarme}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Configurazione Allarmi};
-          \begin{flushleft}
-                  \includegraphics[width=0.4\textwidth]{./img/config_allarmi.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/config_allarmi.png}
+            \caption{Voce Configurazione Allarmi nel menu principale}
+        \end{figure}
     \item Premere il pulsante '+' (\textbf{Nuovo allarme});
-          \begin{flushleft}
-                  \includegraphics[width=\textwidth]{./img/nuova_regola_allarme.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/nuova_regola_allarme.png}
+            \caption{Pulsante Nuovo allarme nella sezione Configurazione Allarmi}
+        \end{figure}
     \item Selezionare l'\textbf{appartamento} a cui associare l'allarme;
-          \begin{flushleft}
-                  \includegraphics[width=0.8\textwidth]{./img/form_allarme.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{./img/form_allarme.png}
+            \caption{Form di creazione di una nuova regola di allarme}
+        \end{figure}
     \item Compilare tutti i campi richiesti. 
     Infine premere \textbf{Crea Allarme} per confermare. Il Sistema salva l'allarme e lo aggiunge
           all'elenco.
-          \begin{flushleft}
-                  \includegraphics[width=0.4\textwidth]{./img/crea_allarme.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/crea_allarme.png}
+            \caption{Pulsante Crea Allarme per confermare la nuova regola}
+        \end{figure}
 \end{enumerate}
 
 \subsubsection{Abilitare una regola di allarme}
 \begin{enumerate}
     \item Dalla sezione \textbf{Configurazione Allarmi}, individuare l'allarme da abilitare.
     \item Premere il pulsante di commutazione corrispondente.
-          \begin{flushleft}
-                  \includegraphics[width=\textwidth]{./img/abilitare_allame.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/abilitare_allame.png}
+            \caption{Pulsante di commutazione per abilitare una regola di allarme}
+        \end{figure}
     \item Il Sistema attiva l'allarme: da questo momento il \textit{datapoint} associato può scatenarlo.
 \end{enumerate}
 
@@ -449,9 +751,11 @@ che scatena un allarme e la relativa notifica agli utenti associati al reparto c
 \begin{enumerate}
     \item Dalla sezione \textbf{Configurazione Allarmi}, individuare l'allarme da disabilitare.
     \item Premere il pulsante di commutazione corrispondente.
-          \begin{flushleft}
-                  \includegraphics[width=\textwidth]{./img/disabilitare_allarme.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/disabilitare_allarme.png}
+            \caption{Pulsante di commutazione per disabilitare una regola di allarme}
+        \end{figure}
     \item Il Sistema disattiva l'allarme: da questo momento il \textit{datapoint} associato non può scatenarlo.
 \end{enumerate}
 
@@ -469,11 +773,12 @@ che scatena un allarme e la relativa notifica agli utenti associati al reparto c
               \item l'\textbf{orario di disattivazione};
               \item lo \textbf{stato} (abilitato/disabilitato).
           \end{itemize}
-          \begin{flushleft}
-                  \includegraphics[width=\textwidth]{./img/caratt_regole.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/caratt_regole.png}
+            \caption{Elenco delle regole di allarme configurate con le relative caratteristiche}
+        \end{figure}
 \end{enumerate}
-
 
 \subsubsection{Modificare una regola di allarme}
 L'\admin può modificare singolarmente i parametri di un allarme esistente.
@@ -483,9 +788,11 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
 \begin{enumerate}
     \item Dalla sezione \textbf{Configurazione Allarmi}, selezionare l'allarme da modificare premendo su \textbf{Modifica};
     \item Selezionare il campo \textbf{Priorità};
-          \begin{flushleft}
-                  \includegraphics[width=0.6\textwidth]{./img/modifica_priorita.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{./img/modifica_priorita.png}
+            \caption{Campo Priorità nel form di modifica della regola di allarme}
+        \end{figure}
     \item Selezionare il nuovo livello di priorità e premere il bottone \textbf{Applica modifiche}.
 \end{enumerate}
 
@@ -493,44 +800,56 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
 \begin{enumerate}
     \item Dalla sezione \textbf{Configurazione Allarmi}, selezionare l'allarme da modificare premendo su \textbf{Modifica};
     \item Selezionare il campo \textbf{Valore soglia};
-          \begin{flushleft}
-                  \includegraphics[width=0.6\textwidth]{./img/modifica_soglia.png}
-            \end{flushleft}
-    \item Selezionare il nuovo livello di priorità e premere il bottone \textbf{Applica modifiche}.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{./img/modifica_soglia.png}
+            \caption{Campo Valore soglia nel form di modifica della regola di allarme}
+        \end{figure}
+    \item Selezionare il nuovo valore di soglia e premere il bottone \textbf{Applica modifiche}.
 \end{enumerate}
 
 \paragraph{Modificare gli orari}
 \begin{enumerate}
     \item Dalla sezione \textbf{Configurazione Allarmi}, selezionare l'allarme da modificare premendo su \textbf{Modifica}.
     \item Selezionare il campo \textbf{Orari};
-          \begin{flushleft}
-                  \includegraphics[width=0.8\textwidth]{./img/modifica_orario.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{./img/modifica_orario.png}
+            \caption{Campo Orari nel form di modifica della regola di allarme}
+        \end{figure}
     \item Inserire il nuovo orario e premere il bottone \textbf{Applica modifiche}.
 \end{enumerate}
 
 \subsubsection{Eliminare una regola di allarme}
 \begin{enumerate}
     \item Dalla sezione \textbf{Configurazione Allarmi}, selezionare l'allarme da eliminare premendo su \textbf{Elimina};
-          \begin{flushleft}
-                  \includegraphics[width=0.4\textwidth]{./img/elimina_allarme.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/elimina_allarme.png}
+            \caption{Pulsante Elimina per una regola di allarme}
+        \end{figure}
     \item Confermare nuovamente l'eliminazione premendo sul bottone \textbf{Elimina}.
-          \begin{flushleft}
-                  \includegraphics[width=0.4\textwidth]{./img/elimina_allarme_conferma.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/elimina_allarme_conferma.png}
+            \caption{Dialogo di conferma eliminazione della regola di allarme}
+        \end{figure}
 \end{enumerate}
 
 \subsection{Visualizzare le \textit{Analytics} di un appartamento}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Analytics};
-          \begin{flushleft}
-                  \includegraphics[width=0.4\textwidth]{./img/voce_analytics.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/voce_analytics.png}
+            \caption{Voce Analytics nel menu principale}
+        \end{figure}
     \item Selezionare l'appartamento di cui si vogliono visualizzare le analytics;
-          \begin{flushleft}
-                  \includegraphics[width=\textwidth]{./img/analytics_sel_app.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/analytics_sel_app.png}
+            \caption{Selettore appartamento nella sezione Analytics}
+        \end{figure}
     \item Il Sistema mostra i grafici relativi all'appartamento selezionato, tra cui:
           \begin{itemize}
               \item \textbf{Consumo energetico};
@@ -542,71 +861,109 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \item \textbf{Frequenza degli allarmi};
               \item \textbf{Frequenza delle cadute}.
           \end{itemize}
-          \begin{flushleft}
-                  \includegraphics[width=\textwidth]{./img/analytics.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/analytics.png}
+            \caption{Schermata Analytics con i grafici dell'appartamento selezionato}
+        \end{figure}
 \end{enumerate}
 
 \subsection{Gestire i reparti}
 \subsubsection{Visualizzare tutti i reparti}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Gestione Reparti};
-          \begin{flushleft}
-                  \includegraphics[width=0.4\textwidth]{./img/voce_gestione_rep.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/voce_gestione_rep.png}
+            \caption{Voce Gestione Reparti nel menu principale}
+        \end{figure}
     \item Il Sistema mostra l'elenco dei reparti configurati. Per ogni reparto 
           sono visibili:
           \begin{itemize}
               \item Il \textbf{nome} del reparto;
-              \item l'elenco degli \textbf{appartamenti} associati.
+              \item l'elenco degli \textbf{appartamenti} associati;
               \item l'elenco degli \textbf{Operatori Sanitari} associati.
           \end{itemize}
-          \begin{flushleft}
-                  \includegraphics[width=0.8\textwidth]{./img/gestione_rep.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{./img/gestione_rep.png}
+            \caption{Schermata Gestione Reparti con l'elenco dei reparti}
+        \end{figure}
 \end{enumerate}
 
 \subsubsection{Creare un reparto}
 \begin{enumerate}
     \item Dalla sezione \textbf{Gestione Reparti}, premere il pulsante '+' \textbf{Nuovo reparto};
-          \begin{flushleft}
-                  \includegraphics[width=0.5\textwidth]{./img/nuovo_reparto.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/nuovo_reparto.png}
+            \caption{Pulsante Nuovo reparto nella sezione Gestione Reparti}
+        \end{figure}
     \item Inserire il \textbf{nome} del reparto e premere \textbf{Crea reparto} per confermare. Il Sistema salva il reparto 
           e lo aggiunge all'elenco.
-          \begin{flushleft}
-                  \includegraphics[width=0.5\textwidth]{./img/crea_reparto.png}
-            \end{flushleft}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/crea_reparto.png}
+            \caption{Form di creazione di un nuovo reparto}
+        \end{figure}
 \end{enumerate}
 
 \subsubsection{Assegnare un appartamento ad un reparto}
 \begin{enumerate}
     \item Dalla sezione \textbf{Gestione Reparti}, selezionare il reparto desiderato;
     \item Selezionare la sezione \textbf{Appartamenti} e premere '+';
-          \screenshot{Sezione appartamenti in gestione reparti}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{./img/assegna_appart.png}
+            \caption{Pulsante di aggiunta appartamento nella sezione del reparto}
+        \end{figure}
     \item Selezionare l'appartamento da assegnare tra quelli disponibili;
-          \screenshot{Selezione appartamento da assegnare al reparto}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/assegna_app_scegli.png}
+            \caption{Selezione dell'appartamento da assegnare al reparto}
+        \end{figure}
     \item Premere \textbf{Assegna}. Il Sistema registra l'assegnazione e 
           aggiorna l'elenco degli appartamenti del reparto.
-          \screenshot{Appartamento aggiunto all'elenco del reparto}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/assegna_appartamento_rep.png}
+            \caption{Conferma dell'assegnazione dell'appartamento al reparto}
+        \end{figure}
 \end{enumerate}
 
 \subsubsection{Assegnare un Operatore Sanitario ad un reparto}
 \begin{enumerate}
     \item Dalla sezione \textbf{Gestione Reparti}, selezionare il reparto desiderato;
     \item Selezionare la sezione \textbf{Operatori} e premere '+';
-          \screenshot{Sezione operatori in gestione reparti}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/assegna_operatore.png}
+            \caption{Pulsante di aggiunta operatore nella sezione del reparto}
+        \end{figure}
     \item Selezionare l'Operatore Sanitario da assegnare tra quelli disponibili;
-          \screenshot{Selezione Operatore Sanitario da assegnare al reparto}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/assegna_operatore_scegli.png}
+            \caption{Selezione dell'Operatore Sanitario da assegnare al reparto}
+        \end{figure}
     \item Premere \textbf{Assegna}. Il Sistema registra l'assegnazione.
-          \screenshot{Operatore Sanitario aggiunto al reparto}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/assegna_reparto.png}
+            \caption{Conferma dell'assegnazione dell'Operatore Sanitario al reparto}
+        \end{figure}
 \end{enumerate}
 
 \subsection{Gestire gli utenti}
 \subsubsection{Visualizzare l'elenco degli Operatori Sanitari}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Gestione Utenti};
-          \screenshot{Voce Gestione Utenti nel menu principale}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.3\textwidth]{./img/voce_gestione_utenti.png}
+            \caption{Voce Gestione Utenti nel menu principale}
+        \end{figure}
     \item Il Sistema mostra l'elenco degli Operatori Sanitari registrati. 
           Per ogni utente sono visibili:
           \begin{itemize}
@@ -614,43 +971,67 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \item il \textbf{cognome};
               \item lo \textbf{username}.
           \end{itemize}
-          \screenshot{Elenco Operatori Sanitari con nome, cognome e username}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{./img/gestione_utenti_schermata.png}
+            \caption{Schermata Gestione Utenti con l'elenco degli Operatori Sanitari}
+        \end{figure}
 \end{enumerate}
 
 \subsubsection{Creare un nuovo Operatore Sanitario}
 \begin{enumerate}
     \item Dalla sezione \textbf{Gestione Utenti}, premere il pulsante \textbf{Inserisci Nuovo Operatore};
-          \screenshot{Pulsante Inserisci nuovo operatore nella sezione Gestione Utenti}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{./img/inserisci_nuovo_operatore.png}
+            \caption{Pulsante Inserisci Nuovo Operatore nella sezione Gestione Utenti}
+        \end{figure}
     \item Inserire il \textbf{nome}, il \textbf{cognome} e lo \textbf{username} 
-          del nuovo Operatore Sanitario;
-          \screenshot{Form creazione utente: campi nome, cognome e username}
-    \item Premere \textbf{Crea Utente}. Il Sistema genera 
-          automaticamente una password provvisoria da consegnare all'operatore;
-          \screenshot{Password temporanea generata dal Sistema}
+          del nuovo Operatore Sanitario, quindi premere \textbf{Crea Utente}.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{./img/nuovo_oss.png}
+            \caption{Form di creazione di un nuovo Operatore Sanitario}
+        \end{figure}
+    \item Il Sistema genera automaticamente una password provvisoria 
+    da consegnare all'operatore;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{./img/ho_comunicato_pass.png}
+            \caption{Schermata con la password provvisoria generata per il nuovo Operatore Sanitario}
+        \end{figure}
     \item Premere \textbf{Ho comunicato la password} per confermare. Il Sistema registra il 
           nuovo Operatore Sanitario e lo aggiunge all'elenco.
 \end{enumerate}
 Al primo accesso, l'Operatore Sanitario dovrà sostituire la password temporanea
-con una personale, seguendo la procedura descritta in \S\ref{sec:primo-accesso}.
+con una personale, seguendo la procedura descritta nella Sezione \ref{sec:primo-accesso}.
 
 \subsubsection{Eliminare un Operatore Sanitario}
 \begin{enumerate}
     \item Dalla sezione \textbf{Gestione Utenti}, individuare l'Operatore Sanitario 
           da eliminare;
     \item Premere il pulsante \textbf{Elimina} accanto all'utente;
-          \screenshot{Pulsante Elimina accanto a un Operatore Sanitario nell'elenco}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.6\textwidth]{./img/elimina_oss.png}
+            \caption{Pulsante Elimina per un Operatore Sanitario}
+        \end{figure}
     \item Confermare l'eliminazione premendo \textbf{Elimina} nel dialogo 
           di conferma.
-          \screenshot{Dialog di conferma eliminazione Operatore Sanitario}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/conferma_elimina_oss.png}
+            \caption{Dialogo di conferma eliminazione dell'Operatore Sanitario}
+        \end{figure}
     \item Il Sistema rimuove l'Operatore Sanitario dal Sistema.
 \end{enumerate}
 
 \section{Riferimento API}
-% LINK A SWAGGER: view4life.me/api/api#
+Tutti gli \textit{endpoint backend} del Sistema sono disponibili alla seguente pagina: \url{https://view4life.me/api/api#}.
 
 \section{Supporto Tecnico}
 Il nostro team è disponibile per offrire supporto in caso di domande o problematiche legate al progetto. 
 In presenza di difficoltà tecniche, dubbi sull'utilizzo delle funzionalità o problemi durante l'installazione, 
-è possibile contattarci all'indirizzo: snakebyteteam@gmail.com, descrivendo nella maniera più dettagliata possibile il problema.
+è possibile contattarci all'indirizzo snakebyteteam@gmail.com, descrivendo nella maniera più dettagliata possibile il problema.
 
 \end{document}
