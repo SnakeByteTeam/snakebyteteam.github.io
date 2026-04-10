@@ -223,70 +223,80 @@ dopodiché viene registrato nelle statistiche come allarme risolto.
     \item Dal menu principale, selezionare la voce \textbf{Profilo};
     \item Premere il pulsante \textbf{Vai a MyVimar};
     \item Il Sistema reindirizza al portale di autenticazione di Vimar;
-          \screenshot{Portale di autenticazione Vimar}
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/pagina_gialla_vimar.png}
     \item Inserire le credenziali MyVimar e confermare l'autorizzazione;
     \item Il Sistema registra il collegamento e mostra l'indirizzo email 
           dell'account MyVimar collegato.
-          \screenshot{Sezione Account MyVimar con email account collegato}
-\end{enumerate}
+            \centering
+            \includegraphics[width=0.8\textwidth]{./img/utente_collegato_myVimar.png}\end{enumerate}
 
 \subsection{Visualizzare la \textit{Dashboard}}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textit{\textbf{Dashboard}};
     \item Il Sistema mostra la \textit{Dashboard}, che include sempre il modulo
-          \textbf{Gestione Allarmi} e, se configurati dall'\admin, uno o più
-          tra i seguenti moduli opzionali:
+          \textbf{Gestione Allarmi} e i seguenti moduli:
           \begin{itemize}
               \item Statistiche Allarmi;
-              \item Informazioni Utente;
-              \item Analisi Clima;
               \item Analisi Consumi;
-              \item Analisi Presenze.
+              \item Struttura appartamento.
           \end{itemize}
-          \screenshot{Dashboard: panoramica con modulo Gestione Allarmi e moduli opzionali attivi}
+            \centering
+            \includegraphics[width=0.8\textwidth]{./img/dashboard.png}
 \end{enumerate}
 
 \subsection{Gestire le notifiche}
 \subsubsection{Visualizzare le notifiche}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Notifiche}.
-          \screenshot{Icona / voce Notifiche nel menu principale}
+      \centering
+      \includegraphics[width=0.5\textwidth]{./img/voce_notifiche.png}
     \item Il Sistema mostra l'elenco delle notifiche. Per ogni notifica sono visibili:
           \begin{itemize}
               \item Il \textbf{titolo} della notifica;
               \item il \textbf{tempo trascorso} dall'invio.
           \end{itemize}
-          \screenshot{Elenco notifiche: titolo e tempo trascorso dall'invio per ogni elemento}
+           \centering
+            \includegraphics[width=0.8\textwidth]{./img/elenco_notifiche.png}
 \end{enumerate}
 \subsubsection{Eliminare le notifiche}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Notifiche};
     \item Individuare la notifica da eliminare nell'elenco;
     \item Premere il pulsante \textbf{Elimina} accanto alla notifica;
-          \screenshot{Pulsante Elimina accanto a una notifica nell'elenco}
-    \item Se si vogliono eliminare tutte le notifiche, premere il pulsante \textbf{Cancella tutte};
-            \screenshot{Bottone cancella tutte notifiche}
-    \item Il Sistema rimuove la notifica dall'elenco.
+            \centering
+            \includegraphics[width=0.7\textwidth]{./img/elimina_notifica.png}   
+            \item Se si vogliono eliminare tutte le notifiche, premere il pulsante \textbf{Cancella tutte};
+            \centering
+            \includegraphics[width=0.7\textwidth]{./img/elimina_tutte_notifiche.png}
+            \item Il Sistema rimuove la notifica dall'elenco.
 \end{enumerate}
 
 \subsection{Gestire i dispositivi di un appartamento}
 \subsubsection{Visualizzare i dispositivi}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textbf{Dispositivi};
-          \screenshot{Sezione Dispositivi nel menu principale}
-    \item Selezionare l'appartamento desiderato;
-          \screenshot{Elenco appartamenti}
-    \item Il Sistema mostra la vista dell'appartamento, con l'elenco delle stanze; 
-          Selezionare la stanza desiderata;
-          \screenshot{Vista appartamento: elenco stanze}
-    \item Il Sistema mostra l'elenco dei dispositivi presenti nella stanza. 
+    
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/voce_dispositivi.png}
+
+            \item Selezionare l'appartamento desiderato;
+
+            \includegraphics[width=0.4\textwidth]{./img/selettore_appartamento_dispositivi.png} 
+
+       \item Il Sistema mostra la vista dell'appartamento, con l'elenco delle stanze; 
+      \item Il Sistema mostra l'elenco dei dispositivi suddivisi per stanza.\\ 
           Per ogni dispositivo sono visibili:
           \begin{itemize}
               \item Il \textbf{nome} del dispositivo;
+              \item Il \textbf{tipo};
+              \item L'\textbf{endpoint} associato;
               \item lo \textbf{stato} attuale;
-              \item le \textbf{azioni} eseguibili.
+              \item un selettore di \textbf{valore};
+              \item l' \textbf{azione} di scrittura.
           \end{itemize}
-          \screenshot{Elenco dispositivi nella stanza: nome, stato e azioni disponibili}
+           \centering
+            \includegraphics[width=0.9\textwidth]{./img/elenco_dispositivi.png}
 \end{enumerate}
 
 \subsubsection{Modificare lo stato dei dispositivi}
