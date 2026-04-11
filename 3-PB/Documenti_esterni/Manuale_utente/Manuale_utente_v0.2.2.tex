@@ -193,10 +193,8 @@ I test sono suddivisi tra \textbf{backend} e \textbf{frontend} e vengono eseguit
 
 I test di unità verificano il corretto funzionamento dei singoli moduli del Sistema in isolamento.
 \begin{itemize}
-      \item \textbf{Backend}: Aprire un terminale nella directory \texttt{backend} ed eseguire:
-      \begin{verbatim}npm test\end{verbatim}
-      
-      \textbf{Nota:} questo comando esegue automaticamente anche i test di integrazione.
+      \item \textbf{Backend}: Aprire un terminale nella \textit{directory} \texttt{backend} ed eseguire:
+      \begin{verbatim}npm run test unit\end{verbatim}
       \item \textbf{Frontend}: Aprire un terminale nella directory \texttt{frontend} ed eseguire:
       \begin{verbatim}ng test\end{verbatim}
       Al termine dell'esecuzione, il Sistema mostra un riepilogo dei test eseguiti e dei risultati ottenuti.
@@ -208,11 +206,9 @@ I test di integrazione verificano la corretta interazione tra i diversi moduli d
 
 \begin{itemize}
       \item \textbf{Backend}: I test di integrazione sono eseguiti insieme ai test di unità tramite il comando:
-      \begin{verbatim}npm test\end{verbatim}
-      I test sono organizzati nelle \textit{directory} \texttt{test/unit/} e \texttt{test/integration/}, ma vengono eseguiti congiuntamente dal framework di testing.
-      
+      \begin{verbatim}npm run test integration\end{verbatim}
       \textbf{Nota:} è necessario che il \textit{database} sia in esecuzione.
-      \item \textbf{Frontend}: Nel frontend \textit{Angular}, i test di integrazione sono inclusi nei test eseguiti tramite:
+      \item \textbf{Frontend}: Aprire un terminale nella directory \texttt{frontend} ed eseguire:
       \begin{verbatim}ng test\end{verbatim}
 \end{itemize}
 
