@@ -183,19 +183,21 @@ dopodiché viene registrato nelle statistiche come allarme risolto.
 
 \section{Test}
 
-I test del Sistema sono suddivisi in tre categorie: test di unità, test di integrazione e test di accettazione.
+I test del sistema sono suddivisi in tre categorie: test di unità, test di integrazione e test di accettazione.
 Per eseguirli è necessario aver completato la fase di installazione descritta nella sezione~\ref{sec:installazione-github}.
-
-\noindent
-I test sono suddivisi tra \textbf{backend} e \textbf{frontend} e vengono eseguiti utilizzando gli strumenti forniti rispettivamente da \textit{NestJS}$_G$ e \textit{Angular}$_G$.
-
+\\I test sono organizzati tra \textbf{backend} e \textbf{frontend} e vengono eseguiti utilizzando gli strumenti forniti rispettivamente da \textit{NestJS}$_G$ e \textit{Angular}$_G$.
+Prima di eseguire i comandi descritti nelle sezioni successive, assicurarsi di avere \textit{Node.js} installato. Successivamente, aprire un terminale nella \textit{directory} radice del sistema ed eseguire:
+\begin{verbatim}
+npm install
+\end{verbatim}
+Tale comando installa tutte le dipendenze del progetto, necessarie per il corretto funzionamento dell'ambiente di test.
 \subsection{Esecuzione dei test di unità}
 
 I test di unità verificano il corretto funzionamento dei singoli moduli del Sistema in isolamento.
 \begin{itemize}
-      \item \textbf{Backend}: Aprire un terminale nella \textit{directory} \texttt{backend} ed eseguire:
+      \item \textbf{Backend}: aprire un terminale nella \textit{directory} \texttt{backend} ed eseguire:
       \begin{verbatim}npm run test unit\end{verbatim}
-      \item \textbf{Frontend}: Aprire un terminale nella directory \texttt{frontend} ed eseguire:
+      \item \textbf{Frontend}: aprire un terminale nella directory \texttt{frontend} ed eseguire:
       \begin{verbatim}ng test\end{verbatim}
       Al termine dell'esecuzione, il Sistema mostra un riepilogo dei test eseguiti e dei risultati ottenuti.
 \end{itemize}
@@ -205,10 +207,10 @@ I test di unità verificano il corretto funzionamento dei singoli moduli del Sis
 I test di integrazione verificano la corretta interazione tra i diversi moduli del Sistema.
 
 \begin{itemize}
-      \item \textbf{Backend}: I test di integrazione sono eseguiti insieme ai test di unità tramite il comando:
+      \item \textbf{Backend}: aprire un terminale nella \textit{directory} \texttt{backend} ed eseguire:
       \begin{verbatim}npm run test integration\end{verbatim}
       \textbf{Nota:} è necessario che il \textit{database} sia in esecuzione.
-      \item \textbf{Frontend}: Aprire un terminale nella directory \texttt{frontend} ed eseguire:
+      \item \textbf{Frontend}: aprire un terminale nella directory \texttt{frontend} ed eseguire:
       \begin{verbatim}ng test\end{verbatim}
 \end{itemize}
 
@@ -219,12 +221,14 @@ I test di integrazione verificano la corretta interazione tra i diversi moduli d
 I test di accettazione (\textit{end-to-end}) verificano il comportamento del Sistema dal punto di vista dell'utente finale, simulando scenari reali di utilizzo.
 
 \begin{itemize}
-      \item \textbf{Backend}: Aprire un terminale nella \textit{directory} \texttt{backend} ed eseguire:
+      \item \textbf{Backend}: aprire un terminale nella \textit{directory} \texttt{backend} ed eseguire:
       \begin{verbatim}npm run test:e2e\end{verbatim}
 
       \textbf{Nota:} questi test utilizzano una configurazione separata e richiedono che il \textit{database} sia attivo.
-      \item  \textbf{Frontend}: Aprire un terminale nella \textit{directory} \texttt{frontend} ed eseguire:
-      \begin{verbatim}ng test\end{verbatim}
+      \item  \textbf{Frontend}: aprire un terminale nella \textit{directory} \texttt{frontend} ed eseguire:
+      \begin{verbatim}ng serve\end{verbatim}
+      \begin{verbatim}npx cypress run\end{verbatim}
+      Al primo avvio del comando, \texttt{Cypress} potrebbe richiedere l'installazione di alcune dipendenze: in tal caso, confermare digitando \texttt{y} (\textit{yes}) e premendo \texttt{Invio}.
 \end{itemize}
 
 \section{Requisiti}
@@ -235,7 +239,7 @@ Di seguito sono elencati i requisiti minimi necessari per poter eseguire corrett
 \subsection{Browser supportati}
 \label{sec:browsers}
 
-I browser supportati sono:
+I \textit{browser} supportati sono:
 
 \begin{itemize}
     \item   \textbf{Safari}: versione 26 o superiore;
@@ -284,7 +288,7 @@ La modalità più semplice per accedere al Sistema è tramite browser, collegand
 Non è richiesta alcuna installazione.
 
 \begin{enumerate}
-    \item Aprire il browser supportato (vedere Sezione~\ref{sec:browsers});
+    \item Aprire il \textit{browser} supportato (vedere Sezione~\ref{sec:browsers});
     \item Navigare all'indirizzo \href{https://view4life.me}{view4life.me};
     \item Inserire le proprie credenziali nella schermata di accesso e premere \textbf{Accedi} (vedere sezione~\ref{sec:accesso}).
 \end{enumerate}
@@ -402,7 +406,7 @@ docker compose up -d
 
     \item Attendere il completamento dell'avvio di tutti i \textit{container}. L'operazione è considerata conclusa quando tutti i servizi risultano nello stato \textit{running} o \textit{healthy}.
 
-    \item Aprire il browser e accedere all'indirizzo:
+    \item Aprire il \textit{browser} e accedere all'indirizzo:
 \begin{verbatim}
 http://localhost:80
 \end{verbatim}
@@ -417,7 +421,7 @@ per visualizzare la schermata iniziale del Sistema.
 docker compose down
 \end{verbatim}
 
-    \item I dati vengono conservati all'interno dei volumi Docker, che rimangono disponibili per successive riaccensioni del Sistema.
+    \item I dati vengono conservati all'interno dei volumi \textit{Docker}, che rimangono disponibili per successive riaccensioni del Sistema.
 \end{enumerate}
 
 \paragraph{Ripristino}
