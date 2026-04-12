@@ -223,8 +223,8 @@ I test di accettazione (\textit{end-to-end}) verificano il comportamento del Sis
       \begin{verbatim}npm run test:e2e\end{verbatim}
 
       \textbf{Nota:} questi test utilizzano una configurazione separata e richiedono che il \textit{database} sia attivo.
-      \item  \textbf{Frontend}: Il progetto frontend non include test end-to-end dedicati.
-      La copertura dei flussi utente è garantita dai test di accettazione del backend, eseguibili tramite il comando \texttt{npm run test:e2e} nella directory \texttt{backend}.
+      \item  \textbf{Frontend}: Aprire un terminale nella \textit{directory} \texttt{frontend} ed eseguire:
+      \begin{verbatim}ng test\end{verbatim}
 \end{itemize}
 
 \section{Requisiti}
@@ -433,7 +433,7 @@ docker compose down -v --remove-orphans && docker compose up -d --build
 \textbf{Attenzione:} il comando \texttt{docker compose down -v} elimina in modo irreversibile tutti i dati memorizzati nei volumi \textit{Docker}, inclusi quelli del \textit{database}. 
 L'opzione \texttt{--remove-orphans} rimuove inoltre eventuali container non più definiti nel file di configurazione.
 
-\section{Guida all'utilizzo}
+\section{Utente Amministratore: Guida all'utilizzo}
 \subsection{Accesso}
 \label{sec:accesso}
 \begin{enumerate}
@@ -444,30 +444,6 @@ L'opzione \texttt{--remove-orphans} rimuove inoltre eventuali container non più
             \centering
             \includegraphics[width=0.5\textwidth]{./img/accesso.png}
             \caption{Schermata di accesso}
-        \end{figure}
-\end{enumerate}
-
-\subsection{Primo accesso come Operatore Sanitario}
-\label{sec:primo-accesso}
-\begin{enumerate}
-    \item Ottenere le credenziali provvisorie (username e password temporanea) 
-          dall'\admin;
-    \item Inserire le credenziali nella schermata di login e premere \textbf{Accedi};
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.5\textwidth]{./img/accedi_credenziali_temp.png}
-            \caption{Accesso con credenziali temporanee}
-        \end{figure}
-    \item Il Sistema riconosce che si tratta del primo accesso e reindirizza 
-          alla schermata di cambio password;
-    \item Inserire la password temporanea nel campo \textbf{Password attuale};
-    \item Inserire la nuova password nel campo \textbf{Nuova password};
-    \item Premere \textbf{Conferma e continua}. Il Sistema aggiorna le credenziali e reindirizza 
-    alla \textit{Dashboard}.
-        \begin{figure}[H]
-            \centering
-            \includegraphics[width=0.5\textwidth]{./img/nuova_pass_oss.png}
-            \caption{Schermata di cambio password al primo accesso}
         \end{figure}
 \end{enumerate}
 
@@ -1021,6 +997,250 @@ con una personale, seguendo la procedura descritta nella Sezione \ref{sec:primo-
             \caption{Dialogo di conferma eliminazione dell'Operatore Sanitario}
         \end{figure}
     \item Il Sistema rimuove l'Operatore Sanitario dal Sistema.
+\end{enumerate}
+
+\section{Utente Operatore Sanitario: Guida all'utilizzo}
+\subsection{Accesso}
+\label{sec:accesso}
+\begin{enumerate}
+    \item Inserire le proprie credenziali nei campi \textbf{Username} e \textbf{Password};
+    \item Premere \textbf{Accedi}. Il Sistema verifica le credenziali e reindirizza 
+    alla \textit{Dashboard}.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/accesso.png}
+            \caption{Schermata di accesso}
+        \end{figure}
+\end{enumerate}
+
+\subsection{Primo accesso come Operatore Sanitario}
+\label{sec:primo-accesso}
+\begin{enumerate}
+    \item Ottenere le credenziali provvisorie (username e password temporanea) 
+          dall'\admin;
+    \item Inserire le credenziali nella schermata di login e premere \textbf{Accedi};
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/accedi_credenziali_temp.png}
+            \caption{Accesso con credenziali temporanee}
+        \end{figure}
+    \item Il Sistema riconosce che si tratta del primo accesso e reindirizza 
+          alla schermata di cambio password;
+    \item Inserire la password temporanea nel campo \textbf{Password attuale};
+    \item Inserire la nuova password nel campo \textbf{Nuova password};
+    \item Premere \textbf{Conferma e continua}. Il Sistema aggiorna le credenziali e reindirizza 
+    alla \textit{Dashboard}.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.5\textwidth]{./img/nuova_pass_oss.png}
+            \caption{Schermata di cambio password al primo accesso}
+        \end{figure}
+\end{enumerate}
+
+\subsection{Visualizzare la \textit{Dashboard}}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textit{\textbf{Dashboard}};
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/vai_dashboard.png}
+            \caption{Voce Dashboard nel menu principale}
+        \end{figure}
+    \item Il Sistema mostra la \textit{Dashboard}, che include sempre il modulo
+          \textbf{Gestione Allarmi} e i seguenti moduli:
+          \begin{itemize}
+              \item Statistiche Allarmi;
+              \item Analisi Consumi;
+              \item Struttura appartamento.
+          \end{itemize}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/dashboard.png}
+            \caption{Schermata principale della Dashboard}
+        \end{figure}
+\end{enumerate}
+
+\subsection{Gestire le notifiche}
+\subsubsection{Visualizzare le notifiche}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Notifiche}.
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/voce_notifiche.png}
+            \caption{Voce Notifiche nel menu principale}
+        \end{figure}
+    \item Il Sistema mostra l'elenco delle notifiche. Per ogni notifica sono visibili:
+          \begin{itemize}
+              \item Il \textbf{titolo} della notifica;
+              \item il \textbf{tempo trascorso} dall'invio.
+          \end{itemize}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.8\textwidth]{./img/elenco_notifiche.png}
+            \caption{Elenco delle notifiche}
+        \end{figure}
+\end{enumerate}
+
+\subsubsection{Eliminare le notifiche}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Notifiche};
+    \item Individuare la notifica da eliminare nell'elenco;
+    \item Premere il pulsante \textbf{Elimina} accanto alla notifica;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\textwidth]{./img/elimina_notifica.png}
+            \caption{Pulsante Elimina per una singola notifica}
+        \end{figure}
+    \item Se si vogliono eliminare tutte le notifiche, premere il pulsante \textbf{Cancella tutte};
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.7\textwidth]{./img/elimina_tutte_notifiche.png}
+            \caption{Pulsante Cancella tutte le notifiche}
+        \end{figure}
+    \item Il Sistema rimuove la notifica dall'elenco.
+\end{enumerate}
+
+\subsection{Gestire i dispositivi di un appartamento}
+\subsubsection{Visualizzare i dispositivi}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Dispositivi};
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/voce_dispositivi.png}
+            \caption{Voce Dispositivi nel menu principale}
+        \end{figure}
+    \item Selezionare l'appartamento desiderato;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/selettore_appartamento_dispositivi.png}
+            \caption{Selettore appartamento nella sezione Dispositivi}
+        \end{figure}
+    \item Il Sistema mostra la vista dell'appartamento, con l'elenco delle stanze; 
+    \item Il Sistema mostra l'elenco dei dispositivi suddivisi per stanza.\\
+          Per ogni dispositivo sono visibili:
+          \begin{itemize}
+              \item Il \textbf{nome} del dispositivo;
+              \item Il \textbf{tipo};
+              \item L'\textbf{endpoint} associato;
+              \item lo \textbf{stato} attuale;
+              \item un selettore di \textbf{valore};
+              \item l' \textbf{azione} di scrittura.
+          \end{itemize}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/elenco_dispositivi.png}
+            \caption{Elenco dei dispositivi suddivisi per stanza}
+        \end{figure}
+\end{enumerate}
+
+\subsubsection{Modificare lo stato dei dispositivi}
+\begin{enumerate}
+    \item Visualizzare i dispositivi della stanza seguendo i passi descritti 
+          nella sezione precedente;
+    \item Individuare il dispositivo da modificare;
+    \item Selezionare l'azione desiderata tra quelle disponibili per il dispositivo;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/opzioni_disp.png}
+            \caption{Opzioni disponibili per la modifica di un dispositivo}
+        \end{figure}
+    \item Dopo aver selezionato il nuovo stato, premere \textbf{Scrivi};
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/scrivi.png}
+            \caption{Pulsante Scrivi per confermare la modifica del dispositivo}
+        \end{figure}
+    \item Il Sistema invia il comando al dispositivo e comunica all'utente il cambio di stato;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/comando_corr.png}
+            \caption{Conferma dell'avvenuto cambio di stato del dispositivo}
+        \end{figure}
+    \item Per poter visualizzare il nuovo stato del dispositivo è necessario ricaricare la pagina.
+\end{enumerate}
+
+\subsection{Gestire gli allarmi attivi}
+\subsubsection{Visualizzare gli allarmi attivi}
+Il modulo \textbf{Gestione Allarmi} è sempre visibile nella Dashboard e dalla voce del menu principale \textbf{Gestione Allarmi} e presenta
+l'elenco degli allarmi correntemente attivi. Per ogni allarme sono mostrati:
+\begin{itemize}
+    \item Il \textbf{segnale di pericolo} (indicatore visivo del livello di priorità);
+    \item il \textbf{nome} dell'allarme;
+    \item il \textbf{luogo} in cui è scattato l'allarme;
+    \item il \textbf{tempo trascorso} dallo scatto dell'allarme.
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=\textwidth]{./img/gestione-allarmi.png}
+    \caption{Modulo Gestione Allarmi con elenco degli allarmi attivi}
+\end{figure}
+
+\subsubsection{Risolvere un allarme attivo}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Gestione Allarmi};
+    \item Individuare l'allarme da risolvere;
+    \item Premere il pulsante \textbf{Gestisci} accanto all'allarme;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/gestisci.png}
+            \caption{Pulsante Gestisci per la risoluzione di un allarme}
+        \end{figure}
+    \item Il Sistema contrassegna l'allarme come risolto e lo rimuove dall'elenco degli allarmi attivi.
+\end{enumerate}
+
+\subsubsection{Visualizzare lo storico degli allarmi risolti}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Storico Allarmi};
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/voce_storico_allarmi.png}
+            \caption{Voce Storico Allarmi nel menu principale}
+        \end{figure}
+    \item Il Sistema mostra l'elenco degli allarmi contrassegnati come risolti. 
+          Per ogni allarme sono visibili:
+          \begin{itemize}
+              \item Il \textbf{nome} dell'allarme;
+              \item il \textbf{luogo} in cui è scattato;
+              \item l' \textbf{orario di scatto};
+              \item l' \textbf{orario di risoluzione};
+              \item il \textbf{gestore} dell'allarme.
+          \end{itemize}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/storico_allarmi.png}
+            \caption{Schermata Storico degli allarmi risolti}
+        \end{figure}
+\end{enumerate}
+
+\subsection{Visualizzare le \textit{Analytics} di un appartamento}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Analytics};
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=0.4\textwidth]{./img/voce_analytics.png}
+            \caption{Voce Analytics nel menu principale}
+        \end{figure}
+    \item Selezionare l'appartamento di cui si vogliono visualizzare le analytics;
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/analytics_sel_app.png}
+            \caption{Selettore appartamento nella sezione Analytics}
+        \end{figure}
+    \item Il Sistema mostra i grafici relativi all'appartamento selezionato, tra cui:
+          \begin{itemize}
+              \item \textbf{Consumo energetico};
+              \item \textbf{Anomalie dell'impianto};
+              \item \textbf{Rilevamento di presenza};
+              \item \textbf{Presenza prolungata};
+              \item \textbf{Variazioni di temperatura};
+              \item \textbf{Allarmi inviati e risolti};
+              \item \textbf{Frequenza degli allarmi};
+              \item \textbf{Frequenza delle cadute}.
+          \end{itemize}
+        \begin{figure}[H]
+            \centering
+            \includegraphics[width=\textwidth]{./img/analytics.png}
+            \caption{Schermata Analytics con i grafici dell'appartamento selezionato}
+        \end{figure}
 \end{enumerate}
 
 \section{Riferimento API}
