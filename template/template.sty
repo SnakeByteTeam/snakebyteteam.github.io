@@ -97,8 +97,13 @@
         \textbf{Interni:} \teamName \\
         \textbf{Esterni:} \recipientTeachers, \vimar
       \end{tabular} \\
+    \or
+      \begin{tabular}[c]{@{}l@{}}
+          \textbf{Interni:} \teamName \\
+          \textbf{Esterni:} \vimar
+        \end{tabular} \\
     \else
-      \PackageError{docRecipient}{la variabile docRecipient ha un valore non valido (#1). Usa solo 0, 1 o 2.}{}
+      \PackageError{docRecipient}{la variabile docRecipient ha un valore non valido (#1). Usa solo 0, 1, 2 o 3.}{}
     \fi
   }
 }
