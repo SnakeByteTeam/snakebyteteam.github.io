@@ -9,8 +9,8 @@
 % ------------------------
 
 \setDocTitle{Manuale Utente}
-\setDocVersion{0.2.2}
-\setDocData{10/04/2026}
+\setDocVersion{0.2.3}
+\setDocData{13/04/2026}
 \setDocIndex{Manuale Utente}
 \setDocState{1}
 \setDocRecipient{2}
@@ -40,6 +40,7 @@
 \makeTitlePage
 
 \newpage 
+\addChangelog{0.2.3}{13/04/2026}{F. Venzo}{G. De Fina}{\noOne}{Modifica sezione specifiche hardware e installazione}
 \addChangelog{0.2.2}{10/04/2026}{V. Baleanu}{G. De Fina}{\noOne}{Aggiunta sezione riferimento API}
 \addChangelog{0.2.1}{09/04/2026}{V. Baleanu}{G. De Fina}{\noOne}{Aggiunta sezione test}
 \addChangelog{0.2.0}{06/04/2026}{L. Granziero}{G. De Fina}{\noOne}{Schermate di gestione, configurazione allarmi}
@@ -133,24 +134,6 @@ In aggiunta alle funzionalità disponibili all'\os, questo tipo di utente può e
     \item Creare ed eliminare utenti di tipo \os.
 \end{itemize}
 
-\subsection{Dispositivi}
-Sono i dispositivi \textit{IoT} della gamma \textit{View Wireless} installati nelle varie stanze degli appartamenti. 
-I dispositivi \textit{IoT} gestiti dal Sistema sono: termostati, tapparelle, luci, pulsanti di allarme, sensori di presenza e di caduta.
-
-\subsection{Datapoint}
-Un \textit{datapoint} è una singola proprietà misurabile o controllabile di un 
-dispositivo \textit{IoT}.
-Ogni \textit{datapoint} ha un valore che può essere letto dal Sistema e modificato dall'utente. 
-I datapoint sono il livello di granularità su cui vengono definite le regole 
-di allarme (es. ''se il \textit{datapoint} temperatura del termostato supera 30°C, 
-scatta l'allarme'').
-
-\subsection{Appartamenti}
-Unità abitative monitorate dal Sistema, corrispondenti alle singole 
-residenze protette. 
-Ogni appartamento contiene più stanze, ciascuna dotata di dispositivi \textit{IoT}. 
-Nel Sistema, gli appartamenti vengono assegnati a un reparto dall'\admin.
-
 \subsection{Reparti}
 Raggruppamenti logici di appartamenti e operatori sanitari, 
 che rispecchiano l'organizzazione della struttura. 
@@ -163,6 +146,25 @@ ogni Operatore Sanitario, infatti, può visualizzare e gestire esclusivamente
 gli allarmi relativi agli appartamenti assegnati al proprio reparto, 
 garantendo che ciascun operatore operi solo nell'ambito di sua competenza.
 Un Operatore Sanitario può essere associato a più reparti.
+
+\subsection{Appartamenti}
+Unità abitative monitorate dal Sistema, corrispondenti alle singole 
+residenze protette. Coincidono con un impianto completo (\textit{plant}) \textit{Vimar View Wireless}
+Ogni appartamento contiene più stanze, ciascuna dotata di dispositivi \textit{IoT}. 
+Nel Sistema, gli appartamenti vengono assegnati a un reparto dall'\admin.
+
+\subsection{Dispositivi}
+Sono i dispositivi \textit{IoT} della gamma \textit{View Wireless} installati nelle varie stanze degli appartamenti. 
+I dispositivi \textit{IoT} gestiti dal Sistema sono: termostati, tapparelle, luci, pulsanti di allarme, sensori di presenza e di caduta.
+
+\subsection{Datapoint}
+Un \textit{datapoint} è una singola proprietà misurabile o controllabile di un 
+dispositivo \textit{IoT}.
+Ogni \textit{datapoint} ha un valore che può essere letto dal Sistema e modificato dall'utente. 
+I datapoint sono il livello di granularità su cui vengono definite le regole 
+di allarme (es. ''se il \textit{datapoint} temperatura del termostato supera 30°C, 
+scatta l'allarme'').
+
 
 \subsection{Allarmi}
 \subsubsection{Regole di allarme}
@@ -186,7 +188,7 @@ dopodiché viene registrato nelle statistiche come allarme risolto.
 I test del sistema sono suddivisi in tre categorie: test di unità, test di integrazione e test di accettazione.
 Per eseguirli è necessario aver completato la fase di installazione descritta nella sezione~\ref{sec:installazione-github}.
 \\I test sono organizzati tra \textbf{backend} e \textbf{frontend} e vengono eseguiti utilizzando gli strumenti forniti rispettivamente da \textit{NestJS}$_G$ e \textit{Angular}$_G$.
-Prima di eseguire i comandi descritti nelle sezioni successive, assicurarsi di avere \textit{Node.js} installato. Successivamente, aprire un terminale nella \textit{directory} radice del sistema ed eseguire:
+Prima di eseguire i comandi descritti nelle sezioni successive, assicurarsi di avere \textit{Node.js} installato. Successivamente, aprire un terminale nella \textit{directory} radice del progetto (\texttt{MVP}) ed eseguire:
 \begin{verbatim}
 npm install
 \end{verbatim}
@@ -252,15 +254,12 @@ In merito agli applicativi sviluppati, trattandosi di una \textit{web applicatio
 e basata su tecnologie moderne, i requisiti \textit{hardware} 
 dipendono principalmente dal numero di \textit{container} in esecuzione e dal carico di lavoro previsto.
 
-L'applicazione è comunque progettata per funzionare correttamente anche su macchine di fascia medio-bassa, 
-pur beneficiando di risorse aggiuntive in termini di prestazioni e reattività.
-
-A scopo puramente esemplificativo, si riportano di seguito i requisiti minimi consigliati per un ambiente di sviluppo o utilizzo a basso carico:
+A scopo puramente esemplificativo, si riportano di seguito le specifiche della macchina su cui è attualmente installata un istanza di \textit{View4Life}: 
 
 \begin{itemize}
-    \item \textbf{CPU}: processore \textit{multi-core} (almeno 2 \textit{core}) con frequenza di almeno 2.0 GHz, necessario per gestire i \textit{container Docker} e i servizi applicativi;
-    \item \textbf{RAM}: almeno 4 GB (8 GB consigliati), considerando l'esecuzione simultanea di molti servizi;
-    \item \textbf{Spazio su disco}: almeno 1 GB di spazio libero per immagini \textit{Docker}, \textit{container} e dati persistenti del \textit{database}.
+    \item \textbf{CPU}: 1 Core, 2 GHz;
+    \item \textbf{RAM}: 1 GB;
+    \item \textbf{Spazio su disco}: 25 GB.
 \end{itemize}
 
 \subsection{Requisiti software}
@@ -279,19 +278,7 @@ riducendo al minimo le operazioni richieste all'utente.
 
 \section{Accesso e installazione}
 
-Il Sistema può essere utilizzato in due modalità: tramite accesso \textit{web} all'istanza già distribuita, oppure tramite installazione locale dalla \textit{repository} su \textit{GitHub}.
-
-\subsection{Utilizzo via web}
-\label{sec:utilizzo-web}
-
-La modalità più semplice per accedere al Sistema è tramite browser, collegandosi all'indirizzo dell'istanza distribuita.
-Non è richiesta alcuna installazione.
-
-\begin{enumerate}
-    \item Aprire il \textit{browser} supportato (vedere Sezione~\ref{sec:browsers});
-    \item Navigare all'indirizzo \href{https://view4life.me}{view4life.me};
-    \item Inserire le proprie credenziali nella schermata di accesso e premere \textbf{Accedi} (vedere sezione~\ref{sec:accesso}).
-\end{enumerate}
+Il Sistema può essere utilizzato tramite installazione locale dalla \textit{repository} su \textit{GitHub}.
 
 \subsection{Installazione dalla \textit{repository} su \textit{GitHub}}
 \label{sec:installazione-github}
@@ -346,25 +333,19 @@ tra cui configurazioni relative alla base di dati, ai servizi \textit{backend} e
 
     \item \textbf{Autenticazione e OAuth}
     \begin{itemize}
-        \item \texttt{CLIENTID}: Identificativo pubblico dell'applicazione;
-        \item \texttt{CLIENTSECRET}: Chiave segreta associata al client;
-        \item \texttt{HOST1}: Endpoint di autenticazione OpenID Connect;
-        \item \texttt{HOST2}: Endpoint per ottenere il token di accesso;
-        \item \texttt{REDIRECT\_URI}: URI di redirect dopo autenticazione;
+        \item \texttt{CLIENTID}: fornito da \textit{Vimar S.p.A.} dopo la registrazione al portale \textit{MyVimar};
+        \item \texttt{CLIENTSECRET}: fornito da \textit{Vimar S.p.A.} dopo la registrazione al portale \textit{MyVimar};
+        \item \texttt{HOST1}: Endpoint di autenticazione OpenID Connect, recuperabile dalla specifica \textit{KNX IoT Third Party API} di \textit{Vimar};
+        \item \texttt{HOST2}: Endpoint per ottenere il token di accesso, recuperabile dalla specifica \textit{KNX IoT Third Party API} di \textit{Vimar};
+        \item \texttt{REDIRECT\_URI}: URI interno di redirect dopo autenticazione;
         \item \texttt{ACCESS\_SECRET}: Secret per gestione access token;
         \item \texttt{REFRESH\_SECRET}: Secret per gestione refresh token.
     \end{itemize}
 
     \item \textbf{API e configurazione KNX/Vimar}
     \begin{itemize}
-        \item \texttt{HOST3}: Endpoint base delle API KNX/Vimar;
+        \item \texttt{HOST3}: Endpoint base delle API KNX/Vimar, recuperabile dalla specifica \textit{KNX IoT Third Party API} di \textit{Vimar};;
         \item \texttt{PLANT\_DOMAIN}: Endpoint di discovery KNX.
-    \end{itemize}
-
-    \item \textbf{Credenziali utente MyVimar}
-    \begin{itemize}
-        \item \texttt{Utente}: Username dell'utente per l'account \texttt{MyVimar};
-        \item \texttt{Password}: Password dell'utente per l'account \texttt{MyVimar}.
     \end{itemize}
 
     \item \textbf{Database}
@@ -379,8 +360,8 @@ tra cui configurazioni relative alla base di dati, ai servizi \textit{backend} e
     \item \textbf{Webhook e sottoscrizioni}
     \begin{itemize}
         \item \texttt{SECRET\_FOR\_SUB}: Secret per la gestione delle sottoscrizioni;
-        \item \texttt{NODE\_SUB\_CALLBACK}: Endpoint callback per le sottoscrizioni;
-        \item \texttt{DATAPOINT\_SUB\_CALLBACK}: Endpoint callback per aggiornamenti datapoint.
+        \item \texttt{NODE\_SUB\_CALLBACK}: Endpoint interno callback per le sottoscrizioni;
+        \item \texttt{DATAPOINT\_SUB\_CALLBACK}: Endpoint interno callback per aggiornamenti datapoint.
     \end{itemize}
 
     \item \textbf{Integrazioni esterne}
@@ -1248,7 +1229,7 @@ l'elenco degli allarmi correntemente attivi. Per ogni allarme sono mostrati:
 \end{enumerate}
 
 \section{Riferimento API}
-Tutti gli \textit{endpoint backend} del Sistema sono disponibili alla seguente pagina: \url{https://view4life.me/api/api#}.
+La specifica OpenAPI del Sistema è disponibile alla seguente pagina: \url{https://view4life.me/api/docs}.
 
 \section{Supporto Tecnico}
 Il nostro team è disponibile per offrire supporto in caso di domande o problematiche legate al progetto. 
