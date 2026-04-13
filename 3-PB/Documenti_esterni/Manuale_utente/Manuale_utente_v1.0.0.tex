@@ -9,8 +9,8 @@
 % ------------------------
 
 \setDocTitle{Manuale Utente}
-\setDocVersion{0.2.3}
-\setDocData{13/04/2026}
+\setDocVersion{1.0.0}
+\setDocData{05/04/2026}
 \setDocIndex{Manuale Utente}
 \setDocState{1}
 \setDocRecipient{2}
@@ -40,11 +40,12 @@
 \makeTitlePage
 
 \newpage 
-\addChangelog{0.2.3}{13/04/2026}{F. Venzo}{G. De Fina}{\noOne}{Modifica sezione specifiche hardware e installazione}
-\addChangelog{0.2.2}{10/04/2026}{V. Baleanu}{G. De Fina}{\noOne}{Aggiunta sezione riferimento API}
-\addChangelog{0.2.1}{09/04/2026}{V. Baleanu}{G. De Fina}{\noOne}{Aggiunta sezione test}
-\addChangelog{0.2.0}{06/04/2026}{L. Granziero}{G. De Fina}{\noOne}{Schermate di gestione, configurazione allarmi}
-\addChangelog{0.1.0}{05/04/2026}{L. Granziero}{G. De Fina}{\noOne}{\firstDraft}
+\addChangelog{1.0.0}{05/04/2026}{ - }{ - }{L. Granziero}{Approvazione}
+\addChangelog{0.2.3}{04/04/2026}{F. Venzo}{G. De Fina}{\noOne}{Modifica sezione specifiche hardware e installazione}
+\addChangelog{0.2.2}{04/04/2026}{V. Baleanu}{G. De Fina}{\noOne}{Aggiunta sezione riferimento API}
+\addChangelog{0.2.1}{03/04/2026}{V. Baleanu}{G. De Fina}{\noOne}{Aggiunta sezione test}
+\addChangelog{0.2.0}{02/04/2026}{L. Granziero}{G. De Fina}{\noOne}{Schermate di gestione, configurazione allarmi}
+\addChangelog{0.1.0}{01/04/2026}{L. Granziero}{G. De Fina}{\noOne}{\firstDraft}
 \makeChangelog
 
 \newpage
@@ -254,7 +255,7 @@ In merito agli applicativi sviluppati, trattandosi di una \textit{web applicatio
 e basata su tecnologie moderne, i requisiti \textit{hardware} 
 dipendono principalmente dal numero di \textit{container} in esecuzione e dal carico di lavoro previsto.
 
-A scopo puramente esemplificativo, si riportano di seguito le specifiche della macchina su cui è attualmente installata un istanza di \textit{View4Life}: 
+A scopo puramente esemplificativo, si riportano di seguito le specifiche della macchina su cui è attualmente installata un'istanza di \textit{View4Life}: 
 
 \begin{itemize}
     \item \textbf{CPU}: 1 Core, 2 GHz;
@@ -344,7 +345,7 @@ tra cui configurazioni relative alla base di dati, ai servizi \textit{backend} e
 
     \item \textbf{API e configurazione KNX/Vimar}
     \begin{itemize}
-        \item \texttt{HOST3}: Endpoint base delle API KNX/Vimar, recuperabile dalla specifica \textit{KNX IoT Third Party API} di \textit{Vimar};;
+        \item \texttt{HOST3}: Endpoint base delle API KNX/Vimar, recuperabile dalla specifica \textit{KNX IoT Third Party API} di \textit{Vimar};
         \item \texttt{PLANT\_DOMAIN}: Endpoint di discovery KNX.
     \end{itemize}
 
@@ -467,6 +468,37 @@ L'opzione \texttt{--remove-orphans} rimuove inoltre eventuali container non più
             \caption{Stato del collegamento all'account MyVimar}
         \end{figure}
 \end{enumerate}
+
+\subsection{Scollegare l'utente Amministratore dal relativo \textit{account MyVimar}}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Profilo};
+    \item Premere \textbf{Vai a MyVimar};
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/bottone_myvimar.png}
+        \caption{Pulsante Vai a MyVimar nella schermata Profilo}
+    \end{figure}
+
+    \item Premere il pulsante \textbf{Rimuovi account};
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/pulsante_rimuovi_account.png}
+        \caption{Pulsante Rimuovi account nella schermata Integrazione MyVimar}
+    \end{figure}
+
+    \item Il Sistema rimuove il collegamento e mostra la schermata 
+    con nessun account collegato.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/account_scollegato.png}
+        \caption{Schermata Integrazione MyVimar dopo la rimozione dell'account}
+    \end{figure}
+
+\end{enumerate}
+
 
 \subsection{Visualizzare la \textit{Dashboard}}
 \begin{enumerate}
@@ -677,7 +709,8 @@ che scatena un allarme e la relativa notifica agli utenti associati al reparto c
             \includegraphics[width=\textwidth]{./img/nuova_regola_allarme.png}
             \caption{Pulsante Nuovo allarme nella sezione Configurazione Allarmi}
         \end{figure}
-    \item Selezionare l'\textbf{appartamento} a cui associare l'allarme;
+    \item Compilare il \textbf{form} della nuova regola di allarme;\\
+    "\textbf{NOTA}: i campi \textbf{Nome}, \textbf{Appartamento}, \textbf{Dispositivo} e \textbf{Datapoint} non saranno modificabili dopo la creazione della regola. In caso di errore sarà necessario eliminare la regola e crearne una nuova."
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.8\textwidth]{./img/form_allarme.png}
@@ -913,6 +946,82 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
         \end{figure}
 \end{enumerate}
 
+\subsubsection{Rimuovere un appartamento da un reparto}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Gestione Reparti}, selezionare il reparto desiderato;
+    \item Nella sezione \textbf{Appartamenti}, premere il pulsante \textbf{X} 
+    rosso accanto all'appartamento da rimuovere;
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{img/rimozione_appartamento.png}
+        \caption{Pulsante di rimozione appartamento dalla sezione del reparto}
+    \end{figure}
+
+    \item Confermare la rimozione premendo \textbf{Rimuovi} nel dialogo 
+    di conferma;
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{img/conferma_rimozione_appartamento.png}
+        \caption{Dialogo di conferma rimozione dell'appartamento dal reparto}
+    \end{figure}
+
+    \item Il Sistema rimuove l'appartamento dal reparto e aggiorna 
+    l'elenco degli appartamenti associati.
+\end{enumerate}
+
+\subsubsection{Rimuovere un Operatore Sanitario da un reparto}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Gestione Reparti}, selezionare il reparto desiderato;
+    \item Nella sezione \textbf{Operatori}, premere il pulsante \textbf{X} 
+    rosso accanto all'Operatore Sanitario da rimuovere;
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{img/eliminazione_os.png}
+        \caption{Pulsante di rimozione Operatore Sanitario dalla sezione del reparto}
+    \end{figure}
+
+    \item Confermare la rimozione premendo \textbf{Rimuovi} nel dialogo 
+    di conferma;
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{img/conferma_rimozione_os.png}
+        \caption{Dialogo di conferma rimozione dell'Operatore Sanitario dal reparto}
+    \end{figure}
+
+    \item Il Sistema rimuove l'Operatore Sanitario dal reparto e aggiorna 
+    l'elenco degli operatori associati.
+\end{enumerate}
+
+\subsubsection{Eliminare un reparto}
+\begin{enumerate}
+    \item Dalla sezione \textbf{Gestione Reparti}, selezionare il reparto 
+    da eliminare;
+    \item Premere il pulsante \textbf{cestino} rosso nella sezione 
+    \textbf{Reparti};
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.4\textwidth]{img/eliminazione_reparto.png}
+        \caption{Pulsante di eliminazione di un reparto}
+    \end{figure}
+
+    \item Confermare l'eliminazione premendo \textbf{Conferma} nel dialogo 
+    di conferma;
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.6\textwidth]{img/conferma_rimozione_reparto.png}
+        \caption{Dialogo di conferma eliminazione del reparto}
+    \end{figure}
+
+    \item Il Sistema elimina il reparto e lo rimuove dall'elenco 
+    dei reparti configurati.
+\end{enumerate}
+
 \subsection{Gestire gli utenti}
 \subsubsection{Visualizzare l'elenco degli Operatori Sanitari}
 \begin{enumerate}
@@ -1108,7 +1217,7 @@ con una personale, seguendo la procedura descritta nella Sezione \ref{sec:primo-
               \item L'\textbf{endpoint} associato;
               \item lo \textbf{stato} attuale;
               \item un selettore di \textbf{valore};
-              \item l' \textbf{azione} di scrittura.
+              \item l'\textbf{azione} di scrittura.
           \end{itemize}
         \begin{figure}[H]
             \centering
