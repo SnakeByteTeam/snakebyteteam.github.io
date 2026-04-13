@@ -487,6 +487,37 @@ L'opzione \texttt{--remove-orphans} rimuove inoltre eventuali container non più
         \end{figure}
 \end{enumerate}
 
+\subsection{Scollegare l'utente Amministratore dal relativo \textit{account MyVimar}}
+\begin{enumerate}
+    \item Dal menu principale, selezionare la voce \textbf{Profilo};
+    \item Premere \textbf{Vai a MyVimar};
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/bottone_myvimar.png}
+        \caption{Pulsante Vai a MyVimar nella schermata Profilo}
+    \end{figure}
+
+    \item Premere il pulsante \textbf{Rimuovi account};
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/pulsante_rimuovi_account.png}
+        \caption{Pulsante Rimuovi account nella schermata Integrazione MyVimar}
+    \end{figure}
+
+    \item Il Sistema rimuove il collegamento e mostra la schermata 
+    con nessun account collegato.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.8\textwidth]{img/account_scollegato.png}
+        \caption{Schermata Integrazione MyVimar dopo la rimozione dell'account}
+    \end{figure}
+
+\end{enumerate}
+
+
 \subsection{Visualizzare la \textit{Dashboard}}
 \begin{enumerate}
     \item Dal menu principale, selezionare la voce \textit{\textbf{Dashboard}};
@@ -696,7 +727,8 @@ che scatena un allarme e la relativa notifica agli utenti associati al reparto c
             \includegraphics[width=\textwidth]{./img/nuova_regola_allarme.png}
             \caption{Pulsante Nuovo allarme nella sezione Configurazione Allarmi}
         \end{figure}
-    \item Selezionare l'\textbf{appartamento} a cui associare l'allarme;
+    \item Compilare il \textbf{form} della nuova regola di allarme;\\
+    "\textbf{NOTA}: i campi \textbf{Nome}, \textbf{Appartamento}, \textbf{Dispositivo} e \textbf{Datapoint} non saranno modificabili dopo la creazione della regola. In caso di errore sarà necessario eliminare la regola e crearne una nuova."
         \begin{figure}[H]
             \centering
             \includegraphics[width=0.8\textwidth]{./img/form_allarme.png}
@@ -1248,7 +1280,7 @@ l'elenco degli allarmi correntemente attivi. Per ogni allarme sono mostrati:
 \end{enumerate}
 
 \section{Riferimento API}
-Tutti gli \textit{endpoint backend} del Sistema sono disponibili alla seguente pagina: \url{https://view4life.me/api/api#}.
+Tutti gli \textit{endpoint backend} del Sistema sono disponibili alla seguente pagina: \url{https://view4life.me/api/docs}.
 
 \section{Supporto Tecnico}
 Il nostro team è disponibile per offrire supporto in caso di domande o problematiche legate al progetto. 
