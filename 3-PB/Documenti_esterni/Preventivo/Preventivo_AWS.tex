@@ -1,0 +1,131 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../template/template}
+
+\setDocTitle{Preventivo costo AWS}
+\setDocVersion{-}
+\setDocData{12/04/2026}
+\setDocIndex{Preventivo\_costi\_AWS}
+\setDocState{2}
+\setDocRecipient{3}
+
+\begin{document}
+\makeTitlePage
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\section{Introduzione}
+
+\subsection{Scopo del documento}
+Il presente documento ha lo scopo di fornire una stima dei costi derivanti da un eventuale \textit{deploy} dell'\\applicativo \textit{View4Life} in Cloud \textit{AWS}.
+
+\subsection{Stato attuale}
+Allo stato corrente l'applicativo è stato pubblicato utilizzando il servizio \textit{Droplet} del provider \textit{DigitalOcean}, ovvero un VPS con le seguenti caratteristiche \textit{hardware}:
+\begin{itemize}
+    \item Processore: 1 Core, 2Ghz;
+    \item Memoria: 1 GB;
+    \item Disco: 25 GB;
+    \item Sistema operativo: Ubuntu 24.04 (LTS) x64;
+    \item Trasferimento: 1000 GB.
+\end{itemize}
+
+al costo di USD 6 al mese, con l'eventuale aggiunta di 0.01 USD per GB se il limite di trasferimento dati è superato.
+
+Si stima che, allo stato attuale, la configurazione possa supportare l'utilizzo simultaneo di circa 15-20 utenti con la presenza di circa 25-30 appartamenti.
+
+\section{AWS LightSail}
+Se si volesse spostare il \textit{deploy} su \textit{AWS LightSail}, servizio analogo a quello di \textit{DigitalOcean}, il costo per mensile per un macchina con le seguenti specifiche \textit{hardware}: 
+\begin{itemize}
+    \item Processore: 2 Core;
+    \item Memoria: 1 GB;
+    \item Disco: 40 GB;
+    \item Sistema operativo: Linux;
+    \item Trasferimento: 2000 GB.
+\end{itemize}
+
+sarebbe di USD 7 al mese, con l'eventuale aggiunta di 0.09 USD per GB se il limite di trasferimento dati è superato.\\
+
+Nel caso in cui l'applicativo fosse usato da un numero di utenti maggiore di 20 con la presenza di più di 30 appartamenti , le specifiche \textit{hardware} dovranno essere migliorate affinché il sistema sia utilizzabile.
+Per esempio: 
+
+\begin{itemize}
+    \item Processore: 2 Core;
+    \item Memoria: 8 GB;
+    \item Disco: 160 GB;
+    \item Sistema operativo: Linux;
+    \item Trasferimento: 5000 GB
+\end{itemize}
+
+al costo di a USD 44 al mese, con l'eventuale aggiunta di 0.09 USD per GB se il limite di trasferimento dati è superato.
+
+Una configurazione del genere può supportare fino ad un massimo stimato di 100 utenti e 250/260 appartamenti.\\
+
+Nel caso in cui il numero di utenti e di appartamenti dovesse crescere al di sopra di 100 utenti e 250/260 appartamenti si consiglia di incrementare la potenza di calcolo e di memoria della macchina ospitante, per esempio: 
+\begin{itemize}
+    \item Processore: 4 Core;
+    \item Memoria: 16 GB;
+    \item Disco: 320 GB;
+    \item Sistema operativo: Linux;
+    \item Trasferimento: 6000 GB.
+\end{itemize}
+
+al costo di USD 84 al mese, con l'eventuale aggiunta di  0.09 USD per GB se il limite di trasferimento dati è superato.
+
+Si stima che quest'ultima configurazione possa ospitare almeno 200 utenti e più di 500 appartamenti.
+
+\section{AWS EC2}
+È possibile utilizzare anche il servizio \textit{EC2} di \textit{AWS}, il quale permette di creare macchine virtuali, dette istanze, pagando \textit{on-demand} in base al carico delle istanze.
+
+L'istanza che maggiormente rispetta le stesse caratteristiche dell'attuale \textit{Droplet} è \textit{t4g.micro} che vanta le seguenti caratteristiche: 
+\begin{itemize}
+    \item Processore: 2 vCPU; 
+    \item Memoria: 1 GB;
+    \item Disco: EBS (\textit{Elastic Block Store}) ovvero spazio riservato solamente a pagamento, per un disco SSD di tipo \textit{General Purpose} (gp3) il prezzo è di 0,0924 USD per GB al mese
+    \item Sistema operativo: Linux.
+\end{itemize}
+
+La tariffa oraria base di tale istanza è di 0,0096 USD, a cui però viene aggiunta la tariffa dello spazio EBS e ulteriori USD 0.005 per ora di utilizzo di un indirizzo IPv4 pubblico.
+
+Il costo totale mensile, considerando 720 ore di esecuzione 20 GB riservati su EBS, è di circa \\12.36 USD, a cui vanno aggiunti, superati 100 GB di trasferimento in uscita gratuiti, 0.09 USD per ogni GB eccedente.\\
+
+Si può notare un costo molto superiore rispetto a \textit{LightSail} e \textit{Droplet} per le stesse caratteristiche hardware.
+Lo stesso vale per istanze con caratteristiche migliori, per esempio, il modello \textit{t4g.large} con le seguenti specifiche:  
+\begin{itemize}
+    \item Processore: 2 vCPU; 
+    \item Memoria: 8 GB;
+    \item Disco: EBS;
+    \item Sistema operativo: Linux.
+\end{itemize}
+
+può raggiungere un costo totale di 63,52 USD, considerando 720 ore di esecuzione e 50 GB di spazio su EBS, a cui vanno aggiunti, superati 100 GB di trasferimento in uscita gratuiti, 0.09 USD per ogni GB eccedente
+
+\section{Conclusione}
+\begin{center}
+    \begin{tabularx}{\textwidth}{|l|c|X|}
+        \hline
+        \rowcolor{lightgray} \textbf{Scenario} & \textbf{Costo mensile} & \textbf{Note} \\
+        \hline
+        DigitalOcean Droplet (attuale) & USD 6,00 / mese & 1 Core, 1 GB RAM, 25 GB disco, 1000 GB traffico incluso; oltre soglia: USD 0.01 / GB. \\
+        \hline
+        AWS LightSail 1 & USD 7,00 / mese & 2 Core, 1 GB RAM, 40 GB disco, 2000 GB traffico incluso; oltre soglia: USD 0.09 / GB. \\
+        \hline
+        AWS LightSail 2 & USD 44,00 / mese & 2 Core, 8 GB RAM, 160 GB disco, 5000 GB traffico incluso; oltre soglia: USD 0.09 / GB. \\
+        \hline
+        AWS LightSail 3 & USD 84,00 / mese & 4 Core, 16 GB RAM, 320 GB disco, 6000 GB traffico incluso; oltre soglia: USD 0.09 / GB. \\
+        \hline
+        AWS EC2 t4g.micro & circa USD 12,36 / mese & Stima con 720 ore, 20 GB EBS e IPv4 pubblico; oltre 100 GB traffico in uscita: USD 0.09 / GB. \\
+        \hline
+        AWS EC2 t4g.large & circa USD 63,52 / mese & Stima con 720 ore e 50 GB EBS; oltre 100 GB traffico in uscita: USD 0.09 / GB. \\
+        \hline
+    \end{tabularx}
+\end{center}
+
+In conclusione, possiamo notare come, indipendentemente dal carico di utilizzo, siano più economicamente convenienti le opzione su \textit{AWS LightSail} piuttosto che le equivalenti in \textit{AWS EC2}. Tuttavia, \textit{EC2} offre maggiore flessibilità e scalabilità rispetto a \textit{LightSail}, infatti integra nativamente la possibilità di \textit{autoscale}.
+
+
+
+\end{document}
