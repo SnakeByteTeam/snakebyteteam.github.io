@@ -35,7 +35,7 @@
 \begin{titlepage}
     \begin{center}
         \begin{center}
-            \includegraphics[width=0.6\textwidth]{logo.pdf}
+            \includegraphics[width=0.6\textwidth]{./img/logo.pdf}
         \end{center}
         \vspace{4cm}
         \huge\textbf{Piano di qualifica}\par
@@ -53,11 +53,11 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                1.0.3                                  & 01/04/2026    & Verificato      &
+                1.0.3                                  & 01/04/2026    & Verificato     &
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
-                \end{tabular}                          \\
+                \end{tabular}                      \\
                 \hline
             \end{tabular}
         \end{center}
@@ -71,12 +71,12 @@
         \hline
         \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}}                                                                                                                                                                    \\
         \hline
-        \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore}    & \textbf{Approvatore} & \textbf{Descrizione}\\
-        \hline 1.0.3                                  & 01/04/2026    & L. Granziero & G. De Fina & - & Aggiornamento allo sprint 10\\
+        \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore}    & \textbf{Approvatore} & \textbf{Descrizione}                                                                          \\
+        \hline 1.0.3                           & 01/04/2026    & L. Granziero    & G. De Fina               & -                    & Aggiornamento allo sprint 10                                                                  \\
         \hline
-        1.0.2                                  & 13/03/2026    & F. Venzo & C. Libralato & - & Aggiornamento allo sprint 9\\
+        1.0.2                                  & 13/03/2026    & F. Venzo        & C. Libralato             & -                    & Aggiornamento allo sprint 9                                                                   \\
         \hline
-        1.0.1                                  & 8/02/2026    & L. Pellizzon & F. Pasqual & - & Aggiornamento allo sprint 8\\
+        1.0.1                                  & 8/02/2026     & L. Pellizzon    & F. Pasqual               & -                    & Aggiornamento allo sprint 8                                                                   \\
         \hline
         1.0.0                                  & 13/02/2026    & -               & -                        & F. Venzo             & Approvazione                                                                                  \\
         \hline
@@ -307,62 +307,62 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
 \section{Strategie di Testing}
 \subsection{Test di sistema}
 
-\addTestS{Verificare che un Utente non autenticato possa effettuare l'autenticazione con il Sistema}{RF1-OB}{NI}
-\addTestS{Verificare che l'Utente non autenticato, durante il processo di autenticazione, possa inserire il proprio username}{RF2-OB}{NI}
-\addTestS{Verificare che l'Utente non autenticato, durante il processo di autenticazione, possa inserire la propria password}{RF3-OB}{NI}
-\addTestS{Verificare che l'Utente non autenticato riceva un messaggio errore a seguito di un tentativo di autenticazione fallito}{RF4-OB}{NI}
-\addTestS{Verificare che l'Utente autenticato possa impostare una nuova password}{RF5-OB}{NI}
-\addTestS{Verificare che l'Utente non registrato possa essere autenticato con la password temporanea fornita dall'amministratore e impostare una nuova password}{RF6-OB}{NI}
-\addTestS{Verificare che l'Utente autenticato con la password temporanea possa impostare una nuova password}{RF7-OB}{NI}
-\addTestS{Verificare che l'Utente non registrato riceva un errore a seguito di un tentativo di autenticazione con password temporanea fallito}{RF8-OB RF9-OB}{NI}
-\addTestS{Verificare che l'Utente autenticato con la password temporanea riceva un errore nel caso la nuova password sia uguale alla password temporanea}{RF10-OB}{NI}
-\addTestS{Verificare che l'Utente autenticato con la password temporanea riceva un errore nel caso la nuova password non rispetti i criteri richiesti}{RF11-OB}{NI}
-\addTestS{Verificare che l'amministratore possa visualizzare se un account MyVimar è configurato nel Sistema}{RF12-OB}{NI}
-\addTestS{Verificare che l'amministratore possa collegare un account MyVimar al Sistema}{RF13-OB}{NI}
-\addTestS{Verificare che l'amministratore possa rimuovere un account MyVimar dal Sistema}{RF14-OB}{NI}
-\addTestS{Verificare che l'amministratore possa visualizzare l'elenco degli utenti del Sistema}{RF15-DE}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando l'elenco degli utenti del Sistema, possa visualizzare un utente del Sistema nel dettaglio}{RF16-OB}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando un utente del Sistema nel dettaglio, ne visualizzi il nome}{RF17-OB}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando un utente del Sistema nel dettaglio, ne visualizzi il cognome}{RF18-OB}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando un utente del Sistema nel dettaglio, ne visualizzi l'username}{RF19-OB}{NI}
-\addTestS{Verificare che l'amministratore possa creare un utente Operatore Sanitario}{RF20-DE}{NI}
-\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa inserirne il nome}{RF21-DE}{NI}
-\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa inserirne il cognome}{RF22-DE}{NI}
-\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa inserire un username}{RF23-DE}{NI}
-\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa generare una password temporanea}{RF24-DE}{NI}
-\addTestS{Verificare che l'amministratore riceva un errore se l'username utilizzato per la creazione di un utente Operatore Sanitario è già in uso}{RF25-DE}{NI}
-\addTestS{Verificare che l'amministratore possa eliminare un utente Operatore Sanitario}{RF26-DE}{NI}
-\addTestS{Verificare che l'amministratore possa visualizzare tutti i reparti del Sistema}{RF27-OB}{NI}
-\addTestS{Verificare che l'amministratore possa visualizzare un reparto del Sistema nel dettaglio}{RF28-OB}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando un reparto del Sistema nel dettaglio, possa visualizzarne il nome}{RF29-OB}{NI}
-\addTestS{Verificare che l'amministratore possa creare un nuovo reparto}{RF30-OB}{NI}
-\addTestS{Verificare che l'amministratore, creando un nuovo reparto, possa inserirne il nome}{RF31-OB}{NI}
-\addTestS{Verificare che l'amministratore riceva un errore se il nome inserito per creare il nuovo reparto è già in uso}{RF32-OB}{NI}
-\addTestS{Verificare che l'amministratore possa modificare il nome di un reparto del Sistema}{RF33-OB}{NI}
-\addTestS{Verificare che l'amministratore possa eliminare un reparto del Sistema}{RF34-OB}{NI}
-\addTestS{Verificare che l'amministratore possa assegnare un reparto ad un utente Operatore Sanitario}{RF35-OB}{NI}
-\addTestS{Verificare che l'amministratore, assegnando un reparto ad un utente Operatore Sanitario, selezioni un utente Operatore Sanitario}{RF36-OB}{NI}
-\addTestS{Verificare che l'amministratore, assegnando un reparto ad un utente Operatore Sanitario, selezioni un reparto del Sistema}{RF37-OB}{NI}
-\addTestS{Verificare che l'amministratore possa rimuovere un utente Operatore Sanitario dall'assegnazione ad un reparto}{RF38-OB}{NI}
-\addTestS{Verificare che l'amministratore possa assegnare un reparto del Sistema ad un appartamento}{RF39-OB}{NI}
-\addTestS{Verificare che l'amministratore, assegnando un reparto del Sistema ad un appartamento, selezioni un appartamento}{RF40-OB}{NI}
-\addTestS{Verificare che l'amministratore, assegnando un reparto del Sistema ad un appartamento, selezioni un reparto del Sistema}{RF41-OB}{NI}
-\addTestS{Verificare che l'amministratore possa rimuovere un appartamento dall'assegnazione ad un reparto}{RF42-OB}{NI}
-\addTestS{Verificare che l'utente possa visualizzare una dashboard che rappresenta lo stato del sistema}{RF43-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di gestione allarmi}{RF44-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando il modulo di gestione allarmi, possa visualizzare ogni singolo allarme}{RF45-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando un singolo allarme, possa visualizzare il segnale di pericolo}{RF46-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando un singolo allarme, possa visualizzarne il nome}{RF47-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando un singolo allarme, possa visualizzarne il tempo trascorso dallo scatto}{RF48-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di statistiche allarmi}{RF49-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando il modulo di statistiche allarmi, possa visualizzare il numero di allarmi risolti}{RF50-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando il modulo di statistiche allarmi, possa visualizzare il numero di allarmi attivi}{RF51-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di informazioni Utente}{RF52-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando il modulo di informazioni utente, possa visualizzare il nome Utente}{RF53-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando il modulo di informazioni utente, possa visualizzare il cognome Utente}{RF54-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi clima}{RF55-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi consumi}{RF56-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi presenze}{RF57-OB}{NI}
+\addTestS{Verificare che un Utente non autenticato possa effettuare l'autenticazione con il Sistema}{RF1-OB}{S}
+\addTestS{Verificare che l'Utente non autenticato, durante il processo di autenticazione, possa inserire il proprio username}{RF2-OB}{S}
+\addTestS{Verificare che l'Utente non autenticato, durante il processo di autenticazione, possa inserire la propria password}{RF3-OB}{S}
+\addTestS{Verificare che l'Utente non autenticato riceva un messaggio errore a seguito di un tentativo di autenticazione fallito}{RF4-OB}{S}
+\addTestS{Verificare che l'Utente autenticato possa impostare una nuova password}{RF5-OB}{S}
+\addTestS{Verificare che l'Utente non registrato possa essere autenticato con la password temporanea fornita dall'amministratore e impostare una nuova password}{RF6-OB}{S}
+\addTestS{Verificare che l'Utente autenticato con la password temporanea possa impostare una nuova password}{RF7-OB}{S}
+\addTestS{Verificare che l'Utente non registrato riceva un errore a seguito di un tentativo di autenticazione con password temporanea fallito}{RF8-OB RF9-OB}{S}
+\addTestS{Verificare che l'Utente autenticato con la password temporanea riceva un errore nel caso la nuova password sia uguale alla password temporanea}{RF10-OB}{S}
+\addTestS{Verificare che l'Utente autenticato con la password temporanea riceva un errore nel caso la nuova password non rispetti i criteri richiesti}{RF11-OB}{S}
+\addTestS{Verificare che l'amministratore possa visualizzare se un account MyVimar è configurato nel Sistema}{RF12-OB}{S}
+\addTestS{Verificare che l'amministratore possa collegare un account MyVimar al Sistema}{RF13-OB}{S}
+\addTestS{Verificare che l'amministratore possa rimuovere un account MyVimar dal Sistema}{RF14-OB}{S}
+\addTestS{Verificare che l'amministratore possa visualizzare l'elenco degli utenti del Sistema}{RF15-DE}{S}
+\addTestS{Verificare che l'amministratore, visualizzando l'elenco degli utenti del Sistema, possa visualizzare un utente del Sistema nel dettaglio}{RF16-OB}{S}
+\addTestS{Verificare che l'amministratore, visualizzando un utente del Sistema nel dettaglio, ne visualizzi il nome}{RF17-OB}{S}
+\addTestS{Verificare che l'amministratore, visualizzando un utente del Sistema nel dettaglio, ne visualizzi il cognome}{RF18-OB}{S}
+\addTestS{Verificare che l'amministratore, visualizzando un utente del Sistema nel dettaglio, ne visualizzi l'username}{RF19-OB}{S}
+\addTestS{Verificare che l'amministratore possa creare un utente Operatore Sanitario}{RF20-DE}{S}
+\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa inserirne il nome}{RF21-DE}{S}
+\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa inserirne il cognome}{RF22-DE}{S}
+\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa inserire un username}{RF23-DE}{S}
+\addTestS{Verificare che l'amministratore, creando un utente Operatore Sanitario, possa generare una password temporanea}{RF24-DE}{S}
+\addTestS{Verificare che l'amministratore riceva un errore se l'username utilizzato per la creazione di un utente Operatore Sanitario è già in uso}{RF25-DE}{S}
+\addTestS{Verificare che l'amministratore possa eliminare un utente Operatore Sanitario}{RF26-DE}{S}
+\addTestS{Verificare che l'amministratore possa visualizzare tutti i reparti del Sistema}{RF27-OB}{S}
+\addTestS{Verificare che l'amministratore possa visualizzare un reparto del Sistema nel dettaglio}{RF28-OB}{S}
+\addTestS{Verificare che l'amministratore, visualizzando un reparto del Sistema nel dettaglio, possa visualizzarne il nome}{RF29-OB}{S}
+\addTestS{Verificare che l'amministratore possa creare un nuovo reparto}{RF30-OB}{S}
+\addTestS{Verificare che l'amministratore, creando un nuovo reparto, possa inserirne il nome}{RF31-OB}{S}
+\addTestS{Verificare che l'amministratore riceva un errore se il nome inserito per creare il nuovo reparto è già in uso}{RF32-OB}{S}
+\addTestS{Verificare che l'amministratore possa modificare il nome di un reparto del Sistema}{RF33-OB}{S}
+\addTestS{Verificare che l'amministratore possa eliminare un reparto del Sistema}{RF34-OB}{S}
+\addTestS{Verificare che l'amministratore possa assegnare un reparto ad un utente Operatore Sanitario}{RF35-OB}{S}
+\addTestS{Verificare che l'amministratore, assegnando un reparto ad un utente Operatore Sanitario, selezioni un utente Operatore Sanitario}{RF36-OB}{S}
+\addTestS{Verificare che l'amministratore, assegnando un reparto ad un utente Operatore Sanitario, selezioni un reparto del Sistema}{RF37-OB}{S}
+\addTestS{Verificare che l'amministratore possa rimuovere un utente Operatore Sanitario dall'assegnazione ad un reparto}{RF38-OB}{S}
+\addTestS{Verificare che l'amministratore possa assegnare un reparto del Sistema ad un appartamento}{RF39-OB}{S}
+\addTestS{Verificare che l'amministratore, assegnando un reparto del Sistema ad un appartamento, selezioni un appartamento}{RF40-OB}{S}
+\addTestS{Verificare che l'amministratore, assegnando un reparto del Sistema ad un appartamento, selezioni un reparto del Sistema}{RF41-OB}{S}
+\addTestS{Verificare che l'amministratore possa rimuovere un appartamento dall'assegnazione ad un reparto}{RF42-OB}{S}
+\addTestS{Verificare che l'utente possa visualizzare una dashboard che rappresenta lo stato del sistema}{RF43-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di gestione allarmi}{RF44-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando il modulo di gestione allarmi, possa visualizzare ogni singolo allarme}{RF45-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando un singolo allarme, possa visualizzare il segnale di pericolo}{RF46-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando un singolo allarme, possa visualizzarne il nome}{RF47-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando un singolo allarme, possa visualizzarne il tempo trascorso dallo scatto}{RF48-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di statistiche allarmi}{RF49-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando il modulo di statistiche allarmi, possa visualizzare il numero di allarmi risolti}{RF50-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando il modulo di statistiche allarmi, possa visualizzare il numero di allarmi attivi}{RF51-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di informazioni Utente}{RF52-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando il modulo di informazioni utente, possa visualizzare il nome Utente}{RF53-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando il modulo di informazioni utente, possa visualizzare il cognome Utente}{RF54-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi clima}{RF55-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi consumi}{RF56-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando la dashboard, possa visualizzare un modulo di analisi presenze}{RF57-OB}{S}
 \addTestS{Verificare che l'amministratore possa aggiungere alla visualizzazione della dashboard il modulo di statistiche allarmi}{RF58-DE}{NI}
 \addTestS{Verificare che l'amministratore possa rimuovere alla visualizzazione della dashboard il modulo di statistiche allarmi}{RF59-DE}{NI}
 \addTestS{Verificare che l'amministratore possa aggiungere alla visualizzazione della dashboard il modulo di informazioni Utente}{RF60-DE}{NI}
@@ -371,25 +371,25 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
 \addTestS{Verificare che l'amministratore possa rimuovere alla visualizzazione della dashboard il modulo di analisi clima}{RF63-DE}{NI}
 \addTestS{Verificare che l'amministratore possa aggiungere alla visualizzazione della dashboard il modulo di analisi consumi}{RF64-DE}{NI}
 \addTestS{Verificare che l'amministratore possa rimuovere alla visualizzazione della dashboard il modulo di analisi consumi}{RF65-DE}{NI}
-\addTestS{Verificare che l'utente possa risolvere un allarme}{RF66-OB}{NI}
-\addTestS{Verificare che l'utente possa visualizzare le analytics}{RF67-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare l'elenco dei suggerimenti risparmio energetico}{RF68-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando l'elenco dei suggerimenti risparmio energetico, possa visualizzare un suggerimento risparmio energetico}{RF69-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato al consumo energetico}{RF70-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alle anomalie dell'impianto}{RF71-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato al rilevamento presenze}{RF72-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alla presenza prolungata nello stesso ambiente}{RF73-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alle variazioni di temperatura}{RF74-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato agli allarmi inviati e risolti}{RF75-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alla frequenza degli allarmi}{RF76-OP}{NI}
-\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alla frequenza delle cadute}{RF77-OP}{NI}
-\addTestS{Verificare che l'utente possa visualizzare un appartamento del Sistema}{RF78-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando un appartamento del Sistema, possa visualizzarne il nome}{RF79-OB}{NI}
-\addTestS{Verificare che l'utente, visualizzando un appartamento del Sistema, possa visualizzarne la mappa degli allarmi}{RF80-OP}{NI}
-\addTestS{Verificare che l'utente, visualizzando un appartamento del Sistema, possa visualizzarne le stanze}{RF81-OB}{NI}
-\addTestS{Verificare che l'utente possa visualizzare una stanza di un appartamento nel dettaglio}{RF82-OB}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando una stanza nel dettaglio, possa visualizzarne il nome}{RF83-OB}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando una stanza nel dettaglio, possa visualizzarne l'elenco dei dispositivi}{RF84-OB}{NI}
+\addTestS{Verificare che l'utente possa risolvere un allarme}{RF66-OB}{S}
+\addTestS{Verificare che l'utente possa visualizzare le analytics}{RF67-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare l'elenco dei suggerimenti risparmio energetico}{RF68-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando l'elenco dei suggerimenti risparmio energetico, possa visualizzare un suggerimento risparmio energetico}{RF69-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato al consumo energetico}{RF70-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alle anomalie dell'impianto}{RF71-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato al rilevamento presenze}{RF72-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alla presenza prolungata nello stesso ambiente}{RF73-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alle variazioni di temperatura}{RF74-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato agli allarmi inviati e risolti}{RF75-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alla frequenza degli allarmi}{RF76-OP}{S}
+\addTestS{Verificare che l'utente, visualizzando le analytics, possa visualizzare il grafico dedicato alla frequenza delle cadute}{RF77-OP}{S}
+\addTestS{Verificare che l'utente possa visualizzare un appartamento del Sistema}{RF78-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando un appartamento del Sistema, possa visualizzarne il nome}{RF79-OB}{S}
+\addTestS{Verificare che l'utente, visualizzando un appartamento del Sistema, possa visualizzarne la mappa degli allarmi}{RF80-OP}{S}
+\addTestS{Verificare che l'utente, visualizzando un appartamento del Sistema, possa visualizzarne le stanze}{RF81-OB}{S}
+\addTestS{Verificare che l'utente possa visualizzare una stanza di un appartamento nel dettaglio}{RF82-OB}{S}
+\addTestS{Verificare che l'amministratore, visualizzando una stanza nel dettaglio, possa visualizzarne il nome}{RF83-OB}{S}
+\addTestS{Verificare che l'amministratore, visualizzando una stanza nel dettaglio, possa visualizzarne l'elenco dei dispositivi}{RF84-OB}{S}
 \addTestS{Verificare che l'amministratore, visualizzando l'elenco dei dispositivi di una stanza, possa visualizzare un singolo dispositivo di tipo:
     \begin{itemize}
         \item termostato;
@@ -400,15 +400,15 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
         \item porta di ingresso;
         \item tapparella.
     \end{itemize}
-}{RF85-OB}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando un dispositivo, possa visualizzarne il nome}{RF86-OB}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando un dispositivo, possa visualizzarne lo stato}{RF87-OB}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando un dispositivo, possa visualizzarne le azioni eseguibili}{RF88-OP}{NI}
-\addTestS{Verificare che l'amministratore possa abilitare un appartamento nel Sistema}{RF89-OB}{NI}
-\addTestS{Verificare che l'amministratore possa disabilitare un appartamento nel Sistema}{RF90-OB}{NI}
-\addTestS{Verificare che l'amministratore possa creare un allarme nel Sistema}{RF91-OB}{NI}
-\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un appartamento}{RF92-OB}{NI}
-\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un sensore}{RF93-OB}{NI}
+}{RF85-OB}{S}
+\addTestS{Verificare che l'amministratore, visualizzando un dispositivo, possa visualizzarne il nome}{RF86-OB}{S}
+\addTestS{Verificare che l'amministratore, visualizzando un dispositivo, possa visualizzarne lo stato}{RF87-OB}{S}
+\addTestS{Verificare che l'amministratore, visualizzando un dispositivo, possa visualizzarne le azioni eseguibili}{RF88-OP}{S}
+\addTestS{Verificare che l'amministratore possa abilitare un appartamento nel Sistema}{RF89-OB}{S}
+\addTestS{Verificare che l'amministratore possa disabilitare un appartamento nel Sistema}{RF90-OB}{S}
+\addTestS{Verificare che l'amministratore possa creare un allarme nel Sistema}{RF91-OB}{S}
+\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un appartamento}{RF92-OB}{S}
+\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un sensore}{RF93-OB}{S}
 \addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un livello di priorità tra:
     \begin{itemize}
         \item priorità 1 (bianco);
@@ -416,80 +416,78 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
         \item priorità 3 (arancione);
         \item priorità 4 (rossa)
     \end{itemize}
-}{RF94-OB}{NI}
-\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare una soglia di scatto}{RF95-OB}{NI}
-\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un orario di attivazione}{RF96-OB}{NI}
-\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un orario di disattivazione}{RF97-OB}{NI}
-\addTestS{Verificare che l'amministratore riceva un errore se durante la creazione di un allarme non ha selezionato alcun sensore}{RF98-OB}{NI}
-\addTestS{Verificare che l'amministratore riceva un errore se durante la creazione di un allarme non ha selezionato alcun livello di priorità}{RF99-OB}{NI}
-\addTestS{Verificare che l'amministratore riceva un errore se durante la creazione di un allarme non ha selezionato alcuna soglia di scatto}{RF100-OB}{NI}
-\addTestS{Verificare che l'amministratore possa modificare la priorità di un allarme del Sistema}{RF101-OB}{NI}
-\addTestS{Verificare che l'amministratore possa modificare la soglia di scatto di un allarme del Sistema}{RF102-OB}{NI}
-\addTestS{Verificare che l'amministratore possa modificare l'orario di attivazione di un allarme del Sistema}{RF103-OB}{NI}
-\addTestS{Verificare che l'amministratore possa modificare l'orario di disattivazione di un allarme del Sistema}{RF104-OB}{NI}
-\addTestS{Verificare che l'amministratore possa abilitare un allarme nel Sistema}{RF105-OB}{NI}
-\addTestS{Verificare che l'amministratore possa disabilitare un allarme nel Sistema}{RF106-OB}{NI}
-\addTestS{Verificare che l'amministratore possa eliminare un allarme dal Sistema}{RF107-OB}{NI}
-\addTestS{Verificare che l'amministratore possa visualizzare le notifiche inviate dal Sistema}{RF108-OP}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando le notifiche inviate dal Sistema, possa visualizzare una notifica nel dettaglio}{RF109-OP}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando una notifica nel dettaglio possa visualizzarne il titolo}{RF110-OP}{NI}
-\addTestS{Verificare che l'amministratore, visualizzando una notifica nel dettaglio possa visualizzarne il tempo trascorso dall'invio}{RF111-OP}{NI}
-
+}{RF94-OB}{S}
+\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare una soglia di scatto}{RF95-OB}{S}
+\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un orario di attivazione}{RF96-OB}{S}
+\addTestS{Verificare che l'amministratore, nella creazione di un allarme, possa selezionare un orario di disattivazione}{RF97-OB}{S}
+\addTestS{Verificare che l'amministratore riceva un errore se durante la creazione di un allarme non ha selezionato alcun sensore}{RF98-OB}{S}
+\addTestS{Verificare che l'amministratore riceva un errore se durante la creazione di un allarme non ha selezionato alcun livello di priorità}{RF99-OB}{S}
+\addTestS{Verificare che l'amministratore riceva un errore se durante la creazione di un allarme non ha selezionato alcuna soglia di scatto}{RF100-OB}{S}
+\addTestS{Verificare che l'amministratore possa modificare la priorità di un allarme del Sistema}{RF101-OB}{S}
+\addTestS{Verificare che l'amministratore possa modificare la soglia di scatto di un allarme del Sistema}{RF102-OB}{S}
+\addTestS{Verificare che l'amministratore possa modificare l'orario di attivazione di un allarme del Sistema}{RF103-OB}{S}
+\addTestS{Verificare che l'amministratore possa modificare l'orario di disattivazione di un allarme del Sistema}{RF104-OB}{S}
+\addTestS{Verificare che l'amministratore possa abilitare un allarme nel Sistema}{RF105-OB}{S}
+\addTestS{Verificare che l'amministratore possa disabilitare un allarme nel Sistema}{RF106-OB}{S}
+\addTestS{Verificare che l'amministratore possa eliminare un allarme dal Sistema}{RF107-OB}{S}
+\addTestS{Verificare che l'amministratore possa visualizzare le notifiche inviate dal Sistema}{RF108-OP}{S}
+\addTestS{Verificare che l'amministratore, visualizzando le notifiche inviate dal Sistema, possa visualizzare una notifica nel dettaglio}{RF109-OP}{S}
+\addTestS{Verificare che l'amministratore, visualizzando una notifica nel dettaglio possa visualizzarne il titolo}{RF110-OP}{S}
+\addTestS{Verificare che l'amministratore, visualizzando una notifica nel dettaglio possa visualizzarne il tempo trascorso dall'invio}{RF111-OP}{S}
 \makeTSTable
 
 
 \subsection{Test di accettazione}
-
-\addTestA{Verificare che il prodotto dia la possibilità all'utente non autenticato di essere riconosciuto tramite username e password}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente non registrato di autenticarsi tramite username e password temporanea, forniti dall'amministratore}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità, all'utente autenticato tramite password temporanea, di cambiare password}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di gestire l'account MyVimar collegato all'impianto}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di visualizzare l'elenco degli utenti}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di creare utenti Operatore Sanitario}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore eliminare utenti Operatore Sanitario}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di generare una password temporanea per gli utenti Operatore Sanitario}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la lista dei reparti}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di creare un reparto}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di eliminare un reparto}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di assegnare un reparto ad un utente Operatore Sanitario}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere l'assegnazione di un reparto ad un utente Operatore Sanitario}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di assegnare un reparto ad un appartamento}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere l'assegnazione di un reparto ad un appartamento}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la dashboard}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo gestione allarmi nella dashboard}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo statistiche allarmi nella dashboard}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente non autenticato di essere riconosciuto tramite username e password}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente non registrato di autenticarsi tramite username e password temporanea, forniti dall'amministratore}{S}
+\addTestA{Verificare che il prodotto dia la possibilità, all'utente autenticato tramite password temporanea, di cambiare password}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di gestire l'account MyVimar collegato all'impianto}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di visualizzare l'elenco degli utenti}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di creare utenti Operatore Sanitario}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore eliminare utenti Operatore Sanitario}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente amministratore di generare una password temporanea per gli utenti Operatore Sanitario}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la lista dei reparti}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di creare un reparto}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di eliminare un reparto}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di assegnare un reparto ad un utente Operatore Sanitario}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere l'assegnazione di un reparto ad un utente Operatore Sanitario}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di assegnare un reparto ad un appartamento}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere l'assegnazione di un reparto ad un appartamento}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la dashboard}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo gestione allarmi nella dashboard}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo statistiche allarmi nella dashboard}{S}
 \addTestA{Verificare che il prodotto dia la possibilità all'amministratore di aggiungere il modulo informazioni utente alla dashboard}{NI}
 \addTestA{Verificare che il prodotto dia la possibilità all'amministratore di aggiungere il modulo analisi clima alla dashboard}{NI}
 \addTestA{Verificare che il prodotto dia la possibilità all'amministratore di aggiungere il modulo analisi consumi alla dashboard}{NI}
 \addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere il modulo informazioni utente dalla dashboard}{NI}
 \addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere il modulo analisi clima dalla dashboard}{NI}
 \addTestA{Verificare che il prodotto dia la possibilità all'amministratore di rimuovere il modulo analisi consumi dalla dashboard}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo informazioni utente nella dashboard}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo analisi clima nella dashboard}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo analisi consumi nella dashboard}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di risolvere un allarme}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare le analytics}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare i consigli di risparmio energetico}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato al consumo energetico}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alle anomalie dell'impianto}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato al rilevamento presenze}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla presenza prolungata nello stesso ambiente}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alle variazioni di temperatura}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato agli allarmi inviati e risolti}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla frequenza degli allarmi}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla frequenza delle cadute}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare un appartamento}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la mappa degli allarmi di un appartamento}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare l'elenco di stanze di un appartamento}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare l'elenco dei dispositivi di una stanza}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di abilitare un appartamento}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di disabilitare un appartamento}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di creare un allarme}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di modificare un allarme}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di abilitare un allarme}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di disabilitare un allarme}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di ricevere notifiche dal Sistema}{NI}
-\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare le notifiche ricevute dal Sistema}{NI}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo informazioni utente nella dashboard}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo analisi clima nella dashboard}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il modulo analisi consumi nella dashboard}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di risolvere un allarme}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare le analytics}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare i consigli di risparmio energetico}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato al consumo energetico}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alle anomalie dell'impianto}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato al rilevamento presenze}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla presenza prolungata nello stesso ambiente}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alle variazioni di temperatura}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato agli allarmi inviati e risolti}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla frequenza degli allarmi}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare il grafico dedicato alla frequenza delle cadute}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare un appartamento}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare la mappa degli allarmi di un appartamento}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare l'elenco di stanze di un appartamento}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare l'elenco dei dispositivi di una stanza}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di abilitare un appartamento}{S}
+\addTestA{Verificare che il prodotto dia la possibilità l'amministratore di disabilitare un appartamento}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di creare un allarme}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di modificare un allarme}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di abilitare un allarme}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'amministratore di disabilitare un allarme}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di ricevere notifiche dal Sistema}{S}
+\addTestA{Verificare che il prodotto dia la possibilità all'utente di visualizzare le notifiche ricevute dal Sistema}{S}
 
 \makeTATable
 
@@ -503,7 +501,7 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
     \label{fig:mpc1-mpc2}
 \end{figure}
 
-L'andamento del grafico denota un progressivo aumento del lavoro completato. Fino allo Sprint 3 rimane al di sotto della percentuale prevista. Grazie ad una successiva ripianificazione la percentuale di lavoro svolto è di poco al di sopra del pianificato. 
+L'andamento del grafico denota un progressivo aumento del lavoro completato. Fino allo Sprint 3 rimane al di sotto della percentuale prevista. Grazie ad una successiva ripianificazione la percentuale di lavoro svolto è di poco al di sopra del pianificato.
 Durante i periodi degli Sprint 8 e 9, il valore di lavoro completato è ritornato leggermente al di sotto del preventivo, a causa di alcune sovrastime nella pianificazione. Per i prossimi Sprint si prevede di mantenere un andamento quasi simile a quello attuale, ritornando in linea con le previsioni.
 
 \subsection{MPC3 e MPC7 - Actual Cost e Estimate To Complete}
@@ -538,7 +536,7 @@ Per gli ultimi due Sprint si prevede di concludere le attività senza ritardi si
 
 Il grafico rappresenta quanto riportato nella figura \ref{fig:mpc1-mpc2} (MPC1 e MPC2), ovvero una buona gestione del budget iniziale, con una previsione del costo al completamento in linea con il preventivo iniziale.
 Al termine dello Sprint 5, momento in cui lo sforamento di budget ha raggiunto il valore massimo, è stata effettuata una lieve ripianificazione che ha contribuito alla riduzione dello scostamento dai costi previsti.
-Dallo Sprint 7 allo Sprint 8 il costo stimato al completamento è rimasto al di sotto del preventivo iniziale, subendo un leggero aumento durante lo Sprint 9. 
+Dallo Sprint 7 allo Sprint 8 il costo stimato al completamento è rimasto al di sotto del preventivo iniziale, subendo un leggero aumento durante lo Sprint 9.
 Per i prossimi periodi si prevede, grazie all'esperienza maturata fino ad ora, di raffinare le stime orarie e quindi di riportare l'EAC completamente in linea o al di sotto del previsto.
 Allo Sprint 10 l'EAC si è attestato sensibilmente al di sotto del BAC, confermando una gestione del budget più efficiente precedentemente prevista.
 
@@ -561,10 +559,10 @@ Dallo Sprint 4 in poi i requisiti hanno avuto una stabilità pressoché ottima e
     \label{fig:mpc9}
 \end{figure}
 
-Durante tutti gli sprint la leggibilità dei documenti è rimasta buona e al di 
-sopra della soglia di accettabilità. Allo Sprint 10 si è registrato un calo 
-dell'indice di Gulpease per il Glossario e le Norme di Progetto, dovuto 
-all'aggiunta di contenuti correlati alla progettazione e alla codifica. 
+Durante tutti gli sprint la leggibilità dei documenti è rimasta buona e al di
+sopra della soglia di accettabilità. Allo Sprint 10 si è registrato un calo
+dell'indice di Gulpease per il Glossario e le Norme di Progetto, dovuto
+all'aggiunta di contenuti correlati alla progettazione e alla codifica.
 Entrambi i documenti rimangono comunque al di sopra della soglia di accettabilità.
 
 
@@ -589,7 +587,7 @@ Si rende evidente il fatto che il documento "Glossario" non è stato incluso nel
 \end{figure}
 
 Dal grafico è evidente l'impegno del gruppo nei confronti delle metriche di qualità di processo e del loro soddisfacimento.
-Un lieve peggioramento è stato notato durante lo Sprint 4, soprattutto a causa dei rischi inattesi e dell'instabilità dei requisiti durante tale periodo. 
+Un lieve peggioramento è stato notato durante lo Sprint 4, soprattutto a causa dei rischi inattesi e dell'instabilità dei requisiti durante tale periodo.
 Dopo averne preso consapevolezza, il gruppo ha adottato opportune azioni correttive, riuscendo a migliorare progressivamente le performance negli sprint successivi.
 Per i prossimi sprint è previsto il mantenimento del trend positivo, con l'obiettivo di consolidare il rispetto delle metriche di qualità di processo e mantenere il livello di soddisfacimento attuale.
 
@@ -603,9 +601,9 @@ Per i prossimi sprint è previsto il mantenimento del trend positivo, con l'obie
 
 La percentuale rispetto al totale dei rischi inattesi è superiore al valore massimo accettabile nella maggior parte dei periodi.
 Testimonia una capacità ancora non matura di previsione dei rischi da parte del gruppo.
-Si può notare però che agli Sprint 6, 7 e 8 è diminuita, subendo un rialzo 
-allo Sprint 9. Allo Sprint 10 la percentuale di rischi inattesi si è 
-mantenuta al di sotto del valore massimo accettabile, confermando il 
+Si può notare però che agli Sprint 6, 7 e 8 è diminuita, subendo un rialzo
+allo Sprint 9. Allo Sprint 10 la percentuale di rischi inattesi si è
+mantenuta al di sotto del valore massimo accettabile, confermando il
 miglioramento nella capacità di previsione dei rischi da parte del gruppo.
 
 \subsection{MPC14 - Labor Efficiency}
@@ -616,14 +614,14 @@ miglioramento nella capacità di previsione dei rischi da parte del gruppo.
     \label{fig:mpc14}
 \end{figure}
 
-Dal grafico è possibile notare, fin dal primo Sprint, un'eccellente efficienza 
-nel lavoro svolto, con un picco importante durante lo Sprint 6 e 8. 
-È opportuno sottolineare che tale andamento non indica un'eccessiva efficienza 
-operativa del gruppo, bensì evidenzia che le ore preventivate sono risultate 
-superiori rispetto a quelle effettivamente impiegate. Allo Sprint 10 si è 
-registrato un calo della Labor Efficiency al di sotto del valore ottimo, dovuto 
-a una stima delle ore più accurata rispetto ai periodi precedenti: le ore 
-effettivamente impiegate si sono avvicinate a quelle preventivate, riducendo 
+Dal grafico è possibile notare, fin dal primo Sprint, un'eccellente efficienza
+nel lavoro svolto, con un picco importante durante lo Sprint 6 e 8.
+È opportuno sottolineare che tale andamento non indica un'eccessiva efficienza
+operativa del gruppo, bensì evidenzia che le ore preventivate sono risultate
+superiori rispetto a quelle effettivamente impiegate. Allo Sprint 10 si è
+registrato un calo della Labor Efficiency al di sotto del valore ottimo, dovuto
+a una stima delle ore più accurata rispetto ai periodi precedenti: le ore
+effettivamente impiegate si sono avvicinate a quelle preventivate, riducendo
 il surplus che aveva caratterizzato gli sprint precedenti.
 
 \end{document}
