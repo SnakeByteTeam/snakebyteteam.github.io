@@ -1,5 +1,5 @@
 \documentclass[10pt, letterpaper]{article}
-\usepackage{../../../template/template}
+\usepackage{../../template/template}
 \usepackage{xspace}
 \usepackage{float}
 \usepackage[italian]{babel}
@@ -61,6 +61,105 @@
 % \listoftables
 
 % \newpage
+\section{Requisiti}
+\label{sec:requisiti}
+
+Di seguito sono elencati i requisiti minimi necessari per poter eseguire correttamente il Sistema.
+
+\subsection{Browser supportati}
+\label{sec:browsers}
+
+I \textit{browser} supportati sono:
+
+\begin{itemize}
+    \item   \textbf{Safari}: versione 26 o superiore;
+    \item   \textbf{Chrome}: versione 147 o superiore;
+    \item   \textbf{Firefox}: versione 149 o superiore;
+\end{itemize}
+
+\newpage
+
+\section{Concetti}
+
+\subsection{Tipi di utenti}
+Nel Sistema realizzato sono presenti due tipologie di utenti: \textbf{\admin} e \textbf{\os}.
+
+\subsubsection{Operatore Sanitario}
+L'\textbf{\os} è l'utente che opera all'interno del Sistema svolgendo attività legate ai reparti e agli allarmi. Può consultare e aggiornare le informazioni di propria competenza, senza però avere accesso alle funzionalità amministrative.
+Questo tipo di utente può effettuare le seguenti azioni:
+\begin{itemize}
+    \item Autenticazione;
+    \item Prima autenticazione con cambio password;
+    \item Visualizzare il cruscotto iniziale (\textit{Dashboard}${_G}$);
+    \item Visualizzare e modificare lo stato dei dispositivi \textit{IoT}${_G}$;
+    \item Visualizzare e risolvere gli allarmi attivi;
+    \item Visualizzare lo storico degli allarmi risolti;
+    \item Visualizzare l'elenco delle notifiche;
+    \item Visualizzare il cruscotto analitico (\textit{Analytics}).
+\end{itemize}
+
+\subsubsection{Amministratore}
+L'\textbf{\admin} è l'utente responsabile della gestione complessiva del Sistema, inclusi i reparti, gli allarmi e gli operatori sanitari presenti.
+In aggiunta alle funzionalità disponibili all'\os, questo tipo di utente può effettuare anche le seguenti azioni:
+\begin{itemize}
+    \item Collegare il proprio profilo all'\textit{account} \textit{MyVimar};
+    \item Visualizzare, creare e gestire le regole di allarme;
+    \item Creare un reparto;
+    \item Assegnare degli appartamenti ad un reparto;
+    \item Assegnare degli Operatori Sanitari ad un reparto;
+    \item Creare ed eliminare utenti di tipo \os.
+\end{itemize}
+
+\subsection{Reparti}
+Raggruppamenti logici di appartamenti e operatori sanitari, 
+che rispecchiano l'organizzazione della struttura. 
+Ogni reparto ha un nome, un insieme di appartamenti assegnati e un 
+insieme di Operatori Sanitari responsabili. 
+La gestione dei reparti (creazione, modifica, eliminazione e assegnazioni) 
+è di competenza esclusiva dell'\admin.
+Il reparto è il meccanismo centrale di controllo degli accessi del Sistema: 
+ogni Operatore Sanitario, infatti, può visualizzare e gestire esclusivamente 
+gli allarmi relativi agli appartamenti assegnati al proprio reparto, 
+garantendo che ciascun operatore operi solo nell'ambito di sua competenza.
+Un Operatore Sanitario può essere associato a più reparti.
+
+\subsection{Appartamenti}
+Unità abitative monitorate dal Sistema, corrispondenti alle singole 
+residenze protette. Coincidono con un impianto completo (\textit{plant}) \textit{Vimar View Wireless}
+Ogni appartamento contiene più stanze, ciascuna dotata di dispositivi \textit{IoT}. 
+Nel Sistema, gli appartamenti vengono assegnati a un reparto dall'\admin.
+
+\subsection{Dispositivi}
+Sono i dispositivi \textit{IoT} della gamma \textit{View Wireless} installati nelle varie stanze degli appartamenti. 
+I dispositivi \textit{IoT} gestiti dal Sistema sono: termostati, tapparelle, luci, pulsanti di allarme, sensori di presenza e di caduta.
+
+\subsection{Datapoint}
+Un \textit{datapoint} è una singola proprietà misurabile o controllabile di un 
+dispositivo \textit{IoT}.
+Ogni \textit{datapoint} ha un valore che può essere letto dal Sistema e modificato dall'utente. 
+I datapoint sono il livello di granularità su cui vengono definite le regole 
+di allarme (es. ''se il \textit{datapoint} temperatura del termostato supera 30°C, 
+scatta l'allarme'').
+
+
+\subsection{Allarmi}
+\subsubsection{Regole di allarme}
+Una regola di allarme è la configurazione che definisce quando un 
+allarme deve scattare. 
+È composta da: il \textit{datapoint} monitorato, una soglia di intervento 
+(ovvero il valore oltre cui scatta), un livello di priorità, 
+e un intervallo orario di attivazione/disattivazione. 
+Le regole sono create e gestite solo dall'Amministratore e possono essere 
+abilitate o disabilitate senza essere eliminate.
+\subsubsection{Evento di allarme}
+È l'istanza concreta che si genera quando le condizioni definite da 
+una regola di allarme vengono soddisfatte. 
+Appare nella \textit{dashboard} dell'Operatore Sanitario come allarme attivo, 
+mostrando il nome, la priorità e il tempo trascorso dallo scatto. 
+L'Operatore Sanitario può contrassegnarlo come risolto, 
+dopodiché viene registrato nelle statistiche come allarme risolto.
+
+\newpage
 
 
 \section{Utente Amministratore: Guida all'utilizzo}
@@ -68,7 +167,7 @@
 \label{sec:accesso}
 \begin{enumerate}    
     \item Inserire le proprie credenziali nei campi \textbf{Username} e \textbf{Password};
-    \item Premere \textbf{Accedi}. Il Sistema verifica le credenziali e reindirizza 
+    \item Premere \textbf{Accedi}. Il Sistema verifica le credenziali e reindirizza
           alla \textit{Dashboard}.
           \begin{figure}[H]
               \centering
@@ -104,7 +203,7 @@
               \caption{Portale di autenticazione Vimar}
           \end{figure}
     \item Inserire le credenziali MyVimar e premere \textbf{Entra};
-    \item Il Sistema registra il collegamento e mostra l'indirizzo email 
+    \item Il Sistema registra il collegamento e mostra l'indirizzo email
           dell'account MyVimar collegato.
           \begin{figure}[H]
               \centering
@@ -132,7 +231,7 @@
               \caption{Pulsante Rimuovi account nella schermata Integrazione MyVimar}
           \end{figure}
           
-    \item Il Sistema rimuove il collegamento e mostra la schermata 
+    \item Il Sistema rimuove il collegamento e mostra la schermata
           con nessun account collegato.
           
           \begin{figure}[H]
@@ -221,7 +320,7 @@
               \includegraphics[width=0.4\textwidth]{./img/selettore_appartamento_dispositivi.png}
               \caption{Selettore appartamento nella sezione Dispositivi}
           \end{figure}
-    \item Il Sistema mostra la vista dell'appartamento, con l'elenco delle stanze; 
+    \item Il Sistema mostra la vista dell'appartamento, con l'elenco delle stanze;
     \item Il Sistema mostra l'elenco dei dispositivi suddivisi per stanza.\\
           Per ogni dispositivo sono visibili:
           \begin{itemize}    
@@ -241,7 +340,7 @@
 
 \subsubsection{Modificare lo stato dei dispositivi}
 \begin{enumerate}    
-    \item Visualizzare i dispositivi della stanza seguendo i passi descritti 
+    \item Visualizzare i dispositivi della stanza seguendo i passi descritti
           nella sezione precedente;
     \item Individuare il dispositivo da modificare;
     \item Selezionare l'azione desiderata tra quelle disponibili per il dispositivo;
@@ -302,7 +401,7 @@ l'elenco degli allarmi correntemente attivi. Per ogni allarme sono mostrati:
               \includegraphics[width=0.4\textwidth]{./img/voce_storico_allarmi.png}
               \caption{Voce Storico Allarmi nel menu principale}
           \end{figure}
-    \item Il Sistema mostra l'elenco degli allarmi contrassegnati come risolti. 
+    \item Il Sistema mostra l'elenco degli allarmi contrassegnati come risolti.
           Per ogni allarme sono visibili:
           \begin{itemize}    
               \item Il \textbf{nome} dell'allarme;
@@ -360,7 +459,7 @@ che scatena un allarme e la relativa notifica agli utenti associati al reparto c
               \includegraphics[width=0.8\textwidth]{./img/form_allarme.png}
               \caption{Form di creazione di una nuova regola di allarme}
           \end{figure}
-    \item Compilare tutti i campi richiesti. 
+    \item Compilare tutti i campi richiesti.
           Infine premere \textbf{Crea Allarme} per confermare. Il Sistema salva l'allarme e lo aggiunge
           all'elenco.
           \begin{figure}[H]
@@ -397,7 +496,7 @@ che scatena un allarme e la relativa notifica agli utenti associati al reparto c
 \subsubsection{Visualizzare le regole di allarme}
 \begin{enumerate}    
     \item Dal menu principale, selezionare la voce \textbf{Configurazione Allarmi};
-    \item Il Sistema mostra l'elenco delle regole di allarme configurate. 
+    \item Il Sistema mostra l'elenco delle regole di allarme configurate.
           Per ogni regola sono visibili:
           \begin{itemize}    
               \item Il \textbf{nome} dell'allarme;
@@ -512,7 +611,7 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \includegraphics[width=0.4\textwidth]{./img/voce_gestione_rep.png}
               \caption{Voce Gestione Reparti nel menu principale}
           \end{figure}
-    \item Il Sistema mostra l'elenco dei reparti configurati. Per ogni reparto 
+    \item Il Sistema mostra l'elenco dei reparti configurati. Per ogni reparto
           sono visibili:
           \begin{itemize}    
               \item Il \textbf{nome} del reparto;
@@ -534,7 +633,7 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \includegraphics[width=0.5\textwidth]{./img/nuovo_reparto.png}
               \caption{Pulsante Nuovo reparto nella sezione Gestione Reparti}
           \end{figure}
-    \item Inserire il \textbf{nome} del reparto e premere \textbf{Crea reparto} per confermare. Il Sistema salva il reparto 
+    \item Inserire il \textbf{nome} del reparto e premere \textbf{Crea reparto} per confermare. Il Sistema salva il reparto
           e lo aggiunge all'elenco.
           \begin{figure}[H]
               \centering
@@ -558,7 +657,7 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \includegraphics[width=0.5\textwidth]{./img/assegna_app_scegli.png}
               \caption{Selezione dell'appartamento da assegnare al reparto}
           \end{figure}
-    \item Premere \textbf{Assegna}. Il Sistema registra l'assegnazione e 
+    \item Premere \textbf{Assegna}. Il Sistema registra l'assegnazione e
           aggiorna l'elenco degli appartamenti del reparto.
           \begin{figure}[H]
               \centering
@@ -593,7 +692,7 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
 \subsubsection{Rimuovere un appartamento da un reparto}
 \begin{enumerate}    
     \item Dalla sezione \textbf{Gestione Reparti}, selezionare il reparto desiderato;
-    \item Nella sezione \textbf{Appartamenti}, premere il pulsante \textbf{X} 
+    \item Nella sezione \textbf{Appartamenti}, premere il pulsante \textbf{X}
           rosso accanto all'appartamento da rimuovere;
           
           \begin{figure}[H]
@@ -602,7 +701,7 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \caption{Pulsante di rimozione appartamento dalla sezione del reparto}
           \end{figure}
           
-    \item Confermare la rimozione premendo \textbf{Rimuovi} nel dialogo 
+    \item Confermare la rimozione premendo \textbf{Rimuovi} nel dialogo
           di conferma;
           
           \begin{figure}[H]
@@ -611,14 +710,14 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \caption{Dialogo di conferma rimozione dell'appartamento dal reparto}
           \end{figure}
           
-    \item Il Sistema rimuove l'appartamento dal reparto e aggiorna 
+    \item Il Sistema rimuove l'appartamento dal reparto e aggiorna
           l'elenco degli appartamenti associati.
 \end{enumerate}
 
 \subsubsection{Rimuovere un Operatore Sanitario da un reparto}
 \begin{enumerate}    
     \item Dalla sezione \textbf{Gestione Reparti}, selezionare il reparto desiderato;
-    \item Nella sezione \textbf{Operatori}, premere il pulsante \textbf{X} 
+    \item Nella sezione \textbf{Operatori}, premere il pulsante \textbf{X}
           rosso accanto all'Operatore Sanitario da rimuovere;
           
           \begin{figure}[H]
@@ -627,7 +726,7 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \caption{Pulsante di rimozione Operatore Sanitario dalla sezione del reparto}
           \end{figure}
           
-    \item Confermare la rimozione premendo \textbf{Rimuovi} nel dialogo 
+    \item Confermare la rimozione premendo \textbf{Rimuovi} nel dialogo
           di conferma;
           
           \begin{figure}[H]
@@ -636,15 +735,15 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \caption{Dialogo di conferma rimozione dell'Operatore Sanitario dal reparto}
           \end{figure}
           
-    \item Il Sistema rimuove l'Operatore Sanitario dal reparto e aggiorna 
+    \item Il Sistema rimuove l'Operatore Sanitario dal reparto e aggiorna
           l'elenco degli operatori associati.
 \end{enumerate}
 
 \subsubsection{Eliminare un reparto}
 \begin{enumerate}    
-    \item Dalla sezione \textbf{Gestione Reparti}, selezionare il reparto 
+    \item Dalla sezione \textbf{Gestione Reparti}, selezionare il reparto
           da eliminare;
-    \item Premere il pulsante \textbf{cestino} rosso nella sezione 
+    \item Premere il pulsante \textbf{cestino} rosso nella sezione
           \textbf{Reparti};
           
           \begin{figure}[H]
@@ -653,7 +752,7 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \caption{Pulsante di eliminazione di un reparto}
           \end{figure}
           
-    \item Confermare l'eliminazione premendo \textbf{Conferma} nel dialogo 
+    \item Confermare l'eliminazione premendo \textbf{Conferma} nel dialogo
           di conferma;
           
           \begin{figure}[H]
@@ -662,7 +761,7 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \caption{Dialogo di conferma eliminazione del reparto}
           \end{figure}
           
-    \item Il Sistema elimina il reparto e lo rimuove dall'elenco 
+    \item Il Sistema elimina il reparto e lo rimuove dall'elenco
           dei reparti configurati.
 \end{enumerate}
 
@@ -675,7 +774,7 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \includegraphics[width=0.3\textwidth]{./img/voce_gestione_utenti.png}
               \caption{Voce Gestione Utenti nel menu principale}
           \end{figure}
-    \item Il Sistema mostra l'elenco degli Operatori Sanitari registrati. 
+    \item Il Sistema mostra l'elenco degli Operatori Sanitari registrati.
           Per ogni utente sono visibili:
           \begin{itemize}    
               \item Il \textbf{nome};
@@ -697,21 +796,21 @@ Gli unici parametri modificabili sono: priorità, valore di soglia e orari di at
               \includegraphics[width=0.6\textwidth]{./img/inserisci_nuovo_operatore.png}
               \caption{Pulsante Inserisci Nuovo Operatore nella sezione Gestione Utenti}
           \end{figure}
-    \item Inserire il \textbf{nome}, il \textbf{cognome} e lo \textbf{username} 
+    \item Inserire il \textbf{nome}, il \textbf{cognome} e lo \textbf{username}
           del nuovo Operatore Sanitario, quindi premere \textbf{Crea Utente}.
           \begin{figure}[H]
               \centering
               \includegraphics[width=0.6\textwidth]{./img/nuovo_oss.png}
               \caption{Form di creazione di un nuovo Operatore Sanitario}
           \end{figure}
-    \item Il Sistema genera automaticamente una password provvisoria 
+    \item Il Sistema genera automaticamente una password provvisoria
           da consegnare all'operatore;
           \begin{figure}[H]
               \centering
               \includegraphics[width=0.6\textwidth]{./img/ho_comunicato_pass.png}
               \caption{Schermata con la password provvisoria generata per il nuovo Operatore Sanitario}
           \end{figure}
-    \item Premere \textbf{Ho comunicato la password} per confermare. Il Sistema registra il 
+    \item Premere \textbf{Ho comunicato la password} per confermare. Il Sistema registra il
           nuovo Operatore Sanitario e lo aggiunge all'elenco.
 \end{enumerate}
 Al primo accesso, l'Operatore Sanitario dovrà sostituire la password temporanea
@@ -719,7 +818,7 @@ con una personale, seguendo la procedura descritta nella Sezione \ref{sec:primo-
 
 \subsubsection{Eliminare un Operatore Sanitario}
 \begin{enumerate}    
-    \item Dalla sezione \textbf{Gestione Utenti}, individuare l'Operatore Sanitario 
+    \item Dalla sezione \textbf{Gestione Utenti}, individuare l'Operatore Sanitario
           da eliminare;
     \item Premere il pulsante \textbf{Elimina} accanto all'utente;
           \begin{figure}[H]
@@ -727,7 +826,7 @@ con una personale, seguendo la procedura descritta nella Sezione \ref{sec:primo-
               \includegraphics[width=0.6\textwidth]{./img/elimina_oss.png}
               \caption{Pulsante Elimina per un Operatore Sanitario}
           \end{figure}
-    \item Confermare l'eliminazione premendo \textbf{Elimina} nel dialogo 
+    \item Confermare l'eliminazione premendo \textbf{Elimina} nel dialogo
           di conferma.
           \begin{figure}[H]
               \centering
@@ -742,7 +841,7 @@ con una personale, seguendo la procedura descritta nella Sezione \ref{sec:primo-
 \label{sec:accesso}
 \begin{enumerate}    
     \item Inserire le proprie credenziali nei campi \textbf{Username} e \textbf{Password};
-    \item Premere \textbf{Accedi}. Il Sistema verifica le credenziali e reindirizza 
+    \item Premere \textbf{Accedi}. Il Sistema verifica le credenziali e reindirizza
           alla \textit{Dashboard}.
           \begin{figure}[H]
               \centering
@@ -754,7 +853,7 @@ con una personale, seguendo la procedura descritta nella Sezione \ref{sec:primo-
 \subsection{Primo accesso come Operatore Sanitario}
 \label{sec:primo-accesso}
 \begin{enumerate}    
-    \item Ottenere le credenziali provvisorie (username e password temporanea) 
+    \item Ottenere le credenziali provvisorie (username e password temporanea)
           dall'\admin;
     \item Inserire le credenziali nella schermata di login e premere \textbf{Accedi};
           \begin{figure}[H]
@@ -762,11 +861,11 @@ con una personale, seguendo la procedura descritta nella Sezione \ref{sec:primo-
               \includegraphics[width=0.5\textwidth]{./img/accedi_credenziali_temp.png}
               \caption{Accesso con credenziali temporanee}
           \end{figure}
-    \item Il Sistema riconosce che si tratta del primo accesso e reindirizza 
+    \item Il Sistema riconosce che si tratta del primo accesso e reindirizza
           alla schermata di cambio password;
     \item Inserire la password temporanea nel campo \textbf{Password attuale};
     \item Inserire la nuova password nel campo \textbf{Nuova password};
-    \item Premere \textbf{Conferma e continua}. Il Sistema aggiorna le credenziali e reindirizza 
+    \item Premere \textbf{Conferma e continua}. Il Sistema aggiorna le credenziali e reindirizza
           alla \textit{Dashboard}.
           \begin{figure}[H]
               \centering
@@ -852,7 +951,7 @@ con una personale, seguendo la procedura descritta nella Sezione \ref{sec:primo-
               \includegraphics[width=0.4\textwidth]{./img/selettore_appartamento_dispositivi.png}
               \caption{Selettore appartamento nella sezione Dispositivi}
           \end{figure}
-    \item Il Sistema mostra la vista dell'appartamento, con l'elenco delle stanze; 
+    \item Il Sistema mostra la vista dell'appartamento, con l'elenco delle stanze;
     \item Il Sistema mostra l'elenco dei dispositivi suddivisi per stanza.\\
           Per ogni dispositivo sono visibili:
           \begin{itemize}    
@@ -872,7 +971,7 @@ con una personale, seguendo la procedura descritta nella Sezione \ref{sec:primo-
 
 \subsubsection{Modificare lo stato dei dispositivi}
 \begin{enumerate}    
-    \item Visualizzare i dispositivi della stanza seguendo i passi descritti 
+    \item Visualizzare i dispositivi della stanza seguendo i passi descritti
           nella sezione precedente;
     \item Individuare il dispositivo da modificare;
     \item Selezionare l'azione desiderata tra quelle disponibili per il dispositivo;
@@ -933,7 +1032,7 @@ l'elenco degli allarmi correntemente attivi. Per ogni allarme sono mostrati:
               \includegraphics[width=0.4\textwidth]{./img/voce_storico_allarmi.png}
               \caption{Voce Storico Allarmi nel menu principale}
           \end{figure}
-    \item Il Sistema mostra l'elenco degli allarmi contrassegnati come risolti. 
+    \item Il Sistema mostra l'elenco degli allarmi contrassegnati come risolti.
           Per ogni allarme sono visibili:
           \begin{itemize}    
               \item Il \textbf{nome} dell'allarme;
@@ -980,9 +1079,6 @@ l'elenco degli allarmi correntemente attivi. Per ogni allarme sono mostrati:
               \caption{Schermata Analytics con i grafici dell'appartamento selezionato}
           \end{figure}
 \end{enumerate}
-
-\section{Riferimento API}
-La specifica OpenAPI del Sistema è disponibile alla seguente pagina: \url{https://view4life.me/api/docs}.
 
 \section{Supporto Tecnico}
 Il nostro team è disponibile per offrire supporto in caso di domande o problematiche legate al progetto. 
