@@ -76,8 +76,8 @@
 \addAtr{-}{HISTORY\_LIMIT: number}{}
 \addAtr{-}{HISTORY\_OFFSET: number}{}
 \addMet{+}{getNotificationsHistory() : Observable$<$NotificationEvent[]$>$}{Recupera la cronologia completa delle notifiche per l'utente corrente combinando gli eventi di allarme gestiti e non gestiti.}
-\addMet{-}{fetchManagedAlarmEvents(encodedUserId: string) : Observable$<$AlarmEventHistoryDto[]$>$}{Esegue una chiamata API per recuperare gli eventi di allarme che sono già stati presi in carico o risolti.}
-\addMet{-}{fetchUnmanagedAlarmEvents(encodedUserId: string) : Observable$<$AlarmEventHistoryDto[]$>$}{Effettua una richiesta HTTP per ottenere l'elenco degli eventi di allarme ancora attivi o non gestiti.}
+\addMet{-}{fetchManagedAlarmEvents(encodedUserId: string) : \\ Observable$<$AlarmEventHistoryDto[]$>$}{Esegue una chiamata API per recuperare gli eventi di allarme che sono già stati presi in carico o risolti.}
+\addMet{-}{fetchUnmanagedAlarmEvents(encodedUserId: string) : \\ Observable$<$AlarmEventHistoryDto[]$>$}{Effettua una richiesta HTTP per ottenere l'elenco degli eventi di allarme ancora attivi o non gestiti.}
 \addMet{-}{mapAlarmEventsToNotifications(alarmEvents: ReadonlyArray$<$AlarmEventHistoryDto$>$) : NotificationEvent[]}{Trasforma un insieme di oggetti DTO provenienti dal backend in una lista di eventi di notifica pronti per l'interfaccia.}
 \addMet{-}{mapAlarmEventToNotification(alarmEvent: AlarmEventHistoryDto) : NotificationEvent $|$ null}{Converte un singolo evento di allarme nel formato standard di notifica, determinando il titolo e il timestamp corretti.}
 \addMet{-}{toIsoString(value: unknown) : string $|$ null}{Normalizza diversi formati di data in una stringa conforme allo standard ISO per garantire la coerenza temporale.}

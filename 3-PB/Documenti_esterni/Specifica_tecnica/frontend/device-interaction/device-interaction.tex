@@ -65,7 +65,7 @@
 \addMet{-}{groupRowsByRoom(rows: WritableEndpointRow[]) : EndpointRoomGroup[]}{Raggruppa le righe endpoint per stanza, restituendo una lista di gruppi ordinati per ordine di inserimento.}
 \addMet{-}{buildRowKey(row: WritableEndpointRow) : string}{Costruisce una chiave univoca per una riga combinando gli identificativi di stanza, dispositivo e datapoint.}
 \addMet{-}{clearRowFeedback(rowKey: string) : void}{Rimuove il feedback e annulla il timer di auto-cancellazione per la riga specificata.}
-\addMet{-}{setRowFeedback(rowKey: string, type: RowFeedback['type'], message: string) : void}{Imposta il feedback per la riga specificata e pianifica la sua rimozione automatica dopo 5 secondi.}
+\addMet{-}{setRowFeedback(rowKey: string, type: RowFeedback['type'], message: string) : \\ void}{Imposta il feedback per la riga specificata e pianifica la sua rimozione automatica dopo 5 secondi.}
 \addMet{-}{subscribeToActivePlantChanges() : void}{Sottoscrive l'evento di cambio impianto attivo per resettare lo stato e ricaricare le righe.}
 \addMet{-}{startCurrentValuesPolling() : void}{Avvia il polling periodico dei valori correnti dei dispositivi all'intervallo definito dalla costante statica.}
 \addMet{-}{loadCurrentValues(rows: ReadonlyArray$<$WritableEndpointRow$>$) : Observable$<$void$>$}{Recupera i valori correnti per tutti i dispositivi presenti nelle righe fornite e aggiorna la mappa interna.}
@@ -173,8 +173,8 @@
 \addMet{+}{getWritableEndpointRows() : Observable$<$WritableEndpointRow[]$>$}{Recupera le righe endpoint scrivibili dell'impianto attivo, mappandole a partire dai dati dell'impianto corrente.}
 \addMet{+}{getRoom(roomId: string) : Observable$<$Room$>$}{Recupera i dati di una stanza specifica a partire dall'impianto attivo, mappando dispositivi e datapoint.}
 \addMet{+}{writeDatapointValue(dto: WriteDatapointDto) : Observable$<$void$>$}{Invia una richiesta POST per scrivere un valore su un datapoint, verificando l'esito tramite codice di stato e messaggio di risposta.}
-\addMet{+}{getDatapointCurrentValuesByDeviceIds(deviceIds: ReadonlyArray$<$string$>$) : Observable$<$Map$<$string, string $|$ number$>$$>$}{Recupera i valori correnti dei datapoint per i dispositivi specificati, restituendo una mappa indicizzata per identificativo di datapoint.}
-\addMet{+}{getCurrentValuePointsByDeviceIds(deviceIds: ReadonlyArray$<$string$>$) : Observable$<$Map$<$string, DeviceValuePointDto[]$>$$>$}{Recupera i valori correnti di tutti i datapoint per i dispositivi specificati, restituendo una mappa indicizzata per identificativo di dispositivo.}
+\addMet{+}{getDatapointCurrentValuesByDeviceIds(deviceIds: ReadonlyArray$<$string$>$) : \\ Observable$<$Map$<$string, string $|$ number$>$$>$}{Recupera i valori correnti dei datapoint per i dispositivi specificati, restituendo una mappa indicizzata per identificativo di datapoint.}
+\addMet{+}{getCurrentValuePointsByDeviceIds(deviceIds: ReadonlyArray$<$string$>$) : \\ Observable$<$Map$<$string, DeviceValuePointDto[]$>$$>$}{Recupera i valori correnti di tutti i datapoint per i dispositivi specificati, restituendo una mappa indicizzata per identificativo di dispositivo.}
 \addMet{-}{resolveActivePlantId() : Observable$<$string$>$}{Restituisce l'identificativo dell'impianto attivo dal localStorage, recuperandolo dal backend se non disponibile.}
 \addMet{-}{fetchPlantById(plantId: string) : Observable$<$PlantDto$>$}{Recupera i dati dell'impianto con l'identificativo specificato tramite una richiesta GET al backend.}
 \addMet{-}{fetchAllPlants() : Observable$<$PlantDto[]$>$}{Recupera tutti gli impianti disponibili dal backend, restituendo un array vuoto in caso di errore.}

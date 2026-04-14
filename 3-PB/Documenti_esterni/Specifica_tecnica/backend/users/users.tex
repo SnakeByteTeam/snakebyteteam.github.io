@@ -207,7 +207,7 @@
 \addMet{+}{deleteUser(id: number): Promise$<$void$>$}{Elimina dal database l'utente con l'identificativo specificato}
 \addMet{+}{findAllAvailableUsers(): Promise$<$UserEntity[]$>$}{Recupera dal database gli utenti non ancora assegnati a un ward}
 \addMet{+}{findAllUsers(): Promise$<$UserEntity[]$>$}{Recupera dal database tutti gli utenti del sistema}
-\addMet{+}{updateUser(id: number, username: string, surname: string, name: string): Promise$<$UserEntity$>$}{Aggiorna nel database i dati anagrafici dell'utente specificato}
+\addMet{+}{updateUser(id: number, username: string, surname: string, \\ name: string): Promise$<$UserEntity$>$}{Aggiorna nel database i dati anagrafici dell'utente specificato}
 \addMet{+}{findUserById(id: number): Promise$<$UserEntity $|$ null$>$}{Recupera dal database un utente per identificativo, restituisce null se non trovato}
 \makeItf{UserRepository}{Interfaccia del repository per le operazioni di persistenza relative agli utenti}
 

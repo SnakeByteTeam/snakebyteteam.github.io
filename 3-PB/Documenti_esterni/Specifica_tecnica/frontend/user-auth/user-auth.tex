@@ -68,7 +68,7 @@
 \addAtr{-}{token: string $|$ null}{}
 \addAtr{-}{restoreSessionInFlight\$: Observable$<$boolean$>$ $|$ null}{}
 \addMet{+}{login(username: string, password: string) : Observable$<$UserSession$>$}{Effettua il login inviando le credenziali al backend e costruisce la sessione utente a partire dal token di accesso ricevuto.}
-\addMet{+}{setFirstAccessPassword(username: string, temporaryPassword: string, newPassword: string) : Observable$<$UserSession$>$}{Invia la richiesta di impostazione della nuova password al primo accesso e costruisce la sessione utente dal token ricevuto.}
+\addMet{+}{setFirstAccessPassword(username: string, temporaryPassword: string, \\ newPassword: string) : Observable$<$UserSession$>$}{Invia la richiesta di impostazione della nuova password al primo accesso e costruisce la sessione utente dal token ricevuto.}
 \addMet{+}{refreshAccessToken() : Observable$<$string$>$}{Rinnova il token di accesso tramite il cookie di refresh e aggiorna la sessione corrente.}
 \addMet{+}{restoreSessionFromRefresh() : Observable$<$boolean$>$}{Tenta di ripristinare la sessione utente tramite refresh token, condividendo la richiesta in volo per evitare chiamate concorrenti.}
 \addMet{+}{logoutFromBackend() : Observable$<$void$>$}{Invia la richiesta di logout al backend e cancella la sessione locale indipendentemente dall'esito.}

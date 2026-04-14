@@ -156,7 +156,7 @@
 \addAtr{-}{token: string}{Token JWT di accesso correntemente in uso}
 \addAtr{-}{restoreSessionInFlight\$: Observable$<$boolean$>$}{Stream che indica se è in corso il ripristino della sessione dal refresh token}
 \addMet{+}{login(username: string, password: string) : Observable$<$UserSession$>$}{Autentica l'utente con le credenziali fornite e restituisce uno stream con la sessione creata}
-\addMet{+}{setFirstAccessPassword(username: string, temporaryPassword: string, newPassword: string) : Observable$<$UserSession$>$}{Imposta la nuova password al primo accesso, sostituendo quella temporanea, e restituisce la sessione aggiornata}
+\addMet{+}{setFirstAccessPassword(username: string, temporaryPassword: string, \\ newPassword: string) : Observable$<$UserSession$>$}{Imposta la nuova password al primo accesso, sostituendo quella temporanea, e restituisce la sessione aggiornata}
 \addMet{+}{refreshAccessToken() : Observable$<$string$>$}{Rinnova il token di accesso tramite il refresh token e restituisce il nuovo JWT}
 \addMet{+}{restoreSessionFromRefresh() : Observable$<$boolean$>$}{Tenta di ripristinare la sessione utente a partire dal refresh token; restituisce true se il ripristino è avvenuto con successo}
 \addMet{+}{logoutFromBackend() : Observable$<$void$>$}{Invalida la sessione lato backend notificando il server del logout}
