@@ -1,9 +1,11 @@
 \subsubsection{MyVimar Integration}
 
 % ─── dto in ───
-\makeItf{PlantAuthDto}{DTO di input che trasporta le credenziali di autenticazione per un impianto MyVimar}
+\addAtr{+}{redirect\_url: string}{}
+\makeAbCl{PlantAuthDto}{DTO di input che trasporta le credenziali di autenticazione per un impianto MyVimar}
 
-\makeItf{PrepareOAuthTicketDto}{DTO di input per la preparazione del ticket OAuth, contenente i dati necessari all'avvio del flusso di autorizzazione}
+\addAtr{+}{ticket: string}{}
+\makeAbCl{PrepareOAuthTicketDto}{DTO di input per la preparazione del ticket OAuth, contenente i dati necessari all'avvio del flusso di autorizzazione}
 
 % ─── dto out ───
 \addAtr{+}{isLinked: boolean}{Indica se l'account MyVimar è collegato all'utente corrente}
@@ -51,6 +53,7 @@
 \addMet{+}{getAccountStatus(userId: number) : Promise$<$\{isLinked: boolean\}$>$}{Restituisce lo stato di collegamento dell'account MyVimar per l'utente indicato}
 \makeItf{GetAccountStatusUseCase}{Porta di ingresso per il recupero dello stato di collegamento dell'account MyVimar}
 
+\addMet{+}{getTokens(code: string, userId: number) : any}{Esegue il recupero dei token di accesso e di rinnovo utilizzando il codice di autorizzazione ottenuto dal fornitore di identità e l'identificativo dell'utente.}
 \makeItf{GetTokensCallbackUseCase}{Porta di ingresso per il recupero e il salvataggio dei token al termine del flusso OAuth}
 
 \addMet{+}{prepareOAuth(userId: number) : Promise$<$string$>$}{Genera un ticket OAuth monouso per l'utente e restituisce il ticket come stringa}
@@ -135,9 +138,17 @@
 \makeItf{WriteTokensCachePort}{Porta di repository per la scrittura dei token OAuth nella cache}
 
 % ─── entity ───
-\makeItf{OAuthTicketEntity}{Interfaccia dell'entità di persistenza che rappresenta un ticket OAuth salvato in cache, con i campi di ID utente e scadenza}
+\addAtr{+}{ticket: string}{}
+\addAtr{+}{userId: number}{}
+\addAtr{+}{expiresAt: Date}{}
+\makeAbCl{OAuthTicketEntity}{Interfaccia dell'entità di persistenza che rappresenta un ticket OAuth salvato in cache, con i campi di ID utente e scadenza}
 
-\makeItf{TokenEntity}{Interfaccia dell'entità di persistenza che rappresenta una coppia di token OAuth salvata in cache}
+\addAtr{+}{accessToken: string}{}
+\addAtr{+}{refreshToken: string}{}
+\addAtr{+}{expiresAt: Date}{}
+\addAtr{+}{userId: number}{}
+\addAtr{+}{email: string}{}
+\makeAbCl{TokenEntity}{Interfaccia dell'entità di persistenza che rappresenta una coppia di token OAuth salvata in cache}
 
 % ─── adapter ───
 \addAtr{-}{deleteTokensCachePort: DeleteTokensCachePort}{Porta per l'eliminazione dei token dalla cache}
