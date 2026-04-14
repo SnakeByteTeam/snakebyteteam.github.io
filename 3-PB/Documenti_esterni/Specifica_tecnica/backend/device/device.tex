@@ -2,11 +2,10 @@
 
 % ── DTO IN ───────────────────────────────────────────────────────────────────
 
-% infrastructure\http\dtos\in\datapoint-response.dto.ts
-\makeItf{DatapointApiResponse}{DTO che mappa la risposta grezza dell'API per un datapoint}
-
 % infrastructure\http\dtos\in\write-datapoint-value.dto.ts
-\makeItf{WriteDatapointDto}{DTO per il payload di scrittura di un valore datapoint verso l'API esterna}
+\addAtr{+}{datapointId: string}{}
+\addAtr{+}{value: string}{}
+\makeCl{WriteDatapointDto}{DTO per il payload di scrittura di un valore datapoint verso l'API esterna}
 
 % ── DTO OUT ──────────────────────────────────────────────────────────────────
 
@@ -122,22 +121,33 @@
 % ── CMD ──────────────────────────────────────────────────────────────────────
 
 % application\commands\find-device-by-datapointId.command.ts
-\makeItf{FindDeviceByDatapointIdCmd}{Comando che trasporta il datapointId per cercare il dispositivo associato}
+\addAtr{+}{datapointId: string}{}
+\makeCl{FindDeviceByDatapointIdCmd}{Comando che trasporta il datapointId per cercare il dispositivo associato}
 
 % application\commands\find-device-by-id.command.ts
-\makeItf{FindDeviceByIdCmd}{Comando che trasporta l'ID per cercare un dispositivo specifico}
+\addAtr{+}{id: string}{}
+\makeCl{FindDeviceByIdCmd}{Comando che trasporta l'ID per cercare un dispositivo specifico}
 
 % application\commands\find-device-by-plantid.command.ts
-\makeItf{FindDeviceByPlantIdCmd}{Comando che trasporta il plantId per cercare tutti i dispositivi di un impianto}
+\addAtr{+}{id: string}{}
+\makeCl{FindDeviceByPlantIdCmd}{Comando che trasporta il plantId per cercare tutti i dispositivi di un impianto}
 
 % application\commands\get-device-value.command.ts
-\makeItf{GetDeviceValueCmd}{Comando che trasporta i dati per leggere il valore corrente di un dispositivo}
+\addAtr{+}{deviceId: string}{}
+\addAtr{+}{plantId?: string}{}
+\makeCl{GetDeviceValueCmd}{Comando che trasporta i dati per leggere il valore corrente di un dispositivo}
 
 % application\commands\ingest-timeseries.command.ts
-\makeItf{IngestTimeseriesCmd}{Comando che trasporta datapointId, valore e timestamp per l'ingestione in serie storica}
+\addAtr{+}{datapointId: string}{}
+\addAtr{+}{value: string}{}
+\addAtr{+}{timestamp: string}{}
+\makeCl{IngestTimeseriesCmd}{Comando che trasporta datapointId, valore e timestamp per l'ingestione in serie storica}
 
 % application\commands\write-datapoint-value.command.ts
-\makeItf{WriteDatapointValueCmd}{Comando che trasporta i dati per scrivere un valore su un datapoint}
+\addAtr{+}{plantId?: string}{}
+\addAtr{+}{datapointId: string}{}
+\addAtr{+}{value: string}{}
+\makeCl{WriteDatapointValueCmd}{Comando che trasporta i dati per scrivere un valore su un datapoint}
 
 % ── USE CASE ─────────────────────────────────────────────────────────────────
 

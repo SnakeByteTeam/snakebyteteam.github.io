@@ -21,6 +21,7 @@
 \makeCl{DeviceAttributesDto}{DTO che mappa gli attributi di un dispositivo ricevuto dall'API esterna}
 
 % infrastructure\http\dtos\in\api-plant-attributes.dto.ts
+\addAtr{+}{title: string}{}
 \makeCl{ApiPlantAttributesDto}{DTO che mappa gli attributi principali di un impianto ricevuto dall'API esterna}
 
 % infrastructure\http\dtos\in\api-plant.dto.ts
@@ -31,10 +32,12 @@
 \makeCl{ApiPlantMetaDto}{DTO che mappa i metadati di un impianto ricevuto dall'API esterna}
 
 % infrastructure\http\dtos\in\plant-seek.dto.ts
-\makeItf{PlantSeekResponseDto}{DTO di risposta per la ricerca di un impianto tramite ID}
+\addAtr{+}{api: object}{}
+\makeCl{PlantSeekResponseDto}{DTO di risposta per la ricerca di un impianto tramite ID}
 
 % infrastructure\http\dtos\in\subNotification.dto.ts
-\makeItf{NotificationLinkDto}{DTO che rappresenta un link incluso nel payload di una notifica esterna}
+\addAtr{+}{self: string}{}
+\makeCl{NotificationLinkDto}{DTO che rappresenta un link incluso nel payload di una notifica esterna}
 
 % ── MODEL ────────────────────────────────────────────────────────────────────
 
@@ -55,10 +58,12 @@
 % ── CMD ──────────────────────────────────────────────────────────────────────
 
 % application\commands\fetch-new-cache.command.ts
-\makeItf{FetchNewCacheCmd}{Comando che trasporta token e plantId per recuperare la struttura aggiornata di un impianto}
+\addAtr{+}{plantId: string}{}
+\makeCl{FetchNewCacheCmd}{Comando che trasporta token e plantId per recuperare la struttura aggiornata di un impianto}
 
 % application\commands\get-valid-cache.command.ts
-\makeItf{GetValidCacheCmd}{Comando che trasporta gli ID degli impianti per cui aggiornare la cache}
+\addAtr{+}{plantId: string}{}
+\makeCl{GetValidCacheCmd}{Comando che trasporta gli ID degli impianti per cui aggiornare la cache}
 
 % ── USE CASE ─────────────────────────────────────────────────────────────────
 
