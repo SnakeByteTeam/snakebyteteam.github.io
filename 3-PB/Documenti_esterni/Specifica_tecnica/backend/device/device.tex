@@ -1,0 +1,296 @@
+\subsubsection{Devices}
+
+% ── DTO IN ───────────────────────────────────────────────────────────────────
+
+% infrastructure\http\dtos\in\datapoint-response.dto.ts
+\makeItf{DatapointApiResponse}{DTO che mappa la risposta grezza dell'API per un datapoint}
+
+% infrastructure\http\dtos\in\write-datapoint-value.dto.ts
+\makeItf{WriteDatapointDto}{DTO per il payload di scrittura di un valore datapoint verso l'API esterna}
+
+% ── DTO OUT ──────────────────────────────────────────────────────────────────
+
+% infrastructure\http\dtos\out\datapoint.dto.ts
+\addAtr{+}{id: string}{Identificatore univoco del datapoint}
+\addAtr{+}{name: string}{Nome del datapoint}
+\addAtr{+}{readable: boolean}{Indica se il datapoint è leggibile}
+\addAtr{+}{writable: boolean}{Indica se il datapoint è scrivibile}
+\addAtr{+}{valueType: string}{Tipo del valore del datapoint}
+\addAtr{+}{enum: string[]}{Valori enumerati ammessi per il datapoint}
+\addAtr{+}{sfeType: string}{Tipo SFE del datapoint}
+\makeCl{DatapointDto}{DTO interno che rappresenta un datapoint normalizzato}
+
+% infrastructure\http\dtos\out\device-value.dto.ts
+\addAtr{+}{datapointId: string}{Identificatore univoco del datapoint}
+\addAtr{+}{name: string}{Nome del datapoint}
+\addAtr{+}{value: string $|$ number}{Valore corrente del datapoint}
+\addAtr{+}{deviceId: string}{Identificatore univoco del dispositivo}
+\addAtr{+}{values: DatapointValueDto[]}{Lista dei valori di tutti i datapoint del dispositivo}
+\makeCl{DatapointValueDto}{DTO interno che rappresenta il valore corrente di un datapoint di un dispositivo}
+
+% infrastructure\http\dtos\out\device.dto.ts
+\addAtr{+}{id: string}{Identificatore univoco del dispositivo}
+\addAtr{+}{name: string}{Nome del dispositivo}
+\addAtr{+}{plantId: string}{Identificatore dell'impianto a cui appartiene il dispositivo}
+\addAtr{+}{type: string}{Tipo del dispositivo}
+\addAtr{+}{subType: string}{Sotto-tipo del dispositivo}
+\addAtr{+}{datapoints: DatapointDto[]}{Lista dei datapoint associati al dispositivo}
+\makeCl{DeviceDto}{DTO interno che rappresenta un dispositivo normalizzato con i suoi datapoint}
+
+% infrastructure\http\dtos\out\write-datapoint-value-request.dto.ts
+\addAtr{+}{value: string}{Valore da scrivere sul datapoint}
+\addAtr{+}{id: string}{Identificatore del datapoint target}
+\addAtr{+}{type: string = 'datapoint'}{Tipo della risorsa, fisso a 'datapoint'}
+\addAtr{+}{attributes: DatapointValueAttributesDto}{Attributi del valore da scrivere}
+\addAtr{+}{data: DatapointValueDataDto[]}{Payload dati per la scrittura del valore}
+\makeCl{DatapointValueAttributesDto}{DTO che struttura la richiesta di scrittura di un valore datapoint verso l'API esterna}
+
+% ── MODEL ────────────────────────────────────────────────────────────────────
+
+% domain\models\datapoint.model.ts
+\addAtr{-}{id: string}{Identificatore univoco del datapoint}
+\addAtr{-}{name: string}{Nome del datapoint}
+\addAtr{-}{readable: boolean}{Indica se il datapoint è leggibile}
+\addAtr{-}{writable: boolean}{Indica se il datapoint è scrivibile}
+\addAtr{-}{valueType: string}{Tipo del valore del datapoint}
+\addAtr{-}{enum: string[]}{Valori enumerati ammessi}
+\addAtr{-}{sfeType: string}{Tipo SFE del datapoint}
+\addAtr{+}{id: string}{Identificatore univoco del datapoint}
+\addAtr{+}{name: string}{Nome del datapoint}
+\addAtr{+}{readable: boolean}{Indica se il datapoint è leggibile}
+\addAtr{+}{writable: boolean}{Indica se il datapoint è scrivibile}
+\addAtr{+}{valueType: string}{Tipo del valore del datapoint}
+\addAtr{+}{enumValues: string[]}{Valori enumerati ammessi}
+\addAtr{+}{sfeType: string}{Tipo SFE del datapoint}
+\addMet{+}{getId() : string}{Restituisce l'ID del datapoint}
+\addMet{+}{getName() : string}{Restituisce il nome del datapoint}
+\addMet{+}{isReadable() : boolean}{Indica se il datapoint è leggibile}
+\addMet{+}{isWritable() : boolean}{Indica se il datapoint è scrivibile}
+\addMet{+}{getValueType() : string}{Restituisce il tipo di valore del datapoint}
+\addMet{+}{getEnum() : string[]}{Restituisce i valori enumerati ammessi}
+\addMet{+}{getSfeType() : string}{Restituisce il tipo SFE del datapoint}
+\makeCl{Datapoint}{Oggetto di dominio che rappresenta un datapoint di un dispositivo}
+
+% domain\models\device-value.model.ts
+\addAtr{-}{deviceId: string}{Identificatore del dispositivo}
+\addAtr{-}{values: DatapointValue[]}{Lista dei valori dei datapoint del dispositivo}
+\addAtr{-}{datapointId: string}{Identificatore del datapoint}
+\addAtr{-}{name: string}{Nome del datapoint}
+\addAtr{-}{value: string $|$ number}{Valore corrente del datapoint}
+\addAtr{+}{deviceId: string}{Identificatore del dispositivo}
+\addAtr{+}{values: DatapointValue[]}{Lista dei valori dei datapoint del dispositivo}
+\addMet{+}{getDeviceId() : string}{Restituisce l'ID del dispositivo}
+\addMet{+}{getValues() : DatapointValue[]}{Restituisce i valori di tutti i datapoint del dispositivo}
+\addMet{+}{getDatapointId() : string}{Restituisce l'ID del datapoint}
+\addMet{+}{getName() : string}{Restituisce il nome del datapoint}
+\addMet{+}{getValue() : string $|$ number}{Restituisce il valore corrente del datapoint}
+\makeCl{DeviceValue}{Oggetto di dominio che rappresenta i valori correnti dei datapoint di un dispositivo}
+
+% domain\models\device.model.ts
+\addAtr{-}{id: string}{Identificatore univoco del dispositivo}
+\addAtr{-}{plantId: string}{Identificatore dell'impianto a cui appartiene}
+\addAtr{-}{name: string}{Nome del dispositivo}
+\addAtr{-}{type: string}{Tipo del dispositivo}
+\addAtr{-}{subType: string}{Sotto-tipo del dispositivo}
+\addAtr{-}{datapoints: Datapoint[]}{Lista dei datapoint associati al dispositivo}
+\addAtr{+}{id: string}{Identificatore univoco del dispositivo}
+\addAtr{+}{plantId: string}{Identificatore dell'impianto a cui appartiene}
+\addAtr{+}{name: string}{Nome del dispositivo}
+\addAtr{+}{type: string}{Tipo del dispositivo}
+\addAtr{+}{subType: string}{Sotto-tipo del dispositivo}
+\addAtr{+}{datapoints: Datapoint[]}{Lista dei datapoint associati al dispositivo}
+\addMet{+}{getId() : string}{Restituisce l'ID del dispositivo}
+\addMet{+}{getPlantId() : string}{Restituisce l'ID dell'impianto}
+\addMet{+}{getName() : string}{Restituisce il nome del dispositivo}
+\addMet{+}{getType() : string}{Restituisce il tipo del dispositivo}
+\addMet{+}{getSubType() : string}{Restituisce il sotto-tipo del dispositivo}
+\addMet{+}{getDatapoints() : Datapoint[]}{Restituisce i datapoint associati al dispositivo}
+\makeCl{Device}{Aggregato di dominio che rappresenta un dispositivo con i suoi datapoint}
+
+% ── CONTROLLER ───────────────────────────────────────────────────────────────
+
+% adapters\in\device.controller.ts
+\addAtr{-}{findByIdUseCase: FindDeviceByIdUseCase}{Caso d'uso per cercare un dispositivo per ID}
+\addAtr{-}{findByPlantIdUseCase: FindDeviceByPlantIdUseCase}{Caso d'uso per cercare i dispositivi di un impianto}
+\addAtr{-}{ingestTimeseries: IngestTimeseriesUseCase}{Caso d'uso per ingestare una misura in serie storica}
+\addAtr{-}{getDeviceValueUseCase: GetDeviceValueUseCase}{Caso d'uso per leggere il valore corrente di un dispositivo}
+\addAtr{-}{writeDatapointUseCase: WriteDatapointValueUseCase}{Caso d'uso per scrivere un valore su un datapoint}
+\addAtr{-}{checkAlarmUseCase: CheckAlarmRuleUseCase}{Caso d'uso per verificare le regole di allarme su un datapoint}
+\addMet{+}{error(`[DeviceController] checkAlarmRule failed for datapoint ${cmd.datapointId} (value=${cmd.value}, timestamp=${cmd.timestamp}) : $}{Gestisce e logga il fallimento della verifica delle regole di allarme}
+\makeCl{DeviceController}{Controller eventi che riceve i comandi sui dispositivi e delega l'esecuzione ai relativi casi d'uso}
+
+% ── CMD ──────────────────────────────────────────────────────────────────────
+
+% application\commands\find-device-by-datapointId.command.ts
+\makeItf{FindDeviceByDatapointIdCmd}{Comando che trasporta il datapointId per cercare il dispositivo associato}
+
+% application\commands\find-device-by-id.command.ts
+\makeItf{FindDeviceByIdCmd}{Comando che trasporta l'ID per cercare un dispositivo specifico}
+
+% application\commands\find-device-by-plantid.command.ts
+\makeItf{FindDeviceByPlantIdCmd}{Comando che trasporta il plantId per cercare tutti i dispositivi di un impianto}
+
+% application\commands\get-device-value.command.ts
+\makeItf{GetDeviceValueCmd}{Comando che trasporta i dati per leggere il valore corrente di un dispositivo}
+
+% application\commands\ingest-timeseries.command.ts
+\makeItf{IngestTimeseriesCmd}{Comando che trasporta datapointId, valore e timestamp per l'ingestione in serie storica}
+
+% application\commands\write-datapoint-value.command.ts
+\makeItf{WriteDatapointValueCmd}{Comando che trasporta i dati per scrivere un valore su un datapoint}
+
+% ── USE CASE ─────────────────────────────────────────────────────────────────
+
+% application\ports\in\find-device-by-datapointId.usecase.ts
+\addMet{+}{findByDatapointId(cmd: FindDeviceByDatapointIdCmd) : Promise$<$Device$>$}{Cerca il dispositivo associato al datapointId specificato}
+\makeItf{FindDeviceByDatapointIdUsecase}{Porta in ingresso per cercare un dispositivo tramite ID del suo datapoint}
+
+% application\ports\in\find-device-by-id.usecase.ts
+\addMet{+}{findById(cmd: FindDeviceByIdCmd) : Promise$<$Device$>$}{Cerca un dispositivo tramite il suo ID univoco}
+\makeItf{FindDeviceByIdUseCase}{Porta in ingresso per cercare un dispositivo tramite ID}
+
+% application\ports\in\find-device-by-plantid.usecase.ts
+\addMet{+}{findByPlantId(cmd: FindDeviceByPlantIdCmd) : Promise$<$Device[]$>$}{Cerca tutti i dispositivi associati a un impianto}
+\makeItf{FindDeviceByPlantIdUseCase}{Porta in ingresso per cercare tutti i dispositivi di un impianto}
+
+% application\ports\in\get-device-value.usecase.ts
+\addMet{+}{getDeviceValue(cmd: GetDeviceValueCmd) : Promise$<$DeviceValue$>$}{Recupera il valore corrente di tutti i datapoint di un dispositivo}
+\makeItf{GetDeviceValueUseCase}{Porta in ingresso per leggere i valori correnti di un dispositivo}
+
+% application\ports\in\ingest-timeseris.usecase.ts
+\addMet{+}{ingestTimeseries(cmd: IngestTimeseriesCmd) : Promise$<$void$>$}{Ingerisce una misura nella serie storica del datapoint specificato}
+\makeItf{IngestTimeseriesUseCase}{Porta in ingresso per ingestare una misura in serie storica}
+
+% application\ports\in\write-datapoint-value.usecase.ts
+\addMet{+}{writeDatapointValue(cmd: WriteDatapointValueCmd) : Promise$<$void$>$}{Scrive un valore su un datapoint tramite l'API esterna}
+\makeItf{WriteDatapointValueUseCase}{Porta in ingresso per scrivere un valore su un datapoint}
+
+% ── SERVICE ──────────────────────────────────────────────────────────────────
+
+% application\services\device.service.ts
+\addAtr{-}{findByIdPort: FindDeviceByIdPort}{Porta per cercare un dispositivo per ID}
+\addAtr{-}{findByPlantIdPort: FindDeviceByPlantIdPort}{Porta per cercare i dispositivi di un impianto}
+\addAtr{-}{ingestTimeseriesPort: IngestTimeseriesPort}{Porta per ingestare misure in serie storica}
+\addAtr{-}{getDeviceValuePort: GetDeviceValuePort}{Porta per leggere i valori correnti di un dispositivo}
+\addAtr{-}{writeDatapointPort: WriteDatapointValuePort}{Porta per scrivere un valore su un datapoint}
+\addAtr{-}{findByDatapointIdPort: FindDeviceByDatapointIdPort}{Porta per cercare un dispositivo tramite datapointId}
+\addMet{+}{findById(cmd: FindDeviceByIdCmd) : Promise$<$Device$>$}{Delega la ricerca del dispositivo per ID alla porta corrispondente}
+\addMet{+}{findByPlantId(cmd: FindDeviceByPlantIdCmd) : Promise$<$Device[]$>$}{Delega la ricerca dei dispositivi per impianto alla porta corrispondente}
+\addMet{+}{ingestTimeseries(cmd: IngestTimeseriesCmd) : Promise$<$void$>$}{Delega l'ingestione della misura alla porta corrispondente}
+\addMet{+}{getDeviceValue(cmd: GetDeviceValueCmd) : Promise$<$DeviceValue$>$}{Delega la lettura del valore corrente del dispositivo alla porta corrispondente}
+\addMet{+}{writeDatapointValue(cmd: WriteDatapointValueCmd) : Promise$<$void$>$}{Delega la scrittura del valore sul datapoint alla porta corrispondente}
+\addMet{+}{findByDatapointId(cmd: FindDeviceByDatapointIdCmd) : Promise$<$Device$>$}{Delega la ricerca del dispositivo per datapointId alla porta corrispondente}
+\makeCl{DeviceService}{Servizio applicativo che implementa i casi d'uso del modulo Device orchestrando le porte di uscita}
+
+% ── PORT ─────────────────────────────────────────────────────────────────────
+
+% application\ports\out\find-device-by-datapointId.ts
+\addMet{+}{findByDatapointId(cmd: FindDeviceByDatapointIdCmd) : Promise$<$Device$>$}{Cerca il dispositivo associato al datapointId specificato}
+\makeItf{FindDeviceByDatapointIdPort}{Porta di uscita per cercare un dispositivo tramite ID del suo datapoint}
+
+% application\ports\out\find-device-by-id.port.ts
+\addMet{+}{findById(cmd: FindDeviceByIdCmd) : Promise$<$Device$>$}{Cerca un dispositivo tramite il suo ID univoco}
+\makeItf{FindDeviceByIdPort}{Porta di uscita per cercare un dispositivo per ID}
+
+% application\ports\out\find-device-by-plantid.port.ts
+\addMet{+}{findByPlantId(cmd: FindDeviceByPlantIdCmd) : Promise$<$Device[]$>$}{Cerca tutti i dispositivi associati a un impianto}
+\makeItf{FindDeviceByPlantIdPort}{Porta di uscita per cercare tutti i dispositivi di un impianto}
+
+% application\ports\out\get-device-value.port.ts
+\addMet{+}{getDeviceValue(cmd: GetDeviceValueCmd) : Promise$<$DeviceValue$>$}{Recupera i valori correnti di tutti i datapoint di un dispositivo}
+\makeItf{GetDeviceValuePort}{Porta di uscita per leggere i valori correnti di un dispositivo}
+
+% application\ports\out\ingest-timeseries.port.ts
+\addMet{+}{ingestTimeseries(cmd: IngestTimeseriesCmd) : Promise$<$void$>$}{Ingerisce una misura nella serie storica del datapoint specificato}
+\makeItf{IngestTimeseriesPort}{Porta di uscita per ingestare una misura in serie storica}
+
+% application\ports\out\write-device-value.port.ts
+\addMet{+}{writeDatapointValue(cmd: WriteDatapointValueCmd) : Promise$<$void$>$}{Scrive un valore su un datapoint tramite l'API esterna}
+\makeItf{WriteDatapointValuePort}{Porta di uscita per scrivere un valore su un datapoint}
+
+% ── ENTITY ───────────────────────────────────────────────────────────────────
+
+% infrastructure\persistence\entities\datapoint.entity.ts
+\addMet{+}{toDomain(entity: DatapointEntity) : Datapoint}{Converte l'entità persistita nel corrispondente oggetto di dominio}
+\addMet{+}{fromDomain(datapoint: Datapoint) : DatapointEntity}{Converte l'oggetto di dominio nella corrispondente entità persistita}
+\makeCl{DatapointEntity}{Entità di persistenza di un datapoint, con metodi di conversione da/verso il modello di dominio}
+
+% infrastructure\persistence\entities\device.entity.ts
+\addMet{+}{toDomain(entity: DeviceEntity) : Device}{Converte l'entità persistita nel corrispondente oggetto di dominio}
+\addMet{+}{fromDomain(device: Device) : DeviceEntity}{Converte l'oggetto di dominio nella corrispondente entità persistita}
+\makeCl{DeviceEntity}{Entità di persistenza di un dispositivo, con metodi di conversione da/verso il modello di dominio}
+
+% ── ADAPTER ──────────────────────────────────────────────────────────────────
+
+% adapters\out\find-device-by-datapointId.adapter.ts
+\addAtr{-}{findByDatapointIdPort: FindDeviceByDatapointIdRepoPort}{Repository per cercare un dispositivo tramite datapointId}
+\addMet{+}{findByDatapointId(cmd: FindDeviceByDatapointIdCmd) : Promise$<$Device$>$}{Recupera l'entità dal repository e la converte nel modello di dominio}
+\makeCl{FindDeviceByDatapointIdAdapter}{Adapter che implementa FindDeviceByDatapointIdPort delegando la ricerca al repository}
+
+% adapters\out\find-device-by-id.adapter.ts
+\addAtr{-}{repo: FindDeviceByIdRepoPort}{Repository per cercare un dispositivo per ID}
+\addMet{+}{findById(cmd: FindDeviceByIdCmd) : Promise$<$Device$>$}{Recupera l'entità dal repository e la converte nel modello di dominio}
+\makeCl{FindDeviceByIdAdapter}{Adapter che implementa FindDeviceByIdPort delegando la ricerca al repository}
+
+% adapters\out\find-device-by-plantId.adapter.ts
+\addAtr{-}{repo: FindDeviceByPlantIdRepoPort}{Repository per cercare i dispositivi di un impianto}
+\addMet{+}{findByPlantId(cmd: FindDeviceByPlantIdCmd) : Promise$<$Device[]$>$}{Recupera le entità dal repository e le converte nei modelli di dominio}
+\makeCl{FindDeviceByPlantIdAdapter}{Adapter che implementa FindDeviceByPlantIdPort delegando la ricerca al repository}
+
+% adapters\out\get-device-value.adapter.ts
+\addAtr{-}{repoPort: GetDeviceValueRepoPort}{Repository per leggere i valori correnti di un dispositivo via API}
+\addAtr{-}{tokenPort: GetValidTokenPort}{Porta per ottenere un token di autenticazione valido}
+\addMet{+}{getDeviceValue(cmd: GetDeviceValueCmd) : Promise$<$DeviceValue$>$}{Ottiene un token valido e delega la lettura dei valori al repository}
+\makeCl{GetDeviceValueAdapter}{Adapter che implementa GetDeviceValuePort coordinando autenticazione e lettura dei valori}
+
+% adapters\out\ingest-timeseries.adapter.ts
+\addAtr{-}{ingestRepoPort: IngestTimeseriesRepoPort}{Repository per ingestare misure in serie storica}
+\addMet{+}{ingestTimeseries(cmd: IngestTimeseriesCmd) : Promise$<$void$>$}{Delega l'ingestione della misura al repository}
+\makeCl{IngestTimeseriesAdapter}{Adapter che implementa IngestTimeseriesPort delegando l'ingestione al repository}
+
+% adapters\out\write-datapoint-value.adapter.ts
+\addAtr{-}{writeDatapointRepoPort: WriteDatapointValueRepoPort}{Repository per scrivere un valore su un datapoint via API}
+\addAtr{-}{tokenPort: GetValidTokenPort}{Porta per ottenere un token di autenticazione valido}
+\addMet{+}{writeDatapointValue(cmd: WriteDatapointValueCmd) : Promise$<$void$>$}{Ottiene un token valido e delega la scrittura del valore al repository}
+\makeCl{WriteDatapointValueAdapter}{Adapter che implementa WriteDatapointValuePort coordinando autenticazione e scrittura del valore}
+
+% ── REPOSITORY (contratti) ────────────────────────────────────────────────────
+
+% application\repository\find-device-by-datapointId.repository.ts
+\addMet{+}{findByDatapointId(datapointId: string) : Promise$<$DeviceEntity $|$ null$>$}{Cerca nel database il dispositivo associato al datapointId specificato}
+\makeItf{FindDeviceByDatapointIdRepoPort}{Contratto del repository di persistenza per cercare un dispositivo tramite datapointId}
+
+% application\repository\find-device-by-id.repository.ts
+\addMet{+}{findById(id: string) : Promise$<$DeviceEntity $|$ null$>$}{Cerca nel database un dispositivo tramite il suo ID univoco}
+\makeItf{FindDeviceByIdRepoPort}{Contratto del repository di persistenza per cercare un dispositivo per ID}
+
+% application\repository\find-device-by-plant-id.repository.ts
+\addMet{+}{findByPlantId(plantId: string) : Promise$<$DeviceEntity[] $|$ null$>$}{Cerca nel database tutti i dispositivi associati a un impianto}
+\makeItf{FindDeviceByPlantIdRepoPort}{Contratto del repository di persistenza per cercare i dispositivi di un impianto}
+
+% application\repository\get-device-value.repository.ts
+\addMet{+}{getDeviceValue(validToken: string, plantId: string, deviceId: string) : Promise$<$DatapointExtractedDto[]$>$}{Legge i valori correnti dei datapoint di un dispositivo tramite API esterna}
+\makeItf{GetDeviceValueRepoPort}{Contratto del repository HTTP per leggere i valori correnti di un dispositivo}
+
+% application\repository\ingest-timeseries.repository.ts
+\addMet{+}{ingestTimeseries(datapointId: string, value: string, timestamp: string) : Promise$<$boolean$>$}{Ingerisce una misura nella serie storica del datapoint specificato}
+\makeItf{IngestTimeseriesRepoPort}{Contratto del repository di persistenza per l'ingestione di misure in serie storica}
+
+% application\repository\write-datapoint-value.repo.ts
+\addMet{+}{writeDeviceValue(validToken: string, plantId: string, datapointId: string, value: string) : Promise$<$boolean$>$}{Scrive un valore su un datapoint tramite API esterna}
+\makeItf{WriteDatapointValueRepoPort}{Contratto del repository HTTP per scrivere un valore su un datapoint}
+
+% ── IMPLEMENTAZIONE DEI REPOSITORY ───────────────────────────────────────────
+
+% infrastructure\http\device-api-impl.ts
+\addAtr{-}{httpService: HttpService}{Client HTTP per le chiamate alle API esterne}
+\addMet{+}{getDeviceValue(validToken: string, plantId: string, deviceId: string) : Promise$<$DatapointExtractedDto[]$>$}{Chiama l'API esterna per leggere i valori correnti dei datapoint di un dispositivo}
+\addMet{+}{writeDeviceValue(validToken: string, plantId: string, datapointId: string, value: string) : Promise$<$boolean$>$}{Chiama l'API esterna per scrivere un valore su un datapoint}
+\makeCl{DeviceApiImpl}{Implementazione HTTP dei repository che accedono all'API esterna per lettura e scrittura dei valori dei dispositivi}
+
+% infrastructure\persistence\device-repository-impl.ts
+\addMet{+}{findById(id: string) : Promise$<$DeviceEntity $|$ null$>$}{Cerca nel database un dispositivo tramite il suo ID univoco}
+\addMet{+}{findByPlantId(plantId: string) : Promise$<$DeviceEntity[] $|$ null$>$}{Cerca nel database tutti i dispositivi associati a un impianto}
+\addMet{+}{ingestTimeseries(datapointId: string, value: string, timestamp: string) : Promise$<$boolean$>$}{Persiste una misura nella serie storica del datapoint specificato}
+\addMet{+}{findByDatapointId(datapointId: string) : Promise$<$DeviceEntity $|$ null$>$}{Cerca nel database il dispositivo associato al datapointId specificato}
+\makeCl{DeviceRepositoryImpl}{Implementazione del repository di persistenza per le operazioni di lettura e ingestione sui dispositivi}

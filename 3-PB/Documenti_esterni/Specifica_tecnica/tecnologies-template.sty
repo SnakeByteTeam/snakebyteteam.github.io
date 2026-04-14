@@ -1,0 +1,30 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage{enumitem}
+\RequirePackage{xltabular}
+\RequirePackage{etoolbox}
+\RequirePackage{xstring}
+\RequirePackage{xparse}
+\RequirePackage{xspace}
+\RequirePackage{needspace}
+
+
+\newcommand{\listaTec}{}
+\newcommand{\addTec}[3]{
+    \gappto{\listaTec}{#1 & #2 & #3 \\ \hline}
+}
+
+\newcommand{\makeTecTable}[1]{%
+    \subsection{#1}
+    \begin{xltabular}{\textwidth}{|c|c|X|}
+        \hline
+        \rowcolor{lightgray} \textbf{Tecnologia} & \textbf{Versione} & \textbf{Descrizione} \\
+        \endhead
+        \hline
+        \listaTec
+        \caption{#1}
+    \end{xltabular}
+
+    % Pulisce le variabili
+    \renewcommand{\listaTec}{}
+}

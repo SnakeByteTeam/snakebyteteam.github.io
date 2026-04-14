@@ -1,0 +1,53 @@
+\section{Tecnologie}
+Il progetto si basa su un insieme di tecnologie moderne e robuste, selezionate per le loro 
+capacità di supportare efficacemente un'architettura esagonale e garantire scalabilità, 
+affidabilità e manutenibilità del Sistema. La scelta tecnologica è stata guidata dalla necessità 
+di creare una piattaforma per la gestione di residenze protette che possa operare in modo 
+efficiente, mantenendo elevati standard di prestazioni, sicurezza e resilienza. Le tecnologie 
+adottate sono state organizzate in categorie in base al loro ruolo all'interno dell'architettura: 
+linguaggi di programmazione per lo sviluppo del codice, \textit{framework} per la strutturazione 
+del \textit{frontend} e del \textit{backend}, librerie per la gestione dell'autenticazione, soluzioni per la 
+persistenza dei dati, strumenti per la virtualizzazione e il \textit{deployment}, e infine tecnologie per 
+la verifica della qualità del \textit{software}. La scelta di \glossario{TypeScript} come linguaggio 
+trasversale a tutti i livelli applicativi, affiancato da \glossario{Angular} per il \textit{frontend} e 
+\glossario{NestJS} per il \textit{backend}, ha permesso di mantenere una base di codice omogenea 
+e fortemente tipizzata, riducendo il rischio di errori e facilitando la collaborazione tra i 
+membri del gruppo. L'adozione di \glossario{Docker} è stata dettata dal requisito esplicito del 
+capitolato di seguire il principio di \textit{Infrastructure as Code}: la containerizzazione 
+garantisce che l'intero Sistema sia replicabile con un singolo comando, indipendentemente 
+dall'ambiente di esecuzione, assicurando portabilità e uniformità tra i diversi ambienti di 
+sviluppo, test e produzione. Di seguito sono elencate e descritte le tecnologie utilizzate, 
+evidenziando le loro caratteristiche principali.
+
+\addTec{\textit{Typescript}}{1.2}{Linguaggio di programmazione \textit{open source} sviluppato da \textit{Microsoft}, 
+estende la sintassi di \textit{JavaScript} in modo che qualunque programma scritto in \textit{JavaScript} sia 
+anche in grado di funzionare con \textit{TypeScript} senza nessuna modifica. È stato progettato per 
+lo sviluppo di grandi applicazioni ed è destinato a essere compilato in \textit{JavaScript} per poter 
+essere interpretato da qualunque \textit{web browser} o \textit{app}.}
+\makeTecTable{Linguaggi di programmazione}
+
+\addTec{\textit{NestJS}}{11.0.1}{\textit{Framework} per lo sviluppo di applicazioni \textit{server-side}, costruito su \textit{Node.js} e \textit{TypeScript}.
+Fornisce un'architettura modulare e scalabile, ispirata a concetti di programmazione orientata agli oggetti.}
+\addTec{\textit{Angular}}{15.0.0}{\textit{Framework} per lo sviluppo di applicazioni \textit{web}, sviluppato da \textit{Google}. Utilizza \textit{TypeScript} 
+e offre un'architettura basata su componenti, facilitando la creazione di interfacce utente dinamiche e reattive.}
+\makeTecTable{Framework}
+
+\addTec{\textit{Jwt}}{9.0.0}{Libreria per la gestione dei \textit{JSON Web Token} (JWT) in \textit{Node.js}, utilizzata per l'autenticazione e 
+l'autorizzazione degli utenti. Permette di creare, verificare e decodificare \textit{token} JWT in modo semplice e sicuro.}
+\makeTecTable{Librerie}
+
+\addTec{\glossario{PostgreSQL}}{18.0.0}{Sistema di gestione di \textit{database} relazionali \textit{open source}, noto per la sua robustezza, 
+scalabilità e conformità agli standard SQL.}
+\makeTecTable{Tecnologie per la persistenza dei dati}
+
+\addTec{\textit{Docker}}{29.4.0}{Piattaforma di containerizzazione che consente agli sviluppatori di creare, distribuire e 
+eseguire applicazioni in ambienti isolati chiamati container.}
+\makeTecTable{Tecnologie per \textit{deploy} e containerizzazione}
+
+\addTec{\textit{Jest}}{29.5.14}{\textit{Framework} di testing \textit{JavaScript} sviluppato da \textit{Facebook}, progettato per essere semplice da 
+configurare e utilizzare. Supporta il testing di unità, integrazione e \textit{snapshot}.}
+\makeTecTable{Tecnologie per l'analisi dinamica del codice}
+
+\addTec{\glossario{SonarQube}}{9.9.0}{\textit{Tool} di analisi statica del codice che consente di identificare problemi di qualità 
+e sicurezza nel codice sorgente.}
+\makeTecTable{Tecnologie per l'analisi statica del codice}

@@ -1,0 +1,209 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage[nomarginpar, margin=2.75cm, tmargin=3cm, bmargin=1.75cm]{geometry}
+\usepackage[
+    colorlinks=true,      
+    linkcolor=black,      
+    urlcolor=blue,       
+    citecolor=black       
+]{hyperref}
+\usepackage[italian]{babel}
+\usepackage{xltabular}
+\usepackage{template}
+\usepackage{class-template}
+\usepackage{tecnologies-template}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage[table, x11names]{xcolor}
+\usepackage{lastpage}
+\renewcommand{\arraystretch}{1.05} % migliora la leggibilità
+\renewcommand{\contentsname}{Indice}
+\usepackage{fancyhdr}
+%Comandi per livello di sottosezioni = 3
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\newcommand{\trisubsection}[1]{\paragraph{#1}\mbox{}\\}
+\usepackage{subfiles}
+\usepackage{tikz}
+\tikzset{every picture/.style={/utils/exec={\sffamily}}}
+\usetikzlibrary{positioning}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{SnakeByte}
+\fancyhead[R]{Specifica Tecnica}
+\fancyfoot[C]{Pagina \thepage\ di \pageref{LastPage}}
+
+\begin{document}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+
+\begin{titlepage}
+    \begin{center}
+        \begin{center}
+            \includegraphics[width=0.6\textwidth]{./img/logo.pdf}
+        \end{center}
+        \vspace{4cm}
+        \huge\textbf{Specifica Tecnica}\par
+        \vspace{2cm}
+        \large \textbf{SnakeByte} (Gruppo 1):\\
+        \large Valeria Baleanu, Leonardo Pellizzon, Filippo Venzo, Giuseppe De Fina, \\
+        Francesco Pasqual, Christian Libralato, Luca Granziero \\
+        (2109911, 2111006, 2113705, 2113187, 2103119, 2101047, 2075512)
+        \vfill
+        \small
+        \begin{center}
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                \multicolumn{4}{|c|}{\textbf{Informazioni documento}}                                          \\
+                \hline
+                \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
+                \hline
+                1.0.0                                  & 05/04/2026    & Approvato      &
+                \begin{tabular}[c]{@{}l@{}}
+                    \textbf{Interni:} SnakeByte \\
+                    \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
+                \end{tabular}                          \\
+                \hline
+            \end{tabular}
+        \end{center}
+        \vfill
+        \large Contatti: snakebyteteam@gmail.com
+    \end{center}
+\end{titlepage}
+
+\begin{center}
+    \begin{xltabular}{\textwidth}{|c|c|c|c|c|X|}
+        \hline
+        \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}} \\
+        \hline
+        \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore} & \textbf{Approvatore} & \textbf{Descrizione} \\
+        \hline
+        1.0.0 & 05/04/2026 & - & - & C. Libralato & Approvazione \\
+        \hline
+        0.3.0 & 04/04/2026 & V. Baleanu & G. De Fina & - & Aggiunta moduli backend \\
+        \hline
+        0.2.0 & 03/04/2026 & C. Libralato & G. De Fina & - & Aggiunta moduli frontend \\
+        \hline
+        0.1.0 & 24/03/2026 & L. Pellizon  & C. Libralato & - & Prima Stesura \\
+        \hline
+    \end{xltabular}
+\end{center}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\listoffigures
+
+\newpage
+
+\input{introduction.tex}
+\input{tecnologies.tex}
+\input{patterns.tex}
+\input{architecture.tex}
+
+\section{Microservizi implementati}
+
+\subsection{Backend}
+Il \textit{backend} è composto dai seguenti moduli:
+\begin{itemize}
+    \item \textbf{Alarms}: gestisce la creazione, la modifica, l'abilitazione e l'eliminazione 
+    delle regole di allarme, nonché il monitoraggio e la risoluzione degli allarmi attivi;
+    \item \textbf{Analytics}: si occupa del calcolo e dell'aggregazione dei dati statistici 
+    degli impianti, producendo i grafici relativi a consumi, presenze, temperature e allarmi;
+    \item \textbf{Auth Vimar}: gestisce l'integrazione con il sistema di autenticazione 
+    OAuth2 di Vimar, consentendo il collegamento dell'account MyVimar al Sistema;
+    \item \textbf{Auth}: si occupa dell'autenticazione degli utenti interni al Sistema, 
+    inclusa la gestione dei token JWT e il flusso di cambio password al primo accesso;
+    \item \textbf{Cache}: fornisce un livello di memorizzazione temporanea dei dati 
+    più frequentemente acceduti, al fine di ridurre il carico sul \textit{database} e migliorare 
+    le prestazioni del Sistema;
+    \item \textbf{Device}: gestisce il recupero e l'aggiornamento dello stato dei dispositivi 
+    IoT presenti negli appartamenti, interfacciandosi con le API KNX IoT di Vimar;
+    \item \textbf{Notification}: si occupa della generazione e della distribuzione delle 
+    notifiche agli utenti in seguito allo scatto di un allarme;
+    \item \textbf{Plant}: gestisce le informazioni relative agli impianti \textit{View Wireless}, 
+    incluse le stanze e i dispositivi associati a ciascun appartamento;
+    \item \textbf{Subscription}: gestisce le sottoscrizioni alle notifiche \textit{push} 
+    provenienti dagli impianti tramite il meccanismo di \textit{Subscription} dello standard 
+    KNX IoT;
+    \item \textbf{Users}: gestisce la creazione, la modifica e l'eliminazione degli utenti 
+    del Sistema, inclusa la generazione delle password temporanee per i nuovi Operatori Sanitari;
+    \item \textbf{Wards}: gestisce i reparti (aggregati di appartamenti) della residenza protetta, comprese le assegnazioni 
+    degli appartamenti e degli Operatori Sanitari a ciascun reparto.
+\end{itemize}
+
+\input{backend/alarms/alarms.tex}
+\input{backend/analytics/analytics.tex}
+\input{backend/api-auth-vimar/api-auth-vimar.tex}
+\input{backend/auth/auth.tex}
+\input{backend/cache/cache.tex}
+\input{backend/device/device.tex}
+\input{backend/notification/notification.tex}
+\input{backend/plant/plant.tex}
+\input{backend/subscription/subscription.tex}
+\input{backend/users/users.tex}
+\input{backend/wards/wards.tex}
+
+
+\subsection{Frontend}
+Il \textit{frontend} è composto dai seguenti moduli:
+\begin{itemize}
+
+    \item \textbf{Alarm-configuration}: gestisce l'interfaccia per la creazione, la modifica, 
+    l'abilitazione, la disabilitazione e l'eliminazione delle regole di allarme, 
+    riservata all'Amministratore;
+    \item \textbf{Alarm-history}: fornisce la visualizzazione dello storico degli allarmi 
+    risolti, con i dettagli relativi a orario di scatto, risoluzione e gestore;
+    \item \textbf{Alarm-management}: espone la vista degli allarmi attivi, consentendo 
+    all'utente di visualizzarli e prenderne in carico la risoluzione;
+    \item \textbf{Analytics}: espone i grafici statistici relativi all'appartamento 
+    selezionato, inclusi consumi energetici, presenze, temperature, allarmi e suggerimenti 
+    per il risparmio energetico;
+    \item \textbf{Apartment-monitor}: fornisce la visualizzazione dello stato di un 
+    appartamento, con la panoramica delle stanze e dei dispositivi presenti;
+    \item \textbf{Core}: mantiene elementi di base utilizzati dalle features;
+    \item \textbf{Dashboard}: fornisce il cruscotto informativo principale, aggregando 
+    il modulo di gestione allarmi, le statistiche e i grafici di analisi consumi 
+    e la panoramica dell'appartamento monitorato.
+    \item \textbf{Device-interaction}: gestisce l'interfaccia per la visualizzazione 
+    e la modifica dello stato dei dispositivi IoT presenti nelle stanze di un appartamento;
+     \item \textbf{MainLayout}: definisce la struttura principale dell'applicativo, 
+    includendo il menu di navigazione e il contenitore delle viste;
+     \item \textbf{MyVimar-integration}: gestisce l'interfaccia per il collegamento e la 
+    visualizzazione dello stato dell'account MyVimar associato al Sistema;
+    \item \textbf{Notifications}: fornisce la visualizzazione e la gestione delle notifiche 
+    ricevute dal Sistema in seguito allo scatto di un allarme;
+    \item \textbf{Shared}: contiene entità condivise più moduli; 
+    \item \textbf{User-authentication}: gestisce le schermate di accesso al Sistema, 
+    incluso il flusso di primo accesso con cambio della password temporanea;
+    \item \textbf{User-management}: fornisce l'interfaccia per la creazione, la 
+    visualizzazione e l'eliminazione degli Operatori Sanitari, riservata all'Amministratore;
+    \item \textbf{Ward-management}: gestisce la lista dei reparti le relazioni di appartenenza tra reparti,
+    appartamenti e operatori sanitari, è riservata all'amministratore.
+
+
+\end{itemize}
+
+\input{frontend/alarm-configuration/alarm-configuration.tex}
+\input{frontend/alarm-history/alarm-history.tex}
+\input{frontend/alarm-management/alarm-management.tex}
+\input{frontend/analytics/analytics.tex}
+\input{frontend/apartment-monitor/apartment-monitor.tex}
+\input{frontend/core/core.tex}
+\input{frontend/dashboard/dashboard.tex}
+\input{frontend/device-interaction/device-interaction.tex}
+\input{frontend/mainLayout/mainLayout.tex}
+\input{frontend/my-vimar-integration/my-vimar-integration.tex}
+\input{frontend/notifications/notifications.tex}
+\input{frontend/shared/shared.tex}
+\input{frontend/user-auth/user-auth.tex}
+\input{frontend/user-management/user-management.tex}
+\input{frontend/ward-management/ward-management.tex}
+
+\input{functional_requirements.tex}
+
+\end{document}
