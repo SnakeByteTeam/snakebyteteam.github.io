@@ -1,0 +1,192 @@
+\subsubsection{MyVimar Integration}
+
+% ─── dto in ───
+\makeItf{PlantAuthDto}{DTO di input che trasporta le credenziali di autenticazione per un impianto MyVimar}
+
+\makeItf{PrepareOAuthTicketDto}{DTO di input per la preparazione del ticket OAuth, contenente i dati necessari all'avvio del flusso di autorizzazione}
+
+% ─── dto out ───
+\addAtr{+}{isLinked: boolean}{Indica se l'account MyVimar è collegato all'utente corrente}
+\addAtr{+}{email: string}{Email dell'account MyVimar collegato}
+\addAtr{+}{success: boolean}{Indica se l'operazione di recupero stato è avvenuta con successo}
+\makeCl{MyVimarAccountStatusDto}{DTO di output che trasporta lo stato del collegamento dell'account MyVimar dell'utente}
+
+\addAtr{+}{accessToken: string}{Token di accesso restituito dall'API MyVimar}
+\addAtr{+}{refreshToken: string}{Token di refresh per il rinnovo del token di accesso}
+\addAtr{+}{expiresIn: number}{Durata in secondi della validità del token di accesso}
+\addAtr{+}{email: string}{Email dell'account MyVimar associato ai token}
+\makeCl{TokensDto}{DTO di output che trasporta la coppia di token restituita dall'API MyVimar dopo il completamento del flusso OAuth}
+
+% ─── model ───
+\addAtr{-}{accessToken: string}{Token di accesso corrente}
+\addAtr{-}{refreshToken: string}{Token di refresh per il rinnovo del token di accesso}
+\addAtr{-}{expiresAt: Date}{Timestamp di scadenza del token di accesso}
+\addMet{+}{getAccessToken() : string}{Restituisce il token di accesso}
+\addMet{+}{getRefreshToken() : string}{Restituisce il token di refresh}
+\addMet{+}{getExpiresAt() : Date}{Restituisce il timestamp di scadenza del token}
+\makeCl{TokenPair}{Oggetto di dominio che rappresenta una coppia di token OAuth (accesso e refresh) con la relativa scadenza}
+
+% ─── controller ───
+\addAtr{-}{prepareOAuthUseCase: PrepareOAuthUseCase}{Use case per la preparazione del ticket OAuth}
+\addAtr{-}{authorizeOAuthUseCase: AuthorizeOAuthUseCase}{Use case per l'autorizzazione OAuth tramite ticket}
+\addAtr{-}{apiAuthUseCase: ApiAuthUseCase}{Use case per la generazione dell'URL di login MyVimar}
+\addMet{-}{extractUserId(payload: JwtPayloadWithUserId $|$ undefined) : number $|$ null}{Estrae l'ID utente dal payload JWT, restituendo null se assente}
+\makeCl{ApiAuthTicketController}{Controller REST che gestisce il flusso OAuth lato ticket: generazione dell'URL di login, preparazione e autorizzazione del ticket}
+
+\addAtr{-}{apiAuthVimarUseCase: ApiAuthUseCase}{Use case per la generazione dell'URL di login MyVimar}
+\addAtr{-}{getTokensCallbackUseCase: GetTokensCallbackUseCase}{Use case per il recupero dei token al termine del flusso OAuth}
+\addAtr{-}{getAccountStatusUseCase: GetAccountStatusUseCase}{Use case per il recupero dello stato di collegamento dell'account}
+\addAtr{-}{deleteTokensFromRepo: DeleteTokensFromRepoPort}{Porta per l'eliminazione dei token dal repository}
+\addMet{+}{disconnectAccount() : Promise$<$MyVimarDisconnectResDto$>$}{Disconnette l'account MyVimar dell'utente corrente eliminando i token salvati}
+\addMet{-}{parseState(state: string) : void}{Deserializza il parametro \texttt{state} ricevuto nel callback OAuth}
+\makeCl{ApiAuthVimarController}{Controller REST che gestisce il flusso OAuth lato MyVimar: redirect, callback, stato account e disconnessione}
+
+% ─── usecase ───
+\addMet{+}{getLoginUrl(state?: string) : string}{Genera e restituisce l'URL di autorizzazione MyVimar, includendo opzionalmente il parametro \texttt{state}}
+\makeItf{ApiAuthUseCase}{Porta di ingresso per la generazione dell'URL di login del flusso OAuth MyVimar}
+
+\addMet{+}{authorizeOAuth(ticket: string) : Promise$<$number $|$ null$>$}{Consuma il ticket OAuth e restituisce l'ID utente associato, oppure null se il ticket non è valido}
+\makeItf{AuthorizeOAuthUseCase}{Porta di ingresso per la validazione e il consumo del ticket OAuth}
+
+\addMet{+}{getAccountStatus(userId: number) : Promise$<$\{isLinked: boolean\}$>$}{Restituisce lo stato di collegamento dell'account MyVimar per l'utente indicato}
+\makeItf{GetAccountStatusUseCase}{Porta di ingresso per il recupero dello stato di collegamento dell'account MyVimar}
+
+\makeItf{GetTokensCallbackUseCase}{Porta di ingresso per il recupero e il salvataggio dei token al termine del flusso OAuth}
+
+\addMet{+}{prepareOAuth(userId: number) : Promise$<$string$>$}{Genera un ticket OAuth monouso per l'utente e restituisce il ticket come stringa}
+\makeItf{PrepareOAuthUseCase}{Porta di ingresso per la generazione del ticket OAuth da usare nel flusso di autorizzazione}
+
+% ─── service ───
+\addAtr{-}{eventEmitter: EventEmitter2}{Event emitter per la pubblicazione di eventi applicativi}
+\addAtr{-}{getTokensWithCodePort: GetTokensWithCodePort}{Porta per il recupero dei token tramite codice di autorizzazione}
+\addAtr{-}{writeTokensRepoPort: WriteTokensRepoPort}{Porta per il salvataggio dei token nel repository}
+\makeCl{ApiAuthTokensService}{Servizio applicativo che gestisce il recupero e il salvataggio dei token al completamento del flusso OAuth, pubblicando gli eventi corrispondenti}
+
+\addAtr{-}{authorizeHost: string}{Host dell'endpoint di autorizzazione MyVimar}
+\addAtr{-}{clientId: string}{Client ID dell'applicazione registrata su MyVimar}
+\addAtr{-}{redirectUri: string}{URI di redirect configurato per il callback OAuth}
+\addMet{+}{getLoginUrl(state?: string) : string}{Costruisce e restituisce l'URL di autorizzazione MyVimar con i parametri OAuth}
+\makeCl{ApiAuthVimarService}{Servizio applicativo che implementa \texttt{ApiAuthUseCase}. Costruisce l'URL di login OAuth MyVimar a partire dalle variabili di configurazione}
+
+\addAtr{-}{oauthTicketPort: OAuthTicketPort}{Porta per la gestione del ciclo di vita dei ticket OAuth}
+\addMet{+}{prepareOAuth(userId: number) : Promise$<$string$>$}{Genera un ticket OAuth monouso, lo persiste con scadenza e restituisce il ticket}
+\addMet{+}{authorizeOAuth(ticket: string) : Promise$<$number $|$ null$>$}{Consuma il ticket OAuth e restituisce l'ID utente associato, oppure null se scaduto o non trovato}
+\makeCl{OAuthTicketService}{Servizio applicativo che gestisce la generazione e il consumo dei ticket OAuth monouso per il flusso di autorizzazione}
+
+\addAtr{-}{writeTokensOnRepo: WriteTokensRepoPort}{Porta per il salvataggio dei token nel repository}
+\addAtr{-}{readTokensFromRepo: ReadTokensFromRepoPort}{Porta per la lettura dei token dal repository}
+\addAtr{-}{refreshTokens: RefreshTokensPort}{Porta per il rinnovo dei token tramite refresh token}
+\addAtr{-}{readStatus: ReadStatusPort}{Porta per la lettura dello stato di collegamento dell'account}
+\addMet{+}{getValidToken() : Promise$<$string $|$ null$>$}{Restituisce un token di accesso valido, rinnovandolo se scaduto; restituisce null se non disponibile}
+\addMet{+}{getAccountStatus(userId: number) : Promise$<$\{isLinked: boolean\}$>$}{Restituisce lo stato di collegamento dell'account MyVimar per l'utente indicato}
+\makeCl{TokenService}{Servizio applicativo che gestisce il ciclo di vita dei token OAuth: lettura, validazione, rinnovo e verifica dello stato di collegamento}
+
+% ─── port ───
+\addMet{+}{deleteTokens() : Promise$<$boolean$>$}{Elimina i token salvati nel repository; restituisce true se l'operazione è avvenuta con successo}
+\makeItf{DeleteTokensFromRepoPort}{Porta di uscita per l'eliminazione dei token OAuth dal repository}
+
+\addMet{+}{getTokensWithCode(code: string) : Promise$<$\{tokenPair: TokenPair\}$>$}{Scambia il codice di autorizzazione OAuth con la coppia di token}
+\makeItf{GetTokensWithCodePort}{Porta di uscita per il recupero dei token tramite codice di autorizzazione OAuth}
+
+\addMet{+}{getValidToken() : Promise$<$string $|$ null$>$}{Restituisce un token di accesso valido oppure null se non disponibile o scaduto}
+\makeItf{GetValidTokenPort}{Porta di uscita per il recupero di un token di accesso valido}
+
+\addMet{+}{saveTicket(ticket: string, userId: number, expiresAt: Date) : Promise$<$boolean$>$}{Persiste un ticket OAuth con l'ID utente associato e la scadenza}
+\addMet{+}{consumeTicket(ticket: string) : Promise$<$number $|$ null$>$}{Consuma il ticket restituendo l'ID utente associato, oppure null se non valido}
+\makeItf{OAuthTicketPort}{Porta di uscita per la gestione del ciclo di vita dei ticket OAuth monouso}
+
+\addMet{+}{readStatus(userId: number) : Promise$<$\{isLinked: boolean\}$>$}{Restituisce lo stato di collegamento dell'account MyVimar per l'utente indicato}
+\makeItf{ReadStatusPort}{Porta di uscita per la lettura dello stato di collegamento dell'account MyVimar}
+
+\addMet{+}{readTokens() : Promise$<$TokenPair$>$}{Legge e restituisce la coppia di token salvata nel repository}
+\makeItf{ReadTokensFromRepoPort}{Porta di uscita per la lettura dei token OAuth dal repository}
+
+\addMet{+}{refreshTokens(refreshToken: string) : Promise$<$TokenPair $|$ null$>$}{Rinnova i token tramite il refresh token; restituisce la nuova coppia o null in caso di errore}
+\makeItf{RefreshTokensPort}{Porta di uscita per il rinnovo della coppia di token tramite refresh token}
+
+\addMet{+}{writeTokens(tokens: TokenPair, userId?: number, email?: string) : Promise$<$boolean$>$}{Salva la coppia di token nel repository, opzionalmente associandola all'utente e all'email}
+\makeItf{WriteTokensRepoPort}{Porta di uscita per il salvataggio dei token OAuth nel repository}
+
+\addMet{+}{deleteTicket(ticket: string) : Promise$<$boolean$>$}{Elimina il ticket OAuth indicato dalla cache}
+\makeItf{DeleteOAuthTicketCachePort}{Porta di repository per l'eliminazione dei ticket OAuth dalla cache}
+
+\addMet{+}{deleteTokens() : Promise$<$boolean$>$}{Elimina i token dalla cache}
+\makeItf{DeleteTokensCachePort}{Porta di repository per l'eliminazione dei token OAuth dalla cache}
+
+\addMet{+}{getTokensWithCode(code: string) : Promise$<$TokensDto $|$ null$>$}{Scambia il codice di autorizzazione con i token tramite le API MyVimar}
+\makeItf{GetTokensFromApiPort}{Porta di repository per il recupero dei token dall'API MyVimar tramite codice OAuth}
+
+\addMet{+}{readValidTicket(ticket: string) : Promise$<$ReadOAuthTicketCacheEntity $|$ null$>$}{Legge un ticket valido dalla cache; restituisce null se scaduto o non trovato}
+\makeItf{ReadOAuthTicketCacheEntity}{Porta di repository per la lettura dei ticket OAuth validi dalla cache}
+
+\addMet{+}{readStatus(userId: number) : Promise$<$string $|$ null$>$}{Legge lo stato di collegamento dell'account per l'utente indicato}
+\makeItf{ReadStatusRepoPort}{Porta di repository per la lettura dello stato di collegamento dell'account MyVimar}
+
+\addMet{+}{readTokens() : Promise$<$TokenEntity $|$ null$>$}{Legge i token dalla cache; restituisce null se non presenti}
+\makeItf{ReadTokensCachePort}{Porta di repository per la lettura dei token OAuth dalla cache}
+
+\addMet{+}{refresh(refreshToken: string) : Promise$<$TokensDto $|$ null$>$}{Rinnova i token tramite le API MyVimar usando il refresh token}
+\makeItf{RefreshTokensFromApiPort}{Porta di repository per il rinnovo dei token tramite le API MyVimar}
+
+\addMet{+}{writeTicket(ticket: string, userId: number, expiresAt: Date) : Promise$<$boolean$>$}{Scrive un ticket OAuth nella cache con l'ID utente e la scadenza associati}
+\makeItf{WriteOAuthTicketCachePort}{Porta di repository per la scrittura dei ticket OAuth nella cache}
+
+\addMet{+}{writeTokens(accessToken: string, refreshToken: string, expiresAt: Date, userId: number, email: string) : Promise$<$boolean$>$}{Scrive la coppia di token nella cache con tutti i metadati associati}
+\makeItf{WriteTokensCachePort}{Porta di repository per la scrittura dei token OAuth nella cache}
+
+% ─── entity ───
+\makeItf{OAuthTicketEntity}{Interfaccia dell'entità di persistenza che rappresenta un ticket OAuth salvato in cache, con i campi di ID utente e scadenza}
+
+\makeItf{TokenEntity}{Interfaccia dell'entità di persistenza che rappresenta una coppia di token OAuth salvata in cache}
+
+% ─── adapter ───
+\addAtr{-}{deleteTokensCachePort: DeleteTokensCachePort}{Porta per l'eliminazione dei token dalla cache}
+\addMet{+}{deleteTokens() : Promise$<$boolean$>$}{Elimina i token dal repository delegando alla cache}
+\makeCl{DeleteTokensFromRepoAdapter}{Adapter che implementa \texttt{DeleteTokensFromRepoPort}, delegando l'eliminazione dei token alla porta di cache}
+
+\addAtr{-}{getTokensFromApiPort: GetTokensFromApiPort}{Porta per il recupero dei token dall'API MyVimar}
+\addMet{+}{getTokensWithCode(code: string) : Promise$<$TokenPair$>$}{Recupera i token dall'API MyVimar tramite il codice OAuth e li restituisce come \texttt{TokenPair}}
+\makeCl{GetTokenWithCodeAdapter}{Adapter che implementa \texttt{GetTokensWithCodePort}, delegando il recupero dei token all'API MyVimar}
+
+\addAtr{-}{writeOAuthTicketCachePort: WriteOAuthTicketCachePort}{Porta per la scrittura dei ticket nella cache}
+\addAtr{-}{readOAuthTicketCachePort: ReadOAuthTicketCachePort}{Porta per la lettura dei ticket dalla cache}
+\addAtr{-}{deleteOAuthTicketCachePort: DeleteOAuthTicketCachePort}{Porta per l'eliminazione dei ticket dalla cache}
+\addMet{+}{saveTicket(ticket: string, userId: number, expiresAt: Date) : Promise$<$boolean$>$}{Persiste un ticket OAuth nella cache con l'ID utente e la scadenza}
+\addMet{+}{consumeTicket(ticket: string) : Promise$<$number $|$ null$>$}{Legge e rimuove il ticket dalla cache, restituendo l'ID utente associato o null}
+\makeCl{OAuthTicketAdapter}{Adapter che implementa \texttt{OAuthTicketPort}, orchestrando lettura, scrittura e cancellazione dei ticket OAuth sulla cache}
+
+\addAtr{-}{readStatusRepo: ReadStatusRepoPort}{Porta per la lettura dello stato di collegamento dal repository}
+\addMet{+}{readStatus(userId: number) : Promise$<$\{isLinked: boolean\}$>$}{Legge lo stato di collegamento dell'account MyVimar per l'utente indicato}
+\makeCl{ReadStatusAdapter}{Adapter che implementa \texttt{ReadStatusPort}, delegando la lettura dello stato al repository}
+
+\addAtr{-}{readTokensCachePort: ReadTokensCachePort}{Porta per la lettura dei token dalla cache}
+\addMet{+}{readTokens() : Promise$<$TokenPair$>$}{Legge i token dalla cache e li restituisce come oggetto di dominio \texttt{TokenPair}}
+\makeCl{ReadTokensFromRepoAdapter}{Adapter che implementa \texttt{ReadTokensFromRepoPort}, delegando la lettura dei token alla cache}
+
+\addAtr{-}{refreshTokensFromApi: RefreshTokensFromApiPort}{Porta per il rinnovo dei token tramite le API MyVimar}
+\addMet{+}{refreshTokens(refreshToken: string) : Promise$<$TokenPair $|$ null$>$}{Rinnova i token tramite le API MyVimar e li restituisce come \texttt{TokenPair}, oppure null in caso di errore}
+\makeCl{RefreshTokensAdapter}{Adapter che implementa \texttt{RefreshTokensPort}, delegando il rinnovo dei token alle API MyVimar}
+
+\addAtr{-}{writeTokensCachePort: WriteTokensCachePort}{Porta per la scrittura dei token nella cache}
+\addAtr{-}{readTokensCachePort: ReadTokensCachePort}{Porta per la lettura dei token dalla cache}
+\addMet{+}{writeTokens(tokens: TokenPair, userId?: number, email?: string) : Promise$<$boolean$>$}{Salva la coppia di token nella cache, opzionalmente con ID utente ed email}
+\makeCl{WriteTokensRepoAdapter}{Adapter che implementa \texttt{WriteTokensRepoPort}, delegando la scrittura dei token alla cache}
+
+% ─── implementazione dei repository ───
+\addAtr{-}{httpService: HttpService}{Client HTTP per le chiamate alle API MyVimar}
+\addAtr{-}{jwtService: JwtService}{Servizio per la decodifica del token JWT restituito da MyVimar}
+\addMet{+}{getTokensWithCode(code: string) : Promise$<$TokensDto $|$ null$>$}{Scambia il codice OAuth con i token chiamando le API MyVimar; restituisce null in caso di errore}
+\addMet{+}{refresh(refreshToken: string) : Promise$<$TokensDto $|$ null$>$}{Rinnova i token tramite le API MyVimar usando il refresh token; restituisce null in caso di errore}
+\addMet{-}{extractEmailFromAccessToken(accessToken: unknown) : string}{Decodifica il token JWT di accesso e ne estrae il campo email}
+\makeCl{GetTokensFromApiImpl}{Implementazione concreta di \texttt{GetTokensFromApiPort} e \texttt{RefreshTokensFromApiPort}; esegue le chiamate HTTP alle API MyVimar per ottenere e rinnovare i token}
+
+\addMet{+}{writeTicket(ticket: string, userId: number, expiresAt: Date) : Promise$<$boolean$>$}{Scrive un ticket OAuth nella cache con ID utente e scadenza}
+\addMet{+}{readValidTicket(ticket: string) : Promise$<$OAuthTicketEntity $|$ null$>$}{Legge un ticket dalla cache verificandone la validità; restituisce null se scaduto o assente}
+\addMet{+}{deleteTicket(ticket: string) : Promise$<$boolean$>$}{Elimina il ticket indicato dalla cache}
+\makeCl{OAuthTicketCacheImpl}{Implementazione concreta delle porte di cache per i ticket OAuth; gestisce scrittura, lettura e cancellazione tramite il sistema di cache}
+
+\addMet{+}{writeTokens(accessToken: string, refreshToken: string, expiresAt: Date, userId: number, email: string) : Promise$<$boolean$>$}{Scrive la coppia di token nella cache con tutti i metadati associati}
+\addMet{+}{readTokens() : Promise$<$TokenEntity $|$ null$>$}{Legge i token dalla cache; restituisce null se non presenti}
+\addMet{+}{deleteTokens() : Promise$<$boolean$>$}{Elimina i token dalla cache}
+\addMet{+}{readStatus(userId: number) : Promise$<$string $|$ null$>$}{Legge lo stato di collegamento dell'account per l'utente indicato}
+\makeCl{TokenCacheImpl}{Implementazione concreta delle porte di cache per i token OAuth; gestisce lettura, scrittura, cancellazione e lettura dello stato di collegamento}

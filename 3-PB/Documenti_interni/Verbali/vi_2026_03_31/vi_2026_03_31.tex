@@ -1,0 +1,109 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+\setDocTitle{Verbale interno 31/03/2026}
+\setDocVersion{-}
+\setDocData{31/03/2026}
+\setDocIndex{vi\_2026\_03\_31}
+\setDocState{1}
+\setDocRecipient{1}
+
+\begin{document}
+
+\makeTitlePage
+
+% \newpage
+% \addChangelog{0.1.0}{11/03/2026}{F. Pasqual}{C. Libralato}{\noOne}{\firstDraft}
+% \makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{31/03/2026}{14:30}{15:00}{via \textit{Discord$_G$}}
+
+\addParticipant{Valeria}{Baleanu}{Programmatore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Amministratore}{P}
+\addParticipant{Francesco}{Pasqual}{Programmatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Verificatore}{P}
+\addParticipant{Christian}{Libralato}{Responsabile}{P}
+\addParticipant{Filippo}{Venzo}{Programmatore}{P}
+\makeMeetingParticipantsTable
+
+\addPrecedentTodo{vi\_2026\_03\_24.a1}{\noOne}{\teamName}{31/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_24.a1}{\#24}{F. Venzo}{31/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_24.a1}{\noOne}{\teamName}{26/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_24.a1}{\#224}{C. Libralato}{31/03/2026}
+\addPrecedentTodo{vi\_2026\_03\_24.a1}{\#225}{C. Libralato}{31/03/2026}
+
+\makePrecedentTodoTable
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+    \item Stato avanzamento \textit{backend$_G$};
+    \item aggiornamento e completamento della documentazione PDP e PDQ;
+    \item coordinamento del lavoro sul branch di integrazione e gestione merge;
+    \item dubbi.
+  \end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+\subsection*{Stato avanzamento \textit{backend}}
+È stato discusso il completamento della parte di subscriptions sul \textit{backend}, incluso l'aggiornamento della cache 
+e delle time series su variazione dei \textit{data points}. Sono state dichiarate terminate le modifiche delle analytics e l'inclusione dei suggerimenti lato \textit{backend}.
+
+Il team ha sottolineato la necessità di salvare le notifiche generate dagli allarmi su una tabella nel database per
+permettere la consultazione da parte dell'utente finale, considerando che il \textit{frontend$_G$} ha già una funzionalità per la visualizzazione delle notifiche.
+La struttura della tabella è già stata modellata e necessita solo di essere implementata.
+
+\subsection*{Aggiornamento e completamento della documentazione PDP e PDQ}
+È emersa l'esigenza di aggiornare quanto prima la documentazione PDP e PDQ per lo sprint 10, con un controllo sui dati
+e formule, in modo da poter poi procedere all'aggiornamento nello sprint 11. È stato sottolineato che gli aggiornamenti 
+devono essere comunicati chiaramente al gruppo per monitorare i progressi.
+
+\subsection*{Coordinamento del lavoro sul branch di integrazione e gestione merge}
+È stato proposto di creare un branch chiamato 'integrazione' da mantenere stabile e con i test funzionanti, su cui tutti devono basare il proprio lavoro e dove devono essere fatte piccole modifiche testate.
+È stata poi discussa la gestione dei branch aperti e la necessità di chiudere quelli non più usati, con l'obiettivo di migliorare la continuità e stabilità del codice.
+
+\subsection*{Dubbi}
+Sono emersi alcuni dubbi riguardo le seguenti tematiche:
+\begin{itemize}
+    \item Il grado di conformità al codice che i diagrammi UML devono possedere;
+    \item il ruolo a cui è affidata la responsabilità di stesura dei test;
+    \item il rispetto realistico delle scadenze.
+\end{itemize} 
+Le questioni saranno risolte tramite interazione con la Proponente e durante il diario di bordo.
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+\addDecision{Salvataggio notifiche generate dagli allarmi}
+
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+\addTodo{\noOne}{Stesura verbale}{C. Libralato}{05/04/2026}
+\addTodo{\noOne}{Aggiornamento PDP e PDQ}{L. Granziero}{05/04/2026}
+\addTodo{\noOne}{Implementare salvataggio notifiche degli allarmi}{F. Venzo}{05/04/2026}
+\addTodo{\noOne}{Chiudere i branch datati}{L. Granziero}{05/04/2026}
+
+\makeTodoTable
+
+
+\end{document}

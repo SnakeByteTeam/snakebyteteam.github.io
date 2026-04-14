@@ -1,0 +1,332 @@
+\documentclass[10pt, letterpaper]{article}
+\usepackage{../../../template/template}
+\usepackage{xspace}
+\usepackage{float}
+\usepackage[italian]{babel}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Manuale Installazione}
+\setDocVersion{1.0.0}
+\setDocData{05/04/2026}
+\setDocIndex{Manuale Installazione}
+\setDocState{2}
+\setDocRecipient{2}
+
+\newcommand{\user}{Utente\xspace}
+\newcommand{\os}{Operatore Sanitario\xspace}
+\newcommand{\admin}{Amministratore\xspace}
+\newcommand{\cloud}{Cloud Vimar\xspace}
+\newcommand{\reparto}{Reparto\xspace}
+\newcommand{\appartamento}{Appartamento\xspace}
+\newcommand{\myvimar}{MyVimar\xspace}
+
+\newcommand{\screenshot}[1]{%
+    \begin{center}
+    \fbox{%
+      \parbox{0.8\textwidth}{%
+            \centering\vspace{1em}
+            \textit{[Inserire screenshot: #1]}
+            \vspace{1em}
+        }%
+    }
+    \end{center}
+}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage 
+\addChangelog{1.0.0}{05/04/2026}{ - }{ - }{C. Libralato}{Approvazione}
+\addChangelog{0.1.0}{04/04/2026}{V. Baleanu}{G. De Fina}{\noOne}{\firstDraft}
+\makeChangelog
+
+\newpage
+\setcounter{tocdepth}{3}
+\tableofcontents
+
+\newpage
+
+\listoffigures
+
+\newpage
+
+% \listoftables
+
+% \newpage
+
+\section{Introduzione}
+
+\subsection{Scopo del documento}
+Lo scopo del Manuale Installazione è quello di descrivere al lettore il procedimento di installazione del Sistema sviluppato da \textit{SnakeByte} per il Capitolato${_G}$ C9 proposto da \textit{Vimar S.p.A.}.
+Il manuale illustra principalmente i requisiti e le modalità di installazione del Sistema. Inoltre sono descritti i vari test che è possibile eseguire per verificare il corretto funzionamento del Sistema.
+\\In particolare, nel presente documento sono contenute le seguenti sezioni:
+\begin{itemize}
+      \item \textbf{Requisiti}: una definizione di quelli che sono i requisiti minimi di \textit{hardware}, \textit{software} e \textit{browser} per poter correttamente eseguire il Sistema;
+      \item \textbf{Accesso e installazione}: una spiegazione dettagliata per poter eseguire il Sistema.
+      \item \textbf{Test}: una spiegazione su come eseguire i vari test di unità, integrazione e accettazione;
+\end{itemize}
+
+\subsection{Glossario}
+All'interno del documento possono essere presenti termini il cui significato può risultare ambiguo o sconosciuto, essi sono
+riportati in italico e alla loro prima occorrenza è associata una \textit{G} a pedice ad indicare la presenza del suddetto termine 
+all'interno del \texorpdfstring{\textit{glossario}}{glossario}$_G$, che è disponibile al seguente link: \href{https://snakebyteteam.github.io/glossary.html}{Glossario}.
+
+\subsection{Riferimenti}
+\subsubsection{Riferimenti normativi}
+\begin{itemize}
+    \item \textbf{Norme di Progetto 2.0.0}:
+          \\ \url{https://snakebyteteam.github.io/3-PB/Documenti_interni/Norme_di_progetto/Norme_di_Progetto_v2.0.0.pdf}
+          \\ (consultato il 05/04/2026).
+    \item \textbf{Vimar View4Life Capitolato di Ingegneria del Software Università di Padova 2025-2026}:
+          \\ \url{https://www.math.unipd.it/~tullio/IS-1/2025/Progetto/C9.pdf}
+          \\ (consultato il 05/04/2026).
+\end{itemize}
+
+\subsubsection{Riferimenti informativi}
+\begin{itemize}
+    \item \textbf{Glossario}:
+      \\ \url{https://snakebyteteam.github.io/3-PB/Documenti_interni/Glossario/Glossario_v2.0.0.pdf} 
+      \\ (consultato il 05/04/2026).
+\end{itemize}
+
+\section{Requisiti}
+\label{sec:requisiti}
+
+Di seguito sono elencati i requisiti minimi necessari per poter eseguire correttamente il Sistema.
+
+\subsection{Browser supportati}
+\label{sec:browsers}
+
+I \textit{browser} supportati sono:
+
+\begin{itemize}
+    \item   \textbf{Safari}: versione 26 o superiore;
+    \item   \textbf{Chrome}: versione 147 o superiore;
+    \item   \textbf{Firefox}: versione 149 o superiore;
+\end{itemize}
+
+\subsection{Requisiti hardware}
+In merito agli applicativi sviluppati, trattandosi di una \textit{web application} containerizzata tramite \textit{Docker} 
+e basata su tecnologie moderne, i requisiti \textit{hardware} 
+dipendono principalmente dal numero di \textit{container} in esecuzione e dal carico di lavoro previsto.
+
+A scopo puramente esemplificativo, si riportano di seguito le specifiche della macchina su cui è attualmente installata un'istanza di \textit{View4Life}: 
+
+\begin{itemize}
+    \item \textbf{CPU}: 1 Core, 2 GHz;
+    \item \textbf{RAM}: 1 GB;
+    \item \textbf{Spazio su disco}: 25 GB.
+\end{itemize}
+
+\subsection{Requisiti software}
+In merito al Sistema Operativo, l'esecuzione del Sistema richiede esclusivamente la presenza del \textit{software} di containerizzazione \textit{Docker} (versione 29.4 o superiore), 
+il quale consente di eseguire tutti i servizi applicativi all'interno di appositi \textit{container}, senza la necessità di installare manualmente ulteriori dipendenze sulla macchina ospitante.
+\\Grazie all'utilizzo di \textit{Docker}, tutte le tecnologie necessarie al funzionamento del Sistema 
+sono incluse e configurate all'interno dei \textit{container}, garantendo isolamento, portabilità e semplicità di distribuzione.
+\\La configurazione e l'avvio dei servizi sono gestiti automaticamente tramite strumenti di orchestrazione (es. \textit{Docker Compose}), 
+riducendo al minimo le operazioni richieste all'utente.
+\\Pertanto, per l'esecuzione del Sistema è sufficiente disporre dei seguenti applicativi:
+\begin{itemize}
+    \item \textbf{Docker}: versione 29.4.0 o superiore;
+    \item \textbf{Docker Compose}: versione 5.0.0 o superiore.
+\end{itemize}
+
+
+
+\section{Accesso e installazione}
+
+Il Sistema può essere utilizzato tramite installazione locale dalla \textit{repository} su \textit{GitHub}.
+
+\subsection{Installazione dalla \textit{repository} su \textit{GitHub}}
+\label{sec:installazione-github}
+
+Per eseguire il Sistema in locale è necessario soddisfare i requisiti descritti nella Sezione~\ref{sec:requisiti}.
+
+\subsubsection{Preparazione del Sistema}
+
+\paragraph{Installazione di \textit{Docker}}
+
+\begin{enumerate}
+    \item Verificare che \textit{Docker} e \textit{Docker Compose} siano installati eseguendo:
+\begin{verbatim}
+docker --version
+docker compose version
+\end{verbatim}
+    \item Se non sono installati, seguire le istruzioni ufficiali disponibili su \href{https://docs.docker.com/get-docker/}{docs.docker.com/get-docker};
+    \item Assicurarsi che il servizio \textit{Docker} sia in esecuzione:
+    \begin{itemize}
+      \item Su Linux: \begin{verbatim}sudo systemctl start docker\end{verbatim}
+      \item Su MacOS: \begin{verbatim}open -a Docker\end{verbatim}
+      \item Su Windows (su PowerShell come amministratore): \begin{verbatim}Start-Service com.docker.service\end{verbatim}
+\end{itemize}
+\end{enumerate}
+
+\paragraph{Installazione del Software}
+
+\begin{enumerate}
+    \item Aprire un terminale in una cartella a propria scelta, quindi clonare 
+    la \textit{repository} del progetto:
+\begin{verbatim}
+git clone https://github.com/SnakeByte/MVP.git
+\end{verbatim}
+    \item Spostarsi nella cartella appena creata:
+\begin{verbatim}
+cd MVP
+\end{verbatim}
+\end{enumerate}
+
+\paragraph{Configurazione del file \texttt{.env}}
+Il file \texttt{.env} contiene le variabili d'ambiente necessarie al corretto funzionamento del Sistema, 
+tra cui configurazioni relative alla base di dati, ai servizi \textit{backend} e alle eventuali porte di esposizione dei \textit{container} \textit{Docker}.
+
+\begin{enumerate}
+    \item Nella \textit{directory} radice del progetto, creare un file \texttt{.env};
+    \item Aprire il file con un editor di testo e inserire le seguenti voci (alle quali associare i propri dati):
+\begin{itemize}
+    \item \textbf{Configurazione server}
+    \begin{itemize}
+        \item \texttt{PORT}: Porta su cui gira il server \textit{backend}.
+    \end{itemize}
+
+    \item \textbf{Autenticazione e OAuth}
+    \begin{itemize}
+        \item \texttt{CLIENTID}: fornito da \textit{Vimar S.p.A.} dopo la registrazione al portale \textit{MyVimar};
+        \item \texttt{CLIENTSECRET}: fornito da \textit{Vimar S.p.A.} dopo la registrazione al portale \textit{MyVimar};
+        \item \texttt{HOST1}: Endpoint di autenticazione OpenID Connect, recuperabile dalla specifica \textit{KNX IoT Third Party API} di \textit{Vimar};
+        \item \texttt{HOST2}: Endpoint per ottenere il token di accesso, recuperabile dalla specifica \textit{KNX IoT Third Party API} di \textit{Vimar};
+        \item \texttt{REDIRECT\_URI}: URI interno di redirect dopo autenticazione;
+        \item \texttt{ACCESS\_SECRET}: Secret per gestione access token;
+        \item \texttt{REFRESH\_SECRET}: Secret per gestione refresh token.
+    \end{itemize}
+
+    \item \textbf{API e configurazione KNX/Vimar}
+    \begin{itemize}
+        \item \texttt{HOST3}: Endpoint base delle API KNX/Vimar, recuperabile dalla specifica \textit{KNX IoT Third Party API} di \textit{Vimar};
+        \item \texttt{PLANT\_DOMAIN}: Endpoint di discovery KNX.
+    \end{itemize}
+
+    \item \textbf{Database}
+    \begin{itemize}
+        \item \texttt{DBUSER}: Username del \textit{database};
+        \item \texttt{DBPASSWORD}: Password del \textit{database};
+        \item \texttt{DBPORT}: Porta del \textit{database};
+        \item \texttt{DBNAME}: Nome del \textit{database};
+        \item \texttt{PG\_CONNECTION\_STRING}: Stringa completa di connessione al \textit{database}.
+    \end{itemize}
+
+    \item \textbf{Webhook e sottoscrizioni}
+    \begin{itemize}
+        \item \texttt{SECRET\_FOR\_SUB}: Secret per la gestione delle sottoscrizioni;
+        \item \texttt{NODE\_SUB\_CALLBACK}: Endpoint interno callback per le sottoscrizioni;
+        \item \texttt{DATAPOINT\_SUB\_CALLBACK}: Endpoint interno callback per aggiornamenti datapoint.
+    \end{itemize}
+
+    \item \textbf{Integrazioni esterne}
+    \begin{itemize}
+        \item \texttt{GROQ\_API\_KEY}: API key per integrazione con servizi Groq.
+    \end{itemize}
+
+\end{itemize}
+
+\item Salvare il file \texttt{.env}.
+\end{enumerate}
+
+\subsubsection{Esecuzione del Sistema}
+
+\paragraph{Avvio}
+\label{sec:avvio}
+
+\begin{enumerate}
+    \item Dalla \textit{directory} radice del progetto, avviare l'infrastruttura eseguendo il comando:
+\begin{verbatim}
+docker compose up -d
+\end{verbatim}
+
+    \item Attendere il completamento dell'avvio di tutti i \textit{container}. L'operazione è considerata conclusa quando tutti i servizi risultano nello stato \textit{running} o \textit{healthy}.
+
+    \item Aprire il \textit{browser} e accedere all'indirizzo:
+\begin{verbatim}
+http://localhost:80
+\end{verbatim}
+per visualizzare la schermata iniziale del Sistema.
+\end{enumerate}
+
+\paragraph{Spegnimento}
+
+\begin{enumerate}
+    \item Per arrestare il Sistema senza perdita dei dati persistenti, eseguire:
+\begin{verbatim}
+docker compose down
+\end{verbatim}
+
+    \item I dati vengono conservati all'interno dei volumi \textit{Docker}, che rimangono disponibili per successive riaccensioni del Sistema.
+\end{enumerate}
+
+\paragraph{Ripristino}
+
+\begin{enumerate}
+    \item Per ripristinare il Sistema allo stato iniziale, eliminando anche i dati persistenti e ricostruendo le immagini \textit{Docker}, eseguire:
+\begin{verbatim}
+docker compose down -v --remove-orphans && docker compose up -d --build
+\end{verbatim}
+
+    \item Tutti i servizi vengono arrestati, i volumi eliminati e successivamente ricreati e riavviati. L'operazione potrebbe richiedere alcuni minuti a causa della ricostruzione delle immagini \textit{Docker}.
+\end{enumerate}
+\textbf{Attenzione:} il comando \texttt{docker compose down -v} elimina in modo irreversibile tutti i dati memorizzati nei volumi \textit{Docker}, inclusi quelli del \textit{database}. 
+L'opzione \texttt{--remove-orphans} rimuove inoltre eventuali container non più definiti nel file di configurazione.
+
+\section{Esecuzione dei test}
+
+I test del sistema sono suddivisi in tre categorie: test di unità, test di integrazione e test di accettazione.
+Per eseguirli è necessario aver completato la fase di installazione descritta nella sezione~\ref{sec:installazione-github}.
+\\I test sono organizzati tra \textbf{backend} e \textbf{frontend} e vengono eseguiti utilizzando gli strumenti forniti rispettivamente da \textit{NestJS}$_G$ e \textit{Angular}$_G$.
+Prima di eseguire i comandi descritti nelle sezioni successive, assicurarsi di avere \textit{Node.js} installato. Successivamente, aprire un terminale nella \textit{directory} radice del progetto (\texttt{MVP}) ed eseguire:
+\begin{verbatim}
+npm install
+\end{verbatim}
+Tale comando installa tutte le dipendenze del progetto, necessarie per il corretto funzionamento dell'ambiente di test.
+\subsection{Esecuzione dei test di unità}
+
+I test di unità verificano il corretto funzionamento dei singoli moduli del Sistema in isolamento.
+\begin{itemize}
+      \item \textbf{Backend}: aprire un terminale nella \textit{directory} \texttt{backend} ed eseguire:
+      \begin{verbatim}npm run test unit\end{verbatim}
+      \item \textbf{Frontend}: aprire un terminale nella directory \texttt{frontend} ed eseguire:
+      \begin{verbatim}ng test\end{verbatim}
+      Al termine dell'esecuzione, il Sistema mostra un riepilogo dei test eseguiti e dei risultati ottenuti.
+\end{itemize}
+
+\subsection{Esecuzione dei test di integrazione}
+
+I test di integrazione verificano la corretta interazione tra i diversi moduli del Sistema.
+
+\begin{itemize}
+      \item \textbf{Backend}: aprire un terminale nella \textit{directory} \texttt{backend} ed eseguire:
+      \begin{verbatim}npm run test integration\end{verbatim}
+      \textbf{Nota:} è necessario che il \textit{database} sia in esecuzione.
+      \item \textbf{Frontend}: aprire un terminale nella directory \texttt{frontend} ed eseguire:
+      \begin{verbatim}ng test\end{verbatim}
+\end{itemize}
+
+
+\subsection{Esecuzione dei test di accettazione}
+
+I test di accettazione (\textit{end-to-end}) verificano il comportamento del Sistema dal punto di vista dell'utente finale, simulando scenari reali di utilizzo.
+
+\begin{itemize}
+      \item \textbf{Backend}: aprire un terminale nella \textit{directory} \texttt{backend} ed eseguire:
+      \begin{verbatim}npm run test:e2e\end{verbatim}
+
+      \textbf{Nota:} questi test utilizzano una configurazione separata e richiedono che il \textit{database} sia attivo.
+      \item  \textbf{Frontend}: aprire un terminale nella \textit{directory} \texttt{frontend} ed eseguire:
+      \begin{verbatim}ng serve\end{verbatim}
+      \begin{verbatim}npx cypress run\end{verbatim}
+      Al primo avvio del comando, \texttt{Cypress} potrebbe richiedere l'installazione di alcune dipendenze: in tal caso, confermare digitando \texttt{y} (\textit{yes}) e premendo \texttt{Invio}.
+\end{itemize}
+
+
+\end{document}

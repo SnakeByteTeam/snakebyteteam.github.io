@@ -1,0 +1,97 @@
+%============================
+% Verbale riunione – Aggiornamenti progettuali e chiarimenti tecnici
+%============================
+\documentclass[10pt, letterpaper]{article}
+\usepackage{../../../../template/template}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Verbale esterno 11/03/2026}
+\setDocVersion{-}
+\setDocData{11/03/2026}
+\setDocIndex{ve\_2026\_03\_11}
+\setDocState{2}
+\setDocRecipient{2}
+
+\begin{document}
+
+\makeTitlePage
+
+% \newpage
+% \addChangelog{0.1.0}{12/03/2026}{F. Pasqual}{C. Libralato}{\noOne}{\firstDraft}
+% \makeChangelog
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+\makeMeetingInfoTable{11/03/2026}{16:00}{16:45}{via \textit{Microsoft Teams$_G$}}
+
+% ------------------------
+% Partecipanti
+% ------------------------
+\addParticipant{Filippo}{Venzo}{Amministratore}{P}
+\addParticipant{Valeria}{Baleanu}{Progettista}{P}
+\addParticipant{Luca}{Granziero}{Progettista}{P}
+\addParticipant{Christian}{Libralato}{Verificatore}{A}
+\addParticipant{Francesco}{Pasqual}{Responsabile}{P}
+\addParticipant{Leonardo}{Pellizzon}{Progettista}{P}
+\addParticipant{Giuseppe}{De Fina}{Progettista}{P}
+\makeMeetingParticipantsTable
+
+\section{Ordine del giorno}
+\begin{itemize}
+  \item Aggiornamento avanzamento progetto e divisione ruoli;
+  \item progettazione e sicurezza del sistema di autenticazione.
+\end{itemize}
+
+\section{Approfondimento}
+
+\subsection{Aggiornamento avanzamento progetto e divisione ruoli}
+Il responsabile ha illustrato al referente della Proponente lo stato del progetto, focalizzandosi
+sui seguenti punti operativi e organizzativi:
+\begin{itemize}
+  \item \textbf{Stato del progetto e ruoli:} Il team mantiene quattro progettisti, un amministratore, un verificatore e un responsabile.
+        Tutti i membri partecipano alle sessioni collaborative di progettazione per condividere efficacemente la conoscenza dell'architettura.
+  \item \textbf{Pianificazione e rendicontazione:} È in corso l'aggiornamento del Piano di Progetto e del Piano di Qualifica
+        allo \textit{sprint$_G$} 9 appena concluso. L'obiettivo è completare la progettazione delle classi entro metà \textit{sprint} per avviare la programmazione.
+  \item \textbf{Bozzetti {\textit{wireframe$_G$} e \textit{front-end}:}} La progettazione sta comprendendo anche la definizione di bozzetti grafici su \textit{Figma$_G$}.
+        Il referente della Proponente ha suggerito di lavorare ad "alto livello", concentrandosi esclusivamente sulle schermate principali e sull'architettura delle informazioni.
+\end{itemize}
+
+\subsection{Progettazione e sicurezza del sistema di autenticazione}
+Il team di progettisti ha discusso con il referente della Proponente le scelte tecniche e le \textit{best practice} relative all'autenticazione:
+\begin{itemize}
+  \item \textbf{Gestione della sessione e \textit{token JWT$_G$}:} Per risolvere la perdita di sessione \textit{post-redirect} a Vimar, si è scartato l'uso
+        del \textit{local} o \textit{session storage} per motivi di vulnerabilità. In linea con le direttive \textit{OWASP$_G$}, l'\textit{access token} verrà salvato in memoria volatile e il \textit{refresh token} in un \textit{cookie$_G$} \textit{HTTP-only} e \textit{secure}.
+  \item \textbf{Architettura Proxy:} Il \textit{token} Vimar sarà gestito esclusivamente dal \textit{backend}
+        (modello \textit{backend-for-frontend proxy$_G$}), che fungerà da intermediario sicuro per l'accesso alle risorse protette, senza mai esporre il \textit{token} al \textit{frontend}.
+  \item \textbf{Payload JWT:} Lo \textit{username} fungerà da chiave naturale nel \textit{payload}, mentre la chiave surrogata (ID) resterà confinata nel \textit{database}.
+        Il referente della Proponente ha approvato la scelta, raccomandando di documentarla e di privilegiare la tempestiva realizzazione di un \textit{MVP$_G$} funzionante rispetto a ottimizzazioni premature e che richiedono ulteriori passi di approfondimento, visti i tempi di progetto imminenti.
+\end{itemize}
+
+
+% ------------------------
+% Decisioni
+% ------------------------
+
+\addDecision{I bozzetti \textit{wireframe} verranno realizzati solo per le schermate principali della dashboard, ad alto livello}
+\addDecision{Salvataggio dell'\textit{access token} in memoria volatile e del \textit{refresh token} in \textit{cookie} \textit{HTTP-only} e \textit{secure}, conformemente alle \textit{best practice} OWASP.}
+\addDecision{Adozione di un'architettura \textit{backend-for-frontend proxy}, gestendo il \textit{token} Vimar esclusivamente lato \textit{backend}.}
+\addDecision{Inserimento dello \textit{username} come chiave naturale nel \textit{payload} del \textit{JWT}, mantenendo la chiave surrogata (ID) nel \textit{database} interno.}
+
+\makeDecisionTable
+
+% ------------------------
+% TODO
+% ------------------------
+
+\addTodo{\#182}{Inviare al referente della Proponente i bozzetti delle principali schermate per ricevere \textit{feedback}.}{F. Pasqual}{18/03/2026}
+\addTodo{\#183}{Aggiornare il tabellone condiviso dal referente della Proponente con lo stato di avanzamento delle attività.}{F. Pasqual, F. Venzo}{18/03/2026}
+\makeTodoTable
+
+\end{document}
