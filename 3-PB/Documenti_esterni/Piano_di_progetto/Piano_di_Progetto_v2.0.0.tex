@@ -13,9 +13,9 @@
 % Macro sono in relazione all'ultima modifica
 \setDocIndex{Piano_di_Progetto}
 \setDocTitle{Piano di Progetto}
-\setDocVersion{1.0.4}
-\setDocState{1}
-\setDocData{03/04/2026}
+\setDocVersion{2.0.0}
+\setDocState{2}
+\setDocData{05/04/2026}
 \setDocRecipient{2}
 
 \setcounter{tocdepth}{4}
@@ -265,6 +265,7 @@ Lo stato aggiornato delle risorse è calcolato nella seguente tabella, in cui i 
 \begin{document}
 
 \makeTitlePage
+\addChangelog{2.0.0}{05/04/2026}{\noOne}{\noOne}{C. Libralato}{Approvazione}
 \addChangelog{1.0.4}{03/04/2026}{L. Granziero}{G. De Fina}{\noOne}{Aggiornamento di consuntivo e retrospettiva allo sprint 11}
 \addChangelog{1.0.3}{31/03/2026}{L. Granziero}{G. De Fina}{\noOne}{Aggiornamento di consuntivo e retrospettiva allo sprint 10}
 \addChangelog{1.0.2}{10/03/2026}{F. Venzo}{C. Libralato}{\noOne}{Aggiornamento di consuntivo e retrospettiva allo sprint 9}
@@ -1628,7 +1629,7 @@ In previsione dei prossimi sprint, il gruppo si impegna a mantenere l'attuale li
         \item \textbf{piano di Progetto e Piano di Qualifica}: aggiornamento allo sprint 9
         \item \textbf{Glossario}: aggiornamento con i termini riguardanti la progettazione e la codifica
         \item Creazione di bozzetti grafici rappresentativi dell’interfaccia della web application
-        \item Avvio dell’implementazione dell’MVP, con una suddivisione del lavoro: una parte del team si è concentrata sul backend, mentre l’altra sul frontend.
+        \item Avvio dell’implementazione dell’MVP, con una suddivisione del lavoro: una parte del team si è concentrata sul \textit{backend}, mentre l’altra sul \textit{frontend}.
     \end{itemize}
 
     \subsubsection{Rischi}
@@ -1642,8 +1643,8 @@ In previsione dei prossimi sprint, il gruppo si impegna a mantenere l'attuale li
     \end{itemize}
     \trisubsection{Rischi manifestati}
     \begin{itemize}
-        \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: L'avvio dell'implementazione dell'MVP ha evidenziato lacune tecnologiche sia sul fronte della progettazione architetturale che su quello dello sviluppo: alcuni membri hanno incontrato difficoltà nell'applicare i pattern progettuali definiti e nell'utilizzo delle tecnologie scelte per backend e frontend in un contesto produttivo. La mitigazione è avvenuta attraverso sessioni collaborative di allineamento e confronto interno tra i membri del gruppo.
-        \item \rif{RC3} - Disparità di conoscenze tra componenti: La principale difficoltà riscontrata è stata la traduzione della progettazione in codice: sebbene tutti i membri avessero acquisito esperienza sulle tecnologie durante il PoC, la riassegnazione dei ruoli tra backend e frontend ha creato una disparità situazionale, con alcuni membri chiamati a lavorare sulla parte del sistema opposta a quella sviluppata in precedenza. La mitigazione è avvenuta attraverso sessioni di confronto interno, una collaborazione più stretta tra chi aveva già familiarità con la componente assegnata e chi invece la affrontava per la prima volta, e ore di studio individuale dedicate a colmare le lacune emerse.
+        \item \rif{RT1} - Conoscenza insufficiente di una tecnologia: L'avvio dell'implementazione dell'MVP ha evidenziato lacune tecnologiche sia sul fronte della progettazione architetturale che su quello dello sviluppo: alcuni membri hanno incontrato difficoltà nell'applicare i pattern progettuali definiti e nell'utilizzo delle tecnologie scelte per \textit{backend} e \textit{frontend} in un contesto produttivo. La mitigazione è avvenuta attraverso sessioni collaborative di allineamento e confronto interno tra i membri del gruppo.
+        \item \rif{RC3} - Disparità di conoscenze tra componenti: La principale difficoltà riscontrata è stata la traduzione della progettazione in codice: sebbene tutti i membri avessero acquisito esperienza sulle tecnologie durante il PoC, la riassegnazione dei ruoli tra \textit{backend} e \textit{frontend} ha creato una disparità situazionale, con alcuni membri chiamati a lavorare sulla parte del sistema opposta a quella sviluppata in precedenza. La mitigazione è avvenuta attraverso sessioni di confronto interno, una collaborazione più stretta tra chi aveva già familiarità con la componente assegnata e chi invece la affrontava per la prima volta, e ore di studio individuale dedicate a colmare le lacune emerse.
         \item \rif{RO8} - Le stime orarie si sono rivelate insufficienti: a fronte di 60 ore preventivate ne sono state effettivamente svolte 71 (+11 ore). La sottostima è attribuibile alla complessità dell'avvio dell'implementazione dell'MVP, superiore alle previsioni. La mitigazione avverrà attraverso una pianificazione più accurata negli sprint successivi, basata sui dati raccolti.
     \end{itemize}
 
@@ -1743,7 +1744,7 @@ Al termine dello sprint 10, rilevando che le 27 ore residue del ruolo di Progett
     \begin{itemize}
     \item \rif{RO1} - Carico di lavoro eccessivo: la pressione derivante dalla scadenza finale del progetto ha comportato un aumento generalizzato del carico di lavoro per tutti i membri del gruppo. In particolare, alcuni componenti con ruoli non direttamente legati allo sviluppo si sono trovati a contribuire comunque alla realizzazione dell'MVP per garantire il completamento nei tempi previsti. Anche le attività di gestione e aggiornamento della documentazione hanno richiesto un impegno superiore alle attese, concorrendo ulteriormente all'aumento complessivo delle ore svolte. La mitigazione è avvenuta attraverso una redistribuzione condivisa del lavoro tra i membri, dando priorità al completamento delle attività più critiche per il raggiungimento degli obiettivi dello sprint.
 
-    \item \rif{RC3} - Disparità di conoscenze tra componenti: l'integrazione tra frontend e backend si è rivelata la sfida tecnica più significativa dello sprint, risultando onerosa per entrambe le parti coinvolte. Le differenze di conoscenza sulle rispettive componenti hanno reso necessario un coordinamento continuo tra i membri del team, aumentando il tempo complessivo dedicato alle attività di sviluppo. Il confronto costante, pur rappresentando un costo in termini di ore, ha permesso di mantenere la coerenza tra le due parti del sistema e di procedere verso il completamento dell'MVP. La mitigazione è avvenuta attraverso sessioni di confronto interno frequenti e una collaborazione più stretta tra chi aveva maggiore familiarità con ciascuna componente.
+    \item \rif{RC3} - Disparità di conoscenze tra componenti: l'integrazione tra \textit{frontend} e \textit{backend} si è rivelata la sfida tecnica più significativa dello sprint, risultando onerosa per entrambe le parti coinvolte. Le differenze di conoscenza sulle rispettive componenti hanno reso necessario un coordinamento continuo tra i membri del team, aumentando il tempo complessivo dedicato alle attività di sviluppo. Il confronto costante, pur rappresentando un costo in termini di ore, ha permesso di mantenere la coerenza tra le due parti del sistema e di procedere verso il completamento dell'MVP. La mitigazione è avvenuta attraverso sessioni di confronto interno frequenti e una collaborazione più stretta tra chi aveva maggiore familiarità con ciascuna componente.
 
     \item \rif{RO8} - Sottostima costi e ore: le stime orarie si sono rivelate nuovamente insufficienti rispetto al lavoro effettivamente necessario: a fronte di 64 ore preventivate ne sono state svolte 76 (+12 ore). La sottostima è attribuibile alla complessità della fase conclusiva dello sviluppo dell'MVP, che ha richiesto un impegno maggiore del previsto sia sul fronte dell'implementazione che su quello dell'integrazione tra le componenti e dell'aggiornamento della documentazione. Trattandosi dell'ultimo sprint del progetto, la mitigazione non potrà avvenire attraverso una ripianificazione futura, ma il gruppo prende atto di questa tendenza come elemento di apprendimento per progetti futuri.
 \end{itemize}
@@ -1786,7 +1787,7 @@ Al termine dello sprint 10, rilevando che le 27 ore residue del ruolo di Progett
 
     \subsubsection{Retrospettiva}
 Lo Sprint 11 segna la conclusione del progetto, con il completamento dell'MVP e la preparazione alla candidatura per la revisione PB. Nonostante la fase finale si sia rivelata particolarmente intensa, il gruppo si ritiene complessivamente soddisfatto del lavoro svolto e del traguardo raggiunto.
-La pressione derivante dalla scadenza prefissata ha richiesto un impegno straordinario da parte di tutti i membri, che hanno saputo collaborare attivamente indipendentemente dal ruolo ricoperto, contribuendo al completamento del prodotto nei tempi previsti. L'integrazione tra frontend e backend ha rappresentato la sfida tecnica più significativa dello sprint: il coordinamento continuo richiesto tra le due parti del team ha inevitabilmente aumentato il carico di lavoro complessivo, ma ha anche permesso di mantenere la coerenza del sistema e di portare a termine le funzionalità previste con un risultato di qualità.
+La pressione derivante dalla scadenza prefissata ha richiesto un impegno straordinario da parte di tutti i membri, che hanno saputo collaborare attivamente indipendentemente dal ruolo ricoperto, contribuendo al completamento del prodotto nei tempi previsti. L'integrazione tra \textit{frontend} e \textit{backend} ha rappresentato la sfida tecnica più significativa dello sprint: il coordinamento continuo richiesto tra le due parti del team ha inevitabilmente aumentato il carico di lavoro complessivo, ma ha anche permesso di mantenere la coerenza del sistema e di portare a termine le funzionalità previste con un risultato di qualità.
 Guardando al percorso complessivo del progetto, è evidente la crescita raggiunta dal gruppo su tutti i fronti. La capacità di affrontare questa fase finale con consapevolezza e spirito di collaborazione, pur in presenza di risorse ormai limitate e di una scadenza ravvicinata, è la testimonianza più concreta della maturazione avvenuta nel corso degli sprint, sia sul piano tecnico che su quello organizzativo e comunicativo.
 \end{document}
 
