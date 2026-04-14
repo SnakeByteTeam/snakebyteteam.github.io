@@ -285,10 +285,10 @@
 \addMet{+}{getAllAlarmRules(): Promise$<$AlarmRule[]$>$}{Recupera tutte le regole di allarme configurate nel sistema}
 \makeItf{GetAllAlarmRulesUseCase}{Interfaccia del use case per il recupero di tutte le regole di allarme}
 
-\addMet{+}{getAllManagedAlarmEventsByUserId(req: GetAllManagedAlarmEventsByUserIdCmd): Promise$<$AlarmEvent[]$>$}{Recupera in modo paginato gli eventi di allarme già gestiti da un utente specifico}
+\addMet{+}{getAllManagedAlarmEventsByUserId(req: GetAllManagedAlarmEventsByUserIdCmd): \\ Promise$<$AlarmEvent[]$>$}{Recupera in modo paginato gli eventi di allarme già gestiti da un utente specifico}
 \makeItf{GetAllManagedAlarmEventsByUserIdUseCase}{Interfaccia del use case per il recupero degli eventi gestiti da un utente}
 
-\addMet{+}{getAllUnmanagedAlarmEventsByUserId(req: GetAllUnmanagedAlarmEventsByUserIdCmd): Promise$<$AlarmEvent[]$>$}{Recupera in modo paginato gli eventi di allarme non ancora gestiti assegnati a un utente}
+\addMet{+}{getAllUnmanagedAlarmEventsByUserId(req: GetAllUnmanagedAlarmEventsByUserIdCmd): \\ Promise$<$AlarmEvent[]$>$}{Recupera in modo paginato gli eventi di allarme non ancora gestiti assegnati a un utente}
 \makeItf{GetAllUnmanagedAlarmEventsByUserIdUseCase}{Interfaccia del use case per il recupero degli eventi non gestiti di un utente}
 
 \addMet{+}{resolveAlarmEvent(req: ResolveAlarmEventCmd): Promise$<$void$>$}{Segna un evento di allarme come risolto, associandolo all'utente che lo ha gestito}
@@ -311,8 +311,8 @@
 \addAtr{-}{getWardAlarmEventPort: GetWardAlarmEventPort}{Porta per il recupero del ward associato a un evento}
 \addMet{+}{getAlarmEventById(req: GetAlarmEventByIdCmd): Promise$<$AlarmEvent $|$ null$>$}{Recupera un evento di allarme per identificativo delegando alla porta di persistenza}
 \addMet{+}{getAllAlarmEvents(req: GetAllAlarmEventsCmd): Promise$<$AlarmEvent[]$>$}{Recupera in modo paginato tutti gli eventi di allarme}
-\addMet{+}{getAllManagedAlarmEventsByUserId(req: GetAllManagedAlarmEventsByUserIdCmd): Promise$<$AlarmEvent[]$>$}{Recupera gli eventi gestiti da un utente delegando alla porta di persistenza}
-\addMet{+}{getAllUnmanagedAlarmEventsByUserId(req: GetAllUnmanagedAlarmEventsByUserIdCmd): Promise$<$AlarmEvent[]$>$}{Recupera gli eventi non gestiti di un utente delegando alla porta di persistenza}
+\addMet{+}{getAllManagedAlarmEventsByUserId(req: GetAllManagedAlarmEventsByUserIdCmd): \\ romise$<$AlarmEvent[]$>$}{Recupera gli eventi gestiti da un utente delegando alla porta di persistenza}
+\addMet{+}{getAllUnmanagedAlarmEventsByUserId(req: GetAllUnmanagedAlarmEventsByUserIdCmd): \\ Promise$<$AlarmEvent[]$>$}{Recupera gli eventi non gestiti di un utente delegando alla porta di persistenza}
 \addMet{+}{resolveAlarmEvent(req: ResolveAlarmEventCmd): Promise$<$void$>$}{Risolve un evento di allarme e notifica gli interessati tramite l'emettitore di eventi}
 \makeCl{AlarmEventsService}{Servizio applicativo che implementa i use case relativi agli eventi di allarme}
 
@@ -358,10 +358,10 @@
 \addMet{+}{getAllAlarmRules(): Promise$<$AlarmRule[]$>$}{Recupera tutte le regole di allarme dal livello di persistenza}
 \makeItf{GetAllAlarmRulesPort}{Porta di uscita per il recupero di tutte le regole di allarme}
 
-\addMet{+}{getAllManagedAlarmEventsByUserId(req: GetAllManagedAlarmEventsByUserIdCmd): Promise$<$AlarmEvent[]$>$}{Recupera in modo paginato gli eventi gestiti da un utente dal livello di persistenza}
+\addMet{+}{getAllManagedAlarmEventsByUserId(req: GetAllManagedAlarmEventsByUserIdCmd): \\Promise$<$AlarmEvent[]$>$}{Recupera in modo paginato gli eventi gestiti da un utente dal livello di persistenza}
 \makeItf{GetAllManagedAlarmEventsByUserIdPort}{Porta di uscita per il recupero degli eventi gestiti da un utente}
 
-\addMet{+}{getAllUnmanagedAlarmEventsByUserId(req: GetAllUnmanagedAlarmEventsByUserIdCmd): Promise$<$AlarmEvent[]$>$}{Recupera in modo paginato gli eventi non gestiti di un utente dal livello di persistenza}
+\addMet{+}{getAllUnmanagedAlarmEventsByUserId(req: GetAllUnmanagedAlarmEventsByUserIdCmd): \\ Promise$<$AlarmEvent[]$>$}{Recupera in modo paginato gli eventi non gestiti di un utente dal livello di persistenza}
 \makeItf{GetAllUnmanagedAlarmEventsByUserIdPort}{Porta di uscita per il recupero degli eventi non gestiti di un utente}
 
 \addMet{+}{getWardAlarmEvent(cmd: GetWardAlarmEventCmd): Promise$<$number$>$}{Recupera l'identificativo del ward associato a un evento di allarme}
@@ -413,8 +413,8 @@
 \addAtr{-}{alarmEventsRepository: AlarmEventsRepository}{Repository per l'accesso ai dati degli eventi di allarme}
 \addMet{+}{getAlarmEventById(req: GetAlarmEventByIdCmd): Promise$<$AlarmEvent $|$ null$>$}{Recupera e mappa un evento di allarme per identificativo dal repository}
 \addMet{+}{getAllAlarmEvents(req: GetAllAlarmEventsCmd): Promise$<$AlarmEvent[]$>$}{Recupera e mappa in modo paginato tutti gli eventi di allarme dal repository}
-\addMet{+}{getAllManagedAlarmEventsByUserId(req: GetAllManagedAlarmEventsByUserIdCmd): Promise$<$AlarmEvent[]$>$}{Recupera e mappa gli eventi gestiti da un utente dal repository}
-\addMet{+}{getAllUnmanagedAlarmEventsByUserId(req: GetAllUnmanagedAlarmEventsByUserIdCmd): Promise$<$AlarmEvent[]$>$}{Recupera e mappa gli eventi non gestiti di un utente dal repository}
+\addMet{+}{getAllManagedAlarmEventsByUserId(req: GetAllManagedAlarmEventsByUserIdCmd): \\ Promise$<$AlarmEvent[]$>$}{Recupera e mappa gli eventi gestiti da un utente dal repository}
+\addMet{+}{getAllUnmanagedAlarmEventsByUserId(req: GetAllUnmanagedAlarmEventsByUserIdCmd): \\ Promise$<$AlarmEvent[]$>$}{Recupera e mappa gli eventi non gestiti di un utente dal repository}
 \addMet{+}{resolveAlarmEvent(req: ResolveAlarmEventCmd): Promise$<$void$>$}{Delega al repository la risoluzione di un evento di allarme}
 \addMet{+}{createAlarmEvent(req: CreateAlarmEventCmd): Promise$<$string$>$}{Delega al repository la creazione di un nuovo evento di allarme}
 \addMet{+}{getWardAlarmEvent(cmd: GetWardAlarmEventCmd): Promise$<$number$>$}{Recupera l'identificativo del ward associato a un evento tramite il repository}

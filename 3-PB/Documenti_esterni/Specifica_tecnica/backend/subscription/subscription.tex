@@ -36,13 +36,16 @@
 % ── CMD ──────────────────────────────────────────────────────────────────────
 
 % application\commands\refresh-node-sub.command.ts
-\makeItf{RefreshNodeSubCmd}{Comando che trasporta i dati per aggiornare le sottoscrizioni sui nodi di un impianto}
+\addAtr{+}{plantId: string}{}
+\makeCl{RefreshNodeSubCmd}{Comando che trasporta i dati per aggiornare le sottoscrizioni sui nodi di un impianto}
 
 % application\commands\refresh-datapoint-sub.command.ts
-\makeItf{RefreshDatapointSubCmd}{Comando che trasporta i dati per aggiornare le sottoscrizioni sui datapoint di un impianto}
+\addAtr{+}{plantId: string}{}
+\makeCl{RefreshDatapointSubCmd}{Comando che trasporta i dati per aggiornare le sottoscrizioni sui datapoint di un impianto}
 
 % application\commands\refresh-all-sub.command.ts
-\makeItf{RefreshAllSubCmd}{Comando che trasporta i dati per aggiornare tutte le sottoscrizioni di un impianto}
+\addAtr{+}{plantId: string}{}
+\makeCl{RefreshAllSubCmd}{Comando che trasporta i dati per aggiornare tutte le sottoscrizioni di un impianto}
 
 % ── USE CASE ─────────────────────────────────────────────────────────────────
 

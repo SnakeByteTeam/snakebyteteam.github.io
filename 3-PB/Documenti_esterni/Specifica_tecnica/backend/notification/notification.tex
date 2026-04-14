@@ -18,13 +18,19 @@
 % ── CMD ──────────────────────────────────────────────────────────────────────
 
 % application\commands\notify-alarm-resolution.command.ts
-\makeItf{NotifyAlarmResolutionCmd}{Comando che trasporta alarmId e wardId per notificare la risoluzione di un allarme}
+\addAtr{+}{alarmId: string}{}
+\addAtr{+}{wardId: number}{}
+\makeCl{NotifyAlarmResolutionCmd}{Comando che trasporta alarmId e wardId per notificare la risoluzione di un allarme}
 
 % application\commands\notify-alarm-ward.command.ts
-\makeItf{NotifyAlarmWardCmd}{Comando che trasporta wardId e i dati dell'allarme per notificare un reparto}
+\addAtr{+}{alarm: CheckAlarm}{}
+\makeCl{NotifyAlarmWardCmd}{Comando che trasporta wardId e i dati dell'allarme per notificare un reparto}
 
 % application\commands\write-notification.command.ts
-\makeItf{WriteNotificationCmd}{Comando che trasporta i dati per persistere una notifica}
+\addAtr{+}{timestamp: string}{}
+\addAtr{+}{alarm\_event\_id: string}{}
+\addAtr{+}{ward\_id: number}{}
+\makeCl{WriteNotificationCmd}{Comando che trasporta i dati per persistere una notifica}
 
 % ── USE CASE ─────────────────────────────────────────────────────────────────
 
