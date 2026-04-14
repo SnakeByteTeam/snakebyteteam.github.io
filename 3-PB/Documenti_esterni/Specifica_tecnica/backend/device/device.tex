@@ -116,7 +116,7 @@
 \addAtr{-}{getDeviceValueUseCase: GetDeviceValueUseCase}{Caso d'uso per leggere il valore corrente di un dispositivo}
 \addAtr{-}{writeDatapointUseCase: WriteDatapointValueUseCase}{Caso d'uso per scrivere un valore su un datapoint}
 \addAtr{-}{checkAlarmUseCase: CheckAlarmRuleUseCase}{Caso d'uso per verificare le regole di allarme su un datapoint}
-\addMet{+}{error(`[DeviceController] checkAlarmRule failed for datapoint ${cmd.datapointId} (value=${cmd.value}, timestamp=${cmd.timestamp}) : $}{Gestisce e logga il fallimento della verifica delle regole di allarme}
+\addMet{+}{error(`[DeviceController] checkAlarmRule failed for datapoint \\ \{cmd.datapointId\} (value=\{cmd.value\}, timestamp=\{cmd.timestamp\})}{Gestisce e logga il fallimento della verifica delle regole di allarme}
 \makeCl{DeviceController}{Controller eventi che riceve i comandi sui dispositivi e delega l'esecuzione ai relativi casi d'uso}
 
 % ── CMD ──────────────────────────────────────────────────────────────────────
@@ -269,11 +269,11 @@
 \makeItf{FindDeviceByPlantIdRepoPort}{Contratto del repository di persistenza per cercare i dispositivi di un impianto}
 
 % application\repository\get-device-value.repository.ts
-\addMet{+}{getDeviceValue(validToken: string, plantId: string, deviceId: string) : Promise$<$DatapointExtractedDto[]$>$}{Legge i valori correnti dei datapoint di un dispositivo tramite API esterna}
+\addMet{+}{getDeviceValue(validToken: string, plantId: string, deviceId: string) : \\ Promise$<$DatapointExtractedDto[]$>$}{Legge i valori correnti dei datapoint di un dispositivo tramite API esterna}
 \makeItf{GetDeviceValueRepoPort}{Contratto del repository HTTP per leggere i valori correnti di un dispositivo}
 
 % application\repository\ingest-timeseries.repository.ts
-\addMet{+}{ingestTimeseries(datapointId: string, value: string, timestamp: string) : Promise$<$boolean$>$}{Ingerisce una misura nella serie storica del datapoint specificato}
+\addMet{+}{ingestTimeseries(datapointId: string, value: string, timestamp: string) : \\ Promise$<$boolean$>$}{Ingerisce una misura nella serie storica del datapoint specificato}
 \makeItf{IngestTimeseriesRepoPort}{Contratto del repository di persistenza per l'ingestione di misure in serie storica}
 
 % application\repository\write-datapoint-value.repo.ts
@@ -284,13 +284,13 @@
 
 % infrastructure\http\device-api-impl.ts
 \addAtr{-}{httpService: HttpService}{Client HTTP per le chiamate alle API esterne}
-\addMet{+}{getDeviceValue(validToken: string, plantId: string, deviceId: string) : Promise$<$DatapointExtractedDto[]$>$}{Chiama l'API esterna per leggere i valori correnti dei datapoint di un dispositivo}
+\addMet{+}{getDeviceValue(validToken: string, plantId: string, deviceId: string) : \\ Promise$<$DatapointExtractedDto[]$>$}{Chiama l'API esterna per leggere i valori correnti dei datapoint di un dispositivo}
 \addMet{+}{writeDeviceValue(validToken: string, plantId: string, datapointId: string, value: string) : Promise$<$boolean$>$}{Chiama l'API esterna per scrivere un valore su un datapoint}
 \makeCl{DeviceApiImpl}{Implementazione HTTP dei repository che accedono all'API esterna per lettura e scrittura dei valori dei dispositivi}
 
 % infrastructure\persistence\device-repository-impl.ts
 \addMet{+}{findById(id: string) : Promise$<$DeviceEntity $|$ null$>$}{Cerca nel database un dispositivo tramite il suo ID univoco}
 \addMet{+}{findByPlantId(plantId: string) : Promise$<$DeviceEntity[] $|$ null$>$}{Cerca nel database tutti i dispositivi associati a un impianto}
-\addMet{+}{ingestTimeseries(datapointId: string, value: string, timestamp: string) : Promise$<$boolean$>$}{Persiste una misura nella serie storica del datapoint specificato}
+\addMet{+}{ingestTimeseries(datapointId: string, value: string, timestamp: string) : \\ Promise$<$boolean$>$}{Persiste una misura nella serie storica del datapoint specificato}
 \addMet{+}{findByDatapointId(datapointId: string) : Promise$<$DeviceEntity $|$ null$>$}{Cerca nel database il dispositivo associato al datapointId specificato}
 \makeCl{DeviceRepositoryImpl}{Implementazione del repository di persistenza per le operazioni di lettura e ingestione sui dispositivi}

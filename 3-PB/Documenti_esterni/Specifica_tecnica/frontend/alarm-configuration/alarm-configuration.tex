@@ -44,7 +44,7 @@
 \addMet{-}{onDeviceChanged(deviceId: string) : void}{Gestisce il cambio di dispositivo selezionato, aggiornando le opzioni datapoint e resettando i vincoli di soglia.}
 \addMet{-}{onDatapointChanged(datapointId: string) : void}{Gestisce il cambio di datapoint selezionato, aggiornando il datapoint corrente e i vincoli di soglia.}
 \addMet{-}{applyThresholdConstraints(datapoint: Datapoint $|$ null) : void}{Delega all'helper di validazione l'applicazione dei vincoli sui campi di soglia in base al datapoint selezionato.}
-\addMet{-}{loadEditDatapointMetadata(deviceId: string, datapointId: string, lookupVersion: number) : void}{Carica i metadati del datapoint associato alla regola in modalità modifica, aggiornando il datapoint selezionato e i vincoli di soglia.}
+\addMet{-}{loadEditDatapointMetadata(deviceId: string, datapointId: string, \\ lookupVersion: number) : void}{Carica i metadati del datapoint associato alla regola in modalità modifica, aggiornando il datapoint selezionato e i vincoli di soglia.}
 \makeCl{AlarmConfigFormComponent}{Componente Angular che gestisce il form reattivo per la creazione e la modifica di una regola di allarme. Coordina la selezione a cascata di impianto, dispositivo e datapoint, delegando la validazione e l'orchestrazione dei campi ai relativi servizi helper.}
 
 \addAtr{-}{stateService: AlarmConfigStateService}{}
@@ -73,13 +73,13 @@
 \addAtr{-}{datapointExtraction: DeviceDatapointExtractionService}{}
 \addMet{+}{applyModeState(form: AlarmConfigFormLike, mode: 'create' $|$ 'edit') : void}{Abilita o disabilita i campi del form e aggiorna i validatori in base alla modalità corrente.}
 \addMet{+}{resetDatapointControl(form: AlarmConfigFormLike) : void}{Reimposta il controllo datapointId a stringa vuota e ne aggiorna la validità.}
-\addMet{+}{resolveDeviceSelection(deviceId: string, deviceOptions: readonly DeviceDatapointOption[]) : DeviceSelectionResult}{Risolve la selezione del dispositivo restituendo i datapoint leggibili e l'eventuale datapoint auto-selezionato se unico.}
+\addMet{+}{resolveDeviceSelection(deviceId: string, deviceOptions: readonly \\ DeviceDatapointOption[]) : DeviceSelectionResult}{Risolve la selezione del dispositivo restituendo i datapoint leggibili e l'eventuale datapoint auto-selezionato se unico.}
 \addMet{+}{resolveDatapointSelection(datapointId: string, datapointOptions: readonly Datapoint[]) : DatapointSelectionResult}{Risolve la selezione del datapoint restituendo l'identificativo normalizzato e il datapoint corrispondente se trovato.}
 \makeCl{AlarmConfigFormFieldOrchestratorHelper}{Helper Angular per l'orchestrazione dei campi del form di configurazione allarme. Gestisce l'abilitazione e la validazione dei controlli in base alla modalità e risolve le selezioni a cascata di dispositivo e datapoint.}
 
 \addAtr{-}{datapointExtraction: DeviceDatapointExtractionService}{}
-\addMet{+}{applyThresholdConstraints(\{mode, datapoint, thresholdOperatorControl, thresholdValueControl\}: ApplyThresholdConstraintsParams) : void}{Applica i validatori ai controlli di operatore e valore di soglia in base alla modalità e al datapoint selezionato, resettando l'operatore se non più consentito.}
-\addMet{-}{resolveAllowedOperators(mode: 'create' $|$ 'edit', datapoint: Datapoint $|$ null, currentOperator: ThresholdOperator $|$ null) : ThresholdOperator[]}{Restituisce la lista degli operatori consentiti in base al datapoint selezionato e alla modalità corrente.}
+\addMet{+}{applyThresholdConstraints(\{mode, datapoint, \\ thresholdOperatorControl, thresholdValueControl\}: \\ ApplyThresholdConstraintsParams) : void}{Applica i validatori ai controlli di operatore e valore di soglia in base alla modalità e al datapoint selezionato, resettando l'operatore se non più consentito.}
+\addMet{-}{resolveAllowedOperators(mode: 'create' $|$ 'edit', datapoint: Datapoint $|$ null, \\ currentOperator: ThresholdOperator $|$ null) : \\ ThresholdOperator[]}{Restituisce la lista degli operatori consentiti in base al datapoint selezionato e alla modalità corrente.}
 \addMet{-}{operatorAllowedValidator(allowedOperators: readonly ThresholdOperator[]) : ValidatorFn}{Restituisce un validatore che verifica se l'operatore selezionato è tra quelli consentiti.}
 \addMet{-}{enumThresholdValidator(enumValues: readonly string[]) : ValidatorFn}{Restituisce un validatore che verifica se il valore di soglia inserito appartiene ai valori enumerati previsti dal datapoint.}
 \makeCl{AlarmConfigFormValidationHelper}{Helper Angular per la gestione della validazione dei campi di soglia nel form di configurazione allarme. Applica dinamicamente i validatori appropriati in base al datapoint selezionato e alla modalità del form.}
@@ -141,9 +141,9 @@
 \addMet{+}{ensurePlantsLoaded(mode: 'create' $|$ 'edit') : Observable$<$void$>$}{Carica la lista degli impianti disponibili se non ancora caricata e la modalità è di creazione, aggiornando il segnale plants o l'errore in caso di fallimento.}
 \addMet{+}{resetDevicesLoadState() : void}{Reimposta l'errore di caricamento dispositivi e il flag di caricamento in corso.}
 \addMet{+}{loadDeviceOptionsByPlant(plantId: string) : Observable$<$DeviceDatapointOption[]$>$}{Carica le opzioni dispositivo per l'impianto specificato, aggiornando lo stato di caricamento e restituendo un array vuoto in caso di errore.}
-\addMet{+}{resolveDatapointForEdit(deviceId: string, datapointId: string) : Observable$<$Datapoint $|$ null$>$}{Ricerca il datapoint corrispondente agli identificativi forniti tra tutti gli impianti disponibili, restituendo null se non trovato o in caso di errore.}
+\addMet{+}{resolveDatapointForEdit(deviceId: string, datapointId: string) : \\ Observable$<$Datapoint $|$ null$>$}{Ricerca il datapoint corrispondente agli identificativi forniti tra tutti gli impianti disponibili, restituendo null se non trovato o in caso di errore.}
 \addMet{-}{loadAllPlants() : Observable$<$WardPlantDto[]$>$}{Recupera tutti gli impianti disponibili combinando quelli dei ward e quelli generici, deduplicando e ordinando il risultato per nome.}
-\addMet{-}{mergePlants(availablePlants: WardPlantDto[], assignedPlants: WardPlantDto[]) : WardPlantDto[]}{Unisce due liste di impianti deduplicando per identificativo e ordinando il risultato alfabeticamente per nome.}
+\addMet{-}{mergePlants(availablePlants: WardPlantDto[], \\ assignedPlants: WardPlantDto[]) : WardPlantDto[]}{Unisce due liste di impianti deduplicando per identificativo e ordinando il risultato alfabeticamente per nome.}
 \makeCl{AlarmConfigFormStateService}{Servizio Angular per la gestione dello stato del form di configurazione allarme, con scope a livello di componente. Gestisce il caricamento degli impianti e delle opzioni dispositivo, esponendo segnali reattivi per lo stato di caricamento e gli eventuali errori.}
 
 \addAtr{-}{api: AlarmApiService}{}
@@ -157,7 +157,7 @@
 \addMet{+}{loadAlarmRules() : void}{Carica la lista delle regole di allarme dal backend e aggiorna il subject interno, impostando l'errore in caso di fallimento.}
 \addMet{+}{getAlarmRuleById(id: string) : Observable$<$AlarmRule$>$}{Recupera la singola regola di allarme corrispondente all'identificativo specificato.}
 \addMet{+}{createAlarmRule(formValue: AlarmConfigFormValue) : Observable$<$AlarmRule$>$}{Mappa il valore del form nel DTO di creazione e invia la richiesta al backend, ricaricando la lista al termine.}
-\addMet{+}{updateAlarmRule(alarmId: string, formValue: AlarmConfigFormValue) : Observable$<$AlarmRule$>$}{Mappa il valore del form nel DTO di aggiornamento e invia la richiesta al backend, ricaricando la lista al termine.}
+\addMet{+}{updateAlarmRule(alarmId: string, formValue: AlarmConfigFormValue) : \\ Observable$<$AlarmRule$>$}{Mappa il valore del form nel DTO di aggiornamento e invia la richiesta al backend, ricaricando la lista al termine.}
 \addMet{+}{toggleEnabled(alarmId: string, enabled: boolean) : Observable$<$AlarmRule$>$}{Aggiorna lo stato di armamento della regola specificata, costruendo il DTO a partire dallo stato locale corrente.}
 \addMet{+}{deleteAlarmRule(alarmId: string) : Observable$<$void$>$}{Elimina la regola di allarme specificata e aggiorna la lista locale rimuovendo l'elemento eliminato.}
 \addMet{-}{clearError() : void}{Reimposta il subject degli errori a null se contiene un valore.}
@@ -172,8 +172,8 @@
 
 \addAtr{-}{numericThresholdPattern: RegExp}{}
 \addMet{+}{extractDeviceOptions(apartment: Apartment) : DeviceDatapointOption[]}{Estrae le opzioni dispositivo da un appartamento, costruendo l'etichetta combinando nome stanza e nome dispositivo.}
-\addMet{+}{findReadableDatapoints(deviceId: string, deviceOptions: readonly DeviceDatapointOption[]) : Datapoint[]}{Restituisce i datapoint leggibili del dispositivo corrispondente all'identificativo specificato.}
-\addMet{+}{findDatapointById(datapointId: string, datapoints: readonly Datapoint[]) : Datapoint $|$ null}{Cerca e restituisce il datapoint corrispondente all'identificativo specificato, o null se non trovato.}
+\addMet{+}{findReadableDatapoints(deviceId: string, deviceOptions: \\ readonly DeviceDatapointOption[]) : Datapoint[]}{Restituisce i datapoint leggibili del dispositivo corrispondente all'identificativo specificato.}
+\addMet{+}{findDatapointById(datapointId: string, \\ datapoints: readonly Datapoint[]) : Datapoint $|$ null}{Cerca e restituisce il datapoint corrispondente all'identificativo specificato, o null se non trovato.}
 \addMet{+}{findDatapointByDeviceAndDatapointId(plants: readonly PlantDto[], deviceId: string, datapointId: string) : Datapoint $|$ null}{Ricerca il datapoint corrispondente agli identificativi di dispositivo e datapoint tra tutti gli impianti forniti.}
 \addMet{+}{getAllowedOperators(datapoint: Datapoint $|$ null) : ThresholdOperator[]}{Restituisce gli operatori di soglia consentiti per il datapoint specificato, limitando a EQUAL\_TO per i datapoint enumerati.}
 \addMet{+}{getEnumValues(datapoint: Datapoint $|$ null) : string[]}{Restituisce i valori enumerati normalizzati del datapoint specificato, o un array vuoto se assente.}

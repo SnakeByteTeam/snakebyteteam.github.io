@@ -131,7 +131,7 @@
 \addMet{+}{writeTicket(ticket: string, userId: number, expiresAt: Date) : Promise$<$boolean$>$}{Scrive un ticket OAuth nella cache con l'ID utente e la scadenza associati}
 \makeItf{WriteOAuthTicketCachePort}{Porta di repository per la scrittura dei ticket OAuth nella cache}
 
-\addMet{+}{writeTokens(accessToken: string, refreshToken: string, expiresAt: Date, userId: number, email: string) : Promise$<$boolean$>$}{Scrive la coppia di token nella cache con tutti i metadati associati}
+\addMet{+}{writeTokens(accessToken: string, refreshToken: string, \\ expiresAt: Date, userId: number, email: string) : Promise$<$boolean$>$}{Scrive la coppia di token nella cache con tutti i metadati associati}
 \makeItf{WriteTokensCachePort}{Porta di repository per la scrittura dei token OAuth nella cache}
 
 % ─── entity ───
@@ -185,7 +185,7 @@
 \addMet{+}{deleteTicket(ticket: string) : Promise$<$boolean$>$}{Elimina il ticket indicato dalla cache}
 \makeCl{OAuthTicketCacheImpl}{Implementazione concreta delle porte di cache per i ticket OAuth; gestisce scrittura, lettura e cancellazione tramite il sistema di cache}
 
-\addMet{+}{writeTokens(accessToken: string, refreshToken: string, expiresAt: Date, userId: number, email: string) : Promise$<$boolean$>$}{Scrive la coppia di token nella cache con tutti i metadati associati}
+\addMet{+}{writeTokens(accessToken: string, refreshToken: string, \\ expiresAt: Date, userId: number, email: string) : Promise$<$boolean$>$}{Scrive la coppia di token nella cache con tutti i metadati associati}
 \addMet{+}{readTokens() : Promise$<$TokenEntity $|$ null$>$}{Legge i token dalla cache; restituisce null se non presenti}
 \addMet{+}{deleteTokens() : Promise$<$boolean$>$}{Elimina i token dalla cache}
 \addMet{+}{readStatus(userId: number) : Promise$<$string $|$ null$>$}{Legge lo stato di collegamento dell'account per l'utente indicato}

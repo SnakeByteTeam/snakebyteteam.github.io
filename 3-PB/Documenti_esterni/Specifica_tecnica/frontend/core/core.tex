@@ -65,7 +65,7 @@
 \addMet{+}{getAlarmRules() : Observable$<$AlarmRule[]$>$}{Recupera l'elenco completo di tutte le regole di allarme configurate nel sistema.}
 \addMet{+}{getAlarmRule(id: string) : Observable$<$AlarmRule$>$}{Ottiene i dettagli specifici di una singola regola di allarme tramite il suo identificativo univoco.}
 \addMet{+}{createAlarmRule(payload: CreateAlarmRuleRequestDto) : Observable$<$AlarmRule$>$}{Crea una nuova regola di allarme inviando i dati di configurazione al server.}
-\addMet{+}{updateAlarmRule(id: string, payload: UpdateAlarmRuleRequestDto) : Observable$<$AlarmRule$>$}{Aggiorna i parametri di una regola di allarme esistente identificata dall'ID fornito.}
+\addMet{+}{updateAlarmRule(id: string, payload: UpdateAlarmRuleRequestDto) : \\ Observable$<$AlarmRule$>$}{Aggiorna i parametri di una regola di allarme esistente identificata dall'ID fornito.}
 \addMet{+}{deleteAlarmRule(id: string) : Observable$<$void$>$}{Rimuove definitivamente una regola di allarme dal sistema.}
 \addMet{+}{getActiveAlarms(userId: number, limit, offset) : Observable$<$ActiveAlarm[]$>$}{Recupera la lista degli allarmi attivi e non ancora gestiti per un determinato utente con supporto alla paginazione.}
 \addMet{+}{getResolvedAlarms(userId: number, limit, offset) : Observable$<$ActiveAlarm[]$>$}{Ritorna lo storico degli allarmi già risolti e gestiti da uno specifico utente.}
@@ -78,13 +78,13 @@
 \makeAbCl{AlarmNotificationDetails}{Questa interfaccia definisce i dettagli opzionali necessari per la costruzione del contenuto informativo di una notifica di allarme. Permette di trasportare il nome della regola e il suo livello di priorità per una visualizzazione corretta all'utente.}
 
 
-\addMet{+}{publish(type: AlarmLifecycleType, alarmEventId: string, timestamp: string, details?: AlarmNotificationDetails): void}{Definisce il contratto per la pubblicazione degli eventi legati al ciclo di vita di un allarme verso i sistemi di notifica.}
+\addMet{+}{publish(type: AlarmLifecycleType, alarmEventId: string, \\ timestamp: string, details?: AlarmNotificationDetails): void}{Definisce il contratto per la pubblicazione degli eventi legati al ciclo di vita di un allarme verso i sistemi di notifica.}
 \makeItf{AlarmLifecycleNotifierPort}{Interfaccia di porta che astrae il meccanismo di notifica del ciclo di vita degli allarmi, permettendo l'invio di aggiornamenti su attivazioni e risoluzioni. Facilita il disaccoppiamento tra la logica di business e l'implementazione specifica della distribuzione degli eventi.}
 
 
 \addAtr{-}{alarmStateService: AlarmStateService}{}
-\addMet{+}{publish(type: AlarmLifecycleType, alarmEventId: string, timestamp: string, details?: AlarmNotificationDetails): void}{Coordina il processo di notifica globale attivando sia la creazione della notifica visiva che l'aggiornamento dello stato del ciclo di vita.}
-\addMet{-}{publishNotification(type: AlarmLifecycleType, alarmEventId: string, timestamp: string, details?: AlarmNotificationDetails): void}{Costruisce e invia una notifica formattata al servizio di stato degli allarmi in base al tipo di evento ricevuto.}
+\addMet{+}{publish(type: AlarmLifecycleType, alarmEventId: string, \\ timestamp: string, details?: AlarmNotificationDetails): void}{Coordina il processo di notifica globale attivando sia la creazione della notifica visiva che l'aggiornamento dello stato del ciclo di vita.}
+\addMet{-}{publishNotification(type: AlarmLifecycleType, alarmEventId: string, \\ timestamp: string, details?: AlarmNotificationDetails): void}{Costruisce e invia una notifica formattata al servizio di stato degli allarmi in base al tipo di evento ricevuto.}
 \addMet{-}{publishLifecycleUpdate(type: AlarmLifecycleType, alarmEventId: string): void}{Emette un evento personalizzato a livello globale per informare i componenti dell'applicazione dell'avvenuta modifica di un allarme.}
 \makeCl{AlarmLifecycleNotifierService}{Questo servizio implementa la logica per la gestione delle notifiche in tempo reale e degli aggiornamenti di stato relativi agli allarmi. Centralizza la creazione dei titoli delle notifiche e l'invio degli eventi tramite il dispatcher globale dell'applicazione.}
 
@@ -234,7 +234,7 @@
 \addAtr{-}{token: string $|$ null}{}
 \addAtr{-}{restoreSessionInFlight\$: Observable$<$boolean$>$ $|$ null}{}
 \addMet{+}{login(username: string, password: string) : Observable$<$UserSession$>$}{Esegue la procedura di autenticazione inviando le credenziali al backend e inizializzando la sessione utente in caso di successo.}
-\addMet{+}{setFirstAccessPassword(username: string, temporaryPassword: string, newPassword: string) : Observable$<$UserSession$>$}{Gestisce la procedura di primo accesso permettendo all'utente di sostituire la password temporanea e ottenere un token definitivo.}
+\addMet{+}{setFirstAccessPassword(username: string, temporaryPassword: string, \\ newPassword: string) : Observable$<$UserSession$>$}{Gestisce la procedura di primo accesso permettendo all'utente di sostituire la password temporanea e ottenere un token definitivo.}
 \addMet{+}{refreshAccessToken() : Observable$<$string$>$}{Richiede al server un nuovo token di accesso utilizzando il meccanismo di refresh basato su cookie, aggiornando la sessione corrente.}
 \addMet{+}{restoreSessionFromRefresh() : Observable$<$boolean$>$}{Tenta di ripristinare una sessione esistente all'avvio dell'applicazione. Gestisce le richieste concorrenti tramite un meccanismo di caching dello stream attivo.}
 \addMet{+}{logoutFromBackend() : Observable$<$void$>$}{Informa il server della chiusura della sessione e procede alla pulizia dei dati di autenticazione locali.}

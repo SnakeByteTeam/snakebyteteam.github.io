@@ -28,7 +28,7 @@
 \addAtr{+}{apartments\$: Observable$<$PlantDto[]$>$ $|$ null}{}
 \addAtr{+}{analytics: Observable$<$AnalyticsDto $|$ null$>$ $|$ null}{}
 \addMet{+}{ngOnInit() : void}{Inizializza il caricamento degli appartamenti, seleziona il primo disponibile e configura gli stream reattivi per l'appartamento selezionato e i dati analitici.}
-\addMet{+}{getChartByMetric(data: AnalyticsDto $|$ null, metric: string) : ChartInfoDto $|$ undefined}{Restituisce il grafico corrispondente alla metrica specificata dai dati analitici, o undefined se non trovato.}
+\addMet{+}{getChartByMetric(data: AnalyticsDto $|$ null, metric: string) : \\ ChartInfoDto $|$ undefined}{Restituisce il grafico corrispondente alla metrica specificata dai dati analitici, o undefined se non trovato.}
 \addMet{+}{onApartmentChange(event: Event) : void}{Aggiorna l'appartamento selezionato e innesca il caricamento dei relativi dati analitici.}
 \addMet{+}{onRefresh() : void}{Innesca il ricaricamento forzato dei dati analitici per l'appartamento correntemente selezionato.}
 \makeCl{AnalyticsWidgetComponent}{Componente Angular che rappresenta il widget di analisi nella dashboard, con supporto alla selezione dell'appartamento e al caricamento dei dati analitici. Gestisce gli stream reattivi per l'appartamento selezionato, i grafici e il refresh manuale dei dati.}
