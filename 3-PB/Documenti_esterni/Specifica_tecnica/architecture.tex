@@ -1,0 +1,34 @@
+\subsection{Architettura}
+
+\subsection{Architettura logica}
+Il Sistema è progettato seguendo l'architettura esagonale, che prevede una chiara separazione tra il nucleo logico del sistema 
+e le interfacce esterne. \\ \\
+Il nucleo logico, rappresentato dal dominio e dalle regole di \textit{business}, è isolato dai dettagli di 
+implementazione e dalle dipendenze esterne, come \textit{database}, \textit{framework} e librerie. \\ \\
+Le porte definiscono le interfacce attraverso cui il nucleo interagisce con il mondo esterno, ne esistono di due tipi: 
+\begin{itemize}
+    \item le porte primarie, che rappresentano i punti di ingresso al Sistema ovvero consentono a componenti esterni di 
+    interagire con il nucleo logico;
+    \item le porte secondarie, che rappresentano i punti di uscita che permettono al nucleo logico di interagire con componenti 
+    esterni, come \textit{database} o servizi di terze parti.
+\end{itemize}
+Gli adattatori, invece, sono le implementazioni concrete delle porte, in base al tipo di porta che implementano, si distinguono in:
+\begin{itemize}
+    \item adattatori primari, che implementano le porte primarie e consentono a componenti esterni di interagire con il nucleo logico;
+    \item adattatori secondari, che implementano le porte secondarie e consentono al nucleo logico l'integrazione con specifiche tecnologie 
+    o servizi.
+\end{itemize}
+I servizi fanno parte della \textit{business logic} e rappresentano le funzionalità principali del Sistema, implementando le regole di \textit{business} 
+e coordinando le interazioni tra i vari componenti del nucleo logico.
+
+\subsection{Architettura di deployment}
+
+L'architettura di deployment del Sistema è basata su una struttura a microservizi, in cui ogni componente del Sistema è sviluppato, 
+distribuito e scalato in modo indipendente. La scelta è stata intrapresa per garantire una maggiore flessibilità, scalabilità e manutenibilità 
+del Sistema. \\ \\
+Il prodotto si compone di due microservizi principali, ovvero il \textit{\textbf{backend}} e il \textit{\textbf{frontend}}, che comunicano tra loro tramite API \glossario{RESTful}. \\ \\
+Il \textit{backend} è responsabile della gestione della logica di business, dell'accesso ai dati, dell'autenticazione e della comunicazione con il \textit{server}
+Vimar tramite protocollo \glossario{API KNX IoT 3rd-party}. Il \textit{frontend} si occupa 
+della presentazione e dell'interazione con l'utente. \\ \\
+Per far in modo che i microservizi possano essere distribuiti con facilità, è stata adottata la virtualizzazione tramite \glossario{Docker}, 
+che consente di creare, distribuire e eseguire i microservizi in ambienti isolati chiamati \textit{container}.
