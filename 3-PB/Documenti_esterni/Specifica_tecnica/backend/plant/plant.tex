@@ -1,0 +1,137 @@
+\subsubsection{Plants}
+
+% ── DTO OUT ──────────────────────────────────────────────────────────────────
+
+% infrastructure\http\dtos\plant.dto.ts
+\addAtr{+}{id: string}{Identificatore univoco dell'impianto}
+\addAtr{+}{name: string}{Nome dell'impianto}
+\makeCl{PlantDto}{DTO interno che rappresenta un impianto normalizzato}
+
+% infrastructure\http\dtos\room.dto.ts
+\addAtr{+}{id: string}{Identificatore univoco della stanza}
+\addAtr{+}{name: string}{Nome della stanza}
+\addAtr{+}{devices: DeviceDto[]}{Lista dei dispositivi presenti nella stanza}
+\makeCl{RoomDto}{DTO interno che rappresenta una stanza normalizzata con i suoi dispositivi}
+
+% ── MODEL ────────────────────────────────────────────────────────────────────
+
+% domain\models\plant.model.ts
+\addAtr{-}{id: string}{Identificatore univoco dell'impianto}
+\addAtr{-}{name: string}{Nome dell'impianto}
+\addAtr{+}{id: string}{Identificatore univoco dell'impianto}
+\addAtr{+}{name: string}{Nome dell'impianto}
+\addMet{+}{getId() : string}{Restituisce l'ID dell'impianto}
+\addMet{+}{getName() : string}{Restituisce il nome dell'impianto}
+\addMet{+}{getRooms() : Room[] $|$ null}{Restituisce le stanze dell'impianto, se presenti}
+\addMet{+}{getWardId() : number $|$ null}{Restituisce l'ID del reparto associato all'impianto, se presente}
+\makeCl{Plant}{Aggregato di dominio che rappresenta un impianto con le sue stanze e il reparto associato}
+
+% domain\models\room.model.ts
+\addAtr{-}{id: string}{Identificatore univoco della stanza}
+\addAtr{-}{name: string}{Nome della stanza}
+\addAtr{-}{devices: Device[]}{Lista dei dispositivi presenti nella stanza}
+\addAtr{+}{id: string}{Identificatore univoco della stanza}
+\addAtr{+}{name: string}{Nome della stanza}
+\addAtr{+}{devices: Device[]}{Lista dei dispositivi presenti nella stanza}
+\addMet{+}{getId() : string}{Restituisce l'ID della stanza}
+\addMet{+}{getName() : string}{Restituisce il nome della stanza}
+\addMet{+}{getDevices() : Device[]}{Restituisce i dispositivi presenti nella stanza}
+\makeCl{Room}{Oggetto di dominio che rappresenta una stanza con i suoi dispositivi}
+
+% ── CONTROLLER ───────────────────────────────────────────────────────────────
+
+% adapters\in\plant.controller.ts
+\addAtr{-}{findPlantById: FindPlantByIdUseCase}{Caso d'uso per cercare un impianto per ID}
+\addAtr{-}{findAllAvailablePlants: FindAllAvailablePlantsUseCase}{Caso d'uso per ottenere tutti gli impianti disponibili}
+\addAtr{-}{findAllPlants: FindAllPlantsUseCase}{Caso d'uso per ottenere tutti gli impianti}
+\makeCl{PlantController}{Controller HTTP che espone gli endpoint per la ricerca degli impianti e delega ai casi d'uso}
+
+% ── CMD ──────────────────────────────────────────────────────────────────────
+
+% application\commands\find-plant-by-id.command.ts
+\makeItf{FindPlantByIdCmd}{Comando che trasporta il plantId per cercare un impianto specifico}
+
+% ── USE CASE ─────────────────────────────────────────────────────────────────
+
+% application\ports\in\find-plant-by-id.usecase.ts
+\addMet{+}{findById(cmd: FindPlantByIdCmd) : Promise<Plant$>$}{Cerca un impianto tramite il suo ID univoco}
+\makeItf{FindPlantByIdUseCase}{Porta in ingresso per cercare un impianto per ID}
+
+% application\ports\in\find-all-available-plants.usecase.ts
+\addMet{+}{findAllAvailablePlants() : Promise<Plant[]$>$}{Restituisce tutti gli impianti disponibili per l'utente corrente}
+\makeItf{FindAllAvailablePlantsUseCase}{Porta in ingresso per ottenere tutti gli impianti disponibili}
+
+% application\ports\in\find-all-plants.usecase.ts
+\addMet{+}{findAllPlants() : Promise<Plant[]$>$}{Restituisce tutti gli impianti presenti nel sistema}
+\makeItf{FindAllPlantsUseCase}{Porta in ingresso per ottenere tutti gli impianti del sistema}
+
+% ── SERVICE ──────────────────────────────────────────────────────────────────
+
+% application\services\plant.service.ts
+\addAtr{-}{findByIdPort: FindPlantByIdPort}{Porta per cercare un impianto per ID}
+\addAtr{-}{findAllAvailablePlantsPort: FindAllAvailablePlantsPort}{Porta per ottenere tutti gli impianti disponibili}
+\addAtr{-}{findAllPlantsPort: FindAllPlantsPort}{Porta per ottenere tutti gli impianti del sistema}
+\addMet{+}{findById(cmd: FindPlantByIdCmd) : Promise<Plant$>$}{Delega la ricerca dell'impianto per ID alla porta corrispondente}
+\addMet{+}{findAllAvailablePlants() : Promise<Plant[]$>$}{Delega il recupero degli impianti disponibili alla porta corrispondente}
+\addMet{+}{findAllPlants() : Promise<Plant[]$>$}{Delega il recupero di tutti gli impianti alla porta corrispondente}
+\makeCl{PlantService}{Servizio applicativo che implementa i casi d'uso del modulo Plant orchestrando le porte di uscita}
+
+% ── PORT ─────────────────────────────────────────────────────────────────────
+
+% application\ports\out\find-plant-by-id.port.ts
+\addMet{+}{findById(cmd: FindPlantByIdCmd) : Promise<Plant $|$ null$>$}{Cerca un impianto tramite il suo ID univoco}
+\makeItf{FindPlantByIdPort}{Porta di uscita per cercare un impianto per ID}
+
+% application\ports\out\find-all-available-plants.port.ts
+\addMet{+}{findAllAvailablePlants() : Promise$<$Plant[] $|$ null$>$}{Restituisce tutti gli impianti disponibili per l'utente corrente}
+\makeItf{FindAllAvailablePlantsPort}{Porta di uscita per ottenere tutti gli impianti disponibili}
+
+% application\ports\out\find-all-plants.port.ts
+\addMet{+}{findAllPlants() : Promise$<$Plant[] $|$ null$>$}{Restituisce tutti gli impianti presenti nel sistema}
+\makeItf{FindAllPlantsPort}{Porta di uscita per ottenere tutti gli impianti del sistema}
+
+% ── ENTITY ───────────────────────────────────────────────────────────────────
+
+% infrastructure\persistence\entities\plant.entity.ts
+\addMet{+}{toDomain(entity: PlantEntity) : Plant}{Converte l'entità persistita nel corrispondente oggetto di dominio}
+\addMet{+}{fromDomain(plant: Plant) : PlantEntity}{Converte l'oggetto di dominio nella corrispondente entità persistita}
+\makeCl{PlantEntity}{Entità di persistenza di un impianto, con metodi di conversione da/verso il modello di dominio}
+
+% ── ADAPTER ──────────────────────────────────────────────────────────────────
+
+% adapters\out\find-plant-by-id.adapter.ts
+\addAtr{-}{repo: FindPlantByIdRepoPort}{Repository per cercare un impianto per ID nel database}
+\addMet{+}{findById(cmd: FindPlantByIdCmd) : Promise$<$Plant $|$ null$>$}{Recupera l'entità dal repository e la converte nel modello di dominio}
+\makeCl{FindPlantByIdAdapter}{Adapter che implementa FindPlantByIdPort delegando la ricerca al repository}
+
+% adapters\out\find-all-available-plants.adapter.ts
+\addAtr{-}{repo: FindAllAvailablePlantsRepoPort}{Repository per recuperare gli impianti disponibili dal database}
+\addMet{+}{findAllAvailablePlants() : Promise$<$Plant[] $|$ null$>$}{Recupera le entità dal repository e le converte nei modelli di dominio}
+\makeCl{FindAllAvailablePlantsAdapter}{Adapter che implementa FindAllAvailablePlantsPort delegando la ricerca al repository}
+
+% adapters\out\find-all-plants.adapter.ts
+\addAtr{-}{plantsRepoPort: FindAllPlantsRepoPort}{Repository per recuperare tutti gli impianti dal database}
+\addMet{+}{findAllPlants() : Promise$<$Plant[] $|$ null$>$}{Recupera le entità dal repository e le converte nei modelli di dominio}
+\makeCl{FindAllPlantsAdapter}{Adapter che implementa FindAllPlantsPort delegando la ricerca al repository}
+
+% ── REPOSITORY (contratti) ────────────────────────────────────────────────────
+
+% application\repository\find-plant-by-id.repository.ts
+\addMet{+}{findById(plantId: string) : Promise$<$PlantEntity $|$ null$>$}{Cerca nel database un impianto tramite il suo ID univoco}
+\makeItf{FindPlantByIdRepoPort}{Contratto del repository di persistenza per cercare un impianto per ID}
+
+% application\repository\find-all-available-plants.repository.ts
+\addMet{+}{findAllAvailablePlants() : Promise$<$PlantEntity[] $|$ null$>$}{Recupera dal database tutti gli impianti disponibili per l'utente corrente}
+\makeItf{FindAllAvailablePlantsRepoPort}{Contratto del repository di persistenza per ottenere gli impianti disponibili}
+
+% application\repository\find-all-plants.repository.ts
+\addMet{+}{findAllPlants() : Promise$<$PlantEntity[] $|$ null$>$}{Recupera dal database tutti gli impianti presenti nel sistema}
+\makeItf{FindAllPlantsRepoPort}{Contratto del repository di persistenza per ottenere tutti gli impianti}
+
+% ── IMPLEMENTAZIONE DEI REPOSITORY ───────────────────────────────────────────
+
+% infrastructure\persistence\plant-repository-impl.ts
+\addMet{+}{findById(plantId: string) : Promise<PlantEntity $|$ null$>$}{Cerca nel database un impianto tramite il suo ID univoco}
+\addMet{+}{findAllAvailablePlants() : Promise<PlantEntity[] $|$ null$>$}{Recupera dal database tutti gli impianti disponibili per l'utente corrente}
+\addMet{+}{findAllPlants() : Promise<PlantEntity[] $|$ null$>$}{Recupera dal database tutti gli impianti presenti nel sistema}
+\makeCl{PlantRepositoryImpl}{Implementazione del repository di persistenza per le operazioni di lettura sugli impianti}

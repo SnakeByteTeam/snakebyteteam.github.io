@@ -1,0 +1,104 @@
+\subsubsection{Notifications}
+
+% ── MODEL ────────────────────────────────────────────────────────────────────
+
+% domain\model\notification.model.ts
+\addAtr{-}{message: string}{Contenuto testuale della notifica}
+\addAtr{+}{message: string}{Contenuto testuale della notifica}
+\addMet{+}{getMessage(): string}{Restituisce il messaggio della notifica}
+\makeCl{Notification}{Oggetto di dominio che rappresenta una notifica}
+
+% ── CONTROLLER ───────────────────────────────────────────────────────────────
+
+% adapters\in\notification-event.controller.ts
+\addAtr{-}{notifyService: NotifyAlarmWardUseCase}{Caso d'uso per notificare un allarme a un reparto}
+\addAtr{-}{notifyResolutionService: NotifyAlarmResolutionUseCase}{Caso d'uso per notificare la risoluzione di un allarme}
+\makeCl{EventNotificationController}{Controller eventi che ascolta gli eventi interni e delega l'invio delle notifiche ai relativi casi d'uso}
+
+% ── CMD ──────────────────────────────────────────────────────────────────────
+
+% application\commands\notify-alarm-resolution.command.ts
+\makeItf{NotifyAlarmResolutionCmd}{Comando che trasporta alarmId e wardId per notificare la risoluzione di un allarme}
+
+% application\commands\notify-alarm-ward.command.ts
+\makeItf{NotifyAlarmWardCmd}{Comando che trasporta wardId e i dati dell'allarme per notificare un reparto}
+
+% application\commands\write-notification.command.ts
+\makeItf{WriteNotificationCmd}{Comando che trasporta i dati per persistere una notifica}
+
+% ── USE CASE ─────────────────────────────────────────────────────────────────
+
+% application\ports\in\notify-alarm-ward.usecase.ts
+\addMet{+}{\texttt{notifyAlarmWard(cmd: NotifyAlarmWardCmd): Promise$<$void$>$}}{Invia la notifica di un allarme attivo al reparto indicato}
+\makeItf{NotifyAlarmWardUseCase}{Porta in ingresso per notificare un allarme attivo a un reparto}
+
+% application\ports\in\notify-alarm-resolution.usecase.ts
+\addMet{+}{\texttt{notifyAlarmResolution(cmd: NotifyAlarmResolutionCmd): Promise$<$void$>$}}{Invia la notifica di risoluzione di un allarme al reparto indicato}
+\makeItf{NotifyAlarmResolutionUseCase}{Porta in ingresso per notificare la risoluzione di un allarme}
+
+% ── SERVICE ──────────────────────────────────────────────────────────────────
+
+% application\services\notifications.service.ts
+\addAtr{-}{notifyPort: NotifyAlarmWardPort}{Porta per inviare la notifica di un allarme a un reparto}
+\addAtr{-}{notifyResolutionPort: NotifyAlarmResolutionPort}{Porta per inviare la notifica di risoluzione di un allarme}
+\addAtr{-}{writeNotificationPort: WriteNotificationPort}{Porta per persistere una notifica}
+\addMet{+}{\texttt{notifyAlarmWard(cmd: NotifyAlarmWardCmd): Promise$<$void$>$}}{Invia la notifica dell'allarme e persiste la notifica}
+\addMet{+}{\texttt{notifyAlarmResolution(cmd: NotifyAlarmResolutionCmd): Promise$<$void$>$}}{Invia la notifica di risoluzione dell'allarme}
+\makeCl{NotificationsService}{Servizio applicativo che orchestra l'invio e la persistenza delle notifiche di allarme}
+
+% ── PORT ─────────────────────────────────────────────────────────────────────
+
+% application\ports\out\notify-alarm-ward.port.ts
+\addMet{+}{\texttt{notifyAlarmWard(cmd: NotifyAlarmWardCmd): Promise$<$void$>$}}{Invia la notifica di un allarme attivo al reparto indicato}
+\makeItf{NotifyAlarmWardPort}{Porta di uscita per inviare la notifica di un allarme a un reparto}
+
+% application\ports\out\notify-alarm-resolution.port.ts
+\addMet{+}{\texttt{notifyAlarmResolution(cmd: NotifyAlarmResolutionCmd): Promise$<$void$>$}}{Invia la notifica di risoluzione di un allarme al reparto indicato}
+\makeItf{NotifyAlarmResolutionPort}{Porta di uscita per inviare la notifica di risoluzione di un allarme}
+
+% application\ports\out\write-notification.port.ts
+\addMet{+}{\texttt{writeNotification(cmd: WriteNotificationCmd): Promise$<$boolean$>$}}{Persiste una notifica nel sistema di storage}
+\makeItf{WriteNotificationPort}{Porta di uscita per persistere una notifica}
+
+% ── ADAPTER ──────────────────────────────────────────────────────────────────
+
+% adapters\out\notify-alarm-ward.adapter.ts
+\addAtr{-}{notifyRepo: NotifyAlarmWardRepoPort}{Repository per inviare la notifica di un allarme via WebSocket}
+\addMet{+}{\texttt{notifyAlarmWard(cmd: NotifyAlarmWardCmd): Promise$<$void$>$}}{Delega l'invio della notifica dell'allarme al repository}
+\makeCl{NotifyAlarmWardAdapter}{Adapter che implementa NotifyAlarmWardPort delegando l'invio al repository WebSocket}
+
+% adapters\out\notify-alarm-resolution.adapter.ts
+\addAtr{-}{notifyResolutionRepo: NotifyAlarmResolutionRepoPort}{Repository per inviare la notifica di risoluzione via WebSocket}
+\addMet{+}{\texttt{notifyAlarmResolution(cmd: NotifyAlarmResolutionCmd): Promise$<$void$>$}}{Delega l'invio della notifica di risoluzione al repository}
+\makeCl{NotifyAlarmResolutionAdapter}{Adapter che implementa NotifyAlarmResolutionPort delegando l'invio al repository WebSocket}
+
+% adapters\out\write-notification.adapter.ts
+\addAtr{-}{writeNotificationRepoPort: WriteNotificationRepoPort}{Repository per persistere una notifica nel database}
+\addMet{+}{\texttt{writeNotification(cmd: WriteNotificationCmd): Promise$<$boolean$>$}}{Delega la persistenza della notifica al repository}
+\makeCl{WriteNotificationAdapter}{Adapter che implementa WriteNotificationPort delegando la scrittura al repository di persistenza}
+
+% ── REPOSITORY (contratti) ────────────────────────────────────────────────────
+
+% application\repository\notify-alarm-ward.repository.ts
+\addMet{+}{\texttt{notifyAlarmWard(wardId: number, alarm: CheckAlarmRuleResDto): Promise$<$void$>$}}{Invia la notifica di un allarme al reparto tramite WebSocket}
+\makeItf{NotifyAlarmWardRepoPort}{Contratto del repository WebSocket per notificare un allarme attivo a un reparto}
+
+% application\repository\notify-alarm-resolution.repository.ts
+\addMet{+}{\texttt{notifyAlarmResolution(alarmId: string, wardId: number): Promise$<$void$>$}}{Invia la notifica di risoluzione di un allarme al reparto tramite WebSocket}
+\makeItf{NotifyAlarmResolutionRepoPort}{Contratto del repository WebSocket per notificare la risoluzione di un allarme}
+
+% application\repository\write-notification.repository.ts
+\addMet{+}{\texttt{writeNotification(ward$\_$id: number, alarm$\_$id: string,} \\ \texttt{ timestamp: string): Promise$<$boolean$>$}}{Persiste una notifica nel database con wardId, alarmId e timestamp}
+\makeItf{WriteNotificationRepoPort}{Contratto del repository di persistenza per salvare una notifica}
+
+% ── IMPLEMENTAZIONE DEI REPOSITORY ───────────────────────────────────────────
+
+% infrastructure\websocket\websocket-gateway.ts
+\addMet{+}{\texttt{notifyAlarmWard(wardId: number, alarm: CheckAlarmRuleResDto): Promise$<$void$>$}}{Emette l'evento di allarme attivo al reparto tramite WebSocket}
+\addMet{+}{\texttt{notifyAlarmResolution(alarmId: string, wardId: number): Promise$<$void$>$}}{Emette l'evento di risoluzione dell'allarme al reparto tramite WebSocket}
+\makeCl{NotificationsGateway}{Implementazione WebSocket che invia le notifiche di allarme e risoluzione ai reparti connessi}
+
+% infrastructure\persistance\notification-repository-impl.ts
+\addAtr{-}{pool: Pool}{Pool di connessioni al database per l'esecuzione delle query}
+\addMet{+}{writeNotification(ward\_id: number, alarm\_id: string, \\ timestamp: string): Promise$<$boolean$>$}{Persiste una notifica nel database con wardId, alarmId e timestamp}
+\makeCl{NotificationRepositoryImpl}{Implementazione del repository di persistenza per il salvataggio delle notifiche nel database}

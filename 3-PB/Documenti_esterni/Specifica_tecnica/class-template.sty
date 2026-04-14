@@ -1,0 +1,186 @@
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage{enumitem}
+\RequirePackage{xltabular}
+\RequirePackage{etoolbox}
+\RequirePackage{xstring}
+\RequirePackage{xparse}
+\RequirePackage{xspace}
+\RequirePackage{needspace}
+\RequirePackage{float}
+\RequirePackage{caption}
+
+\newcommand{\listaAttrGra}{}
+\newcommand{\addAttrGra}[2]{
+    \gappto{\listaAttrGra}{#1 #2 \\}
+}
+
+\newcommand{\listaAttributi}{}
+\newcommand{\addAtr}[3]{
+    \addAttrGra{#1}{#2}
+    \gappto{\listaAttributi}{\item \texttt{#2}: #3}
+}
+
+\newcommand{\listaMetGra}{}
+\newcommand{\addAMetGra}[2]{
+    \gappto{\listaMetGra}{#1 #2\\}
+}
+
+\newcommand{\listaMetodi}{}
+\newcommand{\addMet}[3]{
+    \addAMetGra{#1}{#2}
+    \gappto{\listaMetodi}{\item \texttt{#2}: #3}
+}
+
+%=============================
+\newcommand{\rif}[1]{%
+  \hyperref[UC#1]{UC#1 }\S\ref{UC#1}%
+}
+%=============================
+
+\newcommand{\makeItf}[2]{%
+    \trisubsection{#1}
+    \label{#1}
+    \begin{center}
+        \begin{tikzpicture}
+            \node (I) [draw, circle, minimum size=1cm] {};
+            \node[below=0.2cm of I, inner sep=4pt] (M) {
+            \begin{tabular}{c}
+            \textbf{#1} \\
+
+            \rule{5cm}{0.4pt} \\
+
+            \begin{tabular}{l}
+            \listaMetGra
+            \end{tabular}
+            \end{tabular}
+            };
+        \end{tikzpicture}
+        \captionof{figure}{Diagramma dell'interfaccia #1}
+    \end{center}
+
+    \noindent\textbf{Descrizione:} #2%
+
+    
+    \vspace{0.5cm}
+    \ifdefempty{\listaMetodi}{}{
+        \noindent
+        \textbf{Descrizione dei metodi dell'interfaccia:}
+        \begin{itemize}
+            \listaMetodi
+        \end{itemize}
+    }
+
+    % Pulisce le variabili
+    \renewcommand{\listaMetodi}{}
+    \renewcommand{\listaAttributi}{}
+    \renewcommand{\listaAttrGra}{}
+    \renewcommand{\listaMetGra}{}
+}
+
+\newcommand{\makeCl}[2]{%
+    \trisubsection{#1}
+    \label{#1}
+
+    \begin{center}
+    \begin{tikzpicture}
+    \node (A) [
+        draw,
+        rectangle,
+        inner sep=4pt,
+        text width=10cm % <-- fondamentale
+    ] {
+    \centering
+    \textbf{#1}
+
+    \par\noindent\rule{\textwidth}{0.4pt}
+
+    \raggedright
+    \listaAttrGra
+
+    \par\noindent\rule{\textwidth}{0.4pt}
+
+    \listaMetGra
+    };
+    \end{tikzpicture}
+    \captionof{figure}{Diagramma della classe #1}
+    \end{center}
+
+    \noindent\textbf{Descrizione:} #2%
+
+    \vspace{0.5cm}
+%    \ifdefempty{\listaAttributi}{}{
+%        \noindent
+%        \textbf{Descrizione degli attributi della classe:}
+%        \begin{itemize}
+%            \listaAttributi
+%        \end{itemize}
+%    }
+    \ifdefempty{\listaMetodi}{}{
+        \noindent
+        \textbf{Descrizione dei metodi della classe:}
+        \begin{itemize}
+            \listaMetodi
+        \end{itemize}
+    }
+
+    % Pulisce le variabili
+    \renewcommand{\listaMetodi}{}
+    \renewcommand{\listaAttributi}{}
+    \renewcommand{\listaAttrGra}{}
+    \renewcommand{\listaMetGra}{}
+}
+
+
+\newcommand{\makeAbCl}[2]{%
+    \trisubsection{#1}
+    \label{#1}
+
+    \begin{center}
+    \begin{tikzpicture}
+    \node (A) [
+        draw,
+        rectangle,
+        inner sep=4pt,
+        text width=10cm % <-- fondamentale
+    ] {
+    \centering
+    \textbf{$<<$abstract$>>$ \\ #1}
+
+    \par\noindent\rule{\textwidth}{0.4pt}
+
+    \raggedright
+    \listaAttrGra
+
+    \par\noindent\rule{\textwidth}{0.4pt}
+
+    \listaMetGra
+    };
+    \end{tikzpicture}
+    \captionof{figure}{Diagramma della classe astratta #1}
+    \end{center}
+
+    \noindent\textbf{Descrizione:} #2%
+
+    \vspace{0.5cm}
+%    \ifdefempty{\listaAttributi}{}{
+%        \noindent
+%        \textbf{Descrizione degli attributi della classe:}
+%        \begin{itemize}
+%            \listaAttributi
+%        \end{itemize}
+%    }
+    \ifdefempty{\listaMetodi}{}{
+        \noindent
+        \textbf{Descrizione dei metodi della classe:}
+        \begin{itemize}
+            \listaMetodi
+        \end{itemize}
+    }
+
+    % Pulisce le variabili
+    \renewcommand{\listaMetodi}{}
+    \renewcommand{\listaAttributi}{}
+    \renewcommand{\listaAttrGra}{}
+    \renewcommand{\listaMetGra}{}
+}

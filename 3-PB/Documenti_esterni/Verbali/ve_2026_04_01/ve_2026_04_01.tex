@@ -1,0 +1,130 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Verbale esterno 01/04/2026}
+\setDocVersion{-}
+\setDocData{01/04/2026}
+\setDocIndex{ve\_2026\_04\_01}
+\setDocState{2}
+\setDocRecipient{2}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{01/04/2026}{16:00}{17:30}{via \textit{Microsoft Teams$_G$}}
+
+% ------------------------
+% Partecipanti
+% ------------------------
+\addParticipant{Filippo}{Venzo}{Programmatore}{P}
+\addParticipant{Valeria}{Baleanu}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Amministratore}{P}
+\addParticipant{Christian}{Libralato}{Responsabile}{P}
+\addParticipant{Francesco}{Pasqual}{Programmatore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Verificatore}{P}
+\makeMeetingParticipantsTable
+
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+      \item Revisione bozzetti con il team UX/UI;
+      \item pianificazione delle Sessioni di Demo e Presentazione;
+      \item implementazione delle Analytics e dei Suggerimenti;
+      \item rinegoziazione e Definizione dei Requisiti di Dashboard e Interazione;
+      \item preparazione al Collaudo e Deliverables di Progetto;
+      \item visualizzazione interfaccia grafica;
+      \item tipologia dei Grafici Analytics;
+      \item simulazione e Test dei Sensori di Caduta.
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Revisione bozzetti con il team UX/UI}
+In data 30/03/2026 è stata effettuata una riunione con la Proponente che ha previsto la partecipazione del team UX/UI al fine di revisionare, commentare 
+e fornire suggerimenti rispetto ai bozzetti grafici realizzati da \teamName. Il Responsabile ha esposto e descritto le varie sezioni dei bozzetti, che corrispondevano alle 
+principali sezioni dell'applicativo, motivando le scelte stilistiche e strutturali.
+In riferimento a ciò il team UX/UI ha fornito molti suggerimenti e fatto emergere alcune criticità funzionali e di design, le principali sono state:
+\begin{itemize}
+      \item la necessità di rendere chiaro all'interno della dashboard quali widget siano fissi e quali no;
+      \item dare importanza agli allarmi nella dashboard e prestare attenzione all'ordine con cui vengono mostrati, un ordinamento per priorità si adatta maggiormente al caso d'uso;
+      \item le informazioni mostrate dalla mappa nella sezione dispositivi sono ridondanti e tolgono spazio all'elenco dispositivi;
+      \item valutare altri posizionamenti rispetto alla barra laterale per i suggerimenti nella sezione analytics in modo da fornire più importanza;
+      \item valutare la possibilità di creare un unico selettore di impianto che mantenga coerenza tra le varie sezioni dell'applicativo piuttosto che avere selettori indipendenti in pagine diverse;
+      \item modernizzare l'interfaccia e rivalutare i colori per ridurre la presenza, elevata, del bianco.
+\end{itemize}
+Il team si è prefissato l'obiettivo di applicare per quanto possibile i consigli emersi, pur considerando che la codifica si trova ad uno stato intermedio di completamento e il tempo rimasto è ridotto a causa 
+delle scadenze imminenti.
+
+\subsection*{Pianificazione delle Sessioni di Demo e Presentazione}
+Sono state proposte due sessioni per il collaudo: una tecnica di un'ora e mezza in presenza l'8 aprile e una demo di mezz'ora in remoto il 9 aprile,
+coinvolgendo sia il team tecnico che il reparto marketing, con la possibilità di mostrare i risultati e spiegare il funzionamento della dashboard. 
+La Proponente si è inoltre resa disponibile a fornire un server qualora necessario, richiedendo specifiche tecniche per la configurazione 
+e sottolineando l'importanza di avere tutto pronto per l'8 aprile.
+
+\subsection*{Implementazione delle Analytics e dei Suggerimenti}
+È stata esposta l'implementazione delle analytics e dei suggerimenti tramite il modello Groq, spiegando la logica di caching, la periodicità di aggiornamento.
+Il modello Groq viene utilizzato per generare suggerimenti gratuiti, con limiti di 30 richieste al minuto e 14.000 al giorno, integrando i suggerimenti direttamente nelle analytics inviate dal backend al frontend.
+I suggerimenti sono inclusi nelle analytics, la generazione di entrambi avviene on demand tramite trigger sull'accesso alla sezione Analytics, con caching gestito da \textit{nginx$_G$} per utente e Plant ID,
+e scadenza della cache ogni 24 ore; non è previsto un refresh forzato, ma è stata caldamente consigliata un'opzione di refresh manuale. 
+
+\subsection*{Rinegoziazione e Definizione dei Requisiti di Dashboard e Interazione}
+Si è discussa la necessità di rinegoziare alcuni requisiti opzionali, proponendo di rendere la dashboard fissa e non personalizzabile e rimuovere la mappa degli allarmi.
+
+È stato poi concordato di mostrare i suggerimenti nei grafici tramite un box laterale, evitando la sidebar per valorizzare i suggerimenti e facilitare la comprensione del riferimento metrico. Infine è stata
+sottolineata l'importanza di includere la location nell'allarme per permettere all'operatore di sapere dove intervenire, compensando la rimozione della mappa degli allarmi, oltre che dare importanza agli allarmi 
+ad alta priorità nella dashboard.
+
+\subsection*{Preparazione al Collaudo e Deliverables di Progetto}
+Sono state illustrate le modalità di collaudo, i deliverables richiesti e le aspettative per la presentazione finale, specificando la necessità di mostrare l'avanzamento, la demo, l'architettura (modello C4), la timeline e una retrospettiva, con indicazioni sulla gestione dei bozzetti e dei manuali utente.
+È stato inoltre chiarito che i bozzetti possono essere presentati come versione preliminare, senza necessità di aggiornarli completamente, ma è auspicabile mantenere coerenza tra bozzetti e implementazione finale.
+
+\subsection*{Visualizzazione interfaccia grafica}
+È stato presentato lo stato dell'applicativo, con particolare riferimento alla gestione degli utenti e dei reparti, illustrando le soluzioni adottate per la visualizzazione e la creazione tramite form,
+con discussione sulla coerenza grafica, l'uso dei colori e l'integrazione con l'autenticazione interna e verso Vimar.
+
+\subsection*{Tipologia dei Grafici Analytics}
+Si è poi discussa la scelta tra grafici a barre e a punti per le diverse analytics, concordando sulla visualizzazione in base alla continuità dei dati.
+È stato concordato di inserire un selettore per appartamento e di indicare chiaramente il periodo di riferimento dei dati, come gli ultimi 30 giorni, per facilitare la comprensione da parte dell'utente.
+
+\subsection*{Simulazione e Test dei Sensori di Caduta}
+Si è infine configurata la simulazione e il test dei sensori di caduta, inviando l'account amministratore per l'aggiunta a un impianto di test, con la possibilità di simulare eventi tramite CURL e verificare la corretta ricezione degli allarmi.
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+\addDecision{Aggiunta della funzionalità di refresh manuale per le Analytics}
+\addDecision{Spostamento dei suggerimenti in un box laterale associato al grafico con scorrimento verticale}
+\addDecision{Riduzione requisiti opzionali, con mantenimento di dashboard statica e rimozione mappa allarmi}
+\makeDecisionTable
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+\addTodo{\noOne}{Redigere verbale esterno}{C. Libralato}{05/04/2026}
+\addTodo{\#234}{Preparare presentazione per il collaudo.}{\teamName}{08/04/2026}
+\addTodo{\noOne}{Decidere la piattaforma di deployment.}{\teamName}{08/04/2026}
+
+\makeTodoTable
+
+\end{document}

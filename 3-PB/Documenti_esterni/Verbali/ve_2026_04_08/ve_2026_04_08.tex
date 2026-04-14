@@ -1,0 +1,111 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Verbale esterno 08/04/2026}
+\setDocVersion{-}
+\setDocData{08/04/2026}
+\setDocIndex{ve\_2026\_04\_08}
+\setDocState{2}
+\setDocRecipient{2}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{08/04/2026}{16:00}{17:30}{in presenza}
+
+% ------------------------
+% Partecipanti
+% ------------------------
+\addParticipant{Filippo}{Venzo}{Programmatore}{P}
+\addParticipant{Valeria}{Baleanu}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Amministratore}{P}
+\addParticipant{Christian}{Libralato}{Responsabile}{P}
+\addParticipant{Francesco}{Pasqual}{Programmatore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Verificatore}{P}
+
+\makeMeetingParticipantsTable
+
+Oltre a SnakeByte hanno partecipato: responsabili aziendali, team Cloud, team UX/UI.
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+      \item Presentazione finale del progetto View4Life;
+      \item illustrazione delle funzionalità principali dell'applicativo;
+      \item approfondimento sull'architettura tecnica e scelte tecnologiche;
+      \item demo applicativa e simulazione flussi operativi;
+      \item approvazione MVP.
+      \item feedback conclusivi e retrospettiva.
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Presentazione finale del progetto View4Life}
+Il gruppo ha introdotto il progetto View4Life, delineandone gli obiettivi principali: lo sviluppo di un'applicazione web per il monitoraggio di residenze protette, la gestione di dispositivi IoT e l'analisi dei consumi energetici. È stata ripercorsa la cronologia del progetto, strutturata in due sprint di progettazione seguiti dallo sviluppo tecnico e dalla redazione documentale.
+
+\subsection*{Illustrazione delle funzionalità principali dell'applicativo}
+Sono state illustrate le caratteristiche core del sistema:
+\begin{itemize}
+    \item \textbf{Autenticazione}: Gestione multi-livello (Amministratore/OSS) con integrazione account \textit{myVimar} e gestione dei token.
+    \item \textbf{Dashboard}: Panoramica centralizzata su allarmi, consumi e struttura topologica.
+    \item \textbf{Gestione Allarmi}: Sistema di configurazione basato su regole personalizzabili (soglie, orari, priorità) e gestione in tempo reale tramite WebSocket.
+    \item \textbf{Analytics}: Visualizzazione dati temporali e generazione di suggerimenti energetici tramite il modello LLM \textit{Groq$_G$}.
+\end{itemize}
+
+\subsection*{Approfondimento sull'architettura tecnica e scelte tecnologiche}
+Il team ha approfondito lo stack tecnologico composto da Angular, NestJS, PostgreSQL e TimescaleDB. È stato spiegato l'uso di Docker per la containerizzazione e il deploy su droplet Digital Ocean. Particolare attenzione è stata posta sulla scelta di PostgreSQL per il caching e sull'integrazione con i servizi \textit{Vimar Cloud$_G$} per la sottoscrizione ai data point.
+
+\subsection*{Demo applicativa e simulazione flussi operativi}
+Durante la sessione pratica è stata mostrata l'interoperabilità del sistema:
+\begin{itemize}
+    \item Creazione e risoluzione di un allarme con notifica istantanea.
+    \item Navigazione tra i reparti e assegnazione dinamica degli operatori.
+    \item Invio di comandi ai dispositivi con feedback immediato in interfaccia.
+    \item Visualizzazione dei grafici di analytics e dei suggerimenti generati dall'AI.
+\end{itemize}
+
+\subsection*{Approvazione MVP}
+Al termine della demo la proponente ha approvato pienamente gli obiettivi raggiunti a livello di requisiti e di implementazioni, ritenendo anche l'organizzazione degna di nota. 
+In data 09/04/2026 è anche prevista la presentazione dell'MVP al team Marketing Vimar, con particolare attenzione alla demo dell'applicativo.
+
+\subsection*{Feedback conclusivi e retrospettiva}
+I membri del gruppo hanno condiviso le lezioni apprese, evidenziando la crescita nelle metodologie Agile e la gestione delle criticità comunicative. 
+In particolare, da una Retrospective Review finale è emerso un alto grado di soddisfazione dell'andamento del gruppo durante il progetto, sia a livello di obiettivi raggiunti che di comunicazione interna e 
+gestione dei problemi, oltre che nel rispetto delle suddivisione dei ruoli e dei compiti. 
+Ciò che invece ha generato più problemi è stato il rispetto delle scadenze, dato l'alto carico di lavoro dell'ultimo periodo, e la capacità di effettuare previsioni accurate sia a livello di scadenze, che di suddivisione dei ruoli.
+L'esperienza è stata infine definita, dall'intero gruppo, molto formativa e anche utile per le prospettive future.
+
+
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+\addTodo{\noOne}{Revisione finale dei deliverables, della documentazione tecnica e del manuale utente in base ai commenti ricevuti}{\teamName}{13/04/2026}
+\addTodo{\noOne}{Consegnare i deliverables via email realizzando un documento di consultazione tramite puntatori.}{\teamName}{13/04/2026}
+
+\makeTodoTable
+
+\end{document}

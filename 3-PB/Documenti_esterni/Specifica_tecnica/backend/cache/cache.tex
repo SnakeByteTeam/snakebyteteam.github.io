@@ -1,0 +1,151 @@
+\subsubsection{Cache}
+
+% ── DTO IN ───────────────────────────────────────────────────────────────────
+
+% infrastructure\http\dtos\in\api-common.dto.ts
+\addAtr{+}{collection: CollectionMetaDto}{Metadati di una collezione paginata ricevuta dall'API}
+\makeCl{CollectionMetaDto}{Wrapper per i metadati di paginazione restituiti dall'API esterna}
+
+% infrastructure\http\dtos\in\api-datapoint.dto.ts
+\addAtr{+}{attributes: DatapointAttributesDto}{Attributi del datapoint restituiti dall'API}
+\addAtr{+}{meta: DatapointMetaDto}{Metadati specifici del datapoint restituiti dall'API}
+\addAtr{+}{meta: ApiMetaDto}{Metadati generici della risposta API}
+\addAtr{+}{data: ApiDatapointDto[]}{Lista di datapoint grezzi restituiti dall'API}
+\makeCl{DatapointAttributesDto}{DTO che mappa gli attributi di un datapoint ricevuto dall'API esterna}
+
+% infrastructure\http\dtos\in\api-device.dto.ts
+\addAtr{+}{attributes: DeviceAttributesDto}{Attributi del dispositivo restituiti dall'API}
+\addAtr{+}{meta: DeviceMetaDto}{Metadati specifici del dispositivo restituiti dall'API}
+\addAtr{+}{meta: ApiMetaDto}{Metadati generici della risposta API}
+\addAtr{+}{data: ApiDeviceDto[]}{Lista di dispositivi grezzi restituiti dall'API}
+\makeCl{DeviceAttributesDto}{DTO che mappa gli attributi di un dispositivo ricevuto dall'API esterna}
+
+% infrastructure\http\dtos\in\api-plant-attributes.dto.ts
+\makeCl{ApiPlantAttributesDto}{DTO che mappa gli attributi principali di un impianto ricevuto dall'API esterna}
+
+% infrastructure\http\dtos\in\api-plant.dto.ts
+\addAtr{+}{attributes: ApiPlantAttributesDto}{Attributi dell'impianto restituiti dall'API}
+\addAtr{+}{meta: ApiPlantMetaDto}{Metadati specifici dell'impianto restituiti dall'API}
+\addAtr{+}{meta: ApiMetaDto}{Metadati generici della risposta API}
+\addAtr{+}{data: ApiRoomDto[]}{Lista di stanze grezze associate all'impianto}
+\makeCl{ApiPlantMetaDto}{DTO che mappa i metadati di un impianto ricevuto dall'API esterna}
+
+% infrastructure\http\dtos\in\plant-seek.dto.ts
+\makeItf{PlantSeekResponseDto}{DTO di risposta per la ricerca di un impianto tramite ID}
+
+% infrastructure\http\dtos\in\subNotification.dto.ts
+\makeItf{NotificationLinkDto}{DTO che rappresenta un link incluso nel payload di una notifica esterna}
+
+% ── MODEL ────────────────────────────────────────────────────────────────────
+
+% [Plant e Room sono modelli di dominio impliciti, usati come tipi nelle porte e negli adapter]
+
+% ── CONTROLLER ───────────────────────────────────────────────────────────────
+
+% adapters\in\http\http-cache.controller.ts
+\addAtr{-}{updateCacheUseCase: UpdateCacheUseCase}{Caso d'uso per aggiornare la cache di impianti specifici}
+\addAtr{-}{webhookQueue: Promise<void>}{Coda sequenziale per serializzare i webhook in ingresso}
+\addMet{+}{updateCache(payload: subNotificationPayloadDto)}{Riceve il webhook e avvia l'aggiornamento della cache per gli impianti indicati}
+\makeCl{HttpCacheController}{Controller HTTP che gestisce i webhook in ingresso e delega l'aggiornamento della cache}
+
+% adapters\in\event\event-cache.controller.ts
+\addAtr{-}{cache: UpdateCacheAllPlantsUseCase}{Caso d'uso per aggiornare la cache di tutti gli impianti}
+\makeCl{EventCacheController}{Controller eventi che ascolta gli eventi interni e avvia l'aggiornamento della cache per tutti gli impianti}
+
+% ── CMD ──────────────────────────────────────────────────────────────────────
+
+% application\commands\fetch-new-cache.command.ts
+\makeItf{FetchNewCacheCmd}{Comando che trasporta token e plantId per recuperare la struttura aggiornata di un impianto}
+
+% application\commands\get-valid-cache.command.ts
+\makeItf{GetValidCacheCmd}{Comando che trasporta gli ID degli impianti per cui aggiornare la cache}
+
+% ── USE CASE ─────────────────────────────────────────────────────────────────
+
+% application\ports\in\update-cache.usecase.ts
+\addMet{+}{updateCache(cmd: GetValidCacheCmd) : Promise$<$boolean$>$}{Aggiorna la cache per gli impianti specificati nel comando}
+\makeItf{UpdateCacheUseCase}{Porta in ingresso per aggiornare la cache di uno o più impianti specifici}
+
+% application\ports\in\update-cache-all-plants.usecase.ts
+\addMet{+}{updateAllCache() : Promise$<$boolean$>$}{Avvia l'aggiornamento della cache per tutti gli impianti disponibili}
+\makeItf{UpdateCacheAllPlantsUseCase}{Porta in ingresso per aggiornare la cache di tutti gli impianti}
+
+% ── SERVICE ──────────────────────────────────────────────────────────────────
+
+% application\services\sync-cache.service.ts
+\addAtr{-}{fetchCachePort: FetchNewCachePort}{Porta per recuperare la struttura aggiornata di un impianto}
+\addAtr{-}{writeStructurePort: WriteCachePort}{Porta per persistere la struttura di un impianto in cache}
+\addAtr{-}{getAllPlantIdsPort: GetAllPlantIdsPort}{Porta per ottenere la lista di tutti gli ID impianto}
+\addAtr{-}{emitter: EventEmitter2}{Emettitore di eventi interni al termine dell'aggiornamento}
+\addMet{+}{updateCache(cmd: GetValidCacheCmd) : Promise$<$boolean$>$}{Recupera e persiste la struttura degli impianti indicati nel comando}
+\addMet{+}{updateAllCache() : Promise$<$boolean$>$}{Recupera tutti gli ID impianto e aggiorna la cache per ciascuno}
+\makeCl{SyncCacheService}{Servizio applicativo che orchestra il recupero e la persistenza della struttura degli impianti in cache}
+
+% ── PORT ─────────────────────────────────────────────────────────────────────
+
+% application\ports\out\fetch-new-cache.port.ts
+\addMet{+}{fetch(cmd: FetchNewCacheCmd) : Promise$<$Plant$>$}{Recupera la struttura aggiornata di un impianto dato il comando}
+\makeItf{FetchNewCachePort}{Porta di uscita per recuperare la struttura aggiornata di un impianto dall'esterno}
+
+% application\ports\out\get-all-plantids.port.ts
+\addMet{+}{getAllPlantIds() : Promise$<$string[]$>$}{Restituisce la lista di tutti gli ID impianto disponibili}
+\makeItf{GetAllPlantIdsPort}{Porta di uscita per ottenere la lista completa degli ID impianto}
+
+% application\ports\out\write-cache.port.ts
+\addMet{+}{writeStructure(plant: Plant) : Promise$<$boolean$>$}{Persiste la struttura di un impianto nella cache}
+\makeItf{WriteCachePort}{Porta di uscita per persistere la struttura di un impianto in cache}
+
+% ── ENTITY ───────────────────────────────────────────────────────────────────
+
+% infrastructure\persistence\entities\room.entity.ts
+\addMet{+}{toDomain(entity: RoomEntity) : Room}{Converte l'entità persistita nel corrispondente oggetto di dominio}
+\addMet{+}{fromDomain(room: Room) : RoomEntity}{Converte l'oggetto di dominio nella corrispondente entità persistita}
+\makeCl{RoomEntity}{Entità di persistenza di una stanza, con metodi di conversione da/verso il modello di dominio}
+
+% ── ADAPTER ──────────────────────────────────────────────────────────────────
+
+% adapters\out\fetch-cache.adapter.ts
+\addAtr{-}{getValidTokenPort: GetValidTokenPort}{Porta per ottenere un token di autenticazione valido}
+\addAtr{-}{fetchNewCacheRepo: FetchNewCacheRepoPort}{Repository per recuperare la struttura di un impianto via HTTP}
+\addMet{+}{fetch(cmd: FetchNewCacheCmd) : Promise$<$Plant$>$}{Ottiene un token valido e delega il fetch della struttura al repository}
+\makeCl{FetchNewCacheAdapter}{Adapter che implementa FetchNewCachePort coordinando autenticazione e recupero dati}
+
+% adapters\out\get-all-plantids.adapter.ts
+\addAtr{-}{repo: GetAllPlantIdsRepoPort}{Repository per recuperare gli ID impianto via HTTP}
+\addAtr{-}{getValidTokenPort: GetValidTokenPort}{Porta per ottenere un token di autenticazione valido}
+\addMet{+}{getAllPlantIds() : Promise$<$string[]$>$}{Ottiene un token valido e delega la lettura degli ID al repository}
+\makeCl{GetAllPlantIdsAdapter}{Adapter che implementa GetAllPlantIdsPort coordinando autenticazione e recupero degli ID}
+
+% adapters\out\write-cache.adapter.ts
+\addAtr{-}{writeCacheRepo: WriteCacheRepoPort}{Repository per persistere la struttura di un impianto}
+\addMet{+}{writeStructure(plant: Plant) : Promise$<$boolean$>$}{Delega la persistenza della struttura dell'impianto al repository}
+\makeCl{WriteCacheAdapter}{Adapter che implementa WriteCachePort delegando la scrittura al repository di persistenza}
+
+% ── REPOSITORY (contratti) ────────────────────────────────────────────────────
+
+% application\repository\fetch-new-cache.repository.ts
+\addMet{+}{fetch(validToken: string, plantId: string) : Promise$<$PlantDto $|$ null$>$}{Recupera la struttura di un impianto dall'API esterna dato token e plantId}
+\makeItf{FetchNewCacheRepoPort}{Contratto del repository HTTP per recuperare la struttura di un impianto}
+
+% application\repository\get-all-plantids.repository.ts
+\addMet{+}{getAllPlantIds(validToken: string) : Promise$<$string[]$>$}{Recupera la lista di tutti gli ID impianto dall'API esterna dato un token valido}
+\makeItf{GetAllPlantIdsRepoPort}{Contratto del repository HTTP per ottenere tutti gli ID impianto}
+
+% application\repository\write-cache.repository.ts
+\addMet{+}{write(plant: PlantEntity) : Promise$<$boolean$>$}{Persiste una PlantEntity nella cache}
+\makeItf{WriteCacheRepoPort}{Contratto del repository di persistenza per salvare la struttura di un impianto}
+
+% ── IMPLEMENTAZIONE DEI REPOSITORY ───────────────────────────────────────────
+
+% infrastructure\http\fetch-plant-structure-impl.ts
+\addAtr{-}{httpService: HttpService}{Client HTTP per le chiamate alle API esterne}
+\addMet{+}{fetch(validToken: string, plantId: string) : Promise$<$PlantDto $|$ null$>$}{Recupera la struttura completa di un impianto orchestrando le chiamate a stanze, dispositivi e datapoint}
+\addMet{+}{getAllPlantIds(validToken: string) : Promise$<$string[]$>$}{Recupera la lista di tutti gli ID impianto dall'API esterna}
+\addMet{-}{fetchRoom(validToken: string, plantId: string, room: ApiRoomDto) : Promise$<$RoomDto$>$}{Recupera i dettagli di una singola stanza e i suoi dispositivi}
+\addMet{-}{fetchDevice(validToken: string, plantId: string, device: any) : Promise$<$DeviceDto$>$}{Recupera i dettagli di un singolo dispositivo e i suoi datapoint}
+\addMet{-}{fetchDatapoint(datapoint: ApiDatapointDto) : DatapointDto}{Mappa un datapoint grezzo dell'API nel DTO interno}
+\makeCl{FetchStructureCacheImpl}{Implementazione HTTP che recupera la struttura completa di un impianto componendo chiamate per stanze, dispositivi e datapoint}
+
+% infrastructure\persistence\structure-cache-repository-impl.ts
+\addMet{+}{write(plant: PlantEntity) : Promise$<$boolean$>$}{Salva la struttura dell'impianto nel sistema di persistenza della cache}
+\makeCl{StructureCacheImpl}{Implementazione del repository che persiste la struttura di un impianto nella cache}

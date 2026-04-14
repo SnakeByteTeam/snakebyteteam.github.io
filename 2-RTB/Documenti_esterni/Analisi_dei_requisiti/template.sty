@@ -9,7 +9,6 @@
 \RequirePackage{xspace}
 \RequirePackage{needspace}
 
-
 % \newcount\UC@depth
 % \newcommand{\UCcountdepth}[1]{%
 %     \StrCount{#1}{.}[\UC@depth]%
@@ -331,8 +330,6 @@
     \setcounter{numInc}{0}
 }
 
-% --- Req funzionali ---
-
 \newcommand{\reqFEntries}{}
 \newcounter{refctr}
 \newcounter{refobctr}
@@ -343,7 +340,7 @@
     \stepcounter{refctr}
     \edef\RF@id{\therefctr}
 
-    % determinazione del tipo
+    % tipo
     \def\RF@type{??}%
     \ifnum#1=2
       \stepcounter{refobctr}\def\RF@type{OB}%
@@ -353,7 +350,6 @@
       \stepcounter{refopctr}\def\RF@type{OP}%
     \fi\fi\fi
 
-    % costruzione sicura della riga
     \edef\@tempa{%
       \noexpand\gappto\noexpand{\noexpand\reqFEntries}{%
         RF\RF@id-\RF@type
@@ -363,6 +359,7 @@
       }%
     }%
     \@tempa
+
   \endgroup
 }
 
@@ -370,7 +367,7 @@
     \subsection{Funzionali}{
         \renewcommand{\arraystretch}{1.25}
         \begin{center}
-            \begin{xltabular}{\textwidth}{|c|X|p{3.40cm}|}
+            \begin{xltabular}{\textwidth}{|c|X|p{3.45cm}|}
             \hline
             \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Fonti} \\
             \endhead
@@ -422,7 +419,7 @@
     \subsection{Di qualità}{
         \renewcommand{\arraystretch}{1.25}
         \begin{center}
-            \begin{xltabular}{\textwidth}{|c|X|p{3.85cm}|}
+            \begin{xltabular}{\textwidth}{|c|X|p{4.10cm}|}
             \hline
             \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Fonti} \\
             \endhead
@@ -469,12 +466,11 @@
   \endgroup
 }
 
-
 \newcommand{\makeReqVtable}{
     \subsection{Di vincolo}{
         \renewcommand{\arraystretch}{1.25}
         \begin{center}
-            \begin{xltabular}{\textwidth}{|c|X|c|}
+            \begin{xltabular}{\textwidth}{|c|X|p{4.10cm}|}
             \hline
             \rowcolor{lightgray} \textbf{Id} & \textbf{Descrizione} & \textbf{Fonti} \\
             \endhead
@@ -501,6 +497,45 @@
             di vincolo & \therevobctr & \therevdectr & \therevopctr & \therevctr \\
             \hline
             \caption{Riepilogo dei requisiti}
+            \end{xltabular}
+        \end{center}
+    }
+}
+
+\newcommand{\req}[2]{%
+    RF#1-%
+    \ifnum#2=2 OB%
+    \else\ifnum#2=1 DE%
+    \else\ifnum#2=0 OP%
+    \fi\fi\fi
+}
+
+\newcommand{\UCTEntries}{}
+\newcommand{\addUCT}[2]{%
+  \begingroup
+
+    \edef\@tempa{%
+      \noexpand\gappto\noexpand{\noexpand\UCTEntries}{%
+        \unexpanded{#1}
+        & \noexpand\parbox[t]{\noexpand\linewidth}{\unexpanded{#2 \vspace{2mm}}}
+        \\ \noexpand\hline
+      }%
+    }%
+    \@tempa
+  \endgroup
+}
+
+\newcommand{\makeUCTTable}{
+    \subsection{Tracciamento degli Use Case}{
+        \renewcommand{\arraystretch}{1.3}
+        \begin{center}
+            \begin{xltabular}{\textwidth}{|c|p{4.10cm}|}
+            \hline
+            \rowcolor{lightgray} \textbf{Use Case} & \textbf{Requisiti} \\
+            \endhead
+            \hline
+            \UCTEntries
+            \caption{Tracciamento degli Use Case}
             \end{xltabular}
         \end{center}
     }

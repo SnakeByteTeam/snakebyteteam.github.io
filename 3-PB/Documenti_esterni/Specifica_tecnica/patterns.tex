@@ -1,0 +1,119 @@
+\section{Design pattern}
+
+\subsection{Dependency injection}
+
+\subsubsection{Descrizione}
+Il \textit{pattern \textbf{Dependency Injection}} è una tecnica di progettazione \textit{software} che consente di gestire le dipendenze tra i componenti in modo più flessibile 
+e modulare. Invece di creare direttamente le dipendenze all'interno dei componenti, queste vengono fornite dall'esterno (tramite "injection"). \\ \\
+Sono principalmente 2 i metodi per implementare la \textit{Dependency Injection}:
+\begin{itemize}
+    \item \textit{\textbf{Constructor Injection}}: le dipendenze vengono fornite attraverso il costruttore del componente;
+    \item \textit{\textbf{Setter Injection}}: le dipendenze vengono fornite attraverso metodi \textit{setter}.
+\end{itemize}
+
+\subsubsection{Ragione dell'utilizzo}
+L'utilizzo del \textit{pattern} \textit{Dependency Injection} consente di migliorare la testabilità, la manutenibilità e la flessibilità del codice.
+In particolare, permette di:
+\begin{itemize}
+    \item ridurre l'accoppiamento tra i componenti;
+    \item centralizzare la gestione delle dipendenze, facilitando la configurazione e la manutenzione del Sistema;
+    \item facilitare la sostituzione delle dipendenze con implementazioni alternative (utile durante la fase di test).
+\end{itemize}
+
+\subsection{Adapter}
+
+\subsubsection{Descrizione}
+L'\textit{\textbf{Adapter}} è un \textit{pattern} di progettazione che consente di adattare l'interfaccia di una classe esistente a quella richiesta da un \textit{client},
+senza modificare il codice della classe esistente. In questo modo, è possibile integrare componenti con interfacce incompatibili senza dover riscrivere 
+il codice esistente. Esistono 2 tipi di \textit{adapter}:
+\begin{itemize}
+    \item \textit{class adapter}: utilizza l'ereditarietà per adattare l'interfaccia di una classe esistente a quella richiesta da un \textit{client};
+    \item \textit{object adapter}: utilizza la composizione per adattare l'interfaccia di una classe esistente a quella richiesta da un \textit{client}.
+\end{itemize}
+
+\subsubsection{Ragione dell'utilizzo}
+L'utilizzo del \textit{pattern \textbf{Adapter}} consente di integrare componenti con interfacce incompatibili senza dover modificare il codice esistente, 
+migliorando la flessibilità e la manutenibilità del Sistema. In particolare è stato utilizzato il \textit{class adapter} che ereditano le porte primarie e secondarie, 
+implementando così le funzionalità richieste dalle interfacce.
+
+\subsection{Strategy}
+
+\subsubsection{Descrizione}
+Il \textit{pattern \textbf{Strategy}} è un \textit{pattern} comportamentale che consente di definire una famiglia di algoritmi, 
+incapsularli in classi separate e renderli intercambiabili. Il \textit{pattern} permette di variare l'algoritmo utilizzato 
+indipendentemente dai \textit{client} che ne fanno uso, delegando la scelta della strategia concreta al contesto che la invoca. 
+I componenti principali del \textit{pattern} sono:
+\begin{itemize}
+    \item \textit{\textbf{Strategy}}: interfaccia comune a tutte le strategie concrete, che definisce il contratto che ciascuna 
+    di esse deve rispettare;
+    \item \textit{\textbf{ConcreteStrategy}}: implementazione concreta dell'interfaccia \textit{Strategy}, che realizza un 
+    algoritmo specifico;
+    \item \textit{\textbf{Context}}: classe che mantiene un riferimento a una \textit{Strategy} e la invoca per eseguire 
+    l'operazione richiesta, senza conoscere i dettagli dell'implementazione.
+\end{itemize}
+
+\subsubsection{Ragione dell'utilizzo}
+Il \textit{pattern \textbf{Strategy}} è stato adottato nella sezione \textit{analytics} del Sistema per gestire le diverse 
+tipologie di analisi sui dati degli impianti. Ciascuna metrica — quali il consumo energetico, la rilevazione delle presenze, 
+le anomalie di impianto e la frequenza degli allarmi — è implementata come una strategia concreta che implementa 
+l'interfaccia \texttt{AnalyticsStrategy}. Il servizio \texttt{AnalyticsService} funge da contesto: itera su tutte le strategie 
+registrate, le esegue per l'impianto richiesto e aggrega i risultati in una lista di \textit{plot}. Questo approccio consente di:
+\begin{itemize}
+    \item aggiungere nuove tipologie di analytics senza modificare il codice esistente, nel rispetto del principio 
+    \textit{Open/Closed};
+    \item isolare ciascun algoritmo di analisi in una classe dedicata, migliorando la leggibilità e la manutenibilità del codice;
+    \item testare ogni strategia in modo indipendente, semplificando la fase di verifica e validazione.
+\end{itemize}
+
+\subsection{Repository}
+
+\subsubsection{Descrizione}
+Il \textit{pattern \textbf{Repository}} è un \textit{pattern} architetturale che introduce un livello di astrazione 
+tra la logica applicativa e il meccanismo di accesso ai dati. Anziché interrogare direttamente 
+il \textit{database} all'interno dei servizi, le operazioni di persistenza vengono delegate a componenti 
+dedicati — i \textit{repository} — che espongono un'interfaccia uniforme indipendente dai 
+dettagli implementativi dello strato di persistenza. I componenti principali del \textit{pattern} sono:
+\begin{itemize}
+    \item \textit{\textbf{Repository Interface}}: interfaccia che definisce il contratto per le operazioni 
+    di accesso ai dati, disaccoppiando la logica applicativa dall'implementazione concreta;
+    \item \textit{\textbf{Repository Implementation}}: classe concreta che implementa l'interfaccia, 
+    gestendo direttamente la comunicazione con il database.
+\end{itemize}
+
+\subsubsection{Ragione dell'utilizzo}
+Il \textit{pattern \textbf{Repository}} è stato adottato per gestire tutte le operazioni di accesso al 
+\textit{database}. Ogni \textit{repository} è composto da un'interfaccia — che funge da porta di uscita 
+nell'architettura esagonale — e da un'implementazione concreta che esegue le \textit{query} SQL 
+tramite un \textit{pool} di connessioni. Questo approccio consente di:
+\begin{itemize}
+    \item isolare completamente la logica di \textit{business} dai dettagli di accesso al \textit{database}, 
+    nel rispetto del principio di separazione delle responsabilità;
+    \item rendere sostituibile lo strato di persistenza senza impatto sui livelli superiori 
+    dell'architettura;
+    \item semplificare il testing della logica applicativa, potendo sostituire l'implementazione 
+    concreta con un \textit{mock} durante la fase di verifica.
+\end{itemize}
+
+\subsection{Observer}
+
+\subsubsection{Descrizione}
+Il \textit{pattern \textbf{Observer}} è un \textit{pattern} comportamentale che definisce una relazione 
+uno-a-molti tra oggetti: quando un oggetto — detto \textit{subject} o \textit{observable} — cambia 
+stato, tutti gli oggetti dipendenti da esso — detti \textit{observer} o \textit{subscriber} — vengono 
+notificati e aggiornati automaticamente. I componenti principali del \textit{pattern} sono:
+\begin{itemize}
+    \item \textit{\textbf{Observable}}: oggetto che mantiene lo stato e notifica i propri \textit{subscriber} 
+    al verificarsi di un evento o di un cambiamento;
+    \item \textit{\textbf{Observer/Subscriber}}: oggetto che si iscrive all'\textit{observable} per ricevere 
+    le notifiche e reagire di conseguenza;
+    \item \textit{\textbf{Subscription}}: rappresenta il legame tra \textit{observable} e \textit{subscriber}.
+\end{itemize}
+
+\subsubsection{Ragione dell'utilizzo}
+Il \textit{pattern \textbf{Observer}} è stato adottato nel \textit{frontend Angular} tramite la libreria 
+\textit{RxJS}, che ne fornisce un'implementazione matura e integrata nell'ecosistema del 
+\textit{framework}. In particolare, il \textit{pattern} è stato impiegato per gestire la ricezione 
+delle notifiche \textit{push} provenienti dal \textit{backend} — quali allarmi e aggiornamenti 
+di stato degli impianti — e per aggiornare la UI in modo reattivo al loro arrivo, senza 
+necessità di \textit{polling}. Questo approccio consente di reagire in tempo reale agli eventi di impianto, garantendo all'operatore sanitario 
+una visione aggiornata della situazione senza intervento manuale.

@@ -12,7 +12,7 @@
 \setDocVersion{-}
 \setDocData{11/03/2026}
 \setDocIndex{ve\_2026\_03\_11}
-\setDocState{1}
+\setDocState{2}
 \setDocRecipient{2}
 
 \begin{document}
@@ -46,8 +46,7 @@
 \section{Ordine del giorno}
 \begin{itemize}
   \item Aggiornamento avanzamento progetto e divisione ruoli;
-  \item progettazione e sicurezza del sistema di autenticazione;
-  \item indicazioni su tirocini formativi e opportunità future.
+  \item progettazione e sicurezza del sistema di autenticazione.
 \end{itemize}
 
 \section{Approfondimento}
@@ -72,17 +71,9 @@ Il team di progettisti ha discusso con il referente della Proponente le scelte t
   \item \textbf{Architettura Proxy:} Il \textit{token} Vimar sarà gestito esclusivamente dal \textit{backend}
         (modello \textit{backend-for-frontend proxy$_G$}), che fungerà da intermediario sicuro per l'accesso alle risorse protette, senza mai esporre il \textit{token} al \textit{frontend}.
   \item \textbf{Payload JWT:} Lo \textit{username} fungerà da chiave naturale nel \textit{payload}, mentre la chiave surrogata (ID) resterà confinata nel \textit{database}.
-        Il referente della Proponente ha approvato la scelta, raccomandando di documentarla e di privilegiare la tempestiva realizzazione di un \textit{MVP$_G$} funzionante rispetto a ottimizzazioni premature.
+        Il referente della Proponente ha approvato la scelta, raccomandando di documentarla e di privilegiare la tempestiva realizzazione di un \textit{MVP$_G$} funzionante rispetto a ottimizzazioni premature e che richiedono ulteriori passi di approfondimento, visti i tempi di progetto imminenti.
 \end{itemize}
 
-\subsection{Indicazioni su tirocini formativi e opportunità future}
-Il referente della Proponente ha illustrato al gruppo le opportunità di tirocinio:
-\begin{itemize}
-  \item \textbf{Flessibilità e disponibilità:} Non vi è un limite massimo di posti; la disponibilità varia in base alle necessità dei
-        reparti e alle tematiche. Gli studenti possono candidarsi seguendo le proprie tempistiche accademiche.
-  \item \textbf{Aree tematiche:} Le tesi potranno riguardare intelligenza artificiale, \textit{IoT}, domotica, accessibilità o
-        sviluppo \textit{mobile}, e saranno seguite direttamente dal referente della Proponente o da colleghi specializzati nel settore.
-\end{itemize}
 
 % ------------------------
 % Decisioni

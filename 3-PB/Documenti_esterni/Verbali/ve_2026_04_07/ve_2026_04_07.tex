@@ -1,0 +1,94 @@
+\documentclass[10pt, letterpaper]{article}
+
+\usepackage{../../../../template/template}
+
+% ------------------------
+% Impostazioni documento
+% ------------------------
+
+\setDocTitle{Verbale esterno 07/04/2026}
+\setDocVersion{-}
+\setDocData{07/04/2026}
+\setDocIndex{ve\_2026\_04\_07}
+\setDocState{2}
+\setDocRecipient{2}
+
+\begin{document}
+
+\makeTitlePage
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+% -------------------------------------------------
+% Informazioni riunione
+% -------------------------------------------------
+\makeMeetingInfoTable{07/04/2026}{16:00}{16:30}{via \textit{Microsoft Teams$_G$}}
+
+% ------------------------
+% Partecipanti
+% ------------------------
+\addParticipant{Filippo}{Venzo}{Programmatore}{P}
+\addParticipant{Valeria}{Baleanu}{Programmatore}{P}
+\addParticipant{Luca}{Granziero}{Amministratore}{P}
+\addParticipant{Christian}{Libralato}{Responsabile}{P}
+\addParticipant{Francesco}{Pasqual}{Programmatore}{P}
+\addParticipant{Leonardo}{Pellizzon}{Programmatore}{P}
+\addParticipant{Giuseppe}{De Fina}{Verificatore}{P}
+\makeMeetingParticipantsTable
+
+% -------------------------------------------------
+% Ordine del giorno
+% -------------------------------------------------
+\section{Ordine del giorno}
+\begin{itemize}
+      \item Stato di Avanzamento del Progetto;
+      \item preparazione e Struttura della Presentazione;
+      \item modellazione Architetturale C4;
+      \item pianificazione delle Prossime Scadenze e Collaudi.
+\end{itemize}
+
+% -------------------------------------------------
+% Approfondimento
+% -------------------------------------------------
+\section{Approfondimento}
+
+\subsection*{Stato di Avanzamento del Progetto}
+È stato presentato un aggiornamento sullo stato del progetto, evidenziando lo stato ancora incompleto della parte documentale e di alcune funzionalità come la gestione delle notifiche.
+La maggior parte del sistema è tuttavia già implementata e funzionante; il gruppo ha confermato che sta
+lavorando per completare quanto più possibile in vista delle prossime scadenze.
+
+In particolare è emerso che la logica di invio delle notifiche tramite websocket è già implementata sia lato \textit{front-end$_G$} che \textit{back-end$_G$}, ma manca la visualizzazione grafica
+che dovrebbe essere completata in serata.
+Inoltre il gruppo ha confermato di aver configurato il droplet, acquistato il dominio view4life.me tramite GitHub Developer Pack e installato il certificato SSL con certbot, mettendo online il sistema.
+
+\subsection*{Preparazione e Struttura della Presentazione}
+Successivamente è stata discussa la struttura della presentazione, definendo le funzionalità principali da mostrare, la struttura delle slide e le modalità di esposizione, con particolare attenzione
+agli aspetti tecnici e ai flussi di utilizzo. La Proponente ha consigliato di strutturare la presentazione con un approccio top-down, partendo dall'architettura, mostrando i flussi di configurazione,
+gestione eventi/allarmi e analytics, associando a ciascun flusso uno schema e uno screenshot, il tutto evitando i dettagli troppo tecnici.
+
+\subsection*{Modellazione Architetturale C4}
+Sono stati presentati i primi tre livelli del modello C4, discutendo quali servizi e componenti includere. È stata notata la mancanza del componente esterno \textit{Groq$_G$}, utilizzato per la
+generazione dei suggerimenti, ed è stato chiarito che è sufficiente rappresentare i primi due livelli nella presentazione.
+
+\subsection*{Pianificazione delle Prossime Scadenze e Collaudi}
+Sono infine state confermate le tempistiche per il pre-collaudo, la presentazione al marketing e il collaudo finale, con possibilità di variare, 
+per quanto possibile, le date in base alle esigenze del gruppo.
+% -------------------------------------------------
+% Decisioni
+% -------------------------------------------------
+
+% -------------------------------------------------
+% Azioni
+% -------------------------------------------------
+\addTodo{\noOne}{Inviare la bozza della presentazione a Sciacco entro le 12:00 del 08/04 per una revisione e correzione.}{C. Libralato}{08/04/2026}
+\addTodo{\noOne}{Anticipare il link del sito view4life.me e fornire due credenziali a Sciacco per permettergli di effettuare un accesso e una verifica}{F. Venzo}{08/04/2026}
+\addTodo{\noOne}{Aggiornare il modello C4 inserendo il servizio \textit{Groq} come box separato}{F. Pasqual}{08/04/2026}
+\addTodo{\noOne}{Aggiungere nella presentazione schemi a blocchi che rappresentino i tre flussi principali: configurazione iniziale, gestione eventi/allarmi, e generazione analytics con suggerimenti.}{V. Baleanu}{08/04/2026}
+
+\makeTodoTable
+
+\end{document}

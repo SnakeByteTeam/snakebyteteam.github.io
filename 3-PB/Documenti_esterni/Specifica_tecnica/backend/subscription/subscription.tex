@@ -1,0 +1,116 @@
+\subsubsection{Subscriptions}
+
+% ── DTO OUT ──────────────────────────────────────────────────────────────────
+
+% infrastructure\http\dtos\subscription.dto.ts
+\addAtr{+}{lifetime: number}{Durata in secondi della sottoscrizione}
+\addAtr{+}{url: string}{URL di callback verso cui inviare le notifiche}
+\addAtr{+}{secret: string}{Segreto condiviso per la verifica dell'autenticità delle notifiche}
+\addAtr{+}{type: string}{Tipo della sottoscrizione}
+\addAtr{+}{id: string}{Identificatore univoco della sottoscrizione}
+\addAtr{+}{expand: boolean}{Indica se espandere i dati della risposta}
+\addAtr{+}{data: SubscriptionDataRelationDto}{Relazione singola associata alla sottoscrizione}
+\addAtr{+}{data: SubscriptionDataRelationDto[]}{Lista di relazioni associate alla sottoscrizione}
+\addAtr{+}{type: string}{Tipo della risorsa nella relazione}
+\addAtr{+}{attributes: SubscriptionAttributesDto}{Attributi della sottoscrizione}
+\addAtr{+}{relationships: SubscriptionRelationshipsDto}{Relazioni associate alla sottoscrizione}
+\addAtr{+}{data: SubscriptionDataDto}{Dati principali della richiesta di creazione}
+\addAtr{+}{id: string}{Identificatore della risorsa correlata}
+\addAtr{+}{type: string}{Tipo della risorsa correlata}
+\addAtr{+}{id: string}{Identificatore del dato nella relazione}
+\addAtr{+}{type: string}{Tipo del dato nella relazione}
+\makeCl{SubscriptionAttributesDto}{DTO che struttura il payload per la creazione di una sottoscrizione verso l'API esterna}
+
+% ── CONTROLLER ───────────────────────────────────────────────────────────────
+
+% adapters\in\event\event-sub.controller.ts
+\addAtr{-}{refreshNodeSub: RefreshNodeSubUseCase}{Caso d'uso per aggiornare le sottoscrizioni sui nodi}
+\addAtr{-}{refreshDatapointSub: RefreshDatapointSubUseCase}{Caso d'uso per aggiornare le sottoscrizioni sui datapoint}
+\addAtr{-}{refreshAllSub: RefreshAllSubscriptionUseCase}{Caso d'uso per aggiornare tutte le sottoscrizioni}
+\addMet{+}{\texttt{refreshNodeSubscriptions(): Promise<void>}}{Gestisce l'evento e avvia il refresh delle sottoscrizioni sui nodi per tutti gli impianti}
+\addMet{+}{\texttt{refreshDatapointSubscriptions(): Promise<void>}}{Gestisce l'evento e avvia il refresh delle sottoscrizioni sui datapoint per tutti gli impianti}
+\addMet{+}{\texttt{refreshAllSubsAfterFullCacheSync(): Promise<void>}}{Avvia il refresh di tutte le sottoscrizioni al termine di una sincronizzazione completa della cache}
+\addMet{+}{\texttt{refreshAllSubsByPlantId(payload: \{ plantId: string \}): Promise<void>}}{Avvia il refresh di tutte le sottoscrizioni per un impianto specifico}
+\makeCl{EventSubscriptionController}{Controller eventi che ascolta gli eventi interni e delega il refresh delle sottoscrizioni ai relativi casi d'uso}
+
+% ── CMD ──────────────────────────────────────────────────────────────────────
+
+% application\commands\refresh-node-sub.command.ts
+\makeItf{RefreshNodeSubCmd}{Comando che trasporta i dati per aggiornare le sottoscrizioni sui nodi di un impianto}
+
+% application\commands\refresh-datapoint-sub.command.ts
+\makeItf{RefreshDatapointSubCmd}{Comando che trasporta i dati per aggiornare le sottoscrizioni sui datapoint di un impianto}
+
+% application\commands\refresh-all-sub.command.ts
+\makeItf{RefreshAllSubCmd}{Comando che trasporta i dati per aggiornare tutte le sottoscrizioni di un impianto}
+
+% ── USE CASE ─────────────────────────────────────────────────────────────────
+
+% application\ports\in\refresh-node-subscription.usecase.ts
+\addMet{+}{\texttt{refreshSub(): Promise<boolean>}}{Aggiorna le sottoscrizioni sui nodi per tutti gli impianti disponibili}
+\makeItf{RefreshNodeSubUseCase}{Porta in ingresso per aggiornare le sottoscrizioni sui nodi}
+
+% application\ports\in\refresh-datapoint-subscription.usecase.ts
+\addMet{+}{\texttt{refreshDatapointSub(): Promise<boolean>}}{Aggiorna le sottoscrizioni sui datapoint per tutti gli impianti disponibili}
+\makeItf{RefreshDatapointSubUseCase}{Porta in ingresso per aggiornare le sottoscrizioni sui datapoint}
+
+% application\ports\in\refresh-all-subscription.usecase.ts
+\addMet{+}{\texttt{refreshAllSubscription(cmd: RefreshAllSubCmd): Promise<boolean>}}{Aggiorna tutte le sottoscrizioni per l'impianto indicato nel comando}
+\makeItf{RefreshAllSubscriptionUseCase}{Porta in ingresso per aggiornare tutte le sottoscrizioni di un impianto}
+
+% ── SERVICE ──────────────────────────────────────────────────────────────────
+
+% application\services\subscription.service.ts
+\addAtr{-}{refreshPort: RefreshNodeSubscriptionPort}{Porta per aggiornare le sottoscrizioni sui nodi}
+\addAtr{-}{refreshDatapointPort: RefreshDatapointSubPort}{Porta per aggiornare le sottoscrizioni sui datapoint}
+\addAtr{-}{getAllPlantIdsPort: GetAllPlantIdsPort}{Porta per ottenere la lista di tutti gli ID impianto}
+\addMet{+}{\texttt{refreshSub(): Promise<boolean>}}{Recupera tutti gli ID impianto e aggiorna le sottoscrizioni sui nodi per ciascuno}
+\addMet{+}{\texttt{refreshDatapointSub(): Promise<boolean>}}{Recupera tutti gli ID impianto e aggiorna le sottoscrizioni sui datapoint per ciascuno}
+\addMet{+}{\texttt{refreshAllSubscription(cmd: RefreshAllSubCmd): Promise<boolean>}}{Aggiorna tutte le sottoscrizioni (nodi e datapoint) per l'impianto indicato nel comando}
+\makeCl{SubscriptionService}{Servizio applicativo che orchestra il refresh delle sottoscrizioni recuperando gli impianti e delegando alle porte di uscita}
+
+% ── PORT ─────────────────────────────────────────────────────────────────────
+
+% application\ports\out\refresh-node-subscription.port.ts
+\addMet{+}{\texttt{refreshSub(cmd: RefreshNodeSubCmd): Promise<boolean>}}{Aggiorna le sottoscrizioni sui nodi per l'impianto indicato nel comando}
+\makeItf{RefreshNodeSubscriptionPort}{Porta di uscita per aggiornare le sottoscrizioni sui nodi di un impianto}
+
+% application\ports\out\refresh-datapoint-subscription.port.ts
+\addMet{+}{\texttt{refreshDatapointSub(cmd: RefreshDatapointSubCmd): Promise<boolean>}}{Aggiorna le sottoscrizioni sui datapoint per l'impianto indicato nel comando}
+\makeItf{RefreshDatapointSubPort}{Porta di uscita per aggiornare le sottoscrizioni sui datapoint di un impianto}
+
+% ── ADAPTER ──────────────────────────────────────────────────────────────────
+
+% adapters\out\refresh-node-subscription.adapter.ts
+\addAtr{-}{nodeRepo: RefreshNodeSubscriptionRepoPort}{Repository per aggiornare le sottoscrizioni sui nodi via API esterna}
+\addAtr{-}{getValidTokenPort: GetValidTokenPort}{Porta per ottenere un token di autenticazione valido}
+\addMet{+}{\texttt{refreshSub(cmd: RefreshNodeSubCmd): Promise<boolean>}}{Ottiene un token valido e delega il refresh delle sottoscrizioni sui nodi al repository}
+\makeCl{RefreshNodeSubscriptionAdapter}{Adapter che implementa RefreshNodeSubscriptionPort coordinando autenticazione e aggiornamento delle sottoscrizioni sui nodi}
+
+% adapters\out\refresh-datapoint-subscription.adapter.ts
+\addAtr{-}{datapointRepo: RefreshDatapointSubRepoPort}{Repository per aggiornare le sottoscrizioni sui datapoint via API esterna}
+\addAtr{-}{getValidTokenPort: GetValidTokenPort}{Porta per ottenere un token di autenticazione valido}
+\addMet{+}{\texttt{refreshDatapointSub(cmd: RefreshDatapointSubCmd): Promise<boolean>}}{Ottiene un token valido e delega il refresh delle sottoscrizioni sui datapoint al repository}
+\makeCl{RefreshDatapointSubAdapter}{Adapter che implementa RefreshDatapointSubPort coordinando autenticazione e aggiornamento delle sottoscrizioni sui datapoint}
+
+% ── REPOSITORY (contratti) ────────────────────────────────────────────────────
+
+% application\repository\refresh-node-subscription.repository.ts
+\addMet{+}{\texttt{refreshSub(validToken: string, plantId: string): Promise<boolean>}}{Crea o rinnova le sottoscrizioni sui nodi per l'impianto tramite API esterna}
+\makeItf{RefreshNodeSubscriptionRepoPort}{Contratto del repository HTTP per aggiornare le sottoscrizioni sui nodi di un impianto}
+
+% application\repository\refresh-datapoint-subscription.respository.ts
+\addMet{+}{\texttt{refreshDatapointSub(validToken: string, plantId: string): Promise<boolean>}}{Crea o rinnova le sottoscrizioni sui datapoint per l'impianto tramite API esterna}
+\makeItf{RefreshDatapointSubRepoPort}{Contratto del repository HTTP per aggiornare le sottoscrizioni sui datapoint di un impianto}
+
+% ── IMPLEMENTAZIONE DEI REPOSITORY ───────────────────────────────────────────
+
+% infrastructure\http\sub-repo-impl.ts
+\addAtr{-}{\texttt{SUB\_DOMAIN: string = process.env.HOST3 || ''}}{URL base del dominio dell'API di sottoscrizione, letto da variabile d'ambiente}
+\addAtr{-}{httpService: HttpService}{Client HTTP per le chiamate alle API esterne}
+\addMet{+}{\texttt{refreshSub(validToken: string, plantId: string): Promise<boolean>}}{Crea o rinnova le sottoscrizioni sui nodi per l'impianto tramite API esterna}
+\addMet{+}{\texttt{refreshDatapointSub(validToken: string, plantId: string): Promise<boolean>}}{Crea o rinnova le sottoscrizioni sui datapoint per l'impianto tramite API esterna}
+\addMet{-}{getNodeSubscriptionConfig()}{Restituisce la configurazione statica per le sottoscrizioni sui nodi}
+\addMet{-}{getDatapointSubscriptionConfig()}{Restituisce la configurazione statica per le sottoscrizioni sui datapoint}
+\addMet{-}{\texttt{createSubscription(validToken: string, plantId: string, \\ subscriptionData: SubscriptionCreateDto): Promise<void>}}{Esegue la chiamata HTTP per creare una singola sottoscrizione sull'API esterna}
+\makeCl{SubscriptionRepoImpl}{Implementazione HTTP che crea e rinnova le sottoscrizioni su nodi e datapoint tramite API esterna}

@@ -53,7 +53,7 @@
                 \hline
                 \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Stato} & \textbf{Destinatari} \\
                 \hline
-                1.0.3                                  & 01/04/2026    & Verificato     &
+                2.0.0                                  & 05/04/2026    & Approvato     &
                 \begin{tabular}[c]{@{}l@{}}
                     \textbf{Interni:} SnakeByte \\
                     \textbf{Esterni:} prof. Vardanega Tullio, prof. Cardin Riccardo, Vimar
@@ -72,7 +72,12 @@
         \multicolumn{6}{|c|}{\textbf{Registro delle modifiche}}                                                                                                                                                                    \\
         \hline
         \rowcolor{lightgray} \textbf{Versione} & \textbf{Data} & \textbf{Autore} & \textbf{Verificatore}    & \textbf{Approvatore} & \textbf{Descrizione}                                                                          \\
-        \hline 1.0.3                           & 01/04/2026    & L. Granziero    & G. De Fina               & -                    & Aggiornamento allo sprint 10                                                                  \\
+        \hline 
+        2.0.0                           & 05/04/2026    & -    & -               & C. Libralato                    & Approvazione                                                               \\
+        \hline 
+        1.1.0                           & 04/04/2026    & L. Granziero    & G. De Fina               & -                    & Aggiornamento allo sprint 11, Aggiunta sezione di test                                                                  \\
+        \hline 
+        1.0.3                           & 01/04/2026    & L. Granziero    & G. De Fina               & -                    & Aggiornamento allo sprint 10                                                                  \\
         \hline
         1.0.2                                  & 13/03/2026    & F. Venzo        & C. Libralato             & -                    & Aggiornamento allo sprint 9                                                                   \\
         \hline
@@ -127,7 +132,7 @@ pedice.
 \subsection{Riferimenti}
 \subsubsection{Riferimenti Normativi}
 \begin{itemize}
-    \item \textbf{Norme di Progetto}:
+    \item \textbf{Norme di Progetto 2.0.0}:
           \\ \url{https://snakebyteteam.github.io/3-PB/Documenti_interni/Norme_di_progetto/Norme_di_Progetto_v2.0.0.pdf}
           \\ (consultato il 05/04/2026).
     \item \textbf{Vimar View4Life Capitolato di Ingegneria del Software Università di Padova 2025-2026}:
@@ -388,8 +393,8 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
 \addTestS{Verificare che l'utente, visualizzando un appartamento del Sistema, possa visualizzarne la mappa degli allarmi}{RF80-OP}{S}
 \addTestS{Verificare che l'utente, visualizzando un appartamento del Sistema, possa visualizzarne le stanze}{RF81-OB}{S}
 \addTestS{Verificare che l'utente possa visualizzare una stanza di un appartamento nel dettaglio}{RF82-OB}{S}
-\addTestS{Verificare che l'amministratore, visualizzando una stanza nel dettaglio, possa visualizzarne il nome}{RF83-OB}{S}
-\addTestS{Verificare che l'amministratore, visualizzando una stanza nel dettaglio, possa visualizzarne l'elenco dei dispositivi}{RF84-OB}{S}
+\addTestS{Verificare che l'amministratore, visualizzando una stanza nel dettaglio, possa visualizzarne il nome}{RF83-OP}{S}
+\addTestS{Verificare che l'amministratore, visualizzando una stanza nel dettaglio, possa visualizzarne l'elenco dei dispositivi}{RF84-OP}{S}
 \addTestS{Verificare che l'amministratore, visualizzando l'elenco dei dispositivi di una stanza, possa visualizzare un singolo dispositivo di tipo:
     \begin{itemize}
         \item termostato;
@@ -580,8 +585,8 @@ ha individuato le seguenti caratteristiche qualitative da monitorare e garantire
 \addTestI{Contesto \textit{AnalyticsApiService}; caso 'should be created': verifica che service è valorizzato.}{Esito atteso: service è valorizzato.}{S}
 \addTestI{Contesto \textit{AnalyticsApiService} - \textit{getAllApartments}; caso 'should fetch all apartments and map them correctly': verifica che il valore di apartments.length è 2 e apartments[0] coincide con \{ id: '1', name: 'Apartment 1' \}.}{Esito atteso: il valore di apartments.length è 2; apartments[0] coincide con \{ id: '1', name: 'Apartment 1' \}; l'asserzione apartments[0] \textit{toHaveProperty} 'extraField' risulta non soddisfatta; il valore di req.request.method è 'GET'.}{S}
 \addTestI{Contesto \textit{AnalyticsApiService} - \textit{getAnalytics}; caso 'should fetch analytics and map the complex DTO structure': verifica che il valore di result.apartmentId è apartmentId e il valore di result.analyticsInfo.length è 1.}{Esito atteso: il valore di result.apartmentId è apartmentId; il valore di result.analyticsInfo.length è 1; il valore di info.title è 'Test Chart'; info.suggestions.messages coincide con ['Suggestion 1'].}{S}
-\addTestI{Contesto \textit{ApartmentApiService}; caso 'RF83-OBL abilita un appartamento nel Sistema': verifica che il valore di request.request.method è 'PATCH' e request.request.body coincide con \{\}.}{Esito atteso: il valore di request.request.method è 'PATCH'; request.request.body coincide con \{\}.}{S}
-\addTestI{Contesto \textit{ApartmentApiService}; caso 'RF84-OBL disabilita un appartamento nel Sistema': verifica che il valore di request.request.method è 'PATCH' e request.request.body coincide con \{\}.}{Esito atteso: il valore di request.request.method è 'PATCH'; request.request.body coincide con \{\}.}{S}
+\addTestI{Contesto \textit{ApartmentApiService}; caso 'RF83-OP abilita un appartamento nel Sistema': verifica che il valore di request.request.method è 'PATCH' e request.request.body coincide con \{\}.}{Esito atteso: il valore di request.request.method è 'PATCH'; request.request.body coincide con \{\}.}{S}
+\addTestI{Contesto \textit{ApartmentApiService}; caso 'RF84-OP disabilita un appartamento nel Sistema': verifica che il valore di request.request.method è 'PATCH' e request.request.body coincide con \{\}.}{Esito atteso: il valore di request.request.method è 'PATCH'; request.request.body coincide con \{\}.}{S}
 \addTestI{Contesto \textit{ApartmentApiService}; caso 'RF72-OBL \textit{getAvailableApartments} ordina per nome e deduplica plant': verifica che il valore di request.request.method è 'GET' e apartments coincide con [ \{ id: 'p1', name: 'Alfa' \}, \{ id: 'p2', name: 'Zeta' \}, ].}{Esito atteso: il valore di request.request.method è 'GET'; apartments coincide con [ \{ id: 'p1', name: 'Alfa' \}, \{ id: 'p2', name: 'Zeta' \}, ].}{S}
 \addTestI{Contesto \textit{ApartmentApiService}; caso 'RF72-OBL \textit{getAllPlants} supporta risposta wrappata in data[]': verifica che plants ha lunghezza 2 e il valore di plants[1].name è 'p10'.}{Esito atteso: plants ha lunghezza 2; il valore di plants[1].name è 'p10'.}{S}
 \addTestI{Contesto \textit{ApartmentApiService}; caso 'RF72-OBL \textit{getCurrentApartment} usa activePlantId salvato e mappa apartment view': verifica che il valore di apartment.id è 'p2' e apartment.rooms ha lunghezza 1.}{Esito atteso: il valore di apartment.id è 'p2'; apartment.rooms ha lunghezza 1; apartment.rooms[0].devices ha lunghezza 1; il valore di apartment.rooms[0].devices[0].id è 'd-main'.}{S}
@@ -1811,5 +1816,131 @@ Dal grafico è possibile notare, fin dal primo Sprint, un'eccellente efficienza 
 È opportuno sottolineare che tale andamento non indica un'eccessiva efficienza operativa del gruppo, bensì evidenzia che le ore preventivate sono risultate superiori rispetto a quelle effettivamente impiegate. 
 Allo Sprint 10 si è registrato un calo della Labor Efficiency al di sotto del valore ottimo, dovuto a una stima delle ore più accurata rispetto ai periodi precedenti: le ore effettivamente impiegate si sono avvicinate a quelle preventivate, riducendo il surplus che aveva caratterizzato gli sprint precedenti.
 Allo Sprint 11 la Labor Efficiency si è mantenuta al di sopra della soglia minima accettabile, confermando che il gruppo ha concluso il progetto con un utilizzo delle risorse coerente con quanto preventivato.
+
+\subsection{MPD1 - Percentuale Requisiti Obbligatori Soddisfatti}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPD1.pdf}
+    \caption{Andamento PROS in base al periodo}
+    \label{fig:mpd1}
+\end{figure}
+A partire dallo Sprint 8 la percentuale cresce in maniera esponenziale, raggiungendo il valore ottimo 
+allo Sprint 11.
+Allo Sprint 11, la totalità dei requisiti obbligatori risulta soddisfatta, confermando il completamento 
+con successo di tutti gli obiettivi fondamentali del progetto.
+
+\subsection{MPD2 - Percentuale Requisiti Opzionali Soddisfatti}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPD2.pdf}
+    \caption{Andamento PRPS in base al periodo}
+    \label{fig:mpd2}
+\end{figure}
+A partire dallo Sprint 8 si osserva una crescita progressiva, tuttavia allo Sprint 11 il valore 
+raggiunto si attesta intorno all'80\%, al di sotto del valore ottimo del 100\%.
+Ciò indica che, pur avendo dedicato attenzione ai requisiti opzionali nelle fasi finali, 
+il gruppo ha privilegiato il soddisfacimento dei requisiti obbligatori, 
+lasciando una quota di funzionalità opzionali non implementata al termine del progetto.
+
+\subsection{MPD3 - Percentuale Requisiti Desiderabili Soddisfatti}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPD3.pdf}
+    \caption{Andamento PRDS in base al periodo}
+    \label{fig:mpd3}
+\end{figure}
+A partire dallo Sprint 9 si osserva una crescita rapida e sostenuta, e allo Sprint 11 il valore 
+raggiunge il valore ottimo, confermando che tutti i requisiti desiderabili sono stati soddisfatti 
+al termine del progetto.
+
+\subsection{MPD4 - Line Coverage}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPD4.pdf}
+    \caption{Andamento LC in base al periodo}
+    \label{fig:mpd4}
+\end{figure}
+A partire dallo Sprint 9 la copertura cresce rapidamente, superando il valore minimo accettabile 
+già allo Sprint 10 e avvicinandosi al valore ottimo allo Sprint 11, pur senza raggiungerlo pienamente.
+Questo andamento testimonia un impegno crescente nella scrittura dei test nelle fasi conclusive 
+del progetto.
+
+\subsection{MPD5 - Branch Coverage}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPD5.pdf}
+    \caption{Andamento BC in base al periodo}
+    \label{fig:mpd5}
+\end{figure}
+A partire dallo Sprint 9 la copertura cresce in modo significativo, superando il valore minimo 
+accettabile allo Sprint 10 e attestandosi poco al di sotto del valore ottimo allo Sprint 11.
+Il risultato finale indica una buona maturità nella copertura dei rami del codice, 
+raggiunta nelle fasi conclusive del progetto.
+
+\subsection{MPD6 - Statement Coverage}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPD6.pdf}
+    \caption{Andamento SC in base al periodo}
+    \label{fig:mpd6}
+\end{figure}
+A partire dallo Sprint 9 la copertura cresce rapidamente, raggiungendo il valore minimo accettabile 
+allo Sprint 10 e avvicinandosi al valore ottimo allo Sprint 11.
+L'andamento complessivo è in linea con quello della \textit{Line Coverage} e della \textit{Branch Coverage}, 
+confermando un approccio uniforme e sistematico alla scrittura dei test nelle fasi finali del progetto.
+
+\subsection{MPD7 - Profondità Massima di Navigazione}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPD7.pdf}
+    \caption{Andamento PMN in base al periodo}
+    \label{fig:mpd7}
+\end{figure}
+L'operazione presa come riferimento per il calcolo della seguente metrica è l'operazione di collegamento dell'account MyVimar 
+al profilo dell'Amministratore, ovvero l'operazione con il maggior numero di passaggi all'interno del Sistema.
+A partire dallo Sprint 9 il valore cresce, attestandosi a 4 allo Sprint 10, leggermente al di sopra 
+del valore ottimo di 3 ma ampiamente al di sotto del valore massimo accettabile di 7.
+Allo Sprint 11 il valore si stabilizza a 4, mantenendosi entro i limiti accettabili e indicando 
+una struttura di navigazione complessivamente adeguata.
+
+\subsection{MPD8 - Tempo Medio di Risposta}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPD8.pdf}
+    \caption{Andamento TMR in base al periodo}
+    \label{fig:mpd8}
+\end{figure}
+A partire dallo Sprint 8 il valore cresce rapidamente, raggiungendo un picco di 4 allo Sprint 9, 
+al di sopra del valore ottimo di 1 secondo ma al di sotto del valore massimo accettabile di 5 secondi.
+Negli sprint successivi si osserva un miglioramento, con il valore che scende a 3 allo Sprint 10 
+e si mantiene stabile a 3 allo Sprint 11.
+Sebbene il valore finale risulti ancora superiore al valore ottimo, il trend discendente nelle 
+fasi conclusive del progetto testimonia un miglioramento nelle prestazioni del Sistema.
+
+\subsection{MPD9 - Complessità Ciclomatica}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPD9.pdf}
+    \caption{Andamento CC in base al periodo}
+    \label{fig:mpd9}
+\end{figure}
+A partire dallo Sprint 8 il valore cresce rapidamente, raggiungendo un picco di circa 19 allo Sprint 9, 
+al di sopra del valore ottimo di 10 ma al di sotto del valore massimo accettabile di 20.
+Negli sprint successivi si osserva una riduzione, con il valore che scende a 15 allo Sprint 10 
+e risale leggermente a 16 allo Sprint 11, mantenendosi comunque entro il valore massimo accettabile.
+L'andamento complessivo indica che il codice prodotto presenta una complessità nella norma, 
+sebbene vi sia ancora margine di miglioramento per avvicinarsi al valore ottimo.
+
+\subsection{MPD10 - Compatibilità Cross-Browser}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{./grafici/MPD10.pdf}
+    \caption{Andamento CCB in base al periodo}
+    \label{fig:mpd10}
+\end{figure}
+A partire dallo Sprint 8 il valore cresce rapidamente, superando sia il valore minimo accettabile 
+che il valore ottimo già allo Sprint 9, dove si attesta intorno al 100\%.
+Negli sprint successivi il valore si stabilizza al di sopra del valore ottimo, confermando 
+un'ottima compatibilità del prodotto con i principali \textit{browser} al termine del progetto.
 
 \end{document}

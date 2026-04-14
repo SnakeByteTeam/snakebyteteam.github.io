@@ -12,7 +12,7 @@
 \setDocVersion{-}
 \setDocData{06/03/2026}
 \setDocIndex{ve\_2026\_03\_04}
-\setDocState{1}
+\setDocState{2}
 \setDocRecipient{2}
 
 \begin{document}
@@ -69,11 +69,11 @@ Durante la discussione sono stati inoltre chiariti alcuni aspetti relativi alle 
 
 
 \subsection{Autenticazione e integrazione con servizi esterni}
-Nel corso dell’incontro sono stati approfonditi gli aspetti relativi alla gestione dell’autenticazione degli utenti e all’integrazione con le API esterne di Konnex IoT.
+Nel corso dell’incontro sono stati approfonditi gli aspetti relativi alla gestione dell’autenticazione degli utenti e all’integrazione con le API esterne di KNX IoT.
 \noindent
 È stato chiarito che l’autenticazione degli utenti della Dashboard avverrà tramite credenziali composte da nome utente o email e password salvata in modo sicuro. A seguito del login verrà generato un \textit{token JWT$_G$}, che potrà essere conservato nel local storage o nel session storage del browser e utilizzato per proteggere le chiamate alle API della Dashboard.
 \noindent
-Parallelamente è stata discussa la gestione dell’autenticazione verso le API esterne, che avverrà tramite protocollo OAuth2: l’amministratore del sistema effettuerà il login sul servizio My Vimar ottenendo un access token e un refresh token che verranno utilizzati dal sistema per effettuare le chiamate alle API.
+Parallelamente è stata discussa la gestione dell’autenticazione verso le API esterne, che avverrà tramite protocollo OAuth2: l’amministratore del sistema effettuerà il login sul servizio MyVimar ottenendo un access token e un refresh token che verranno utilizzati dal sistema per effettuare le chiamate alle API.
 \noindent
 È stata infine sottolineata l’importanza di non esporre tali credenziali o token sensibili nel browser degli utenti, ma di gestirli esclusivamente lato server tramite servizi dedicati, al fine di garantire adeguati livelli di sicurezza e prevenire accessi non autorizzati.
 
@@ -94,7 +94,7 @@ In particolare è stata valutata l’introduzione di un sistema di caching per i
 
 \addDecision{L’autenticazione degli utenti della Dashboard sarà gestita tramite token JWT generati a seguito del login.}
 
-\addDecision{L’integrazione con le API di Konnex IoT avverrà tramite protocollo OAuth2 gestito lato server, evitando l’esposizione delle credenziali nel browser degli utenti.}
+\addDecision{L’integrazione con le API di KNX IoT avverrà tramite protocollo OAuth2 gestito lato server, evitando l’esposizione delle credenziali nel browser degli utenti.}
 
 \makeDecisionTable
 

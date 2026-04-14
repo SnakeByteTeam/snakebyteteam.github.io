@@ -1,0 +1,173 @@
+\subsubsection{Analytics}
+
+\begin{center}
+\includegraphics[width=\textwidth]{./frontend/analytics/analytics.pdf}
+\captionof{figure}{Diagramma delle classi del modulo Analytics}
+\end{center}
+
+\addAtr{+}{id: string}{Identificativo univoco della serie, usato per abbinare le serie correnti alla baseline}
+\addAtr{+}{name: string}{Nome descrittivo della serie (es. nome del sensore), mostrato in legenda}
+\addAtr{+}{data: number[]}{Valori numerici della serie, allineati alle etichette temporali del grafico}
+\makeAbCl{ChartDatasetDto}{DTO che rappresenta una singola serie di dati all'interno di un grafico Chart.js}
+
+\addAtr{+}{messages: string[]}{Lista di messaggi testuali che compongono il suggerimento energetico generato dal modello LLM}
+\addAtr{+}{isSuggestion: boolean}{Indica se il modello ha rilevato un'anomalia e ha generato un suggerimento effettivo}
+\makeAbCl{EnergySavingSuggestionDto}{DTO che trasporta il suggerimento energetico generato dal backend, visualizzato nel pannello suggerimenti di \texttt{ChartComponent}}
+
+\addAtr{+}{labels: string[]}{Etichette temporali dell'asse x del grafico}
+\addAtr{+}{datasets: ChartDatasetDto[]}{Serie di dati da visualizzare nel grafico}
+\addAtr{+}{title: string}{Titolo del grafico, mostrato nell'intestazione del componente}
+\addAtr{+}{unit: string}{Unità di misura della metrica, mostrata sugli assi o in legenda}
+\addAtr{+}{suggestions: EnergySavingSuggestionDto}{Suggerimento energetico associato al grafico, generato dal modello LLM}
+\addAtr{+}{metric: string}{Nome della metrica rappresentata, usato per identificare il grafico corretto}
+\makeAbCl{ChartInfoDto}{DTO che trasporta tutti i dati necessari al rendering di un singolo grafico analytics: etichette, serie, metadati e suggerimento energetico}
+
+\addAtr{+}{apartmentId: string}{Identificativo dell'appartamento a cui si riferiscono le analytics}
+\addAtr{+}{analyticsInfo: ChartInfoDto[]}{Lista dei dati grafici disponibili per l'appartamento, uno per ciascuna metrica}
+\makeAbCl{AnalyticsDto}{DTO che trasporta l'insieme delle analytics di un appartamento dal backend al frontend}
+
+% ─── services ───
+\addAtr{-}{http: HttpClient}{Client HTTP Angular, iniettato tramite \texttt{inject}}
+\addAtr{-}{baseUrl: string}{URL base delle API REST}
+\addAtr{-}{analyticsEndpoint: string}{Percorso dell'endpoint per il recupero delle analytics}
+\addAtr{-}{apartmentsEndpoint: string}{Percorso dell'endpoint per il recupero degli appartamenti}
+\addMet{+}{getAllApartments() : Observable$<$any[]$>$}{Recupera dal backend la lista di tutti gli appartamenti disponibili per la selezione}
+\addMet{+}{getAnalytics(apartmentId: string, refresh?: boolean) : Observable$<$AnalyticsDto$>$}{Recupera dal backend le analytics dell'appartamento identificato da \texttt{apartmentId}; il parametro opzionale \texttt{refresh} forza il ricaricamento bypassando la cache}
+\makeCl{AnalyticsApiService}{Servizio Angular che gestisce le chiamate HTTP verso le API REST del modulo analytics. Espone metodi reattivi basati su \texttt{Observable} per il recupero degli appartamenti e delle analytics}
+
+% ─── interfaces ───
+\addAtr{+}{chartInfo: ChartInfoDto}{Dati del grafico ricevuti come input dal componente padre}
+\addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico Chart.js da utilizzare per il rendering; astratto, definito dalle sottoclassi}
+\addAtr{+}{renderedChartData: ChartData}{Dati attualmente renderizzati nel grafico, nel formato atteso da Chart.js}
+\addAtr{+}{chartOptions: ChartConfiguration options}{Opzioni di configurazione del grafico Chart.js}
+\addAtr{+}{chartColors: \{bg: string; border: string\}[]}{Palette di colori usata per le serie del grafico, definita come array di coppie sfondo/bordo}
+\addAtr{+}{showSuggestions: boolean}{Flag che controlla la visibilità del pannello dei suggerimenti energetici}
+\addMet{+}{ngOnChanges(changes: SimpleChanges) : void}{Intercetta i cambiamenti degli input Angular e aggiorna il grafico di conseguenza}
+\addMet{{\#}}{updateChart(data: ChartInfoDto) : void}{Metodo protetto che effettua il rendering del grafico a partire dai dati ricevuti; può essere sovrascritto dalle sottoclassi}
+\addMet{+}{showHideSugg() : void}{Alterna la visibilità del pannello dei suggerimenti energetici}
+\makeCl{ChartComponent}{Classe base astratta per tutti i componenti grafici analytics. Gestisce il ciclo di vita del grafico Chart.js, l'aggiornamento dei dati al cambio degli input e la visibilità dei suggerimenti energetici. Tutte le sottoclassi ereditano da questa classe e ne specializzano il \texttt{chartType}}
+
+% ─── components ───
+\addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico impostato a \texttt{line}}
+\makeCl{AlarmFrequencyChartComponent}{Componente figlio di \texttt{ChartComponent} che visualizza la frequenza degli allarmi del reparto come grafico a linee}
+
+\addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico impostato a \texttt{line}}
+\makeCl{AlarmsSentResolvedChartComponent}{Componente figlio di \texttt{ChartComponent} che visualizza il confronto tra allarmi inviati e allarmi risolti nel reparto come grafico a linee}
+
+\addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico impostato a \texttt{line}}
+\addAtr{+}{chartColors: \{bg: string; border: string\}[]}{Palette di colori personalizzata per le serie del consumo energetico}
+\addMet{+}{updateChart(data: ChartInfoDto) : void}{Sovrascrive il metodo base per applicare logica di rendering specifica al consumo energetico}
+\makeCl{EnergyConsumptionChartComponent}{Componente figlio di \texttt{ChartComponent} che visualizza il consumo energetico dell'impianto come grafico a linee. Sovrascrive \texttt{updateChart} e definisce una palette colori personalizzata}
+
+\addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico impostato a \texttt{bar}}
+\makeCl{FallFrequencyChartComponent}{Componente figlio di \texttt{ChartComponent} che visualizza la frequenza degli eventi di caduta nel reparto come grafico a barre}
+
+\addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico impostato a \texttt{bar}}
+\makeCl{PlantAnomaliesChartComponent}{Componente figlio di \texttt{ChartComponent} che visualizza le anomalie di consumo energetico dell'impianto come grafico a barre}
+
+\addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico impostato a \texttt{bar}}
+\makeCl{PresenceDetectionChartComponent}{Componente figlio di \texttt{ChartComponent} che visualizza le presenze rilevate dai sensori come grafico a barre}
+
+\addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico impostato a \texttt{bar}}
+\makeCl{ProlongedPresenceChartComponent}{Componente figlio di \texttt{ChartComponent} che visualizza le presenze prolungate (oltre 30 minuti) rilevate dai sensori come grafico a barre}
+
+\addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico impostato a \texttt{line}}
+\addAtr{+}{chartColors: \{bg: string; border: string\}[]}{Palette di colori personalizzata per le serie delle temperature}
+\makeCl{TemperatureVariationsChartComponent}{Componente figlio di \texttt{ChartComponent} che visualizza le variazioni di temperatura rilevate dai termostati come grafico a linee, con palette colori personalizzata}
+
+% ─── analytics component ───
+\addAtr{-}{refreshTrigger\$: BehaviorSubject$<$boolean$>$}{Subject che emette un segnale booleano per forzare il ricaricamento delle analytics}
+\addAtr{-}{analyticsApiService: AnalyticsApiService}{Servizio iniettato per il recupero delle analytics dal backend}
+\addAtr{-}{loadTrigger\$: BehaviorSubject$<$\{id: string; refresh: boolean\}$>$}{Subject che emette l'identificativo dell'appartamento e il flag di refresh per avviare il caricamento}
+\addAtr{+}{selectedApartmentId\$: BehaviorSubject$<$string$>$}{Subject che mantiene e propaga l'identificativo dell'appartamento correntemente selezionato}
+\addAtr{+}{apartments\$: Observable$<$any[]$>$}{Stream reattivo con la lista degli appartamenti disponibili}
+\addAtr{+}{analytics: Observable$<$AnalyticsDto$>$}{Stream reattivo che trasporta i dati analytics dell'appartamento selezionato}
+\addMet{+}{ngOnInit() : void}{Inizializza il componente al momento del mount, avviando il caricamento degli appartamenti e delle analytics}
+\addMet{+}{getChartByMetric(data: AnalyticsDto, metric: string) : ChartInfoDto}{Restituisce il \texttt{ChartInfoDto} corrispondente alla metrica indicata a partire dai dati analytics}
+\addMet{+}{onApartmentChange(event: Event) : void}{Gestisce il cambio dell'appartamento selezionato dall'utente, aggiornando il \texttt{loadTrigger\$}}
+\addMet{+}{onRefresh() : void}{Forza il ricaricamento delle analytics per l'appartamento corrente emettendo un nuovo valore sul \texttt{loadTrigger\$}}
+\makeCl{AnalyticsComponent}{Componente principale della sezione analytics. Implementa \texttt{OnInit} e orchestra il caricamento reattivo degli appartamenti e delle analytics tramite \texttt{BehaviorSubject} e \texttt{AnalyticsApiService}}
+
+% ─── shared models ───
+\addAtr{+}{key: string}{Chiave identificativa dell'azione, usata per distinguere i comandi disponibili sul dispositivo}
+\addAtr{+}{label: string}{Etichetta testuale dell'azione, mostrata nell'interfaccia utente}
+\addAtr{+}{disabled?: boolean}{Se true, l'azione non è eseguibile nella situazione corrente}
+\makeAbCl{DeviceAction}{Interfaccia che rappresenta un'azione disponibile su un dispositivo IoT, con chiave identificativa, etichetta e flag di disabilitazione opzionale}
+
+\addAtr{+}{id: string}{Identificativo univoco del datapoint}
+\addAtr{+}{name: string}{Nome descrittivo del datapoint}
+\addAtr{+}{readable: boolean}{Indica se il datapoint è leggibile}
+\addAtr{+}{writable: boolean}{Indica se il datapoint è scrivibile}
+\addAtr{+}{valueType: string}{Tipo del valore del datapoint (es. boolean, number)}
+\addAtr{+}{enum: string[]}{Lista dei valori ammessi per i datapoint di tipo enumerato}
+\addAtr{+}{sfeType: string}{Tipo funzionale del datapoint secondo la classificazione SFE}
+\makeAbCl{Datapoint}{Interfaccia che rappresenta un singolo datapoint di un dispositivo IoT, con le sue proprietà di lettura, scrittura e tipo}
+
+\addAtr{+}{id: string}{Identificativo univoco del dispositivo}
+\addAtr{+}{name: string}{Nome descrittivo del dispositivo}
+\addAtr{+}{type: DeviceType}{Tipo del dispositivo, classificato secondo l'enumerazione \texttt{DeviceType}}
+\addAtr{+}{status: DeviceStatus}{Stato corrente del dispositivo}
+\addAtr{+}{actions: DeviceAction[]}{Lista delle azioni disponibili sul dispositivo}
+\addAtr{+}{datapoints: Datapoint[]}{Lista dei datapoint associati al dispositivo}
+\makeAbCl{Device}{Interfaccia che rappresenta un dispositivo IoT all'interno di un appartamento, aggregando tipo, stato, azioni disponibili e datapoint}
+
+\addAtr{+}{id: string}{Identificativo univoco della stanza}
+\addAtr{+}{name: string}{Nome descrittivo della stanza}
+\addAtr{+}{hasActiveAlarm: boolean}{Indica se nella stanza è attivo almeno un allarme}
+\addAtr{+}{devices: Device[]}{Lista dei dispositivi presenti nella stanza}
+\makeAbCl{Room}{Interfaccia che rappresenta una stanza all'interno di un appartamento, con i suoi dispositivi e lo stato degli allarmi}
+
+\addAtr{+}{id: string}{Identificativo univoco dell'appartamento}
+\addAtr{+}{name: string}{Nome descrittivo dell'appartamento}
+\addAtr{+}{isEnabled: boolean}{Indica se l'appartamento è abilitato e monitorato attivamente}
+\addAtr{+}{rooms: Room[]}{Lista delle stanze che compongono l'appartamento}
+\makeAbCl{Apartment}{Interfaccia che rappresenta un appartamento monitorato, aggregando le stanze e i relativi dispositivi}
+
+% ─── auth models ───
+\addAtr{+}{userId: string}{Identificativo univoco dell'utente nella sessione corrente}
+\addAtr{+}{username: string}{Nome utente della sessione corrente}
+\addAtr{+}{role: UserRole}{Ruolo dell'utente nella sessione corrente}
+\addAtr{+}{accessToken: string}{Token JWT di accesso della sessione corrente}
+\addAtr{+}{isFirstAccess: boolean}{Indica se è il primo accesso dell'utente, richiedendo il cambio password}
+\makeAbCl{UserSession}{Interfaccia che rappresenta la sessione utente attiva, contenente le informazioni di autenticazione e il ruolo}
+
+\addAtr{+}{accessToken: string}{Token JWT restituito dal backend al momento del login}
+\makeAbCl{LoginResponse}{DTO di risposta al login, contenente il token JWT di accesso}
+
+\addAtr{+}{accessToken: string}{Nuovo token JWT restituito dal backend al refresh della sessione}
+\makeAbCl{RefreshResponse}{DTO di risposta al refresh del token, contenente il nuovo token JWT di accesso}
+
+\addAtr{+}{userId?: string $|$ number}{Identificativo dell'utente estratto dal token JWT}
+\addAtr{+}{sub?: string $|$ number}{Subject standard JWT, usato come fallback per l'identificativo utente}
+\addAtr{+}{id?: string $|$ number}{Campo alternativo per l'identificativo utente nel payload JWT}
+\addAtr{+}{username?: string}{Nome utente estratto dal payload JWT}
+\addAtr{+}{role?: string}{Ruolo dell'utente estratto dal payload JWT}
+\addAtr{+}{isFirstAccess?: boolean}{Flag primo accesso estratto dal payload JWT}
+\addAtr{+}{firstAccess?: boolean}{Campo alternativo per il flag primo accesso nel payload JWT}
+\makeAbCl{AuthClaims}{Interfaccia che modella i claims del payload JWT, con campi opzionali per gestire varianti nei nomi dei campi}
+
+\addAtr{+}{accessToken: string}{Token JWT restituito dal backend}
+\makeAbCl{TokenResponse}{DTO generico di risposta contenente un token JWT, usato per operazioni di autenticazione}
+
+% ─── auth service ───
+\addAtr{-}{http: unknown}{Client HTTP Angular}
+\addAtr{-}{baseUrl: string}{URL base delle API di autenticazione}
+\addAtr{-}{currentUser\$: BehaviorSubject$<$UserSession$>$}{Subject che mantiene e propaga la sessione utente corrente}
+\addAtr{-}{token: string}{Token JWT di accesso correntemente in uso}
+\addAtr{-}{restoreSessionInFlight\$: Observable$<$boolean$>$}{Stream che indica se è in corso il ripristino della sessione dal refresh token}
+\addMet{+}{login(username: string, password: string) : Observable$<$UserSession$>$}{Autentica l'utente con le credenziali fornite e restituisce uno stream con la sessione creata}
+\addMet{+}{setFirstAccessPassword(username: string, temporaryPassword: string, \\ newPassword: string) : Observable$<$UserSession$>$}{Imposta la nuova password al primo accesso, sostituendo quella temporanea, e restituisce la sessione aggiornata}
+\addMet{+}{refreshAccessToken() : Observable$<$string$>$}{Rinnova il token di accesso tramite il refresh token e restituisce il nuovo JWT}
+\addMet{+}{restoreSessionFromRefresh() : Observable$<$boolean$>$}{Tenta di ripristinare la sessione utente a partire dal refresh token; restituisce true se il ripristino è avvenuto con successo}
+\addMet{+}{logoutFromBackend() : Observable$<$void$>$}{Invalida la sessione lato backend notificando il server del logout}
+\addMet{+}{logout() : void}{Esegue il logout locale, azzerando la sessione e il token in memoria}
+\addMet{+}{getToken() : string}{Restituisce il token JWT di accesso correntemente in uso}
+\addMet{+}{getCurrentUser\$() : Observable$<$UserSession$>$}{Restituisce lo stream della sessione utente corrente}
+\addMet{+}{getRole() : UserRole}{Restituisce il ruolo dell'utente della sessione corrente}
+\addMet{+}{isAuthenticated() : boolean}{Restituisce true se l'utente è autenticato con un token valido}
+\addMet{+}{hasRole(role: UserRole) : boolean}{Restituisce true se l'utente della sessione corrente possiede il ruolo indicato}
+\addMet{-}{setSession(session: UserSession) : void}{Aggiorna la sessione corrente in memoria e nel \texttt{BehaviorSubject}}
+\addMet{-}{buildSessionFromAccessToken(accessToken: string) : UserSession}{Costruisce un oggetto \texttt{UserSession} a partire dal token JWT, estraendone i claims}
+\addMet{-}{parseAccessToken(accessToken: string) : AuthClaims}{Decodifica e restituisce il payload JWT come oggetto \texttt{AuthClaims}}
+\addMet{-}{isUserRole(role: string) : boolean}{Verifica se la stringa fornita corrisponde a un valore valido dell'enumerazione \texttt{UserRole}}
+\makeCl{InternalAuthService}{Servizio Angular che gestisce l'intera logica di autenticazione: login, logout, refresh del token, ripristino della sessione e controllo dei ruoli. Mantiene la sessione corrente tramite un \texttt{BehaviorSubject} e la espone come stream reattivo}
