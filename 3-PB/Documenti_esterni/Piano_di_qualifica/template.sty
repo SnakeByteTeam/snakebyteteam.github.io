@@ -50,7 +50,7 @@
 
 \newcommand{\makeTSTable}{
         \begin{center}
-          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{2.25cm}|>{\centering\arraybackslash}p{1.5cm}|}
+          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}X|>{\centering\arraybackslash}p{2.25cm}|>{\centering\arraybackslash}p{1.5cm}|}
             \hline
             \rowcolor{lightgray}
             \textbf{Codice} & \textbf{Descrizione} & \textbf{Requisito di riferimento} & \textbf{Stato del test} \\ 
@@ -90,7 +90,7 @@
 
 \newcommand{\makeTATable}{
         \begin{center}
-          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{1.5cm}|}
+          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}X|>{\centering\arraybackslash}p{1.5cm}|}
             \hline
             \rowcolor{lightgray}
             \textbf{Codice} & \textbf{Descrizione} & \textbf{Stato del test} \\ 
@@ -131,7 +131,7 @@
 
 \newcommand{\makeTITable}{
         \begin{center}
-          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{1.5cm}|}
+          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\centering\arraybackslash}p{1.5cm}|}
             \hline
             \rowcolor{lightgray}
             \textbf{Codice} & \textbf{Descrizione} & \textbf{Risultato atteso} & \textbf{Stato del test} \\
@@ -151,7 +151,7 @@
 %==========================
 \newcommand{\testUEntries}{}
 \newcounter{testUctr}
-\newcommand{\addTestU}[2]{%
+\newcommand{\addTestU}[3]{%
     \begingroup
       \stepcounter{testUctr}
       \edef\TU@id{\thetestUctr}
@@ -160,7 +160,8 @@
         \noexpand\gappto\noexpand{\noexpand\testUEntries}{%
           TU-\TU@id
           & \unexpanded{#1} %Descrizione
-          & \unexpanded{#2} %Stato del test
+          & \unexpanded{#2}
+          & \unexpanded{#3} %Stato del test
           \\ \noexpand\hline
         }%
       }%
@@ -171,15 +172,15 @@
 
 \newcommand{\makeTUTable}{
         \begin{center}
-          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\centering\arraybackslash}X|>{\centering\arraybackslash}p{1.5cm}|}
+          \begin{xltabular}{\textwidth}{|>{\centering\arraybackslash}p{2.5cm}|>{\raggedright\arraybackslash}X|>{\raggedright\arraybackslash}X|>{\centering\arraybackslash}p{1.5cm}|}
             \hline
             \rowcolor{lightgray}
-            \textbf{Codice} & \textbf{Descrizione} & \textbf{Stato del test} \\
+            \textbf{Codice} & \textbf{Descrizione} & \textbf{Esito atteso} & \textbf{Stato del test} \\
             \hline
             \endfirsthead
             \hline
             \rowcolor{lightgray}
-            \textbf{Codice} & \textbf{Descrizione} & \textbf{Stato del test} \\
+            \textbf{Codice} & \textbf{Descrizione} & \textbf{Esito atteso} & \textbf{Stato del test} \\
             \hline
             \endhead
             \testUEntries
