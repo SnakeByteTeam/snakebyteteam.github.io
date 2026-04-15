@@ -23,12 +23,10 @@ e coordinando le interazioni tra i vari componenti del nucleo logico.
 
 \subsection{Architettura di deployment}
 
-L'architettura di deployment del Sistema è basata su una struttura a microservizi, in cui ogni componente del Sistema è sviluppato, 
-distribuito e scalato in modo indipendente. La scelta è stata intrapresa per garantire una maggiore flessibilità, scalabilità e manutenibilità 
-del Sistema. \\ \\
-Il prodotto si compone di due microservizi principali, ovvero il \textit{\textbf{backend}} e il \textit{\textbf{frontend}}, che comunicano tra loro tramite API \glossario{RESTful}. \\ \\
+L'architettura di \textit{deployment} del Sistema è composta da tre \textit{container} \glossario{Docker}: \textit{backend} monolitico, \textit{frontend} come \textit{Single Page Application} sviluppata in Angular, i cui file statici sono serviti, in produzione, da nginx, e \textit{database} PostgreSQL con TimescaleDB. \\ 
+L'orchestrazione dei tre \textit{container} avviene tramite l'utilizzo di Docker Compose.\\ \\
+I container di \textit{\textbf{backend}} e \textit{\textbf{frontend}} comunicano tra loro tramite API \glossario{RESTful}. \\ \\
 Il \textit{backend} è responsabile della gestione della logica di business, dell'accesso ai dati, dell'autenticazione e della comunicazione con il \textit{server}
 Vimar tramite protocollo \glossario{API KNX IoT 3rd-party}. Il \textit{frontend} si occupa 
 della presentazione e dell'interazione con l'utente. \\ \\
-Per far in modo che i microservizi possano essere distribuiti con facilità, è stata adottata la virtualizzazione tramite \glossario{Docker}, 
-che consente di creare, distribuire e eseguire i microservizi in ambienti isolati chiamati \textit{container}.
+Attualmente tutti i container si trovano in un singolo nodo.
