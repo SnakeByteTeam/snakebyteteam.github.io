@@ -56,7 +56,7 @@
   \hbox{
     \begin{minipage}[t]{0.40\paperwidth}
       \hspace*{0.5em}
-      \raggedright\usebeamerfont{footline}{Presentazione architettura X/04/2026}
+      \raggedright\usebeamerfont{footline}{Presentazione architettura 20/04/2026}
     \end{minipage}%
     \begin{minipage}[t]{0.20\paperwidth}
       \centering\usebeamerfont{footline}Slide \insertframenumber{} di \inserttotalframenumber
@@ -76,7 +76,7 @@
 
 \title{Presentazione architettura}
 \author[]{Gruppo 1 - A.A 2025/2026}
-\setDate{X/02/2026}
+\setDate{20/04/2026}
 
 \begin{document}
 {
@@ -97,10 +97,16 @@
 \end{center}
 \end{frame}
 
-\begin{frame}{Architettura di deployment: Monolite}
+\begin{frame}{Architettura di deployment}
 \begin{itemize}
-  \item Non lo so;
+  \item Frontend: \textit{Sigle Page Application} in Angular, servita da \textit{nginx};
+  \item Backend: monolite.
 \end{itemize}
+\vspace{0.2cm}
+Entrambi, come il database \textit{PostegreSQL}, sono containerizzati e orchestrati da \textit{Docker Compose}. 
+\vspace{0.2cm}
+
+Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
 \end{frame}
 
 \begin{frame}{Backend: Architettura esagonale}
@@ -118,6 +124,18 @@
           \item Le dipendenze tra i moduli sono risolte tramite il \textit{pattern} \textbf{Dependency Injection}.
         \end{itemize}
 \end{itemize}
+\end{frame}
+
+\begin{frame}{UML Alarm (Backend) (1/2)}
+\begin{center}
+   \includegraphics[width=0.95\textwidth]{img/AlarmUML.png}
+\end{center}
+\end{frame}
+
+\begin{frame}{UML Alarm (Backend) (2/2)}
+\begin{center}
+   \includegraphics[width=0.95\textwidth]{img/AlarmUML2.png}
+\end{center}
 \end{frame}
 
 \begin{frame}{Frontend: Architettura Model-View-ViewModel}
@@ -142,16 +160,10 @@
 % \end{center}
 % \end{frame}
 
-\begin{frame}{UML Subscription (Backend)}
-\begin{itemize}
-  \item 
-\end{itemize}
-\end{frame}
-
 \begin{frame}{UML Notification (Frontend)}
-\begin{itemize}
-  \item 
-\end{itemize}
+\begin{center}
+  \includegraphics[width=1.07\textwidth]{img/notification.pdf}
+\end{center}
 \end{frame}
 
 \begin{frame}{Pattern - Dependency Injection (1/2)}
@@ -207,19 +219,26 @@
 \end{center}
 \end{frame}
 
-% \begin{frame}{Pattern - Strategy}
-% \begin{itemize}
-%   \item Problema: 
-%   \begin{itemize}
-%     \item Visualizzare un'insieme di \textit{analytics} relative agli impianti;
-%     \item Ogni \textit{analytics} ha un grafico specifico, basato su dati differenti (Es. consumo della luce, temperatura media del termostato, ...);
-%     \item Deve essere possibile modificare le \textit{analytics} se necessario.
-%   \end{itemize}
-%   \item Soluzione: \textbf{Pattern Strategy}
-%   \begin{itemize}
-%     \item Permette di 
-%   \end{itemize}
-% \end{itemize}
-% \end{frame}
+\begin{frame}{Pattern - Strategy (1/2)}
+\begin{itemize}
+  \item Problema: 
+  \begin{itemize}
+    \item Visualizzare un'insieme di \textit{analytics} relative agli impianti;
+    \item Ogni \textit{analytics} ha un grafico specifico, basato su dati differenti (Es. consumo della luce, temperatura media del termostato, ecc.);
+    \item Deve essere possibile modificare le \textit{analytics} se necessario.
+  \end{itemize}
+  \item Soluzione: \textbf{Pattern Strategy}
+  \begin{itemize}
+    \item Permette di cambiare a \textit{runtime} l'algoritmo per il calcolo delle \textit{analytics};
+    \item È stata realizza un'interfaccia \texttt{AnalyticsStrategy} che fornisce il metodo \texttt{execute}, che le \textit{strategies} implementano.
+  \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}{Pattern - Strategy (2/2)}
+  \begin{center}
+    \includegraphics[width=1\textwidth]{img/strategy.png}
+  \end{center}
+\end{frame}
 
 \end{document}
