@@ -34,7 +34,7 @@
 \addAtr{+}{name: string}{}
 \addAtr{+}{isEnabled: boolean}{}
 \addAtr{+}{rooms: Room[]}{}
-\makeAbCl{Apartment}{Interfaccia che rappresenta il modello di dominio di un appartamento. Aggrega le informazioni identificative, lo stato di abilitazione e la lista delle stanze.}
+\makeCl{Apartment}{Interfaccia che rappresenta il modello di dominio di un appartamento. Aggrega le informazioni identificative, lo stato di abilitazione e la lista delle stanze.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{name: string}{}
@@ -43,12 +43,12 @@
 \addAtr{+}{valueType: string}{}
 \addAtr{+}{enum: string[]}{}
 \addAtr{+}{sfeType: string}{}
-\makeAbCl{Datapoint}{Interfaccia che rappresenta un datapoint di un dispositivo. Definisce le proprietà di lettura, scrittura, tipo di valore e valori enumerati disponibili.}
+\makeCl{Datapoint}{Interfaccia che rappresenta un datapoint di un dispositivo. Definisce le proprietà di lettura, scrittura, tipo di valore e valori enumerati disponibili.}
 
 \addAtr{+}{key: string}{}
 \addAtr{+}{label: string}{}
 \addAtr{+}{disabled?: boolean}{}
-\makeAbCl{DeviceAction}{Interfaccia che rappresenta un'azione eseguibile su un dispositivo. Associa una chiave identificativa a un'etichetta visualizzabile e a un flag opzionale di disabilitazione.}
+\makeCl{DeviceAction}{Interfaccia che rappresenta un'azione eseguibile su un dispositivo. Associa una chiave identificativa a un'etichetta visualizzabile e a un flag opzionale di disabilitazione.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{name: string}{}
@@ -56,7 +56,7 @@
 \addAtr{+}{status: DeviceStatus}{}
 \addAtr{+}{actions: DeviceAction[]}{}
 \addAtr{+}{datapoints: Datapoint[]}{}
-\makeAbCl{Device}{Interfaccia che rappresenta il modello di dominio di un dispositivo. Raccoglie tipo, stato, azioni disponibili e datapoint associati.}
+\makeCl{Device}{Interfaccia che rappresenta il modello di dominio di un dispositivo. Raccoglie tipo, stato, azioni disponibili e datapoint associati.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{name: string}{}
@@ -65,31 +65,31 @@
 \addAtr{+}{valueType: string}{}
 \addAtr{+}{enum?: string[]}{}
 \addAtr{+}{sfeType: string}{}
-\makeAbCl{PlantDatapointDto}{Interfaccia che rappresenta il DTO di un datapoint restituito dal backend nella risposta dell'impianto.}
+\makeCl{PlantDatapointDto}{Interfaccia che rappresenta il DTO di un datapoint restituito dal backend nella risposta dell'impianto.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{name: string}{}
 \addAtr{+}{type?: string}{}
 \addAtr{+}{subType?: string}{}
 \addAtr{+}{datapoints?: PlantDatapointDto[]}{}
-\makeAbCl{PlantDeviceDto}{Interfaccia che rappresenta il DTO di un dispositivo restituito dal backend nella risposta dell'impianto.}
+\makeCl{PlantDeviceDto}{Interfaccia che rappresenta il DTO di un dispositivo restituito dal backend nella risposta dell'impianto.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{name: string}{}
 \addAtr{+}{devices: PlantDeviceDto[]}{}
-\makeAbCl{PlantRoomDto}{Interfaccia che rappresenta il DTO di una stanza restituita dal backend nella risposta dell'impianto.}
+\makeCl{PlantRoomDto}{Interfaccia che rappresenta il DTO di una stanza restituita dal backend nella risposta dell'impianto.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{name: string}{}
 \addAtr{+}{wardId?: number}{}
 \addAtr{+}{rooms: PlantRoomDto[]}{}
-\makeAbCl{PlantDto}{Interfaccia che rappresenta il DTO di un impianto restituito dal backend, contenente le stanze e l'eventuale identificativo del ward associato.}
+\makeCl{PlantDto}{Interfaccia che rappresenta il DTO di un impianto restituito dal backend, contenente le stanze e l'eventuale identificativo del ward associato.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{name: string}{}
 \addAtr{+}{hasActiveAlarm: boolean}{}
 \addAtr{+}{devices: Device[]}{}
-\makeAbCl{Room}{Interfaccia che rappresenta il modello di dominio di una stanza. Aggrega le informazioni identificative, lo stato di allarme attivo e la lista dei dispositivi presenti.}
+\makeCl{Room}{Interfaccia che rappresenta il modello di dominio di una stanza. Aggrega le informazioni identificative, lo stato di allarme attivo e la lista dei dispositivi presenti.}
 
 \addAtr{-}{http: HttpClient}{Client HTTP utilizzato per effettuare le richieste alle API REST.}
 \addAtr{-}{baseUrl: string}{URL base dell'API, iniettato tramite token \texttt{API\_BASE\_URL}.}

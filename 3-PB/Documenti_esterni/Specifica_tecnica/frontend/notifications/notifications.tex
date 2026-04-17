@@ -56,11 +56,11 @@
 \addAtr{+}{title: string}{}
 \addAtr{+}{sentAt: string}{}
 \addAtr{+}{eventType?: 'triggered' $|$ 'resolved'}{}
-\makeAbCl{NotificationEvent}{Interfaccia che rappresenta una singola notifica di sistema, condivisa tra lo storico HTTP e gli eventi push real-time. La simmetria tra le due sorgenti consente a NotificationService di unirle senza trasformazioni intermedie.}
+\makeCl{NotificationEvent}{Interfaccia che rappresenta una singola notifica di sistema, condivisa tra lo storico HTTP e gli eventi push real-time. La simmetria tra le due sorgenti consente a NotificationService di unirle senza trasformazioni intermedie.}
 
 \addAtr{+}{notifications: NotificationEvent[]}{}
 \addAtr{+}{unreadCount: number}{}
-\makeAbCl{NotificationListVm}{Interfaccia che rappresenta il view model della pagina delle notifiche, prodotto da NotificationService tramite combineLatest. Aggrega la lista unificata e deduplicata delle notifiche e il contatore delle non lette in un unico snapshot atomicamente coerente.}
+\makeCl{NotificationListVm}{Interfaccia che rappresenta il view model della pagina delle notifiche, prodotto da NotificationService tramite combineLatest. Aggrega la lista unificata e deduplicata delle notifiche e il contatore delle non lette in un unico snapshot atomicamente coerente.}
 
 \addAtr{-}{alarmStateService: AlarmStateService}{}
 \addAtr{-}{notificationApiService: NotificationApiService}{}

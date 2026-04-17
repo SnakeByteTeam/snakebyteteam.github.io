@@ -120,21 +120,21 @@
 
 \addAtr{+}{roomId: InputSignal$<$string$>$}{}
 \addAtr{+}{device: InputSignal$<$Device$>$}{}
-\makeAbCl{IDeviceCard}{Interfaccia che definisce il contratto minimo per i componenti card di dispositivo. Garantisce la presenza dei segnali di input per l'identificativo della stanza e i dati del dispositivo.}
+\makeCl{IDeviceCard}{Interfaccia che definisce il contratto minimo per i componenti card di dispositivo. Garantisce la presenza dei segnali di input per l'identificativo della stanza e i dati del dispositivo.}
 
 \addAtr{+}{roomId: string}{}
 \addAtr{+}{roomName: string}{}
 \addAtr{+}{rows: WritableEndpointRow[]}{}
-\makeAbCl{EndpointRoomGroup}{Interfaccia che rappresenta un gruppo di righe endpoint appartenenti alla stessa stanza. Aggrega l'identificativo, il nome della stanza e la lista delle righe endpoint scrivibili associate.}
+\makeCl{EndpointRoomGroup}{Interfaccia che rappresenta un gruppo di righe endpoint appartenenti alla stessa stanza. Aggrega l'identificativo, il nome della stanza e la lista delle righe endpoint scrivibili associate.}
 
 \addAtr{+}{roomId: string}{}
 \addAtr{+}{deviceId: string}{}
 \addAtr{+}{action: string}{}
-\makeAbCl{ExecuteActionDto}{Interfaccia che rappresenta il DTO per l'esecuzione di un'azione su un dispositivo. Raccoglie gli identificativi della stanza e del dispositivo insieme al nome dell'azione da eseguire.}
+\makeCl{ExecuteActionDto}{Interfaccia che rappresenta il DTO per l'esecuzione di un'azione su un dispositivo. Raccoglie gli identificativi della stanza e del dispositivo insieme al nome dell'azione da eseguire.}
 
 \addAtr{+}{type: 'success' $|$ 'error'}{}
 \addAtr{+}{message: string}{}
-\makeAbCl{RowFeedback}{Interfaccia che rappresenta il feedback visivo associato a una riga della tabella endpoint. Indica il tipo di esito dell'operazione e il messaggio da visualizzare all'utente.}
+\makeCl{RowFeedback}{Interfaccia che rappresenta il feedback visivo associato a una riga della tabella endpoint. Indica il tipo di esito dell'operazione e il messaggio da visualizzare all'utente.}
 
 \addAtr{+}{roomId: string}{}
 \addAtr{+}{roomName: string}{}
@@ -145,26 +145,26 @@
 \addAtr{+}{datapointName: string}{}
 \addAtr{+}{datapointSfeType: string}{}
 \addAtr{+}{enumValues: string[]}{}
-\makeAbCl{WritableEndpointRow}{Interfaccia che rappresenta una riga della tabella degli endpoint scrivibili, aggregando le informazioni di stanza, dispositivo e datapoint. Include i valori enumerati disponibili per la scrittura del datapoint associato.}
+\makeCl{WritableEndpointRow}{Interfaccia che rappresenta una riga della tabella degli endpoint scrivibili, aggregando le informazioni di stanza, dispositivo e datapoint. Include i valori enumerati disponibili per la scrittura del datapoint associato.}
 
 \addAtr{+}{roomId: string}{}
 \addAtr{+}{deviceId: string}{}
 \addAtr{+}{datapointId: string}{}
 \addAtr{+}{value: string}{}
-\makeAbCl{WriteDatapointRequest}{Interfaccia che rappresenta la richiesta di scrittura di un valore su un datapoint, includendo gli identificativi di stanza, dispositivo e datapoint.}
+\makeCl{WriteDatapointRequest}{Interfaccia che rappresenta la richiesta di scrittura di un valore su un datapoint, includendo gli identificativi di stanza, dispositivo e datapoint.}
 
 \addAtr{+}{datapointId: string}{}
 \addAtr{+}{value: string}{}
-\makeAbCl{WriteDatapointDto}{Interfaccia che rappresenta il DTO minimo per la scrittura di un valore su un datapoint, contenente solo l'identificativo del datapoint e il valore da scrivere.}
+\makeCl{WriteDatapointDto}{Interfaccia che rappresenta il DTO minimo per la scrittura di un valore su un datapoint, contenente solo l'identificativo del datapoint e il valore da scrivere.}
 
 \addAtr{+}{datapointId: string}{}
 \addAtr{+}{name: string}{}
 \addAtr{+}{value: string $|$ number}{}
-\makeAbCl{DeviceValuePointDto}{Interfaccia che rappresenta il valore corrente di un singolo datapoint di un dispositivo, con identificativo, nome e valore.}
+\makeCl{DeviceValuePointDto}{Interfaccia che rappresenta il valore corrente di un singolo datapoint di un dispositivo, con identificativo, nome e valore.}
 
 \addAtr{+}{deviceId: string}{}
 \addAtr{+}{values: DeviceValuePointDto[]}{}
-\makeAbCl{DeviceValueDto}{Interfaccia che rappresenta la risposta del backend contenente i valori correnti di tutti i datapoint di un dispositivo.}
+\makeCl{DeviceValueDto}{Interfaccia che rappresenta la risposta del backend contenente i valori correnti di tutti i datapoint di un dispositivo.}
 
 \addAtr{-}{http: HttpClient}{Client HTTP utilizzato per effettuare le richieste alle API REST.}
 \addAtr{-}{baseUrl: string}{URL base dell'API, iniettato tramite token API\_BASE\_URL.}

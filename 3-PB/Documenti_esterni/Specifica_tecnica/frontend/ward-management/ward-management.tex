@@ -86,47 +86,47 @@
 \addAtr{+}{name: string}{}
 \addAtr{+}{apartments: Plant[]}{}
 \addAtr{+}{operators: User[]}{}
-\makeAbCl{Ward}{Questa interfaccia definisce il modello dati di un reparto all'interno del sistema. Rappresenta l'entità organizzativa principale, collegando un identificativo unico e un nome a collezioni di impianti (appartamenti) e operatori sanitari assegnati.}
+\makeCl{Ward}{Questa interfaccia definisce il modello dati di un reparto all'interno del sistema. Rappresenta l'entità organizzativa principale, collegando un identificativo unico e un nome a collezioni di impianti (appartamenti) e operatori sanitari assegnati.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{name: string}{}
-\makeAbCl{Plant}{Questa interfaccia definisce il modello dati di un impianto (spesso riferito a un appartamento) all'interno del sistema. Rappresenta l'unità tecnologica fondamentale, identificata da un codice univoco e un nome descrittivo, che viene associata ai reparti per il monitoraggio.}
+\makeCl{Plant}{Questa interfaccia definisce il modello dati di un impianto (spesso riferito a un appartamento) all'interno del sistema. Rappresenta l'unità tecnologica fondamentale, identificata da un codice univoco e un nome descrittivo, che viene associata ai reparti per il monitoraggio.}
 
 \addAtr{+}{name: string}{}
-\makeAbCl{CreateWardDto}{Data Transfer Object utilizzato per l'invio dei dati necessari alla creazione di un nuovo reparto, contenente esclusivamente il nome descrittivo.}
+\makeCl{CreateWardDto}{Data Transfer Object utilizzato per l'invio dei dati necessari alla creazione di un nuovo reparto, contenente esclusivamente il nome descrittivo.}
 
 \addAtr{+}{name: string}{}
-\makeAbCl{UpdateWardDto}{Data Transfer Object per l'aggiornamento delle informazioni di un reparto esistente.}
+\makeCl{UpdateWardDto}{Data Transfer Object per l'aggiornamento delle informazioni di un reparto esistente.}
 
 \addAtr{+}{userId: number}{}
-\makeAbCl{AssignOperatorDto}{Oggetto per il trasferimento dei dati relativi all'associazione di un operatore sanitario a un reparto tramite il suo identificativo utente.}
+\makeCl{AssignOperatorDto}{Oggetto per il trasferimento dei dati relativi all'associazione di un operatore sanitario a un reparto tramite il suo identificativo utente.}
 
 \addAtr{+}{plantId: string}{}
-\makeAbCl{AssignPlantDto}{Oggetto per il trasferimento dei dati relativi al collegamento di un impianto a un reparto tramite l'identificativo dell'impianto.}
+\makeCl{AssignPlantDto}{Oggetto per il trasferimento dei dati relativi al collegamento di un impianto a un reparto tramite l'identificativo dell'impianto.}
 
 \addAtr{+}{id: number}{}
 \addAtr{+}{username: string}{}
-\makeAbCl{WardUserDto}{Rappresentazione semplificata di un utente all'interno del contesto di gestione reparti, focalizzata su ID e nome utente.}
+\makeCl{WardUserDto}{Rappresentazione semplificata di un utente all'interno del contesto di gestione reparti, focalizzata su ID e nome utente.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{name: string}{}
-\makeAbCl{WardPlantDto}{Rappresentazione sintetica di un impianto associato a un reparto, utilizzata per il trasferimento dati tra client e server.}
+\makeCl{WardPlantDto}{Rappresentazione sintetica di un impianto associato a un reparto, utilizzata per il trasferimento dati tra client e server.}
 
 \addAtr{+}{id: number}{}
 \addAtr{+}{name: string}{}
-\makeAbCl{WardSummaryDto}{Modello dati minimale che fornisce un riepilogo delle informazioni essenziali di un reparto.}
+\makeCl{WardSummaryDto}{Modello dati minimale che fornisce un riepilogo delle informazioni essenziali di un reparto.}
 
 \addAtr{+}{wards: Ward[]}{}
 \addAtr{+}{isLoading: boolean}{}
 \addAtr{+}{error: string | null}{}
-\makeAbCl{WardManagementState}{Interfaccia che definisce lo stato globale del modulo di gestione reparti, includendo la lista dei reparti, lo stato di caricamento e la gestione degli errori.}
+\makeCl{WardManagementState}{Interfaccia che definisce lo stato globale del modulo di gestione reparti, includendo la lista dei reparti, lo stato di caricamento e la gestione degli errori.}
 
 \addAtr{+}{wardId: number}{}
 \addAtr{+}{userId: number}{}
-\makeAbCl{RemoveOperatorEvent}{Interfaccia che definisce la struttura dell'evento di rimozione di un operatore, specificando le chiavi esterne del reparto e dell'utente.}
+\makeCl{RemoveOperatorEvent}{Interfaccia che definisce la struttura dell'evento di rimozione di un operatore, specificando le chiavi esterne del reparto e dell'utente.}
 
 \addAtr{+}{plantId: string}{}
-\makeAbCl{RemovePlantEvent}{Interfaccia per l'evento di rimozione di un impianto, contenente l'identificativo univoco dell'asset da dissociare.}
+\makeCl{RemovePlantEvent}{Interfaccia per l'evento di rimozione di un impianto, contenente l'identificativo univoco dell'asset da dissociare.}
 
 \addAtr{-}{api: WardApiService}{}
 \addAtr{-}{wardHydration: WardHydrationService}{}

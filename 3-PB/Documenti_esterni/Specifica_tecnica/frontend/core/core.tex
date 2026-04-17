@@ -14,7 +14,7 @@
 \addAtr{+}{thresholdValue: string}{}
 \addAtr{+}{armingTime: string}{}
 \addAtr{+}{dearmingTime: string}{}
-\makeAbCl{CreateAlarmRuleRequestDto}{Interfaccia che rappresenta il DTO per la creazione di una nuova regola di allarme. Raccoglie tutti i campi necessari alla definizione della regola, inclusi dispositivo, soglia e orari di armamento.}
+\makeCl{CreateAlarmRuleRequestDto}{Interfaccia che rappresenta il DTO per la creazione di una nuova regola di allarme. Raccoglie tutti i campi necessari alla definizione della regola, inclusi dispositivo, soglia e orari di armamento.}
 
 \addAtr{+}{name: string}{}
 \addAtr{+}{priority: number}{}
@@ -23,7 +23,7 @@
 \addAtr{+}{armingTime: string}{}
 \addAtr{+}{dearmingTime: string}{}
 \addAtr{+}{isArmed: boolean}{}
-\makeAbCl{UpdateAlarmRuleRequestDto}{DTO che definisce la struttura dei dati necessaria per aggiornare i parametri di una regola di allarme esistente. Permette di modificare i criteri di soglia, le tempistiche di attivazione e lo stato di armamento del sistema.}
+\makeCl{UpdateAlarmRuleRequestDto}{DTO che definisce la struttura dei dati necessaria per aggiornare i parametri di una regola di allarme esistente. Permette di modificare i criteri di soglia, le tempistiche di attivazione e lo stato di armamento del sistema.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{alarmRuleId: string}{}
@@ -35,7 +35,7 @@
 \addAtr{+}{position: string}{}
 \addAtr{+}{userId: number $|$ null}{}
 \addAtr{+}{userUsername?: string $|$ null}{}
-\makeAbCl{ActiveAlarm}{Questa interfaccia definisce la struttura di un allarme attivo all'interno del sistema, raggruppando informazioni identificative, temporali e di localizzazione. Viene utilizzata per tracciare lo stato degli allarmi in corso, includendo i dettagli sulla priorità e l'eventuale utente assegnato alla risoluzione.}
+\makeCl{ActiveAlarm}{Questa interfaccia definisce la struttura di un allarme attivo all'interno del sistema, raggruppando informazioni identificative, temporali e di localizzazione. Viene utilizzata per tracciare lo stato degli allarmi in corso, includendo i dettagli sulla priorità e l'eventuale utente assegnato alla risoluzione.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{alarmRuleId: string}{}
@@ -43,7 +43,7 @@
 \addAtr{+}{priority: AlarmPriority}{}
 \addAtr{+}{activationTime: string}{}
 \addAtr{+}{resolutionTime: string $|$ null}{}
-\makeAbCl{AlarmEvent}{Questa interfaccia rappresenta un evento di allarme specifico, contenendo i dati essenziali relativi alla sua attivazione, risoluzione e livello di criticità. Fornisce una struttura standardizzata per tracciare lo storico e lo stato temporale delle notifiche generate dal sistema di monitoraggio.}
+\makeCl{AlarmEvent}{Questa interfaccia rappresenta un evento di allarme specifico, contenendo i dati essenziali relativi alla sua attivazione, risoluzione e livello di criticità. Fornisce una struttura standardizzata per tracciare lo storico e lo stato temporale delle notifiche generate dal sistema di monitoraggio.}
 
 \addAtr{+}{id: string}{}
 \addAtr{+}{name: string}{}
@@ -56,7 +56,7 @@
 \addAtr{+}{deviceId: string}{}
 \addAtr{+}{datapointId?: string}{}
 \addAtr{+}{position: string}{}
-\makeAbCl{AlarmRule}{Questa interfaccia definisce i criteri e le configurazioni di una regola di allarme applicata a un dispositivo o datapoint specifico. Include i parametri operativi come le soglie di intervento, i tempi di attivazione e il livello di priorità per il monitoraggio dei sistemi.}
+\makeCl{AlarmRule}{Questa interfaccia definisce i criteri e le configurazioni di una regola di allarme applicata a un dispositivo o datapoint specifico. Include i parametri operativi come le soglie di intervento, i tempi di attivazione e il livello di priorità per il monitoraggio dei sistemi.}
 
 \addAtr{-}{http: HttpClient}{}
 \addAtr{-}{baseUrl: API\_BASE\_URL}{}
@@ -75,7 +75,7 @@
 
 \addAtr{+}{alarmName?: string}{}
 \addAtr{+}{priority?: unknown}{}
-\makeAbCl{AlarmNotificationDetails}{Questa interfaccia definisce i dettagli opzionali necessari per la costruzione del contenuto informativo di una notifica di allarme. Permette di trasportare il nome della regola e il suo livello di priorità per una visualizzazione corretta all'utente.}
+\makeCl{AlarmNotificationDetails}{Questa interfaccia definisce i dettagli opzionali necessari per la costruzione del contenuto informativo di una notifica di allarme. Permette di trasportare il nome della regola e il suo livello di priorità per una visualizzazione corretta all'utente.}
 
 
 \addMet{+}{publish(type: AlarmLifecycleType, alarmEventId: string, \\ timestamp: string, details?: AlarmNotificationDetails): void}{Definisce il contratto per la pubblicazione degli eventi legati al ciclo di vita di un allarme verso i sistemi di notifica.}
@@ -180,7 +180,7 @@
 
 \addAtr{+}{roomsToLeave: string[]}{}
 \addAtr{+}{roomsToJoin: string[]}{}
-\makeAbCl{UserActivationActions}{Questa interfaccia definisce la struttura degli insiemi di stanze socket da gestire durante la transizione di sessione di un utente. Specifica quali canali devono essere abbandonati e quali attivati per garantire la corretta ricezione degli eventi in tempo reale.}
+\makeCl{UserActivationActions}{Questa interfaccia definisce la struttura degli insiemi di stanze socket da gestire durante la transizione di sessione di un utente. Specifica quali canali devono essere abbandonati e quali attivati per garantire la corretta ricezione degli eventi in tempo reale.}
 
 \addMet{+}{activateUser(userId: string): UserActivationActions}{Gestisce la transizione di un utente calcolando le stanze da abbandonare e quelle da sottoscrivere in base alla cache.}
 \addMet{+}{deactivateUser(): string[]}{Esegue il logout dell'utente corrente rimuovendo le informazioni dalla cache e restituendo l'elenco delle stanze da abbandonare.}
@@ -209,7 +209,7 @@
 \addAtr{+}{actionLabel?: string}{}
 \addAtr{+}{forbiddenMessage?: string}{}
 \addAtr{+}{nonHttpStrategy?: 'fallback' $|$ 'message'}{}
-\makeAbCl{ApiErrorDisplayOptions}{Questa interfaccia definisce le opzioni di configurazione per la generazione dei messaggi di errore rivolti all'utente. Permette di personalizzare i messaggi di fallback, le etichette delle azioni e le strategie di gestione per errori non strettamente legati al protocollo HTTP.}
+\makeCl{ApiErrorDisplayOptions}{Questa interfaccia definisce le opzioni di configurazione per la generazione dei messaggi di errore rivolti all'utente. Permette di personalizzare i messaggi di fallback, le etichette delle azioni e le strategie di gestione per errori non strettamente legati al protocollo HTTP.}
 
 
 \addMet{+}{toMessage(error: unknown, options: ApiErrorDisplayOptions): string}{Converte un errore di natura ignota in una stringa leggibile dall'utente, applicando logiche di mappatura differenti in base al tipo di eccezione catturata.}
@@ -220,7 +220,7 @@
 
 \addAtr{+}{label: string}{}
 \addAtr{+}{url: string}{}
-\makeAbCl{Breadcrumb}{Questa interfaccia definisce la struttura di un singolo frammento del percorso di navigazione (breadcrumb). Associa un'etichetta testuale descrittiva all'URL corrispondente per permettere all'utente di risalire la gerarchia delle pagine.}
+\makeCl{Breadcrumb}{Questa interfaccia definisce la struttura di un singolo frammento del percorso di navigazione (breadcrumb). Associa un'etichetta testuale descrittiva all'URL corrispondente per permettere all'utente di risalire la gerarchia delle pagine.}
 
 \addAtr{+}{breadcrumbs\$: Observable$<$Breadcrumb[]$>$}{}
 \addAtr{-}{router: Router}{}

@@ -51,32 +51,32 @@
 \makeCl{UserManagementPageComponent}{Componente Angular che funge da pagina principale per la gestione degli utenti, orchestrando i sottocomponenti di lista, form di creazione e dialog di conferma. Delega tutta la logica di stato al servizio UserManagementPageStateService.}
 
 \addAtr{+}{tempPassword: string}{}
-\makeAbCl{UserCreatedResponseDto}{Interfaccia che rappresenta la risposta minima restituita dal backend alla creazione di un utente. Espone esclusivamente la password temporanea assegnata all'utente appena creato.}
+\makeCl{UserCreatedResponseDto}{Interfaccia che rappresenta la risposta minima restituita dal backend alla creazione di un utente. Espone esclusivamente la password temporanea assegnata all'utente appena creato.}
 
 \addAtr{+}{id: number}{}
 \addAtr{+}{name: string}{}
 \addAtr{+}{surname: string}{}
 \addAtr{+}{username: string}{}
 \addAtr{+}{role: UserRole}{}
-\makeAbCl{UserDto}{Interfaccia che rappresenta i dati di un utente restituiti dal backend nelle chiamate GET. Raccoglie le informazioni anagrafiche e il ruolo dell'utente.}
+\makeCl{UserDto}{Interfaccia che rappresenta i dati di un utente restituiti dal backend nelle chiamate GET. Raccoglie le informazioni anagrafiche e il ruolo dell'utente.}
 
 \addAtr{+}{name: string}{}
 \addAtr{+}{surname: string}{}
 \addAtr{+}{username: string}{}
-\makeAbCl{CreateUserDto}{Interfaccia che rappresenta i dati necessari per la creazione di un nuovo utente. Raccoglie le informazioni anagrafiche e il nome utente da inviare al backend.}
+\makeCl{CreateUserDto}{Interfaccia che rappresenta i dati necessari per la creazione di un nuovo utente. Raccoglie le informazioni anagrafiche e il nome utente da inviare al backend.}
 
 \addAtr{+}{username: string}{}
 \addAtr{+}{firstName: string}{}
 \addAtr{+}{lastName: string}{}
 \addAtr{+}{role: UserRole}{}
-\makeAbCl{UserInfo}{Interfaccia che rappresenta le informazioni di base di un utente autenticato. Raccoglie nome utente, dati anagrafici e ruolo.}
+\makeCl{UserInfo}{Interfaccia che rappresenta le informazioni di base di un utente autenticato. Raccoglie nome utente, dati anagrafici e ruolo.}
 
 \addAtr{+}{id: number}{}
 \addAtr{+}{firstName: string}{}
 \addAtr{+}{lastName: string}{}
 \addAtr{+}{username: string}{}
 \addAtr{+}{role: UserRole}{}
-\makeAbCl{User}{Interfaccia che rappresenta il modello di dominio di un utente. Raccoglie le informazioni anagrafiche, il nome utente e il ruolo assegnato.}
+\makeCl{User}{Interfaccia che rappresenta il modello di dominio di un utente. Raccoglie le informazioni anagrafiche, il nome utente e il ruolo assegnato.}
 
 
 \addMet{+}{decodeTempPassword(tempPassword: string) : string}{Decodifica una password temporanea da Base64, restituendo la stringa originale se il valore non è un Base64 valido o se la decodifica fallisce.}

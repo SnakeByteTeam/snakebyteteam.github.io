@@ -8,11 +8,11 @@
 \addAtr{+}{id: string}{Identificativo univoco della serie, usato per abbinare le serie correnti alla baseline}
 \addAtr{+}{name: string}{Nome descrittivo della serie (es. nome del sensore), mostrato in legenda}
 \addAtr{+}{data: number[]}{Valori numerici della serie, allineati alle etichette temporali del grafico}
-\makeAbCl{ChartDatasetDto}{DTO che rappresenta una singola serie di dati all'interno di un grafico Chart.js}
+\makeCl{ChartDatasetDto}{DTO che rappresenta una singola serie di dati all'interno di un grafico Chart.js}
 
 \addAtr{+}{messages: string[]}{Lista di messaggi testuali che compongono il suggerimento energetico generato dal modello LLM}
 \addAtr{+}{isSuggestion: boolean}{Indica se il modello ha rilevato un'anomalia e ha generato un suggerimento effettivo}
-\makeAbCl{EnergySavingSuggestionDto}{DTO che trasporta il suggerimento energetico generato dal backend, visualizzato nel pannello suggerimenti di \texttt{ChartComponent}}
+\makeCl{EnergySavingSuggestionDto}{DTO che trasporta il suggerimento energetico generato dal backend, visualizzato nel pannello suggerimenti di \texttt{ChartComponent}}
 
 \addAtr{+}{labels: string[]}{Etichette temporali dell'asse x del grafico}
 \addAtr{+}{datasets: ChartDatasetDto[]}{Serie di dati da visualizzare nel grafico}
@@ -20,11 +20,11 @@
 \addAtr{+}{unit: string}{Unità di misura della metrica, mostrata sugli assi o in legenda}
 \addAtr{+}{suggestions: EnergySavingSuggestionDto}{Suggerimento energetico associato al grafico, generato dal modello LLM}
 \addAtr{+}{metric: string}{Nome della metrica rappresentata, usato per identificare il grafico corretto}
-\makeAbCl{ChartInfoDto}{DTO che trasporta tutti i dati necessari al rendering di un singolo grafico analytics: etichette, serie, metadati e suggerimento energetico}
+\makeCl{ChartInfoDto}{DTO che trasporta tutti i dati necessari al rendering di un singolo grafico analytics: etichette, serie, metadati e suggerimento energetico}
 
 \addAtr{+}{apartmentId: string}{Identificativo dell'appartamento a cui si riferiscono le analytics}
 \addAtr{+}{analyticsInfo: ChartInfoDto[]}{Lista dei dati grafici disponibili per l'appartamento, uno per ciascuna metrica}
-\makeAbCl{AnalyticsDto}{DTO che trasporta l'insieme delle analytics di un appartamento dal backend al frontend}
+\makeCl{AnalyticsDto}{DTO che trasporta l'insieme delle analytics di un appartamento dal backend al frontend}
 
 % ─── services ───
 \addAtr{-}{http: HttpClient}{Client HTTP Angular, iniettato tramite \texttt{inject}}
@@ -45,7 +45,7 @@
 \addMet{+}{ngOnChanges(changes: SimpleChanges) : void}{Intercetta i cambiamenti degli input Angular e aggiorna il grafico di conseguenza}
 \addMet{{\#}}{updateChart(data: ChartInfoDto) : void}{Metodo protetto che effettua il rendering del grafico a partire dai dati ricevuti; può essere sovrascritto dalle sottoclassi}
 \addMet{+}{showHideSugg() : void}{Alterna la visibilità del pannello dei suggerimenti energetici}
-\makeCl{ChartComponent}{Classe base astratta per tutti i componenti grafici analytics. Gestisce il ciclo di vita del grafico Chart.js, l'aggiornamento dei dati al cambio degli input e la visibilità dei suggerimenti energetici. Tutte le sottoclassi ereditano da questa classe e ne specializzano il \texttt{chartType}}
+\makeAbCl{ChartComponent}{Classe base astratta per tutti i componenti grafici analytics. Gestisce il ciclo di vita del grafico Chart.js, l'aggiornamento dei dati al cambio degli input e la visibilità dei suggerimenti energetici. Tutte le sottoclassi ereditano da questa classe e ne specializzano il \texttt{chartType}}
 
 % ─── components ───
 \addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico impostato a \texttt{line}}
@@ -92,7 +92,7 @@
 \addAtr{+}{key: string}{Chiave identificativa dell'azione, usata per distinguere i comandi disponibili sul dispositivo}
 \addAtr{+}{label: string}{Etichetta testuale dell'azione, mostrata nell'interfaccia utente}
 \addAtr{+}{disabled?: boolean}{Se true, l'azione non è eseguibile nella situazione corrente}
-\makeAbCl{DeviceAction}{Interfaccia che rappresenta un'azione disponibile su un dispositivo IoT, con chiave identificativa, etichetta e flag di disabilitazione opzionale}
+\makeCl{DeviceAction}{Interfaccia che rappresenta un'azione disponibile su un dispositivo IoT, con chiave identificativa, etichetta e flag di disabilitazione opzionale}
 
 \addAtr{+}{id: string}{Identificativo univoco del datapoint}
 \addAtr{+}{name: string}{Nome descrittivo del datapoint}
@@ -101,7 +101,7 @@
 \addAtr{+}{valueType: string}{Tipo del valore del datapoint (es. boolean, number)}
 \addAtr{+}{enum: string[]}{Lista dei valori ammessi per i datapoint di tipo enumerato}
 \addAtr{+}{sfeType: string}{Tipo funzionale del datapoint secondo la classificazione SFE}
-\makeAbCl{Datapoint}{Interfaccia che rappresenta un singolo datapoint di un dispositivo IoT, con le sue proprietà di lettura, scrittura e tipo}
+\makeCl{Datapoint}{Interfaccia che rappresenta un singolo datapoint di un dispositivo IoT, con le sue proprietà di lettura, scrittura e tipo}
 
 \addAtr{+}{id: string}{Identificativo univoco del dispositivo}
 \addAtr{+}{name: string}{Nome descrittivo del dispositivo}
@@ -109,19 +109,19 @@
 \addAtr{+}{status: DeviceStatus}{Stato corrente del dispositivo}
 \addAtr{+}{actions: DeviceAction[]}{Lista delle azioni disponibili sul dispositivo}
 \addAtr{+}{datapoints: Datapoint[]}{Lista dei datapoint associati al dispositivo}
-\makeAbCl{Device}{Interfaccia che rappresenta un dispositivo IoT all'interno di un appartamento, aggregando tipo, stato, azioni disponibili e datapoint}
+\makeCl{Device}{Interfaccia che rappresenta un dispositivo IoT all'interno di un appartamento, aggregando tipo, stato, azioni disponibili e datapoint}
 
 \addAtr{+}{id: string}{Identificativo univoco della stanza}
 \addAtr{+}{name: string}{Nome descrittivo della stanza}
 \addAtr{+}{hasActiveAlarm: boolean}{Indica se nella stanza è attivo almeno un allarme}
 \addAtr{+}{devices: Device[]}{Lista dei dispositivi presenti nella stanza}
-\makeAbCl{Room}{Interfaccia che rappresenta una stanza all'interno di un appartamento, con i suoi dispositivi e lo stato degli allarmi}
+\makeCl{Room}{Interfaccia che rappresenta una stanza all'interno di un appartamento, con i suoi dispositivi e lo stato degli allarmi}
 
 \addAtr{+}{id: string}{Identificativo univoco dell'appartamento}
 \addAtr{+}{name: string}{Nome descrittivo dell'appartamento}
 \addAtr{+}{isEnabled: boolean}{Indica se l'appartamento è abilitato e monitorato attivamente}
 \addAtr{+}{rooms: Room[]}{Lista delle stanze che compongono l'appartamento}
-\makeAbCl{Apartment}{Interfaccia che rappresenta un appartamento monitorato, aggregando le stanze e i relativi dispositivi}
+\makeCl{Apartment}{Interfaccia che rappresenta un appartamento monitorato, aggregando le stanze e i relativi dispositivi}
 
 % ─── auth models ───
 \addAtr{+}{userId: string}{Identificativo univoco dell'utente nella sessione corrente}
@@ -129,13 +129,13 @@
 \addAtr{+}{role: UserRole}{Ruolo dell'utente nella sessione corrente}
 \addAtr{+}{accessToken: string}{Token JWT di accesso della sessione corrente}
 \addAtr{+}{isFirstAccess: boolean}{Indica se è il primo accesso dell'utente, richiedendo il cambio password}
-\makeAbCl{UserSession}{Interfaccia che rappresenta la sessione utente attiva, contenente le informazioni di autenticazione e il ruolo}
+\makeCl{UserSession}{Interfaccia che rappresenta la sessione utente attiva, contenente le informazioni di autenticazione e il ruolo}
 
 \addAtr{+}{accessToken: string}{Token JWT restituito dal backend al momento del login}
-\makeAbCl{LoginResponse}{DTO di risposta al login, contenente il token JWT di accesso}
+\makeCl{LoginResponse}{DTO di risposta al login, contenente il token JWT di accesso}
 
 \addAtr{+}{accessToken: string}{Nuovo token JWT restituito dal backend al refresh della sessione}
-\makeAbCl{RefreshResponse}{DTO di risposta al refresh del token, contenente il nuovo token JWT di accesso}
+\makeCl{RefreshResponse}{DTO di risposta al refresh del token, contenente il nuovo token JWT di accesso}
 
 \addAtr{+}{userId?: string $|$ number}{Identificativo dell'utente estratto dal token JWT}
 \addAtr{+}{sub?: string $|$ number}{Subject standard JWT, usato come fallback per l'identificativo utente}
@@ -144,10 +144,10 @@
 \addAtr{+}{role?: string}{Ruolo dell'utente estratto dal payload JWT}
 \addAtr{+}{isFirstAccess?: boolean}{Flag primo accesso estratto dal payload JWT}
 \addAtr{+}{firstAccess?: boolean}{Campo alternativo per il flag primo accesso nel payload JWT}
-\makeAbCl{AuthClaims}{Interfaccia che modella i claims del payload JWT, con campi opzionali per gestire varianti nei nomi dei campi}
+\makeCl{AuthClaims}{Interfaccia che modella i claims del payload JWT, con campi opzionali per gestire varianti nei nomi dei campi}
 
 \addAtr{+}{accessToken: string}{Token JWT restituito dal backend}
-\makeAbCl{TokenResponse}{DTO generico di risposta contenente un token JWT, usato per operazioni di autenticazione}
+\makeCl{TokenResponse}{DTO generico di risposta contenente un token JWT, usato per operazioni di autenticazione}
 
 % ─── auth service ───
 \addAtr{-}{http: unknown}{Client HTTP Angular}

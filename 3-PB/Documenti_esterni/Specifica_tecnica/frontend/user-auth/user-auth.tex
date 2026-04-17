@@ -20,7 +20,7 @@
 \addMet{+}{\textit{onSubmit() : void}}{Metodo astratto che gestisce il submit del form di autenticazione.}
 \addMet{\#}{handleSuccess(session: UserSession) : void}{Gestisce il successo dell'autenticazione navigando verso la dashboard o l'URL di ritorno, con supporto al primo accesso.}
 \addMet{\#}{handleError(error: unknown) : void}{Gestisce gli errori di autenticazione mappando i codici HTTP nei corrispondenti tipi di errore.}
-\makeAbCl{AuthBaseComponent}{Classe astratta base per i componenti di autenticazione, che gestisce lo stato di caricamento, il tipo di errore e la navigazione post-login tramite segnali reattivi. Definisce il contratto per i metodi di submit e cambio username che le sottoclassi devono implementare.}
+\makeCl{AuthBaseComponent}{Classe astratta base per i componenti di autenticazione, che gestisce lo stato di caricamento, il tipo di errore e la navigazione post-login tramite segnali reattivi. Definisce il contratto per i metodi di submit e cambio username che le sottoclassi devono implementare.}
 
 \addAtr{-}{fb: FormBuilder}{}
 \addAtr{+}{firstAccessForm: FormGroup}{}
@@ -42,13 +42,13 @@
 \addAtr{+}{role: UserRole}{}
 \addAtr{+}{accessToken: string}{}
 \addAtr{+}{isFirstAccess: boolean}{}
-\makeAbCl{UserSession}{Interfaccia che rappresenta la sessione di un utente autenticato. Raccoglie le informazioni identificative, il ruolo, il token di accesso e il flag di primo accesso.}
+\makeCl{UserSession}{Interfaccia che rappresenta la sessione di un utente autenticato. Raccoglie le informazioni identificative, il ruolo, il token di accesso e il flag di primo accesso.}
 
 \addAtr{+}{accessToken: string}{}
-\makeAbCl{LoginResponse}{Interfaccia che rappresenta la risposta del backend alla richiesta di login. Espone il token di accesso JWT da utilizzare per le richieste autenticate.}
+\makeCl{LoginResponse}{Interfaccia che rappresenta la risposta del backend alla richiesta di login. Espone il token di accesso JWT da utilizzare per le richieste autenticate.}
 
 \addAtr{+}{accessToken: string}{}
-\makeAbCl{RefreshResponse}{Interfaccia che rappresenta la risposta del backend alla richiesta di refresh del token. Espone il nuovo token di accesso JWT.}
+\makeCl{RefreshResponse}{Interfaccia che rappresenta la risposta del backend alla richiesta di refresh del token. Espone il nuovo token di accesso JWT.}
 
 \addAtr{+}{userId?: string $|$ number}{}
 \addAtr{+}{sub?: string $|$ number}{}
@@ -57,10 +57,10 @@
 \addAtr{+}{role?: string}{}
 \addAtr{+}{isFirstAccess?: boolean}{}
 \addAtr{+}{firstAccess?: boolean}{}
-\makeAbCl{AuthClaims}{Interfaccia che rappresenta i claims estratti dal payload di un token JWT di autenticazione. Gestisce le varianti di nomenclatura dei campi identificativi e del flag di primo accesso.}
+\makeCl{AuthClaims}{Interfaccia che rappresenta i claims estratti dal payload di un token JWT di autenticazione. Gestisce le varianti di nomenclatura dei campi identificativi e del flag di primo accesso.}
 
 \addAtr{+}{accessToken: string}{}
-\makeAbCl{TokenResponse}{Interfaccia generica che rappresenta una risposta del backend contenente un token di accesso JWT.}
+\makeCl{TokenResponse}{Interfaccia generica che rappresenta una risposta del backend contenente un token di accesso JWT.}
 
 \addAtr{-}{http: HttpClient}{}
 \addAtr{-}{baseUrl: string}{}

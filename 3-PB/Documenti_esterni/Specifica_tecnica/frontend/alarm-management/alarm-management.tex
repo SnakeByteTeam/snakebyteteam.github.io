@@ -33,7 +33,7 @@
 \addAtr{+}{isActionDisabled: boolean}{}
 \addAtr{+}{actionLabel: string}{}
 \addAtr{+}{actionAriaLabel: string}{}
-\makeAbCl{ActiveAlarmTableRow}{Tipo che rappresenta una riga della tabella degli allarmi attivi. Raccoglie le informazioni di priorità, posizione, stato e i flag necessari alla gestione dell'azione di risoluzione.}
+\makeCl{ActiveAlarmTableRow}{Tipo che rappresenta una riga della tabella degli allarmi attivi. Raccoglie le informazioni di priorità, posizione, stato e i flag necessari alla gestione dell'azione di risoluzione.}
 
 \addAtr{+}{alarms: ActiveAlarm[]}{}
 \addAtr{+}{currentPage: number}{}
@@ -43,7 +43,7 @@
 \addAtr{+}{isResolving: boolean}{}
 \addAtr{+}{resolvingId: string $|$ null}{}
 \addAtr{+}{resolveError: string $|$ null}{}
-\makeAbCl{AlarmListVm}{Interfaccia che rappresenta il view model della lista degli allarmi attivi, contenente i dati della pagina corrente, lo stato di paginazione e le informazioni sull'eventuale risoluzione in corso.}
+\makeCl{AlarmListVm}{Interfaccia che rappresenta il view model della lista degli allarmi attivi, contenente i dati della pagina corrente, lo stato di paginazione e le informazioni sull'eventuale risoluzione in corso.}
 
 \addAtr{+}{pageLimit: number}{Numero massimo di allarmi visualizzabili per pagina.}
 \addAtr{-}{pageOffsetSubject: BehaviorSubject$<$number$>$}{Subject che mantiene e notifica l'offset corrente della paginazione.}
