@@ -110,7 +110,7 @@ Entrambi, come il database \textit{PostgreSQL}, sono containerizzati e orchestra
 Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
 \end{frame}
 
-\begin{frame}{Backend: Architettura esagonale}
+\begin{frame}{Architettura logica \textit{backend}}
 \begin{itemize}
   \item Problema:
   \begin{itemize}
@@ -139,7 +139,7 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
 \end{center}
 \end{frame}
 
-\begin{frame}{Frontend: Architettura Model-View-ViewModel}
+\begin{frame}{Architettura logica \textit{frontend}}
 \begin{itemize}
   \item Problema:
   \begin{itemize}
@@ -222,7 +222,7 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
     \end{itemize}
     \item Soluzione: pattern \textbf{Observer}
     \begin{itemize}
-      \item Implementato tramite \textit{RxJS}: le componenti si iscrivono 
+      \item Implementato tramite \textit{RxJS}: le entità si iscrivono 
       agli \textit{Observable} senza conoscere la sorgente dei dati;
       \item Gli \textit{Observable} gestiscono eventi asincroni e aggiornamenti di stato \textit{UI};
     \end{itemize}
@@ -241,7 +241,7 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
     \includegraphics[width=0.8\textwidth]{img/analyticsSnippet.png}
     \caption{analytics.component.ts}
     \includegraphics[width=0.5\textwidth]{img/analyticsSnippetTemplate.png}
-    \caption{Iscrizione all'interno del template}
+    \caption{Iscrizione all'interno del template tramite \texttt{async pipe}}
 \end{figure}
 \end{frame}
 
