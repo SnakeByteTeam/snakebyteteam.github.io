@@ -94,7 +94,7 @@
   \item Visualizzazione di statistiche sui consumi, con relativi consigli per ridurli, e sugli allarmi.
 \end{itemize}
 \begin{center}
-    \includegraphics[width=0.75\textwidth]{img/schemacapitolato.jpeg}\\
+    \includegraphics[width=0.95\textwidth]{img/schemacapitolato.jpeg}\\
 \end{center}
 \end{frame}
 
@@ -110,26 +110,46 @@ Entrambi, come il database \textit{PostgreSQL}, sono containerizzati e orchestra
 Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
 \end{frame}
 
+\begin{frame}{Comunicazione tra \textit{frontend} e \textit{backend}}
+La comunicazione tra \textit{frontend} e \textit{backend} avviene tramite \textit{API REST}.
+\begin{figure}
+\centering
+\begin{minipage}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.95\linewidth]{./img/alarmrulesswagger.png}
+  \captionof{figure}{\textit{route} per le regole di allarme}
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{0.5\textwidth}
+  \centering
+  \includegraphics[width=0.95\linewidth]{./img/alarmeventswagger.png}
+  \captionof{figure}{\textit{route} per gli eventi di allarme}
+  \label{fig:test2}
+\end{minipage}
+\end{figure}
+\end{frame}
+
 \begin{frame}{Backend: Architettura esagonale}
 \begin{itemize}
   \item Problema:
   \begin{itemize}
-    \item La logica di business del \textit{backend} dipende dai dettagli infrastrutturali (\textit{Persistent Logic});
+    \item La logica di \textit{business} del \textit{backend} dipende dai dettagli infrastrutturali (\textit{Persistent Logic})
+    e dalla tecnologia scelta per la codifica;
     \item Difficile testare il \textit{backend} senza dover istanziare l'intera infrastruttura.
   \end{itemize}
   \item Soluzione: \textbf{Architettura Esagonale}
         \begin{itemize}
-          \item Il dominio non dipende da componenti esterne;
-          \item Le \textbf{Ports} sono interfacce \textit{TypeScript} che il dominio espone, 
-                gli \textbf{Adapters} le implementano;
-          \item Le dipendenze tra i moduli sono risolte tramite il \textit{pattern} \textbf{Dependency Injection}.
+          \item La logica di \textit{business} è isolata dalle altre componenti;
+          \item Tramite le \textbf{Ports} e \textbf{Adapters}, situati ai confini della logica di \textit{business}, è possibile 
+          interfacciarsi con essa;
+          \item La \textit{business} logic può essere verificata in modo indipendente.
         \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{UML Alarm (Backend) (1/2)}
 \begin{center}
-   \includegraphics[width=0.95\textwidth]{img/AlarmUML.png}
+   \includegraphics[width=0.925\textwidth]{img/AlarmUML.png}
 \end{center}
 \end{frame}
 
@@ -169,7 +189,7 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
 
 \begin{frame}{UML Notification (Frontend)}
 \begin{center}
-  \includegraphics[width=1.07\textwidth]{img/notification.pdf}
+  \includegraphics[width=0.95\textwidth]{img/notification.pdf}
 \end{center}
 \end{frame}
 
@@ -186,7 +206,7 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
   \end{frame}
 
 
-\begin{frame}{Pattern - Dependency Injection (1/2)}
+\begin{frame}{Design Pattern - Dependency Injection (1/2)}
 \begin{itemize}
   \item Problema:
         \begin{itemize}
@@ -196,24 +216,39 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
   \item Soluzione: pattern \textbf{Dependency Injection}
           \begin{itemize}
             \item Le dipendenze vengono fornite tramite un \texttt{INJECTOR}, che si occupa di creare e gestire il ciclo di vita degli oggetti al posto delle classi stesse;
-            \item Il pattern è supportato nativamente in entrambi i \textit{framework} tramite il decoratore \texttt{@INJECTABLE()}: in \textit{NestJS} il \textit{binding} è 
+            \item Il pattern è supportato nativamente in entrambi i \textit{framework} tramite il decoratore \texttt{@Injectable()}: in \textit{NestJS} il \textit{binding} è 
             esplicito tramite il sistema \texttt{providers}, mentre in \textit{Angular} i service si registrano 
             automaticamente nel container tramite \texttt{providedIn:'root'}.
                 \end{itemize}
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Pattern - Dependency Injection (2/2)}
+\begin{frame}{Design Pattern - Dependency Injection (2/2)}
 \begin{figure}
   \centering
-    \includegraphics[width=0.8\textwidth]{img/providers.png}
+    \includegraphics[width=0.7\textwidth]{img/providers.png}
     \caption{Sistema \textit{providers} di \textit{NestJS} per la D.I.}
-    \includegraphics[width=0.4\textwidth]{img/injectable.png}
-    \caption{Sistema \textit{@Injectable} di \textit{NestJS} per la D.I.}
 \end{figure}
+
+\begin{figure}
+\centering
+\begin{minipage}{0.4\textwidth}
+  \centering
+  \includegraphics[width=0.75\textwidth]{img/injectable.png}
+  \caption{Sistema \textit{@Injectable} di \textit{NestJS} per la D.I.}
+  \label{fig:test1}
+\end{minipage}%
+\begin{minipage}{0.6\textwidth}
+  \centering
+  \includegraphics[width=0.925\textwidth]{img/inject.png}
+  \caption{Sistema \textit{@Inject} di \textit{NestJS} per la D.I.}
+  \label{fig:test2}
+\end{minipage}
+\end{figure}
+
 \end{frame}
 
-\begin{frame}{Pattern - Observer (1/3)}
+\begin{frame}{Design Pattern - Observer (1/3)}
 \begin{itemize}
     \item Problema:
     \begin{itemize}
@@ -230,20 +265,20 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Pattern - Observer (2/3)}
+\begin{frame}{Design Pattern - Observer (2/3)}
 \begin{center}
     UML
 \end{center}
 \end{frame}
 
-\begin{frame}{Pattern - Observer (2/3)}
+\begin{frame}{Design Pattern - Observer (2/3)}
 \begin{center}
   CODICE
     % \includegraphics[width=0.8\textwidth]{img/providers.png}
 \end{center}
 \end{frame}
 
-\begin{frame}{Pattern - Strategy (1/2)}
+\begin{frame}{Design Pattern - Strategy (1/2)}
 \begin{itemize}
   \item Problema: 
   \begin{itemize}
@@ -258,7 +293,7 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
 \end{itemize}
 \end{frame}
 
-\begin{frame}{Pattern - Strategy (2/2)}
+\begin{frame}{Design Pattern - Strategy (2/2)}
   \begin{center}
     \includegraphics[width=1\textwidth]{img/strategy.png}
   \end{center}
