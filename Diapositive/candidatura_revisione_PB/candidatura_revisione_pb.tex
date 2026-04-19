@@ -9,6 +9,7 @@
 \usepackage{etoolbox}
 \usepackage{tabularx}
 \usepackage[export]{adjustbox}
+\usepackage[font=tiny]{caption}
 
 \newcommand{\Date}{}
 
@@ -146,11 +147,18 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
     \item Ogni cambiamento della vista rischia di impattare la logica di business.
   \end{itemize}
   \item Soluzione: \textbf{Architettura MVVM} che separa le tre responsabilità:
-        \begin{itemize}
-          \item \textbf{Model}: i dati e la logica di dominio;
-          \item \textbf{View}: il template di Angular;
-          \item \textbf{ViewModel}: un servizio che espone stato e comandi alla View tramite \textbf{Observable}.
-        \end{itemize}
+\begin{itemize}
+  \item \textbf{Model}: dati e logica di dominio, implementati come interfacce/tipi e come
+        servizi (\texttt{@Injectable}).
+
+  \item \textbf{View}: i template HTML del componente; passiva,
+        si limita a mostrare dati via \textbf{property binding} e a
+        notificare eventi via \textbf{event binding}.
+
+  \item \textbf{ViewModel}: la classe del componente (\texttt{.ts});
+        fa da mediatore tra Model e View, esponendo i dati tramite
+        \textbf{Observable} senza contenere logica di dominio.
+\end{itemize}
 \end{itemize}
 \end{frame}
 
@@ -165,6 +173,19 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
   \includegraphics[width=1.07\textwidth]{img/notification.pdf}
 \end{center}
 \end{frame}
+
+\begin{frame}{Code snippets Notification (Frontend)}
+  \begin{figure}
+    \centering
+    \includegraphics[width=0.6\textwidth]{img/vm_notification_component_snippet.png}
+    \caption{notification-page-component.ts}
+    \includegraphics[width=0.6\textwidth]{img/vm_notification_template_snippet.png}
+    \caption{notification-page-component}
+  \end{figure}
+    
+  
+  \end{frame}
+
 
 \begin{frame}{Pattern - Dependency Injection (1/2)}
 \begin{itemize}
