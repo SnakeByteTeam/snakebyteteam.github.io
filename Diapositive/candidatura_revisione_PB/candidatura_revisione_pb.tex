@@ -195,18 +195,22 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
         \end{itemize}
   \item Soluzione: pattern \textbf{Dependency Injection}
           \begin{itemize}
-            \item Le dipendenze vengono fornite tramite un \textit{injector};
-            \item In \textit{TypeScript (NestJS/Angular)} il pattern è supportato nativamente tramite 
-                  il decoratore \textit{@Injectable()} e il sistema \textit{providers}. 
-          \end{itemize}
+            \item Le dipendenze vengono fornite tramite un \texttt{INJECTOR}, che si occupa di creare e gestire il ciclo di vita degli oggetti al posto delle classi stesse;
+            \item Il pattern è supportato nativamente in entrambi i \textit{framework} tramite il decoratore \texttt{@INJECTABLE()}: in \textit{NestJS} il \textit{binding} è 
+            esplicito tramite il sistema \texttt{providers}, mentre in \textit{Angular} i service si registrano 
+            automaticamente nel container tramite \texttt{providedIn:'root'}.
+                \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Pattern - Dependency Injection (2/2)}
-\begin{center}
+\begin{figure}
+  \centering
     \includegraphics[width=0.8\textwidth]{img/providers.png}
+    \caption{Sistema \textit{providers} di \textit{NestJS} per la D.I.}
     \includegraphics[width=0.4\textwidth]{img/injectable.png}
-\end{center}
+    \caption{Sistema \textit{@Injectable} di \textit{NestJS} per la D.I.}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Pattern - Observer (1/3)}
