@@ -56,7 +56,7 @@
 
 \addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico impostato a \texttt{line}}
 \addAtr{+}{chartColors: \{bg: string; border: string\}[]}{Palette di colori personalizzata per le serie del consumo energetico}
-\addMet{+}{updateChart(data: ChartInfoDto) : void}{Sovrascrive il metodo base per applicare logica di rendering specifica al consumo energetico}
+\addMet{\#}{updateChart(data: ChartInfoDto) : void}{Sovrascrive il metodo base per applicare logica di rendering specifica al consumo energetico}
 \makeCl{EnergyConsumptionChartComponent}{Componente figlio di \texttt{ChartComponent} che visualizza il consumo energetico dell'impianto come grafico a linee. Sovrascrive \texttt{updateChart} e definisce una palette colori personalizzata}
 
 \addAtr{+}{chartType: keyof ChartTypeRegistry}{Tipo di grafico impostato a \texttt{bar}}
