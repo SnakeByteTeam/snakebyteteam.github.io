@@ -217,30 +217,32 @@ Attualmente tutti e tre i container sono in esecuzione in un singolo nodo.
 \begin{itemize}
     \item Problema:
     \begin{itemize}
-      \item I componenti \textit{Angular} devono reagire a eventi asincroni (\textit{WebSocket}) 
-      e sincronizzare lo stato \textit{UI}.
+      \item I componenti \textit{Angular} devono reagire a eventi asincroni 
+      e aggiornare lo stato \textit{UI}.
     \end{itemize}
     \item Soluzione: pattern \textbf{Observer}
     \begin{itemize}
       \item Implementato tramite \textit{RxJS}: le componenti si iscrivono 
-      a \textit{Observable} senza conoscere la sorgente dei dati;
-      \item Gli \textit{Observable} gestiscono in modo uniforme eventi asincroni e aggiornamenti di stato \textit{UI};
-      \item La comunicazione tra componenti avviene tramite \textit{Subject} e \textit{BehaviorSubject} eliminando ogni accoppiamento diretto.
+      agli \textit{Observable} senza conoscere la sorgente dei dati;
+      \item Gli \textit{Observable} gestiscono eventi asincroni e aggiornamenti di stato \textit{UI};
     \end{itemize}
 \end{itemize}
 \end{frame}
 
 \begin{frame}{Pattern - Observer (2/3)}
 \begin{center}
-    UML
+    \includegraphics[width=1\textwidth]{img/analytics.pdf}
 \end{center}
 \end{frame}
 
-\begin{frame}{Pattern - Observer (2/3)}
-\begin{center}
-  CODICE
-    % \includegraphics[width=0.8\textwidth]{img/providers.png}
-\end{center}
+\begin{frame}{Pattern - Observer (3/3)}
+\begin{figure}
+  \centering
+    \includegraphics[width=0.8\textwidth]{img/analyticsSnippet.png}
+    \caption{analytics.component.ts}
+    \includegraphics[width=0.5\textwidth]{img/analyticsSnippetTemplate.png}
+    \caption{Iscrizione all'interno del template}
+\end{figure}
 \end{frame}
 
 \begin{frame}{Pattern - Strategy (1/2)}
