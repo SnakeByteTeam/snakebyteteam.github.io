@@ -11,6 +11,8 @@
 \usepackage{tabularx}
 \usepackage[export]{adjustbox}
 \usepackage[font=tiny]{caption}
+\usepackage{amssymb} 
+
 
 \newcommand{\Date}{}
 
@@ -88,111 +90,163 @@
 \end{frame}
 }
 
-\begin{frame}{Stato completamento del prodotto (1/2)}
-  \begin{figure}
-  \centering
-    \normalsize
-    \begin{tabular}{|c|c|c|c|c|}
-      \hline
-      \cellcolor{aziendaPrimary!20}\textbf{Tipologia} & \cellcolor{aziendaPrimary!20}\textbf{Obbligatori}
-                                                      & \cellcolor{aziendaPrimary!20}\textbf{Desiderabili} & \cellcolor{aziendaPrimary!20}\textbf{Opzionali}
-                                                      & \cellcolor{aziendaPrimary!20}\textbf{Totali}                                                                                                 \\
-      \hline
-      Funzionali                                      & 85/85                                                 & 10/10                                              & 8/10   & 103/105                      \\
-      \hline
-      Di qualità                                      & 12/12                                                 & 0/0                                               & 7/9       & 19/21                           \\
-      \hline
-      Di vincolo                                      & 3/3                                                  & 4/5                                               & 0/2        & 7/10                            \\
-      \hline
-      \cellcolor{aziendaPrimary!20}\textbf{Totali}    & 100/100                                                & 14/15                                              & 15/21    & \cellcolor{aziendaPrimary!20} 129/136  \\
-      \hline
-    \end{tabular}
-    \caption{Rapporto tra il numero di requisiti soddisfatti e totali.}
-  \end{figure}
-% \begin{center}
-%     \includegraphics[width=0.95\textwidth]{img/schemacapitolato.jpeg}\\
-% \end{center}
+\begin{frame}{Stato di completamento: Progettazione}
+
+  \setbeamertemplate{itemize item}{\textcolor{aziendaPrimary}{\checkmark}}
+  \setbeamertemplate{itemize subitem}{\textcolor{aziendaPrimary}{\checkmark}}
+
+
+  \begin{itemize}
+    \item Architettura \textit{database} e \textit{cache};
+          \vspace{0.3cm}
+    \item Architettura esagonale per il \textit{backend};
+          \begin{itemize}
+            \vspace{0.15cm}
+            \item Architettura per l'autenticazione con sistema esterno OAuth2 fornito da Vimar;
+          \end{itemize}
+          \vspace{0.3cm}
+    \item Architettura \textit{Model-View-ViewModel} per il \textit{frontend}.
+          \vspace{0.3cm}
+
+    \item come scriviamo di groq e ngix??????
+  \end{itemize}
 \end{frame}
 
-\begin{frame}{Stato completamento del prodotto (2/2)}
+\begin{frame}{Stato di completamento: Codifica}
+  % Cambia il simbolo in spunta verde aziendale solo per questo frame
+  \setbeamertemplate{itemize item}{\textcolor{aziendaPrimary}{\checkmark}}
+  \setbeamertemplate{itemize subitem}{\textcolor{aziendaPrimary}{\checkmark}}
+
+  \begin{itemize}
+    \item Implementazione \textit{database} e \textit{cache}
+          \vspace{0.3cm}
+    \item Implementazione di tutti i moduli previsti per il \textit{backend}
+          \begin{itemize}
+            \vspace{0.15cm}
+            \item Integrazione con sistema esterno OAuth2 fornito da Vimar
+          \end{itemize}
+          \vspace{0.3cm}
+    \item Implementazione di tutte le \textit{feature} previste per il \textit{frontend}
+  \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Stato di completamento: Verifica}
   \begin{figure}
-  \centering
+    \centering
     \footnotesize
     \begin{tabular}{|c|c|c|c|c|}
       \hline
-      \cellcolor{aziendaPrimary!20}\textbf{Componente} & \cellcolor{aziendaPrimary!20}\textbf{Unità}
-                                                      & \cellcolor{aziendaPrimary!20}\textbf{Integrazione} & \cellcolor{aziendaPrimary!20}\textbf{End-to-End}
-                                                      & \cellcolor{aziendaPrimary!20}\textbf{Media totale}                                                                                                 \\
+      \cellcolor{aziendaPrimary!20}\textbf{Componente}   & \cellcolor{aziendaPrimary!20}\textbf{Unità}
+                                                         & \cellcolor{aziendaPrimary!20}\textbf{Integrazione} & \cellcolor{aziendaPrimary!20}\textbf{End-to-End}
+                                                         & \cellcolor{aziendaPrimary!20}\textbf{Media totale}                                                                                                                                \\
       \hline
-      Backend                                      & 92,68\%                                                 & 92,91\%                                             & \multirow{3}{*}{80,18\%}   & 88,59\% \\ 
+      Backend                                            & 92,68\%                                            & 92,91\%                                          & \multirow{3}{*}{80,18\%} & 88,59\%                                        \\
       \cline{1-3} \cline{5-5}
-      Frontend                                      & 89,75\%                                                & 90,14\%                                               &       & 86,69\%                           \\
+      Frontend                                           & 89,75\%                                            & 90,14\%                                          &                          & 86,69\%                                        \\
       \cline{1-3} \cline{5-5}
-      \cellcolor{aziendaPrimary!20}\textbf{Media totale}    & 91,21\%                                                & 91,52\%                                              &     & \cellcolor{aziendaPrimary!20} \textbf{87,64\%}  \\
+      \cellcolor{aziendaPrimary!20}\textbf{Media totale} & 91,21\%                                            & 91,52\%                                          &                          & \cellcolor{aziendaPrimary!20} \textbf{87,64\%} \\
       \hline
     \end{tabular}
     \caption{Percentuale di \textit{coverage} dei test di unità, integrazione ed \textit{end-to-end}}
   \end{figure}
 \end{frame}
+\begin{frame}{Stato completamento del prodotto (2/2)}
+  \begin{figure}
+    \centering
+    \normalsize
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      \cellcolor{aziendaPrimary!20}\textbf{Tipologia} & \cellcolor{aziendaPrimary!20}\textbf{Obbligatori}
+                                                      & \cellcolor{aziendaPrimary!20}\textbf{Desiderabili} & \cellcolor{aziendaPrimary!20}\textbf{Opzionali}
+                                                      & \cellcolor{aziendaPrimary!20}\textbf{Totali}                                                                                                         \\
+      \hline
+      Funzionali                                      & 85/85                                              & 10/10                                           & 8/10  & 103/105                               \\
+      \hline
+      Di qualità                                      & 12/12                                              & 0/0                                             & 7/9   & 19/21                                 \\
+      \hline
+      Di vincolo                                      & 3/3                                                & 4/5                                             & 0/2   & 7/10                                  \\
+      \hline
+      \cellcolor{aziendaPrimary!20}\textbf{Totali}    & 100/100                                            & 14/15                                           & 15/21 & \cellcolor{aziendaPrimary!20} 129/136 \\
+      \hline
+    \end{tabular}
+    \caption{Rapporto tra il numero di requisiti soddisfatti e totali.}
+  \end{figure}
+  % \begin{center}
+  %     \includegraphics[width=0.95\textwidth]{img/schemacapitolato.jpeg}\\
+  % \end{center}
+\end{frame}
+
+
 
 \begin{frame}{Esito MVP con la Proponente}
-\begin{itemize}
-  \item Tutti i requisiti obbligatori sono stati soddisfatti; 
-  \item I pochi requisiti opzionali e desiderabili non implementati non hanno impattato sulla qualità del prodotto;
-  \item Il \textit{feedback} ricevuto dalla Proponente è stato \textbf{molto positivo};
-  \item Unica criticità: i tempi necessari per organizzare le riunioni MVP hanno ritardato l'invio della candidatura alla \textit{Product Baseline}.
-\end{itemize}
+  \begin{itemize}
+    \item Tutti i requisiti obbligatori sono stati soddisfatti;
+    \vspace{0.35cm}
+    \item I pochi requisiti opzionali e desiderabili non implementati non hanno impattato sulla qualità del prodotto;
+    \vspace{0.35cm}
+    \item Il \textit{feedback} ricevuto dalla Proponente è stato \textbf{molto positivo};
+    \vspace{0.35cm}
+    \item Unica criticità: i tempi necessari per organizzare le riunioni MVP hanno ritardato l'invio della candidatura alla \textit{Product Baseline}.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Esito colloquio con il Prof. Cardin}
-\begin{itemize}
-  \item L'esposizione è stata chiara, con qualche imprecisione, ma ogni scelta di design è stata opportunamente giustificata;
-  \item Siamo molto soddisfatti della documentazione tecnica prodotta, risultata estesa e chiara;
-  \item Come miglioramento futuro, aggiungeremmo alla Specifica Tecnica una sezione dedicata alla descrizione delle relazioni tra le componenti;
-  \item L'esito complessivo del colloquio è stato \textbf{positivo}.
-\end{itemize}
+  \begin{itemize}
+    \item L'esposizione è stata chiara, con qualche imprecisione, ma ogni scelta di design è stata opportunamente giustificata;
+    \vspace{0.35cm}
+    \item Siamo molto soddisfatti della documentazione tecnica prodotta, risultata estesa e chiara;
+    \vspace{0.35cm}
+    \item Come miglioramento futuro, aggiungeremmo alla Specifica Tecnica una sezione dedicata alla descrizione delle relazioni tra le componenti;
+    \vspace{0.35cm}
+    \item L'esito complessivo del colloquio è stato \textbf{positivo}.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Difficoltà incontrate e loro mitigazione (1/2)}
-\textbf{Rischi tecnologici}:
-\begin{itemize}
-  \item \textbf{Errori nel codice}: mitigazione attraverso sessioni di codifica collaborative;
-  \item \textbf{Problemi di integrazione delle componenti tra loro}: mitigazione attraverso comunicazione sincrone e asincrone e sessioni di codifica collaborative;
-  \item \textbf{Disallineamento tra} \textit{\textbf{branch}}: mitigazione attraverso sincronizzazioni frequenti e un più attento monitoraggio dello stato dei \textit{branch}.
-\end{itemize}
+  \textbf{Rischi tecnologici}:
+  \begin{itemize}
+    \item \textbf{Errori nel codice}: mitigazione attraverso sessioni di codifica collaborative;
+    \vspace{0.35cm}
+    \item \textbf{Problemi di integrazione delle componenti tra loro}: mitigazione attraverso comunicazione sincrone e asincrone e sessioni di codifica collaborative;
+    \vspace{0.35cm}
+    \item \textbf{Disallineamento tra} \textit{\textbf{branch}}: mitigazione attraverso sincronizzazioni frequenti e un più attento monitoraggio dello stato dei \textit{branch}.
+    \vspace{0.35cm}
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Difficoltà incontrate e loro mitigazione (2/2)}
-\textbf{Rischi organizzativi}:
-\begin{itemize}
-  \item \textbf{Tempo rimanente limitato}: mitigazione attraverso suddivisione dei compiti, forte collaborazione tra i membri e continui allineamenti.
-\end{itemize}
+  \textbf{Rischi organizzativi}:
+  \begin{itemize}
+    \item \textbf{Tempo rimanente limitato}: mitigazione attraverso suddivisione dei compiti, forte collaborazione tra i membri e continui allineamenti.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Miglioramenti attuati al \textit{Way of Working}}
-\begin{itemize}
-  \item Modifica alla Norme di Progetto;
-  \vspace{0.3cm}
-  \item \textit{Project Board} condivisa con \textit{Vimar S.p.A.};
-  \vspace{0.3cm}
-  \item Migliorata la comunicazione sincrona;
-  \vspace{0.3cm}
-  \item Miglioramento nell'individuazione ed assegnazione delle \textit{task}.
-\end{itemize}
+  \begin{itemize}
+    \item Modifica alla Norme di Progetto;
+          \vspace{0.55cm}
+    \item \textit{Project Board} condivisa con \textit{Vimar S.p.A.};
+          \vspace{0.55cm}
+    \item Migliorata la comunicazione sincrona;
+          \vspace{0.55cm}
+    \item Miglioramento nell'individuazione ed assegnazione delle \textit{task}.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}{Autovalutazione dell'apprendimento}
-Riteniamo di essere entrati in contatto con:
- \vspace{0.3cm}
-\begin{itemize}
-  \item Nuove tecnologie e relative \textit{best practice};
+  Riteniamo di essere entrati in contatto con:
   \vspace{0.3cm}
-  \item Risoluzione dei problemi progettuali tramite \textit{desing pattern};
-  \vspace{0.3cm}
-  \item Esperienza di lavoro collaborativo mediato da metodologia \textit{Agile Scrum}; 
-  \vspace{0.3cm}
-  \item Divisione dei compiti, assegnazione dei ruoli e gestione del budget. 
-\end{itemize}
+  \begin{itemize}
+    \item Nuove tecnologie e relative \textit{best practice};
+          \vspace{0.3cm}
+    \item Risoluzione dei problemi progettuali tramite \textit{desing pattern};
+          \vspace{0.3cm}
+    \item Esperienza di lavoro collaborativo mediato da metodologia \textit{Agile Scrum};
+          \vspace{0.3cm}
+    \item Divisione dei compiti, assegnazione dei ruoli e gestione del budget.
+  \end{itemize}
 \end{frame}
 
 \begin{frame}[shrink=17]{Consuntivo definitivo}
@@ -204,27 +258,27 @@ Riteniamo di essere entrati in contatto con:
                                                  & \cellcolor{aziendaPrimary!20} \textbf{Resp.}  & \cellcolor{aziendaPrimary!20} \textbf{Amm.}
                                                  & \cellcolor{aziendaPrimary!20} \textbf{Ana.}   & \cellcolor{aziendaPrimary!20} \textbf{Proge.}
                                                  & \cellcolor{aziendaPrimary!20} \textbf{Progr.} & \cellcolor{aziendaPrimary!20} \textbf{Ver.}
-                                                 & \cellcolor{aziendaPrimary!20} \textbf{Totale}                                                                                                                                                             \\
+                                                 & \cellcolor{aziendaPrimary!20} \textbf{Totale}                                                                                                                                        \\
       \hline
-      \cellcolor{aziendaPrimary!20} V. Baleanu   & 8h                                            & 16h                                           & 13h                 & 12h                 & 24h                 & 17h                 & \textbf{90h}        \\
+      \cellcolor{aziendaPrimary!20} V. Baleanu   & 8h                                            & 16h                                           & 13h            & 12h            & 24h            & 17h            & \textbf{90h}     \\
       \hline
-      \cellcolor{aziendaPrimary!20} G. De Fina   & 8h                                            & 26h                                           & 15h                 & 7h                 & 14h                 & 25h                 & \textbf{95h}        \\
+      \cellcolor{aziendaPrimary!20} G. De Fina   & 8h                                            & 26h                                           & 15h            & 7h             & 14h            & 25h            & \textbf{95h}     \\
       \hline
-      \cellcolor{aziendaPrimary!20} L. Granziero & 16h                                            & 12h                                            & 14h                 & 8h                 & 21h                & 19h                 & \textbf{90h}        \\
+      \cellcolor{aziendaPrimary!20} L. Granziero & 16h                                           & 12h                                           & 14h            & 8h             & 21h            & 19h            & \textbf{90h}     \\
       \hline
-      \cellcolor{aziendaPrimary!20} C. Libralato & 19h                                            & 18h                                           & 6h                  & 4h                 & 11h                & 30h                  & \textbf{88h}        \\
+      \cellcolor{aziendaPrimary!20} C. Libralato & 19h                                           & 18h                                           & 6h             & 4h             & 11h            & 30h            & \textbf{88h}     \\
       \hline
-      \cellcolor{aziendaPrimary!20} F. Pasqual   & 14h                                            & 14h                                           & 5h                  & 8h                 & 26h                & 26h                 & \textbf{93h}        \\
+      \cellcolor{aziendaPrimary!20} F. Pasqual   & 14h                                           & 14h                                           & 5h             & 8h             & 26h            & 26h            & \textbf{93h}     \\
       \hline
-      \cellcolor{aziendaPrimary!20} L. Pellizzon & 8h                                            & 6h                                            & 20h                 & 18h                & 28h                 & 15h                 & \textbf{95h}        \\
+      \cellcolor{aziendaPrimary!20} L. Pellizzon & 8h                                            & 6h                                            & 20h            & 18h            & 28h            & 15h            & \textbf{95h}     \\
       \hline
-      \cellcolor{aziendaPrimary!20} F. Venzo     & 13h                                           & 17h                                            & 16h                 & 5h                 & 33h                & 6h                  & \textbf{90h}        \\
-      \hline
-      \cellcolor{aziendaPrimary!20}
-      \textbf{Totale}                            & \textbf{86h}                                  & \textbf{109h}                                  & \textbf{89h}        & \textbf{62h}       & \textbf{157h}       & \textbf{138h}        & \textbf{641h}       \\
+      \cellcolor{aziendaPrimary!20} F. Venzo     & 13h                                           & 17h                                           & 16h            & 5h             & 33h            & 6h             & \textbf{90h}     \\
       \hline
       \cellcolor{aziendaPrimary!20}
-      \textbf{Risorse} & \textbf{2580€} & \textbf{2180€} & \textbf{2225€} & \textbf{1550€} & \textbf{2355€} & \textbf{2070€} & \textbf{12.960€} \\
+      \textbf{Totale}                            & \textbf{86h}                                  & \textbf{109h}                                 & \textbf{89h}   & \textbf{62h}   & \textbf{157h}  & \textbf{138h}  & \textbf{641h}    \\
+      \hline
+      \cellcolor{aziendaPrimary!20}
+      \textbf{Risorse}                           & \textbf{2580€}                                & \textbf{2180€}                                & \textbf{2225€} & \textbf{1550€} & \textbf{2355€} & \textbf{2070€} & \textbf{12.960€} \\
       \hline
     \end{tabular}
   \end{center}
