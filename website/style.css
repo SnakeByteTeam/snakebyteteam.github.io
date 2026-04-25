@@ -227,7 +227,7 @@ main {
     overflow: visible; /* permette alle ombre di essere visibili */
     background: linear-gradient(180deg, rgba(22,38,28,0.98), rgba(26,51,38,1));
     margin: 18px auto 24px;
-    max-width: 1000px;
+    max-width: 1200px;
     width: 100%; /* assicura che rispetti il max-width */
     box-sizing: border-box; /* include padding nel calcolo della larghezza */
     box-shadow: 0 12px 34px rgba(0,0,0,0.38), inset 0 1px 0 rgba(255,255,255,0.02),
@@ -323,7 +323,7 @@ main {
     /* per i bordi arrotondati */
     background: linear-gradient(180deg, rgba(22, 38, 28, 0.98), rgba(26, 51, 38, 1));
     margin: 0 auto 24px;
-    max-width: 1000px;
+    max-width: 1200px;
     /* outer ring per seguire il border-radius */
     box-shadow: 0 12px 34px rgba(0, 0, 0, 0.38), inset 0 1px 0 rgba(255, 255, 255, 0.02),
         0 0 0 3px var(--bright-green-color);
@@ -338,7 +338,7 @@ main {
 .tab-card.mini-card {
     /* copia lo stile usato per .tab-card */
     border-radius: 24px;
-    max-width: 1000px;
+    max-width: 1200px;
     padding: 18px 24px;
     margin: 24px auto 25px; /* margine superiore aumentato per staccare dal titolo */
     min-height: 80px;
