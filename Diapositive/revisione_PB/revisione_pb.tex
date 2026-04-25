@@ -1,0 +1,294 @@
+\documentclass{beamer}
+\usepackage[italian]{babel}
+\usepackage{multicol}
+
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage[table, x11names]{xcolor}
+\usepackage{xstring}
+\usepackage{etoolbox}
+\usepackage{multirow}
+\usepackage{tabularx}
+\usepackage[export]{adjustbox}
+\usepackage[font=tiny]{caption}
+\usepackage{amssymb} 
+
+
+\newcommand{\Date}{}
+
+\newcommand{\setDate}[1]{\renewcommand{\Date}{#1}}
+
+\useinnertheme{default}
+\useoutertheme{default}
+\usecolortheme{default}
+
+\definecolor{aziendaPrimary}{RGB}{84, 150, 104}
+\setbeamercolor{structure}{fg=aziendaPrimary}
+\setbeamercolor{frametitle}{bg=aziendaPrimary!10,fg=aziendaPrimary}
+
+% rimuovere i simboli di navigazione
+\setbeamertemplate{navigation symbols}{}
+
+
+% pagina iniziale
+\setbeamertemplate{title page}{
+  \vspace{4em}
+  \begin{center}
+    \hspace{1.5cm}
+    \begin{minipage}{0.3\textwidth}
+      \centering
+      \includegraphics[height=2.5cm, right]{../logo-crop.pdf}
+    \end{minipage}
+    \begin{minipage}{0.3\textwidth}
+      \centering
+      \includegraphics[height=2.5cm, left]{img/logounipd.png}
+    \end{minipage}
+  \end{center}
+  \begin{center}
+    \vspace{0.5em}
+      {\usebeamerfont{title}\color{black}\textbf{\inserttitle}\par}
+    \vspace{0.7em}
+    {\usebeamerfont{date}\insertauthor\par}
+    \vspace{0.5cm}
+    {\usebeamerfont{date}\Date\par}
+  \end{center}
+}
+
+% footer
+\setbeamertemplate{footline}{
+  \vspace{2ex}
+  \hbox{
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hspace*{0.5em}
+      \raggedright\usebeamerfont{footline}{Presentazione PB 23/04/2026}
+    \end{minipage}%
+    \begin{minipage}[t]{0.20\paperwidth}
+      \centering\usebeamerfont{footline}Slide \insertframenumber{} di \inserttotalframenumber
+    \end{minipage}%
+    \begin{minipage}[t]{0.40\paperwidth}
+      \hfill
+      \insertshortauthor
+      \hspace*{0.8em}
+      \raisebox{-0.25\height}{\includegraphics[width=0.7cm]{../logo-crop.pdf}}
+      \hspace*{1.3em}
+    \end{minipage}
+  }
+  \vspace{0.8ex}
+}
+
+\usepackage[absolute,overlay]{textpos}
+
+\title{Presentazione PB}
+\author[]{Gruppo 1 - A.A 2025/2026}
+\setDate{23/04/2026}
+
+\begin{document}
+{
+\setbeamertemplate{footline}{}
+\begin{frame}
+  \titlepage
+\end{frame}
+}
+
+\begin{frame}{Stato di completamento: Progettazione}
+
+  \setbeamertemplate{itemize item}{\textcolor{aziendaPrimary}{\checkmark}}
+  \setbeamertemplate{itemize subitem}{\textcolor{aziendaPrimary}{\checkmark}}
+
+
+  \begin{itemize}
+    \item Architettura \textit{database} e \textit{cache};
+          \vspace{0.55cm}
+    \item Architettura esagonale per il \textit{backend};
+          \begin{itemize}
+            \vspace{0.2cm}
+            \item Architettura per l'autenticazione con il sistema esterno \textit{OAuth2} fornito da Vimar S.p.A.;
+                  \vspace{0.2cm}
+
+            \item Architettura per la generazione di suggerimenti per il risparmio energetico tramite sistema esterno \textit{Groq (LLM)};
+          \end{itemize}
+          \vspace{0.55cm}
+    \item Architettura \textit{Model-View-ViewModel} per il \textit{frontend}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Stato di completamento: Codifica}
+  % Cambia il simbolo in spunta verde aziendale solo per questo frame
+  \setbeamertemplate{itemize item}{\textcolor{aziendaPrimary}{\checkmark}}
+  \setbeamertemplate{itemize subitem}{\textcolor{aziendaPrimary}{\checkmark}}
+
+  \begin{itemize}
+    \item Implementazione \textit{database} e \textit{cache};
+          \vspace{0.55cm}
+    \item Implementazione di tutti i moduli previsti per il \textit{backend};
+          \begin{itemize}
+            \vspace{0.2cm}
+            \item Integrazione del sistema esterno \textit{OAuth2} fornito da Vimar S.p.A.;
+                  \vspace{0.2cm}
+
+            \item Implementazione del modulo di comunicazione con sistema esterno \textit{Groq};
+          \end{itemize}
+          \vspace{0.55cm}
+    \item Implementazione di tutte le \textit{feature} previste per il \textit{frontend}.
+  \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}{Stato di completamento: Verifica}
+  \begin{figure}
+    \centering
+    \footnotesize
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      \cellcolor{aziendaPrimary!20}\textbf{Componente}   & \cellcolor{aziendaPrimary!20}\textbf{Unità}
+                                                         & \cellcolor{aziendaPrimary!20}\textbf{Integrazione} & \cellcolor{aziendaPrimary!20}\textbf{End-to-End}
+                                                         & \cellcolor{aziendaPrimary!20}\textbf{Media totale}                                                                                                                                \\
+      \hline
+      Backend                                            & 92,68\%                                            & 92,91\%                                          & \multirow{3}{*}{80,18\%} & 88,59\%                                        \\
+      \cline{1-3} \cline{5-5}
+      Frontend                                           & 89,75\%                                            & 90,14\%                                          &                          & 86,69\%                                        \\
+      \cline{1-3} \cline{5-5}
+      \cellcolor{aziendaPrimary!20}\textbf{Media totale} & 91,21\%                                            & 91,52\%                                          &                          & \cellcolor{aziendaPrimary!20} \textbf{87,64\%} \\
+      \hline
+    \end{tabular}
+    \caption{Percentuale di \textit{coverage} dei test di unità, integrazione ed \textit{end-to-end}}
+  \end{figure}
+\end{frame}
+\begin{frame}{Stato completamento del prodotto}
+  \begin{figure}
+    \centering
+    \normalsize
+    \begin{tabular}{|c|c|c|c|c|}
+      \hline
+      \cellcolor{aziendaPrimary!20}\textbf{Tipologia} & \cellcolor{aziendaPrimary!20}\textbf{Obbligatori}
+                                                      & \cellcolor{aziendaPrimary!20}\textbf{Desiderabili} & \cellcolor{aziendaPrimary!20}\textbf{Opzionali}
+                                                      & \cellcolor{aziendaPrimary!20}\textbf{Totali}                                                                                                         \\
+      \hline
+      Funzionali                                      & 85/85                                              & 10/10                                           & 8/10  & 103/105                               \\
+      \hline
+      Di qualità                                      & 12/12                                              & 0/0                                             & 7/9   & 19/21                                 \\
+      \hline
+      Di vincolo                                      & 3/3                                                & 4/5                                             & 0/2   & 7/10                                  \\
+      \hline
+      \cellcolor{aziendaPrimary!20}\textbf{Totali}    & 100/100                                            & 14/15                                           & 15/21 & \cellcolor{aziendaPrimary!20} 129/136 \\
+      \hline
+    \end{tabular}
+    \caption{Rapporto tra il numero di requisiti soddisfatti e totali.}
+  \end{figure}
+  % \begin{center}
+  %     \includegraphics[width=0.95\textwidth]{img/schemacapitolato.jpeg}\\
+  % \end{center}
+\end{frame}
+
+
+
+\begin{frame}{Esito MVP con la Proponente}
+  \begin{itemize}
+    \item Tutti i requisiti obbligatori sono stati soddisfatti;
+          \vspace{0.35cm}
+    \item I pochi requisiti opzionali e desiderabili non implementati non hanno impattato sulla qualità del prodotto;
+          \vspace{0.35cm}
+    \item Il \textit{feedback} ricevuto dalla Proponente è stato \textbf{molto positivo};
+          \vspace{0.35cm}
+    \item Unica criticità: i tempi necessari per organizzare le riunioni MVP hanno ritardato l'invio della candidatura alla \textit{Product Baseline}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Esito colloquio con il Prof. Cardin}
+  \begin{itemize}
+    \item L'esposizione è stata chiara, con qualche imprecisione, ma ogni scelta di design è stata opportunamente giustificata;
+          \vspace{0.35cm}
+    \item Siamo molto soddisfatti della documentazione tecnica prodotta, risultata estesa e chiara;
+          \vspace{0.35cm}
+    \item Come miglioramento futuro, aggiungeremmo alla Specifica Tecnica una sezione dedicata alla descrizione delle relazioni tra le componenti;
+          \vspace{0.35cm}
+    \item L'esito complessivo del colloquio è stato \textbf{positivo}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Difficoltà incontrate e loro mitigazione (1/2)}
+  \textbf{Rischi tecnologici}:
+  \vspace{0.15cm}
+  \begin{itemize}
+    \item \textbf{Errori nel codice}: mitigazione attraverso sessioni di codifica collaborative;
+          \vspace{0.35cm}
+    \item \textbf{Problemi di integrazione delle componenti tra loro}: mitigazione attraverso comunicazione sincrone e asincrone e sessioni di codifica collaborative;
+          \vspace{0.35cm}
+    \item \textbf{Disallineamento tra} \textit{\textbf{branch}}: mitigazione attraverso sincronizzazioni frequenti e un più attento monitoraggio dello stato dei \textit{branch}.
+          \vspace{0.35cm}
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Difficoltà incontrate e loro mitigazione (2/2)}
+  \textbf{Rischi organizzativi}:
+  \vspace{0.15cm}
+  \begin{itemize}
+    \item \textbf{Tempo rimanente limitato}: mitigazione attraverso suddivisione dei compiti, forte collaborazione tra i membri e continui allineamenti.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Miglioramenti attuati al \textit{Way of Working}}
+  \begin{itemize}
+    \item Aggiornamento delle Norme di Progetto;
+          \vspace{0.55cm}
+    \item \textit{Project Board} condivisa con \textit{Vimar S.p.A.};
+          \vspace{0.55cm}
+    \item Migliorata la comunicazione sincrona tra i membri del gruppo;
+          \vspace{0.55cm}
+    \item Miglioramento nell'individuazione ed assegnazione delle \textit{task}.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}{Autovalutazione dell'apprendimento}
+  Riteniamo di essere entrati in contatto con:
+  \vspace{0.3cm}
+  \begin{itemize}
+    \item Nuove tecnologie e relative \textit{best practice};
+          \vspace{0.3cm}
+    \item Risoluzione dei problemi progettuali tramite \textit{design pattern};
+          \vspace{0.3cm}
+    \item Esperienza di lavoro collaborativo mediato da metodologia \textit{Agile Scrum};
+          \vspace{0.3cm}
+    \item Divisione dei compiti, assegnazione dei ruoli e gestione del budget.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[shrink=17]{Consuntivo definitivo}
+  \vspace{2.30cm}
+  \centering
+    \footnotesize
+    \begin{figure}
+    \begin{tabular}{|c|c|c|c|c|c|c|c|}
+      \hline
+                                                 & \cellcolor{aziendaPrimary!20} \textbf{Resp.}  & \cellcolor{aziendaPrimary!20} \textbf{Amm.}
+                                                 & \cellcolor{aziendaPrimary!20} \textbf{Ana.}   & \cellcolor{aziendaPrimary!20} \textbf{Proge.}
+                                                 & \cellcolor{aziendaPrimary!20} \textbf{Progr.} & \cellcolor{aziendaPrimary!20} \textbf{Ver.}
+                                                 & \cellcolor{aziendaPrimary!20} \textbf{Totale}                                                                                                                                        \\
+      \hline
+      \cellcolor{aziendaPrimary!20} V. Baleanu   & 8h                                            & 16h                                           & 13h            & 12h            & 24h            & 17h            & \textbf{90h}     \\
+      \hline
+      \cellcolor{aziendaPrimary!20} G. De Fina   & 8h                                            & 26h                                           & 15h            & 7h             & 14h            & 25h            & \textbf{95h}     \\
+      \hline
+      \cellcolor{aziendaPrimary!20} L. Granziero & 16h                                           & 12h                                           & 14h            & 8h             & 21h            & 19h            & \textbf{90h}     \\
+      \hline
+      \cellcolor{aziendaPrimary!20} C. Libralato & 19h                                           & 18h                                           & 6h             & 4h             & 11h            & 30h            & \textbf{88h}     \\
+      \hline
+      \cellcolor{aziendaPrimary!20} F. Pasqual   & 14h                                           & 14h                                           & 5h             & 8h             & 26h            & 26h            & \textbf{93h}     \\
+      \hline
+      \cellcolor{aziendaPrimary!20} L. Pellizzon & 8h                                            & 6h                                            & 20h            & 18h            & 28h            & 15h            & \textbf{95h}     \\
+      \hline
+      \cellcolor{aziendaPrimary!20} F. Venzo     & 13h                                           & 17h                                           & 16h            & 5h             & 33h            & 6h             & \textbf{90h}     \\
+      \hline
+      \cellcolor{aziendaPrimary!20}
+      \textbf{Totale}                            & \textbf{86h}                                  & \textbf{109h}                                 & \textbf{89h}   & \textbf{62h}   & \textbf{157h}  & \textbf{138h}  & \textbf{641h}    \\
+      \hline
+      \cellcolor{aziendaPrimary!20}
+      \textbf{Risorse}                           & \textbf{2580€}                                & \textbf{2180€}                                & \textbf{2225€} & \textbf{1550€} & \textbf{2355€} & \textbf{2070€} & \textbf{12.960€} \\
+      \hline
+    \end{tabular}
+    \caption{Consuntivo di impegno individuale e collettivo definitivo.}
+    \end{figure}
+\end{frame}
+
+\end{document}
